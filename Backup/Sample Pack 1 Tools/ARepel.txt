@@ -1,0 +1,57 @@
+(InstanceState state, TriMesh mesh, INode helper, Matrix modifierTransform, BoundingBox boundingBox, Single  influence) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 5:DeformMeshPoints->0:MeshVertices 186884
+    Boolean _1IsValidNode;// 8:NodePositionOrBoxCenter->40:IsValidNode 186896
+    Vector3 _8Pass-through: Vector3;// 60:Pass-through: Vector3 186891
+    Single _9Constant;// 0:Constant 186913
+    Single _10Constant;// 0:Constant 186917
+    Single _11Multiply;// 28:Multiply 186915
+    Func[Vector3, Vector3] _12Pass-through: function1;// 0:Pass-through: function1 186881
+    IArray[Vector3] _13Map;// 5:DeformMeshPoints->1:Map 186883
+    TriMesh _14SetMeshVertices;// 5:DeformMeshPoints->4:SetMeshVertices 186882
+    _0MeshVertices = MeshVertices(mesh);
+    _1IsValidNode = IsValidNode(helper);
+    _8Pass-through: Vector3 = if (_1IsValidNode)
+      {
+        Matrix _2ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace->3:ObjectTransformBeforeWSM 186903
+        Matrix _3InvertMatrix;// 1:NodeTMInLocalSpace->2:InvertMatrix 186904
+        Matrix _4Multiply;// 1:NodeTMInLocalSpace->4:Multiply 186902
+        Vector3 _5GetMatrixTranslation;// 3:NodePositionInLocalSpace->3:GetMatrixTranslation 186899
+        _2ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(helper);
+        _3InvertMatrix = InvertMatrix(modifierTransform);
+        _4Multiply = Multiply(_2ObjectTransformBeforeWSM, _3InvertMatrix);
+        _5GetMatrixTranslation = GetMatrixTranslation(_4Multiply);
+        _5GetMatrixTranslation;
+        }else
+      {
+        BoundingSphere _6SphereFromBox;// 6:BoundingBoxCenter->2:SphereFromBox 186907
+        Vector3 _7SphereCenter;// 6:BoundingBoxCenter->3:SphereCenter 186906
+        _6SphereFromBox = SphereFromBox(boundingBox);
+        _7SphereCenter = SphereCenter(_6SphereFromBox);
+        _7SphereCenter;
+        };
+    _9Constant = 1;
+    _10Constant = 10;
+    _11Multiply = Multiply( influence, _10Constant);
+    _12Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Subtract;// 59:Subtract 186890
+        Vector3 _1Normalize;// 12:Normalize 186889
+        Single _2Distance;// 56:Distance 186914
+        Single _3Divide;// 54:Divide 186912
+        Single _4Multiply;// 58:Multiply 186911
+        Vector3 _5MultiplyByScalar;// 57:MultiplyByScalar 186888
+        Vector3 _6Add;// 3:Add 186886
+        _0Subtract = Subtract(x0, _8Pass-through: Vector3);
+        _1Normalize = Normalize(_0Subtract);
+        _2Distance = Distance(_8Pass-through: Vector3, x0);
+        _3Divide = Divide(_9Constant, _2Distance);
+        _4Multiply = Multiply(_3Divide, _11Multiply);
+        _5MultiplyByScalar = MultiplyByScalar(_1Normalize, _4Multiply);
+        _6Add = Add(x0, _5MultiplyByScalar);
+        _6Add;
+        };
+    _13Map = Map(_0MeshVertices, _12Pass-through: function1);
+    _14SetMeshVertices = SetMeshVertices(mesh, _13Map);
+    _14SetMeshVertices;
+    }

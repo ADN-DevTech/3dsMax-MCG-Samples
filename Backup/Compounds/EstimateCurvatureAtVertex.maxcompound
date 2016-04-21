@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="fa5a5bc0-053c-481b-a5d3-67f46103854f">
+    <meta_info>
+        <graph_version guid="9d3c4885-5bf4-4128-aacc-7603e0587499" number="0.0.4" />
+        <category>Geometry - TriMesh</category>
+        <description>Provides a crude local approximation of curvature of a mesh at a specified vertex.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Map" id="4" position="880:120" size="140:141" />
+        <node operator="FaceNormal" id="1" position="440:60" size="140:117" />
+        <node operator="ProjectionLength" id="7" position="660:160" size="140:141" />
+        <node operator="Output: compound" id="6" position="1240:180" size="140:69" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:60" size="140:117" />
+        <node operator="VertexNormals" id="9" position="220:160" size="140:117" />
+        <node operator="At" id="10" position="440:200" size="140:141" />
+        <node operator="VertexAdjacentFaces" id="8" position="660:0" size="140:141" />
+        <node operator="Input: Int32" id="3" name="index" position="220:20" size="140:117" />
+        <node operator="Average" id="2" position="1060:140" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="7" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+    </connections>
+</graph>

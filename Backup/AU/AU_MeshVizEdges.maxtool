@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="e19d5f4f-de95-4f24-925e-d241c00cdb71">
+    <meta_info>
+        <graph_version guid="1a764f6e-7556-468e-ad94-b40eddb106f0" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="220:0" size="140:93" />
+        <node operator="Output: modifier" id="8" position="1140:300" size="140:69" />
+        <node operator="Map" id="2" position="700:200" size="140:141" />
+        <node operator="CombineAllMeshes" id="7" position="900:260" size="140:117" />
+        <node operator="Parameter: Single" id="6" name="radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="220:220" size="140:213" />
+        <node operator="MeshFaces" id="0" position="440:100" size="140:117" />
+        <node operator="CylinderBetweenPoints" id="9" position="440:240" size="200:189" />
+        <node operator="Pass-through: Face3" id="10" position="0:500" size="140:117" />
+        <node operator="FaceVertexA" id="11" position="220:460" size="140:117" />
+        <node operator="FaceVertexB" id="12" position="220:600" size="140:117" />
+        <node operator="Constant" id="3" value="4" position="220:120" size="140:93" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="9" destport="3" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

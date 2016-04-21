@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="bdb3d327-c798-47e9-b397-e6bbfeff9856">
+    <meta_info>
+        <graph_version guid="570fb1ef-bf29-4820-9ab6-bb3170813dd9" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="x" position="440:180" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="y" position="440:320" size="140:117" />
+        <node operator="Cross" id="2" position="660:260" size="140:141" />
+        <node operator="LengthSquared" id="3" position="860:320" size="140:117" />
+        <node operator="LessThanOrEqual" id="4" position="1040:380" size="140:141" />
+        <node operator="Constant" id="5" value="0.000001" position="860:460" size="140:93" />
+        <node operator="Output: compound" id="6" position="1240:400" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

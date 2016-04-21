@@ -1,0 +1,65 @@
+<graph version="0.50" uuid="d4e5fc60-0ecd-4665-bb7e-02158d38db33">
+    <meta_info>
+        <graph_version guid="c482cfa9-7298-4062-85ce-c07888fb2e01" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="MeshCopyCustomMapChannelVertexBuffers" id="21" position="1168:538" size="300:141" />
+        <node operator="Parameter: Single" id="12" name="default box size" min_value="0" max_value="100" default_value="1" system_units_value="false" position="89:137" size="140:213" />
+        <node operator="Parameter: Boolean" id="13" name="keep custom channels" default_value="true" position="1216:381" size="180:141" />
+        <node operator="If" id="22" position="1489:469" size="140:165" />
+        <node operator="CombineAllMeshes" id="5" position="1192:149" size="140:117" />
+        <node operator="Output: modifier" id="10" position="1440:200" size="140:69" />
+        <node operator="TransformMesh" id="9" position="709:489" size="140:141" />
+        <node operator="Modifier: TriMesh" id="0" position="93:429" size="140:93" />
+        <node operator="MatricesFromMapChannel" id="1" position="419:463" size="200:141" />
+        <node operator="Parameter: Int32" id="2" name="flux channel id" min_value="-2" max_value="100" default_value="2" position="238:488" size="140:189" />
+        <node operator="Parameter: IArray&lt;INode&gt;" id="3" name="nodes" position="240:103" size="140:117" />
+        <node operator="Combine" id="4" position="909:489" size="140:165" />
+        <node operator="CubeMesh" id="6" position="260:243" size="140:117" />
+        <node operator="MeshesFromNodesOrDefault" id="7" position="449:164" size="140:141" />
+        <node operator="RandomElements" id="11" position="920:260" size="140:165" />
+        <node operator="Parameter: Int32" id="14" name="seed" min_value="0" max_value="100" default_value="0" position="700:80" size="140:189" />
+        <node operator="RandomNumberGenerator" id="15" position="880:140" size="140:117" />
+        <node operator="Count" id="18" position="720:300" size="140:117" />
+        <node groupnode="Source meshes (or default)" id="17" position="80:60" size="594:309" bg_color="#ff646464">
+            <nodes>12,3,6,7</nodes>
+        </node>
+        <node groupnode="Random array of meshes" id="20" position="691:51" size="378:383" bg_color="#ff646464">
+            <nodes>11,18,14,15</nodes>
+        </node>
+        <node groupnode="Randomly place group" id="23" position="700:460" size="358:203" bg_color="#ff646464">
+            <nodes>4,9</nodes>
+        </node>
+        <node groupnode="Store flux data in new mesh so more effects can be stacked" id="19" position="1140:340" size="540:348" bg_color="#ff646464">
+            <nodes>21,13,22</nodes>
+        </node>
+        <node groupnode="Get Flux matrices" id="16" position="80:400" size="548:287" bg_color="#ff646464">
+            <nodes>0,1,2</nodes>
+        </node>
+        <node groupnode="Combine into single mesh" id="8" position="1140:120" size="239:160" bg_color="#ff646464">
+            <nodes>5</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="21" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="22" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="9" sourceport="1" destnode="4" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="18" destport="0" />
+    </connections>
+</graph>

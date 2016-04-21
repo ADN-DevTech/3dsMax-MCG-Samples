@@ -1,0 +1,35 @@
+<graph version="0.50" uuid="bf9f85bd-8594-4150-9a4d-9b545a3c51dd">
+    <meta_info>
+        <graph_version guid="d417ce1f-c6d0-4b8a-887c-73cb4ebac061" number="1.0.0" />
+        <author>Autodesk 3ds Max</author>
+        <company>Autodesk Inc.</company>
+        <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+        <url>http://www.autodesk.com</url>
+        <category>Geometry - TriMesh</category>
+        <description>Sets every third edge as invisible in a TriMesh. This is useful for making a traingulated quad mesh appear as quads in 3ds Max. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:117" />
+        <node operator="Output: compound" id="1" position="1100:200" size="140:69" />
+        <node operator="MeshIndices" id="2" position="220:40" size="140:117" />
+        <node operator="Constant" id="3" value="3" position="0:160" size="140:93" />
+        <node operator="Constant" id="4" value="2" position="0:280" size="140:93" />
+        <node operator="Map" id="5" position="660:160" size="140:141" />
+        <node operator="ModuloEquals" id="6" position="220:180" size="140:165" />
+        <node operator="Indices" id="8" position="440:80" size="140:117" />
+        <node operator="SetVisibleEdges" id="9" position="880:140" size="140:141" />
+        <node operator="Not" id="7" position="440:220" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

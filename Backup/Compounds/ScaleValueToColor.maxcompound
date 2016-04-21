@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="aac429cf-f229-4552-b29a-9999f8eec092">
+    <meta_info>
+        <graph_version guid="208daa9a-ef71-44f6-a800-3e728b5caaca" number="0.0.4" />
+        <category>Utility</category>
+        <description>Converts a floating point value to a color where red = -1.0, green = 0.0, blue = +1.0. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="0" name="value" position="360:340" size="140:117" />
+        <node operator="Lerp" id="3" position="980:360" size="140:165" />
+        <node operator="Green" id="4" position="660:240" size="140:93" />
+        <node operator="IfGtEqZ" id="5" position="660:460" size="140:165" />
+        <node operator="Red" id="6" position="360:480" size="140:93" />
+        <node operator="Blue" id="7" position="360:580" size="140:93" />
+        <node operator="Abs" id="8" position="660:340" size="140:117" />
+        <node operator="Output: compound" id="9" position="1180:420" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+    </connections>
+</graph>

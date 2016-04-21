@@ -1,0 +1,49 @@
+(InstanceState state, TriMesh mesh, Single Amount) => 
+  {
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 187244
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 187246
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 187245
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 187243
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 187242
+    _0Constant = per-vertex data channel ;
+    _1Zero = Zero();
+    _2ToString = ToString(_1Zero);
+    _3ConcatenateStrings = ConcatenateStrings(_0Constant, _2ToString);
+    _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
+    if (_4IsChannelAvailable)
+      {
+        IArray[Vector3] _5MeshVertices;// 3:SoftPushMeshVertices->8:MeshVertices 187253
+        IArray[Int32] _6Indices;// 3:SoftPushMeshVertices->12:Indices 187252
+        IArray[Vector3] _7Map;// 3:SoftPushMeshVertices->13:Map 187251
+        TriMesh _8SetMeshVertices;// 3:SoftPushMeshVertices->10:SetMeshVertices 187250
+        _5MeshVertices = MeshVertices(mesh);
+        _6Indices = Indices(_5MeshVertices);
+        _7Map = Map(_6Indices, (Int32 x0) => 
+          {
+            Vector3 _0At;// 3:SoftPushMeshVertices->14:At 187255
+            IArray[Vector3] _1VertexNormals;// 3:SoftPushMeshVertices->9:VertexNormals 187259
+            Vector3 _2At;// 3:SoftPushMeshVertices->3:At 187258
+            Int32 _3Zero;// 1:SoftSelection->2:Zero 187264
+            IArray[Single] _4PerVertexData;// 1:SoftSelection->3:PerVertexData 187263
+            Single _5At;// 3:SoftPushMeshVertices->2:At 187261
+            Single _6Multiply;// 3:SoftPushMeshVertices->0:Multiply 187260
+            Vector3 _7MultiplyByScalar;// 3:SoftPushMeshVertices->17:MultiplyByScalar 187257
+            Vector3 _8Add;// 3:SoftPushMeshVertices->15:Add 187254
+            _0At = At(_5MeshVertices, x0);
+            _1VertexNormals = VertexNormals(mesh);
+            _2At = At(_1VertexNormals, x0);
+            _3Zero = Zero();
+            _4PerVertexData = PerVertexData(mesh, _3Zero);
+            _5At = At(_4PerVertexData, x0);
+            _6Multiply = Multiply(_5At, Amount);
+            _7MultiplyByScalar = MultiplyByScalar(_2At, _6Multiply);
+            _8Add = Add(_0At, _7MultiplyByScalar);
+            _8Add;
+            });
+        _8SetMeshVertices = SetMeshVertices(mesh, _7Map);
+        _8SetMeshVertices;
+        }else
+      {
+        mesh;
+        };
+    }

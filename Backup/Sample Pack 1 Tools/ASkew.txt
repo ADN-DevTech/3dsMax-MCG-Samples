@@ -1,0 +1,151 @@
+(InstanceState state, TriMesh mesh, Int32 skew_direction, Int32 axis, Single degrees, Single amount) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 3:DeformMeshPoints->0:MeshVertices 187038
+    Int32 _1Zero;// 3:ChooseAxis->9:Zero 187075
+    Boolean _2GreaterThanOrEqual;// 3:ChooseAxis->8:GreaterThanOrEqual 187074
+    Vector3 _3XAxis;// 3:ChooseAxis->3:XAxis 187083
+    IArray[Vector3] _4Unit;// 2:Array3->2:Unit 187082
+    Vector3 _5YAxis;// 3:ChooseAxis->4:YAxis 187084
+    IArray[Vector3] _6Append;// 2:Array3->3:Append 187081
+    Vector3 _7ZAxis;// 3:ChooseAxis->5:ZAxis 187085
+    IArray[Vector3] _8Append;// 2:Array3->6:Append 187080
+    Vector3 _15Pass-through: Vector3;// 0:Pass-through: Vector3 187067
+    Int32 _16Zero;// 4:ChooseAxis->9:Zero 187096
+    Boolean _17GreaterThanOrEqual;// 4:ChooseAxis->8:GreaterThanOrEqual 187095
+    Vector3 _18XAxis;// 4:ChooseAxis->3:XAxis 187104
+    IArray[Vector3] _19Unit;// 2:Array3->2:Unit 187103
+    Vector3 _20YAxis;// 4:ChooseAxis->4:YAxis 187105
+    IArray[Vector3] _21Append;// 2:Array3->3:Append 187102
+    Vector3 _22ZAxis;// 4:ChooseAxis->5:ZAxis 187106
+    IArray[Vector3] _23Append;// 2:Array3->6:Append 187101
+    Vector3 _30Pass-through: Vector3;// 0:Pass-through: Vector3 187068
+    Single _31ToRadians;// 9:ToRadians 187114
+    Matrix _32MatrixFromAxisAngle;// 8:RotatePoint->1:MatrixFromAxisAngle 187071
+    Vector3 _33Transform;// 8:RotatePoint->2:Transform 187070
+    Vector3 _34MultiplyByScalar;// 11:MultiplyByScalar 187066
+    Vector3 _41Pass-through: Vector3;// 0:Pass-through: Vector3 187033
+    IArray[Vector3] _42MeshVertices;// 5:MeshBoundingBox->1:MeshVertices 187063
+    BoundingBox _43BoxFromPoints;// 5:MeshBoundingBox->0:BoxFromPoints 187062
+    Func[Vector3, Vector3] _44Pass-through: function1;// 0:Pass-through: function1 187035
+    IArray[Vector3] _45Map;// 3:DeformMeshPoints->1:Map 187037
+    TriMesh _46SetMeshVertices;// 3:DeformMeshPoints->4:SetMeshVertices 187036
+    _0MeshVertices = MeshVertices(mesh);
+    _1Zero = Zero();
+    _2GreaterThanOrEqual = GreaterThanOrEqual(skew_direction, _1Zero);
+    _3XAxis = XAxis();
+    _4Unit = Unit(_3XAxis);
+    _5YAxis = YAxis();
+    _6Append = Append(_4Unit, _5YAxis);
+    _7ZAxis = ZAxis();
+    _8Append = Append(_6Append, _7ZAxis);
+    _15Pass-through: Vector3 = if (_2GreaterThanOrEqual)
+      {
+        Vector3 _9At;// 3:ChooseAxis->1:At 187076
+        _9At = At(_8Append, skew_direction);
+        _9At;
+        }else
+      {
+        Int32 _10One;// 10:PlusOne->1:One 187091
+        Int32 _11Add;// 10:PlusOne->0:Add 187090
+        Int32 _12Negative;// 3:ChooseAxis->11:Negative 187088
+        Vector3 _13At;// 3:ChooseAxis->12:At 187087
+        Vector3 _14Negate;// 3:ChooseAxis->13:Negate 187086
+        _10One = One();
+        _11Add = Add(skew_direction, _10One);
+        _12Negative = Negative(_11Add);
+        _13At = At(_8Append, _12Negative);
+        _14Negate = Negate(_13At);
+        _14Negate;
+        };
+    _16Zero = Zero();
+    _17GreaterThanOrEqual = GreaterThanOrEqual(axis, _16Zero);
+    _18XAxis = XAxis();
+    _19Unit = Unit(_18XAxis);
+    _20YAxis = YAxis();
+    _21Append = Append(_19Unit, _20YAxis);
+    _22ZAxis = ZAxis();
+    _23Append = Append(_21Append, _22ZAxis);
+    _30Pass-through: Vector3 = if (_17GreaterThanOrEqual)
+      {
+        Vector3 _24At;// 4:ChooseAxis->1:At 187097
+        _24At = At(_23Append, axis);
+        _24At;
+        }else
+      {
+        Int32 _25One;// 10:PlusOne->1:One 187112
+        Int32 _26Add;// 10:PlusOne->0:Add 187111
+        Int32 _27Negative;// 4:ChooseAxis->11:Negative 187109
+        Vector3 _28At;// 4:ChooseAxis->12:At 187108
+        Vector3 _29Negate;// 4:ChooseAxis->13:Negate 187107
+        _25One = One();
+        _26Add = Add(axis, _25One);
+        _27Negative = Negative(_26Add);
+        _28At = At(_23Append, _27Negative);
+        _29Negate = Negate(_28At);
+        _29Negate;
+        };
+    _31ToRadians = ToRadians(degrees);
+    _32MatrixFromAxisAngle = MatrixFromAxisAngle(_30Pass-through: Vector3, _31ToRadians);
+    _33Transform = Transform(_15Pass-through: Vector3, _32MatrixFromAxisAngle);
+    _34MultiplyByScalar = MultiplyByScalar(_33Transform, amount);
+    _41Pass-through: Vector3 = if (_17GreaterThanOrEqual)
+      {
+        Vector3 _35At;// 4:ChooseAxis->1:At 187097
+        _35At = At(_23Append, axis);
+        _35At;
+        }else
+      {
+        Int32 _36One;// 10:PlusOne->1:One 187112
+        Int32 _37Add;// 10:PlusOne->0:Add 187111
+        Int32 _38Negative;// 4:ChooseAxis->11:Negative 187109
+        Vector3 _39At;// 4:ChooseAxis->12:At 187108
+        Vector3 _40Negate;// 4:ChooseAxis->13:Negate 187107
+        _36One = One();
+        _37Add = Add(axis, _36One);
+        _38Negative = Negative(_37Add);
+        _39At = At(_23Append, _38Negative);
+        _40Negate = Negate(_39At);
+        _40Negate;
+        };
+    _42MeshVertices = MeshVertices(mesh);
+    _43BoxFromPoints = BoxFromPoints(_42MeshVertices);
+    _44Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Normalize;// 4:VectorProjectionAlongBoundingBoxExtent->11:Normalize 187053
+        Vector3 _1BoxMax;// 30:BoundingBoxExtent->1:BoxMax 187056
+        Vector3 _2BoxMin;// 30:BoundingBoxExtent->2:BoxMin 187057
+        Vector3 _3Subtract;// 30:BoundingBoxExtent->3:Subtract 187055
+        Vector3 _4Multiply;// 4:VectorProjectionAlongBoundingBoxExtent->6:Multiply 187052
+        Vector3 _5BoxMin;// 4:VectorProjectionAlongBoundingBoxExtent->28:BoxMin 187059
+        Vector3 _6Subtract;// 4:VectorProjectionAlongBoundingBoxExtent->29:Subtract 187058
+        Single _7Dot;// 7:Projection->3:Dot 187050
+        Single _8LengthSquared;// 7:Projection->4:LengthSquared 187051
+        Single _9Divide;// 7:Projection->5:Divide 187049
+        Vector3 _10MultiplyByScalar;// 7:Projection->2:MultiplyByScalar 187048
+        Single _11Length;// 4:VectorProjectionAlongBoundingBoxExtent->5:Length 187045
+        Single _12Length;// 4:VectorProjectionAlongBoundingBoxExtent->10:Length 187060
+        Single _13Divide;// 4:VectorProjectionAlongBoundingBoxExtent->8:Divide 187044
+        Vector3 _14MultiplyByScalar;// 0:Skew->6:MultiplyByScalar 187040
+        Vector3 _15Add;// 0:Skew->9:Add 187039
+        _0Normalize = Normalize(_41Pass-through: Vector3);
+        _1BoxMax = BoxMax(_43BoxFromPoints);
+        _2BoxMin = BoxMin(_43BoxFromPoints);
+        _3Subtract = Subtract(_1BoxMax, _2BoxMin);
+        _4Multiply = Multiply(_0Normalize, _3Subtract);
+        _5BoxMin = BoxMin(_43BoxFromPoints);
+        _6Subtract = Subtract(x0, _5BoxMin);
+        _7Dot = Dot(_6Subtract, _4Multiply);
+        _8LengthSquared = LengthSquared(_4Multiply);
+        _9Divide = Divide(_7Dot, _8LengthSquared);
+        _10MultiplyByScalar = MultiplyByScalar(_4Multiply, _9Divide);
+        _11Length = Length(_10MultiplyByScalar);
+        _12Length = Length(_4Multiply);
+        _13Divide = Divide(_11Length, _12Length);
+        _14MultiplyByScalar = MultiplyByScalar(_34MultiplyByScalar, _13Divide);
+        _15Add = Add(_14MultiplyByScalar, x0);
+        _15Add;
+        };
+    _45Map = Map(_0MeshVertices, _44Pass-through: function1);
+    _46SetMeshVertices = SetMeshVertices(mesh, _45Map);
+    _46SetMeshVertices;
+    }

@@ -1,0 +1,90 @@
+(InstanceState state, Int32 id, TriMesh mesh) => 
+  {
+    Int32 _0Constant;// 2:SetMapChannelOrGeometry->0:Constant 166184
+    Boolean _1Equal;// 2:SetMapChannelOrGeometry->6:Equal 166183
+    Int32 _2Constant;// 4:GetMapChannelOrGeometry->0:Constant 166209
+    Boolean _3Equal;// 4:GetMapChannelOrGeometry->4:Equal 166208
+    Int32 _6Constant;// 5:GetMapChannelOrGeometry->0:Constant 166225
+    Boolean _7Equal;// 5:GetMapChannelOrGeometry->4:Equal 166224
+    MapChannel _10Pass-through: any;// 0:Pass-through: any 166216
+    Object _11Null;// 6:IsNullFix2->3:Null 166220
+    Object _12As;// 6:IsNullFix2->23:As 166218
+    Boolean _13Equal;// 6:IsNullFix2->1:Equal 166217
+    Boolean _14Not;// 8:MapChannelExists->4:Not 166215
+    Boolean _15Not;// 10:GetMapChannelAndValidate->5:Not 166212
+    MapChannel _16ExitIf;// 10:GetMapChannelAndValidate->1:ExitIf 166204
+    IArray[Vector3] _17MapChannelVertexBuffer;// 5:MapChannelVertexBuffer 166201
+    BoundingBox _18BoxFromPoints;// 7:NormalizeVectorsFromBoundingBoxSafely->6:BoxFromPoints 166200
+    IArray[Vector3] _19Map;// 7:NormalizeVectorsFromBoundingBoxSafely->3:Map 166190
+    IArray[Int32] _24MapChannelIndexBuffer;// 6:MapChannelIndexBuffer 166229
+    _0Constant = -3;
+    _1Equal = Equal(_0Constant, id);
+    _2Constant = -3;
+    _3Equal = Equal(id, _2Constant);
+    _6Constant = -3;
+    _7Equal = Equal(id, _6Constant);
+    _10Pass-through: any = if (_7Equal)
+      {
+        MapChannel _8TopologyChannel;// 5:GetMapChannelOrGeometry->6:TopologyChannel 166226
+        _8TopologyChannel = TopologyChannel(mesh);
+        _8TopologyChannel;
+        }else
+      {
+        MapChannel _9GetMapChannel;// 5:GetMapChannelOrGeometry->3:GetMapChannel 166227
+        _9GetMapChannel = GetMapChannel(mesh, id);
+        _9GetMapChannel;
+        };
+    _11Null = Null();
+    _12As = As(_10Pass-through: any, (Object x0) => 
+      {
+        Object _0IgnoreFirst;// 6:IsNullFix2->5:IgnoreFirst 166219
+        _0IgnoreFirst = IgnoreFirst(x0, _11Null);
+        _0IgnoreFirst;
+        });
+    _13Equal = Equal(_12As, _11Null);
+    _14Not = Not(_13Equal);
+    _15Not = Not(_14Not);
+    _16ExitIf = ExitIf(if (_3Equal)
+      {
+        MapChannel _4TopologyChannel;// 4:GetMapChannelOrGeometry->6:TopologyChannel 166210
+        _4TopologyChannel = TopologyChannel(mesh);
+        _4TopologyChannel;
+        }else
+      {
+        MapChannel _5GetMapChannel;// 4:GetMapChannelOrGeometry->3:GetMapChannel 166211
+        _5GetMapChannel = GetMapChannel(mesh, id);
+        _5GetMapChannel;
+        }, _15Not);
+    _17MapChannelVertexBuffer = MapChannelVertexBuffer(_16ExitIf);
+    _18BoxFromPoints = BoxFromPoints(_17MapChannelVertexBuffer);
+    _19Map = Map(_17MapChannelVertexBuffer, (Vector3 x0) => 
+      {
+        Vector3 _0BoxMin;// 9:NormalizeFromBoundingBox->3:BoxMin 166195
+        Vector3 _1Subtract;// 9:NormalizeFromBoundingBox->4:Subtract 166194
+        Vector3 _2BoxMax;// 5:BoundingBoxExtent->1:BoxMax 166198
+        Vector3 _3BoxMin;// 5:BoundingBoxExtent->2:BoxMin 166199
+        Vector3 _4Subtract;// 5:BoundingBoxExtent->3:Subtract 166197
+        Vector3 _5Divide;// 9:NormalizeFromBoundingBox->6:Divide 166193
+        _0BoxMin = BoxMin(_18BoxFromPoints);
+        _1Subtract = Subtract(x0, _0BoxMin);
+        _2BoxMax = BoxMax(_18BoxFromPoints);
+        _3BoxMin = BoxMin(_18BoxFromPoints);
+        _4Subtract = Subtract(_2BoxMax, _3BoxMin);
+        _5Divide = Divide(_1Subtract, _4Subtract);
+        _5Divide;
+        });
+    _24MapChannelIndexBuffer = MapChannelIndexBuffer(_16ExitIf);
+    if (_1Equal)
+      {
+        MeshData _25MeshData;// 2:SetMapChannelOrGeometry->9:MeshData 166186
+        TriMesh _26CreateMeshWithMeshData;// 2:SetMapChannelOrGeometry->8:CreateMeshWithMeshData 166185
+        _25MeshData = MeshData(mesh);
+        _26CreateMeshWithMeshData = CreateMeshWithMeshData(_19Map, _24MapChannelIndexBuffer, _25MeshData);
+        _26CreateMeshWithMeshData;
+        }else
+      {
+        TriMesh _27SetMapChannel;// 2:SetMapChannelOrGeometry->0:SetMapChannel 166187
+        _27SetMapChannel = SetMapChannel(mesh, id, _19Map, _24MapChannelIndexBuffer);
+        _27SetMapChannel;
+        };
+    }

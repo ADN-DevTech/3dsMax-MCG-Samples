@@ -1,0 +1,63 @@
+<graph version="0.50" uuid="7bf156b9-2df7-4d9f-b3ec-bcfbe5446b3e">
+    <meta_info>
+        <graph_version guid="4dc26863-3b7e-4e41-8c88-57443c30d5c6" number="0.0.60" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="0" position="281:1329" size="140:69" />
+        <node operator="Modifier: TriMesh" id="1" position="-131:1265" size="140:93" />
+        <node operator="Parameter: INode" id="39" name="helper" position="-637:1310" size="140:117" />
+        <node operator="Modifier: Matrix" id="43" position="-633:1431" size="140:93" />
+        <node operator="Pass-through: Vector3" id="53" position="-93:1537" size="140:117" />
+        <node operator="Divide" id="54" position="352:1673" size="140:141" />
+        <node operator="Constant" id="55" value="1.0" position="172:1673" size="140:93" />
+        <node operator="Distance" id="56" position="172:1773" size="140:141" />
+        <node operator="MultiplyByScalar" id="57" position="563:1623" size="140:141" />
+        <node operator="Multiply" id="58" position="549:1815" size="140:141" />
+        <node operator="Subtract" id="59" position="170:1529" size="140:141" />
+        <node operator="Pass-through: Vector3" id="60" position="-97:1677" size="140:117" />
+        <node operator="Add" id="3" position="730:1569" size="140:141" />
+        <node operator="Normalize" id="12" position="350:1551" size="140:117" />
+        <node operator="Multiply" id="28" position="-361:1800" size="140:141" />
+        <node operator="Constant" id="29" value="10.0" position="-556:1868" size="140:93" />
+        <node operator="Parameter: Single" id="49" name=" influence" min_value="0" max_value="10000" default_value="50" system_units_value="false" position="-755:1725" size="140:213" />
+        <node operator="DeformMeshPoints" id="5" position="81:1289" size="140:141" />
+        <node operator="Modifier: BoundingBox" id="7" position="-636:1530" size="140:93" />
+        <node operator="NodePositionOrBoxCenter" id="8" position="-394:1393" size="140:165" />
+        <node groupnode="Get helper node position or bounding box center" id="9" position="-680:1260" size="475:393" bg_color="#ff646464">
+            <nodes>7,8,39,43</nodes>
+        </node>
+        <node groupnode="Compute the offset vector whose strength varies based on the distance from the vertex and the influence parameter." id="10" position="-143:1480" size="1069:569" bg_color="#ff646464">
+            <nodes>53,54,55,56,57,12,3,58,59,60</nodes>
+        </node>
+        <node groupnode="Construct the deformed mesh" id="16" position="-140:1227" size="570:211" bg_color="#ff646464">
+            <nodes>5,1,0</nodes>
+        </node>
+        <node groupnode="multiply the influence value to make the spinner more responsive." id="30" position="-820:1680" size="622:302" bg_color="#ff646464">
+            <nodes>49,28,29</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="55" sourceport="0" destnode="54" destport="0" />
+        <connection sourcenode="56" sourceport="0" destnode="54" destport="1" />
+        <connection sourcenode="60" sourceport="0" destnode="56" destport="0" />
+        <connection sourcenode="53" sourceport="0" destnode="56" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="57" destport="0" />
+        <connection sourcenode="58" sourceport="0" destnode="57" destport="1" />
+        <connection sourcenode="54" sourceport="0" destnode="58" destport="0" />
+        <connection sourcenode="28" sourceport="0" destnode="58" destport="1" />
+        <connection sourcenode="53" sourceport="0" destnode="59" destport="0" />
+        <connection sourcenode="60" sourceport="0" destnode="59" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="60" destport="0" />
+        <connection sourcenode="53" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="57" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="59" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="49" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="28" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="39" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="43" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="2" />
+    </connections>
+</graph>

@@ -1,0 +1,151 @@
+(InstanceState state, TriMesh mesh) => 
+  {
+    Int32 _0Zero;// 5:Zero 188331
+    IArray[Vector3] _1MeshVertices;// 5:MeshVertexCount->1:MeshVertices 188329
+    Int32 _2Count;// 5:MeshVertexCount->2:Count 188328
+    IArray[Single] _3PerVertexData;// 6:PerVertexDataOrZeros->0:PerVertexData 188395
+    Object _4Null;// 3:IsNullFix2->3:Null 188394
+    Object _5As;// 3:IsNullFix2->23:As 188392
+    Boolean _6Equal;// 3:IsNullFix2->1:Equal 188391
+    IArray[Single] _11Pass-through: array;// 0:Pass-through: array 188332
+    IArray[Int32] _12Indices;// 2:IndexOfMinimum->1:Indices 188364
+    Int32 _13Zero;// 2:IndexOfMinimum->3:Zero 188365
+    Int32 _14Aggregate;// 2:IndexOfMinimum->2:Aggregate 188363
+    IArray[Int32] _15Unit;// 4:Array2->2:Unit 188361
+    IArray[Int32] _16Indices;// 3:IndexOfMaximum->1:Indices 188375
+    Int32 _17Zero;// 3:IndexOfMaximum->3:Zero 188376
+    Int32 _18Aggregate;// 3:IndexOfMaximum->2:Aggregate 188374
+    IArray[Int32] _19Append;// 4:Array2->3:Append 188360
+    IArray[Single] _20Map;// 2:SelectByIndex->2:Map 188355
+    Int32 _21Zero;// 2:First->2:Zero 188351
+    Single _22At;// 2:First->0:At 188350
+    IArray[Single] _23Map;// 3:NormalizeFloatsSafely->5:Map 188333
+    Int32 _24Count;// 4:SetCount->5:Count 188320
+    Boolean _25GreaterThan;// 4:SetCount->4:GreaterThan 188319
+    Single _30FloatZero;// 6:PerVertexDataOrZeros->8:FloatZero 188401
+    TriMesh _37SetPerVertexData;// 7:SetPerVetexDataResize->0:SetPerVertexData 188315
+    _0Zero = Zero();
+    _1MeshVertices = MeshVertices(mesh);
+    _2Count = Count(_1MeshVertices);
+    _3PerVertexData = PerVertexData(mesh, _0Zero);
+    _4Null = Null();
+    _5As = As(_3PerVertexData, (Object x0) => 
+      {
+        Object _0IgnoreFirst;// 3:IsNullFix2->5:IgnoreFirst 188393
+        _0IgnoreFirst = IgnoreFirst(x0, _4Null);
+        _0IgnoreFirst;
+        });
+    _6Equal = Equal(_5As, _4Null);
+    _11Pass-through: array = if (_6Equal)
+      {
+        Single _7FloatZero;// 6:PerVertexDataOrZeros->8:FloatZero 188401
+        IArray[Vector3] _8MeshVertices;// 7:ArrayPerVertex->1:MeshVertices 188400
+        Int32 _9Count;// 7:ArrayPerVertex->2:Count 188399
+        IArray[Single] _10ArrayOf;// 7:ArrayPerVertex->3:ArrayOf 188398
+        _7FloatZero = FloatZero();
+        _8MeshVertices = MeshVertices(mesh);
+        _9Count = Count(_8MeshVertices);
+        _10ArrayOf = ArrayOf(_7FloatZero, _9Count);
+        _10ArrayOf;
+        }else
+      {
+        _3PerVertexData;
+        };
+    _12Indices = Indices(_11Pass-through: array);
+    _13Zero = Zero();
+    _14Aggregate = Aggregate(_12Indices, _13Zero, (Int32 x0, Int32 x1) => 
+      {
+        Single _0At;// 4:IndexOfLesserElement->4:At 188371
+        Single _1At;// 4:IndexOfLesserElement->5:At 188372
+        Boolean _2LessThanOrEqual;// 4:IndexOfLesserElement->2:LessThanOrEqual 188370
+        _0At = At(_11Pass-through: array, x0);
+        _1At = At(_11Pass-through: array, x1);
+        _2LessThanOrEqual = LessThanOrEqual(_0At, _1At);
+        if (_2LessThanOrEqual)
+          {
+            x0;
+            }else
+          {
+            x1;
+            };
+        });
+    _15Unit = Unit(_14Aggregate);
+    _16Indices = Indices(_11Pass-through: array);
+    _17Zero = Zero();
+    _18Aggregate = Aggregate(_16Indices, _17Zero, (Int32 x0, Int32 x1) => 
+      {
+        Single _0At;// 4:IndexOfGreaterElement->4:At 188382
+        Single _1At;// 4:IndexOfGreaterElement->5:At 188383
+        Boolean _2GreaterThanOrEqual;// 4:IndexOfGreaterElement->2:GreaterThanOrEqual 188381
+        _0At = At(_11Pass-through: array, x0);
+        _1At = At(_11Pass-through: array, x1);
+        _2GreaterThanOrEqual = GreaterThanOrEqual(_0At, _1At);
+        if (_2GreaterThanOrEqual)
+          {
+            x0;
+            }else
+          {
+            x1;
+            };
+        });
+    _19Append = Append(_15Unit, _18Aggregate);
+    _20Map = Map(_19Append, (Int32 x0) => 
+      {
+        Single _0At;// 2:SelectByIndex->3:At 188356
+        _0At = At(_11Pass-through: array, x0);
+        _0At;
+        });
+    _21Zero = Zero();
+    _22At = At(_20Map, _21Zero);
+    _23Map = Map(_11Pass-through: array, (Single x0) => 
+      {
+        Single _0Subtract;// 7:NormalizeFloatSafely->2:Subtract 188347
+        Int32 _1One;// 3:Second->2:One 188386
+        Single _2At;// 3:Second->0:At 188385
+        Single _3Subtract;// 7:NormalizeFloatSafely->3:Subtract 188348
+        Single _4Abs;// 3:FloatIsSmall->4:Abs 188344
+        Single _5Constant;// 2:VectorLengthEpsilon->0:Constant 188345
+        Boolean _6LessThanOrEqual;// 3:FloatIsSmall->1:LessThanOrEqual 188343
+        Single _8IgnoreFirst;// 7:DivideDefault->8:IgnoreFirst 188340
+        _0Subtract = Subtract(x0, _22At);
+        _1One = One();
+        _2At = At(_20Map, _1One);
+        _3Subtract = Subtract(_2At, _22At);
+        _4Abs = Abs(_3Subtract);
+        _5Constant = 1E-06;
+        _6LessThanOrEqual = LessThanOrEqual(_4Abs, _5Constant);
+        _8IgnoreFirst = IgnoreFirst(_0Subtract, if (_6LessThanOrEqual)
+          {
+            x0;
+            }else
+          {
+            Single _7Divide;// 7:DivideDefault->5:Divide 188346
+            _7Divide = Divide(_0Subtract, _3Subtract);
+            _7Divide;
+            });
+        _8IgnoreFirst;
+        });
+    _24Count = Count(_23Map);
+    _25GreaterThan = GreaterThan(_2Count, _24Count);
+    _30FloatZero = FloatZero();
+    _37SetPerVertexData = SetPerVertexData(mesh, _0Zero, if (_25GreaterThan)
+      {
+        Single _31DefaultValueOfElement;// 4:SetCount->2:DefaultValueOfElement 188323
+        Int32 _32Subtract;// 4:SetCount->9:Subtract 188324
+        IArray[Single] _33ArrayOf;// 4:SetCount->8:ArrayOf 188322
+        IArray[Single] _34Concatenate;// 4:SetCount->10:Concatenate 188321
+        _31DefaultValueOfElement = DefaultValueOfElement(_23Map);
+        _32Subtract = Subtract(_2Count, _24Count);
+        _33ArrayOf = ArrayOf(_31DefaultValueOfElement, _32Subtract);
+        _34Concatenate = Concatenate(_23Map, _33ArrayOf);
+        _34Concatenate;
+        }else
+      {
+        Int32 _35Zero;// 4:SetCount->7:Zero 188326
+        IArray[Single] _36Slice;// 4:SetCount->6:Slice 188325
+        _35Zero = Zero();
+        _36Slice = Slice(_23Map, _35Zero, _2Count);
+        _36Slice;
+        });
+    _37SetPerVertexData;
+    }

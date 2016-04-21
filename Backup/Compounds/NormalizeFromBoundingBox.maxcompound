@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="c88d919d-9139-4bd1-ac68-47dce234a6b8">
+    <meta_info>
+        <graph_version guid="f92d7af6-ae0b-4665-99e6-8628ffed9bad" number="0.0.1" />
+        <author>Autodesk</author>
+        <company>Autodesk, Inc.</company>
+        <copyright>(c) 2014 Autodesk, Inc.</copyright>
+        <url>http://autodesk.com</url>
+        <category>Geometry - Vectors</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: BoundingBox" id="0" name="name" position="0:200" size="140:128" />
+        <node operator="Input: Vector3" id="1" name="point" position="220:0" size="140:128" />
+        <node operator="Output: compound" id="2" position="880:240" size="140:80" />
+        <node operator="BoxMin" id="3" position="220:140" size="140:128" />
+        <node operator="Subtract" id="4" position="440:100" size="140:152" />
+        <node operator="BoundingBoxExtent" id="5" position="440:280" size="140:128" />
+        <node operator="Divide" id="6" position="660:200" size="140:152" />
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

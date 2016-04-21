@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="61be0c67-7ff7-4680-ab35-474056ec7213">
+    <meta_info>
+        <graph_version guid="2910de67-a4fc-4188-a79c-14549ed47019" number="0.0.3" />
+        <category>Geometry - TriMesh</category>
+        <description>Given a map channel and a vertex index, returns the average of all of the vertex values at that index. Consider that a vertex is shared and could have multiple vertex data (e.g. vertex colors) contributed from each face. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: MapChannel" id="0" name="mapChannel" position="140:380" size="140:117" />
+        <node operator="Input: Int32" id="1" name="index" position="140:500" size="140:117" />
+        <node operator="MapChannelGetVertex" id="3" position="400:440" size="140:141" />
+        <node operator="Map" id="4" position="600:360" size="140:141" />
+        <node operator="Input: TriMesh" id="5" name="mesh" position="140:240" size="140:117" />
+        <node operator="Output: compound" id="7" position="940:440" size="140:69" />
+        <node operator="AverageVectorOrZero" id="6" position="760:420" size="140:117" />
+        <node operator="VertexIndexLookup" id="9" position="400:260" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="1" />
+    </connections>
+</graph>

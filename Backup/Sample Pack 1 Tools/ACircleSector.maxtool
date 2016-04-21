@@ -1,0 +1,37 @@
+<graph version="0.50" uuid="7b92ef08-8c4d-43db-9756-4b9afc1b7fce">
+    <meta_info>
+        <graph_version guid="9ca64c3d-7162-41ab-9f8a-6a083df4a08e" number="0.0.16" />
+        <author>Autodesk</author>
+        <company>Autodesk, Inc.</company>
+        <copyright>(c) 2015 Autodesk, Inc.</copyright>
+        <url>http://www.autodesk.com</url>
+        <description>Creates a circular sector geometric object.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: geometry" id="0" position="686:456" size="140:69" />
+        <node operator="Parameter: Int32" id="2" name="segments" min_value="2" max_value="100" default_value="12" position="-141:225" size="140:189" />
+        <node operator="Parameter: Single" id="3" name="degrees" min_value="0" max_value="360" default_value="360" system_units_value="false" position="58:227" size="140:213" />
+        <node operator="Parameter: Single" id="4" name="radius" min_value="-1000" max_value="1000" default_value="20" system_units_value="false" position="51:461" size="140:213" />
+        <node operator="Parameter: Boolean" id="5" name="cap" default_value="false" position="-138:473" size="160:141" />
+        <node operator="CircularSegment" id="9" position="356:333" size="140:189" />
+        <node groupnode="Output" id="7" position="640:315" size="275:238" bg_color="#ff646464">
+            <comment>The output node determines the type of tool that is created. In this case it is a geometry tool. The generated geometry tool will appear by default in the creation panel under the category name &quot;Max Creation Graph&quot;. This can be changed by editing the graph properties.  </comment>
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="Parameters" id="8" position="-160:71" size="371:644" bg_color="#ff646464">
+            <comment>These operators correspond to automatically generated parameters in the tool&apos;s UI. They are animatable and can be accessed via MAXScript.&#x0A;&#x0A;An Int32 represents an integer number (number with no decimal) while a Single represents a single-precision floating-point (number with a decimal) value. A Boolean is a true or false value.</comment>
+            <nodes>3,4,2,5</nodes>
+        </node>
+        <node groupnode="Create a triangle mesh" id="6" position="260:186" size="356:376" bg_color="#ff646464">
+            <comment>This is operator will read the inputs to produce a triangle mesh that represents a circular segment of the mesh. This is an example of a compound: which means that it is created from a Max Creation Graph. If you right-click on it you can choose &quot;Open Compound in New Tab&quot; to look at how it is constructed. </comment>
+            <nodes>9</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="3" />
+    </connections>
+</graph>

@@ -1,0 +1,71 @@
+<graph version="0.50" uuid="d973a068-b2c4-4afc-8c98-66210734cb9b">
+    <meta_info>
+        <graph_version guid="32028089-9731-4c60-92a1-6b95793b1413" number="0.0.9" />
+    </meta_info>
+    <nodes>
+        <node operator="SliceMesh" id="0" position="1779:216" size="140:141" />
+        <node operator="Modifier: TriMesh" id="1" position="1588:167" size="140:93" />
+        <node operator="Parameter: Single" id="2" name="distance" min_value="-9999" max_value="9999" default_value="10" system_units_value="false" position="709:491" size="140:213" />
+        <node operator="Plane" id="3" position="1592:262" size="140:117" />
+        <node operator="Ray" id="4" position="1402:197" size="140:141" />
+        <node operator="Origin" id="5" position="944:159" size="140:93" />
+        <node operator="ChooseAxis" id="6" position="990:-76" size="140:117" />
+        <node operator="Parameter: Int32" id="7" name="axis" min_value="0" max_value="2" default_value="0" position="789:-127" size="140:189" />
+        <node operator="Add" id="11" position="1133:227" size="140:141" />
+        <node operator="MultiplyByScalar" id="12" position="949:260" size="140:141" />
+        <node operator="Parameter: Single" id="13" name="location" min_value="-9999" max_value="9999" default_value="0" system_units_value="false" position="709:169" size="140:213" />
+        <node operator="Divide" id="14" position="921:611" size="140:141" />
+        <node operator="Constant" id="15" value="2.0" position="709:711" size="140:93" />
+        <node operator="MultiplyByScalar" id="19" position="1117:594" size="140:141" />
+        <node operator="CombineAllMeshes" id="23" position="1109:889" size="140:117" />
+        <node operator="Output: modifier" id="22" position="1349:989" size="140:69" />
+        <node operator="PositionMeshesAlongLine" id="17" position="1727:597" size="140:141" />
+        <node operator="Line" id="16" position="1540:593" size="140:141" />
+        <node operator="Negate" id="18" position="1330:678" size="140:117" />
+        <node operator="NegateIf" id="21" position="1647:-72" size="140:141" />
+        <node operator="Parameter: Boolean" id="20" name="direction" default_value="false" position="1429:-131" size="140:141" />
+        <node groupnode="Choose Axis" id="9" position="780:-160" size="395:247" bg_color="#ff646464">
+            <nodes>7,6</nodes>
+        </node>
+        <node groupnode="Slice mesh" id="24" position="1340:120" size="620:300" bg_color="#ff646464">
+            <nodes>4,3,1,0</nodes>
+        </node>
+        <node groupnode="Offset the slicing location" id="8" position="700:120" size="602:299" bg_color="#ff646464">
+            <nodes>5,11,12,13</nodes>
+        </node>
+        <node groupnode="Create final mesh" id="10" position="1100:860" size="398:207" bg_color="#ff646464">
+            <nodes>22,23</nodes>
+        </node>
+        <node groupnode="Move meshes apart" id="25" position="700:460" size="1258:356" bg_color="#ff646464">
+            <nodes>19,14,2,15,17,16,18</nodes>
+        </node>
+        <node groupnode="Change direction" id="26" position="1420:-160" size="376:245" bg_color="#ff646464">
+            <nodes>21,20</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="21" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,38 @@
+<graph version="0.50" uuid="afb1600a-ae2e-46e7-98c6-adb6aff67634">
+    <meta_info>
+        <graph_version guid="79972376-3d4a-48de-9c5e-d7ba118bf45e" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="CombineAllMeshes" id="1" position="880:240" size="140:117" />
+        <node operator="Modifier: TriMesh" id="0" position="429:349" size="140:93" />
+        <node operator="Parameter: Int32" id="4" name="count" min_value="0" max_value="1000" default_value="10" position="200:80" size="140:189" />
+        <node operator="Map" id="6" position="660:140" size="140:141" />
+        <node operator="Parameter: Single" id="7" name="x" min_value="0" max_value="100" default_value="0" system_units_value="false" position="0:0" size="140:213" />
+        <node operator="Parameter: Single" id="8" name="y" min_value="0" max_value="100" default_value="0" system_units_value="false" position="0:240" size="140:213" />
+        <node operator="Parameter: Single" id="9" name="z" min_value="0" max_value="100" default_value="0" system_units_value="false" position="0:460" size="140:213" />
+        <node operator="Vector3" id="10" position="209:389" size="140:165" />
+        <node operator="OffsetMesh" id="11" position="669:389" size="140:141" />
+        <node operator="MultiplyByScalar" id="12" position="429:469" size="140:141" />
+        <node operator="RangeInclusiveFloat" id="5" position="420:140" size="160:117" />
+        <node operator="Output: modifier" id="3" position="1100:260" size="140:69" />
+        <node groupnode='Function: offset mesh by a vector multiplied by &quot;amount&quot;' id="2" position="200:320" size="618:299" bg_color="#ff646464">
+            <nodes>0,10,11,12</nodes>
+        </node>
+        <node groupnode="N floats from 0..1" id="13" position="411:111" size="178:155" bg_color="#ff646464">
+            <nodes>5</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="11" sourceport="1" destnode="6" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    </connections>
+</graph>

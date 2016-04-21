@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="c53120b4-c6f9-402c-95c5-43d06bc37b15">
+    <meta_info>
+        <graph_version guid="8c74cce0-bde4-4ed8-a350-aa76b5e34739" number="0.0.15" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="pathPoints" position="240:20" size="140:117" />
+        <node operator="Input: array" id="1" name="shapePoints" position="20:-160" size="140:117" />
+        <node operator="GetReferenceFrames" id="2" position="480:40" size="160:117" />
+        <node operator="TransformPoints" id="7" position="480:-120" size="160:141" />
+        <node operator="XYPointsToYZ" id="5" position="240:-140" size="140:117" />
+        <node operator="QuadMeshStrip" id="6" position="960:180" size="140:189" />
+        <node operator="FlatMap" id="8" position="740:-40" size="140:141" />
+        <node operator="Output: compound" id="3" position="1160:260" size="140:69" />
+        <node operator="Count" id="4" position="740:120" size="140:117" />
+        <node operator="Input: Boolean" id="9" name="closeShape" position="740:260" size="140:117" />
+        <node operator="Input: Boolean" id="10" name="closePath" position="740:400" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="1" destnode="8" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="184f99e4-bfb4-4ea1-9a48-c8ae13dd4677">
+    <meta_info>
+        <graph_version guid="1b9b378f-09ef-4199-a752-241daf74664a" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="fluxDataChannel" position="0:60" size="140:117" />
+        <node operator="Input: Int32" id="2" name="index" position="0:200" size="140:117" />
+        <node operator="Output: compound" id="1" position="880:180" size="140:69" />
+        <node operator="Input: Matrix" id="6" name="matrix" position="220:0" size="140:117" />
+        <node operator="MatrixRows" id="7" position="440:80" size="140:117" />
+        <node operator="FluxItemSubChannels" id="8" position="220:140" size="140:141" />
+        <node operator="Constant" id="10" value="4" position="220:300" size="140:93" />
+        <node operator="Skip" id="9" position="440:220" size="140:141" />
+        <node operator="Concatenate" id="11" position="660:160" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="11" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="11" destport="1" />
+    </connections>
+</graph>

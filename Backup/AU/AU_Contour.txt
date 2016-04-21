@@ -1,0 +1,170 @@
+(InstanceState state, TriMesh mesh, Single distance) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 2:MeshVertices 161490
+    Int32 _1Zero;// 2:First->2:Zero 161489
+    Vector3 _2At;// 2:First->0:At 161488
+    IArray[Vector3] _3Append;// 10:AppendFirst->1:Append 161486
+    IArray[Int32] _4Indices;// 1:MapWithIndexes->3:Indices 161503
+    Vector3 _5ZAxis;// 7:ZAxis 161585
+    Func[Vector3, Int32, Vector3] _6Pass-through: any;// 0:Pass-through: any 161501
+    IArray[Vector3] _7Combine;// 1:MapWithIndexes->2:Combine 161502
+    Int32 _8Zero;// 2:First->2:Zero 161496
+    Vector3 _9At;// 2:First->0:At 161495
+    IArray[Vector3] _10Append;// 0:AppendFirst->1:Append 161493
+    IArray[Vector3] _11Concatenate;// 4:SimpleQuadMeshStrip->0:Concatenate 161482
+    Int32 _12Two;// 4:SimpleQuadMeshStrip->2:Two 161483
+    Boolean _13False;// 4:SimpleQuadMeshStrip->3:False 161484
+    QuadMesh _14QuadMeshStrip;// 4:SimpleQuadMeshStrip->1:QuadMeshStrip 161481
+    TriMesh _15Triangulate;// 5:ToTriMesh->2:Triangulate 161478
+    IArray[Int32] _16MeshIndices;// 3:HideEveryThirdEdge->2:MeshIndices 161469
+    IArray[Int32] _17Indices;// 3:HideEveryThirdEdge->8:Indices 161468
+    Int32 _18Constant;// 3:HideEveryThirdEdge->0:Constant 161476
+    Int32 _19Constant;// 3:HideEveryThirdEdge->0:Constant 161477
+    IArray[Boolean] _20Map;// 3:HideEveryThirdEdge->5:Map 161467
+    TriMesh _21SetVisibleEdges;// 3:HideEveryThirdEdge->9:SetVisibleEdges 161466
+    _0MeshVertices = MeshVertices(mesh);
+    _1Zero = Zero();
+    _2At = At(_0MeshVertices, _1Zero);
+    _3Append = Append(_0MeshVertices, _2At);
+    _4Indices = Indices(_0MeshVertices);
+    _5ZAxis = ZAxis();
+    _6Pass-through: any = (Vector3 x0, Int32 x1) => 
+      {
+        Int32 _0One;// 12:PlusOne->1:One 161570
+        Int32 _1Add;// 12:PlusOne->0:Add 161569
+        Int32 _2Count;// 2:AtModulo->6:Count 161566
+        Int32 _3Modulo;// 2:AtModulo->5:Modulo 161565
+        Int32 _4Zero;// 7:LessThanZero->2:Zero 161564
+        Boolean _5LessThan;// 7:LessThanZero->1:LessThan 161563
+        Vector3 _7At;// 2:AtModulo->3:At 161560
+        Vector3 _8Subtract;// 10:InsideCornerPoints->4:Subtract 161554
+        Vector3 _9Normalize;// 10:InsideCornerPoints->9:Normalize 161553
+        Int32 _10One;// 11:MinusOne->2:One 161584
+        Int32 _11Subtract;// 11:MinusOne->1:Subtract 161583
+        Int32 _12Count;// 8:AtModulo->6:Count 161580
+        Int32 _13Modulo;// 8:AtModulo->5:Modulo 161579
+        Int32 _14Zero;// 7:LessThanZero->2:Zero 161578
+        Boolean _15LessThan;// 7:LessThanZero->1:LessThan 161577
+        Vector3 _17At;// 8:AtModulo->3:At 161574
+        Vector3 _18Subtract;// 10:InsideCornerPoints->3:Subtract 161556
+        Vector3 _19Normalize;// 10:InsideCornerPoints->10:Normalize 161555
+        Vector3 _20Cross;// 11:IsAngleAcuteOrObtuse->2:Cross 161525
+        Single _21Dot;// 11:IsAngleAcuteOrObtuse->3:Dot 161524
+        Single _22FloatZero;// 7:GtEqZ->1:FloatZero 161523
+        Boolean _23GreaterThanOrEqual;// 7:GtEqZ->2:GreaterThanOrEqual 161522
+        Single _24Constant;// 5:InsideCorner->0:Constant 161529
+        Vector3 _25Lerp;// 5:InsideCorner->3:Lerp 161528
+        Vector3 _26Normalize;// 5:InsideCorner->5:Normalize 161527
+        Single _27Dot;// 2:Projection->3:Dot 161551
+        Single _28LengthSquared;// 2:Projection->4:LengthSquared 161552
+        Single _29Divide;// 2:Projection->5:Divide 161550
+        Vector3 _30MultiplyByScalar;// 2:Projection->2:MultiplyByScalar 161549
+        Vector3 _31Subtract;// 6:Rejection->3:Subtract 161546
+        Single _32Length;// 5:InsideCorner->7:Length 161543
+        Single _33Abs;// 3:FloatIsSmall->4:Abs 161539
+        Single _34Constant;// 2:VectorLengthEpsilon->0:Constant 161540
+        Boolean _35LessThanOrEqual;// 3:FloatIsSmall->1:LessThanOrEqual 161538
+        Single _38IgnoreFirst;// 9:DivideDefault->8:IgnoreFirst 161535
+        Vector3 _39MultiplyByScalar;// 5:InsideCorner->8:MultiplyByScalar 161526
+        Single _44FloatZero;// 10:DivideDefaultToZero->6:FloatZero 161542
+        Vector3 _46Add;// 10:InsideCornerPoints->8:Add 161509
+        _0One = One();
+        _1Add = Add(x1, _0One);
+        _2Count = Count(_0MeshVertices);
+        _3Modulo = Modulo(_1Add, _2Count);
+        _4Zero = Zero();
+        _5LessThan = LessThan(_3Modulo, _4Zero);
+        _7At = At(_0MeshVertices, if (_5LessThan)
+          {
+            Int32 _6Add;// 2:AtModulo->8:Add 161567
+            _6Add = Add(_3Modulo, _2Count);
+            _6Add;
+            }else
+          {
+            _3Modulo;
+            });
+        _8Subtract = Subtract(_7At, x0);
+        _9Normalize = Normalize(_8Subtract);
+        _10One = One();
+        _11Subtract = Subtract(x1, _10One);
+        _12Count = Count(_0MeshVertices);
+        _13Modulo = Modulo(_11Subtract, _12Count);
+        _14Zero = Zero();
+        _15LessThan = LessThan(_13Modulo, _14Zero);
+        _17At = At(_0MeshVertices, if (_15LessThan)
+          {
+            Int32 _16Add;// 8:AtModulo->8:Add 161581
+            _16Add = Add(_13Modulo, _12Count);
+            _16Add;
+            }else
+          {
+            _13Modulo;
+            });
+        _18Subtract = Subtract(_17At, x0);
+        _19Normalize = Normalize(_18Subtract);
+        _20Cross = Cross(_9Normalize, _19Normalize);
+        _21Dot = Dot(_20Cross, _5ZAxis);
+        _22FloatZero = FloatZero();
+        _23GreaterThanOrEqual = GreaterThanOrEqual(_21Dot, _22FloatZero);
+        _24Constant = 0.5;
+        _25Lerp = Lerp(_9Normalize, _19Normalize, _24Constant);
+        _26Normalize = Normalize(_25Lerp);
+        _27Dot = Dot(_26Normalize, _9Normalize);
+        _28LengthSquared = LengthSquared(_9Normalize);
+        _29Divide = Divide(_27Dot, _28LengthSquared);
+        _30MultiplyByScalar = MultiplyByScalar(_9Normalize, _29Divide);
+        _31Subtract = Subtract(_30MultiplyByScalar, _26Normalize);
+        _32Length = Length(_31Subtract);
+        _33Abs = Abs(_32Length);
+        _34Constant = 1E-06;
+        _35LessThanOrEqual = LessThanOrEqual(_33Abs, _34Constant);
+        _38IgnoreFirst = IgnoreFirst(distance, if (_35LessThanOrEqual)
+          {
+            Single _36FloatZero;// 10:DivideDefaultToZero->6:FloatZero 161542
+            _36FloatZero = FloatZero();
+            _36FloatZero;
+            }else
+          {
+            Single _37Divide;// 9:DivideDefault->5:Divide 161541
+            _37Divide = Divide(distance, _32Length);
+            _37Divide;
+            });
+        _39MultiplyByScalar = MultiplyByScalar(_26Normalize, _38IgnoreFirst);
+        _44FloatZero = FloatZero();
+        _46Add = Add(x0, if (_23GreaterThanOrEqual)
+            {
+              Vector3 _45Negate;// 12:NegateIf->0:Negate 161517
+              _45Negate = Negate(_39MultiplyByScalar);
+              _45Negate;
+              }else
+            {
+              _39MultiplyByScalar;
+              });
+        _46Add;
+        };
+    _7Combine = Combine(_0MeshVertices, _4Indices, _6Pass-through: any);
+    _8Zero = Zero();
+    _9At = At(_7Combine, _8Zero);
+    _10Append = Append(_7Combine, _9At);
+    _11Concatenate = Concatenate(_3Append, _10Append);
+    _12Two = Two();
+    _13False = False();
+    _14QuadMeshStrip = QuadMeshStrip(_11Concatenate, _12Two, _13False, _13False);
+    _15Triangulate = Triangulate(_14QuadMeshStrip);
+    _16MeshIndices = MeshIndices(_15Triangulate);
+    _17Indices = Indices(_16MeshIndices);
+    _18Constant = 3;
+    _19Constant = 2;
+    _20Map = Map(_17Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 161475
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 161474
+        Boolean _2Not;// 3:HideEveryThirdEdge->7:Not 161470
+        _0Modulo = Modulo(x0, _18Constant);
+        _1Equal = Equal(_0Modulo, _19Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _21SetVisibleEdges = SetVisibleEdges(_15Triangulate, _20Map);
+    _21SetVisibleEdges;
+    }

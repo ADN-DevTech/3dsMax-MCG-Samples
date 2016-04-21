@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="55f97ff6-6c73-4aa6-8e8f-7acbe500294b">
+    <meta_info>
+        <graph_version guid="10eef91c-5b44-44d2-b2e7-5dcd62bd77e0" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="PerVertexDataTransform" id="1" position="440:160" size="180:165" />
+        <node operator="Output: modifier" id="4" position="700:240" size="140:69" />
+        <node operator="Modifier: TriMesh" id="2" position="220:0" size="140:93" />
+        <node operator="Parameter: Single" id="5" name="value" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="0:200" size="140:213" />
+        <node operator="IgnoreFirst" id="3" position="220:320" size="140:141" />
+        <node operator="Zero" id="7" position="210:149" size="140:93" />
+        <node groupnode="Bug: only 0 supported" id="6" position="180:120" size="215:131" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="1" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+    </connections>
+</graph>

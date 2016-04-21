@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="bd2c629e-25c8-4f8b-9735-13ba6ff60358">
+    <meta_info>
+        <graph_version guid="475fd089-0fc1-4f99-8d93-6de0f259f20e" number="0.0.4" />
+        <category>Geometry - Vectors</category>
+        <description>Returns a vector that is normal to the given vector. If the vector is near zero length, this may be not well-defined. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="v" position="0:0" size="140:117" />
+        <node operator="Output: compound" id="1" position="880:180" size="140:69" />
+        <node operator="ZAxis" id="2" position="0:220" size="140:93" />
+        <node operator="AlmostParallel" id="3" position="220:40" size="140:141" />
+        <node operator="If" id="4" position="440:140" size="140:165" />
+        <node operator="XAxis" id="5" position="220:200" size="140:93" />
+        <node operator="Cross" id="6" position="660:140" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

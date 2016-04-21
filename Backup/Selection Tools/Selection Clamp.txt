@@ -1,0 +1,44 @@
+(InstanceState state, TriMesh mesh, Single minimum, Single maximum) => 
+  {
+    Int32 _0Zero;// 7:Zero 188078
+    IArray[Single] _1PerVertexData;// 1:PerVertexDataOrZeros->0:PerVertexData 188070
+    Object _2Null;// 3:IsNullFix2->3:Null 188069
+    Object _3As;// 3:IsNullFix2->23:As 188067
+    Boolean _4Equal;// 3:IsNullFix2->1:Equal 188066
+    Func[Single, Single] _9Pass-through: function1;// 0:Pass-through: function1 188059
+    IArray[Single] _10Map;// 1:PerVertexDataTransform->3:Map 188061
+    TriMesh _11SetPerVertexData;// 1:PerVertexDataTransform->5:SetPerVertexData 188060
+    _0Zero = Zero();
+    _1PerVertexData = PerVertexData(mesh, _0Zero);
+    _2Null = Null();
+    _3As = As(_1PerVertexData, (Object x0) => 
+      {
+        Object _0IgnoreFirst;// 3:IsNullFix2->5:IgnoreFirst 188068
+        _0IgnoreFirst = IgnoreFirst(x0, _2Null);
+        _0IgnoreFirst;
+        });
+    _4Equal = Equal(_3As, _2Null);
+    _9Pass-through: function1 = (Single x0) => 
+      {
+        Single _0ClampFloat;// 3:ClampFloat 188079
+        _0ClampFloat = ClampFloat(x0, minimum, maximum);
+        _0ClampFloat;
+        };
+    _10Map = Map(if (_4Equal)
+      {
+        Single _5FloatZero;// 1:PerVertexDataOrZeros->8:FloatZero 188076
+        IArray[Vector3] _6MeshVertices;// 7:ArrayPerVertex->1:MeshVertices 188075
+        Int32 _7Count;// 7:ArrayPerVertex->2:Count 188074
+        IArray[Single] _8ArrayOf;// 7:ArrayPerVertex->3:ArrayOf 188073
+        _5FloatZero = FloatZero();
+        _6MeshVertices = MeshVertices(mesh);
+        _7Count = Count(_6MeshVertices);
+        _8ArrayOf = ArrayOf(_5FloatZero, _7Count);
+        _8ArrayOf;
+        }else
+      {
+        _1PerVertexData;
+        }, _9Pass-through: function1);
+    _11SetPerVertexData = SetPerVertexData(mesh, _0Zero, _10Map);
+    _11SetPerVertexData;
+    }

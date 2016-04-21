@@ -1,0 +1,371 @@
+(InstanceState state, TriMesh mesh, Int32 flux channel, Boolean keep only overlapping) => 
+  {
+    MapChannel _0GetMapChannel;// 19:MatricesFromMapChannel->9:GetMapChannel 173467
+    IArray[Vector3] _1MapChannelVertexBuffer;// 19:MatricesFromMapChannel->8:MapChannelVertexBuffer 173466
+    Int32 _2Count;// 2:Slices->2:Count 173463
+    Int32 _3Constant;// 19:MatricesFromMapChannel->0:Constant 173468
+    Int32 _4Divide;// 2:Slices->3:Divide 173462
+    IArray[Int32] _5Range;// 2:Slices->4:Range 173461
+    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 173460
+    IArray[Matrix] _7Map;// 19:MatricesFromMapChannel->5:Map 173457
+    IArray[Matrix] _51Pass-through: array;// 0:Pass-through: array 173362
+    Func[Matrix, IArray[Vector3]] _52Pass-through: function1;// 0:Pass-through: function1 173365
+    IArray[IArray[Vector3]] _53Map;// 5:FlatMap->4:Map 173367
+    IArray[Vector3] _54Flatten;// 5:FlatMap->3:Flatten 173366
+    IArray[Int32] _55MeshIndices;// 6:StoreMatricesInMapChannel->0:MeshIndices 173376
+    TriMesh _56SetMapChannel;// 6:StoreMatricesInMapChannel->7:SetMapChannel 173363
+    _0GetMapChannel = GetMapChannel(mesh, flux channel);
+    _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
+    _2Count = Count(_1MapChannelVertexBuffer);
+    _3Constant = 4;
+    _4Divide = Divide(_2Count, _3Constant);
+    _5Range = Range(_4Divide);
+    _6Map = Map(_5Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 2:Slices->6:Multiply 173465
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 173464
+        _0Multiply = Multiply(_3Constant, x0);
+        _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
+        _1Slice;
+        });
+    _7Map = Map(_6Map, (IArray[Vector3] x0) => 
+      {
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 173477
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 173478
+        Int32 _2Zero;// 6:MatrixFromRows->7:Zero 173482
+        Vector3 _3At;// 6:MatrixFromRows->3:At 173481
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 173476
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 173479
+        Int32 _6One;// 8:PlusOne->1:One 173486
+        Int32 _7Add;// 8:PlusOne->0:Add 173485
+        Vector3 _8At;// 6:MatrixFromRows->4:At 173483
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 173475
+        Int32 _10Constant;// 25:Three->0:Constant 173480
+        Int32 _11One;// 9:PlusOne->1:One 173490
+        Int32 _12Add;// 9:PlusOne->0:Add 173489
+        Vector3 _13At;// 6:MatrixFromRows->5:At 173487
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 173474
+        Int32 _15One;// 10:PlusOne->1:One 173494
+        Int32 _16Add;// 10:PlusOne->0:Add 173493
+        Vector3 _17At;// 6:MatrixFromRows->6:At 173491
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows->2:SetMatrixTranslation 173470
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2Zero = Zero();
+        _3At = At(x0, _2Zero);
+        _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+        _5Two = Two();
+        _6One = One();
+        _7Add = Add(_2Zero, _6One);
+        _8At = At(x0, _7Add);
+        _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+        _10Constant = 3;
+        _11One = One();
+        _12Add = Add(_7Add, _11One);
+        _13At = At(x0, _12Add);
+        _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+        _15One = One();
+        _16Add = Add(_12Add, _15One);
+        _17At = At(x0, _16Add);
+        _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+        _18SetMatrixTranslation;
+        });
+    _51Pass-through: array = if (keep only overlapping)
+      {
+        IArray[Int32] _8Indices;// 0:ZipWithIndices->2:Indices 173393
+        IArray[Tuple[Matrix, Int32]] _9Combine;// 0:ZipToTuple->0:Combine 173391
+        IArray[Vector3] _10Map;// 14:MatrixPositions->1:Map 173453
+        Int32 _11Count;// 3:LastIndex->2:Count 173439
+        Int32 _12One;// 3:MinusOne->2:One 173438
+        Int32 _13Subtract;// 3:MinusOne->1:Subtract 173437
+        IArray[Vector3] _14Take;// 1:DropLast->2:Take 173434
+        Int32 _15One;// 2:SkipOne->2:One 173442
+        IArray[Vector3] _16Skip;// 2:SkipOne->3:Skip 173441
+        Func[Vector3, Vector3, Vector3] _17Pass-through: function2;// 0:Pass-through: function2 173431
+        IArray[Vector3] _18Combine;// 1:CombinePairwiseElements->3:Combine 173432
+        IArray[Boolean] _19Map;// 0:PointsOverlappingNeighbours->1:Map 173428
+        Boolean _20True;// 0:PointsOverlappingNeighbours->6:True 173449
+        IArray[Boolean] _21Append;// 0:PointsOverlappingNeighbours->4:Append 173427
+        IArray[Boolean] _22Prepend;// 0:PointsOverlappingNeighbours->9:Prepend 173450
+        IArray[Boolean] _23Combine;// 0:PointsOverlappingNeighbours->10:Combine 173426
+        IArray[Boolean] _24Map;// 4:NegateBooleanValues->2:Map 173423
+        Func[Int32, Boolean] _25Pass-through: function1;// 0:Pass-through: function1 173385
+        Int32 _26Zero;// 16:First->2:Zero 173407
+        Matrix _27At;// 16:First->0:At 173406
+        IArray[Tuple[Matrix, Int32]] _28Filter;// 2:FilterIndices->1:Filter 173387
+        IArray[Matrix] _29Map;// 2:FilterIndices->13:Map 173386
+        _8Indices = Indices(_7Map);
+        _9Combine = Combine(_7Map, _8Indices, (Matrix x0, Int32 x1) => 
+          {
+            Tuple[Matrix, Int32] _0Pair;// 0:ZipToTuple->4:Pair 173392
+            _0Pair = Pair(x0, x1);
+            _0Pair;
+            });
+        _10Map = Map(_7Map, (Matrix x0) => 
+          {
+            Vector3 _0GetMatrixTranslation;// 14:MatrixPositions->2:GetMatrixTranslation 173454
+            _0GetMatrixTranslation = GetMatrixTranslation(x0);
+            _0GetMatrixTranslation;
+            });
+        _11Count = Count(_10Map);
+        _12One = One();
+        _13Subtract = Subtract(_11Count, _12One);
+        _14Take = Take(_10Map, _13Subtract);
+        _15One = One();
+        _16Skip = Skip(_10Map, _15One);
+        _17Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Subtract;// 7:AdjacentDifferences->2:Subtract 173443
+            _0Subtract = Subtract(x0, x1);
+            _0Subtract;
+            };
+        _18Combine = Combine(_14Take, _16Skip, _17Pass-through: function2);
+        _19Map = Map(_18Combine, (Vector3 x0) => 
+          {
+            Single _0Length;// 2:VectorIsSmall->3:Length 173447
+            Single _1Constant;// 4:VectorLengthEpsilon->0:Constant 173448
+            Boolean _2LessThan;// 2:VectorIsSmall->5:LessThan 173446
+            Boolean _3Not;// 0:PointsOverlappingNeighbours->8:Not 173444
+            _0Length = Length(x0);
+            _1Constant = 1E-06;
+            _2LessThan = LessThan(_0Length, _1Constant);
+            _3Not = Not(_2LessThan);
+            _3Not;
+            });
+        _20True = True();
+        _21Append = Append(_19Map, _20True);
+        _22Prepend = Prepend(_19Map, _20True);
+        _23Combine = Combine(_21Append, _22Prepend, (Boolean x0, Boolean x1) => 
+          {
+            Boolean _0AndAlso;// 0:PointsOverlappingNeighbours->11:AndAlso 173451
+            _0AndAlso = AndAlso(x0, x1);
+            _0AndAlso;
+            });
+        _24Map = Map(_23Combine, (Boolean x0) => 
+          {
+            Boolean _0Not;// 4:NegateBooleanValues->3:Not 173424
+            _0Not = Not(x0);
+            _0Not;
+            });
+        _25Pass-through: function1 = (Int32 x0) => 
+          {
+            Boolean _0At;// 12:FilterUsingBooleans->4:At 173421
+            _0At = At(_24Map, x0);
+            _0At;
+            };
+        _26Zero = Zero();
+        _27At = At(_7Map, _26Zero);
+        _28Filter = Filter(_9Combine, (Tuple[Matrix, Int32] x0) => 
+          {
+            Matrix _0PairItem1;// 2:FilterIndices->7:PairItem1 173403
+            Matrix _1Apply1;// 5:IgnoreSecondSameType->6:Apply1 173400
+            Matrix _2Apply1;// 5:IgnoreSecondSameType->2:Apply1 173402
+            Matrix _3IgnoreSecond;// 5:IgnoreSecondSameType->3:IgnoreSecond 173399
+            Int32 _4PairItem2;// 2:FilterIndices->8:PairItem2 173409
+            Int32 _5IgnoreFirst;// 2:FilterIndices->11:IgnoreFirst 173396
+            Boolean _6Apply1;// 2:FilterIndices->6:Apply1 173395
+            _0PairItem1 = PairItem1(x0);
+            _1Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 5:IgnoreSecondSameType->7:Identity 173401
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _0PairItem1);
+            _2Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 5:IgnoreSecondSameType->7:Identity 173401
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _27At);
+            _3IgnoreSecond = IgnoreSecond(_1Apply1, _2Apply1);
+            _4PairItem2 = PairItem2(x0);
+            _5IgnoreFirst = IgnoreFirst(_3IgnoreSecond, _4PairItem2);
+            _6Apply1 = Apply1(_25Pass-through: function1, _5IgnoreFirst);
+            _6Apply1;
+            });
+        _29Map = Map(_28Filter, (Tuple[Matrix, Int32] x0) => 
+          {
+            Matrix _0PairItem1;// 2:FilterIndices->14:PairItem1 173417
+            Int32 _1PairItem2;// 2:FilterIndices->19:PairItem2 173420
+            Matrix _2IgnoreSecond;// 2:FilterIndices->20:IgnoreSecond 173416
+            Matrix _3Apply1;// 15:IgnoreSecondSameType->6:Apply1 173413
+            Matrix _4Apply1;// 15:IgnoreSecondSameType->2:Apply1 173415
+            Matrix _5IgnoreSecond;// 15:IgnoreSecondSameType->3:IgnoreSecond 173412
+            _0PairItem1 = PairItem1(x0);
+            _1PairItem2 = PairItem2(x0);
+            _2IgnoreSecond = IgnoreSecond(_0PairItem1, _1PairItem2);
+            _3Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 15:IgnoreSecondSameType->7:Identity 173414
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _2IgnoreSecond);
+            _4Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 15:IgnoreSecondSameType->7:Identity 173414
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _27At);
+            _5IgnoreSecond = IgnoreSecond(_3Apply1, _4Apply1);
+            _5IgnoreSecond;
+            });
+        _29Map;
+        }else
+      {
+        IArray[Int32] _30Indices;// 0:ZipWithIndices->2:Indices 173507
+        IArray[Tuple[Matrix, Int32]] _31Combine;// 0:ZipToTuple->0:Combine 173505
+        IArray[Vector3] _32Map;// 14:MatrixPositions->1:Map 173564
+        Int32 _33Count;// 3:LastIndex->2:Count 173550
+        Int32 _34One;// 3:MinusOne->2:One 173549
+        Int32 _35Subtract;// 3:MinusOne->1:Subtract 173548
+        IArray[Vector3] _36Take;// 1:DropLast->2:Take 173545
+        Int32 _37One;// 2:SkipOne->2:One 173553
+        IArray[Vector3] _38Skip;// 2:SkipOne->3:Skip 173552
+        Func[Vector3, Vector3, Vector3] _39Pass-through: function2;// 0:Pass-through: function2 173542
+        IArray[Vector3] _40Combine;// 1:CombinePairwiseElements->3:Combine 173543
+        IArray[Boolean] _41Map;// 0:PointsOverlappingNeighbours->1:Map 173539
+        Boolean _42True;// 0:PointsOverlappingNeighbours->6:True 173560
+        IArray[Boolean] _43Append;// 0:PointsOverlappingNeighbours->4:Append 173538
+        IArray[Boolean] _44Prepend;// 0:PointsOverlappingNeighbours->9:Prepend 173561
+        IArray[Boolean] _45Combine;// 0:PointsOverlappingNeighbours->10:Combine 173537
+        Func[Int32, Boolean] _46Pass-through: function1;// 0:Pass-through: function1 173499
+        Int32 _47Zero;// 16:First->2:Zero 173521
+        Matrix _48At;// 16:First->0:At 173520
+        IArray[Tuple[Matrix, Int32]] _49Filter;// 2:FilterIndices->1:Filter 173501
+        IArray[Matrix] _50Map;// 2:FilterIndices->13:Map 173500
+        _30Indices = Indices(_7Map);
+        _31Combine = Combine(_7Map, _30Indices, (Matrix x0, Int32 x1) => 
+          {
+            Tuple[Matrix, Int32] _0Pair;// 0:ZipToTuple->4:Pair 173506
+            _0Pair = Pair(x0, x1);
+            _0Pair;
+            });
+        _32Map = Map(_7Map, (Matrix x0) => 
+          {
+            Vector3 _0GetMatrixTranslation;// 14:MatrixPositions->2:GetMatrixTranslation 173565
+            _0GetMatrixTranslation = GetMatrixTranslation(x0);
+            _0GetMatrixTranslation;
+            });
+        _33Count = Count(_32Map);
+        _34One = One();
+        _35Subtract = Subtract(_33Count, _34One);
+        _36Take = Take(_32Map, _35Subtract);
+        _37One = One();
+        _38Skip = Skip(_32Map, _37One);
+        _39Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Subtract;// 7:AdjacentDifferences->2:Subtract 173554
+            _0Subtract = Subtract(x0, x1);
+            _0Subtract;
+            };
+        _40Combine = Combine(_36Take, _38Skip, _39Pass-through: function2);
+        _41Map = Map(_40Combine, (Vector3 x0) => 
+          {
+            Single _0Length;// 2:VectorIsSmall->3:Length 173558
+            Single _1Constant;// 4:VectorLengthEpsilon->0:Constant 173559
+            Boolean _2LessThan;// 2:VectorIsSmall->5:LessThan 173557
+            Boolean _3Not;// 0:PointsOverlappingNeighbours->8:Not 173555
+            _0Length = Length(x0);
+            _1Constant = 1E-06;
+            _2LessThan = LessThan(_0Length, _1Constant);
+            _3Not = Not(_2LessThan);
+            _3Not;
+            });
+        _42True = True();
+        _43Append = Append(_41Map, _42True);
+        _44Prepend = Prepend(_41Map, _42True);
+        _45Combine = Combine(_43Append, _44Prepend, (Boolean x0, Boolean x1) => 
+          {
+            Boolean _0AndAlso;// 0:PointsOverlappingNeighbours->11:AndAlso 173562
+            _0AndAlso = AndAlso(x0, x1);
+            _0AndAlso;
+            });
+        _46Pass-through: function1 = (Int32 x0) => 
+          {
+            Boolean _0At;// 12:FilterUsingBooleans->4:At 173535
+            _0At = At(_45Combine, x0);
+            _0At;
+            };
+        _47Zero = Zero();
+        _48At = At(_7Map, _47Zero);
+        _49Filter = Filter(_31Combine, (Tuple[Matrix, Int32] x0) => 
+          {
+            Matrix _0PairItem1;// 2:FilterIndices->7:PairItem1 173517
+            Matrix _1Apply1;// 5:IgnoreSecondSameType->6:Apply1 173514
+            Matrix _2Apply1;// 5:IgnoreSecondSameType->2:Apply1 173516
+            Matrix _3IgnoreSecond;// 5:IgnoreSecondSameType->3:IgnoreSecond 173513
+            Int32 _4PairItem2;// 2:FilterIndices->8:PairItem2 173523
+            Int32 _5IgnoreFirst;// 2:FilterIndices->11:IgnoreFirst 173510
+            Boolean _6Apply1;// 2:FilterIndices->6:Apply1 173509
+            _0PairItem1 = PairItem1(x0);
+            _1Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 5:IgnoreSecondSameType->7:Identity 173515
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _0PairItem1);
+            _2Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 5:IgnoreSecondSameType->7:Identity 173515
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _48At);
+            _3IgnoreSecond = IgnoreSecond(_1Apply1, _2Apply1);
+            _4PairItem2 = PairItem2(x0);
+            _5IgnoreFirst = IgnoreFirst(_3IgnoreSecond, _4PairItem2);
+            _6Apply1 = Apply1(_46Pass-through: function1, _5IgnoreFirst);
+            _6Apply1;
+            });
+        _50Map = Map(_49Filter, (Tuple[Matrix, Int32] x0) => 
+          {
+            Matrix _0PairItem1;// 2:FilterIndices->14:PairItem1 173531
+            Int32 _1PairItem2;// 2:FilterIndices->19:PairItem2 173534
+            Matrix _2IgnoreSecond;// 2:FilterIndices->20:IgnoreSecond 173530
+            Matrix _3Apply1;// 15:IgnoreSecondSameType->6:Apply1 173527
+            Matrix _4Apply1;// 15:IgnoreSecondSameType->2:Apply1 173529
+            Matrix _5IgnoreSecond;// 15:IgnoreSecondSameType->3:IgnoreSecond 173526
+            _0PairItem1 = PairItem1(x0);
+            _1PairItem2 = PairItem2(x0);
+            _2IgnoreSecond = IgnoreSecond(_0PairItem1, _1PairItem2);
+            _3Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 15:IgnoreSecondSameType->7:Identity 173528
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _2IgnoreSecond);
+            _4Apply1 = Apply1((Matrix x0) => 
+              {
+                Matrix _0Identity;// 15:IgnoreSecondSameType->7:Identity 173528
+                _0Identity = Identity(x0);
+                _0Identity;
+                }, _48At);
+            _5IgnoreSecond = IgnoreSecond(_3Apply1, _4Apply1);
+            _5IgnoreSecond;
+            });
+        _50Map;
+        };
+    _52Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows->0:Constant 173371
+        IArray[Int32] _1Range;// 3:MatrixRows->1:Range 173370
+        IArray[Vector3] _2Map;// 3:MatrixRows->3:Map 173369
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 173375
+            Int32 _1Add;// 5:PlusOne->0:Add 173374
+            Vector3 _2MatrixRow;// 3:MatrixRows->4:MatrixRow 173372
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _53Map = Map(_51Pass-through: array, _52Pass-through: function1);
+    _54Flatten = Flatten(_53Map);
+    _55MeshIndices = MeshIndices(mesh);
+    _56SetMapChannel = SetMapChannel(mesh, flux channel, _54Flatten, _55MeshIndices);
+    _56SetMapChannel;
+    }

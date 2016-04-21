@@ -1,0 +1,106 @@
+(InstanceState state, Int32 count, Single radius, TriMesh mesh) => 
+  {
+    Boolean _0False;// 10:CircleOfPoints->1:False 186971
+    Single _1Constant;// 10:CircleOfPoints->0:Constant 186972
+    Single _2ToRadians;// 0:CircularArcOfPointsFix->5:ToRadians 186960
+    Vector3 _7XAxis;// 30:AlongXAxis->0:XAxis 186976
+    Vector3 _8MultiplyByScalar;// 30:AlongXAxis->1:MultiplyByScalar 186975
+    Vector3 _9ZAxis;// 7:ZAxis 186978
+    IArray[Vector3] _10Map;// 0:CircularArcOfPointsFix->6:Map 186953
+    IArray[Matrix] _11Map;// 13:Map 186944
+    IArray[TriMesh] _12Map;// 15:Map 186943
+    TriMesh _13CombineAllMeshes;// 18:CombineAllMeshes 186942
+    _0False = False();
+    _1Constant = 360;
+    _2ToRadians = ToRadians(_1Constant);
+    _7XAxis = XAxis();
+    _8MultiplyByScalar = MultiplyByScalar(_7XAxis, radius);
+    _9ZAxis = ZAxis();
+    _10Map = Map(if (_0False)
+      {
+        IArray[Single] _3RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 186958
+        IArray[Single] _4Map;// 0:RangeInclusiveFloatTo->2:Map 186957
+        _3RangeInclusiveFloat = RangeInclusiveFloat(count);
+        _4Map = Map(_3RangeInclusiveFloat, (Single x0) => 
+          {
+            Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 186959
+            _0Multiply = Multiply(x0, _2ToRadians);
+            _0Multiply;
+            });
+        _4Map;
+        }else
+      {
+        IArray[Single] _5RangeExclusiveFloat;// 10:RangeExclusiveFloatTo->0:RangeExclusiveFloat 186964
+        IArray[Single] _6Map;// 10:RangeExclusiveFloatTo->2:Map 186963
+        _5RangeExclusiveFloat = RangeExclusiveFloat(count);
+        _6Map = Map(_5RangeExclusiveFloat, (Single x0) => 
+          {
+            Single _0Multiply;// 10:RangeExclusiveFloatTo->1:Multiply 186965
+            _0Multiply = Multiply(x0, _2ToRadians);
+            _0Multiply;
+            });
+        _6Map;
+        }, (Single x0) => 
+      {
+        Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 186970
+        Vector3 _1Transform;// 3:RotatePoint->2:Transform 186969
+        _0MatrixFromAxisAngle = MatrixFromAxisAngle(_9ZAxis, x0);
+        _1Transform = Transform(_8MultiplyByScalar, _0MatrixFromAxisAngle);
+        _1Transform;
+        });
+    _11Map = Map(_10Map, (Vector3 x0) => 
+      {
+        Matrix _0MatrixIdentity;// 11:3dsMaxLookAtMatrix->8:MatrixIdentity 186986
+        Int32 _1One;// 11:3dsMaxLookAtMatrix->7:One 186987
+        Vector3 _2ZAxis;// 14:LookAtAndTranslateTo->4:ZAxis 186996
+        Vector3 _3Normalize;// 11:3dsMaxLookAtMatrix->14:Normalize 186991
+        Vector3 _4Normalize;// 11:3dsMaxLookAtMatrix->1:Normalize 186992
+        Vector3 _5Cross;// 11:3dsMaxLookAtMatrix->2:Cross 186990
+        Vector3 _6Cross;// 11:3dsMaxLookAtMatrix->4:Cross 186989
+        Vector3 _7Normalize;// 11:3dsMaxLookAtMatrix->5:Normalize 186988
+        Matrix _8SetMatrixRow;// 11:3dsMaxLookAtMatrix->6:SetMatrixRow 186985
+        Int32 _9Two;// 11:3dsMaxLookAtMatrix->10:Two 186993
+        Vector3 _10Normalize;// 11:3dsMaxLookAtMatrix->11:Normalize 186994
+        Matrix _11SetMatrixRow;// 11:3dsMaxLookAtMatrix->9:SetMatrixRow 186984
+        Int32 _12Constant;// 11:3dsMaxLookAtMatrix->0:Constant 186995
+        Matrix _13SetMatrixRow;// 11:3dsMaxLookAtMatrix->12:SetMatrixRow 186983
+        Matrix _14TranslationMatrix;// 14:LookAtAndTranslateTo->9:TranslationMatrix 186997
+        Matrix _15Multiply;// 14:LookAtAndTranslateTo->7:Multiply 186980
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2ZAxis = ZAxis();
+        _3Normalize = Normalize(_2ZAxis);
+        _4Normalize = Normalize(x0);
+        _5Cross = Cross(_3Normalize, _4Normalize);
+        _6Cross = Cross(_5Cross, _3Normalize);
+        _7Normalize = Normalize(_6Cross);
+        _8SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _7Normalize);
+        _9Two = Two();
+        _10Normalize = Normalize(_5Cross);
+        _11SetMatrixRow = SetMatrixRow(_8SetMatrixRow, _9Two, _10Normalize);
+        _12Constant = 3;
+        _13SetMatrixRow = SetMatrixRow(_11SetMatrixRow, _12Constant, _3Normalize);
+        _14TranslationMatrix = TranslationMatrix(x0);
+        _15Multiply = Multiply(_13SetMatrixRow, _14TranslationMatrix);
+        _15Multiply;
+        });
+    _12Map = Map(_11Map, (Matrix x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 187004
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 187001
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 187003
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 187002
+        _0MeshVertices = MeshVertices(mesh);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 16:TransformMesh->0:Transform 187005
+            _0Transform = Transform(x0, x0);
+            _0Transform;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(mesh, _2Map);
+        _3SetMeshVertices;
+        });
+    _13CombineAllMeshes = CombineAllMeshes(_12Map);
+    _13CombineAllMeshes;
+    }

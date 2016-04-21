@@ -1,0 +1,67 @@
+(InstanceState state, INode Parent, TriMesh mesh, Boolean InvertX, Matrix modifierTransform, Boolean InvertY, Boolean InvertZ) => 
+  {
+    Boolean _0IsValidNode;// 18:IsValidNode 186687
+    _0IsValidNode = IsValidNode(Parent);
+    if (_0IsValidNode)
+      {
+        IArray[Vector3] _1MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 186695
+        Matrix _2ObjectTransformBeforeWSM;// 29:NodeTMInLocalSpace->3:ObjectTransformBeforeWSM 186708
+        Matrix _3InvertMatrix;// 29:NodeTMInLocalSpace->2:InvertMatrix 186709
+        Matrix _4Multiply;// 29:NodeTMInLocalSpace->4:Multiply 186707
+        Vector3 _5GetMatrixTranslation;// 4:GetMatrixTranslation 186704
+        Single _6X;// 9:X 186703
+        Single _8Y;// 10:Y 186714
+        Single _10Z;// 11:Z 186718
+        Vector3 _12Vector3;// 12:Vector3 186699
+        Matrix _13TranslationMatrix;// 5:TranslationMatrix 186698
+        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 186692
+        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 186694
+        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 186693
+        _1MeshVertices = MeshVertices(mesh);
+        _2ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(Parent);
+        _3InvertMatrix = InvertMatrix(modifierTransform);
+        _4Multiply = Multiply(_2ObjectTransformBeforeWSM, _3InvertMatrix);
+        _5GetMatrixTranslation = GetMatrixTranslation(_4Multiply);
+        _6X = X(_5GetMatrixTranslation);
+        _8Y = Y(_5GetMatrixTranslation);
+        _10Z = Z(_5GetMatrixTranslation);
+        _12Vector3 = Vector3(if (InvertX)
+          {
+            Single _7NegativeFloat;// 8:NegativeFloat 186702
+            _7NegativeFloat = NegativeFloat(_6X);
+            _7NegativeFloat;
+            }else
+          {
+            _6X;
+            }, if (InvertY)
+          {
+            Single _9NegativeFloat;// 3:NegativeFloat 186713
+            _9NegativeFloat = NegativeFloat(_8Y);
+            _9NegativeFloat;
+            }else
+          {
+            _8Y;
+            }, if (InvertZ)
+          {
+            Single _11NegativeFloat;// 16:NegativeFloat 186717
+            _11NegativeFloat = NegativeFloat(_10Z);
+            _11NegativeFloat;
+            }else
+          {
+            _10Z;
+            });
+        _13TranslationMatrix = TranslationMatrix(_12Vector3);
+        _14Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 2:TransformMesh->0:Transform 186696
+            _0Transform = Transform(x0, _13TranslationMatrix);
+            _0Transform;
+            };
+        _15Map = Map(_1MeshVertices, _14Pass-through: function1);
+        _16SetMeshVertices = SetMeshVertices(mesh, _15Map);
+        _16SetMeshVertices;
+        }else
+      {
+        mesh;
+        };
+    }

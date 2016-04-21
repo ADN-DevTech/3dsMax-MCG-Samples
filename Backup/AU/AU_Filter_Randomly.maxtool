@@ -1,0 +1,39 @@
+<graph version="0.50" uuid="625e1cbd-1820-4eee-b48e-9f2f8ae148e0">
+    <meta_info>
+        <graph_version guid="bb40411a-d5b8-40ac-875b-20a2a8bc1017" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="StoreMatricesInMapChannel" id="6" position="1164:246" size="280:165" />
+        <node operator="MatricesFromMapChannel" id="19" position="276:252" size="220:141" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-3" max_value="101" default_value="2" position="96:283" size="140:189" />
+        <node operator="Modifier: TriMesh" id="1" position="88:189" size="140:93" />
+        <node operator="Output: modifier" id="4" position="1500:300" size="140:69" />
+        <node operator="FilterRandomly" id="0" position="850:304" size="140:165" />
+        <node operator="RandomNumberGenerator" id="3" position="849:496" size="140:117" />
+        <node operator="Parameter: Int32" id="5" name="seed" min_value="0" max_value="10000" default_value="0" position="629:356" size="140:189" />
+        <node operator="Parameter: Single" id="7" name="probability" min_value="0" max_value="100" default_value="50" system_units_value="false" position="669:96" size="140:213" />
+        <node operator="DivideBy100" id="8" position="837:126" size="140:117" />
+        <node groupnode="Get flux matrices" id="12" position="60:160" size="454:324" bg_color="#ff646464">
+            <nodes>19,2,1</nodes>
+        </node>
+        <node groupnode="Store flux matrices" id="15" position="1140:180" size="313:266" bg_color="#ff646464">
+            <nodes>6</nodes>
+        </node>
+        <node groupnode="Filter items with a given probability" id="9" position="600:60" size="482:573" bg_color="#ff646464">
+            <nodes>0,3,5,7,8</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

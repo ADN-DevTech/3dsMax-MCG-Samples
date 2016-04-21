@@ -1,0 +1,113 @@
+(InstanceState state, TriMesh mesh, Int32 flux channel, Single probability, Int32 seed) => 
+  {
+    MapChannel _0GetMapChannel;// 19:MatricesFromMapChannel->9:GetMapChannel 162737
+    IArray[Vector3] _1MapChannelVertexBuffer;// 19:MatricesFromMapChannel->8:MapChannelVertexBuffer 162736
+    Int32 _2Count;// 2:Slices->2:Count 162733
+    Int32 _3Constant;// 19:MatricesFromMapChannel->0:Constant 162738
+    Int32 _4Divide;// 2:Slices->3:Divide 162732
+    IArray[Int32] _5Range;// 2:Slices->4:Range 162731
+    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 162730
+    IArray[Matrix] _7Map;// 19:MatricesFromMapChannel->5:Map 162727
+    Random _8RandomNumberGenerator;// 3:RandomNumberGenerator 162769
+    Func[Matrix, Boolean] _9Bind2of2;// 0:FilterRandomly->5:Bind2of2 162721
+    IArray[Matrix] _10Filter;// 0:FilterRandomly->6:Filter 162720
+    Func[Matrix, IArray[Vector3]] _11Pass-through: function1;// 0:Pass-through: function1 162703
+    IArray[IArray[Vector3]] _12Map;// 5:FlatMap->4:Map 162705
+    IArray[Vector3] _13Flatten;// 5:FlatMap->3:Flatten 162704
+    IArray[Int32] _14MeshIndices;// 6:StoreMatricesInMapChannel->0:MeshIndices 162714
+    TriMesh _15SetMapChannel;// 6:StoreMatricesInMapChannel->7:SetMapChannel 162701
+    _0GetMapChannel = GetMapChannel(mesh, flux channel);
+    _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
+    _2Count = Count(_1MapChannelVertexBuffer);
+    _3Constant = 4;
+    _4Divide = Divide(_2Count, _3Constant);
+    _5Range = Range(_4Divide);
+    _6Map = Map(_5Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 2:Slices->6:Multiply 162735
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 162734
+        _0Multiply = Multiply(_3Constant, x0);
+        _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
+        _1Slice;
+        });
+    _7Map = Map(_6Map, (IArray[Vector3] x0) => 
+      {
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 162747
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 162748
+        Int32 _2Zero;// 6:MatrixFromRows->7:Zero 162752
+        Vector3 _3At;// 6:MatrixFromRows->3:At 162751
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 162746
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 162749
+        Int32 _6One;// 8:PlusOne->1:One 162756
+        Int32 _7Add;// 8:PlusOne->0:Add 162755
+        Vector3 _8At;// 6:MatrixFromRows->4:At 162753
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 162745
+        Int32 _10Constant;// 25:Three->0:Constant 162750
+        Int32 _11One;// 9:PlusOne->1:One 162760
+        Int32 _12Add;// 9:PlusOne->0:Add 162759
+        Vector3 _13At;// 6:MatrixFromRows->5:At 162757
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 162744
+        Int32 _15One;// 10:PlusOne->1:One 162764
+        Int32 _16Add;// 10:PlusOne->0:Add 162763
+        Vector3 _17At;// 6:MatrixFromRows->6:At 162761
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows->2:SetMatrixTranslation 162740
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2Zero = Zero();
+        _3At = At(x0, _2Zero);
+        _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+        _5Two = Two();
+        _6One = One();
+        _7Add = Add(_2Zero, _6One);
+        _8At = At(x0, _7Add);
+        _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+        _10Constant = 3;
+        _11One = One();
+        _12Add = Add(_7Add, _11One);
+        _13At = At(x0, _12Add);
+        _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+        _15One = One();
+        _16Add = Add(_12Add, _15One);
+        _17At = At(x0, _16Add);
+        _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+        _18SetMatrixTranslation;
+        });
+    _8RandomNumberGenerator = RandomNumberGenerator(seed);
+    _9Bind2of2 = Bind2of2((Matrix x0, Random x1) => 
+      {
+        Single _0Constant;// 8:DivideBy100->0:Constant 162767
+        Single _1Divide;// 8:DivideBy100->2:Divide 162766
+        Boolean _2LessThanOrEqual;// 0:FilterRandomly->4:LessThanOrEqual 162723
+        Boolean _3IgnoreFirst;// 0:FilterRandomly->8:IgnoreFirst 162722
+        _0Constant = 100;
+        _1Divide = Divide(probability, _0Constant);
+        _2LessThanOrEqual = LessThanOrEqual(PseudoRandomFloat(x1), _1Divide);
+        _3IgnoreFirst = IgnoreFirst(x0, _2LessThanOrEqual);
+        _3IgnoreFirst;
+        }, _8RandomNumberGenerator);
+    _10Filter = Filter(_7Map, _9Bind2of2);
+    _11Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows->0:Constant 162709
+        IArray[Int32] _1Range;// 3:MatrixRows->1:Range 162708
+        IArray[Vector3] _2Map;// 3:MatrixRows->3:Map 162707
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 162713
+            Int32 _1Add;// 5:PlusOne->0:Add 162712
+            Vector3 _2MatrixRow;// 3:MatrixRows->4:MatrixRow 162710
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _12Map = Map(_10Filter, _11Pass-through: function1);
+    _13Flatten = Flatten(_12Map);
+    _14MeshIndices = MeshIndices(mesh);
+    _15SetMapChannel = SetMapChannel(mesh, flux channel, _13Flatten, _14MeshIndices);
+    _15SetMapChannel;
+    }

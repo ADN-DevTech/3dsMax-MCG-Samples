@@ -1,0 +1,65 @@
+(InstanceState state, TriMesh mesh, INode node, Matrix modifierTransform, Single falloff, Single bubble, Single pinch) => 
+  {
+    Int32 _0Zero;// 15:Zero 188016
+    IArray[Vector3] _1MeshVertices;// 5:MeshVertexCount->1:MeshVertices 188014
+    Int32 _2Count;// 5:MeshVertexCount->2:Count 188013
+    IArray[Vector3] _3MeshVertices;// 1:MeshVertices 188018
+    Boolean _4IsValidNode;// 7:NodePositionInLocalSpaceOrTarget->2:IsValidNode 188027
+    IArray[Single] _11Map;// 10:Map 188017
+    Int32 _12Count;// 4:SetCount->5:Count 188005
+    Boolean _13GreaterThan;// 4:SetCount->4:GreaterThan 188004
+    TriMesh _20SetPerVertexData;// 11:SetPerVetexDataResize->0:SetPerVertexData 188000
+    _0Zero = Zero();
+    _1MeshVertices = MeshVertices(mesh);
+    _2Count = Count(_1MeshVertices);
+    _3MeshVertices = MeshVertices(mesh);
+    _4IsValidNode = IsValidNode(node);
+    _11Map = Map(_3MeshVertices, (Vector3 x0) => 
+      {
+        Single _6Distance;// 8:Distance 188020
+        Single _7AffectRegion;// 6:AffectRegion 188019
+        _6Distance = Distance(x0, if (_4IsValidNode)
+          {
+            Matrix _0ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace->3:ObjectTransformBeforeWSM 188034
+            Matrix _1InvertMatrix;// 1:NodeTMInLocalSpace->2:InvertMatrix 188035
+            Matrix _2Multiply;// 1:NodeTMInLocalSpace->4:Multiply 188033
+            Vector3 _3GetMatrixTranslation;// 1:NodePositionInLocalSpace->3:GetMatrixTranslation 188030
+            _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(node);
+            _1InvertMatrix = InvertMatrix(modifierTransform);
+            _2Multiply = Multiply(_0ObjectTransformBeforeWSM, _1InvertMatrix);
+            _3GetMatrixTranslation = GetMatrixTranslation(_2Multiply);
+            _3GetMatrixTranslation;
+            }else
+          {
+            Single _4Constant;// 4:Origin->0:Constant 188037
+            Vector3 _5Vector3;// 4:Origin->1:Vector3 188036
+            _4Constant = 0;
+            _5Vector3 = Vector3(_4Constant, _4Constant, _4Constant);
+            _5Vector3;
+            });
+        _7AffectRegion = AffectRegion(_6Distance, falloff, bubble, pinch);
+        _7AffectRegion;
+        });
+    _12Count = Count(_11Map);
+    _13GreaterThan = GreaterThan(_2Count, _12Count);
+    _20SetPerVertexData = SetPerVertexData(mesh, _0Zero, if (_13GreaterThan)
+      {
+        Single _14DefaultValueOfElement;// 4:SetCount->2:DefaultValueOfElement 188008
+        Int32 _15Subtract;// 4:SetCount->9:Subtract 188009
+        IArray[Single] _16ArrayOf;// 4:SetCount->8:ArrayOf 188007
+        IArray[Single] _17Concatenate;// 4:SetCount->10:Concatenate 188006
+        _14DefaultValueOfElement = DefaultValueOfElement(_11Map);
+        _15Subtract = Subtract(_2Count, _12Count);
+        _16ArrayOf = ArrayOf(_14DefaultValueOfElement, _15Subtract);
+        _17Concatenate = Concatenate(_11Map, _16ArrayOf);
+        _17Concatenate;
+        }else
+      {
+        Int32 _18Zero;// 4:SetCount->7:Zero 188011
+        IArray[Single] _19Slice;// 4:SetCount->6:Slice 188010
+        _18Zero = Zero();
+        _19Slice = Slice(_11Map, _18Zero, _2Count);
+        _19Slice;
+        });
+    _20SetPerVertexData;
+    }

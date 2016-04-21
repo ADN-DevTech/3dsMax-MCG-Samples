@@ -1,0 +1,44 @@
+<graph version="0.50" uuid="564fdd82-7b0d-4c29-943d-6d82646f46d5">
+    <meta_info>
+        <graph_version guid="df5d62c4-4134-4ba3-9f58-3a74a963116b" number="0.0.21" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="points" position="1080:60" size="140:117" />
+        <node operator="Output: compound" id="1" position="1800:140" size="120:69" />
+        <node operator="CreateMesh" id="2" position="1320:94" size="140:141" />
+        <node operator="ComputeTangents" id="3" position="1540:132" size="160:117" />
+        <node operator="FlatMap" id="6" position="1069:229" size="140:141" />
+        <node operator="Array3" id="7" position="884:263" size="140:165" />
+        <node operator="Zero" id="14" position="683:462" size="140:93" />
+        <node operator="Input: array" id="11" name="indices" position="9:249" size="140:117" />
+        <node operator="Slices" id="4" position="209:349" size="140:141" />
+        <node operator="Two" id="12" position="9:429" size="140:93" />
+        <node operator="Pass-through: array" id="5" position="449:249" size="140:117" />
+        <node operator="First" id="8" position="679:247" size="140:117" />
+        <node operator="Second" id="9" position="669:349" size="140:117" />
+        <node groupnode="Indices arranged by flat array of pairs" id="13" position="0:220" size="358:311" bg_color="#ff646464">
+            <nodes>11,4,12</nodes>
+        </node>
+        <node groupnode="Crete mesh representation with tangents" id="15" position="1300:60" size="435:233" bg_color="#ff646464">
+            <nodes>2,3</nodes>
+        </node>
+        <node groupnode="Convert to triangle face indices" id="10" position="440:200" size="778:364" bg_color="#ff646464">
+            <nodes>6,7,14,5,8,9</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="1" destnode="6" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,42 @@
+(InstanceState state, TriMesh mesh, Int32 # Clones, Single X Offset, Single Y Offset, Single Z Offset, Single Y Rotation, Single X Rotation, Single Z Rotation, Single scale) => 
+  {
+    Vector3 _0Vector3;// 6:Vector3 185739
+    Matrix _1TranslationMatrix;// 5:TranslationMatrix 185738
+    Single _2ToRadians;// 18:ToRadians 185744
+    Single _3ToRadians;// 17:ToRadians 185746
+    Single _4ToRadians;// 16:ToRadians 185748
+    Matrix _5MatrixFromYawPitchRoll;// 37:MatrixFromYawPitchRoll 185743
+    Matrix _6Multiply;// 10:Multiply 185737
+    Matrix _7ScaleMatrix;// 20:ScaleMatrix 185750
+    Matrix _8Multiply;// 19:Multiply 185736
+    IArray[TriMesh] _9GenerateN;// 2:CloneAndTransformMesh->3:GenerateN 185725
+    TriMesh _10CombineAllMeshes;// 4:CombineAllMeshes 185721
+    _0Vector3 = Vector3(X Offset, Y Offset, Z Offset);
+    _1TranslationMatrix = TranslationMatrix(_0Vector3);
+    _2ToRadians = ToRadians(Y Rotation);
+    _3ToRadians = ToRadians(X Rotation);
+    _4ToRadians = ToRadians(Z Rotation);
+    _5MatrixFromYawPitchRoll = MatrixFromYawPitchRoll(_2ToRadians, _3ToRadians, _4ToRadians);
+    _6Multiply = Multiply(_1TranslationMatrix, _5MatrixFromYawPitchRoll);
+    _7ScaleMatrix = ScaleMatrix(scale);
+    _8Multiply = Multiply(_6Multiply, _7ScaleMatrix);
+    _9GenerateN = GenerateN(mesh, # Clones, (TriMesh x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 185732
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 185729
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 185731
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 185730
+        _0MeshVertices = MeshVertices(x0);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 4:TransformMesh->0:Transform 185733
+            _0Transform = Transform(x0, _8Multiply);
+            _0Transform;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(x0, _2Map);
+        _3SetMeshVertices;
+        });
+    _10CombineAllMeshes = CombineAllMeshes(_9GenerateN);
+    _10CombineAllMeshes;
+    }

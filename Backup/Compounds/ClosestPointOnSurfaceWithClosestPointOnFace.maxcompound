@@ -1,0 +1,49 @@
+<graph version="0.50" uuid="c874ab15-957d-407b-bd92-e5c4d49e68bf">
+  <meta_info>
+    <graph_version guid="bdf6ab4c-ea24-443e-9c9e-c407441ebd82" number="1.0.0" />
+    <company>Autodesk Inc.</company>
+    <category>Geometry - Ray</category>
+    <author>Autodesk 3ds Max</author>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+  </meta_info>
+  <nodes>
+    <node operator="IndexOfMinimum" id="11" position="1260:600" size="140:117" />
+    <node operator="At" id="15" position="1480:500" size="140:141" />
+    <node operator="ClosestPointOnFace" id="10" position="549:583" size="180:141" />
+    <node operator="ClosestPoint" id="14" position="80:420" size="180:141" />
+    <node operator="DistanceSquared" id="8" position="560:760" size="140:141" />
+    <node operator="MeshFace" id="17" position="340:320" size="140:141" />
+    <node operator="VertexFaceLookup" id="5" position="340:140" size="160:141" />
+    <node operator="Output: compound" id="0" position="1700:600" size="140:69" />
+    <node operator="Input: Vector3" id="2" name="sourcePosition" position="-180:680" size="140:117" />
+    <node operator="Input: any" id="16" name="pointOctree" position="-180:380" size="140:117" />
+    <node operator="Input: TriMesh" id="18" name="referenceMesh" position="-180:140" size="140:117" />
+    <node operator="ParallelMap" id="1" position="560:260" size="140:141" />
+    <node operator="ParallelMap" id="3" position="860:360" size="140:141" />
+    <node operator="ParallelMap" id="6" position="1060:540" size="140:141" />
+    <node groupnode="The main operator" id="4" position="460:520" size="347:216" bg_color="#ff646464">
+      <comment>ClosestPointOnFace is the main operator of this compound.</comment>
+      <nodes>10</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="6" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="17" sourceport="1" destnode="1" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="10" sourceport="1" destnode="3" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="8" sourceport="1" destnode="6" destport="1" />
+  </connections>
+</graph>

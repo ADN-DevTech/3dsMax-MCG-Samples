@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="b44ae043-ddae-4269-862f-e9c63ec645d4">
+  <meta_info>
+    <graph_version guid="d085ec06-be22-41e0-a37c-5c83f11c5bf3" number="1.0.0" />
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+    <category>Geometry - Vectors</category>
+    <description>Rotates a point around an axis by a given amount.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Vector3" id="0" name="point" position="220:0" size="140:128" />
+    <node operator="MatrixFromAxisAngle" id="1" position="220:140" size="140:152" />
+    <node operator="Transform" id="2" position="440:100" size="140:152" />
+    <node operator="Output: compound" id="3" position="660:140" size="140:80" />
+    <node operator="Input: Vector3" id="4" name="axis" position="0:60" size="140:128" />
+    <node operator="Input: Single" id="5" name="radians" position="0:220" size="140:128" />
+  </nodes>
+  <connections>
+    <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+  </connections>
+</graph>

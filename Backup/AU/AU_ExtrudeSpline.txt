@@ -1,0 +1,88 @@
+(InstanceState state, Boolean cap, TriMesh mesh, Matrix modifierTransform, Single max height, Single min height) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 2:MeshVertices 162578
+    Int32 _1Zero;// 2:First->2:Zero 162577
+    Vector3 _2At;// 2:First->0:At 162576
+    IArray[Vector3] _3Append;// 11:AppendFirst->1:Append 162574
+    Vector3 _4ZAxis;// 1:AlongZAxis->3:ZAxis 162563
+    Int32 _5HashCode;// 3:HashCode 162588
+    Random _6RandomNumberGenerator;// 4:RandomNumberGenerator 162587
+    Single _7Subtract;// 5:PseudoRandomFloatInRange->3:Subtract 162586
+    Single _8Multiply;// 5:PseudoRandomFloatInRange->5:Multiply 162584
+    Single _9Add;// 5:PseudoRandomFloatInRange->6:Add 162583
+    Vector3 _10MultiplyByScalar;// 1:AlongZAxis->0:MultiplyByScalar 162562
+    IArray[Vector3] _11Map;// 13:MovePoints->2:Map 162559
+    IArray[Vector3] _12Concatenate;// 12:SimpleQuadMeshStrip->0:Concatenate 162554
+    Int32 _13Two;// 12:SimpleQuadMeshStrip->2:Two 162555
+    Boolean _14False;// 12:SimpleQuadMeshStrip->3:False 162556
+    QuadMesh _15QuadMeshStrip;// 12:SimpleQuadMeshStrip->1:QuadMeshStrip 162553
+    TriMesh _16Triangulate;// 0:QuadToTriMesh->4:Triangulate 162539
+    IArray[Int32] _17MeshIndices;// 0:QuadToTriMesh->3:MeshIndices 162542
+    IArray[Int32] _18Indices;// 0:QuadToTriMesh->8:Indices 162541
+    Int32 _19Constant;// 0:QuadToTriMesh->0:Constant 162547
+    Int32 _20Constant;// 0:QuadToTriMesh->0:Constant 162548
+    Int32 _21Constant;// 0:QuadToTriMesh->0:Constant 162550
+    IArray[Boolean] _22Map;// 0:QuadToTriMesh->5:Map 162540
+    TriMesh _23SetVisibleEdges;// 0:QuadToTriMesh->9:SetVisibleEdges 162538
+    _0MeshVertices = MeshVertices(mesh);
+    _1Zero = Zero();
+    _2At = At(_0MeshVertices, _1Zero);
+    _3Append = Append(_0MeshVertices, _2At);
+    _4ZAxis = ZAxis();
+    _5HashCode = HashCode(modifierTransform);
+    _6RandomNumberGenerator = RandomNumberGenerator(_5HashCode);
+    _7Subtract = Subtract(max height, min height);
+    _8Multiply = Multiply(PseudoRandomFloat(_6RandomNumberGenerator), _7Subtract);
+    _9Add = Add(_8Multiply, min height);
+    _10MultiplyByScalar = MultiplyByScalar(_4ZAxis, _9Add);
+    _11Map = Map(_3Append, (Vector3 x0) => 
+      {
+        Vector3 _0Add;// 13:MovePoints->3:Add 162560
+        _0Add = Add(x0, _10MultiplyByScalar);
+        _0Add;
+        });
+    _12Concatenate = Concatenate(_11Map, _3Append);
+    _13Two = Two();
+    _14False = False();
+    _15QuadMeshStrip = QuadMeshStrip(_12Concatenate, _13Two, _14False, _14False);
+    _16Triangulate = Triangulate(_15QuadMeshStrip);
+    _17MeshIndices = MeshIndices(_16Triangulate);
+    _18Indices = Indices(_17MeshIndices);
+    _19Constant = 6;
+    _20Constant = 2;
+    _21Constant = 3;
+    _22Map = Map(_18Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 0:QuadToTriMesh->14:Modulo 162546
+        Boolean _1Equal;// 0:QuadToTriMesh->7:Equal 162545
+        Boolean _2Equal;// 0:QuadToTriMesh->13:Equal 162549
+        Boolean _3OrElse;// 0:QuadToTriMesh->12:OrElse 162544
+        Boolean _4Not;// 0:QuadToTriMesh->10:Not 162543
+        _0Modulo = Modulo(x0, _19Constant);
+        _1Equal = Equal(_0Modulo, _20Constant);
+        _2Equal = Equal(_0Modulo, _21Constant);
+        _3OrElse = OrElse(_1Equal, _2Equal);
+        _4Not = Not(_3OrElse);
+        _4Not;
+        });
+    _23SetVisibleEdges = SetVisibleEdges(_16Triangulate, _22Map);
+    if (cap)
+      {
+        Int32 _24Count;// 3:LastIndex->2:Count 162571
+        Int32 _25One;// 3:MinusOne->2:One 162570
+        Int32 _26Subtract;// 3:MinusOne->1:Subtract 162569
+        IArray[Vector3] _27Take;// 6:DropLast->2:Take 162566
+        TriMesh _28CapFromVertices;// 6:ExtrudeAlongZAxis->3:CapFromVertices 162564
+        TriMesh _29CombineMeshes;// 6:ExtrudeAlongZAxis->5:CombineMeshes 162536
+        _24Count = Count(_11Map);
+        _25One = One();
+        _26Subtract = Subtract(_24Count, _25One);
+        _27Take = Take(_11Map, _26Subtract);
+        _28CapFromVertices = CapFromVertices(_27Take);
+        _29CombineMeshes = CombineMeshes(_23SetVisibleEdges, _28CapFromVertices);
+        _29CombineMeshes;
+        }else
+      {
+        _23SetVisibleEdges;
+        };
+    }

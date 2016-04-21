@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="05f98e8a-c193-4f8a-9149-b333659d799a">
+    <meta_info>
+        <graph_version guid="a99bff82-53a9-40bc-9318-4923d3e0ecc9" number="0.0.3" />
+        <category>Geometry - TriMesh</category>
+        <description>Given an index of a face returns three indices into the index buffer to retrieve vertex buffer coordinates. This is equivalent [f*3, f*3+1, f*3+2]</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="3" name="index" position="0:0" size="140:117" />
+        <node operator="Output: compound" id="1" position="1100:160" size="140:69" />
+        <node operator="MultiplyByThree" id="0" position="220:20" size="140:117" />
+        <node operator="Array3" id="2" position="880:80" size="140:165" />
+        <node operator="PlusOne" id="4" position="440:60" size="140:117" />
+        <node operator="PlusOne" id="5" position="660:120" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

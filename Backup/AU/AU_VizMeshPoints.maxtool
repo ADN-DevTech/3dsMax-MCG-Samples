@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="f11e0e55-ba66-4e13-8c09-c3dce8b183ab">
+    <meta_info>
+        <graph_version guid="de6d0804-47b4-41d5-a8b4-1cbf2c57d0b2" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="40:120" size="140:93" />
+        <node operator="MeshVertices" id="0" position="260:140" size="140:117" />
+        <node operator="Map" id="2" position="480:180" size="140:141" />
+        <node operator="OffsetMesh" id="3" position="280:280" size="140:141" />
+        <node operator="BoxTriMesh" id="4" position="100:300" size="140:117" />
+        <node operator="BoxFromRadius" id="5" position="-80:320" size="140:117" />
+        <node operator="Parameter: Single" id="6" name="radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="-260:260" size="140:213" />
+        <node operator="CombineAllMeshes" id="7" position="640:240" size="140:117" />
+        <node operator="Output: modifier" id="8" position="740:280" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

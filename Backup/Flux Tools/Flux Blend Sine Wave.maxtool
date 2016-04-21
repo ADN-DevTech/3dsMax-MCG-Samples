@@ -1,0 +1,51 @@
+<graph version="0.50" uuid="91c45bbf-0ebc-4796-8c01-124524abd2d9">
+    <meta_info>
+        <graph_version guid="1b6d1d23-e373-4a2d-9f1c-d60de86e5e01" number="0.0.11" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="907:397" size="140:93" />
+        <node operator="Output: modifier" id="9" position="1580:340" size="140:69" />
+        <node operator="Count" id="8" position="969:94" size="140:117" />
+        <node operator="MatricesFromMapChannel" id="5" position="729:74" size="180:141" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="709:329" size="140:189" />
+        <node operator="SampleLerp" id="7" position="1189:94" size="140:141" />
+        <node operator="Parameter: Single" id="13" name="frequency" min_value="-100" max_value="100" default_value="1" system_units_value="false" position="269:109" size="140:213" />
+        <node operator="Parameter: Single" id="14" name="phase" min_value="-100" max_value="100" default_value="1" system_units_value="false" position="269:349" size="140:213" />
+        <node operator="Parameter: Single" id="15" name="amplitude" min_value="-100" max_value="100" default_value="1" system_units_value="false" position="499:351" size="140:213" />
+        <node operator="SineWaveZeroToOne" id="18" position="490:135" size="180:189" />
+        <node operator="Parameter: Boolean" id="1" name="combine effects" default_value="false" position="1149:330" size="140:141" />
+        <node operator="Parameter: Single" id="4" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="1327:323" size="140:213" />
+        <node operator="FluxLerpMatrices" id="17" position="1560:9" size="140:213" />
+        <node groupnode="An array of values from 0 to 1, same length as number of flux matrices" id="10" position="720:40" size="618:204" bg_color="#ff646464">
+            <nodes>5,7,8</nodes>
+        </node>
+        <node groupnode="Common flux parameters" id="3" position="1140:280" size="343:288" bg_color="#ff646464">
+            <nodes>4,1</nodes>
+        </node>
+        <node groupnode="Function: choose a value on a sine wave" id="6" position="260:80" size="419:493" bg_color="#ff646464">
+            <nodes>13,14,15,18</nodes>
+        </node>
+        <node groupnode="Input mesh and flux channel ID" id="16" position="700:300" size="356:227" bg_color="#ff646464">
+            <nodes>2,0</nodes>
+        </node>
+        <node groupnode="Interpolate flux matrices" id="11" position="1480:-20" size="285:263" bg_color="#ff646464">
+            <nodes>17</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="17" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="7" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="15" sourceport="0" destnode="18" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="17" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="17" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="17" destport="4" />
+    </connections>
+</graph>

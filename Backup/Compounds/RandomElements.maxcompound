@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="6a194b17-3d75-44c7-aa29-c566622eb48c">
+    <meta_info>
+        <graph_version guid="d5995984-43c6-46d7-a3f7-9546fc983783" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="array" position="0:100" size="140:117" />
+        <node operator="Input: Random" id="1" name="generator" position="220:160" size="140:117" />
+        <node operator="RandomElement" id="2" position="220:0" size="140:141" />
+        <node operator="Input: Int32" id="3" name="count" position="0:260" size="140:117" />
+        <node operator="RandomArray" id="4" position="440:160" size="140:165" />
+        <node operator="Output: compound" id="5" position="660:220" size="140:69" />
+        <node operator="Zero" id="9" position="0:400" size="140:93" />
+        <node operator="IfGreaterThanZero" id="7" position="620:380" size="140:165" />
+        <node operator="Count" id="8" position="420:360" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="1" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

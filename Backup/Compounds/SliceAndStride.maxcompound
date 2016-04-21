@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="ba0a089f-762b-4f30-bd70-514811a9d5d9">
+    <meta_info>
+        <graph_version guid="6c6970b3-695b-4205-acfb-6e58cd849457" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="xs" position="0:140" size="140:117" />
+        <node operator="Slice" id="1" position="660:60" size="140:165" />
+        <node operator="Stride" id="2" position="880:220" size="140:165" />
+        <node operator="Zero" id="3" position="660:240" size="140:93" />
+        <node operator="Input: Int32" id="4" name="from" position="440:20" size="140:117" />
+        <node operator="Input: Int32" id="5" name="count" position="0:0" size="140:117" />
+        <node operator="Input: Int32" id="6" name="stride" position="660:360" size="140:117" />
+        <node operator="Output: compound" id="7" position="1100:300" size="140:69" />
+        <node operator="ChooseValue" id="8" position="440:140" size="140:165" />
+        <node operator="GreaterThanZero" id="9" position="220:20" size="140:117" />
+        <node operator="Count" id="10" position="220:200" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="1c71cd8b-f64f-45b7-8b1e-3b342787b87c">
+    <meta_info>
+        <graph_version guid="77044817-8c86-4f40-9d3c-fae499419b39" number="0.0.28" />
+    </meta_info>
+    <nodes>
+        <node operator="Twist" id="0" position="880:120" size="140:165" />
+        <node operator="Modifier: TriMesh" id="1" position="660:0" size="140:93" />
+        <node operator="Output: modifier" id="3" position="1100:180" size="140:69" />
+        <node operator="Parameter: Single" id="4" name="degrees" min_value="-3600" max_value="3600" default_value="360" system_units_value="false" position="440:180" size="140:213" />
+        <node operator="ToRadians" id="8" position="660:260" size="140:117" />
+        <node operator="ChooseAxis" id="2" position="680:120" size="140:117" />
+        <node operator="Parameter: Int32" id="5" name="axis" min_value="0" max_value="2" default_value="2" position="440:-20" size="140:189" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+    </connections>
+</graph>

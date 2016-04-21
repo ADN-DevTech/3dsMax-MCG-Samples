@@ -1,0 +1,30 @@
+(InstanceState state, Int32 count, TriMesh mesh, Single x, Single y, Single z) => 
+  {
+    IArray[Single] _0RangeInclusiveFloat;// 5:RangeInclusiveFloat 164492
+    Vector3 _1Vector3;// 10:Vector3 164504
+    IArray[TriMesh] _2Map;// 6:Map 164491
+    TriMesh _3CombineAllMeshes;// 1:CombineAllMeshes 164490
+    _0RangeInclusiveFloat = RangeInclusiveFloat(count);
+    _1Vector3 = Vector3(x, y, z);
+    _2Map = Map(_0RangeInclusiveFloat, (Single x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 164500
+        Vector3 _1MultiplyByScalar;// 12:MultiplyByScalar 164503
+        Func[Vector3, Vector3] _2Pass-through: function1;// 0:Pass-through: function1 164497
+        IArray[Vector3] _3Map;// 0:DeformMeshPoints->1:Map 164499
+        TriMesh _4SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 164498
+        _0MeshVertices = MeshVertices(mesh);
+        _1MultiplyByScalar = MultiplyByScalar(_1Vector3, x0);
+        _2Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 11:OffsetMesh->2:Add 164501
+            _0Add = Add(x0, _1MultiplyByScalar);
+            _0Add;
+            };
+        _3Map = Map(_0MeshVertices, _2Pass-through: function1);
+        _4SetMeshVertices = SetMeshVertices(mesh, _3Map);
+        _4SetMeshVertices;
+        });
+    _3CombineAllMeshes = CombineAllMeshes(_2Map);
+    _3CombineAllMeshes;
+    }

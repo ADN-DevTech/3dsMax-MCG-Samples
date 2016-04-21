@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="1b8eb128-9c28-4584-8d5c-8b9f6b761ea5">
+    <meta_info>
+        <graph_version guid="66db507e-3c1e-4400-836a-0cf4408eda7a" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="0" name="radius" position="200:320" size="140:117" />
+        <node operator="Input: Single" id="1" name="theta" position="200:480" size="140:117" />
+        <node operator="Output: compound" id="2" position="1160:480" size="140:69" />
+        <node operator="Cos" id="3" position="480:360" size="140:117" />
+        <node operator="Sin" id="4" position="480:500" size="140:117" />
+        <node operator="Multiply" id="5" position="680:300" size="140:141" />
+        <node operator="Multiply" id="6" position="680:500" size="140:141" />
+        <node operator="Vector3FromXY" id="7" position="960:460" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+    </connections>
+</graph>

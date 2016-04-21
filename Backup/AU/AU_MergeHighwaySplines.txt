@@ -1,0 +1,249 @@
+(InstanceState state) => 
+  {
+    String _0Constant;// 0:Constant 55018
+    IArray[INode] _1NodesFromLayer;// 1:NodesFromLayer 55017
+    IArray[INode] _2Filter;// 2:Filter 55016
+    Boolean _3False;// 8:False 55174
+    IArray[TriMesh] _4Map;// 4:Map 55015
+    TriMesh _5CombineAllMeshes;// 9:CombineAllMeshes 55014
+    INode _6CreateEditableMesh;// 10:CreateEditableMesh 55013
+    _0Constant = highway;
+    _1NodesFromLayer = NodesFromLayer(_0Constant);
+    _2Filter = Filter(_1NodesFromLayer, (INode x0) => 
+      {
+        Boolean _0CanGetMeshFromNode;// 3:CanGetMeshFromNode 55019
+        _0CanGetMeshFromNode = CanGetMeshFromNode(x0);
+        _0CanGetMeshFromNode;
+        });
+    _3False = False();
+    _4Map = Map(_2Filter, (INode x0) => 
+      {
+        TriMesh _0MeshFromNode;// 5:MeshFromNode 55173
+        IArray[Vector3] _1MeshVertices;// 6:MeshVertices 55172
+        IArray[Int32] _6Pass-through: array;// 0:Pass-through: array 55155
+        Int32 _7Count;// 3:LastIndex->2:Count 55161
+        Int32 _8One;// 3:MinusOne->2:One 55160
+        Int32 _9Subtract;// 3:MinusOne->1:Subtract 55159
+        IArray[Int32] _10Take;// 5:DropLast->2:Take 55156
+        IArray[Int32] _15Pass-through: array;// 0:Pass-through: array 55169
+        Int32 _16One;// 3:SkipOne->2:One 55171
+        IArray[Int32] _17Skip;// 3:SkipOne->3:Skip 55170
+        IArray[IArray[Int32]] _18Combine;// 6:SpliceAlternateElements->2:Combine 55150
+        IArray[Int32] _19Flatten;// 6:SpliceAlternateElements->4:Flatten 55149
+        Int32 _20Count;// 4:Slices->2:Count 55129
+        Int32 _21Two;// 0:SplineMesh->12:Two 55132
+        Int32 _22Divide;// 4:Slices->3:Divide 55128
+        IArray[Int32] _23Range;// 4:Slices->4:Range 55127
+        IArray[IArray[Int32]] _24Map;// 4:Slices->5:Map 55126
+        Int32 _25Zero;// 0:SplineMesh->14:Zero 55146
+        Func[IArray[Int32], IArray[Int32]] _26Pass-through: function1;// 0:Pass-through: function1 55121
+        IArray[IArray[Int32]] _27Map;// 6:FlatMap->4:Map 55123
+        IArray[Int32] _28Flatten;// 6:FlatMap->3:Flatten 55122
+        TriMesh _29CreateMesh;// 0:SplineMesh->2:CreateMesh 55119
+        Int32 _30Constant;// 6:SetTangents->0:Constant 55029
+        Int32 _31FaceCount;// 7:SplineKnots->1:FaceCount 55053
+        IArray[Int32] _32Range;// 2:MapRange->2:Range 55052
+        Func[Int32, Line] _33Pass-through: function1;// 0:Pass-through: function1 55050
+        IArray[Line] _34Map;// 2:MapRange->3:Map 55051
+        Single _35Constant;// 3:ComputeTangents->0:Constant 55107
+        IArray[Vector3] _36Map;// 3:ComputeTangents->0:Map 55047
+        Single _37Constant;// 3:ComputeTangents->0:Constant 55117
+        IArray[Vector3] _38Map;// 3:ComputeTangents->3:Map 55109
+        IArray[Vector3] _39Concatenate;// 6:SetTangents->2:Concatenate 55030
+        Int32 _40FaceCount;// 6:SetTangents->10:FaceCount 55036
+        IArray[Int32] _41Range;// 6:SetTangents->8:Range 55035
+        Int32 _42Count;// 6:SetTangents->9:Count 55045
+        Int32 _43Zero;// 6:SetTangents->13:Zero 55046
+        Func[Int32, IArray[Int32]] _44Pass-through: function1;// 0:Pass-through: function1 55032
+        IArray[IArray[Int32]] _45Map;// 7:FlatMap->4:Map 55034
+        IArray[Int32] _46Flatten;// 7:FlatMap->3:Flatten 55033
+        TriMesh _47SetMapChannel;// 6:SetTangents->5:SetMapChannel 55028
+        _0MeshFromNode = MeshFromNode(x0);
+        _1MeshVertices = MeshVertices(_0MeshFromNode);
+        _6Pass-through: array = if (_3False)
+          {
+            IArray[Int32] _2Indices;// 7:SplineMeshFromPoints->1:Indices 55167
+            Int32 _3Zero;// 7:SplineMeshFromPoints->8:Zero 55168
+            IArray[Int32] _4Append;// 4:AppendIf->1:Append 55166
+            _2Indices = Indices(_1MeshVertices);
+            _3Zero = Zero();
+            _4Append = Append(_2Indices, _3Zero);
+            _4Append;
+            }else
+          {
+            IArray[Int32] _5Indices;// 7:SplineMeshFromPoints->1:Indices 55167
+            _5Indices = Indices(_1MeshVertices);
+            _5Indices;
+            };
+        _7Count = Count(_6Pass-through: array);
+        _8One = One();
+        _9Subtract = Subtract(_7Count, _8One);
+        _10Take = Take(_6Pass-through: array, _9Subtract);
+        _15Pass-through: array = if (_3False)
+          {
+            IArray[Int32] _11Indices;// 7:SplineMeshFromPoints->1:Indices 55167
+            Int32 _12Zero;// 7:SplineMeshFromPoints->8:Zero 55168
+            IArray[Int32] _13Append;// 4:AppendIf->1:Append 55166
+            _11Indices = Indices(_1MeshVertices);
+            _12Zero = Zero();
+            _13Append = Append(_11Indices, _12Zero);
+            _13Append;
+            }else
+          {
+            IArray[Int32] _14Indices;// 7:SplineMeshFromPoints->1:Indices 55167
+            _14Indices = Indices(_1MeshVertices);
+            _14Indices;
+            };
+        _16One = One();
+        _17Skip = Skip(_15Pass-through: array, _16One);
+        _18Combine = Combine(_10Take, _17Skip, (Int32 x0, Int32 x1) => 
+          {
+            IArray[Int32] _0Unit;// 3:Array2->2:Unit 55154
+            IArray[Int32] _1Append;// 3:Array2->3:Append 55153
+            _0Unit = Unit(x0);
+            _1Append = Append(_0Unit, x1);
+            _1Append;
+            });
+        _19Flatten = Flatten(_18Combine);
+        _20Count = Count(_19Flatten);
+        _21Two = Two();
+        _22Divide = Divide(_20Count, _21Two);
+        _23Range = Range(_22Divide);
+        _24Map = Map(_23Range, (Int32 x0) => 
+          {
+            Int32 _0Multiply;// 4:Slices->6:Multiply 55131
+            IArray[Int32] _1Slice;// 4:Slices->0:Slice 55130
+            _0Multiply = Multiply(_21Two, x0);
+            _1Slice = Slice(_19Flatten, _0Multiply, _21Two);
+            _1Slice;
+            });
+        _25Zero = Zero();
+        _26Pass-through: function1 = (IArray[Int32] x0) => 
+          {
+            Int32 _0Zero;// 8:First->2:Zero 55141
+            Int32 _1At;// 8:First->0:At 55140
+            IArray[Int32] _2Unit;// 7:Array3->2:Unit 55138
+            Int32 _3One;// 9:Second->2:One 55145
+            Int32 _4At;// 9:Second->0:At 55144
+            IArray[Int32] _5Append;// 7:Array3->3:Append 55137
+            IArray[Int32] _6Append;// 7:Array3->6:Append 55136
+            _0Zero = Zero();
+            _1At = At(x0, _0Zero);
+            _2Unit = Unit(_1At);
+            _3One = One();
+            _4At = At(x0, _3One);
+            _5Append = Append(_2Unit, _4At);
+            _6Append = Append(_5Append, _25Zero);
+            _6Append;
+            };
+        _27Map = Map(_24Map, _26Pass-through: function1);
+        _28Flatten = Flatten(_27Map);
+        _29CreateMesh = CreateMesh(_1MeshVertices, _28Flatten);
+        _30Constant = 2;
+        _31FaceCount = FaceCount(_29CreateMesh);
+        _32Range = Range(_31FaceCount);
+        _33Pass-through: function1 = (Int32 x0) => 
+          {
+            IArray[Vector3] _0MeshVertices;// 10:MeshFaceVertex->2:MeshVertices 55067
+            IArray[Int32] _1MeshIndices;// 10:MeshFaceVertex->3:MeshIndices 55068
+            Int32 _2Constant;// 1:Three->0:Constant 55074
+            Int32 _3Multiply;// 3:MultiplyByThree->2:Multiply 55073
+            Int32 _4Zero;// 3:SplineSegmentKnots->2:Zero 55099
+            Int32 _5Constant;// 2:Three->0:Constant 55077
+            Int32 _6Modulo;// 2:ModuloThree->1:Modulo 55076
+            Int32 _7Add;// 15:FaceVertexIndex->4:Add 55071
+            Int32 _8At;// 4:IndirectLookup->3:At 55066
+            Vector3 _9At;// 4:IndirectLookup->4:At 55065
+            IArray[Vector3] _10MeshVertices;// 11:MeshFaceVertex->2:MeshVertices 55085
+            IArray[Int32] _11MeshIndices;// 11:MeshFaceVertex->3:MeshIndices 55086
+            Int32 _12Constant;// 1:Three->0:Constant 55092
+            Int32 _13Multiply;// 3:MultiplyByThree->2:Multiply 55091
+            Int32 _14One;// 7:PlusOne->1:One 55098
+            Int32 _15Add;// 7:PlusOne->0:Add 55097
+            Int32 _16Constant;// 2:Three->0:Constant 55095
+            Int32 _17Modulo;// 2:ModuloThree->1:Modulo 55094
+            Int32 _18Add;// 2:FaceVertexIndex->4:Add 55089
+            Int32 _19At;// 4:IndirectLookup->3:At 55084
+            Vector3 _20At;// 4:IndirectLookup->4:At 55083
+            Line _21Line;// 1:MeshFaceSide->9:Line 55059
+            _0MeshVertices = MeshVertices(_29CreateMesh);
+            _1MeshIndices = MeshIndices(_29CreateMesh);
+            _2Constant = 3;
+            _3Multiply = Multiply(x0, _2Constant);
+            _4Zero = Zero();
+            _5Constant = 3;
+            _6Modulo = Modulo(_4Zero, _5Constant);
+            _7Add = Add(_3Multiply, _6Modulo);
+            _8At = At(_1MeshIndices, _7Add);
+            _9At = At(_0MeshVertices, _8At);
+            _10MeshVertices = MeshVertices(_29CreateMesh);
+            _11MeshIndices = MeshIndices(_29CreateMesh);
+            _12Constant = 3;
+            _13Multiply = Multiply(x0, _12Constant);
+            _14One = One();
+            _15Add = Add(_4Zero, _14One);
+            _16Constant = 3;
+            _17Modulo = Modulo(_15Add, _16Constant);
+            _18Add = Add(_13Multiply, _17Modulo);
+            _19At = At(_11MeshIndices, _18Add);
+            _20At = At(_10MeshVertices, _19At);
+            _21Line = Line(_9At, _20At);
+            _21Line;
+            };
+        _34Map = Map(_32Range, _33Pass-through: function1);
+        _35Constant = 0.333;
+        _36Map = Map(_34Map, (Line x0) => 
+          {
+            Vector3 _0LineA;// 2:LerpAlongLine->2:LineA 55104
+            Vector3 _1LineB;// 2:LerpAlongLine->3:LineB 55105
+            Vector3 _2Lerp;// 2:LerpAlongLine->4:Lerp 55103
+            Vector3 _3LineA;// 3:ComputeTangents->11:LineA 55108
+            Vector3 _4Subtract;// 3:ComputeTangents->5:Subtract 55100
+            _0LineA = LineA(x0);
+            _1LineB = LineB(x0);
+            _2Lerp = Lerp(_0LineA, _1LineB, _35Constant);
+            _3LineA = LineA(x0);
+            _4Subtract = Subtract(_2Lerp, _3LineA);
+            _4Subtract;
+            });
+        _37Constant = 0.666;
+        _38Map = Map(_34Map, (Line x0) => 
+          {
+            Vector3 _0LineA;// 4:LerpAlongLine->2:LineA 55114
+            Vector3 _1LineB;// 4:LerpAlongLine->3:LineB 55115
+            Vector3 _2Lerp;// 4:LerpAlongLine->4:Lerp 55113
+            Vector3 _3LineB;// 3:ComputeTangents->12:LineB 55118
+            Vector3 _4Subtract;// 3:ComputeTangents->13:Subtract 55110
+            _0LineA = LineA(x0);
+            _1LineB = LineB(x0);
+            _2Lerp = Lerp(_0LineA, _1LineB, _37Constant);
+            _3LineB = LineB(x0);
+            _4Subtract = Subtract(_2Lerp, _3LineB);
+            _4Subtract;
+            });
+        _39Concatenate = Concatenate(_36Map, _38Map);
+        _40FaceCount = FaceCount(_29CreateMesh);
+        _41Range = Range(_40FaceCount);
+        _42Count = Count(_36Map);
+        _43Zero = Zero();
+        _44Pass-through: function1 = (Int32 x0) => 
+          {
+            IArray[Int32] _0Unit;// 11:Array3->2:Unit 55042
+            Int32 _1Add;// 6:SetTangents->3:Add 55044
+            IArray[Int32] _2Append;// 11:Array3->3:Append 55041
+            IArray[Int32] _3Append;// 11:Array3->6:Append 55040
+            _0Unit = Unit(x0);
+            _1Add = Add(x0, _42Count);
+            _2Append = Append(_0Unit, _1Add);
+            _3Append = Append(_2Append, _43Zero);
+            _3Append;
+            };
+        _45Map = Map(_41Range, _44Pass-through: function1);
+        _46Flatten = Flatten(_45Map);
+        _47SetMapChannel = SetMapChannel(_29CreateMesh, _30Constant, _39Concatenate, _46Flatten);
+        _47SetMapChannel;
+        });
+    _5CombineAllMeshes = CombineAllMeshes(_4Map);
+    _6CreateEditableMesh = CreateEditableMesh(_5CombineAllMeshes);
+    _6CreateEditableMesh;
+    }

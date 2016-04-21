@@ -1,0 +1,221 @@
+(InstanceState state, Boolean keep original, TriMesh mesh, Single min segment length, Int32 seed, Int32 count, Single pos on line, Single cubeSize) => 
+  {
+    IArray[Face3] _0MeshFaces;// 1:SplineMeshLineSegments->1:MeshFaces 161348
+    IArray[Line] _1Map;// 1:SplineMeshLineSegments->2:Map 161347
+    IArray[Line] _2Filter;// 0:Filter 161345
+    Func[Random, Line] _3Pass-through: function1;// 0:Pass-through: function1 161326
+    Random _4RandomNumberGenerator;// 2:RandomNumberGenerator 161360
+    Func[Line] _5Bind;// 4:RandomArray->4:Bind 161330
+    Int32 _6Count;// 16:RandomElements->8:Count 161343
+    Int32 _7Zero;// 4:GreaterThanZero->1:Zero 161342
+    Boolean _8GreaterThan;// 4:GreaterThanZero->3:GreaterThan 161341
+    Int32 _10Pass-through: Int32;// 0:Pass-through: Int32 161328
+    IArray[Line] _11ArrayOfFunction;// 4:RandomArray->5:ArrayOfFunction 161329
+    Vector3 _12XAxis;// 21:XAxis 161411
+    Single _13Constant;// 23:DivideBy100->0:Constant 161414
+    Single _14Divide;// 23:DivideBy100->2:Divide 161413
+    IArray[Matrix] _15Map;// 18:Map 161322
+    Single _16Constant;// 1:Origin->0:Constant 161439
+    Vector3 _17Vector3;// 1:Origin->1:Vector3 161438
+    Single _18Constant;// 1:MultiplyTwoFloat->0:Constant 161442
+    Single _19Multiply;// 1:MultiplyTwoFloat->0:Multiply 161441
+    BoundingSphere _20Sphere;// 0:BoxFromPointAndRadius->3:Sphere 161437
+    BoundingBox _21BoxFromSphere;// 0:BoxFromPointAndRadius->0:BoxFromSphere 161436
+    QuadMesh _22BoxQuadMesh;// 3:BoxTriMesh->2:BoxQuadMesh 161432
+    TriMesh _23Triangulate;// 3:BoxTriMesh->3:Triangulate 161431
+    IArray[Int32] _24MeshIndices;// 4:HideEveryThirdEdge->2:MeshIndices 161422
+    IArray[Int32] _25Indices;// 4:HideEveryThirdEdge->8:Indices 161421
+    Int32 _26Constant;// 4:HideEveryThirdEdge->0:Constant 161429
+    Int32 _27Constant;// 4:HideEveryThirdEdge->0:Constant 161430
+    IArray[Boolean] _28Map;// 4:HideEveryThirdEdge->5:Map 161420
+    TriMesh _29SetVisibleEdges;// 4:HideEveryThirdEdge->9:SetVisibleEdges 161419
+    IArray[TriMesh] _30Map;// 22:CloneMeshAtTransforms->3:Map 161313
+    TriMesh _31CombineAllMeshes;// 8:CombineAllMeshes 161310
+    Int32 _33Zero;// 16:RandomElements->9:Zero 161344
+    _0MeshFaces = MeshFaces(mesh);
+    _1Map = Map(_0MeshFaces, (Face3 x0) => 
+      {
+        Vector3 _0FaceVertexA;// 1:SplineMeshLineSegments->4:FaceVertexA 161350
+        Vector3 _1FaceVertexB;// 1:SplineMeshLineSegments->6:FaceVertexB 161352
+        Line _2Line;// 1:SplineMeshLineSegments->3:Line 161349
+        _0FaceVertexA = FaceVertexA(x0);
+        _1FaceVertexB = FaceVertexB(x0);
+        _2Line = Line(_0FaceVertexA, _1FaceVertexB);
+        _2Line;
+        });
+    _2Filter = Filter(_1Map, (Line x0) => 
+      {
+        Vector3 _0LineA;// 4:LineLength->1:LineA 161357
+        Vector3 _1LineB;// 4:LineLength->2:LineB 161358
+        Single _2Distance;// 4:LineLength->3:Distance 161356
+        Boolean _3GreaterThan;// 19:GreaterThan 161354
+        _0LineA = LineA(x0);
+        _1LineB = LineB(x0);
+        _2Distance = Distance(_0LineA, _1LineB);
+        _3GreaterThan = GreaterThan(_2Distance, min segment length);
+        _3GreaterThan;
+        });
+    _3Pass-through: function1 = (Random x0) => 
+      {
+        Int32 _0Count;// 2:RandomElement->3:Count 161335
+        Line _1At;// 2:RandomElement->5:At 161333
+        _0Count = Count(_2Filter);
+        _1At = At(_2Filter, PseudoRandomInt(x0, _0Count));
+        _1At;
+        };
+    _4RandomNumberGenerator = RandomNumberGenerator(seed);
+    _5Bind = Bind(_3Pass-through: function1, _4RandomNumberGenerator);
+    _6Count = Count(_2Filter);
+    _7Zero = Zero();
+    _8GreaterThan = GreaterThan(_6Count, _7Zero);
+    _10Pass-through: Int32 = if (_8GreaterThan)
+      {
+        count;
+        }else
+      {
+        Int32 _9Zero;// 16:RandomElements->9:Zero 161344
+        _9Zero = Zero();
+        _9Zero;
+        };
+    _11ArrayOfFunction = ArrayOfFunction(_5Bind, _10Pass-through: Int32);
+    _12XAxis = XAxis();
+    _13Constant = 100;
+    _14Divide = Divide(pos on line, _13Constant);
+    _15Map = Map(_11ArrayOfFunction, (Line x0) => 
+      {
+        Vector3 _0Normalize;// 6:RotationBetweenVectorsFix->4:Normalize 161400
+        Vector3 _1LineB;// 3:LineVector->2:LineB 161404
+        Vector3 _2LineA;// 3:LineVector->1:LineA 161405
+        Vector3 _3Subtract;// 3:LineVector->3:Subtract 161403
+        Vector3 _4Normalize;// 6:RotationBetweenVectorsFix->5:Normalize 161401
+        Single _5Dot;// 0:RotationBetweenUnitVectors->6:Dot 161376
+        Single _6FloatOne;// 0:RotationBetweenUnitVectors->8:FloatOne 161377
+        Single _7Add;// 0:RotationBetweenUnitVectors->7:Add 161375
+        Single _8Constant;// 0:RotationBetweenUnitVectors->0:Constant 161378
+        Boolean _9LessThan;// 0:RotationBetweenUnitVectors->40:LessThan 161374
+        Quaternion _29QuaternionNormalize;// 0:RotationBetweenUnitVectors->3:QuaternionNormalize 161372
+        Matrix _30MatrixFromQuaternion;// 20:MatrixAlongLine->2:MatrixFromQuaternion 161367
+        Vector3 _31LineA;// 5:LerpAlongLine->2:LineA 161409
+        Vector3 _32LineB;// 5:LerpAlongLine->3:LineB 161410
+        Vector3 _33Lerp;// 5:LerpAlongLine->4:Lerp 161408
+        Matrix _34SetMatrixTranslation;// 20:MatrixAlongLine->7:SetMatrixTranslation 161366
+        _0Normalize = Normalize(_12XAxis);
+        _1LineB = LineB(x0);
+        _2LineA = LineA(x0);
+        _3Subtract = Subtract(_1LineB, _2LineA);
+        _4Normalize = Normalize(_3Subtract);
+        _5Dot = Dot(_0Normalize, _4Normalize);
+        _6FloatOne = FloatOne();
+        _7Add = Add(_5Dot, _6FloatOne);
+        _8Constant = 1E-07;
+        _9LessThan = LessThan(_7Add, _8Constant);
+        _29QuaternionNormalize = QuaternionNormalize(if (_9LessThan)
+          {
+            Single _10X;// 0:RotationBetweenUnitVectors->12:X 161383
+            Single _11Abs;// 0:RotationBetweenUnitVectors->11:Abs 161382
+            Single _12Z;// 0:RotationBetweenUnitVectors->14:Z 161386
+            Single _13Abs;// 0:RotationBetweenUnitVectors->13:Abs 161385
+            Boolean _14GreaterThan;// 0:RotationBetweenUnitVectors->15:GreaterThan 161381
+            Single _25FloatZero;// 0:RotationBetweenUnitVectors->36:FloatZero 161397
+            Quaternion _26QuaternionFromVectorAndTheta;// 0:RotationBetweenUnitVectors->35:QuaternionFromVectorAndTheta 161379
+            _10X = X(_0Normalize);
+            _11Abs = Abs(_10X);
+            _12Z = Z(_0Normalize);
+            _13Abs = Abs(_12Z);
+            _14GreaterThan = GreaterThan(_11Abs, _13Abs);
+            _25FloatZero = FloatZero();
+            _26QuaternionFromVectorAndTheta = QuaternionFromVectorAndTheta(if (_14GreaterThan)
+              {
+                Single _15Y;// 0:RotationBetweenUnitVectors->29:Y 161389
+                Single _16NegativeFloat;// 0:RotationBetweenUnitVectors->30:NegativeFloat 161388
+                Single _17X;// 0:RotationBetweenUnitVectors->23:X 161390
+                Single _18FloatZero;// 0:RotationBetweenUnitVectors->21:FloatZero 161391
+                Vector3 _19Vector3;// 0:RotationBetweenUnitVectors->19:Vector3 161387
+                _15Y = Y(_0Normalize);
+                _16NegativeFloat = NegativeFloat(_15Y);
+                _17X = X(_0Normalize);
+                _18FloatZero = FloatZero();
+                _19Vector3 = Vector3(_16NegativeFloat, _17X, _18FloatZero);
+                _19Vector3;
+                }else
+              {
+                Single _20FloatZero;// 0:RotationBetweenUnitVectors->22:FloatZero 161393
+                Single _21Z;// 0:RotationBetweenUnitVectors->26:Z 161395
+                Single _22NegativeFloat;// 0:RotationBetweenUnitVectors->25:NegativeFloat 161394
+                Single _23Y;// 0:RotationBetweenUnitVectors->24:Y 161396
+                Vector3 _24Vector3;// 0:RotationBetweenUnitVectors->20:Vector3 161392
+                _20FloatZero = FloatZero();
+                _21Z = Z(_0Normalize);
+                _22NegativeFloat = NegativeFloat(_21Z);
+                _23Y = Y(_0Normalize);
+                _24Vector3 = Vector3(_20FloatZero, _22NegativeFloat, _23Y);
+                _24Vector3;
+                }, _25FloatZero);
+            _26QuaternionFromVectorAndTheta;
+            }else
+          {
+            Vector3 _27Cross;// 0:RotationBetweenUnitVectors->2:Cross 161399
+            Quaternion _28QuaternionFromVectorAndTheta;// 0:RotationBetweenUnitVectors->5:QuaternionFromVectorAndTheta 161398
+            _27Cross = Cross(_0Normalize, _4Normalize);
+            _28QuaternionFromVectorAndTheta = QuaternionFromVectorAndTheta(_27Cross, _7Add);
+            _28QuaternionFromVectorAndTheta;
+            });
+        _30MatrixFromQuaternion = MatrixFromQuaternion(_29QuaternionNormalize);
+        _31LineA = LineA(x0);
+        _32LineB = LineB(x0);
+        _33Lerp = Lerp(_31LineA, _32LineB, _14Divide);
+        _34SetMatrixTranslation = SetMatrixTranslation(_30MatrixFromQuaternion, _33Lerp);
+        _34SetMatrixTranslation;
+        });
+    _16Constant = 0;
+    _17Vector3 = Vector3(_16Constant, _16Constant, _16Constant);
+    _18Constant = 2;
+    _19Multiply = Multiply(cubeSize, _18Constant);
+    _20Sphere = Sphere(_17Vector3, _19Multiply);
+    _21BoxFromSphere = BoxFromSphere(_20Sphere);
+    _22BoxQuadMesh = BoxQuadMesh(_21BoxFromSphere);
+    _23Triangulate = Triangulate(_22BoxQuadMesh);
+    _24MeshIndices = MeshIndices(_23Triangulate);
+    _25Indices = Indices(_24MeshIndices);
+    _26Constant = 3;
+    _27Constant = 2;
+    _28Map = Map(_25Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 161428
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 161427
+        Boolean _2Not;// 4:HideEveryThirdEdge->7:Not 161423
+        _0Modulo = Modulo(x0, _26Constant);
+        _1Equal = Equal(_0Modulo, _27Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _29SetVisibleEdges = SetVisibleEdges(_23Triangulate, _28Map);
+    _30Map = Map(_15Map, (Matrix x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 161320
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 161317
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 161319
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 161318
+        _0MeshVertices = MeshVertices(_29SetVisibleEdges);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 1:TransformMesh->0:Transform 161321
+            _0Transform = Transform(x0, x0);
+            _0Transform;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(_29SetVisibleEdges, _2Map);
+        _3SetMeshVertices;
+        });
+    _31CombineAllMeshes = CombineAllMeshes(_30Map);
+    _33Zero = Zero();
+    if (keep original)
+      {
+        TriMesh _34CombineMeshes;// 13:CombineMeshes 161309
+        _34CombineMeshes = CombineMeshes(_31CombineAllMeshes, mesh);
+        _34CombineMeshes;
+        }else
+      {
+        _31CombineAllMeshes;
+        };
+    }

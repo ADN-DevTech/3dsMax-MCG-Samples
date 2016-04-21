@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="35107a64-d7b8-4ec8-a26c-23bd6cd032fe">
+    <meta_info>
+        <graph_version guid="767779e6-8fc0-4a53-b4b4-5d68c1378592" number="0.0.21" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: Matrix" id="0" position="0:100" size="140:93" />
+        <node operator="Modifier: TriMesh" id="1" position="440:0" size="140:93" />
+        <node operator="MeshVertices" id="2" position="600:140" size="140:117" />
+        <node operator="ExtrudeAlongZAxis" id="6" position="940:200" size="180:165" />
+        <node operator="HashCode" id="3" position="220:100" size="140:117" />
+        <node operator="RandomNumberGenerator" id="4" position="440:120" size="140:117" />
+        <node operator="PseudoRandomFloatInRange" id="5" position="660:280" size="140:165" />
+        <node operator="Parameter: Single" id="7" name="max height" min_value="0" max_value="100000" default_value="20" system_units_value="false" position="440:260" size="140:213" />
+        <node operator="Parameter: Single" id="8" name="min height" min_value="0" max_value="10000" default_value="1" system_units_value="false" position="440:480" size="140:213" />
+        <node operator="Parameter: Boolean" id="9" name="cap" default_value="true" position="660:0" size="140:141" />
+        <node operator="Output: modifier" id="10" position="1140:260" size="160:69" />
+        <node operator="AppendFirst" id="11" position="760:180" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="9b4dea85-47c7-47a6-9b5e-7d75d130e7c9">
+    <meta_info>
+        <graph_version guid="e7a8c20b-2b8c-4e2a-aeb0-5ee6009efddf" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Spline" id="0" name="spline" position="20:100" size="140:117" />
+        <node operator="Graph" id="2" position="760:160" size="140:141" />
+        <node operator="SplineSegmentIndices" id="3" position="220:60" size="180:117" />
+        <node operator="CombineEveryTwoElements" id="4" position="500:20" size="200:141" />
+        <node operator="IntPair" id="5" position="340:180" size="140:141" />
+        <node operator="SplineVerticesBuffer" id="6" position="520:240" size="140:117" />
+        <node operator="ComputeInnerEdges" id="9" position="940:400" size="200:117" />
+        <node operator="CreateSplineFromKnots" id="7" position="1260:540" size="140:141" />
+        <node operator="GraphContours" id="12" position="980:200" size="140:141" />
+        <node operator="FlatMap" id="14" position="1180:220" size="140:141" />
+        <node operator="CreateSpline" id="11" position="1380:140" size="140:141" />
+        <node operator="GraphNodes" id="15" position="1200:80" size="140:117" />
+        <node operator="Output: compound" id="8" position="1660:220" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="12" sourceport="1" destnode="14" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="26f1fa3c-4646-4b9b-a1ba-3a1d39ca8613">
+    <meta_info>
+        <graph_version guid="1dbe4412-9b3f-424f-8ce9-f06c01f875eb" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="points" position="440:0" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="target" position="0:40" size="140:117" />
+        <node operator="Input: Single" id="2" name="radius" position="0:160" size="140:117" />
+        <node operator="Sphere" id="3" position="220:120" size="140:141" />
+        <node operator="Map" id="4" position="660:100" size="140:141" />
+        <node operator="MovePointOutsideSphere" id="5" position="440:140" size="140:141" />
+        <node operator="Output: compound" id="6" position="880:160" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

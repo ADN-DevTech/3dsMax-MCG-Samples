@@ -1,0 +1,247 @@
+(InstanceState state, TriMesh mesh, Int32 flux channel, Boolean quads, INode source, Boolean position only, Int32 axis) => 
+  {
+    Boolean _0IsValidNode;// 14:MeshFromNodeWithDefault->1:IsValidNode 173747
+    TriMesh _2Pass-through: TriMesh;// 0:Pass-through: TriMesh 173706
+    IArray[Face3] _3MeshFaces;// 18:MeshFaceNormalsAsRays->6:MeshFaces 173718
+    IArray[Ray] _4Map;// 18:MeshFaceNormalsAsRays->7:Map 173717
+    IArray[Matrix] _14Map;// 19:Map 173704
+    Func[Matrix, IArray[Vector3]] _15Pass-through: function1;// 0:Pass-through: function1 173690
+    IArray[IArray[Vector3]] _16Map;// 5:FlatMap->4:Map 173692
+    IArray[Vector3] _17Flatten;// 5:FlatMap->3:Flatten 173691
+    IArray[Int32] _18MeshIndices;// 0:StoreMatricesInMapChannel->0:MeshIndices 173701
+    TriMesh _19SetMapChannel;// 0:StoreMatricesInMapChannel->7:SetMapChannel 173688
+    _0IsValidNode = IsValidNode(source);
+    _2Pass-through: TriMesh = if (_0IsValidNode)
+      {
+        TriMesh _1MeshFromNode;// 14:MeshFromNodeWithDefault->2:MeshFromNode 173748
+        _1MeshFromNode = MeshFromNode(source);
+        _1MeshFromNode;
+        }else
+      {
+        mesh;
+        };
+    _3MeshFaces = MeshFaces(_2Pass-through: TriMesh);
+    _4Map = Map(_3MeshFaces, (Face3 x0) => 
+      {
+        Vector3 _0FaceMidpoint;// 8:FaceToRay->1:FaceMidpoint 173721
+        Vector3 _1FaceNormal;// 8:FaceToRay->2:FaceNormal 173731
+        Single _2Length;// 4:VectorIsSmall->3:Length 173728
+        Single _3Constant;// 4:VectorLengthEpsilon->0:Constant 173729
+        Boolean _4LessThan;// 4:VectorIsSmall->5:LessThan 173727
+        Ray _6Ray;// 8:FaceToRay->4:Ray 173720
+        _0FaceMidpoint = FaceMidpoint(x0);
+        _1FaceNormal = FaceNormal(x0);
+        _2Length = Length(_1FaceNormal);
+        _3Constant = 1E-06;
+        _4LessThan = LessThan(_2Length, _3Constant);
+        _6Ray = Ray(_0FaceMidpoint, if (_4LessThan)
+          {
+            Vector3 _5ZAxis;// 3:VectorOrZAxis->2:ZAxis 173730
+            _5ZAxis = ZAxis();
+            _5ZAxis;
+            }else
+          {
+            _1FaceNormal;
+            });
+        _6Ray;
+        });
+    _14Map = Map(if (quads)
+      {
+        Int32 _6Zero;// 3:CombineEveryTwoElements->7:Zero 173712
+        Int32 _7Two;// 3:CombineEveryTwoElements->6:Two 173713
+        IArray[Ray] _8Stride;// 3:CombineEveryTwoElements->1:Stride 173711
+        Int32 _9One;// 3:CombineEveryTwoElements->8:One 173715
+        IArray[Ray] _10Stride;// 3:CombineEveryTwoElements->2:Stride 173714
+        Single _11Constant;// 20:MeshFaceOrQuadNormalsAsRays->0:Constant 173742
+        Func[Ray, Ray, Ray] _12Pass-through: function2;// 0:Pass-through: function2 173709
+        IArray[Ray] _13Combine;// 3:CombineEveryTwoElements->3:Combine 173710
+        _6Zero = Zero();
+        _7Two = Two();
+        _8Stride = Stride(_4Map, _6Zero, _7Two);
+        _9One = One();
+        _10Stride = Stride(_4Map, _9One, _7Two);
+        _11Constant = 0.5;
+        _12Pass-through: function2 = (Ray x0, Ray x1) => 
+          {
+            Vector3 _0RayPosition;// 17:RayLerp->5:RayPosition 173737
+            Vector3 _1RayPosition;// 17:RayLerp->7:RayPosition 173738
+            Vector3 _2Lerp;// 17:RayLerp->3:Lerp 173736
+            Vector3 _3RayDirection;// 17:RayLerp->8:RayDirection 173740
+            Vector3 _4RayDirection;// 17:RayLerp->9:RayDirection 173741
+            Vector3 _5Lerp;// 17:RayLerp->4:Lerp 173739
+            Ray _6Ray;// 17:RayLerp->10:Ray 173735
+            _0RayPosition = RayPosition(x0);
+            _1RayPosition = RayPosition(x1);
+            _2Lerp = Lerp(_0RayPosition, _1RayPosition, _11Constant);
+            _3RayDirection = RayDirection(x0);
+            _4RayDirection = RayDirection(x1);
+            _5Lerp = Lerp(_3RayDirection, _4RayDirection, _11Constant);
+            _6Ray = Ray(_2Lerp, _5Lerp);
+            _6Ray;
+            };
+        _13Combine = Combine(_8Stride, _10Stride, _12Pass-through: function2);
+        _13Combine;
+        }else
+      {
+        _4Map;
+        }, (Ray x0) => 
+      {
+        Vector3 _61RayPosition;// 16:RayToMatrix->10:RayPosition 173820
+        Matrix _62RotationTranslationMatrix;// 16:RayToMatrix->8:RotationTranslationMatrix 173753
+        _61RayPosition = RayPosition(x0);
+        _62RotationTranslationMatrix = RotationTranslationMatrix(if (position only)
+          {
+            Quaternion _0QuaternionIdentity;// 16:RayToMatrix->4:QuaternionIdentity 173755
+            _0QuaternionIdentity = QuaternionIdentity();
+            _0QuaternionIdentity;
+            }else
+          {
+            Int32 _1Zero;// 6:ChooseAxis->9:Zero 173793
+            Boolean _2GreaterThanOrEqual;// 6:ChooseAxis->8:GreaterThanOrEqual 173792
+            Vector3 _3XAxis;// 6:ChooseAxis->3:XAxis 173801
+            IArray[Vector3] _4Unit;// 2:Array3->2:Unit 173800
+            Vector3 _5YAxis;// 6:ChooseAxis->4:YAxis 173802
+            IArray[Vector3] _6Append;// 2:Array3->3:Append 173799
+            Vector3 _7ZAxis;// 6:ChooseAxis->5:ZAxis 173803
+            IArray[Vector3] _8Append;// 2:Array3->6:Append 173798
+            Vector3 _15Pass-through: Vector3;// 0:Pass-through: Vector3 173756
+            Vector3 _16Normalize;// 5:RotationBetweenVectorsFix->4:Normalize 173788
+            Vector3 _17RayDirection;// 16:RayToMatrix->7:RayDirection 173819
+            Single _18Length;// 4:VectorIsSmall->3:Length 173816
+            Single _19Constant;// 4:VectorLengthEpsilon->0:Constant 173817
+            Boolean _20LessThan;// 4:VectorIsSmall->5:LessThan 173815
+            Vector3 _22Pass-through: Vector3;// 0:Pass-through: Vector3 173757
+            Vector3 _23Normalize;// 5:RotationBetweenVectorsFix->5:Normalize 173789
+            Single _24Dot;// 0:RotationBetweenUnitVectors->6:Dot 173764
+            Single _25FloatOne;// 0:RotationBetweenUnitVectors->8:FloatOne 173765
+            Single _26Add;// 0:RotationBetweenUnitVectors->7:Add 173763
+            Single _27Constant;// 0:RotationBetweenUnitVectors->0:Constant 173766
+            Boolean _28LessThan;// 0:RotationBetweenUnitVectors->40:LessThan 173762
+            Quaternion _60QuaternionNormalize;// 0:RotationBetweenUnitVectors->3:QuaternionNormalize 173760
+            _1Zero = Zero();
+            _2GreaterThanOrEqual = GreaterThanOrEqual(axis, _1Zero);
+            _3XAxis = XAxis();
+            _4Unit = Unit(_3XAxis);
+            _5YAxis = YAxis();
+            _6Append = Append(_4Unit, _5YAxis);
+            _7ZAxis = ZAxis();
+            _8Append = Append(_6Append, _7ZAxis);
+            _15Pass-through: Vector3 = if (_2GreaterThanOrEqual)
+              {
+                Vector3 _9At;// 6:ChooseAxis->1:At 173794
+                _9At = At(_8Append, axis);
+                _9At;
+                }else
+              {
+                Int32 _10One;// 10:PlusOne->1:One 173809
+                Int32 _11Add;// 10:PlusOne->0:Add 173808
+                Int32 _12Negative;// 6:ChooseAxis->11:Negative 173806
+                Vector3 _13At;// 6:ChooseAxis->12:At 173805
+                Vector3 _14Negate;// 6:ChooseAxis->13:Negate 173804
+                _10One = One();
+                _11Add = Add(axis, _10One);
+                _12Negative = Negative(_11Add);
+                _13At = At(_8Append, _12Negative);
+                _14Negate = Negate(_13At);
+                _14Negate;
+                };
+            _16Normalize = Normalize(_15Pass-through: Vector3);
+            _17RayDirection = RayDirection(x0);
+            _18Length = Length(_17RayDirection);
+            _19Constant = 1E-06;
+            _20LessThan = LessThan(_18Length, _19Constant);
+            _22Pass-through: Vector3 = if (_20LessThan)
+              {
+                Vector3 _21ZAxis;// 11:VectorOrZAxis->2:ZAxis 173818
+                _21ZAxis = ZAxis();
+                _21ZAxis;
+                }else
+              {
+                _17RayDirection;
+                };
+            _23Normalize = Normalize(_22Pass-through: Vector3);
+            _24Dot = Dot(_16Normalize, _23Normalize);
+            _25FloatOne = FloatOne();
+            _26Add = Add(_24Dot, _25FloatOne);
+            _27Constant = 1E-07;
+            _28LessThan = LessThan(_26Add, _27Constant);
+            _60QuaternionNormalize = QuaternionNormalize(if (_28LessThan)
+              {
+                Single _35X;// 0:RotationBetweenUnitVectors->12:X 173771
+                Single _36Abs;// 0:RotationBetweenUnitVectors->11:Abs 173770
+                Single _37Z;// 0:RotationBetweenUnitVectors->14:Z 173774
+                Single _38Abs;// 0:RotationBetweenUnitVectors->13:Abs 173773
+                Boolean _39GreaterThan;// 0:RotationBetweenUnitVectors->15:GreaterThan 173769
+                Single _56FloatZero;// 0:RotationBetweenUnitVectors->36:FloatZero 173785
+                Quaternion _57QuaternionFromVectorAndTheta;// 0:RotationBetweenUnitVectors->35:QuaternionFromVectorAndTheta 173767
+                _35X = X(_16Normalize);
+                _36Abs = Abs(_35X);
+                _37Z = Z(_16Normalize);
+                _38Abs = Abs(_37Z);
+                _39GreaterThan = GreaterThan(_36Abs, _38Abs);
+                _56FloatZero = FloatZero();
+                _57QuaternionFromVectorAndTheta = QuaternionFromVectorAndTheta(if (_39GreaterThan)
+                  {
+                    Single _46Y;// 0:RotationBetweenUnitVectors->29:Y 173777
+                    Single _47NegativeFloat;// 0:RotationBetweenUnitVectors->30:NegativeFloat 173776
+                    Single _48X;// 0:RotationBetweenUnitVectors->23:X 173778
+                    Single _49FloatZero;// 0:RotationBetweenUnitVectors->21:FloatZero 173779
+                    Vector3 _50Vector3;// 0:RotationBetweenUnitVectors->19:Vector3 173775
+                    _46Y = Y(_16Normalize);
+                    _47NegativeFloat = NegativeFloat(_46Y);
+                    _48X = X(_16Normalize);
+                    _49FloatZero = FloatZero();
+                    _50Vector3 = Vector3(_47NegativeFloat, _48X, _49FloatZero);
+                    _50Vector3;
+                    }else
+                  {
+                    Single _51FloatZero;// 0:RotationBetweenUnitVectors->22:FloatZero 173781
+                    Single _52Z;// 0:RotationBetweenUnitVectors->26:Z 173783
+                    Single _53NegativeFloat;// 0:RotationBetweenUnitVectors->25:NegativeFloat 173782
+                    Single _54Y;// 0:RotationBetweenUnitVectors->24:Y 173784
+                    Vector3 _55Vector3;// 0:RotationBetweenUnitVectors->20:Vector3 173780
+                    _51FloatZero = FloatZero();
+                    _52Z = Z(_16Normalize);
+                    _53NegativeFloat = NegativeFloat(_52Z);
+                    _54Y = Y(_16Normalize);
+                    _55Vector3 = Vector3(_51FloatZero, _53NegativeFloat, _54Y);
+                    _55Vector3;
+                    }, _56FloatZero);
+                _57QuaternionFromVectorAndTheta;
+                }else
+              {
+                Vector3 _58Cross;// 0:RotationBetweenUnitVectors->2:Cross 173787
+                Quaternion _59QuaternionFromVectorAndTheta;// 0:RotationBetweenUnitVectors->5:QuaternionFromVectorAndTheta 173786
+                _58Cross = Cross(_16Normalize, _23Normalize);
+                _59QuaternionFromVectorAndTheta = QuaternionFromVectorAndTheta(_58Cross, _26Add);
+                _59QuaternionFromVectorAndTheta;
+                });
+            _60QuaternionNormalize;
+            }, _61RayPosition);
+        _62RotationTranslationMatrix;
+        });
+    _15Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows->0:Constant 173696
+        IArray[Int32] _1Range;// 3:MatrixRows->1:Range 173695
+        IArray[Vector3] _2Map;// 3:MatrixRows->3:Map 173694
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 173700
+            Int32 _1Add;// 5:PlusOne->0:Add 173699
+            Vector3 _2MatrixRow;// 3:MatrixRows->4:MatrixRow 173697
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _16Map = Map(_14Map, _15Pass-through: function1);
+    _17Flatten = Flatten(_16Map);
+    _18MeshIndices = MeshIndices(mesh);
+    _19SetMapChannel = SetMapChannel(mesh, flux channel, _17Flatten, _18MeshIndices);
+    _19SetMapChannel;
+    }

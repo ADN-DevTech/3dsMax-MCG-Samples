@@ -1,0 +1,40 @@
+<graph version="0.50" uuid="7f07e40a-1840-447d-9ce2-8f0e2dcb76ec">
+    <meta_info>
+        <graph_version guid="b4949be5-f01c-4130-b1be-b23e385668d3" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="2" position="560:0" size="140:93" />
+        <node operator="Output: modifier" id="4" position="1580:200" size="140:69" />
+        <node operator="AffectRegion" id="6" position="780:300" size="140:189" />
+        <node operator="MeshVertices" id="1" position="780:140" size="140:117" />
+        <node operator="Parameter: INode" id="3" name="node" position="0:20" size="140:117" />
+        <node operator="NodePositionInLocalSpaceOrOrigin" id="5" position="220:80" size="260:141" />
+        <node operator="Modifier: Matrix" id="7" position="0:160" size="140:93" />
+        <node operator="Distance" id="8" position="560:120" size="140:141" />
+        <node operator="Map" id="10" position="1000:240" size="140:141" />
+        <node operator="SetPerVetexDataResize" id="11" position="1300:140" size="200:165" />
+        <node operator="Parameter: Single" id="9" name="falloff" min_value="-10000" max_value="10000" default_value="10" system_units_value="false" position="560:280" size="140:213" />
+        <node operator="Parameter: Single" id="12" name="bubble" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="560:500" size="140:213" />
+        <node operator="Parameter: Single" id="13" name="pinch" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="560:740" size="140:213" />
+        <node operator="Zero" id="15" position="1030:129" size="140:93" />
+        <node groupnode="Bug: only 0 supported" id="14" position="1000:100" size="215:131" bg_color="#ff646464">
+            <nodes>15</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="6" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="10" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="2" />
+    </connections>
+</graph>

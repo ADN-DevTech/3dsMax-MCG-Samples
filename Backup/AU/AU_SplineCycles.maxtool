@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="5097466d-9f90-4ce4-8dd9-bccf9f20703f">
+    <meta_info>
+        <graph_version guid="270029f9-5de6-4273-aae6-42053a716770" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineFromNode" id="1" position="460:100" size="140:117" />
+        <node operator="ExitIf" id="2" position="280:80" size="140:141" />
+        <node operator="CanGetSplineFromNode" id="3" position="-40:220" size="140:117" />
+        <node operator="Not" id="4" position="120:180" size="140:117" />
+        <node operator="SplineCycles" id="5" position="640:220" size="140:117" />
+        <node operator="Output: shape" id="6" position="800:220" size="140:69" />
+        <node operator="Parameter: INode" id="7" name="spline" position="-60:20" size="140:117" />
+        <node operator="Parameter: Single" id="8" name="threshold" min_value="0" max_value="100" default_value="0.05" system_units_value="true" position="160:320" size="140:213" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

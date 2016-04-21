@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="18c8e277-a7c3-4e31-a812-3832742e8c8a">
+    <meta_info>
+        <graph_version guid="c29cafd8-7526-43b4-8d20-11bba53be4e2" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="FaceCount" id="7" position="460:220" size="160:117" />
+        <node operator="MapRange" id="8" position="640:300" size="140:141" />
+        <node operator="Flatten" id="9" position="840:360" size="140:117" />
+        <node operator="SplineSegmentPoints" id="2" position="320:300" size="140:165" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="120:160" size="140:117" />
+        <node operator="Input: Int32" id="1" name="pointsPerSegment" position="120:340" size="140:117" />
+        <node operator="Output: compound" id="3" position="1040:400" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="1" destnode="8" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="3" destport="0" />
+    </connections>
+</graph>

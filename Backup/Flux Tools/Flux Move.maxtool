@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="dbc999f7-bc37-4e81-9b29-ce704e9867f8">
+    <meta_info>
+        <graph_version guid="7b2bf6f5-6356-4e68-9c37-dba39bf30c2f" number="0.0.7" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="15" position="1440:480" size="140:69" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="669:377" size="140:189" />
+        <node operator="FluxTransformMatrices" id="3" position="1197:401" size="200:213" />
+        <node operator="Modifier: TriMesh" id="1" position="669:577" size="140:93" />
+        <node operator="Parameter: INode" id="6" name="target node" position="429:29" size="140:117" />
+        <node operator="Modifier: Matrix" id="9" position="449:161" size="140:93" />
+        <node operator="Parameter: Boolean" id="10" name="combine effect" default_value="false" position="898:369" size="140:141" />
+        <node operator="MatrixLerpTranslation" id="13" position="1186:28" size="180:165" />
+        <node operator="Parameter: Single" id="18" name="amount" min_value="-100" max_value="100" default_value="0.5" system_units_value="false" position="983:19" size="140:213" />
+        <node operator="Parameter: Single" id="0" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="893:526" size="140:213" />
+        <node operator="NodePositionInLocalSpaceOrOrigin" id="4" position="620:60" size="140:141" />
+        <node groupnode="Flux parameters" id="21" position="660:340" size="398:439" bg_color="#ff646464">
+            <nodes>7,1,10,0</nodes>
+        </node>
+        <node groupnode="Move matrix between it&amp;apos;s position and target" id="20" position="920:-20" size="472:272" bg_color="#ff646464">
+            <nodes>13,18</nodes>
+        </node>
+        <node groupnode="Apply function to matrices" id="23" position="1140:360" size="284:290" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="Given a valid node: set it&amp;apos;s location as the target" id="22" position="420:-20" size="415:319" bg_color="#ff646464">
+            <nodes>6,9,4</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="13" sourceport="1" destnode="3" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="1" />
+    </connections>
+</graph>

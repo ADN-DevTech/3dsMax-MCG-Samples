@@ -1,0 +1,50 @@
+<graph version="0.50" uuid="6624cf19-55b6-41b5-a419-549938a728db">
+    <meta_info>
+        <graph_version guid="1bf72c37-b610-4553-9b71-83a3c1ee8cb0" number="0.0.30" />
+    </meta_info>
+    <nodes>
+        <node operator="MatricesFromMapChannel" id="5" position="121:435" size="200:141" />
+        <node operator="Parameter: Int32" id="3" name="flux channel " min_value="-2" max_value="100" default_value="2" position="109:130" size="140:189" />
+        <node operator="Count" id="8" position="350:438" size="140:117" />
+        <node operator="FluxLerpMatrices" id="7" position="935:271" size="140:213" />
+        <node operator="Parameter: Boolean" id="13" name="combine effects" default_value="false" position="489:150" size="140:141" />
+        <node operator="Output: modifier" id="9" position="1180:380" size="140:69" />
+        <node operator="Parameter: Single" id="15" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="689:129" size="140:213" />
+        <node operator="Modifier: TriMesh" id="0" position="289:192" size="140:93" />
+        <node operator="Parameter: Single" id="4" name="middle" min_value="-10000" max_value="100000" default_value="50" system_units_value="false" position="-9:565" size="140:213" />
+        <node operator="Parameter: Single" id="12" name="fallof" min_value="-1000" max_value="1000" default_value="10" system_units_value="false" position="362:566" size="140:213" />
+        <node operator="DivideBy100" id="14" position="172:593" size="140:117" />
+        <node operator="DivideBy100" id="16" position="530:601" size="140:117" />
+        <node operator="Parameter: Boolean" id="17" name="wrap" default_value="false" position="520:440" size="140:141" />
+        <node operator="FalloffWeights" id="1" position="700:553" size="140:189" />
+        <node groupnode="Lerp matrices" id="11" position="920:240" size="178:253" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+        <node groupnode="Flux standard parameters" id="10" position="480:100" size="358:251" bg_color="#ff646464">
+            <nodes>13,15</nodes>
+        </node>
+        <node groupnode="Flux channel and mesh" id="2" position="100:100" size="338:232" bg_color="#ff646464">
+            <nodes>3,0</nodes>
+        </node>
+        <node groupnode="Compute an array of weights between minimum and maximum" id="6" position="-40:400" size="893:388" bg_color="#ff646464">
+            <nodes>4,5,8,17,14,16,12,1</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="15" sourceport="0" destnode="7" destport="4" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="16" sourceport="0" destnode="1" destport="3" />
+    </connections>
+</graph>

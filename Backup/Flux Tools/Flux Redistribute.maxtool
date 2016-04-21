@@ -1,0 +1,55 @@
+<graph version="0.50" uuid="06730ae6-35a0-4518-9d6a-dbba5a0c9330">
+    <meta_info>
+        <graph_version guid="128ca780-88c5-41f4-8e68-e31fd584080c" number="0.0.19" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="4" name="Flux channel" min_value="-2" max_value="100" default_value="2" position="1726:678" size="140:189" />
+        <node operator="Modifier: TriMesh" id="9" position="1887:637" size="140:93" />
+        <node operator="Output: modifier" id="16" position="2680:680" size="180:69" />
+        <node operator="MatricesFromMapChannel" id="0" position="1952:753" size="140:141" />
+        <node operator="Map" id="2" position="2677:300" size="140:141" />
+        <node operator="Parameter: Int32" id="6" name="count" min_value="0" max_value="10000" default_value="10" position="1953:349" size="140:189" />
+        <node operator="StoreMatricesInMapChannelWithBackup" id="12" position="2409:649" size="140:189" />
+        <node operator="PlusOne" id="13" position="2229:689" size="140:117" />
+        <node operator="GenerateFloats" id="5" position="2427:129" size="140:213" />
+        <node operator="Parameter: Single" id="14" name="min value" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="1615:121" size="140:213" />
+        <node operator="Parameter: Boolean" id="15" name="randomize" default_value="false" position="1980:127" size="140:141" />
+        <node operator="Parameter: Single" id="17" name="max value" min_value="-1000" max_value="1000" default_value="100" system_units_value="false" position="1777:334" size="140:213" />
+        <node operator="DivideBy100" id="18" position="2176:157" size="140:117" />
+        <node operator="DivideBy100" id="19" position="2202:277" size="140:117" />
+        <node operator="Parameter: Int32" id="20" name="seed" min_value="0" max_value="10000" default_value="0" position="1805:141" size="140:189" />
+        <node operator="LerpArrayMatrices" id="22" position="2330:389" size="140:141" />
+        <node groupnode="Redistribution parameters" id="21" position="1606:92" size="533:478" bg_color="#ff646464">
+            <nodes>14,20,15,6,17</nodes>
+        </node>
+        <node groupnode="Compute new positions" id="11" position="2160:100" size="666:439" bg_color="#ff646464">
+            <nodes>19,5,22,18,2</nodes>
+        </node>
+        <node groupnode="Mesh, channel, and matrices" id="8" position="1700:600" size="401:303" bg_color="#ff646464">
+            <nodes>9,0,4</nodes>
+        </node>
+        <node groupnode="Store new matrices, backing up previous" id="10" position="2220:620" size="427:227" bg_color="#ff646464">
+            <nodes>12,13</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="12" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="22" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="19" sourceport="0" destnode="5" destport="4" />
+        <connection sourcenode="14" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="22" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,39 @@
+<graph version="0.50" uuid="00500501-4b3e-44ac-ac68-ffaee54da49d">
+    <meta_info>
+        <graph_version guid="da992dc9-8c3b-4e88-8fd2-0ce003e8cfa0" number="0.0.5" />
+        <category>Caching</category>
+        <description>Creates a cache that is forcibly updated when a control value is changed.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="3" position="1540:380" size="140:69" />
+        <node operator="Input: any" id="1" name="value" position="0:140" size="140:117" />
+        <node operator="ExtractCurrentValueFromCache" id="2" position="660:160" size="140:117" />
+        <node operator="NotEqual" id="6" position="1100:140" size="140:141" />
+        <node operator="ForceUpdateCache" id="7" position="660:280" size="140:117" />
+        <node operator="If" id="8" position="1320:300" size="140:165" />
+        <node operator="Input: Int32" id="9" name="control" position="0:0" size="140:117" />
+        <node operator="Pair" id="5" position="220:100" size="140:141" />
+        <node operator="PairItem1" id="0" position="880:140" size="140:117" />
+        <node operator="CreateStaticCache" id="10" position="440:180" size="140:117" />
+        <node operator="ExtractCurrentValueFromCache" id="4" position="880:280" size="140:117" />
+        <node operator="PairItem2" id="11" position="1100:300" size="140:117" />
+        <node operator="PairItem2" id="12" position="1100:440" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

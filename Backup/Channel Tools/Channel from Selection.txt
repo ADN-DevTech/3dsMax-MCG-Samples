@@ -1,0 +1,62 @@
+(InstanceState state, Int32 channel ID, TriMesh mesh) => 
+  {
+    Int32 _0Constant;// 0:SetMapChannelOrGeometry->0:Constant 165562
+    Boolean _1Equal;// 0:SetMapChannelOrGeometry->6:Equal 165561
+    Int32 _2Zero;// 1:Zero 165587
+    IArray[Single] _3PerVertexData;// 6:PerVertexDataOrZeros->0:PerVertexData 165579
+    Object _4Null;// 3:IsNullFix2->3:Null 165578
+    Object _5As;// 3:IsNullFix2->23:As 165576
+    Boolean _6Equal;// 3:IsNullFix2->1:Equal 165575
+    IArray[Single] _11Pass-through: array;// 0:Pass-through: array 165567
+    IArray[Vector3] _12Map;// 5:ScalarsToVectors->1:Map 165568
+    Single _17FloatZero;// 6:PerVertexDataOrZeros->8:FloatZero 165585
+    IArray[Int32] _18MeshIndices;// 3:MeshIndices 165588
+    _0Constant = -3;
+    _1Equal = Equal(_0Constant, channel ID);
+    _2Zero = Zero();
+    _3PerVertexData = PerVertexData(mesh, _2Zero);
+    _4Null = Null();
+    _5As = As(_3PerVertexData, (Object x0) => 
+      {
+        Object _0IgnoreFirst;// 3:IsNullFix2->5:IgnoreFirst 165577
+        _0IgnoreFirst = IgnoreFirst(x0, _4Null);
+        _0IgnoreFirst;
+        });
+    _6Equal = Equal(_5As, _4Null);
+    _11Pass-through: array = if (_6Equal)
+      {
+        Single _7FloatZero;// 6:PerVertexDataOrZeros->8:FloatZero 165585
+        IArray[Vector3] _8MeshVertices;// 7:ArrayPerVertex->1:MeshVertices 165584
+        Int32 _9Count;// 7:ArrayPerVertex->2:Count 165583
+        IArray[Single] _10ArrayOf;// 7:ArrayPerVertex->3:ArrayOf 165582
+        _7FloatZero = FloatZero();
+        _8MeshVertices = MeshVertices(mesh);
+        _9Count = Count(_8MeshVertices);
+        _10ArrayOf = ArrayOf(_7FloatZero, _9Count);
+        _10ArrayOf;
+        }else
+      {
+        _3PerVertexData;
+        };
+    _12Map = Map(_11Pass-through: array, (Single x0) => 
+      {
+        Vector3 _0Vector3;// 2:ScalarToVector->1:Vector3 165570
+        _0Vector3 = Vector3(x0, x0, x0);
+        _0Vector3;
+        });
+    _17FloatZero = FloatZero();
+    _18MeshIndices = MeshIndices(mesh);
+    if (_1Equal)
+      {
+        MeshData _19MeshData;// 0:SetMapChannelOrGeometry->9:MeshData 165564
+        TriMesh _20CreateMeshWithMeshData;// 0:SetMapChannelOrGeometry->8:CreateMeshWithMeshData 165563
+        _19MeshData = MeshData(mesh);
+        _20CreateMeshWithMeshData = CreateMeshWithMeshData(_12Map, _18MeshIndices, _19MeshData);
+        _20CreateMeshWithMeshData;
+        }else
+      {
+        TriMesh _21SetMapChannel;// 0:SetMapChannelOrGeometry->0:SetMapChannel 165565
+        _21SetMapChannel = SetMapChannel(mesh, channel ID, _12Map, _18MeshIndices);
+        _21SetMapChannel;
+        };
+    }

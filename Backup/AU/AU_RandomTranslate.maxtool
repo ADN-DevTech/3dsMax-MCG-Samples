@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="a197a48c-16bc-46e7-80b0-1b43a9d2fdba">
+    <meta_info>
+        <graph_version guid="04fd69a1-d6da-42aa-9c29-3c5d649e514b" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="7" position="1320:560" size="140:69" />
+        <node operator="Modifier: TriMesh" id="1" position="880:320" size="140:93" />
+        <node operator="Parameter: Int32" id="5" name="seed" min_value="0" max_value="10000" default_value="0" position="440:380" size="140:189" />
+        <node operator="Parameter: Single" id="4" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="880:740" size="140:213" />
+        <node operator="RandomNumberGenerator" id="6" position="660:460" size="140:117" />
+        <node operator="FluxTransformMatrices" id="3" position="1100:440" size="140:213" />
+        <node operator="Parameter: Boolean" id="0" name="combine" default_value="false" position="880:580" size="140:141" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-3" max_value="101" default_value="2" position="880:100" size="140:189" />
+        <node operator="Bind1of2" id="12" position="880:420" size="140:141" />
+        <node operator="TranslateRandomlyWithNormalDistribution" id="8" position="660:280" size="140:165" />
+        <node operator="ChooseAxis" id="13" position="220:100" size="140:117" />
+        <node operator="Parameter: Int32" id="14" name="axis" min_value="-3" max_value="100" default_value="0" position="0:0" size="140:189" />
+        <node operator="MultiplyByScalar" id="15" position="440:220" size="140:141" />
+        <node operator="Parameter: Single" id="16" name="amount" min_value="-10000" max_value="10000" default_value="1" system_units_value="true" position="220:240" size="140:213" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="8" sourceport="1" destnode="12" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,37 @@
+(InstanceState state, Single radius) => 
+  {
+    Single _0Constant;// 1:Origin->0:Constant 107091
+    Vector3 _1Vector3;// 1:Origin->1:Vector3 107090
+    BoundingSphere _2Sphere;// 0:BoxFromPointAndRadius->3:Sphere 107089
+    BoundingBox _3BoxFromSphere;// 0:BoxFromPointAndRadius->0:BoxFromSphere 107088
+    QuadMesh _4BoxQuadMesh;// 2:BoxTriMesh->2:BoxQuadMesh 107084
+    TriMesh _5Triangulate;// 2:BoxTriMesh->3:Triangulate 107083
+    IArray[Int32] _6MeshIndices;// 4:HideEveryThirdEdge->2:MeshIndices 107074
+    IArray[Int32] _7Indices;// 4:HideEveryThirdEdge->8:Indices 107073
+    Int32 _8Constant;// 4:HideEveryThirdEdge->0:Constant 107081
+    Int32 _9Constant;// 4:HideEveryThirdEdge->0:Constant 107082
+    IArray[Boolean] _10Map;// 4:HideEveryThirdEdge->5:Map 107072
+    TriMesh _11SetVisibleEdges;// 4:HideEveryThirdEdge->9:SetVisibleEdges 107071
+    _0Constant = 0;
+    _1Vector3 = Vector3(_0Constant, _0Constant, _0Constant);
+    _2Sphere = Sphere(_1Vector3, radius);
+    _3BoxFromSphere = BoxFromSphere(_2Sphere);
+    _4BoxQuadMesh = BoxQuadMesh(_3BoxFromSphere);
+    _5Triangulate = Triangulate(_4BoxQuadMesh);
+    _6MeshIndices = MeshIndices(_5Triangulate);
+    _7Indices = Indices(_6MeshIndices);
+    _8Constant = 3;
+    _9Constant = 2;
+    _10Map = Map(_7Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 107080
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 107079
+        Boolean _2Not;// 4:HideEveryThirdEdge->7:Not 107075
+        _0Modulo = Modulo(x0, _8Constant);
+        _1Equal = Equal(_0Modulo, _9Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _11SetVisibleEdges = SetVisibleEdges(_5Triangulate, _10Map);
+    _11SetVisibleEdges;
+    }

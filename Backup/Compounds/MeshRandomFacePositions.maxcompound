@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="61534efd-d7eb-4ce3-b5f2-50f3aed5a804">
+    <meta_info>
+        <graph_version guid="259bb2f5-2214-427b-a7c9-dd0b7d38d8f4" number="0.0.7" />
+    </meta_info>
+    <nodes>
+        <node operator="RandomNumberGenerator" id="6" position="220:0" size="140:117" />
+        <node operator="Input: Int32" id="0" name="randomSeed" position="0:220" size="140:117" />
+        <node operator="Input: Int32" id="1" name="count" position="220:280" size="140:117" />
+        <node operator="Output: compound" id="14" position="920:400" size="140:69" />
+        <node operator="Combine" id="15" position="700:340" size="140:165" />
+        <node operator="RandomIndices" id="16" position="440:100" size="180:165" />
+        <node operator="FacePosition" id="17" position="440:480" size="140:141" />
+        <node operator="Input: TriMesh" id="3" name="mesh" position="0:80" size="140:117" />
+        <node operator="MeshFaces" id="18" position="220:140" size="140:117" />
+        <node operator="RandomFacePositions" id="19" position="440:300" size="180:165" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="17" sourceport="1" destnode="15" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="19" destport="2" />
+    </connections>
+</graph>

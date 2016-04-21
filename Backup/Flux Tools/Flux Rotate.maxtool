@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="0b84d106-38a9-4b7e-aae4-3648b54fa2f8">
+    <meta_info>
+        <graph_version guid="fc20ea67-e6c6-407a-b353-d5356257c22c" number="0.0.10" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-3" max_value="100" default_value="2" position="851:212" size="140:189" />
+        <node operator="Parameter: Single" id="17" name="z" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="642:212" size="140:213" />
+        <node operator="Parameter: Single" id="14" name="x" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="242:201" size="140:213" />
+        <node operator="Output: modifier" id="15" position="1580:520" size="140:69" />
+        <node operator="Modifier: TriMesh" id="1" position="832:423" size="140:93" />
+        <node operator="Parameter: Single" id="16" name="y" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="428:223" size="140:213" />
+        <node operator="Parameter: Boolean" id="12" name="relative" default_value="false" position="315:682" size="140:141" />
+        <node operator="FluxTransformMatrices" id="3" position="1289:363" size="180:213" />
+        <node operator="Parameter: Boolean" id="4" name="combine effects" default_value="false" position="1005:246" size="140:141" />
+        <node operator="Parameter: Single" id="8" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="1010:400" size="140:213" />
+        <node operator="MatrixApplyTransform" id="11" position="550:669" size="180:165" />
+        <node operator="Vector3" id="13" position="262:435" size="140:165" />
+        <node operator="EulerDegreesToMatrix" id="18" position="481:483" size="240:117" />
+        <node groupnode="Apply function to matrices" id="2" position="1240:320" size="269:265" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="Flux parameters" id="0" position="820:160" size="339:469" bg_color="#ff646464">
+            <nodes>7,1,4,8</nodes>
+        </node>
+        <node groupnode="Compute rotation matrix around y, x, and z" id="9" position="200:160" size="591:449" bg_color="#ff646464">
+            <nodes>17,13,18,14,16</nodes>
+        </node>
+        <node groupnode="Functon: rotate a matrix relative to self or modifier TM" id="10" position="260:640" size="502:208" bg_color="#ff646464">
+            <nodes>12,11</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="11" sourceport="1" destnode="3" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="8" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
+    </connections>
+</graph>

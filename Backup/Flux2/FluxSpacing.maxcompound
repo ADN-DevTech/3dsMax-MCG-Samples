@@ -1,0 +1,37 @@
+<graph version="0.50" uuid="9292595b-27be-4013-b354-2985bef59afc">
+    <meta_info>
+        <graph_version guid="bed08db3-e09b-41df-9334-fd5d1727f396" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Flatten" id="16" position="840:300" size="140:112" />
+        <node operator="StoreMatricesInMapChannel" id="11" position="1060:180" size="220:154" />
+        <node operator="CombineEveryTwoElements" id="1" position="560:260" size="200:133" />
+        <node operator="MatricesFromMapChannel" id="4" position="220:120" size="200:133" />
+        <node operator="MatrixInterpolateWithSpacingAndScaling" id="6" position="220:280" size="260:175" />
+        <node operator="Input: TriMesh" id="10" name="srcMesh" position="0:0" size="140:112" />
+        <node operator="Input: Int32" id="13" name="srcChannel" position="0:140" size="140:112" />
+        <node operator="Input: Int32" id="15" name="targetChannel" position="840:180" size="140:112" />
+        <node operator="Input: TriMesh" id="17" name="targetMesh" position="840:40" size="140:112" />
+        <node operator="Output: compound" id="0" position="1740:180" size="140:70" />
+        <node operator="Input: Boolean" id="3" name="scaling" position="0:260" size="140:112" />
+        <node operator="Input: Single" id="5" name="maxDistance" position="0:400" size="140:112" />
+        <node operator="If" id="2" position="1380:0" size="140:154" />
+        <node operator="Input: Boolean" id="7" name="applySpacing" position="100:-140" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="1" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="2" />
+    </connections>
+</graph>

@@ -1,0 +1,250 @@
+(InstanceState state, Single name, INode spline) => 
+  {
+    Boolean _0CanGetSplineFromNode;// 3:CanGetSplineFromNode 145879
+    Boolean _1Not;// 4:Not 145878
+    INode _2ExitIf;// 2:ExitIf 145876
+    Spline _3SplineFromNode;// 1:SplineFromNode 145875
+    Int32 _4SplineSegmentCount;// 1:SplineToTriMesh->11:SplineSegmentCount 145816
+    IArray[Int32] _5Range;// 1:SplineToTriMesh->8:Range 145815
+    Func[Int32, IArray[Vector3]] _6Pass-through: function1;// 0:Pass-through: function1 145812
+    IArray[IArray[Vector3]] _7Map;// 31:FlatMap->4:Map 145814
+    IArray[Vector3] _8Flatten;// 31:FlatMap->3:Flatten 145813
+    IArray[Int32] _9Indices;// 1:SplineToTriMesh->32:Indices 145857
+    Int32 _10Count;// 23:Slices->2:Count 145854
+    Int32 _11Two;// 1:SplineToTriMesh->25:Two 145858
+    Int32 _12Divide;// 23:Slices->3:Divide 145853
+    IArray[Int32] _13Range;// 23:Slices->4:Range 145852
+    IArray[IArray[Int32]] _14Map;// 23:Slices->5:Map 145851
+    Int32 _15Zero;// 1:SplineToTriMesh->28:Zero 145872
+    Func[IArray[Int32], IArray[Int32]] _16Pass-through: function1;// 0:Pass-through: function1 145846
+    IArray[IArray[Int32]] _17Map;// 29:FlatMap->4:Map 145848
+    IArray[Int32] _18Flatten;// 29:FlatMap->3:Flatten 145847
+    TriMesh _19CreateMesh;// 1:SplineToTriMesh->9:CreateMesh 145810
+    IArray[Int32] _20SplineMaterialIDs;// 1:SplineToTriMesh->33:SplineMaterialIDs 145873
+    TriMesh _21SetMaterialIds;// 1:SplineToTriMesh->24:SetMaterialIds 145809
+    TriMesh _22WeldMesh;// 0:SplineWeld->2:WeldMesh 145807
+    IArray[Vector3] _23MeshVertices;// 4:TriMeshToSpline->2:MeshVertices 145773
+    IArray[Int32] _24MeshIndices;// 4:TriMeshToSpline->3:MeshIndices 145786
+    Int32 _25Count;// 6:Slices->2:Count 145783
+    Int32 _26Constant;// 5:Three->0:Constant 145787
+    Int32 _27Divide;// 6:Slices->3:Divide 145782
+    IArray[Int32] _28Range;// 6:Slices->4:Range 145781
+    IArray[IArray[Int32]] _29Map;// 6:Slices->5:Map 145780
+    Int32 _30Zero;// 4:TriMeshToSpline->10:Zero 145794
+    Int32 _31One;// 4:TriMeshToSpline->12:One 145796
+    Func[IArray[Int32], IArray[Int32]] _32Pass-through: function1;// 0:Pass-through: function1 145775
+    IArray[IArray[Int32]] _33Map;// 19:FlatMap->4:Map 145777
+    IArray[Int32] _34Flatten;// 19:FlatMap->3:Flatten 145776
+    IArray[Vector3] _35Vector3EmptyArray;// 4:TriMeshToSpline->15:Vector3EmptyArray 145797
+    IArray[Int32] _36Int32EmptyArray;// 4:TriMeshToSpline->16:Int32EmptyArray 145798
+    Int32 _37Zero;// 4:TriMeshToSpline->18:Zero 145800
+    Int32 _38Count;// 4:TriMeshToSpline->7:Count 145804
+    Int32 _39Two;// 20:DivideByTwo->2:Two 145803
+    Int32 _40Divide;// 20:DivideByTwo->1:Divide 145802
+    IArray[Int32] _41GenerateN;// 4:TriMeshToSpline->17:GenerateN 145799
+    Spline _42CreateSplineFromBuffers;// 4:TriMeshToSpline->4:CreateSplineFromBuffers 145772
+    IArray[Int32] _43MaterialIds;// 4:TriMeshToSpline->24:MaterialIds 145806
+    Spline _44SetSplineMaterialIDs;// 4:TriMeshToSpline->23:SetSplineMaterialIDs 145771
+    IArray[Vector3] _45SplineVerticesBuffer;// 5:SplineCycles->6:SplineVerticesBuffer 145734
+    IArray[Int32] _46SplineSegmentIndices;// 5:SplineCycles->3:SplineSegmentIndices 145743
+    Int32 _47Zero;// 4:CombineEveryTwoElements->7:Zero 145739
+    Int32 _48Two;// 4:CombineEveryTwoElements->6:Two 145740
+    IArray[Int32] _49Stride;// 4:CombineEveryTwoElements->1:Stride 145738
+    Int32 _50One;// 4:CombineEveryTwoElements->8:One 145742
+    IArray[Int32] _51Stride;// 4:CombineEveryTwoElements->2:Stride 145741
+    Func[Int32, Int32, IntPair] _52Pass-through: function2;// 0:Pass-through: function2 145736
+    IArray[IntPair] _53Combine;// 4:CombineEveryTwoElements->3:Combine 145737
+    Graph[Vector3] _54Graph;// 5:SplineCycles->2:Graph 145733
+    IArray[Vector3] _55GraphNodes;// 5:SplineCycles->15:GraphNodes 145732
+    IArray[IArray[Int32]] _56ComputeInnerEdges;// 5:SplineCycles->9:ComputeInnerEdges 145749
+    Func[IArray[Int32], IArray[Int32]] _57Pass-through: function1;// 0:Pass-through: function1 145746
+    IArray[IArray[Int32]] _58Map;// 14:FlatMap->4:Map 145748
+    IArray[Int32] _59Flatten;// 14:FlatMap->3:Flatten 145747
+    IArray[Vector3] _60Vector3EmptyArray;// 11:CreateSpline->16:Vector3EmptyArray 145730
+    IArray[Int32] _61Int32EmptyArray;// 11:CreateSpline->15:Int32EmptyArray 145731
+    Spline _62CreateSplineFromBuffers;// 11:CreateSpline->11:CreateSplineFromBuffers 145729
+    _0CanGetSplineFromNode = CanGetSplineFromNode(spline);
+    _1Not = Not(_0CanGetSplineFromNode);
+    _2ExitIf = ExitIf(spline, _1Not);
+    _3SplineFromNode = SplineFromNode(_2ExitIf);
+    _4SplineSegmentCount = SplineSegmentCount(_3SplineFromNode);
+    _5Range = Range(_4SplineSegmentCount);
+    _6Pass-through: function1 = (Int32 x0) => 
+      {
+        IArray[Vector3] _0SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 145828
+        IArray[Int32] _1SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 145830
+        Int32 _2Two;// 7:SplineSegmentKnotA->9:Two 145832
+        Int32 _3Multiply;// 7:SplineSegmentKnotA->8:Multiply 145831
+        Int32 _4At;// 7:SplineSegmentKnotA->2:At 145829
+        Vector3 _5At;// 7:SplineSegmentKnotA->5:At 145827
+        IArray[Vector3] _6SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 145836
+        IArray[Int32] _7SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 145838
+        Int32 _8Two;// 0:SplineSegmentKnotB->9:Two 145841
+        Int32 _9Multiply;// 0:SplineSegmentKnotB->8:Multiply 145840
+        Int32 _10One;// 0:SplineSegmentKnotB->12:One 145842
+        Int32 _11Add;// 0:SplineSegmentKnotB->11:Add 145839
+        Int32 _12At;// 0:SplineSegmentKnotB->2:At 145837
+        Vector3 _13At;// 0:SplineSegmentKnotB->5:At 145835
+        Line _14Line;// 10:SplineSegmentKnots->9:Line 145824
+        Vector3 _15LineA;// 1:SplineToTriMesh->12:LineA 145821
+        IArray[Vector3] _16Unit;// 30:Array2->2:Unit 145820
+        Vector3 _17LineB;// 1:SplineToTriMesh->17:LineB 145844
+        IArray[Vector3] _18Append;// 30:Array2->3:Append 145819
+        _0SplineVerticesBuffer = SplineVerticesBuffer(_3SplineFromNode);
+        _1SplineSegmentIndices = SplineSegmentIndices(_3SplineFromNode);
+        _2Two = Two();
+        _3Multiply = Multiply(x0, _2Two);
+        _4At = At(_1SplineSegmentIndices, _3Multiply);
+        _5At = At(_0SplineVerticesBuffer, _4At);
+        _6SplineVerticesBuffer = SplineVerticesBuffer(_3SplineFromNode);
+        _7SplineSegmentIndices = SplineSegmentIndices(_3SplineFromNode);
+        _8Two = Two();
+        _9Multiply = Multiply(x0, _8Two);
+        _10One = One();
+        _11Add = Add(_9Multiply, _10One);
+        _12At = At(_7SplineSegmentIndices, _11Add);
+        _13At = At(_6SplineVerticesBuffer, _12At);
+        _14Line = Line(_5At, _13At);
+        _15LineA = LineA(_14Line);
+        _16Unit = Unit(_15LineA);
+        _17LineB = LineB(_14Line);
+        _18Append = Append(_16Unit, _17LineB);
+        _18Append;
+        };
+    _7Map = Map(_5Range, _6Pass-through: function1);
+    _8Flatten = Flatten(_7Map);
+    _9Indices = Indices(_8Flatten);
+    _10Count = Count(_9Indices);
+    _11Two = Two();
+    _12Divide = Divide(_10Count, _11Two);
+    _13Range = Range(_12Divide);
+    _14Map = Map(_13Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 23:Slices->6:Multiply 145856
+        IArray[Int32] _1Slice;// 23:Slices->0:Slice 145855
+        _0Multiply = Multiply(_11Two, x0);
+        _1Slice = Slice(_9Indices, _0Multiply, _11Two);
+        _1Slice;
+        });
+    _15Zero = Zero();
+    _16Pass-through: function1 = (IArray[Int32] x0) => 
+      {
+        Int32 _0Zero;// 22:First->2:Zero 145867
+        Int32 _1At;// 22:First->0:At 145866
+        IArray[Int32] _2Unit;// 26:Array3->2:Unit 145864
+        Int32 _3One;// 21:Second->2:One 145871
+        Int32 _4At;// 21:Second->0:At 145870
+        IArray[Int32] _5Append;// 26:Array3->3:Append 145863
+        IArray[Int32] _6Append;// 26:Array3->6:Append 145862
+        _0Zero = Zero();
+        _1At = At(x0, _0Zero);
+        _2Unit = Unit(_1At);
+        _3One = One();
+        _4At = At(x0, _3One);
+        _5Append = Append(_2Unit, _4At);
+        _6Append = Append(_5Append, _15Zero);
+        _6Append;
+        };
+    _17Map = Map(_14Map, _16Pass-through: function1);
+    _18Flatten = Flatten(_17Map);
+    _19CreateMesh = CreateMesh(_8Flatten, _18Flatten);
+    _20SplineMaterialIDs = SplineMaterialIDs(_3SplineFromNode);
+    _21SetMaterialIds = SetMaterialIds(_19CreateMesh, _20SplineMaterialIDs);
+    _22WeldMesh = WeldMesh(name, _21SetMaterialIds);
+    _23MeshVertices = MeshVertices(_22WeldMesh);
+    _24MeshIndices = MeshIndices(_22WeldMesh);
+    _25Count = Count(_24MeshIndices);
+    _26Constant = 3;
+    _27Divide = Divide(_25Count, _26Constant);
+    _28Range = Range(_27Divide);
+    _29Map = Map(_28Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 6:Slices->6:Multiply 145785
+        IArray[Int32] _1Slice;// 6:Slices->0:Slice 145784
+        _0Multiply = Multiply(_26Constant, x0);
+        _1Slice = Slice(_24MeshIndices, _0Multiply, _26Constant);
+        _1Slice;
+        });
+    _30Zero = Zero();
+    _31One = One();
+    _32Pass-through: function1 = (IArray[Int32] x0) => 
+      {
+        Int32 _0At;// 4:TriMeshToSpline->9:At 145792
+        IArray[Int32] _1Unit;// 13:Array2->2:Unit 145791
+        Int32 _2At;// 4:TriMeshToSpline->11:At 145795
+        IArray[Int32] _3Append;// 13:Array2->3:Append 145790
+        _0At = At(x0, _30Zero);
+        _1Unit = Unit(_0At);
+        _2At = At(x0, _31One);
+        _3Append = Append(_1Unit, _2At);
+        _3Append;
+        };
+    _33Map = Map(_29Map, _32Pass-through: function1);
+    _34Flatten = Flatten(_33Map);
+    _35Vector3EmptyArray = GetValue();
+    _36Int32EmptyArray = GetValue();
+    _37Zero = Zero();
+    _38Count = Count(_34Flatten);
+    _39Two = Two();
+    _40Divide = Divide(_38Count, _39Two);
+    _41GenerateN = GenerateN(_37Zero, _40Divide, (Int32 x0) => 
+      {
+        x0;
+        });
+    _42CreateSplineFromBuffers = CreateSplineFromBuffers(_23MeshVertices, _34Flatten, _35Vector3EmptyArray, _36Int32EmptyArray, _41GenerateN);
+    _43MaterialIds = MaterialIds(_22WeldMesh);
+    _44SetSplineMaterialIDs = SetSplineMaterialIDs(_42CreateSplineFromBuffers, _43MaterialIds);
+    _45SplineVerticesBuffer = SplineVerticesBuffer(_44SetSplineMaterialIDs);
+    _46SplineSegmentIndices = SplineSegmentIndices(_44SetSplineMaterialIDs);
+    _47Zero = Zero();
+    _48Two = Two();
+    _49Stride = Stride(_46SplineSegmentIndices, _47Zero, _48Two);
+    _50One = One();
+    _51Stride = Stride(_46SplineSegmentIndices, _50One, _48Two);
+    _52Pass-through: function2 = (Int32 x0, Int32 x1) => 
+      {
+        IntPair _0IntPair;// 5:SplineCycles->5:IntPair 145744
+        _0IntPair = IntPair(x0, x1);
+        _0IntPair;
+        };
+    _53Combine = Combine(_49Stride, _51Stride, _52Pass-through: function2);
+    _54Graph = Graph(_45SplineVerticesBuffer, _53Combine);
+    _55GraphNodes = GraphNodes(_54Graph);
+    _56ComputeInnerEdges = ComputeInnerEdges(_54Graph);
+    _57Pass-through: function1 = (IArray[Int32] x0) => 
+      {
+        IArray[IntPair] _0GraphEdges;// 12:GraphContours->2:GraphEdges 145760
+        IArray[IntPair] _1Map;// 3:SelectByIndex->2:Map 145758
+        Func[IntPair, IArray[Int32]] _2Pass-through: function1;// 0:Pass-through: function1 145753
+        IArray[IArray[Int32]] _3Map;// 4:FlatMap->4:Map 145755
+        IArray[Int32] _4Flatten;// 4:FlatMap->3:Flatten 145754
+        _0GraphEdges = GraphEdges(_54Graph);
+        _1Map = Map(x0, (Int32 x0) => 
+          {
+            IntPair _0At;// 3:SelectByIndex->3:At 145759
+            _0At = At(_0GraphEdges, x0);
+            _0At;
+            });
+        _2Pass-through: function1 = (IntPair x0) => 
+          {
+            Int32 _0IntPairA;// 12:GraphContours->8:IntPairA 145765
+            IArray[Int32] _1Unit;// 7:Array2->2:Unit 145764
+            Int32 _2IntPairB;// 12:GraphContours->6:IntPairB 145767
+            IArray[Int32] _3Append;// 7:Array2->3:Append 145763
+            _0IntPairA = IntPairA(x0);
+            _1Unit = Unit(_0IntPairA);
+            _2IntPairB = IntPairB(x0);
+            _3Append = Append(_1Unit, _2IntPairB);
+            _3Append;
+            };
+        _3Map = Map(_1Map, _2Pass-through: function1);
+        _4Flatten = Flatten(_3Map);
+        _4Flatten;
+        };
+    _58Map = Map(_56ComputeInnerEdges, _57Pass-through: function1);
+    _59Flatten = Flatten(_58Map);
+    _60Vector3EmptyArray = GetValue();
+    _61Int32EmptyArray = GetValue();
+    _62CreateSplineFromBuffers = CreateSplineFromBuffers(_55GraphNodes, _59Flatten, _60Vector3EmptyArray, _61Int32EmptyArray, _61Int32EmptyArray);
+    _62CreateSplineFromBuffers;
+    }

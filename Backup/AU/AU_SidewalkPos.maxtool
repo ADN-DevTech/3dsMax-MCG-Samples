@@ -1,0 +1,48 @@
+<graph version="0.50" uuid="74708eba-2b82-4d0b-9f03-f49d82a175e4">
+    <meta_info>
+        <graph_version guid="5a349e8e-df92-4f58-bb22-b8f5bb9634a4" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineLines" id="2" position="440:440" size="140:117" />
+        <node operator="CloneMeshAtTransforms" id="0" position="1320:860" size="140:141" />
+        <node operator="Parameter: INode" id="7" name="spline" position="0:400" size="140:117" />
+        <node operator="Output: geometry" id="14" position="1760:940" size="140:69" />
+        <node operator="CombineAllMeshes" id="11" position="1540:920" size="140:117" />
+        <node operator="Parameter: Single" id="9" name="boxSize" min_value="0" max_value="100" default_value="0.05" system_units_value="true" position="880:900" size="140:213" />
+        <node operator="CubeMesh" id="8" position="1100:920" size="140:117" />
+        <node operator="SplineFromNode" id="1" position="220:420" size="140:117" />
+        <node operator="Parameter: Int32" id="21" name="count" min_value="0" max_value="10000" default_value="10" position="440:240" size="140:189" />
+        <node operator="PseudoRandomFloats" id="23" position="660:300" size="140:141" />
+        <node operator="RandomNumberGenerator" id="24" position="440:100" size="140:117" />
+        <node operator="Map" id="22" position="880:460" size="140:141" />
+        <node operator="LineArrayMatrixLerp" id="25" position="660:460" size="140:141" />
+        <node operator="Parameter: Int32" id="3" name="seed" min_value="0" max_value="10000" default_value="0" position="220:0" size="140:189" />
+        <node operator="PseudoRandomMatrixOffsets" id="4" position="1100:680" size="140:213" />
+        <node operator="Parameter: Single" id="5" name="width" min_value="-10000" max_value="10000" default_value="5" system_units_value="true" position="440:580" size="140:213" />
+        <node operator="DivideByTwoFloat" id="6" position="660:700" size="140:117" />
+        <node operator="NegativeFloat" id="10" position="880:620" size="140:117" />
+        <node operator="YAxis" id="12" position="880:800" size="140:93" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="24" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="25" sourceport="1" destnode="22" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="24" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="3" />
+        <connection sourcenode="12" sourceport="0" destnode="4" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

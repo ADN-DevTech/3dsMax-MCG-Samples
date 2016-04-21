@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="976811ac-93c8-438e-b728-2775206b198b">
+    <meta_info>
+        <graph_version guid="5a6a1487-0f64-4d9e-891b-e5749f4970c5" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="MatricesFromMapChannel" id="0" position="920:420" size="220:141" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:200" size="140:117" />
+        <node operator="Input: Int32" id="2" name="channelId" position="220:340" size="140:117" />
+        <node operator="MapChannelExists" id="3" position="460:120" size="140:141" />
+        <node operator="IfNot" id="4" position="800:240" size="140:165" />
+        <node operator="MatrixIdentity" id="5" position="440:300" size="140:93" />
+        <node operator="Unit" id="6" position="600:280" size="140:117" />
+        <node operator="Output: compound" id="7" position="1020:320" size="160:69" />
+        <node operator="StoreMatricesInMapChannel" id="8" position="780:440" size="140:165" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="2" />
+    </connections>
+</graph>

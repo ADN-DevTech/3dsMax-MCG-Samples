@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="1ec140a5-1220-49fc-b77c-5d1114187382">
+    <meta_info>
+        <graph_version guid="ee8337fe-8256-4ad5-b815-bccbc8b1b3d9" number="0.0.7" />
+    </meta_info>
+    <nodes>
+        <node operator="StoreMatricesInMapChannel" id="0" position="589:229" size="220:165" />
+        <node operator="Modifier: TriMesh" id="1" position="40:100" size="140:93" />
+        <node operator="Parameter: Int32" id="2" name="Flux channel" min_value="-2" max_value="100" default_value="2" position="40:200" size="140:189" />
+        <node operator="Parameter: Int32" id="3" name="count" min_value="0" max_value="100000" default_value="10" position="40:420" size="140:189" />
+        <node operator="ArrayOf" id="4" position="389:369" size="140:141" />
+        <node operator="MatrixIdentity" id="5" position="229:269" size="140:93" />
+        <node operator="Output: modifier" id="6" position="880:440" size="140:69" />
+        <node groupnode="Create an array of identity matrices and store them in a map channel" id="7" position="220:200" size="598:319" bg_color="#ff646464">
+            <nodes>4,5,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="a059b3e1-7daf-41c4-88a9-2beea171410e">
+    <meta_info>
+        <graph_version guid="263508fe-e664-42f8-8e94-337b7df23665" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="LathePoints" id="1" position="780:360" size="140:213" />
+        <node operator="Input: Int32" id="0" name="rotationalSegments" position="560:180" size="140:117" />
+        <node operator="Input: Single" id="2" name="degrees" position="560:320" size="140:117" />
+        <node operator="Input: Boolean" id="4" name="cap" position="560:580" size="140:117" />
+        <node operator="Input: Int32" id="5" name="axis" position="200:520" size="140:117" />
+        <node operator="ChooseAxis" id="6" position="400:520" size="140:117" />
+        <node operator="SplineInterpolate" id="3" position="200:340" size="140:141" />
+        <node operator="Input: TriMesh" id="7" name="splineMesh" position="20:400" size="140:117" />
+        <node operator="SampleLerp" id="8" position="400:340" size="140:141" />
+        <node operator="Input: Int32" id="9" name="pathSegments" position="200:200" size="140:117" />
+        <node operator="Output: compound" id="10" position="1020:440" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="8" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

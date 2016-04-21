@@ -1,0 +1,61 @@
+<graph version="0.50" uuid="63dd4a74-eaa3-480f-8793-d71915789283">
+    <meta_info>
+        <graph_version guid="dfa41c55-8ef6-4c95-ad89-b623ffb20d69" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineLines" id="10" position="220:9" size="140:117" />
+        <node operator="SplineFromNodeOrExit" id="9" position="0:9" size="140:117" />
+        <node operator="LineMatrices" id="5" position="497:-2" size="140:117" />
+        <node operator="Modifier: TriMesh" id="1" position="918:-91" size="140:93" />
+        <node operator="Output: modifier" id="6" position="1460:20" size="140:69" />
+        <node operator="Parameter: INode" id="13" name="spline" position="-211:47" size="140:117" />
+        <node operator="FlatMap" id="3" position="740:-8" size="140:141" />
+        <node operator="StoreMatricesInMapChannel" id="0" position="1164:-77" size="220:165" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="928:0" size="140:189" />
+        <node operator="Parameter: Single" id="14" name="distance" min_value="0" max_value="100" default_value="5" system_units_value="false" position="9:309" size="140:213" />
+        <node operator="CombineEveryTwoElements" id="12" position="436:361" size="140:141" />
+        <node operator="MatrixInterpolateWithSpacing2" id="15" position="200:300" size="200:165" />
+        <node operator="Flatten" id="16" position="589:349" size="140:117" />
+        <node operator="Pass-through: array" id="17" position="1460:360" size="140:117" />
+        <node operator="DivideBy100" id="19" position="1097:366" size="140:117" />
+        <node operator="Parameter: Single" id="20" name="probability" min_value="0" max_value="100" default_value="50" system_units_value="false" position="929:336" size="140:213" />
+        <node operator="RandomNumberGenerator" id="21" position="1109:736" size="140:117" />
+        <node operator="Parameter: Int32" id="22" name="seed" min_value="0" max_value="10000" default_value="0" position="889:596" size="140:189" />
+        <node operator="FilterRandomly" id="23" position="1110:544" size="140:165" />
+        <node groupnode="Interpolate between matrix pairs with spacing" id="7" position="0:220" size="744:320" bg_color="#ff646464">
+            <nodes>14,12,15,16</nodes>
+        </node>
+        <node groupnode="Filter items with a given probability" id="18" position="860:300" size="482:573" bg_color="#ff646464">
+            <nodes>19,20,21,22,23</nodes>
+        </node>
+        <node groupnode="Get line segments from spline" id="11" position="-220:-20" size="589:193" bg_color="#ff646464">
+            <nodes>10,9,13</nodes>
+        </node>
+        <node groupnode="Store matrices in map channel" id="8" position="900:-120" size="510:318" bg_color="#ff646464">
+            <nodes>1,0,2</nodes>
+        </node>
+        <node groupnode="Convert line to two matrices aligned along line" id="4" position="400:-60" size="489:217" bg_color="#ff646464">
+            <nodes>5,3</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="15" sourceport="1" destnode="12" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="23" destport="2" />
+    </connections>
+</graph>

@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="a057cb6e-d370-44da-a1f5-8fdeed42a5c5">
+    <meta_info>
+        <graph_version guid="879dad17-7b0c-4c9b-bddf-51b6f020d92a" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="0" name="radius" min_value="0.001" max_value="1000" default_value="20" system_units_value="false" position="220:0" size="140:213" />
+        <node operator="SphereQuadMesh" id="1" position="440:160" size="140:165" />
+        <node operator="Parameter: Int32" id="2" name="u segments" min_value="3" max_value="1000" default_value="9" position="0:120" size="140:189" />
+        <node operator="Output: geometry" id="3" position="880:260" size="140:69" />
+        <node operator="Triangulate" id="4" position="660:220" size="140:117" />
+        <node operator="Parameter: Int32" id="8" name="v segments" min_value="3" max_value="1000" default_value="9" position="0:320" size="140:189" />
+        <node operator="PlusOne" id="10" position="220:360" size="140:117" />
+        <node operator="PlusOne" id="7" position="220:220" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="b85c073e-8701-4d34-be65-f7b3dae28d5e">
+    <meta_info>
+        <graph_version guid="ba46e092-9c26-47e6-81c8-34d547f3995d" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="VectorBoxComponentDistance" id="0" position="480:400" size="200:189" />
+        <node operator="Input: Vector3" id="1" name="v" position="60:100" size="140:117" />
+        <node operator="Input: BoundingBox" id="2" name="box" position="60:240" size="140:117" />
+        <node operator="Input: Int32" id="3" name="component" position="60:380" size="140:117" />
+        <node operator="Input: Int32" id="4" name="useMinMaxOrBoth" position="60:520" size="140:117" />
+        <node operator="BoundingBoxExtent" id="5" position="300:140" size="200:117" />
+        <node operator="VectorComponent" id="6" position="540:240" size="140:141" />
+        <node operator="DivideDefaultToZero" id="7" position="820:240" size="180:141" />
+        <node operator="Output: compound" id="8" position="1060:360" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="85ad3622-c979-4a9a-9ff1-3fb56843788e">
+    <meta_info>
+        <graph_version guid="e7177e46-4e83-4fc2-8bc3-366e8235014b" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="180:40" size="140:117" />
+        <node operator="Input: Int32" id="1" name="index" position="180:200" size="140:117" />
+        <node operator="FaceIndices" id="2" position="460:40" size="140:141" />
+        <node operator="AverageEstimatedCurvatureAtVertex" id="3" position="460:200" size="140:141" />
+        <node operator="Map" id="4" position="660:120" size="140:141" />
+        <node operator="Output: compound" id="5" position="1060:220" size="140:69" />
+        <node operator="Average" id="6" position="860:160" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

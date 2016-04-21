@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="2244ae39-11ec-4f92-8768-8cd89875ea29">
+    <meta_info>
+        <graph_version guid="eee0b596-957a-4d72-82ce-a5079a5cde4c" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="29:289" size="140:93" />
+        <node operator="Parameter: Int32" id="3" name="flux channel " min_value="-2" max_value="100" default_value="2" position="45:98" size="140:189" />
+        <node operator="Output: modifier" id="9" position="1000:260" size="140:69" />
+        <node operator="MatricesFromMapChannel" id="0" position="289:149" size="200:141" />
+        <node operator="Parameter: Int32" id="10" name="target channel " min_value="-2" max_value="100" default_value="4" position="529:249" size="140:189" />
+        <node operator="StoreMatricesInMapChannel" id="5" position="729:169" size="220:165" />
+        <node groupnode="Flux parameters" id="2" position="20:52" size="194:358" bg_color="#ff646464">
+            <nodes>1,3</nodes>
+        </node>
+        <node groupnode="Get Flux matrices" id="8" position="280:120" size="218:179" bg_color="#ff646464">
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="Store matrices in another channel" id="4" position="520:140" size="438:307" bg_color="#ff646464">
+            <nodes>5,10</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="2" />
+    </connections>
+</graph>

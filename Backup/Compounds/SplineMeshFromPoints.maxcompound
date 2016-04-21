@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="c334e30b-5fca-470e-aad0-b10786b3fe4f">
+    <meta_info>
+        <graph_version guid="981dbdc2-0a00-4e5b-9770-34784a6d9f19" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Boolean" id="15" name="closed" position="220:0" size="140:117" />
+        <node operator="SplineMesh" id="0" position="1100:180" size="140:141" />
+        <node operator="Input: array" id="2" name="points" position="0:20" size="140:117" />
+        <node operator="Indices" id="1" position="220:140" size="140:117" />
+        <node operator="DropLast" id="5" position="660:120" size="140:117" />
+        <node operator="SpliceAlternateElements" id="6" position="880:180" size="140:141" />
+        <node operator="SkipOne" id="3" position="660:240" size="140:117" />
+        <node operator="AppendIf" id="4" position="440:120" size="140:165" />
+        <node operator="Zero" id="8" position="220:280" size="140:93" />
+        <node operator="Output: compound" id="9" position="1320:240" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+    </connections>
+</graph>

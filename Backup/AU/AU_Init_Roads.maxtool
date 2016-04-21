@@ -1,0 +1,54 @@
+<graph version="0.50" uuid="84e83300-0656-4b07-89ae-065a8d2766c1">
+    <meta_info>
+        <graph_version guid="d4d23923-1257-4bac-9961-a9abf8b95e6d" number="0.0.13" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="898:37" size="140:93" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="908:128" size="140:189" />
+        <node operator="StoreMatricesInMapChannel" id="0" position="1144:51" size="220:165" />
+        <node operator="Parameter: INode" id="13" name="spline" position="-231:167" size="140:117" />
+        <node operator="Output: modifier" id="6" position="1440:140" size="140:69" />
+        <node operator="SplineFromNodeOrExit" id="9" position="-20:129" size="140:117" />
+        <node operator="SplineLines" id="10" position="200:129" size="140:117" />
+        <node operator="FlatMap" id="3" position="720:112" size="140:141" />
+        <node operator="LineMatrices" id="5" position="477:118" size="140:117" />
+        <node operator="Parameter: Boolean" id="16" name="bidirectional" default_value="true" position="121:355" size="140:141" />
+        <node operator="LineReverse" id="12" position="85:622" size="140:117" />
+        <node operator="If" id="7" position="524:371" size="140:165" />
+        <node operator="Pass-through: array" id="14" position="-82:399" size="140:117" />
+        <node operator="Concatenate" id="15" position="503:558" size="140:141" />
+        <node operator="Reverse" id="18" position="80:500" size="140:117" />
+        <node operator="Map" id="19" position="289:577" size="140:141" />
+        <node groupnode="Append matrices in the other direction" id="17" position="-120:320" size="840:428" bg_color="#ff646464">
+            <nodes>12,18,19,7,15,16,14</nodes>
+        </node>
+        <node groupnode="Get line segments from spline" id="11" position="-240:100" size="589:193" bg_color="#ff646464">
+            <nodes>9,10,13</nodes>
+        </node>
+        <node groupnode="Convert line to two matrices aligned along line" id="4" position="380:60" size="489:217" bg_color="#ff646464">
+            <nodes>5,3</nodes>
+        </node>
+        <node groupnode="Store matrices in map channel" id="8" position="880:8" size="510:318" bg_color="#ff646464">
+            <nodes>1,2,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="12" sourceport="1" destnode="19" destport="1" />
+    </connections>
+</graph>

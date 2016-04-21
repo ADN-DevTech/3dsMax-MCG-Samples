@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="157e2162-0d01-45ed-8e81-9f8c65b454ca">
+  <meta_info>
+    <graph_version guid="513828f3-d425-4ca5-95f5-e354e416aaf7" number="1.0.0" />
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+    <category>Geometry - Deformers</category>
+    <description>Creates a mesh that morphs between two meshes given a particular weight. Both meshes must have the same topology.</description>
+  </meta_info>
+  <nodes>
+    <node operator="MeshVertices" id="1" position="220:0" size="140:128" />
+    <node operator="MeshVertices" id="2" position="220:160" size="140:128" />
+    <node operator="Combine" id="3" position="440:240" size="140:176" />
+    <node operator="Lerp" id="4" position="220:320" size="140:176" />
+    <node operator="Input: Single" id="5" name="weight" position="0:360" size="140:128" />
+    <node operator="Output: compound" id="7" position="860:260" size="140:80" />
+    <node operator="Input: TriMesh" id="8" name="mesh1" position="0:20" size="140:128" />
+    <node operator="Input: TriMesh" id="9" name="mesh2" position="20:180" size="140:128" />
+    <node operator="SetMeshVertices" id="10" position="660:200" size="140:152" />
+  </nodes>
+  <connections>
+    <connection sourcenode="9" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="4" sourceport="1" destnode="3" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+  </connections>
+</graph>

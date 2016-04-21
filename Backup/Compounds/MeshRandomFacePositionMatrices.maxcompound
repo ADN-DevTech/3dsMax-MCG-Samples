@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="ddcf0b42-493d-4287-97fd-d7118cd8e7e5">
+    <meta_info>
+        <graph_version guid="05cd8172-abf2-4120-b681-78bb86324c39" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Map" id="3" position="520:280" size="140:141" />
+        <node operator="MeshRandomFacePositions" id="14" position="220:140" size="220:165" />
+        <node operator="MeshFacePositionMatrix" id="10" position="220:320" size="220:165" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:280" size="140:117" />
+        <node operator="Input: Int32" id="1" name="randomSeed" position="0:0" size="140:117" />
+        <node operator="Input: Int32" id="2" name="count" position="0:140" size="140:117" />
+        <node operator="Input: Int32" id="4" name="axis" position="0:420" size="140:117" />
+        <node operator="Output: compound" id="5" position="1020:380" size="140:69" />
+        <node operator="MapConditional" id="9" position="800:300" size="140:165" />
+        <node operator="Input: Boolean" id="6" name="positionOnly" position="520:160" size="140:117" />
+        <node operator="MatrixTranslationAsMatrix" id="8" position="520:460" size="200:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="14" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="10" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="8" sourceport="1" destnode="9" destport="2" />
+    </connections>
+</graph>

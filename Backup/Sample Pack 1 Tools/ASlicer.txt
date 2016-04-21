@@ -1,0 +1,145 @@
+(InstanceState state, TriMesh mesh, Int32 axis, Single location, Boolean direction, Single distance) => 
+  {
+    Single _0Constant;// 5:Origin->0:Constant 187191
+    Vector3 _1Vector3;// 5:Origin->1:Vector3 187190
+    Int32 _2Zero;// 6:ChooseAxis->9:Zero 187196
+    Boolean _3GreaterThanOrEqual;// 6:ChooseAxis->8:GreaterThanOrEqual 187195
+    Vector3 _4XAxis;// 6:ChooseAxis->3:XAxis 187204
+    IArray[Vector3] _5Unit;// 2:Array3->2:Unit 187203
+    Vector3 _6YAxis;// 6:ChooseAxis->4:YAxis 187205
+    IArray[Vector3] _7Append;// 2:Array3->3:Append 187202
+    Vector3 _8ZAxis;// 6:ChooseAxis->5:ZAxis 187206
+    IArray[Vector3] _9Append;// 2:Array3->6:Append 187201
+    Vector3 _16MultiplyByScalar;// 12:MultiplyByScalar 187192
+    Vector3 _17Add;// 11:Add 187189
+    Vector3 _24Pass-through: Vector3;// 0:Pass-through: Vector3 187216
+    Ray _32Ray;// 4:Ray 187188
+    Plane _33Plane;// 3:Plane 187187
+    IArray[TriMesh] _34SliceMesh;// 0:SliceMesh 187185
+    Int32 _35Count;// 17:PositionMeshesAlongLine->7:Count 187184
+    IArray[Single] _36RangeInclusiveFloat;// 5:SampleLerp->2:RangeInclusiveFloat 187178
+    Single _43Constant;// 0:Constant 187224
+    Single _44Divide;// 14:Divide 187222
+    Vector3 _45MultiplyByScalar;// 19:MultiplyByScalar 187221
+    Vector3 _46Negate;// 18:Negate 187225
+    Line _47Line;// 16:Line 187220
+    Func[Single, Vector3] _48Pass-through: function1;// 0:Pass-through: function1 187176
+    IArray[Vector3] _49Map;// 5:SampleLerp->3:Map 187177
+    IArray[TriMesh] _50Combine;// 3:MoveMeshesToPoints->3:Combine 187164
+    TriMesh _51CombineAllMeshes;// 23:CombineAllMeshes 187159
+    _0Constant = 0;
+    _1Vector3 = Vector3(_0Constant, _0Constant, _0Constant);
+    _2Zero = Zero();
+    _3GreaterThanOrEqual = GreaterThanOrEqual(axis, _2Zero);
+    _4XAxis = XAxis();
+    _5Unit = Unit(_4XAxis);
+    _6YAxis = YAxis();
+    _7Append = Append(_5Unit, _6YAxis);
+    _8ZAxis = ZAxis();
+    _9Append = Append(_7Append, _8ZAxis);
+    _16MultiplyByScalar = MultiplyByScalar(if (_3GreaterThanOrEqual)
+      {
+        Vector3 _10At;// 6:ChooseAxis->1:At 187197
+        _10At = At(_9Append, axis);
+        _10At;
+        }else
+      {
+        Int32 _11One;// 10:PlusOne->1:One 187212
+        Int32 _12Add;// 10:PlusOne->0:Add 187211
+        Int32 _13Negative;// 6:ChooseAxis->11:Negative 187209
+        Vector3 _14At;// 6:ChooseAxis->12:At 187208
+        Vector3 _15Negate;// 6:ChooseAxis->13:Negate 187207
+        _11One = One();
+        _12Add = Add(axis, _11One);
+        _13Negative = Negative(_12Add);
+        _14At = At(_9Append, _13Negative);
+        _15Negate = Negate(_14At);
+        _15Negate;
+        }, location);
+    _17Add = Add(_1Vector3, _16MultiplyByScalar);
+    _24Pass-through: Vector3 = if (_3GreaterThanOrEqual)
+      {
+        Vector3 _18At;// 6:ChooseAxis->1:At 187197
+        _18At = At(_9Append, axis);
+        _18At;
+        }else
+      {
+        Int32 _19One;// 10:PlusOne->1:One 187212
+        Int32 _20Add;// 10:PlusOne->0:Add 187211
+        Int32 _21Negative;// 6:ChooseAxis->11:Negative 187209
+        Vector3 _22At;// 6:ChooseAxis->12:At 187208
+        Vector3 _23Negate;// 6:ChooseAxis->13:Negate 187207
+        _19One = One();
+        _20Add = Add(axis, _19One);
+        _21Negative = Negative(_20Add);
+        _22At = At(_9Append, _21Negative);
+        _23Negate = Negate(_22At);
+        _23Negate;
+        };
+    _32Ray = Ray(_17Add, if (direction)
+      {
+        Vector3 _31Negate;// 21:NegateIf->0:Negate 187218
+        _31Negate = Negate(_24Pass-through: Vector3);
+        _31Negate;
+        }else
+      {
+        _24Pass-through: Vector3;
+        });
+    _33Plane = Plane(_32Ray);
+    _34SliceMesh = SliceMesh(mesh, _33Plane);
+    _35Count = Count(_34SliceMesh);
+    _36RangeInclusiveFloat = RangeInclusiveFloat(_35Count);
+    _43Constant = 2;
+    _44Divide = Divide(distance, _43Constant);
+    _45MultiplyByScalar = MultiplyByScalar(if (_3GreaterThanOrEqual)
+      {
+        Vector3 _37At;// 6:ChooseAxis->1:At 187197
+        _37At = At(_9Append, axis);
+        _37At;
+        }else
+      {
+        Int32 _38One;// 10:PlusOne->1:One 187212
+        Int32 _39Add;// 10:PlusOne->0:Add 187211
+        Int32 _40Negative;// 6:ChooseAxis->11:Negative 187209
+        Vector3 _41At;// 6:ChooseAxis->12:At 187208
+        Vector3 _42Negate;// 6:ChooseAxis->13:Negate 187207
+        _38One = One();
+        _39Add = Add(axis, _38One);
+        _40Negative = Negative(_39Add);
+        _41At = At(_9Append, _40Negative);
+        _42Negate = Negate(_41At);
+        _42Negate;
+        }, _44Divide);
+    _46Negate = Negate(_45MultiplyByScalar);
+    _47Line = Line(_45MultiplyByScalar, _46Negate);
+    _48Pass-through: function1 = (Single x0) => 
+      {
+        Vector3 _0LineA;// 7:LerpAlongLine->2:LineA 187182
+        Vector3 _1LineB;// 7:LerpAlongLine->3:LineB 187183
+        Vector3 _2Lerp;// 7:LerpAlongLine->4:Lerp 187181
+        _0LineA = LineA(_47Line);
+        _1LineB = LineB(_47Line);
+        _2Lerp = Lerp(_0LineA, _1LineB, x0);
+        _2Lerp;
+        };
+    _49Map = Map(_36RangeInclusiveFloat, _48Pass-through: function1);
+    _50Combine = Combine(_34SliceMesh, _49Map, (TriMesh x0, Vector3 x1) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 187171
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 187168
+        IArray[Vector3] _2Map;// 0:DeformMeshPoints->1:Map 187170
+        TriMesh _3SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 187169
+        _0MeshVertices = MeshVertices(x0);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 2:OffsetMesh->2:Add 187172
+            _0Add = Add(x0, x1);
+            _0Add;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(x0, _2Map);
+        _3SetMeshVertices;
+        });
+    _51CombineAllMeshes = CombineAllMeshes(_50Combine);
+    _51CombineAllMeshes;
+    }

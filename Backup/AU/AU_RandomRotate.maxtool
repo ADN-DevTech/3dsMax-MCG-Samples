@@ -1,0 +1,35 @@
+<graph version="0.50" uuid="7299a4f8-47eb-4fb4-8206-da2a9cf8ca4a">
+    <meta_info>
+        <graph_version guid="bd7040e1-3a16-4787-9e29-1e45501034e8" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-3" max_value="101" default_value="2" position="680:120" size="140:189" />
+        <node operator="Modifier: TriMesh" id="1" position="680:320" size="140:93" />
+        <node operator="FluxTransformMatrices" id="3" position="880:340" size="140:213" />
+        <node operator="Parameter: Boolean" id="0" name="combine" default_value="false" position="660:480" size="140:141" />
+        <node operator="Parameter: Single" id="4" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="660:640" size="140:213" />
+        <node operator="Parameter: Int32" id="5" name="seed" min_value="0" max_value="10000" default_value="0" position="13:309" size="140:189" />
+        <node operator="RandomNumberGenerator" id="6" position="213:389" size="220:117" />
+        <node operator="Parameter: Single" id="9" name="degrees" min_value="0" max_value="360" default_value="0" system_units_value="false" position="-174:217" size="140:213" />
+        <node operator="ToRadians" id="10" position="13:169" size="140:117" />
+        <node operator="RotateRandomlyAroundZAxis" id="11" position="213:209" size="240:165" />
+        <node operator="Bind1of2" id="12" position="453:349" size="140:141" />
+        <node operator="Output: modifier" id="7" position="1100:460" size="140:69" />
+        <node groupnode="Create randomized rotation function" id="8" position="-220:140" size="822:410" bg_color="#ff646464">
+            <nodes>12,11,10,6,9,5</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="11" sourceport="1" destnode="12" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

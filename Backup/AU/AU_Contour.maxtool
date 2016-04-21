@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="b94f8666-54c6-4ea4-970a-bca8b0e0057a">
+    <meta_info>
+        <graph_version guid="9d53efa3-09c5-415b-905b-18531beed6dc" number="0.0.15" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="80:160" size="140:93" />
+        <node operator="MeshVertices" id="2" position="260:-20" size="140:117" />
+        <node operator="Parameter: Single" id="3" name="distance" min_value="-1000" max_value="1000" default_value="10" system_units_value="false" position="360:260" size="140:213" />
+        <node operator="SimpleQuadMeshStrip" id="4" position="960:80" size="140:141" />
+        <node operator="ToTriMesh" id="5" position="1140:140" size="140:117" />
+        <node operator="Output: modifier" id="6" position="1320:200" size="140:69" />
+        <node operator="AppendFirst" id="10" position="640:-80" size="140:117" />
+        <node operator="InsideContour" id="11" position="580:100" size="140:165" />
+        <node operator="AppendFirst" id="0" position="740:100" size="140:117" />
+        <node operator="ZAxis" id="7" position="320:140" size="140:93" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="0" destport="0" />
+    </connections>
+</graph>

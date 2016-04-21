@@ -1,0 +1,34 @@
+<graph version="0.50" uuid="582b46ce-09f0-482a-a4b9-a320cb4068ae">
+    <meta_info>
+        <graph_version guid="b3c18d40-4e1b-4a82-b2df-4629379ddcbe" number="0.0.11" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="55" name="box size" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="469:689" size="140:196" />
+        <node operator="Output: modifier" id="30" position="909:549" size="140:70" />
+        <node operator="FluxMeshAsBoxes" id="7" position="689:449" size="140:175" />
+        <node operator="Parameter: Boolean" id="0" name="create mesh" default_value="true" position="449:529" size="140:133" />
+        <node operator="Modifier: TriMesh" id="9" position="0:0" size="140:91" />
+        <node operator="Parameter: Int32" id="12" name="flux channel" min_value="-2" max_value="100" default_value="2" position="0:260" size="140:175" />
+        <node operator="Parameter: Single" id="14" name="spacing" min_value="0" max_value="10000" default_value="20" system_units_value="false" position="0:460" size="140:196" />
+        <node operator="Parameter: Boolean" id="8" name="scaling" default_value="false" position="0:120" size="140:133" />
+        <node operator="FluxSpacing" id="10" position="500:100" size="140:238" />
+        <node operator="True" id="1" position="220:100" size="140:91" />
+        <node groupnode="Create a box mesh representation" id="3" position="440:420" size="618:491" bg_color="#ff646464">
+            <nodes>55,7,30,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="55" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="3" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="4" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="5" />
+        <connection sourcenode="14" sourceport="0" destnode="10" destport="6" />
+    </connections>
+</graph>

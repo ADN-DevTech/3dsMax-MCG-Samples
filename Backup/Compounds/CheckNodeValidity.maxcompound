@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="2464cf31-75ad-4078-af55-fab772ff68b8">
+  <meta_info>
+    <graph_version guid="480fb394-71ce-461b-aaba-8682edf36296" number="1.0.0" />
+    <category>3ds Max Nodes</category>
+    <description>Exits the graph evaluation if the given node is not valid.</description>
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+  </meta_info>
+  <nodes>
+    <node operator="IsValidNode" id="0" position="240:140" size="140:128" />
+    <node operator="Not" id="1" position="440:140" size="140:128" />
+    <node operator="ExitIf" id="2" position="620:60" size="140:152" />
+    <node operator="Input: INode" id="3" name="nodeToCheck" position="60:40" size="140:128" />
+    <node operator="Output: compound" id="4" position="820:140" size="140:80" />
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+  </connections>
+</graph>

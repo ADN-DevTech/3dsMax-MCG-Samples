@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="30c707db-aa58-46ed-9c7e-d9011350be61">
+    <meta_info>
+        <graph_version guid="0f4c99d6-6672-4e6e-ba27-ea0ebaf5a659" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineSegmentIndices" id="1" position="1160:100" size="200:117" />
+        <node operator="SplineVerticesBuffer" id="2" position="440:220" size="200:117" />
+        <node operator="SelectByIndex" id="3" position="1440:200" size="140:141" />
+        <node operator="CombineEveryTwoElements" id="4" position="1660:340" size="140:141" />
+        <node operator="Line" id="5" position="1440:360" size="140:141" />
+        <node operator="Output: compound" id="6" position="1880:380" size="140:69" />
+        <node operator="TransformPoints" id="7" position="1160:240" size="140:141" />
+        <node operator="InvertMatrix" id="8" position="940:360" size="140:117" />
+        <node operator="Input: Matrix" id="9" name="worldSpace" position="720:360" size="140:117" />
+        <node operator="TransformPoints" id="10" position="720:160" size="140:141" />
+        <node operator="Input: INode" id="11" name="splineNode" position="0:40" size="140:117" />
+        <node operator="ObjectTransformBeforeWSM" id="12" position="440:80" size="140:117" />
+        <node operator="SplineFromNodeOrExit" id="13" position="220:0" size="140:117" />
+        <node operator="Input: Boolean" id="0" name="convertSpace" position="720:20" size="140:117" />
+        <node operator="If" id="14" position="940:180" size="140:165" />
+    </nodes>
+    <connections>
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="2" />
+    </connections>
+</graph>

@@ -1,0 +1,878 @@
+(InstanceState state, Int32 seed, TriMesh mesh, Int32 flux channel, Vector3 rand scale, Vector3 rand rotation, Vector3 rand translation, INode spline, Matrix modifierTransform, Single cornerA X offset, Single corner B X offset, Single spacing, Single probability, Vector3 preRotation, Vector3 preTranslate) => 
+  {
+    Single _0FloatOne;// 14:VectorUnit->2:FloatOne 161727
+    Vector3 _1Vector3;// 1:ScalarToVector->1:Vector3 161726
+    Func[Random, Vector3] _2Pass-through: function1;// 0:Pass-through: function1 161710
+    Random _3RandomNumberGenerator;// 57:RandomNumberGenerator 161735
+    Func[Vector3] _4Bind;// 6:RandomArray->4:Bind 161714
+    Func[Random, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 161740
+    Random _6RandomNumberGenerator;// 34:RandomNumberGenerator 161794
+    Func[Vector3] _7Bind;// 6:RandomArray->4:Bind 161744
+    Func[Random, Vector3] _8Pass-through: function1;// 0:Pass-through: function1 161799
+    Random _9RandomNumberGenerator;// 35:RandomNumberGenerator 161826
+    Func[Vector3] _10Bind;// 6:RandomArray->4:Bind 161803
+    Boolean _11CanGetSplineFromNode;// 9:SplineFromNodeOrExit->3:CanGetSplineFromNode 161963
+    Boolean _12Not;// 9:SplineFromNodeOrExit->5:Not 161962
+    INode _13ExitIf;// 9:SplineFromNodeOrExit->4:ExitIf 161961
+    Spline _14SplineFromNode;// 9:SplineFromNodeOrExit->0:SplineFromNode 161960
+    IArray[Int32] _15SplineSegmentIndices;// 10:SplineLines->1:SplineSegmentIndices 161956
+    IArray[Vector3] _16SplineVerticesBuffer;// 10:SplineLines->2:SplineVerticesBuffer 161957
+    IArray[Vector3] _17Map;// 3:SelectByIndex->2:Map 161954
+    Int32 _18Zero;// 4:CombineEveryTwoElements->7:Zero 161948
+    Int32 _19Two;// 4:CombineEveryTwoElements->6:Two 161949
+    IArray[Vector3] _20Stride;// 4:CombineEveryTwoElements->1:Stride 161947
+    Int32 _21One;// 4:CombineEveryTwoElements->8:One 161951
+    IArray[Vector3] _22Stride;// 4:CombineEveryTwoElements->2:Stride 161950
+    Func[Vector3, Vector3, Line] _23Pass-through: function2;// 0:Pass-through: function2 161945
+    IArray[Line] _24Combine;// 4:CombineEveryTwoElements->3:Combine 161946
+    Func[Line, IArray[Matrix]] _25Pass-through: function1;// 0:Pass-through: function1 161940
+    IArray[IArray[Matrix]] _26Map;// 3:FlatMap->4:Map 161942
+    IArray[Matrix] _27Flatten;// 3:FlatMap->3:Flatten 161941
+    Matrix _28ObjectTransformBeforeWSM;// 41:NodeTMInLocalSpace->3:ObjectTransformBeforeWSM 162089
+    Matrix _29InvertMatrix;// 41:NodeTMInLocalSpace->2:InvertMatrix 162090
+    Matrix _30Multiply;// 41:NodeTMInLocalSpace->4:Multiply 162088
+    IArray[Matrix] _31Map;// 39:Map 161938
+    IArray[Int32] _32Indices;// 43:MapWithIndexes->3:Indices 161937
+    Boolean _33True;// 50:True 162104
+    Int32 _34Two;// 48:Two 162118
+    Func[Matrix, Int32, Matrix] _35Pass-through: any;// 0:Pass-through: any 161935
+    IArray[Matrix] _36Combine;// 43:MapWithIndexes->2:Combine 161936
+    Int32 _37Zero;// 12:CombineEveryTwoElements->7:Zero 161930
+    Int32 _38Two;// 12:CombineEveryTwoElements->6:Two 161931
+    IArray[Matrix] _39Stride;// 12:CombineEveryTwoElements->1:Stride 161929
+    Int32 _40One;// 12:CombineEveryTwoElements->8:One 161933
+    IArray[Matrix] _41Stride;// 12:CombineEveryTwoElements->2:Stride 161932
+    Func[Matrix, Matrix, IArray[Matrix]] _42Pass-through: function2;// 0:Pass-through: function2 161927
+    IArray[IArray[Matrix]] _43Combine;// 12:CombineEveryTwoElements->3:Combine 161928
+    IArray[Matrix] _44Flatten;// 16:Flatten 161925
+    Random _45RandomNumberGenerator;// 21:RandomNumberGenerator 162158
+    Func[Matrix, Boolean] _46Bind2of2;// 23:FilterRandomly->5:Bind2of2 161921
+    IArray[Matrix] _47Filter;// 23:FilterRandomly->6:Filter 161920
+    Single _48X;// 1:VectorAsArray->1:X 161876
+    IArray[Single] _49Unit;// 4:Array3->2:Unit 161875
+    Single _50Y;// 1:VectorAsArray->2:Y 161877
+    IArray[Single] _51Append;// 4:Array3->3:Append 161874
+    Single _52Z;// 1:VectorAsArray->3:Z 161878
+    IArray[Single] _53Append;// 4:Array3->6:Append 161873
+    Func[Single, Single] _54Pass-through: function1;// 0:Pass-through: function1 161855
+    IArray[Single] _55Map;// 1:VectorMapComponents->2:Map 161868
+    Int32 _56Zero;// 3:ArrayToVector->5:Zero 161859
+    Single _57At;// 3:ArrayToVector->1:At 161858
+    Int32 _58One;// 6:PlusOne->1:One 161863
+    Int32 _59Add;// 6:PlusOne->0:Add 161862
+    Single _60At;// 3:ArrayToVector->2:At 161860
+    Int32 _61One;// 7:PlusOne->1:One 161867
+    Int32 _62Add;// 7:PlusOne->0:Add 161866
+    Single _63At;// 3:ArrayToVector->3:At 161864
+    Vector3 _64Vector3;// 3:ArrayToVector->4:Vector3 161857
+    Single _65Y;// 2:QuaternionFromVector3->7:Y 161850
+    Single _66X;// 2:QuaternionFromVector3->6:X 161851
+    Single _67Z;// 2:QuaternionFromVector3->8:Z 161852
+    Quaternion _68QuaternionFromYawPitchRoll;// 2:QuaternionFromVector3->3:QuaternionFromYawPitchRoll 161849
+    Matrix _69MatrixFromQuaternion;// 5:EulerDegreesToMatrix->4:MatrixFromQuaternion 161846
+    Matrix _70TranslationMatrix;// 24:TransformMatrices->8:TranslationMatrix 161880
+    Single _71Constant;// 27:Origin->0:Constant 162162
+    Vector3 _72Vector3;// 27:Origin->1:Vector3 162161
+    Single _73X;// 1:VectorAsArray->1:X 161912
+    IArray[Single] _74Unit;// 4:Array3->2:Unit 161911
+    Single _75Y;// 1:VectorAsArray->2:Y 161913
+    IArray[Single] _76Append;// 4:Array3->3:Append 161910
+    Single _77Z;// 1:VectorAsArray->3:Z 161914
+    IArray[Single] _78Append;// 4:Array3->6:Append 161909
+    Func[Single, Single] _79Pass-through: function1;// 0:Pass-through: function1 161891
+    IArray[Single] _80Map;// 1:VectorMapComponents->2:Map 161904
+    Int32 _81Zero;// 3:ArrayToVector->5:Zero 161895
+    Single _82At;// 3:ArrayToVector->1:At 161894
+    Int32 _83One;// 6:PlusOne->1:One 161899
+    Int32 _84Add;// 6:PlusOne->0:Add 161898
+    Single _85At;// 3:ArrayToVector->2:At 161896
+    Int32 _86One;// 7:PlusOne->1:One 161903
+    Int32 _87Add;// 7:PlusOne->0:Add 161902
+    Single _88At;// 3:ArrayToVector->3:At 161900
+    Vector3 _89Vector3;// 3:ArrayToVector->4:Vector3 161893
+    Single _90Y;// 2:QuaternionFromVector3->7:Y 161886
+    Single _91X;// 2:QuaternionFromVector3->6:X 161887
+    Single _92Z;// 2:QuaternionFromVector3->8:Z 161888
+    Quaternion _93QuaternionFromYawPitchRoll;// 2:QuaternionFromVector3->3:QuaternionFromYawPitchRoll 161885
+    Matrix _94MatrixFromQuaternion;// 6:EulerDegreesToMatrix->4:MatrixFromQuaternion 161882
+    Matrix _95TranslationMatrix;// 24:TransformMatrices->7:TranslationMatrix 161916
+    IArray[Matrix] _96Map;// 24:TransformMatrices->9:Map 161832
+    Int32 _97Count;// 31:TranslateMatricesRandomly->7:Count 161813
+    IArray[Vector3] _98ArrayOfFunction;// 6:RandomArray->5:ArrayOfFunction 161802
+    Boolean _99True;// 31:TranslateMatricesRandomly->10:True 161824
+    IArray[Matrix] _100Combine;// 31:TranslateMatricesRandomly->8:Combine 161798
+    Int32 _101Count;// 30:RotateMatricesRandomly->7:Count 161754
+    IArray[Vector3] _102ArrayOfFunction;// 6:RandomArray->5:ArrayOfFunction 161743
+    IArray[Matrix] _103Combine;// 30:RotateMatricesRandomly->8:Combine 161739
+    Int32 _104Count;// 60:ScaleMatricesRandomly->7:Count 161728
+    IArray[Vector3] _105ArrayOfFunction;// 6:RandomArray->5:ArrayOfFunction 161713
+    IArray[Matrix] _106Combine;// 60:ScaleMatricesRandomly->8:Combine 161709
+    Func[Matrix, IArray[Vector3]] _107Pass-through: function1;// 0:Pass-through: function1 161692
+    IArray[IArray[Vector3]] _108Map;// 5:FlatMap->4:Map 161694
+    IArray[Vector3] _109Flatten;// 5:FlatMap->3:Flatten 161693
+    IArray[Int32] _110MeshIndices;// 0:StoreMatricesInMapChannel->0:MeshIndices 161703
+    TriMesh _111SetMapChannel;// 0:StoreMatricesInMapChannel->7:SetMapChannel 161690
+    TriMesh _112IgnoreFirst;// 56:IgnoreFirst 161685
+    _0FloatOne = FloatOne();
+    _1Vector3 = Vector3(_0FloatOne, _0FloatOne, _0FloatOne);
+    _2Pass-through: function1 = (Random x0) => 
+      {
+        Vector3 _0Vector3;// 4:PseudoRandomVector->1:Vector3 161721
+        Vector3 _1Multiply;// 10:PseudoRandomVectorPlusMinusHalfRange->2:Multiply 161719
+        Single _2Constant;// 10:PseudoRandomVectorPlusMinusHalfRange->0:Constant 161724
+        Vector3 _3MultiplyByScalar;// 10:PseudoRandomVectorPlusMinusHalfRange->11:MultiplyByScalar 161723
+        Vector3 _4Subtract;// 10:PseudoRandomVectorPlusMinusHalfRange->10:Subtract 161718
+        Vector3 _5Add;// 60:ScaleMatricesRandomly->16:Add 161715
+        _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _1Multiply = Multiply(_0Vector3, rand scale);
+        _2Constant = 0.5;
+        _3MultiplyByScalar = MultiplyByScalar(rand scale, _2Constant);
+        _4Subtract = Subtract(_1Multiply, _3MultiplyByScalar);
+        _5Add = Add(_4Subtract, _1Vector3);
+        _5Add;
+        };
+    _3RandomNumberGenerator = RandomNumberGenerator(seed);
+    _4Bind = Bind(_2Pass-through: function1, _3RandomNumberGenerator);
+    _5Pass-through: function1 = (Random x0) => 
+      {
+        Vector3 _0Vector3;// 4:PseudoRandomVector->1:Vector3 161750
+        Vector3 _1Multiply;// 13:PseudoRandomVectorPlusMinusHalfRange->2:Multiply 161748
+        Single _2Constant;// 13:PseudoRandomVectorPlusMinusHalfRange->0:Constant 161753
+        Vector3 _3MultiplyByScalar;// 13:PseudoRandomVectorPlusMinusHalfRange->11:MultiplyByScalar 161752
+        Vector3 _4Subtract;// 13:PseudoRandomVectorPlusMinusHalfRange->10:Subtract 161747
+        _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _1Multiply = Multiply(_0Vector3, rand rotation);
+        _2Constant = 0.5;
+        _3MultiplyByScalar = MultiplyByScalar(rand rotation, _2Constant);
+        _4Subtract = Subtract(_1Multiply, _3MultiplyByScalar);
+        _4Subtract;
+        };
+    _6RandomNumberGenerator = RandomNumberGenerator(seed);
+    _7Bind = Bind(_5Pass-through: function1, _6RandomNumberGenerator);
+    _8Pass-through: function1 = (Random x0) => 
+      {
+        Vector3 _0Vector3;// 4:PseudoRandomVector->1:Vector3 161809
+        Vector3 _1Multiply;// 13:PseudoRandomVectorPlusMinusHalfRange->2:Multiply 161807
+        Single _2Constant;// 13:PseudoRandomVectorPlusMinusHalfRange->0:Constant 161812
+        Vector3 _3MultiplyByScalar;// 13:PseudoRandomVectorPlusMinusHalfRange->11:MultiplyByScalar 161811
+        Vector3 _4Subtract;// 13:PseudoRandomVectorPlusMinusHalfRange->10:Subtract 161806
+        _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _1Multiply = Multiply(_0Vector3, rand translation);
+        _2Constant = 0.5;
+        _3MultiplyByScalar = MultiplyByScalar(rand translation, _2Constant);
+        _4Subtract = Subtract(_1Multiply, _3MultiplyByScalar);
+        _4Subtract;
+        };
+    _9RandomNumberGenerator = RandomNumberGenerator(seed);
+    _10Bind = Bind(_8Pass-through: function1, _9RandomNumberGenerator);
+    _11CanGetSplineFromNode = CanGetSplineFromNode(spline);
+    _12Not = Not(_11CanGetSplineFromNode);
+    _13ExitIf = ExitIf(spline, _12Not);
+    _14SplineFromNode = SplineFromNode(_13ExitIf);
+    _15SplineSegmentIndices = SplineSegmentIndices(_14SplineFromNode);
+    _16SplineVerticesBuffer = SplineVerticesBuffer(_14SplineFromNode);
+    _17Map = Map(_15SplineSegmentIndices, (Int32 x0) => 
+      {
+        Vector3 _0At;// 3:SelectByIndex->3:At 161955
+        _0At = At(_16SplineVerticesBuffer, x0);
+        _0At;
+        });
+    _18Zero = Zero();
+    _19Two = Two();
+    _20Stride = Stride(_17Map, _18Zero, _19Two);
+    _21One = One();
+    _22Stride = Stride(_17Map, _21One, _19Two);
+    _23Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
+      {
+        Line _0Line;// 10:SplineLines->5:Line 161958
+        _0Line = Line(x0, x1);
+        _0Line;
+        };
+    _24Combine = Combine(_20Stride, _22Stride, _23Pass-through: function2);
+    _25Pass-through: function1 = (Line x0) => 
+      {
+        Vector3 _0LineB;// 12:LineVector->2:LineB 162079
+        Vector3 _1LineA;// 12:LineVector->1:LineA 162080
+        Vector3 _2Subtract;// 12:LineVector->3:Subtract 162078
+        Single _3Length;// 8:VectorIsSmall->3:Length 161981
+        Single _4Constant;// 4:VectorLengthEpsilon->0:Constant 161982
+        Boolean _5LessThan;// 8:VectorIsSmall->5:LessThan 161980
+        Matrix _6MatrixIdentity;// 5:LineMatrices->2:MatrixIdentity 162081
+        Vector3 _106LineA;// 5:LineMatrices->4:LineA 162082
+        Matrix _107SetMatrixTranslation;// 5:LineMatrices->3:SetMatrixTranslation 161970
+        IArray[Matrix] _108Unit;// 7:Array2->2:Unit 161969
+        Vector3 _208LineB;// 5:LineMatrices->9:LineB 162084
+        Matrix _209SetMatrixTranslation;// 5:LineMatrices->8:SetMatrixTranslation 162083
+        IArray[Matrix] _210Append;// 7:Array2->3:Append 161968
+        _0LineB = LineB(x0);
+        _1LineA = LineA(x0);
+        _2Subtract = Subtract(_0LineB, _1LineA);
+        _3Length = Length(_2Subtract);
+        _4Constant = 1E-06;
+        _5LessThan = LessThan(_3Length, _4Constant);
+        _6MatrixIdentity = MatrixIdentity();
+        _106LineA = LineA(x0);
+        _107SetMatrixTranslation = SetMatrixTranslation(if (_5LessThan)
+          {
+            _6MatrixIdentity;
+            }else
+          {
+            Vector3 _7ZAxis;// 11:MatrixLookatDefault->1:ZAxis 162074
+            Vector3 _8YAxis;// 11:MatrixLookatDefault->3:YAxis 162075
+            Vector3 _9IgnoreFirst;// 0:MatrixLookat->4:IgnoreFirst 162028
+            Matrix _10InvertMatrix;// 0:MatrixOrientAroundAxis->16:InvertMatrix 162073
+            Vector3 _11Transform;// 0:MatrixOrientAroundAxis->13:Transform 162072
+            Vector3 _12Normalize;// 0:MatrixOrientAroundAxis->15:Normalize 162071
+            Single _13Dot;// 5:Projection->3:Dot 162069
+            Single _14LengthSquared;// 5:Projection->4:LengthSquared 162070
+            Single _15Divide;// 5:Projection->5:Divide 162068
+            Vector3 _16MultiplyByScalar;// 5:Projection->2:MultiplyByScalar 162067
+            Vector3 _17Subtract;// 6:ProjectionOntoPlaneSpecifiedByNormal->3:Subtract 162064
+            Vector3 _18XAxis;// 11:MatrixLookatDefault->2:XAxis 162076
+            Vector3 _19Cross;// 12:VectorAngleSigned->5:Cross 162043
+            Single _20Dot;// 12:VectorAngleSigned->4:Dot 162042
+            Single _21FloatZero;// 7:GtEqZ->1:FloatZero 162041
+            Boolean _22GreaterThanOrEqual;// 7:GtEqZ->2:GreaterThanOrEqual 162040
+            Single _23Length;// 8:VectorIsSmall->3:Length 162051
+            Single _24Constant;// 4:VectorLengthEpsilon->0:Constant 162052
+            Boolean _25LessThan;// 8:VectorIsSmall->5:LessThan 162050
+            Single _26Length;// 9:VectorIsSmall->3:Length 162055
+            Single _27Constant;// 4:VectorLengthEpsilon->0:Constant 162056
+            Boolean _28LessThan;// 9:VectorIsSmall->5:LessThan 162054
+            Boolean _29OrElse;// 3:AngleOfVectorsFix->10:OrElse 162048
+            Matrix _46MatrixFromAxisAngle;// 0:MatrixOrientAroundAxis->10:MatrixFromAxisAngle 162034
+            Matrix _47Multiply;// 0:MatrixOrientAroundAxis->9:Multiply 162033
+            Matrix _48InvertMatrix;// 6:MatrixOrientAroundAxis->16:InvertMatrix 162027
+            Vector3 _49Transform;// 6:MatrixOrientAroundAxis->13:Transform 162026
+            Vector3 _50Normalize;// 6:MatrixOrientAroundAxis->15:Normalize 162025
+            Single _51Dot;// 5:Projection->3:Dot 162023
+            Single _52LengthSquared;// 5:Projection->4:LengthSquared 162024
+            Single _53Divide;// 5:Projection->5:Divide 162022
+            Vector3 _54MultiplyByScalar;// 5:Projection->2:MultiplyByScalar 162021
+            Vector3 _55Subtract;// 6:ProjectionOntoPlaneSpecifiedByNormal->3:Subtract 162018
+            Vector3 _56Cross;// 12:VectorAngleSigned->5:Cross 161997
+            Single _57Dot;// 12:VectorAngleSigned->4:Dot 161996
+            Single _58FloatZero;// 7:GtEqZ->1:FloatZero 161995
+            Boolean _59GreaterThanOrEqual;// 7:GtEqZ->2:GreaterThanOrEqual 161994
+            Single _60Length;// 8:VectorIsSmall->3:Length 162005
+            Single _61Constant;// 4:VectorLengthEpsilon->0:Constant 162006
+            Boolean _62LessThan;// 8:VectorIsSmall->5:LessThan 162004
+            Single _63Length;// 9:VectorIsSmall->3:Length 162009
+            Single _64Constant;// 4:VectorLengthEpsilon->0:Constant 162010
+            Boolean _65LessThan;// 9:VectorIsSmall->5:LessThan 162008
+            Boolean _66OrElse;// 3:AngleOfVectorsFix->10:OrElse 162002
+            Matrix _104MatrixFromAxisAngle;// 6:MatrixOrientAroundAxis->10:MatrixFromAxisAngle 161988
+            Matrix _105Multiply;// 6:MatrixOrientAroundAxis->9:Multiply 161987
+            _7ZAxis = ZAxis();
+            _8YAxis = YAxis();
+            _9IgnoreFirst = IgnoreFirst(_7ZAxis, _8YAxis);
+            _10InvertMatrix = InvertMatrix(_6MatrixIdentity);
+            _11Transform = Transform(_2Subtract, _10InvertMatrix);
+            _12Normalize = Normalize(_11Transform);
+            _13Dot = Dot(_12Normalize, _7ZAxis);
+            _14LengthSquared = LengthSquared(_7ZAxis);
+            _15Divide = Divide(_13Dot, _14LengthSquared);
+            _16MultiplyByScalar = MultiplyByScalar(_7ZAxis, _15Divide);
+            _17Subtract = Subtract(_12Normalize, _16MultiplyByScalar);
+            _18XAxis = XAxis();
+            _19Cross = Cross(_17Subtract, _18XAxis);
+            _20Dot = Dot(_7ZAxis, _19Cross);
+            _21FloatZero = FloatZero();
+            _22GreaterThanOrEqual = GreaterThanOrEqual(_20Dot, _21FloatZero);
+            _23Length = Length(_17Subtract);
+            _24Constant = 1E-06;
+            _25LessThan = LessThan(_23Length, _24Constant);
+            _26Length = Length(_18XAxis);
+            _27Constant = 1E-06;
+            _28LessThan = LessThan(_26Length, _27Constant);
+            _29OrElse = OrElse(_25LessThan, _28LessThan);
+            _46MatrixFromAxisAngle = MatrixFromAxisAngle(_7ZAxis, if (_22GreaterThanOrEqual)
+              {
+                Single _40NegativeFloat;// 12:VectorAngleSigned->6:NegativeFloat 162044
+                _40NegativeFloat = NegativeFloat(if (_29OrElse)
+                  {
+                    Single _35FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162057
+                    _35FloatZero = FloatZero();
+                    _35FloatZero;
+                    }else
+                  {
+                    Vector3 _36Cross;// 3:AngleOfVectorsFix->11:Cross 162060
+                    Single _37Length;// 3:AngleOfVectorsFix->3:Length 162059
+                    Single _38Dot;// 3:AngleOfVectorsFix->12:Dot 162061
+                    Single _39Atan2;// 3:AngleOfVectorsFix->2:Atan2 162058
+                    _36Cross = Cross(_17Subtract, _18XAxis);
+                    _37Length = Length(_36Cross);
+                    _38Dot = Dot(_17Subtract, _18XAxis);
+                    _39Atan2 = Atan2(_37Length, _38Dot);
+                    _39Atan2;
+                    });
+                _40NegativeFloat;
+                }else
+              {
+                if (_29OrElse)
+                  {
+                    Single _41FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162057
+                    _41FloatZero = FloatZero();
+                    _41FloatZero;
+                    }else
+                  {
+                    Vector3 _42Cross;// 3:AngleOfVectorsFix->11:Cross 162060
+                    Single _43Length;// 3:AngleOfVectorsFix->3:Length 162059
+                    Single _44Dot;// 3:AngleOfVectorsFix->12:Dot 162061
+                    Single _45Atan2;// 3:AngleOfVectorsFix->2:Atan2 162058
+                    _42Cross = Cross(_17Subtract, _18XAxis);
+                    _43Length = Length(_42Cross);
+                    _44Dot = Dot(_17Subtract, _18XAxis);
+                    _45Atan2 = Atan2(_43Length, _44Dot);
+                    _45Atan2;
+                    };
+                });
+            _47Multiply = Multiply(_46MatrixFromAxisAngle, _6MatrixIdentity);
+            _48InvertMatrix = InvertMatrix(_47Multiply);
+            _49Transform = Transform(_2Subtract, _48InvertMatrix);
+            _50Normalize = Normalize(_49Transform);
+            _51Dot = Dot(_50Normalize, _9IgnoreFirst);
+            _52LengthSquared = LengthSquared(_9IgnoreFirst);
+            _53Divide = Divide(_51Dot, _52LengthSquared);
+            _54MultiplyByScalar = MultiplyByScalar(_9IgnoreFirst, _53Divide);
+            _55Subtract = Subtract(_50Normalize, _54MultiplyByScalar);
+            _56Cross = Cross(_55Subtract, _18XAxis);
+            _57Dot = Dot(_9IgnoreFirst, _56Cross);
+            _58FloatZero = FloatZero();
+            _59GreaterThanOrEqual = GreaterThanOrEqual(_57Dot, _58FloatZero);
+            _60Length = Length(_55Subtract);
+            _61Constant = 1E-06;
+            _62LessThan = LessThan(_60Length, _61Constant);
+            _63Length = Length(_18XAxis);
+            _64Constant = 1E-06;
+            _65LessThan = LessThan(_63Length, _64Constant);
+            _66OrElse = OrElse(_62LessThan, _65LessThan);
+            _104MatrixFromAxisAngle = MatrixFromAxisAngle(_9IgnoreFirst, if (_59GreaterThanOrEqual)
+              {
+                Single _98NegativeFloat;// 12:VectorAngleSigned->6:NegativeFloat 161998
+                _98NegativeFloat = NegativeFloat(if (_66OrElse)
+                  {
+                    Single _93FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162011
+                    _93FloatZero = FloatZero();
+                    _93FloatZero;
+                    }else
+                  {
+                    Vector3 _94Cross;// 3:AngleOfVectorsFix->11:Cross 162014
+                    Single _95Length;// 3:AngleOfVectorsFix->3:Length 162013
+                    Single _96Dot;// 3:AngleOfVectorsFix->12:Dot 162015
+                    Single _97Atan2;// 3:AngleOfVectorsFix->2:Atan2 162012
+                    _94Cross = Cross(_55Subtract, _18XAxis);
+                    _95Length = Length(_94Cross);
+                    _96Dot = Dot(_55Subtract, _18XAxis);
+                    _97Atan2 = Atan2(_95Length, _96Dot);
+                    _97Atan2;
+                    });
+                _98NegativeFloat;
+                }else
+              {
+                if (_66OrElse)
+                  {
+                    Single _99FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162011
+                    _99FloatZero = FloatZero();
+                    _99FloatZero;
+                    }else
+                  {
+                    Vector3 _100Cross;// 3:AngleOfVectorsFix->11:Cross 162014
+                    Single _101Length;// 3:AngleOfVectorsFix->3:Length 162013
+                    Single _102Dot;// 3:AngleOfVectorsFix->12:Dot 162015
+                    Single _103Atan2;// 3:AngleOfVectorsFix->2:Atan2 162012
+                    _100Cross = Cross(_55Subtract, _18XAxis);
+                    _101Length = Length(_100Cross);
+                    _102Dot = Dot(_55Subtract, _18XAxis);
+                    _103Atan2 = Atan2(_101Length, _102Dot);
+                    _103Atan2;
+                    };
+                });
+            _105Multiply = Multiply(_104MatrixFromAxisAngle, _47Multiply);
+            _105Multiply;
+            }, _106LineA);
+        _108Unit = Unit(_107SetMatrixTranslation);
+        _208LineB = LineB(x0);
+        _209SetMatrixTranslation = SetMatrixTranslation(if (_5LessThan)
+          {
+            _6MatrixIdentity;
+            }else
+          {
+            Vector3 _109ZAxis;// 11:MatrixLookatDefault->1:ZAxis 162074
+            Vector3 _110YAxis;// 11:MatrixLookatDefault->3:YAxis 162075
+            Vector3 _111IgnoreFirst;// 0:MatrixLookat->4:IgnoreFirst 162028
+            Matrix _112InvertMatrix;// 0:MatrixOrientAroundAxis->16:InvertMatrix 162073
+            Vector3 _113Transform;// 0:MatrixOrientAroundAxis->13:Transform 162072
+            Vector3 _114Normalize;// 0:MatrixOrientAroundAxis->15:Normalize 162071
+            Single _115Dot;// 5:Projection->3:Dot 162069
+            Single _116LengthSquared;// 5:Projection->4:LengthSquared 162070
+            Single _117Divide;// 5:Projection->5:Divide 162068
+            Vector3 _118MultiplyByScalar;// 5:Projection->2:MultiplyByScalar 162067
+            Vector3 _119Subtract;// 6:ProjectionOntoPlaneSpecifiedByNormal->3:Subtract 162064
+            Vector3 _120XAxis;// 11:MatrixLookatDefault->2:XAxis 162076
+            Vector3 _121Cross;// 12:VectorAngleSigned->5:Cross 162043
+            Single _122Dot;// 12:VectorAngleSigned->4:Dot 162042
+            Single _123FloatZero;// 7:GtEqZ->1:FloatZero 162041
+            Boolean _124GreaterThanOrEqual;// 7:GtEqZ->2:GreaterThanOrEqual 162040
+            Single _125Length;// 8:VectorIsSmall->3:Length 162051
+            Single _126Constant;// 4:VectorLengthEpsilon->0:Constant 162052
+            Boolean _127LessThan;// 8:VectorIsSmall->5:LessThan 162050
+            Single _128Length;// 9:VectorIsSmall->3:Length 162055
+            Single _129Constant;// 4:VectorLengthEpsilon->0:Constant 162056
+            Boolean _130LessThan;// 9:VectorIsSmall->5:LessThan 162054
+            Boolean _131OrElse;// 3:AngleOfVectorsFix->10:OrElse 162048
+            Matrix _148MatrixFromAxisAngle;// 0:MatrixOrientAroundAxis->10:MatrixFromAxisAngle 162034
+            Matrix _149Multiply;// 0:MatrixOrientAroundAxis->9:Multiply 162033
+            Matrix _150InvertMatrix;// 6:MatrixOrientAroundAxis->16:InvertMatrix 162027
+            Vector3 _151Transform;// 6:MatrixOrientAroundAxis->13:Transform 162026
+            Vector3 _152Normalize;// 6:MatrixOrientAroundAxis->15:Normalize 162025
+            Single _153Dot;// 5:Projection->3:Dot 162023
+            Single _154LengthSquared;// 5:Projection->4:LengthSquared 162024
+            Single _155Divide;// 5:Projection->5:Divide 162022
+            Vector3 _156MultiplyByScalar;// 5:Projection->2:MultiplyByScalar 162021
+            Vector3 _157Subtract;// 6:ProjectionOntoPlaneSpecifiedByNormal->3:Subtract 162018
+            Vector3 _158Cross;// 12:VectorAngleSigned->5:Cross 161997
+            Single _159Dot;// 12:VectorAngleSigned->4:Dot 161996
+            Single _160FloatZero;// 7:GtEqZ->1:FloatZero 161995
+            Boolean _161GreaterThanOrEqual;// 7:GtEqZ->2:GreaterThanOrEqual 161994
+            Single _162Length;// 8:VectorIsSmall->3:Length 162005
+            Single _163Constant;// 4:VectorLengthEpsilon->0:Constant 162006
+            Boolean _164LessThan;// 8:VectorIsSmall->5:LessThan 162004
+            Single _165Length;// 9:VectorIsSmall->3:Length 162009
+            Single _166Constant;// 4:VectorLengthEpsilon->0:Constant 162010
+            Boolean _167LessThan;// 9:VectorIsSmall->5:LessThan 162008
+            Boolean _168OrElse;// 3:AngleOfVectorsFix->10:OrElse 162002
+            Matrix _206MatrixFromAxisAngle;// 6:MatrixOrientAroundAxis->10:MatrixFromAxisAngle 161988
+            Matrix _207Multiply;// 6:MatrixOrientAroundAxis->9:Multiply 161987
+            _109ZAxis = ZAxis();
+            _110YAxis = YAxis();
+            _111IgnoreFirst = IgnoreFirst(_109ZAxis, _110YAxis);
+            _112InvertMatrix = InvertMatrix(_6MatrixIdentity);
+            _113Transform = Transform(_2Subtract, _112InvertMatrix);
+            _114Normalize = Normalize(_113Transform);
+            _115Dot = Dot(_114Normalize, _109ZAxis);
+            _116LengthSquared = LengthSquared(_109ZAxis);
+            _117Divide = Divide(_115Dot, _116LengthSquared);
+            _118MultiplyByScalar = MultiplyByScalar(_109ZAxis, _117Divide);
+            _119Subtract = Subtract(_114Normalize, _118MultiplyByScalar);
+            _120XAxis = XAxis();
+            _121Cross = Cross(_119Subtract, _120XAxis);
+            _122Dot = Dot(_109ZAxis, _121Cross);
+            _123FloatZero = FloatZero();
+            _124GreaterThanOrEqual = GreaterThanOrEqual(_122Dot, _123FloatZero);
+            _125Length = Length(_119Subtract);
+            _126Constant = 1E-06;
+            _127LessThan = LessThan(_125Length, _126Constant);
+            _128Length = Length(_120XAxis);
+            _129Constant = 1E-06;
+            _130LessThan = LessThan(_128Length, _129Constant);
+            _131OrElse = OrElse(_127LessThan, _130LessThan);
+            _148MatrixFromAxisAngle = MatrixFromAxisAngle(_109ZAxis, if (_124GreaterThanOrEqual)
+              {
+                Single _142NegativeFloat;// 12:VectorAngleSigned->6:NegativeFloat 162044
+                _142NegativeFloat = NegativeFloat(if (_131OrElse)
+                  {
+                    Single _137FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162057
+                    _137FloatZero = FloatZero();
+                    _137FloatZero;
+                    }else
+                  {
+                    Vector3 _138Cross;// 3:AngleOfVectorsFix->11:Cross 162060
+                    Single _139Length;// 3:AngleOfVectorsFix->3:Length 162059
+                    Single _140Dot;// 3:AngleOfVectorsFix->12:Dot 162061
+                    Single _141Atan2;// 3:AngleOfVectorsFix->2:Atan2 162058
+                    _138Cross = Cross(_119Subtract, _120XAxis);
+                    _139Length = Length(_138Cross);
+                    _140Dot = Dot(_119Subtract, _120XAxis);
+                    _141Atan2 = Atan2(_139Length, _140Dot);
+                    _141Atan2;
+                    });
+                _142NegativeFloat;
+                }else
+              {
+                if (_131OrElse)
+                  {
+                    Single _143FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162057
+                    _143FloatZero = FloatZero();
+                    _143FloatZero;
+                    }else
+                  {
+                    Vector3 _144Cross;// 3:AngleOfVectorsFix->11:Cross 162060
+                    Single _145Length;// 3:AngleOfVectorsFix->3:Length 162059
+                    Single _146Dot;// 3:AngleOfVectorsFix->12:Dot 162061
+                    Single _147Atan2;// 3:AngleOfVectorsFix->2:Atan2 162058
+                    _144Cross = Cross(_119Subtract, _120XAxis);
+                    _145Length = Length(_144Cross);
+                    _146Dot = Dot(_119Subtract, _120XAxis);
+                    _147Atan2 = Atan2(_145Length, _146Dot);
+                    _147Atan2;
+                    };
+                });
+            _149Multiply = Multiply(_148MatrixFromAxisAngle, _6MatrixIdentity);
+            _150InvertMatrix = InvertMatrix(_149Multiply);
+            _151Transform = Transform(_2Subtract, _150InvertMatrix);
+            _152Normalize = Normalize(_151Transform);
+            _153Dot = Dot(_152Normalize, _111IgnoreFirst);
+            _154LengthSquared = LengthSquared(_111IgnoreFirst);
+            _155Divide = Divide(_153Dot, _154LengthSquared);
+            _156MultiplyByScalar = MultiplyByScalar(_111IgnoreFirst, _155Divide);
+            _157Subtract = Subtract(_152Normalize, _156MultiplyByScalar);
+            _158Cross = Cross(_157Subtract, _120XAxis);
+            _159Dot = Dot(_111IgnoreFirst, _158Cross);
+            _160FloatZero = FloatZero();
+            _161GreaterThanOrEqual = GreaterThanOrEqual(_159Dot, _160FloatZero);
+            _162Length = Length(_157Subtract);
+            _163Constant = 1E-06;
+            _164LessThan = LessThan(_162Length, _163Constant);
+            _165Length = Length(_120XAxis);
+            _166Constant = 1E-06;
+            _167LessThan = LessThan(_165Length, _166Constant);
+            _168OrElse = OrElse(_164LessThan, _167LessThan);
+            _206MatrixFromAxisAngle = MatrixFromAxisAngle(_111IgnoreFirst, if (_161GreaterThanOrEqual)
+              {
+                Single _200NegativeFloat;// 12:VectorAngleSigned->6:NegativeFloat 161998
+                _200NegativeFloat = NegativeFloat(if (_168OrElse)
+                  {
+                    Single _195FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162011
+                    _195FloatZero = FloatZero();
+                    _195FloatZero;
+                    }else
+                  {
+                    Vector3 _196Cross;// 3:AngleOfVectorsFix->11:Cross 162014
+                    Single _197Length;// 3:AngleOfVectorsFix->3:Length 162013
+                    Single _198Dot;// 3:AngleOfVectorsFix->12:Dot 162015
+                    Single _199Atan2;// 3:AngleOfVectorsFix->2:Atan2 162012
+                    _196Cross = Cross(_157Subtract, _120XAxis);
+                    _197Length = Length(_196Cross);
+                    _198Dot = Dot(_157Subtract, _120XAxis);
+                    _199Atan2 = Atan2(_197Length, _198Dot);
+                    _199Atan2;
+                    });
+                _200NegativeFloat;
+                }else
+              {
+                if (_168OrElse)
+                  {
+                    Single _201FloatZero;// 3:AngleOfVectorsFix->5:FloatZero 162011
+                    _201FloatZero = FloatZero();
+                    _201FloatZero;
+                    }else
+                  {
+                    Vector3 _202Cross;// 3:AngleOfVectorsFix->11:Cross 162014
+                    Single _203Length;// 3:AngleOfVectorsFix->3:Length 162013
+                    Single _204Dot;// 3:AngleOfVectorsFix->12:Dot 162015
+                    Single _205Atan2;// 3:AngleOfVectorsFix->2:Atan2 162012
+                    _202Cross = Cross(_157Subtract, _120XAxis);
+                    _203Length = Length(_202Cross);
+                    _204Dot = Dot(_157Subtract, _120XAxis);
+                    _205Atan2 = Atan2(_203Length, _204Dot);
+                    _205Atan2;
+                    };
+                });
+            _207Multiply = Multiply(_206MatrixFromAxisAngle, _149Multiply);
+            _207Multiply;
+            }, _208LineB);
+        _210Append = Append(_108Unit, _209SetMatrixTranslation);
+        _210Append;
+        };
+    _26Map = Map(_24Combine, _25Pass-through: function1);
+    _27Flatten = Flatten(_26Map);
+    _28ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(spline);
+    _29InvertMatrix = InvertMatrix(modifierTransform);
+    _30Multiply = Multiply(_28ObjectTransformBeforeWSM, _29InvertMatrix);
+    _31Map = Map(_27Flatten, (Matrix x0) => 
+      {
+        Matrix _0Multiply;// 40:Multiply 162085
+        _0Multiply = Multiply(x0, _30Multiply);
+        _0Multiply;
+        });
+    _32Indices = Indices(_31Map);
+    _33True = True();
+    _34Two = Two();
+    _35Pass-through: any = (Matrix x0, Int32 x1) => 
+      {
+        Boolean _0IgnoreFirst;// 54:IgnoreFirst 162102
+        Vector3 _1XAxis;// 51:AlongXAxis->0:XAxis 162107
+        Int32 _2Modulo;// 4:ModuloEquals->3:Modulo 162115
+        Int32 _3Zero;// 45:ModuloEqualsZero->3:Zero 162116
+        Boolean _4Equal;// 4:ModuloEquals->4:Equal 162114
+        Single _5Pass-through: Single;// 0:Pass-through: Single 162105
+        Vector3 _6MultiplyByScalar;// 51:AlongXAxis->1:MultiplyByScalar 162106
+        Matrix _7TranslationMatrix;// 49:MatrixTranslate->10:TranslationMatrix 162101
+        _0IgnoreFirst = IgnoreFirst(x0, _33True);
+        _1XAxis = XAxis();
+        _2Modulo = Modulo(x1, _34Two);
+        _3Zero = Zero();
+        _4Equal = Equal(_2Modulo, _3Zero);
+        _5Pass-through: Single = if (_4Equal)
+          {
+            cornerA X offset;
+            }else
+          {
+            corner B X offset;
+            };
+        _6MultiplyByScalar = MultiplyByScalar(_1XAxis, _5Pass-through: Single);
+        _7TranslationMatrix = TranslationMatrix(_6MultiplyByScalar);
+        if (_0IgnoreFirst)
+          {
+            Matrix _8Multiply;// 6:MatrixApplyTransform->4:Multiply 162099
+            _8Multiply = Multiply(_7TranslationMatrix, x0);
+            _8Multiply;
+            }else
+          {
+            Matrix _9Multiply;// 6:MatrixApplyTransform->9:Multiply 162100
+            _9Multiply = Multiply(x0, _7TranslationMatrix);
+            _9Multiply;
+            };
+        };
+    _36Combine = Combine(_31Map, _32Indices, _35Pass-through: any);
+    _37Zero = Zero();
+    _38Two = Two();
+    _39Stride = Stride(_36Combine, _37Zero, _38Two);
+    _40One = One();
+    _41Stride = Stride(_36Combine, _40One, _38Two);
+    _42Pass-through: function2 = (Matrix x0, Matrix x1) => 
+      {
+        Vector3 _0GetMatrixTranslation;// 6:MatrixDistance->0:GetMatrixTranslation 162133
+        Vector3 _1GetMatrixTranslation;// 6:MatrixDistance->1:GetMatrixTranslation 162134
+        Single _2Distance;// 6:MatrixDistance->2:Distance 162132
+        Single _3Divide;// 15:MatrixInterpolateWithSpacing2->7:Divide 162129
+        Int32 _4Floor;// 15:MatrixInterpolateWithSpacing2->8:Floor 162128
+        IArray[Single] _5RangeExclusiveFloat;// 10:SampleLerpExclusive->5:RangeExclusiveFloat 162127
+        Func[Single, Matrix] _6Pass-through: function1;// 0:Pass-through: function1 162125
+        IArray[Matrix] _7Map;// 10:SampleLerpExclusive->3:Map 162126
+        _0GetMatrixTranslation = GetMatrixTranslation(x0);
+        _1GetMatrixTranslation = GetMatrixTranslation(x1);
+        _2Distance = Distance(_0GetMatrixTranslation, _1GetMatrixTranslation);
+        _3Divide = Divide(_2Distance, spacing);
+        _4Floor = Floor(_3Divide);
+        _5RangeExclusiveFloat = RangeExclusiveFloat(_4Floor);
+        _6Pass-through: function1 = (Single x0) => 
+          {
+            Vector3 _0GetMatrixScaling;// 12:MatrixComponentsLerp->6:GetMatrixScaling 162145
+            Vector3 _1GetMatrixScaling;// 12:MatrixComponentsLerp->7:GetMatrixScaling 162146
+            Vector3 _2Lerp;// 12:MatrixComponentsLerp->11:Lerp 162144
+            Quaternion _3GetMatrixRotation;// 12:MatrixComponentsLerp->4:GetMatrixRotation 162148
+            Quaternion _4GetMatrixRotation;// 12:MatrixComponentsLerp->5:GetMatrixRotation 162149
+            Quaternion _5QuaternionLerp;// 12:MatrixComponentsLerp->9:QuaternionLerp 162147
+            Vector3 _6GetMatrixTranslation;// 12:MatrixComponentsLerp->2:GetMatrixTranslation 162151
+            Vector3 _7GetMatrixTranslation;// 12:MatrixComponentsLerp->3:GetMatrixTranslation 162152
+            Vector3 _8Lerp;// 12:MatrixComponentsLerp->10:Lerp 162150
+            Matrix _9ScalingRotationTranslationMatrix;// 12:MatrixComponentsLerp->14:ScalingRotationTranslationMatrix 162143
+            _0GetMatrixScaling = GetMatrixScaling(x0);
+            _1GetMatrixScaling = GetMatrixScaling(x1);
+            _2Lerp = Lerp(_0GetMatrixScaling, _1GetMatrixScaling, x0);
+            _3GetMatrixRotation = GetMatrixRotation(x0);
+            _4GetMatrixRotation = GetMatrixRotation(x1);
+            _5QuaternionLerp = QuaternionLerp(_3GetMatrixRotation, _4GetMatrixRotation, x0);
+            _6GetMatrixTranslation = GetMatrixTranslation(x0);
+            _7GetMatrixTranslation = GetMatrixTranslation(x1);
+            _8Lerp = Lerp(_6GetMatrixTranslation, _7GetMatrixTranslation, x0);
+            _9ScalingRotationTranslationMatrix = ScalingRotationTranslationMatrix(_2Lerp, _5QuaternionLerp, _8Lerp);
+            _9ScalingRotationTranslationMatrix;
+            };
+        _7Map = Map(_5RangeExclusiveFloat, _6Pass-through: function1);
+        _7Map;
+        };
+    _43Combine = Combine(_39Stride, _41Stride, _42Pass-through: function2);
+    _44Flatten = Flatten(_43Combine);
+    _45RandomNumberGenerator = RandomNumberGenerator(seed);
+    _46Bind2of2 = Bind2of2((Matrix x0, Random x1) => 
+      {
+        Single _0Constant;// 19:DivideBy100->0:Constant 162156
+        Single _1Divide;// 19:DivideBy100->2:Divide 162155
+        Boolean _2LessThanOrEqual;// 23:FilterRandomly->4:LessThanOrEqual 161923
+        Boolean _3IgnoreFirst;// 23:FilterRandomly->8:IgnoreFirst 161922
+        _0Constant = 100;
+        _1Divide = Divide(probability, _0Constant);
+        _2LessThanOrEqual = LessThanOrEqual(PseudoRandomFloat(x1), _1Divide);
+        _3IgnoreFirst = IgnoreFirst(x0, _2LessThanOrEqual);
+        _3IgnoreFirst;
+        }, _45RandomNumberGenerator);
+    _47Filter = Filter(_44Flatten, _46Bind2of2);
+    _48X = X(preRotation);
+    _49Unit = Unit(_48X);
+    _50Y = Y(preRotation);
+    _51Append = Append(_49Unit, _50Y);
+    _52Z = Z(preRotation);
+    _53Append = Append(_51Append, _52Z);
+    _54Pass-through: function1 = (Single x0) => 
+      {
+        Single _0ToRadians;// 1:EulerDegreesToRadians->2:ToRadians 161879
+        _0ToRadians = ToRadians(x0);
+        _0ToRadians;
+        };
+    _55Map = Map(_53Append, _54Pass-through: function1);
+    _56Zero = Zero();
+    _57At = At(_55Map, _56Zero);
+    _58One = One();
+    _59Add = Add(_56Zero, _58One);
+    _60At = At(_55Map, _59Add);
+    _61One = One();
+    _62Add = Add(_59Add, _61One);
+    _63At = At(_55Map, _62Add);
+    _64Vector3 = Vector3(_57At, _60At, _63At);
+    _65Y = Y(_64Vector3);
+    _66X = X(_64Vector3);
+    _67Z = Z(_64Vector3);
+    _68QuaternionFromYawPitchRoll = QuaternionFromYawPitchRoll(_65Y, _66X, _67Z);
+    _69MatrixFromQuaternion = MatrixFromQuaternion(_68QuaternionFromYawPitchRoll);
+    _70TranslationMatrix = TranslationMatrix(preTranslate);
+    _71Constant = 0;
+    _72Vector3 = Vector3(_71Constant, _71Constant, _71Constant);
+    _73X = X(_72Vector3);
+    _74Unit = Unit(_73X);
+    _75Y = Y(_72Vector3);
+    _76Append = Append(_74Unit, _75Y);
+    _77Z = Z(_72Vector3);
+    _78Append = Append(_76Append, _77Z);
+    _79Pass-through: function1 = (Single x0) => 
+      {
+        Single _0ToRadians;// 1:EulerDegreesToRadians->2:ToRadians 161915
+        _0ToRadians = ToRadians(x0);
+        _0ToRadians;
+        };
+    _80Map = Map(_78Append, _79Pass-through: function1);
+    _81Zero = Zero();
+    _82At = At(_80Map, _81Zero);
+    _83One = One();
+    _84Add = Add(_81Zero, _83One);
+    _85At = At(_80Map, _84Add);
+    _86One = One();
+    _87Add = Add(_84Add, _86One);
+    _88At = At(_80Map, _87Add);
+    _89Vector3 = Vector3(_82At, _85At, _88At);
+    _90Y = Y(_89Vector3);
+    _91X = X(_89Vector3);
+    _92Z = Z(_89Vector3);
+    _93QuaternionFromYawPitchRoll = QuaternionFromYawPitchRoll(_90Y, _91X, _92Z);
+    _94MatrixFromQuaternion = MatrixFromQuaternion(_93QuaternionFromYawPitchRoll);
+    _95TranslationMatrix = TranslationMatrix(_72Vector3);
+    _96Map = Map(_47Filter, (Matrix x0) => 
+      {
+        Matrix _0Multiply;// 0:Multiply3->3:Multiply 161844
+        Matrix _1Multiply;// 0:Multiply3->4:Multiply 161843
+        Matrix _2Multiply;// 11:Multiply5->1:Multiply 161839
+        Matrix _3Multiply;// 11:Multiply5->7:Multiply 161838
+        _0Multiply = Multiply(_69MatrixFromQuaternion, _70TranslationMatrix);
+        _1Multiply = Multiply(_0Multiply, x0);
+        _2Multiply = Multiply(_1Multiply, _94MatrixFromQuaternion);
+        _3Multiply = Multiply(_2Multiply, _95TranslationMatrix);
+        _3Multiply;
+        });
+    _97Count = Count(_96Map);
+    _98ArrayOfFunction = ArrayOfFunction(_10Bind, _97Count);
+    _99True = True();
+    _100Combine = Combine(_98ArrayOfFunction, _96Map, (Vector3 x0, Matrix x1) => 
+      {
+        Matrix _0TranslationMatrix;// 9:MatrixTranslate->10:TranslationMatrix 161823
+        _0TranslationMatrix = TranslationMatrix(x0);
+        if (_99True)
+          {
+            Matrix _1Multiply;// 6:MatrixApplyTransform->4:Multiply 161821
+            _1Multiply = Multiply(_0TranslationMatrix, x1);
+            _1Multiply;
+            }else
+          {
+            Matrix _2Multiply;// 6:MatrixApplyTransform->9:Multiply 161822
+            _2Multiply = Multiply(x1, _0TranslationMatrix);
+            _2Multiply;
+            };
+        });
+    _101Count = Count(_100Combine);
+    _102ArrayOfFunction = ArrayOfFunction(_7Bind, _101Count);
+    _103Combine = Combine(_102ArrayOfFunction, _100Combine, (Vector3 x0, Matrix x1) => 
+      {
+        Single _0X;// 1:VectorAsArray->1:X 161789
+        IArray[Single] _1Unit;// 4:Array3->2:Unit 161788
+        Single _2Y;// 1:VectorAsArray->2:Y 161790
+        IArray[Single] _3Append;// 4:Array3->3:Append 161787
+        Single _4Z;// 1:VectorAsArray->3:Z 161791
+        IArray[Single] _5Append;// 4:Array3->6:Append 161786
+        Func[Single, Single] _6Pass-through: function1;// 0:Pass-through: function1 161768
+        IArray[Single] _7Map;// 1:VectorMapComponents->2:Map 161781
+        Int32 _8Zero;// 3:ArrayToVector->5:Zero 161772
+        Single _9At;// 3:ArrayToVector->1:At 161771
+        Int32 _10One;// 6:PlusOne->1:One 161776
+        Int32 _11Add;// 6:PlusOne->0:Add 161775
+        Single _12At;// 3:ArrayToVector->2:At 161773
+        Int32 _13One;// 7:PlusOne->1:One 161780
+        Int32 _14Add;// 7:PlusOne->0:Add 161779
+        Single _15At;// 3:ArrayToVector->3:At 161777
+        Vector3 _16Vector3;// 3:ArrayToVector->4:Vector3 161770
+        Single _17Y;// 2:QuaternionFromVector3->7:Y 161763
+        Single _18X;// 2:QuaternionFromVector3->6:X 161764
+        Single _19Z;// 2:QuaternionFromVector3->8:Z 161765
+        Quaternion _20QuaternionFromYawPitchRoll;// 2:QuaternionFromVector3->3:QuaternionFromYawPitchRoll 161762
+        Matrix _21MatrixFromQuaternion;// 6:EulerDegreesToMatrix->4:MatrixFromQuaternion 161759
+        Matrix _22Multiply;// 9:MatrixRotateUsingEuler->5:Multiply 161757
+        _0X = X(x0);
+        _1Unit = Unit(_0X);
+        _2Y = Y(x0);
+        _3Append = Append(_1Unit, _2Y);
+        _4Z = Z(x0);
+        _5Append = Append(_3Append, _4Z);
+        _6Pass-through: function1 = (Single x0) => 
+          {
+            Single _0ToRadians;// 1:EulerDegreesToRadians->2:ToRadians 161792
+            _0ToRadians = ToRadians(x0);
+            _0ToRadians;
+            };
+        _7Map = Map(_5Append, _6Pass-through: function1);
+        _8Zero = Zero();
+        _9At = At(_7Map, _8Zero);
+        _10One = One();
+        _11Add = Add(_8Zero, _10One);
+        _12At = At(_7Map, _11Add);
+        _13One = One();
+        _14Add = Add(_11Add, _13One);
+        _15At = At(_7Map, _14Add);
+        _16Vector3 = Vector3(_9At, _12At, _15At);
+        _17Y = Y(_16Vector3);
+        _18X = X(_16Vector3);
+        _19Z = Z(_16Vector3);
+        _20QuaternionFromYawPitchRoll = QuaternionFromYawPitchRoll(_17Y, _18X, _19Z);
+        _21MatrixFromQuaternion = MatrixFromQuaternion(_20QuaternionFromYawPitchRoll);
+        _22Multiply = Multiply(_21MatrixFromQuaternion, x1);
+        _22Multiply;
+        });
+    _104Count = Count(_103Combine);
+    _105ArrayOfFunction = ArrayOfFunction(_4Bind, _104Count);
+    _106Combine = Combine(_105ArrayOfFunction, _103Combine, (Vector3 x0, Matrix x1) => 
+      {
+        Single _0Constant;// 8:Origin->0:Constant 161733
+        Vector3 _1Vector3;// 8:Origin->1:Vector3 161732
+        Matrix _2ScalingTranslationMatrix;// 4:ScalingMatrix->4:ScalingTranslationMatrix 161731
+        Matrix _3Multiply;// 60:ScaleMatricesRandomly->9:Multiply 161729
+        _0Constant = 0;
+        _1Vector3 = Vector3(_0Constant, _0Constant, _0Constant);
+        _2ScalingTranslationMatrix = ScalingTranslationMatrix(x0, _1Vector3);
+        _3Multiply = Multiply(_2ScalingTranslationMatrix, x1);
+        _3Multiply;
+        });
+    _107Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows->0:Constant 161698
+        IArray[Int32] _1Range;// 3:MatrixRows->1:Range 161697
+        IArray[Vector3] _2Map;// 3:MatrixRows->3:Map 161696
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 161702
+            Int32 _1Add;// 5:PlusOne->0:Add 161701
+            Vector3 _2MatrixRow;// 3:MatrixRows->4:MatrixRow 161699
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _108Map = Map(_106Combine, _107Pass-through: function1);
+    _109Flatten = Flatten(_108Map);
+    _110MeshIndices = MeshIndices(mesh);
+    _111SetMapChannel = SetMapChannel(mesh, flux channel, _109Flatten, _110MeshIndices);
+    _112IgnoreFirst = IgnoreFirst(seed, _111SetMapChannel);
+    _112IgnoreFirst;
+    }

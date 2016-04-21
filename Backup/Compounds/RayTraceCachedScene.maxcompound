@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="ac6eb30e-75ff-495a-813f-1425f0d7bee7">
+    <meta_info>
+        <graph_version guid="3eca7e46-55c7-4441-907d-b73a8ad9a7aa" number="0.0.19" />
+        <category>Geometry - Ray</category>
+        <description>Creates a cached ray-trace scene and adds the geometry to it. When the caching flag is off the geometry is updated each time the graph is refreshed. Warning: the cached geometry must always have the same topology, otherwise system instability may occur.</description>
+    </meta_info>
+    <nodes>
+        <node operator="RayTraceScene" id="2" position="220:0" size="140:117" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:320" size="140:117" />
+        <node operator="Output: compound" id="6" position="1320:320" size="140:69" />
+        <node operator="RayTraceAddGeometry" id="11" position="440:20" size="140:141" />
+        <node operator="RayTraceUpdateGeometry" id="5" position="660:340" size="140:165" />
+        <node operator="PairItem1" id="9" position="440:180" size="140:117" />
+        <node operator="PairItem2" id="0" position="440:320" size="140:117" />
+        <node operator="Pass-through: tuple2" id="14" position="220:180" size="140:117" />
+        <node operator="Input: Boolean" id="7" name="caching" position="660:200" size="140:117" />
+        <node operator="False" id="3" position="0:0" size="140:93" />
+        <node operator="CacheValueWhileTrueWithUpdate" id="12" position="880:220" size="140:165" />
+        <node operator="PairItem1" id="4" position="1100:300" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="5" sourceport="1" destnode="12" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

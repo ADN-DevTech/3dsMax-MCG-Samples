@@ -1,0 +1,147 @@
+(InstanceState state, INode cloneSource, INode fluxSource, Int32 channel) => 
+  {
+    Func[INode] _0Bind;// 0:FluxInstanceNodeWithController->6:Bind 107218
+    Boolean _1IsValidNode;// 1:CheckNodeValidity->0:IsValidNode 107265
+    Boolean _2Not;// 1:CheckNodeValidity->1:Not 107264
+    INode _3ExitIf;// 1:CheckNodeValidity->2:ExitIf 107263
+    TriMesh _4MeshFromNode;// 0:FluxInstanceNodeWithController->2:MeshFromNode 107261
+    MapChannel _5GetMapChannel;// 3:MatricesFromMapChannel->9:GetMapChannel 107233
+    IArray[Vector3] _6MapChannelVertexBuffer;// 3:MatricesFromMapChannel->8:MapChannelVertexBuffer 107232
+    Int32 _7Count;// 2:Slices->2:Count 107229
+    Int32 _8Constant;// 3:MatricesFromMapChannel->0:Constant 107234
+    Int32 _9Divide;// 2:Slices->3:Divide 107228
+    IArray[Int32] _10Range;// 2:Slices->4:Range 107227
+    IArray[IArray[Vector3]] _11Map;// 2:Slices->5:Map 107226
+    IArray[Matrix] _12Map;// 3:MatricesFromMapChannel->5:Map 107223
+    Int32 _13Count;// 0:FluxInstanceNodeWithController->7:Count 107220
+    IArray[INode] _14ArrayOfFunction;// 0:FluxInstanceNodeWithController->34:ArrayOfFunction 107217
+    IArray[INode] _15Combine;// 0:FluxInstanceNodeWithController->13:Combine 107216
+    IArray[Int32] _16Indices;// 30:MapWithIndexes->3:Indices 107215
+    String _17Constant;// 0:FluxInstanceNodeWithController->0:Constant 107272
+    String _18Constant;// 0:FluxInstanceNodeWithController->0:Constant 107273
+    String _19Constant;// 0:FluxInstanceNodeWithController->0:Constant 107280
+    String _20Constant;// 31:NodeNameToMAXScript->0:Constant 107284
+    String _21NodeName;// 0:FluxInstanceNodeWithController->27:NodeName 107286
+    String _22ConcatenateStrings;// 31:NodeNameToMAXScript->1:ConcatenateStrings 107283
+    String _23Constant;// 31:NodeNameToMAXScript->0:Constant 107285
+    String _24ConcatenateStrings;// 31:NodeNameToMAXScript->5:ConcatenateStrings 107282
+    String _25Constant;// 0:FluxInstanceNodeWithController->0:Constant 107287
+    String _26ToString;// 0:FluxInstanceNodeWithController->28:ToString 107288
+    String _27Constant;// 0:FluxInstanceNodeWithController->0:Constant 107289
+    Func[INode, Int32, FPValue] _28Pass-through: any;// 0:Pass-through: any 107213
+    IArray[FPValue] _29Combine;// 30:MapWithIndexes->2:Combine 107214
+    _0Bind = Bind((INode x0) => 
+      {
+        INode _0CloneAsInstance;// 0:FluxInstanceNodeWithController->33:CloneAsInstance 107219
+        _0CloneAsInstance = CloneAsInstance(x0);
+        _0CloneAsInstance;
+        }, cloneSource);
+    _1IsValidNode = IsValidNode(fluxSource);
+    _2Not = Not(_1IsValidNode);
+    _3ExitIf = ExitIf(fluxSource, _2Not);
+    _4MeshFromNode = MeshFromNode(_3ExitIf);
+    _5GetMapChannel = GetMapChannel(_4MeshFromNode, channel);
+    _6MapChannelVertexBuffer = MapChannelVertexBuffer(_5GetMapChannel);
+    _7Count = Count(_6MapChannelVertexBuffer);
+    _8Constant = 4;
+    _9Divide = Divide(_7Count, _8Constant);
+    _10Range = Range(_9Divide);
+    _11Map = Map(_10Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 2:Slices->6:Multiply 107231
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 107230
+        _0Multiply = Multiply(_8Constant, x0);
+        _1Slice = Slice(_6MapChannelVertexBuffer, _0Multiply, _8Constant);
+        _1Slice;
+        });
+    _12Map = Map(_11Map, (IArray[Vector3] x0) => 
+      {
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 107243
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 107244
+        Int32 _2Zero;// 6:MatrixFromRows->7:Zero 107248
+        Vector3 _3At;// 6:MatrixFromRows->3:At 107247
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 107242
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 107245
+        Int32 _6One;// 8:PlusOne->1:One 107252
+        Int32 _7Add;// 8:PlusOne->0:Add 107251
+        Vector3 _8At;// 6:MatrixFromRows->4:At 107249
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 107241
+        Int32 _10Constant;// 25:Three->0:Constant 107246
+        Int32 _11One;// 9:PlusOne->1:One 107256
+        Int32 _12Add;// 9:PlusOne->0:Add 107255
+        Vector3 _13At;// 6:MatrixFromRows->5:At 107253
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 107240
+        Int32 _15One;// 10:PlusOne->1:One 107260
+        Int32 _16Add;// 10:PlusOne->0:Add 107259
+        Vector3 _17At;// 6:MatrixFromRows->6:At 107257
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows->2:SetMatrixTranslation 107236
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2Zero = Zero();
+        _3At = At(x0, _2Zero);
+        _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+        _5Two = Two();
+        _6One = One();
+        _7Add = Add(_2Zero, _6One);
+        _8At = At(x0, _7Add);
+        _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+        _10Constant = 3;
+        _11One = One();
+        _12Add = Add(_7Add, _11One);
+        _13At = At(x0, _12Add);
+        _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+        _15One = One();
+        _16Add = Add(_12Add, _15One);
+        _17At = At(x0, _16Add);
+        _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+        _18SetMatrixTranslation;
+        });
+    _13Count = Count(_12Map);
+    _14ArrayOfFunction = ArrayOfFunction(_0Bind, _13Count);
+    _15Combine = Combine(_14ArrayOfFunction, _12Map, (INode x0, Matrix x1) => 
+      {
+        INode _0SetNodeTransform;// 0:FluxInstanceNodeWithController->5:SetNodeTransform 107266
+        _0SetNodeTransform = SetNodeTransform(x0, x1);
+        _0SetNodeTransform;
+        });
+    _16Indices = Indices(_15Combine);
+    _17Constant = $current.transform.controller = Flux2_Controller source:$source channel:$channel n:$n;
+    _18Constant = $current;
+    _19Constant = $source;
+    _20Constant = $';
+    _21NodeName = NodeName(fluxSource);
+    _22ConcatenateStrings = ConcatenateStrings(_20Constant, _21NodeName);
+    _23Constant = ';
+    _24ConcatenateStrings = ConcatenateStrings(_22ConcatenateStrings, _23Constant);
+    _25Constant = $channel;
+    _26ToString = ToString(channel);
+    _27Constant = $n;
+    _28Pass-through: any = (INode x0, Int32 x1) => 
+      {
+        String _0Constant;// 14:NodeNameToMAXScript->0:Constant 107277
+        String _1NodeName;// 0:FluxInstanceNodeWithController->15:NodeName 107279
+        String _2ConcatenateStrings;// 14:NodeNameToMAXScript->1:ConcatenateStrings 107276
+        String _3Constant;// 14:NodeNameToMAXScript->0:Constant 107278
+        String _4ConcatenateStrings;// 14:NodeNameToMAXScript->5:ConcatenateStrings 107275
+        String _5ReplaceString;// 0:FluxInstanceNodeWithController->20:ReplaceString 107271
+        String _6ReplaceString;// 0:FluxInstanceNodeWithController->16:ReplaceString 107270
+        String _7ReplaceString;// 0:FluxInstanceNodeWithController->18:ReplaceString 107269
+        String _8ToString;// 0:FluxInstanceNodeWithController->26:ToString 107290
+        String _9ReplaceString;// 0:FluxInstanceNodeWithController->22:ReplaceString 107268
+        FPValue _10EvalMAXScript;// 0:FluxInstanceNodeWithController->29:EvalMAXScript 107267
+        _0Constant = $';
+        _1NodeName = NodeName(x0);
+        _2ConcatenateStrings = ConcatenateStrings(_0Constant, _1NodeName);
+        _3Constant = ';
+        _4ConcatenateStrings = ConcatenateStrings(_2ConcatenateStrings, _3Constant);
+        _5ReplaceString = ReplaceString(_17Constant, _18Constant, _4ConcatenateStrings);
+        _6ReplaceString = ReplaceString(_5ReplaceString, _19Constant, _24ConcatenateStrings);
+        _7ReplaceString = ReplaceString(_6ReplaceString, _25Constant, _26ToString);
+        _8ToString = ToString(x1);
+        _9ReplaceString = ReplaceString(_7ReplaceString, _27Constant, _8ToString);
+        _10EvalMAXScript = EvalMAXScript(_9ReplaceString);
+        _10EvalMAXScript;
+        };
+    _29Combine = Combine(_15Combine, _16Indices, _28Pass-through: any);
+    _29Combine;
+    }

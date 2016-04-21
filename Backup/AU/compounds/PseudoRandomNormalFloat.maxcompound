@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="8dd3d19c-0e6f-48f4-8e2b-e90f342e1775">
+    <meta_info>
+        <graph_version guid="8bc26ed2-7076-4ba2-a0de-aecb671260d2" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="0" name="stdDev" position="440:0" size="140:117" />
+        <node operator="Input: Random" id="1" name="rng" position="0:100" size="140:117" />
+        <node operator="PseudoRandomFloat" id="2" position="220:60" size="140:117" />
+        <node operator="PseudoRandomFloat" id="3" position="220:200" size="140:117" />
+        <node operator="BoxMuller" id="4" position="440:140" size="140:141" />
+        <node operator="Multiply" id="5" position="660:100" size="140:141" />
+        <node operator="Output: compound" id="6" position="1100:240" size="140:69" />
+        <node operator="Add" id="7" position="880:200" size="140:141" />
+        <node operator="Input: Single" id="8" name="mean" position="660:260" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+    </connections>
+</graph>

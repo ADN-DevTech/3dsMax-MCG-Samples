@@ -1,0 +1,72 @@
+(InstanceState state, INode source, Int32 currentTime, Int32 channel, Int32 n) => 
+  {
+    TriMesh _0MeshFromNodeAtTime;// 3:MeshFromNodeAtTime 107352
+    MapChannel _1GetMapChannel;// 5:MatricesFromMapChannel->9:GetMapChannel 107324
+    IArray[Vector3] _2MapChannelVertexBuffer;// 5:MatricesFromMapChannel->8:MapChannelVertexBuffer 107323
+    Int32 _3Count;// 2:Slices->2:Count 107320
+    Int32 _4Constant;// 5:MatricesFromMapChannel->0:Constant 107325
+    Int32 _5Divide;// 2:Slices->3:Divide 107319
+    IArray[Int32] _6Range;// 2:Slices->4:Range 107318
+    IArray[IArray[Vector3]] _7Map;// 2:Slices->5:Map 107317
+    IArray[Matrix] _8Map;// 5:MatricesFromMapChannel->5:Map 107314
+    Matrix _9At;// 7:At 107311
+    _0MeshFromNodeAtTime = MeshFromNodeAtTime(source, currentTime);
+    _1GetMapChannel = GetMapChannel(_0MeshFromNodeAtTime, channel);
+    _2MapChannelVertexBuffer = MapChannelVertexBuffer(_1GetMapChannel);
+    _3Count = Count(_2MapChannelVertexBuffer);
+    _4Constant = 4;
+    _5Divide = Divide(_3Count, _4Constant);
+    _6Range = Range(_5Divide);
+    _7Map = Map(_6Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 2:Slices->6:Multiply 107322
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 107321
+        _0Multiply = Multiply(_4Constant, x0);
+        _1Slice = Slice(_2MapChannelVertexBuffer, _0Multiply, _4Constant);
+        _1Slice;
+        });
+    _8Map = Map(_7Map, (IArray[Vector3] x0) => 
+      {
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 107334
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 107335
+        Int32 _2Zero;// 6:MatrixFromRows->7:Zero 107339
+        Vector3 _3At;// 6:MatrixFromRows->3:At 107338
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 107333
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 107336
+        Int32 _6One;// 8:PlusOne->1:One 107343
+        Int32 _7Add;// 8:PlusOne->0:Add 107342
+        Vector3 _8At;// 6:MatrixFromRows->4:At 107340
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 107332
+        Int32 _10Constant;// 25:Three->0:Constant 107337
+        Int32 _11One;// 9:PlusOne->1:One 107347
+        Int32 _12Add;// 9:PlusOne->0:Add 107346
+        Vector3 _13At;// 6:MatrixFromRows->5:At 107344
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 107331
+        Int32 _15One;// 10:PlusOne->1:One 107351
+        Int32 _16Add;// 10:PlusOne->0:Add 107350
+        Vector3 _17At;// 6:MatrixFromRows->6:At 107348
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows->2:SetMatrixTranslation 107327
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2Zero = Zero();
+        _3At = At(x0, _2Zero);
+        _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+        _5Two = Two();
+        _6One = One();
+        _7Add = Add(_2Zero, _6One);
+        _8At = At(x0, _7Add);
+        _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+        _10Constant = 3;
+        _11One = One();
+        _12Add = Add(_7Add, _11One);
+        _13At = At(x0, _12Add);
+        _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+        _15One = One();
+        _16Add = Add(_12Add, _15One);
+        _17At = At(x0, _16Add);
+        _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+        _18SetMatrixTranslation;
+        });
+    _9At = At(_8Map, n);
+    _9At;
+    }

@@ -1,0 +1,60 @@
+<graph version="0.50" uuid="85783d23-153e-4003-be50-65ff87794430">
+    <meta_info>
+        <graph_version guid="016bdbf0-85ee-455b-9d9e-bd6be70f1aec" number="0.0.15" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineFromNode" id="1" position="220:20" size="140:117" />
+        <node operator="SplineLines" id="2" position="440:160" size="140:117" />
+        <node operator="MatricesSpacedAlongLineWithOffset" id="4" position="440:300" size="220:165" />
+        <node operator="Parameter: Single" id="5" name="distance" min_value="-1000" max_value="1000" default_value="0" system_units_value="true" position="220:160" size="140:213" />
+        <node operator="Parameter: Single" id="6" name="spacing" min_value="0" max_value="1000" default_value="4" system_units_value="true" position="220:400" size="140:213" />
+        <node operator="Parameter: INode" id="7" name="spline" position="0:0" size="140:117" />
+        <node operator="CloneMeshAtTransforms" id="0" position="1280:1000" size="140:141" />
+        <node operator="CubeMesh" id="8" position="740:900" size="140:117" />
+        <node operator="Parameter: Single" id="9" name="boxSize" min_value="0" max_value="100" default_value="0.05" system_units_value="true" position="440:720" size="140:213" />
+        <node operator="MeshScale" id="10" position="960:960" size="140:141" />
+        <node operator="Parameter: Single" id="12" name="box stretch" min_value="0" max_value="100" default_value="2" system_units_value="false" position="440:960" size="140:213" />
+        <node operator="CombineAllMeshes" id="11" position="1720:1220" size="140:117" />
+        <node operator="Output: geometry" id="14" position="1940:1240" size="140:69" />
+        <node operator="FlatMap" id="15" position="740:480" size="140:141" />
+        <node operator="Vector3" id="3" position="740:1040" size="140:165" />
+        <node operator="FloatOne" id="16" position="440:1180" size="140:93" />
+        <node operator="FilterRandomly" id="13" position="1500:1160" size="140:165" />
+        <node operator="RandomNumberGenerator" id="17" position="740:1220" size="140:117" />
+        <node operator="Parameter: Int32" id="18" name="seed" min_value="0" max_value="100" default_value="0" position="440:1300" size="140:189" />
+        <node operator="Parameter: Single" id="19" name="probability" min_value="0" max_value="100" default_value="50" system_units_value="false" position="960:1120" size="140:213" />
+        <node operator="DivideBy100" id="20" position="1280:1160" size="140:117" />
+        <node operator="MatrixArrayRotateGaussianNoise" id="21" position="960:740" size="240:189" />
+        <node operator="ZAxis" id="22" position="740:800" size="140:93" />
+        <node operator="Parameter: Single" id="23" name="rotationDeviation" min_value="0" max_value="360" default_value="45" system_units_value="false" position="440:480" size="140:213" />
+        <node operator="ToRadians" id="24" position="740:660" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="21" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="15" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="21" destport="1" />
+        <connection sourcenode="24" sourceport="0" destnode="21" destport="2" />
+        <connection sourcenode="22" sourceport="0" destnode="21" destport="3" />
+        <connection sourcenode="23" sourceport="0" destnode="24" destport="0" />
+    </connections>
+</graph>

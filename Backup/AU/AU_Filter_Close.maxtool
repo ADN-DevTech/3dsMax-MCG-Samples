@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="22f31eec-dd1e-41ba-9fa5-944cfe489754">
+    <meta_info>
+        <graph_version guid="c7504252-1cf4-49a3-bf17-7c2656b6541a" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="StoreMatricesInMapChannel" id="6" position="1244:266" size="280:165" />
+        <node operator="Output: modifier" id="4" position="1580:320" size="140:69" />
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-3" max_value="101" default_value="2" position="136:303" size="140:189" />
+        <node operator="Modifier: TriMesh" id="1" position="128:209" size="140:93" />
+        <node operator="MatricesFromMapChannel" id="19" position="316:272" size="220:141" />
+        <node operator="MatricesFilterClose" id="9" position="929:349" size="140:141" />
+        <node operator="Parameter: Single" id="10" name="min distance" min_value="0" max_value="10000" default_value="0.01" system_units_value="true" position="728:389" size="140:213" />
+        <node groupnode="Remove the matrices that are close together" id="0" position="719:320" size="424:291" bg_color="#ff646464">
+            <nodes>10,9</nodes>
+        </node>
+        <node groupnode="Get flux matrices" id="12" position="100:180" size="454:324" bg_color="#ff646464">
+            <nodes>2,1,19</nodes>
+        </node>
+        <node groupnode="Store flux matrices" id="15" position="1220:200" size="313:266" bg_color="#ff646464">
+            <nodes>6</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,59 @@
+(InstanceState state, TriMesh mesh, Single radius) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 0:MeshVertices 164432
+    Single _1Constant;// 1:Origin->0:Constant 164464
+    Vector3 _2Vector3;// 1:Origin->1:Vector3 164463
+    BoundingSphere _3Sphere;// 0:BoxFromPointAndRadius->3:Sphere 164462
+    BoundingBox _4BoxFromSphere;// 0:BoxFromPointAndRadius->0:BoxFromSphere 164461
+    QuadMesh _5BoxQuadMesh;// 4:BoxTriMesh->2:BoxQuadMesh 164457
+    TriMesh _6Triangulate;// 4:BoxTriMesh->3:Triangulate 164456
+    IArray[Int32] _7MeshIndices;// 4:HideEveryThirdEdge->2:MeshIndices 164447
+    IArray[Int32] _8Indices;// 4:HideEveryThirdEdge->8:Indices 164446
+    Int32 _9Constant;// 4:HideEveryThirdEdge->0:Constant 164454
+    Int32 _10Constant;// 4:HideEveryThirdEdge->0:Constant 164455
+    IArray[Boolean] _11Map;// 4:HideEveryThirdEdge->5:Map 164445
+    TriMesh _12SetVisibleEdges;// 4:HideEveryThirdEdge->9:SetVisibleEdges 164444
+    IArray[TriMesh] _13Map;// 2:Map 164431
+    TriMesh _14CombineAllMeshes;// 7:CombineAllMeshes 164430
+    _0MeshVertices = MeshVertices(mesh);
+    _1Constant = 0;
+    _2Vector3 = Vector3(_1Constant, _1Constant, _1Constant);
+    _3Sphere = Sphere(_2Vector3, radius);
+    _4BoxFromSphere = BoxFromSphere(_3Sphere);
+    _5BoxQuadMesh = BoxQuadMesh(_4BoxFromSphere);
+    _6Triangulate = Triangulate(_5BoxQuadMesh);
+    _7MeshIndices = MeshIndices(_6Triangulate);
+    _8Indices = Indices(_7MeshIndices);
+    _9Constant = 3;
+    _10Constant = 2;
+    _11Map = Map(_8Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 164453
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 164452
+        Boolean _2Not;// 4:HideEveryThirdEdge->7:Not 164448
+        _0Modulo = Modulo(x0, _9Constant);
+        _1Equal = Equal(_0Modulo, _10Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _12SetVisibleEdges = SetVisibleEdges(_6Triangulate, _11Map);
+    _13Map = Map(_0MeshVertices, (Vector3 x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 164440
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 164437
+        IArray[Vector3] _2Map;// 0:DeformMeshPoints->1:Map 164439
+        TriMesh _3SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 164438
+        _0MeshVertices = MeshVertices(_12SetVisibleEdges);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 3:OffsetMesh->2:Add 164441
+            _0Add = Add(x0, x0);
+            _0Add;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(_12SetVisibleEdges, _2Map);
+        _3SetMeshVertices;
+        });
+    _14CombineAllMeshes = CombineAllMeshes(_13Map);
+    _14CombineAllMeshes;
+    }

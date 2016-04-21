@@ -1,0 +1,159 @@
+(InstanceState state, Int32 count, INode node, Matrix geometryTransform) => 
+  {
+    IArray[Int32] _0Range;// 15:MapRange->2:Range 106737
+    Cache[TriMesh] _1CreateCache;// 13:PerFrameValueCache->4:CreateCache 106742
+    Func[Int32, TriMesh] _2Pass-through: function1;// 0:Pass-through: function1 106735
+    IArray[TriMesh] _3Map;// 15:MapRange->3:Map 106736
+    IArray[TriMesh] _4Filter;// 17:Filter 106733
+    TriMesh _5CombineAllMeshes;// 7:CombineAllMeshes 106732
+    IArray[Vector3] _6MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 106730
+    Cache[Vector3] _7CreateStaticCache;// 12:CacheValue->17:CreateStaticCache 106783
+    Int32 _8Zero;// 12:CacheValue->7:Zero 106784
+    Vector3 _9CachedValue;// 12:CacheValue->4:CachedValue 106782
+    Func[Vector3, Vector3] _10Pass-through: function1;// 0:Pass-through: function1 106727
+    IArray[Vector3] _11Map;// 0:DeformMeshPoints->1:Map 106729
+    TriMesh _12SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 106728
+    _0Range = Range(count);
+    _1CreateCache = CreateCache(() => 
+      {
+        Boolean _0IsValidNode;// 1:CheckNodeValidity->0:IsValidNode 106771
+        Boolean _1Not;// 1:CheckNodeValidity->1:Not 106770
+        INode _2ExitIf;// 1:CheckNodeValidity->2:ExitIf 106769
+        TriMesh _3MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 106766
+        IArray[Vector3] _4MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 106764
+        Matrix _5ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 106767
+        Func[Vector3, Vector3] _6Pass-through: function1;// 0:Pass-through: function1 106761
+        IArray[Vector3] _7Map;// 2:DeformMeshPoints->1:Map 106763
+        TriMesh _8SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 106762
+        IArray[Vector3] _9MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 106754
+        Matrix _10InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 106756
+        Func[Vector3, Vector3] _11Pass-through: function1;// 0:Pass-through: function1 106751
+        IArray[Vector3] _12Map;// 2:DeformMeshPoints->1:Map 106753
+        TriMesh _13SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 106752
+        _0IsValidNode = IsValidNode(node);
+        _1Not = Not(_0IsValidNode);
+        _2ExitIf = ExitIf(node, _1Not);
+        _3MeshFromNode = MeshFromNode(_2ExitIf);
+        _4MeshVertices = MeshVertices(_3MeshFromNode);
+        _5ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(_2ExitIf);
+        _6Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 3:TransformMesh->0:Transform 106765
+            _0Transform = Transform(x0, _5ObjectTransformBeforeWSM);
+            _0Transform;
+            };
+        _7Map = Map(_4MeshVertices, _6Pass-through: function1);
+        _8SetMeshVertices = SetMeshVertices(_3MeshFromNode, _7Map);
+        _9MeshVertices = MeshVertices(_8SetMeshVertices);
+        _10InvertMatrix = InvertMatrix(geometryTransform);
+        _11Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 3:TransformMesh->0:Transform 106755
+            _0Transform = Transform(x0, _10InvertMatrix);
+            _0Transform;
+            };
+        _12Map = Map(_9MeshVertices, _11Pass-through: function1);
+        _13SetMeshVertices = SetMeshVertices(_8SetMeshVertices, _12Map);
+        _13SetMeshVertices;
+        }, (TriMesh x0) => 
+      {
+        Boolean _0IsValidNode;// 1:CheckNodeValidity->0:IsValidNode 106771
+        Boolean _1Not;// 1:CheckNodeValidity->1:Not 106770
+        INode _2ExitIf;// 1:CheckNodeValidity->2:ExitIf 106769
+        TriMesh _3MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 106766
+        IArray[Vector3] _4MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 106764
+        Matrix _5ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 106767
+        Func[Vector3, Vector3] _6Pass-through: function1;// 0:Pass-through: function1 106761
+        IArray[Vector3] _7Map;// 2:DeformMeshPoints->1:Map 106763
+        TriMesh _8SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 106762
+        IArray[Vector3] _9MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 106754
+        Matrix _10InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 106756
+        Func[Vector3, Vector3] _11Pass-through: function1;// 0:Pass-through: function1 106751
+        IArray[Vector3] _12Map;// 2:DeformMeshPoints->1:Map 106753
+        TriMesh _13SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 106752
+        TriMesh _14IgnoreFirst;// 13:PerFrameValueCache->2:IgnoreFirst 106743
+        _0IsValidNode = IsValidNode(node);
+        _1Not = Not(_0IsValidNode);
+        _2ExitIf = ExitIf(node, _1Not);
+        _3MeshFromNode = MeshFromNode(_2ExitIf);
+        _4MeshVertices = MeshVertices(_3MeshFromNode);
+        _5ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(_2ExitIf);
+        _6Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 3:TransformMesh->0:Transform 106765
+            _0Transform = Transform(x0, _5ObjectTransformBeforeWSM);
+            _0Transform;
+            };
+        _7Map = Map(_4MeshVertices, _6Pass-through: function1);
+        _8SetMeshVertices = SetMeshVertices(_3MeshFromNode, _7Map);
+        _9MeshVertices = MeshVertices(_8SetMeshVertices);
+        _10InvertMatrix = InvertMatrix(geometryTransform);
+        _11Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 3:TransformMesh->0:Transform 106755
+            _0Transform = Transform(x0, _10InvertMatrix);
+            _0Transform;
+            };
+        _12Map = Map(_9MeshVertices, _11Pass-through: function1);
+        _13SetMeshVertices = SetMeshVertices(_8SetMeshVertices, _12Map);
+        _14IgnoreFirst = IgnoreFirst(x0, _13SetMeshVertices);
+        _14IgnoreFirst;
+        }, count).SetId(state, 0);
+    _2Pass-through: function1 = (Int32 x0) => 
+      {
+        TriMesh _0CachedValue;// 11:CachedValue 106739
+        _0CachedValue = CachedValue(_1CreateCache, x0);
+        _0CachedValue;
+        };
+    _3Map = Map(_0Range, _2Pass-through: function1);
+    _4Filter = Filter(_3Map, (TriMesh x0) => 
+      {
+        Object _0Null;// 18:IsNullFix2->3:Null 106779
+        Object _1As;// 18:IsNullFix2->23:As 106777
+        Boolean _2Equal;// 18:IsNullFix2->1:Equal 106776
+        Boolean _3Not;// 22:Not 106774
+        _0Null = Null();
+        _1As = As(x0, (Object x0) => 
+          {
+            Object _0IgnoreFirst;// 18:IsNullFix2->5:IgnoreFirst 106778
+            _0IgnoreFirst = IgnoreFirst(x0, _0Null);
+            _0IgnoreFirst;
+            });
+        _2Equal = Equal(_1As, _0Null);
+        _3Not = Not(_2Equal);
+        _3Not;
+        });
+    _5CombineAllMeshes = CombineAllMeshes(_4Filter);
+    _6MeshVertices = MeshVertices(_5CombineAllMeshes);
+    _7CreateStaticCache = CreateStaticCache(() => 
+      {
+        Boolean _0IsValidNode;// 1:CheckNodeValidity->0:IsValidNode 106771
+        Boolean _1Not;// 1:CheckNodeValidity->1:Not 106770
+        INode _2ExitIf;// 1:CheckNodeValidity->2:ExitIf 106769
+        Matrix _3ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace->3:ObjectTransformBeforeWSM 106792
+        Matrix _4InvertMatrix;// 1:NodeTMInLocalSpace->2:InvertMatrix 106793
+        Matrix _5Multiply;// 1:NodeTMInLocalSpace->4:Multiply 106791
+        Vector3 _6GetMatrixTranslation;// 16:NodePositionInLocalSpace->3:GetMatrixTranslation 106788
+        Vector3 _7Negate;// 19:Negate 106785
+        _0IsValidNode = IsValidNode(node);
+        _1Not = Not(_0IsValidNode);
+        _2ExitIf = ExitIf(node, _1Not);
+        _3ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(_2ExitIf);
+        _4InvertMatrix = InvertMatrix(geometryTransform);
+        _5Multiply = Multiply(_3ObjectTransformBeforeWSM, _4InvertMatrix);
+        _6GetMatrixTranslation = GetMatrixTranslation(_5Multiply);
+        _7Negate = Negate(_6GetMatrixTranslation);
+        _7Negate;
+        }).SetId(state, 1);
+    _8Zero = Zero();
+    _9CachedValue = CachedValue(_7CreateStaticCache, _8Zero);
+    _10Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Add;// 9:OffsetMesh->2:Add 106731
+        _0Add = Add(x0, _9CachedValue);
+        _0Add;
+        };
+    _11Map = Map(_6MeshVertices, _10Pass-through: function1);
+    _12SetMeshVertices = SetMeshVertices(_5CombineAllMeshes, _11Map);
+    _12SetMeshVertices;
+    }

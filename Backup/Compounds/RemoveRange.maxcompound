@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="e76bc638-470e-466e-a16e-f503faab872b">
+  <meta_info>
+    <graph_version guid="6ec82400-b6b9-456a-8bb5-d25677a5f751" number="1.0.0" />
+    <category>Array</category>
+    <description>Removes the specified number of elements starting at the given index. </description>
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="xs" position="120:280" size="140:128" />
+    <node operator="Input: Int32" id="1" name="n" position="120:420" size="140:128" />
+    <node operator="Take" id="2" position="380:340" size="140:152" />
+    <node operator="Skip" id="3" position="460:500" size="140:152" />
+    <node operator="Concatenate" id="5" position="640:440" size="140:152" />
+    <node operator="Input: Int32" id="4" name="count" position="120:560" size="140:128" />
+    <node operator="Add" id="6" position="300:500" size="140:152" />
+    <node operator="Output: compound" id="7" position="820:480" size="140:80" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+  </connections>
+</graph>

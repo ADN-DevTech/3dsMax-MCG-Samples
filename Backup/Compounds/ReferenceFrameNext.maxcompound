@@ -1,0 +1,53 @@
+<graph version="0.50" uuid="2f318212-8d87-44fe-990b-7b304e12b332">
+    <meta_info>
+        <graph_version guid="4ac5ddf0-0cde-45e8-8d00-c463805d69e5" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="SetMatrixTranslation" id="56" position="1052:317" size="140:141" />
+        <node operator="Multiply" id="46" position="1505:503" size="140:141" />
+        <node operator="If" id="36" position="1684:369" size="140:165" />
+        <node operator="Pass-through: Matrix" id="55" position="1354:373" size="140:117" />
+        <node operator="SetMatrixTranslation" id="62" position="1939:461" size="140:141" />
+        <node operator="Input: Matrix" id="0" name="previousFrame" position="1006:89" size="140:117" />
+        <node operator="Input: Vector3" id="3" name="nextPoint" position="569:469" size="140:117" />
+        <node operator="Output: compound" id="4" position="2200:520" size="160:69" />
+        <node operator="Origin" id="5" position="834:370" size="140:93" />
+        <node operator="ReferenceFrameRotationToPoint" id="2" position="919:530" size="260:141" />
+        <node operator="ReferenceFrameDirectionUnchanged" id="6" position="1362:230" size="240:141" />
+        <node groupnode="Previous reference frame" id="16" position="900:60" size="400:169" bg_color="#ff646464">
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="Next point" id="30" position="560:440" size="158:156" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="Remove the position from the previous reference frame." id="44" position="800:260" size="485:216" bg_color="#ff646464">
+            <nodes>56,5</nodes>
+        </node>
+        <node groupnode="Apply rotation if not parallel" id="41" position="1340:180" size="504:497" bg_color="#ff646464">
+            <nodes>36,46,55,6</nodes>
+        </node>
+        <node groupnode="Compute rotation" id="1" position="820:500" size="478:190" bg_color="#ff646464">
+            <nodes>2</nodes>
+        </node>
+        <node groupnode="Set the position" id="42" position="1880:420" size="277:204" bg_color="#ff646464">
+            <nodes>62</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="56" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="56" destport="1" />
+        <connection sourcenode="55" sourceport="0" destnode="46" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="46" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="55" sourceport="0" destnode="36" destport="1" />
+        <connection sourcenode="46" sourceport="0" destnode="36" destport="2" />
+        <connection sourcenode="56" sourceport="0" destnode="55" destport="0" />
+        <connection sourcenode="36" sourceport="0" destnode="62" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="62" destport="1" />
+        <connection sourcenode="62" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,20 @@
+<graph version="0.50" uuid="0aca887e-9da9-45f0-8e28-cf3b4ef2be72">
+    <meta_info>
+        <graph_version guid="db82ba86-dc64-48bb-b84d-2c30f5ab9e9b" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="240:120" size="140:117" />
+        <node operator="Input: Int32" id="1" name="index" position="240:260" size="140:117" />
+        <node operator="Output: compound" id="2" position="780:200" size="140:69" />
+        <node operator="FaceIndexBufferIndices" id="3" position="420:240" size="140:117" />
+        <node operator="SelectByIndex" id="4" position="600:160" size="140:141" />
+        <node operator="MeshIndices" id="5" position="420:120" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

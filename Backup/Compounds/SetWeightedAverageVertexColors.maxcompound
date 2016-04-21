@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="729b77ac-fe53-41d0-ad7c-a0f27276aec5">
+    <meta_info>
+        <graph_version guid="d89ea085-6af5-4141-b05a-5d6774cddcb2" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="9" name="mesh" position="240:80" size="140:117" />
+        <node operator="Output: compound" id="0" position="1360:340" size="140:69" />
+        <node operator="AverageAdjacentVertexColors" id="1" position="440:440" size="200:141" />
+        <node operator="Map" id="2" position="840:420" size="140:141" />
+        <node operator="MeshVertices" id="3" position="460:280" size="140:117" />
+        <node operator="Indices" id="4" position="660:320" size="140:117" />
+        <node operator="SetVertexColorMapChannel" id="5" position="1080:220" size="200:141" />
+        <node operator="MapVertexDataToFaceVertices" id="6" position="1100:440" size="240:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

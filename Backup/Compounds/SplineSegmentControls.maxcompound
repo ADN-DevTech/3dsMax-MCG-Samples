@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="93deb771-137c-4f46-ad9f-cc424974b88a">
+    <meta_info>
+        <graph_version guid="ae2a62b8-478b-4f34-92f9-fdf2189b2db0" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineSegmentKnots" id="0" position="320:180" size="220:141" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="100:140" size="140:117" />
+        <node operator="Input: Int32" id="2" name="segment" position="100:280" size="140:117" />
+        <node operator="SplineSegmentTangents" id="3" position="320:340" size="220:141" />
+        <node operator="Output: compound" id="4" position="860:340" size="140:69" />
+        <node operator="AddLines" id="6" position="600:220" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

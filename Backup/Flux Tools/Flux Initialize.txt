@@ -1,0 +1,36 @@
+(InstanceState state, TriMesh mesh, Int32 Flux channel, Int32 count) => 
+  {
+    Matrix _0MatrixIdentity;// 5:MatrixIdentity 173983
+    IArray[Matrix] _1ArrayOf;// 4:ArrayOf 173982
+    Func[Matrix, IArray[Vector3]] _2Pass-through: function1;// 0:Pass-through: function1 173968
+    IArray[IArray[Vector3]] _3Map;// 5:FlatMap->4:Map 173970
+    IArray[Vector3] _4Flatten;// 5:FlatMap->3:Flatten 173969
+    IArray[Int32] _5MeshIndices;// 0:StoreMatricesInMapChannel->0:MeshIndices 173979
+    TriMesh _6SetMapChannel;// 0:StoreMatricesInMapChannel->7:SetMapChannel 173966
+    _0MatrixIdentity = MatrixIdentity();
+    _1ArrayOf = ArrayOf(_0MatrixIdentity, count);
+    _2Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows->0:Constant 173974
+        IArray[Int32] _1Range;// 3:MatrixRows->1:Range 173973
+        IArray[Vector3] _2Map;// 3:MatrixRows->3:Map 173972
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 173978
+            Int32 _1Add;// 5:PlusOne->0:Add 173977
+            Vector3 _2MatrixRow;// 3:MatrixRows->4:MatrixRow 173975
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _3Map = Map(_1ArrayOf, _2Pass-through: function1);
+    _4Flatten = Flatten(_3Map);
+    _5MeshIndices = MeshIndices(mesh);
+    _6SetMapChannel = SetMapChannel(mesh, Flux channel, _4Flatten, _5MeshIndices);
+    _6SetMapChannel;
+    }
