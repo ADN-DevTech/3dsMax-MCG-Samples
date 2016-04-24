@@ -1,0 +1,35 @@
+<graph version="0.50" uuid="976264dc-65c7-4ce8-a94b-d8e77fe25b00">
+    <meta_info>
+        <graph_version guid="2daa6fa3-a4b4-4157-b1cd-ed3339ac6d9d" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="p0" position="140:140" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="p1" position="140:-20" size="140:117" />
+        <node operator="Subtract" id="2" position="421:49" size="140:141" />
+        <node operator="Cross" id="14" position="885:-63" size="140:141" />
+        <node operator="Output: compound" id="24" position="1500:240" size="140:69" />
+        <node operator="ComputeBinormalZAxisOrXAxis.ext" id="5" position="589:369" size="220:117" />
+        <node operator="ReferenceFrameMatrix.ext" id="6" position="1120:120" size="180:189" />
+        <node groupnode="Binormal" id="3" position="580:340" size="238:155" bg_color="#ff646464">
+            <nodes>5</nodes>
+        </node>
+        <node groupnode="Normal" id="19" position="840:-100" size="243:206" bg_color="#ff646464">
+            <nodes>14</nodes>
+        </node>
+        <node groupnode="Tangent" id="4" position="380:20" size="222:179" bg_color="#ff646464">
+            <nodes>2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="3" />
+    </connections>
+</graph>

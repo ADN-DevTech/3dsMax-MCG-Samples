@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="ac8437bc-4cee-4c46-bafc-ec3f9e7dcef7">
+    <meta_info>
+        <graph_version guid="5aa657e4-76d8-4cf4-850b-8b279e39f2c9" number="0.0.6" />
+        <category>Geometry - TriMesh</category>
+        <description>Returns the angle of a mesh face-vertex&apos;s normal from the face. This is useful for computing curvature.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="40:300" size="140:117" />
+        <node operator="Input: Int32" id="1" name="n" position="0:180" size="140:117" />
+        <node operator="MeshFace" id="3" position="320:160" size="140:141" />
+        <node operator="DivideByThree" id="7" position="220:0" size="140:117" />
+        <node operator="Output: compound" id="8" position="900:300" size="140:69" />
+        <node operator="MeshFaceVertexNormal.ext" id="9" position="400:340" size="200:141" />
+        <node operator="FaceNormal" id="4" position="520:80" size="140:117" />
+        <node operator="AngleOfVectorsFix.ext" id="5" position="680:240" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="50a66dbb-3044-485f-8599-cb0f9333d55d">
+    <meta_info>
+        <graph_version guid="2785d17e-c786-440b-ab6f-def3deda167e" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="vertexChannelID" position="20:100" size="140:117" />
+        <node operator="PerVertexDataOrZeros.ext" id="1" position="280:200" size="180:141" />
+        <node operator="Input: TriMesh" id="2" name="mesh" position="20:240" size="140:117" />
+        <node operator="Map" id="3" position="500:280" size="140:141" />
+        <node operator="Input: function1" id="4" name="function" position="280:380" size="140:117" />
+        <node operator="SetPerVertexData" id="5" position="780:240" size="140:165" />
+        <node operator="Output: compound" id="6" position="960:320" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

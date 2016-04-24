@@ -1,0 +1,48 @@
+<graph version="0.50" uuid="d987c3c5-bca5-4918-a269-8692e8ce2761">
+    <meta_info>
+        <graph_version guid="32e84520-4bcb-48b6-a19e-bac4d00f73bf" number="0.0.16" />
+    </meta_info>
+    <nodes>
+        <node operator="FaceNormals" id="3" position="960:1000" size="140:117" />
+        <node operator="Input: TriMesh" id="0" name="inputMesh" position="720:1000" size="140:117" />
+        <node operator="Input: array" id="4" name="arrayOfRays" position="720:720" size="140:117" />
+        <node operator="Input: array" id="5" name="arrayOfIntersections" position="1520:540" size="140:117" />
+        <node operator="Combine" id="6" position="1400:880" size="140:165" />
+        <node operator="Dot" id="7" position="1180:1060" size="140:141" />
+        <node operator="Constant" id="8" value="0.0" position="1180:1200" size="140:93" />
+        <node operator="LessThan" id="9" position="1400:1080" size="140:141" />
+        <node operator="Combine" id="11" position="2200:720" size="140:165" />
+        <node operator="Output: compound" id="14" position="2700:880" size="140:69" />
+        <node operator="RayDirection" id="1" position="720:840" size="140:117" />
+        <node operator="Map" id="16" position="960:800" size="140:141" />
+        <node operator="Map" id="17" position="1920:600" size="140:141" />
+        <node operator="PairItem1" id="19" position="1520:660" size="140:117" />
+        <node operator="AndAlso" id="13" position="1940:940" size="140:141" />
+        <node operator="Map" id="27" position="1740:860" size="140:141" />
+        <node operator="GreaterThanOrEqual" id="10" position="1740:680" size="140:141" />
+        <node operator="Zero" id="21" position="1520:780" size="140:93" />
+        <node operator="Map" id="20" position="2440:840" size="140:141" />
+        <node operator="RedOrBlue.ext" id="22" position="2200:920" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="7" sourceport="1" destnode="6" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="27" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="13" sourceport="1" destnode="11" destport="2" />
+        <connection sourcenode="20" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="16" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="10" sourceport="1" destnode="17" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="27" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="22" sourceport="1" destnode="20" destport="1" />
+    </connections>
+</graph>

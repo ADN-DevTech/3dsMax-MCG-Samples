@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="4b08bea9-287d-435c-b5e9-b8d8e070792c">
+    <meta_info>
+        <graph_version guid="8cd58429-9850-4eb8-bd85-340ffeb8fe56" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="0" position="1320:340" size="140:69" />
+        <node operator="Input: TriMesh" id="9" name="mesh" position="0:140" size="140:117" />
+        <node operator="SelectByIndex" id="11" position="661:84" size="140:141" />
+        <node operator="VertexColorChannel" id="4" position="229:109" size="140:117" />
+        <node operator="WeightedVectorAverage.ext" id="7" position="980:440" size="200:141" />
+        <node operator="VertexAdjacentFaces.ext" id="10" position="469:369" size="180:141" />
+        <node operator="MapChannelVertexBuffer" id="2" position="438:169" size="180:117" />
+        <node operator="Map" id="8" position="669:429" size="140:141" />
+        <node operator="Input: Int32" id="1" name="vertexIndex" position="60:500" size="140:117" />
+        <node operator="FaceArea" id="3" position="469:529" size="140:117" />
+        <node operator="VertexIndexLookup" id="13" position="443:31" size="180:141" />
+        <node operator="AverageVector" id="6" position="940:140" size="140:117" />
+        <node groupnode="Weight by face area" id="5" position="460:340" size="358:315" bg_color="#ff646464">
+            <nodes>3,8,10</nodes>
+        </node>
+        <node groupnode="Select the vertex colors for each face-corner sharing the vertex" id="12" position="220:-20" size="642:319" bg_color="#ff646464">
+            <nodes>2,11,13,4</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="8" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

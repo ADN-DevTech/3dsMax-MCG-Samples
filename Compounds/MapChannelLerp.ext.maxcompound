@@ -1,0 +1,54 @@
+<graph version="0.50" uuid="8a61c240-68e3-4587-954a-6405a5bbcbf8">
+    <meta_info>
+        <graph_version guid="b45568fe-fa9e-4301-8e11-2009cfed4d00" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="MapChannelFaceVertexValues.ext" id="4" position="500:400" size="220:117" />
+        <node operator="MapChannelFaceVertexValues.ext" id="3" position="500:280" size="220:117" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:720" size="140:117" />
+        <node operator="OrElse" id="12" position="1020:140" size="140:141" />
+        <node operator="If" id="13" position="1320:340" size="140:165" />
+        <node operator="Output: compound" id="10" position="1540:400" size="140:69" />
+        <node operator="IsNullFix2.ext" id="11" position="800:0" size="140:117" />
+        <node operator="IsNullFix2.ext" id="16" position="800:140" size="140:117" />
+        <node operator="Input: Int32" id="5" name="id" position="800:320" size="140:117" />
+        <node operator="SetMapChannelOrGeometry.ext" id="6" position="1020:460" size="220:189" />
+        <node operator="MeshIndices" id="7" position="500:900" size="140:117" />
+        <node operator="Input: MapChannel" id="1" name="channelA" position="220:140" size="140:117" />
+        <node operator="Input: MapChannel" id="2" name="channelB" position="220:400" size="140:117" />
+        <node operator="Indices" id="14" position="800:660" size="140:117" />
+        <node operator="Combine3" id="15" position="800:460" size="140:189" />
+        <node operator="SoftSelectionOrDefault.ext" id="17" position="220:540" size="200:165" />
+        <node operator="MapVertexDataToFaceVertices.ext" id="18" position="500:540" size="220:141" />
+        <node operator="Input: Single" id="8" name="weight" position="0:580" size="140:117" />
+        <node operator="Input: Boolean" id="9" name="useSoftSelection" position="0:440" size="140:117" />
+        <node operator="Lerp" id="19" position="500:700" size="140:165" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="15" destport="2" />
+        <connection sourcenode="19" sourceport="1" destnode="15" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="17" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="1" />
+    </connections>
+</graph>

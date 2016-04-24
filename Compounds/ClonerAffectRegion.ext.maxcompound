@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="bf642c96-eb4c-4ada-91eb-4a0ae1b7fdb9">
+    <meta_info>
+        <graph_version guid="ad1b37de-2249-44a6-8bf6-42f50a8cea55" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Boolean" id="3" name="useAffectRegion" position="220:0" size="140:117" />
+        <node operator="If" id="9" position="720:420" size="140:165" />
+        <node operator="IsValidNode" id="11" position="220:140" size="140:117" />
+        <node operator="Input: INode" id="7" name="affectRegionTarget" position="-40:180" size="140:117" />
+        <node operator="MatrixCombineAffectRegion.ext" id="4" position="440:380" size="200:237" />
+        <node operator="Input: array" id="0" name="originalMatrices" position="220:280" size="140:117" />
+        <node operator="Input: array" id="1" name="targetMatrices" position="220:980" size="140:117" />
+        <node operator="NodePositionInLocalSpace.ext" id="2" position="220:420" size="140:141" />
+        <node operator="Input: Matrix" id="5" name="worldSpaceTransform" position="0:420" size="140:117" />
+        <node operator="Input: Single" id="6" name="falloff" position="220:580" size="140:117" />
+        <node operator="Input: Single" id="10" name="pinch" position="220:700" size="140:117" />
+        <node operator="Input: Single" id="12" name="bubble" position="220:840" size="140:117" />
+        <node operator="Output: compound" id="13" position="1240:600" size="140:69" />
+        <node operator="If" id="14" position="960:440" size="140:165" />
+        <node operator="IgnoreFirst" id="8" position="1200:420" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="3" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="4" />
+        <connection sourcenode="12" sourceport="0" destnode="4" destport="5" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="8" destport="1" />
+    </connections>
+</graph>

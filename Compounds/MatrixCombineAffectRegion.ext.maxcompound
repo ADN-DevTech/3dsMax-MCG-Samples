@@ -1,0 +1,35 @@
+<graph version="0.50" uuid="92a6fc8b-9973-44e8-bedd-aa60e115a2ac">
+    <meta_info>
+        <graph_version guid="0667d95e-0efe-4fa6-bbd8-1801de96831f" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="2" name="xs" position="440:160" size="140:117" />
+        <node operator="Input: Vector3" id="7" name="position" position="0:160" size="140:117" />
+        <node operator="AffectRegionCompound" id="8" position="440:300" size="140:189" />
+        <node operator="Input: Single" id="4" name="falloff" position="220:240" size="140:117" />
+        <node operator="Input: Single" id="11" name="pinch" position="220:380" size="140:117" />
+        <node operator="Input: Single" id="12" name="bubble" position="220:520" size="140:117" />
+        <node operator="Input: array" id="0" name="ys" position="660:200" size="140:117" />
+        <node operator="MatrixLerp.ext" id="1" position="660:500" size="140:165" />
+        <node operator="Combine3" id="3" position="880:320" size="140:189" />
+        <node operator="Output: compound" id="5" position="1100:420" size="140:69" />
+        <node operator="ParallelMap" id="6" position="660:340" size="140:141" />
+        <node operator="GetMatrixTranslation" id="9" position="0:0" size="140:117" />
+        <node operator="Distance" id="10" position="220:80" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="8" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="1" sourceport="1" destnode="3" destport="3" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="8" sourceport="1" destnode="6" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="02b05096-0822-4e58-98e1-1900d263e464">
+    <meta_info>
+        <graph_version guid="d85d9c1d-f350-4b73-9524-6ed68996c1b7" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="meshSrc" position="20:120" size="140:117" />
+        <node operator="Input: TriMesh" id="1" name="meshTarget" position="20:240" size="140:117" />
+        <node operator="MeshBoundingBox" id="2" position="240:120" size="140:117" />
+        <node operator="MeshBoundingBox" id="3" position="240:280" size="140:117" />
+        <node operator="VectorAlongAxis" id="4" position="740:240" size="140:141" />
+        <node operator="BoxAlignmentOffset" id="5" position="460:220" size="200:141" />
+        <node operator="Input: Int32" id="6" name="axis" position="460:380" size="140:117" />
+        <node operator="OffsetMesh" id="7" position="980:240" size="140:141" />
+        <node operator="Output: compound" id="8" position="1180:280" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

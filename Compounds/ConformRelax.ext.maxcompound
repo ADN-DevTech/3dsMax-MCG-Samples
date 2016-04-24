@@ -1,0 +1,97 @@
+<graph version="0.50" uuid="a01bb2db-ec83-4fcd-a135-dcbba34abb50">
+    <meta_info>
+        <graph_version guid="26985382-c5ac-4cd8-9200-6bb5e9c5e29a" number="0.0.30" />
+    </meta_info>
+    <nodes>
+        <node operator="DeformMeshPoints" id="10" position="2629:29" size="160:141" />
+        <node operator="TransformMesh" id="11" position="2389:-131" size="180:141" />
+        <node operator="MeshFromNode" id="14" position="1883:-31" size="140:117" />
+        <node operator="ObjectTransform" id="6" position="1887:89" size="140:117" />
+        <node operator="TransformMesh" id="5" position="2128:9" size="140:141" />
+        <node operator="ClosestPointOnSurface" id="0" position="2389:169" size="180:141" />
+        <node operator="Input: TriMesh" id="1" name="Modifier_TriMesh" position="1600:-140" size="140:117" />
+        <node operator="Input: INode" id="2" name="Surface" position="1600:20" size="140:117" />
+        <node operator="Output: compound" id="3" position="5120:100" size="140:69" />
+        <node operator="Repeat" id="25" position="3129:489" size="140:165" />
+        <node operator="Input: Single" id="12" name="RelaxAmt" position="2440:649" size="140:117" />
+        <node operator="Input: Int32" id="13" name="RelaxIterations" position="2891:461" size="140:117" />
+        <node operator="MeshInLocalSpace" id="15" position="2849:89" size="140:141" />
+        <node operator="Input: Matrix" id="16" name="ModifierMatrix" position="2340:-600" size="140:117" />
+        <node operator="ClosestPointOnSurface" id="17" position="3909:389" size="180:141" />
+        <node operator="DeformMeshPoints" id="19" position="4169:389" size="160:141" />
+        <node operator="TransformMesh" id="20" position="3369:409" size="180:141" />
+        <node operator="MeshInLocalSpace" id="23" position="4409:409" size="160:141" />
+        <node operator="Input: Boolean" id="26" name="FinalCPS" position="4409:269" size="140:117" />
+        <node operator="If" id="27" position="4629:389" size="160:165" />
+        <node operator="Input: Boolean" id="35" name="FinalRay" position="4568:-211" size="140:117" />
+        <node operator="If" id="29" position="4848:-31" size="140:165" />
+        <node operator="MeshInLocalSpace" id="30" position="4568:-51" size="180:141" />
+        <node operator="SetMeshVertices" id="28" position="4388:-131" size="140:141" />
+        <node operator="MeshVertices" id="32" position="3749:-251" size="140:117" />
+        <node operator="Map" id="33" position="4169:-171" size="140:141" />
+        <node operator="Indices" id="34" position="3969:-251" size="140:117" />
+        <node operator="IgnoreSecond" id="21" position="2896:624" size="140:141" />
+        <node operator="WeightedRelax" id="4" position="2641:616" size="180:141" />
+        <node operator="ConformToMesh.ext" id="18" position="2240:-380" size="140:165" />
+        <node operator="RelaxIterative.ext" id="22" position="3580:760" size="160:165" />
+        <node operator="MeshToMeshRayConform.ext" id="37" position="3940:-580" size="180:165" />
+        <node operator="PointMeshToMeshRayConform.ext" id="38" position="3837:-118" size="240:165" />
+        <node groupnode="Iterative Relax Operations" id="9" position="2259:380" size="1299:420" bg_color="#ff003ca1">
+            <nodes>21,25,12,13,20,4</nodes>
+        </node>
+        <node groupnode="Snap to surface Option with ClosestPointOnSurface" id="8" position="3660:240" size="1138:334" bg_color="#ff748f58">
+            <nodes>26,17,19,23,27</nodes>
+        </node>
+        <node groupnode="Snap to surface Option with RayTracing" id="7" position="3620:-340" size="1377:483" bg_color="#ff748f58">
+            <nodes>24,35,29,30,28</nodes>
+        </node>
+        <node groupnode="ClosestPointOnSurface Operation" id="36" position="1874:-160" size="1124:479" bg_color="#ffcfb171">
+            <nodes>15,10,11,14,6,5,0</nodes>
+        </node>
+        <node groupnode="Group" id="24" position="3702:-280" size="616:364" bg_color="#ff646464">
+            <nodes>38,32,33,34</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="1" destnode="10" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="21" sourceport="1" destnode="25" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="17" sourceport="1" destnode="19" destport="1" />
+        <connection sourcenode="25" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="26" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="27" destport="1" />
+        <connection sourcenode="25" sourceport="0" destnode="27" destport="2" />
+        <connection sourcenode="35" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="27" sourceport="0" destnode="29" destport="2" />
+        <connection sourcenode="28" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="33" sourceport="0" destnode="28" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="32" destport="0" />
+        <connection sourcenode="34" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="38" sourceport="1" destnode="33" destport="1" />
+        <connection sourcenode="32" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="38" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="38" destport="1" />
+    </connections>
+</graph>

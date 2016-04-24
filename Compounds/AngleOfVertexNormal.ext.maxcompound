@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="547d29a8-5022-4fe9-8ae6-a449d2d697c6">
+    <meta_info>
+        <graph_version guid="97978c71-c4e5-462c-a28b-fcc4b54773e1" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Face3" id="0" name="face" position="0:0" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="vertexPosition" position="220:160" size="140:117" />
+        <node operator="FaceMidpoint" id="2" position="220:20" size="140:117" />
+        <node operator="Subtract" id="3" position="440:100" size="140:141" />
+        <node operator="Input: Vector3" id="4" name="vertexNormal" position="440:260" size="140:117" />
+        <node operator="AngleOfVectors" id="6" position="660:200" size="140:141" />
+        <node operator="Output: compound" id="5" position="880:260" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

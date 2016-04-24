@@ -1,0 +1,44 @@
+<graph version="0.50" uuid="c5a92336-e729-49d8-9f5d-feedb6d885e8">
+    <meta_info>
+        <graph_version guid="c51e7257-fe63-4e3d-9648-9560860c138e" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="TranslateMatricesRandomly.ext" id="31" position="1000:100" size="220:165" />
+        <node operator="RotateMatricesRandomly.ext" id="30" position="720:280" size="200:165" />
+        <node operator="RandomNumberGenerator" id="57" position="220:420" size="140:117" />
+        <node operator="ScaleMatricesRandomly.ext" id="60" position="440:480" size="200:165" />
+        <node operator="RandomNumberGenerator" id="0" position="440:340" size="140:117" />
+        <node operator="RandomNumberGenerator" id="1" position="720:140" size="140:117" />
+        <node operator="Input: Int32" id="2" name="seed" position="0:200" size="140:117" />
+        <node operator="PlusOne" id="3" position="220:140" size="140:117" />
+        <node operator="PlusOne" id="4" position="440:60" size="140:117" />
+        <node operator="Input: array" id="5" name="matrices" position="220:540" size="140:117" />
+        <node operator="Input: Vector3" id="6" name="randomScale" position="220:280" size="140:117" />
+        <node operator="Input: Vector3" id="7" name="randomRotation" position="440:200" size="140:117" />
+        <node operator="Input: Vector3" id="8" name="randomTranslation" position="720:0" size="140:117" />
+        <node operator="Output: compound" id="9" position="1740:200" size="140:69" />
+        <node operator="IgnoreFirst" id="10" position="1300:100" size="140:141" />
+        <node operator="IgnoreFirst" id="11" position="1520:160" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="31" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="31" destport="1" />
+        <connection sourcenode="30" sourceport="0" destnode="31" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="60" sourceport="0" destnode="30" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="57" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="60" destport="0" />
+        <connection sourcenode="57" sourceport="0" destnode="60" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="60" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="31" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="9906b60c-cc87-45be-81ec-357dc896d6b2">
+    <meta_info>
+        <graph_version guid="4768959e-be1e-446b-a6e3-1e240f13fd1c" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="1" name="axis" position="220:120" size="140:117" />
+        <node operator="Output: compound" id="2" position="1380:360" size="140:69" />
+        <node operator="Input: Boolean" id="3" name="ignoreRotation" position="660:0" size="140:117" />
+        <node operator="Input: Ray" id="0" name="ray" position="0:300" size="140:117" />
+        <node operator="RotationBetweenVectorsFix.ext" id="5" position="660:260" size="200:141" />
+        <node operator="QuaternionIdentity" id="4" position="660:140" size="200:93" />
+        <node operator="ChooseAxis.ext" id="6" position="440:160" size="140:117" />
+        <node operator="RayDirection" id="7" position="220:260" size="140:117" />
+        <node operator="RotationTranslationMatrix" id="8" position="1160:320" size="140:141" />
+        <node operator="If" id="9" position="940:180" size="140:165" />
+        <node operator="RayPosition" id="10" position="940:380" size="140:117" />
+        <node operator="VectorOrZAxis.ext" id="11" position="440:280" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,92 @@
+<graph version="0.50" uuid="ab3ca6a6-af34-42c1-a454-e8d47fddce7d">
+    <meta_info>
+        <graph_version guid="e3b396d9-8d79-4521-b6dc-87c1e9ef8d25" number="0.0.8" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="heights" position="0:100" size="140:117" />
+        <node operator="Input: array" id="1" name="water" position="0:220" size="140:117" />
+        <node operator="GridCoordinatesMinimumMooreNeighbours.ext" id="2" position="460:40" size="260:189" />
+        <node operator="GridCoordinates.ext" id="3" position="1040:-20" size="140:141" />
+        <node operator="Input: Int32" id="4" name="rows" position="220:0" size="140:117" />
+        <node operator="Input: Int32" id="5" name="columns" position="220:300" size="140:117" />
+        <node operator="Array.Add.ext" id="8" position="220:140" size="140:141" />
+        <node operator="Pass-through: tuple2" id="10" position="220:440" size="140:117" />
+        <node operator="GridCoordinateToIndex.ext" id="11" position="509:289" size="220:141" />
+        <node operator="Pair" id="12" position="1249:289" size="140:141" />
+        <node operator="Output: compound" id="14" position="2120:240" size="180:69" />
+        <node operator="UpdateValues" id="9" position="1941:153" size="140:165" />
+        <node operator="Add" id="15" position="1940:356" size="140:141" />
+        <node operator="GridCoordinateToIndex.ext" id="7" position="47:761" size="220:141" />
+        <node operator="At" id="20" position="940:620" size="140:141" />
+        <node operator="At" id="21" position="929:829" size="140:141" />
+        <node operator="Subtract" id="24" position="1200:680" size="140:141" />
+        <node operator="DivideByTwoFloat" id="25" position="1300:1000" size="180:117" />
+        <node operator="ClampFloat" id="26" position="1740:820" size="140:165" />
+        <node operator="FloatZero" id="27" position="1440:880" size="140:93" />
+        <node operator="At" id="13" position="520:780" size="140:141" />
+        <node operator="FlatMap" id="28" position="1760:220" size="140:141" />
+        <node operator="Array2" id="29" position="1429:389" size="140:141" />
+        <node operator="Pair" id="6" position="1269:429" size="140:141" />
+        <node operator="NegativeFloat" id="30" position="1480:620" size="140:117" />
+        <node groupnode="Update value" id="32" position="1751:111" size="558:419" bg_color="#ff646464">
+            <nodes>28,9,14,15</nodes>
+        </node>
+        <node groupnode="Source index" id="19" position="20:720" size="256:191" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+        <node groupnode="Change to water in source and target" id="31" position="1240:260" size="338:319" bg_color="#ff646464">
+            <nodes>12,29,6</nodes>
+        </node>
+        <node groupnode="Target height" id="22" position="931:591" size="158:179" bg_color="#ff646464">
+            <nodes>20</nodes>
+        </node>
+        <node groupnode="Target index" id="17" position="500:260" size="238:179" bg_color="#ff646464">
+            <nodes>11</nodes>
+        </node>
+        <node groupnode="Source water" id="18" position="500:720" size="194:210" bg_color="#ff646464">
+            <nodes>13</nodes>
+        </node>
+        <node groupnode="Source height" id="23" position="920:800" size="158:179" bg_color="#ff646464">
+            <nodes>21</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="26" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="28" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="15" sourceport="1" destnode="9" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="21" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="24" destport="1" />
+        <connection sourcenode="24" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="27" sourceport="0" destnode="26" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="26" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="29" sourceport="1" destnode="28" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="26" sourceport="0" destnode="30" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="eb12bbc3-d492-4bc9-ac97-ad9dea14cf58">
+    <meta_info>
+        <graph_version guid="7ba08bd0-8e50-4c14-b82d-0cd11aa73d9c" number="0.0.6" />
+        <category>Geometry - Vectors</category>
+        <description>Chooses between the x, y, and z components of two vectors based on values in the boolean array.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="v1" position="80:280" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="v2" position="80:400" size="140:117" />
+        <node operator="Input: array" id="2" name="booleans" position="80:160" size="140:117" />
+        <node operator="VectorAsArray" id="3" position="300:300" size="140:117" />
+        <node operator="VectorAsArray" id="4" position="300:440" size="140:117" />
+        <node operator="Output: compound" id="5" position="880:360" size="140:69" />
+        <node operator="ChooseValues.ext" id="6" position="520:260" size="140:165" />
+        <node operator="VectorFromArray" id="7" position="700:340" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

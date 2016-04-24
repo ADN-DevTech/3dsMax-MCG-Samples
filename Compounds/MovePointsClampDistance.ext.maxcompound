@@ -1,0 +1,20 @@
+<graph version="0.50" uuid="0f56f1be-9205-4d3a-a37b-d40f6782fba1">
+    <meta_info>
+        <graph_version guid="f13d0d99-2edf-49f4-8b0e-4797f7901d9a" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="srcPoints" position="100:0" size="140:117" />
+        <node operator="Input: array" id="1" name="targetPoints" position="100:120" size="140:117" />
+        <node operator="Input: Single" id="2" name="distance" position="100:260" size="140:117" />
+        <node operator="Combine" id="3" position="520:40" size="140:165" />
+        <node operator="VectorMoveTowardsAtSpeed.ext" id="5" position="320:160" size="140:165" />
+        <node operator="Output: compound" id="4" position="700:140" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

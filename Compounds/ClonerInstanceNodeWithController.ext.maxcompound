@@ -1,0 +1,73 @@
+<graph version="0.50" uuid="c7928f9e-306c-47cd-be8d-516fee61cfb7">
+    <meta_info>
+        <graph_version guid="d978b8c7-6da6-4431-af9e-66220f4b5a49" number="0.0.17" />
+    </meta_info>
+    <nodes>
+        <node operator="CheckNodeValidity" id="1" position="220:0" size="140:117" />
+        <node operator="MeshFromNode" id="2" position="760:80" size="140:117" />
+        <node operator="MatricesFromMapChannel.ext" id="3" position="980:200" size="220:141" />
+        <node operator="Count" id="7" position="1280:220" size="140:117" />
+        <node operator="SetNodeTransform" id="5" position="1500:420" size="140:141" />
+        <node operator="Combine" id="13" position="1720:420" size="140:165" />
+        <node operator="NodeName" id="15" position="0:360" size="140:117" />
+        <node operator="Constant" id="17" value='&quot;$current.transform.controller = Flux2_Controller source:$source channel:$channel n:$n&quot;' position="220:140" size="460:93" />
+        <node operator="Pass-through: Int32" id="19" position="980:800" size="140:117" />
+        <node operator="ReplaceString" id="20" position="760:220" size="140:165" />
+        <node operator="Constant" id="21" value='&quot;$current&quot;' position="220:240" size="140:93" />
+        <node operator="ReplaceString" id="16" position="980:360" size="140:165" />
+        <node operator="ReplaceString" id="18" position="1280:460" size="140:165" />
+        <node operator="ReplaceString" id="22" position="1500:580" size="140:165" />
+        <node operator="Constant" id="23" value='&quot;$source&quot;' position="760:400" size="140:93" />
+        <node operator="Constant" id="24" value='&quot;$channel&quot;' position="980:560" size="140:93" />
+        <node operator="Constant" id="25" value='&quot;$n&quot;' position="1280:640" size="140:93" />
+        <node operator="ToString" id="26" position="1280:760" size="140:117" />
+        <node operator="NodeName" id="27" position="220:500" size="140:117" />
+        <node operator="ToString" id="28" position="980:660" size="140:117" />
+        <node operator="EvalMAXScript" id="29" position="1720:600" size="140:117" />
+        <node operator="MapWithIndexes" id="30" position="1920:520" size="140:141" />
+        <node operator="NodeNameToMAXScript.ext" id="14" position="220:360" size="140:117" />
+        <node operator="NodeNameToMAXScript.ext" id="31" position="760:520" size="140:117" />
+        <node operator="CloneAsInstance" id="33" position="1280:80" size="140:117" />
+        <node operator="ArrayOfFunction" id="34" position="1500:220" size="140:141" />
+        <node operator="Bind" id="6" position="1480:80" size="140:141" />
+        <node operator="Output: compound" id="8" position="2140:620" size="140:69" />
+        <node operator="Input: Int32" id="9" name="channel" position="580:380" size="140:117" />
+        <node operator="Input: INode" id="4" name="fluxSource" position="-20:100" size="140:117" />
+        <node operator="Input: INode" id="0" name="cloneSource" position="1080:60" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="34" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="5" sourceport="1" destnode="13" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="20" destport="2" />
+        <connection sourcenode="20" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="31" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="16" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="24" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="28" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="26" sourceport="0" destnode="22" destport="2" />
+        <connection sourcenode="19" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="29" sourceport="1" destnode="30" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="27" sourceport="0" destnode="31" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="34" destport="1" />
+        <connection sourcenode="33" sourceport="1" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="30" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

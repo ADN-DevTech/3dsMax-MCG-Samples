@@ -1,0 +1,53 @@
+<graph version="0.50" uuid="377aee89-3df1-4712-9ddc-e1c25ab06cbb">
+    <meta_info>
+        <graph_version guid="7809235b-c286-420f-acec-1370ef7b0673" number="0.0.70" />
+        <author>Autodesk</author>
+        <company>Autodesk, Inc.</company>
+        <copyright>(c) 2014 Autodesk, Inc.</copyright>
+        <url>http://autodesk.com</url>
+        <category>MCG Clone Tools</category>
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: INode" id="1" name="Pick Curve" position="992:-55" size="140:117" />
+        <node operator="TransformsOnCurve.ext" id="2" position="1234:117" size="200:189" />
+        <node operator="CombineAllMeshes" id="12" position="1849:209" size="160:117" />
+        <node operator="Output: modifier" id="11" position="2069:249" size="140:69" />
+        <node operator="Parameter: Int32" id="4" name="count" min_value="1" max_value="100" default_value="5" position="747:-116" size="140:189" />
+        <node operator="ToRadians" id="9" position="947:78" size="140:117" />
+        <node operator="ToRadians" id="10" position="954:198" size="140:117" />
+        <node operator="Parameter: Single" id="13" name="start angle" min_value="-9999" max_value="9999" default_value="0" system_units_value="false" position="559:75" size="160:213" />
+        <node operator="Parameter: Single" id="8" name="end angle" min_value="-9999" max_value="9999" default_value="0" system_units_value="false" position="750:88" size="160:213" />
+        <node operator="Map" id="21" position="1629:229" size="140:141" />
+        <node operator="TransformMesh" id="22" position="1749:-111" size="160:141" />
+        <node operator="Modifier: TriMesh" id="23" position="1543:-115" size="140:93" />
+        <node operator="OffsetMesh" id="27" position="2172:-45" size="140:141" />
+        <node operator="Modifier: Matrix" id="28" position="1749:49" size="160:93" />
+        <node operator="NodePositionInLocalSpace.ext" id="25" position="1981:4" size="140:141" />
+        <node groupnode="Apply matrix to mesh and move to the curve" id="18" position="1520:-159" size="839:318" bg_color="#ff646438">
+            <nodes>23,25,27,28,22</nodes>
+        </node>
+        <node groupnode="Create final mesh" id="29" position="1620:180" size="598:199" bg_color="#ff64ae8a">
+            <nodes>11,21,12</nodes>
+        </node>
+        <node groupnode="Clone and rotate mesh along curve" id="24" position="550:-160" size="934:495" bg_color="#ffddcac5">
+            <nodes>4,8,10,13,9,2,1</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="21" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="27" sourceport="1" destnode="21" destport="1" />
+        <connection sourcenode="23" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="27" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="28" sourceport="0" destnode="25" destport="1" />
+    </connections>
+</graph>

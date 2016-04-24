@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="0120b353-708f-4522-b046-9fa0a62624ad">
+    <meta_info>
+        <graph_version guid="da195a95-bc3b-4f8a-b9bf-2c2e55b039c1" number="0.0.9" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Face3" id="0" name="face" position="0:120" size="140:117" />
+        <node operator="FaceNormal" id="9" position="220:140" size="140:117" />
+        <node operator="Output: compound" id="2" position="1180:260" size="140:69" />
+        <node operator="ChooseAxis.ext" id="3" position="440:20" size="140:117" />
+        <node operator="Input: Int32" id="1" name="axis" position="220:0" size="140:117" />
+        <node operator="RotationTranslationMatrix" id="7" position="960:200" size="140:141" />
+        <node operator="Input: Vector3" id="4" name="translation" position="660:260" size="140:117" />
+        <node operator="RotationBetweenVectorsFix.ext" id="5" position="660:100" size="220:141" />
+        <node operator="VectorOrZAxis.ext" id="6" position="440:160" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

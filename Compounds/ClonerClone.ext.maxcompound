@@ -1,0 +1,97 @@
+<graph version="0.50" uuid="7628fd74-b38f-419f-bac0-f49b58a54a6f">
+    <meta_info>
+        <graph_version guid="4d50e786-d42b-4ed0-b242-f4c08585d137" number="0.0.39" />
+    </meta_info>
+    <nodes>
+        <node operator="If" id="43" position="2455:223" size="140:154" />
+        <node operator="CombineAllMeshes" id="45" position="1812:629" size="140:112" />
+        <node operator="BoxTriMesh" id="29" position="609:664" size="140:112" />
+        <node operator="BoxFromRadius" id="30" position="426:622" size="140:112" />
+        <node operator="MeshFromNodeWithDefault.ext" id="33" position="777:601" size="200:133" />
+        <node operator="MatricesFromMapChannel.ext" id="34" position="769:29" size="200:133" />
+        <node operator="TransformMesh" id="36" position="814:179" size="140:133" />
+        <node operator="AppendIf" id="39" position="1549:589" size="140:154" />
+        <node operator="MeshCopyCustomMapChannelVertexBuffers.ext" id="41" position="2148:346" size="300:133" />
+        <node operator="Input: INode" id="0" name="cloneTarget" position="611:544" size="140:112" />
+        <node operator="Input: Single" id="1" name="defaultBoxRadius" position="415:495" size="140:112" />
+        <node operator="Output: compound" id="2" position="2360:600" size="140:70" />
+        <node operator="Input: Boolean" id="3" name="includeOriginal" position="1380:600" size="140:112" />
+        <node operator="Input: TriMesh" id="4" name="fluxSource" position="549:49" size="140:112" />
+        <node operator="Input: Int32" id="5" name="fluxId" position="549:169" size="140:112" />
+        <node operator="Input: Boolean" id="7" name="keepCustomChannels" position="2187:219" size="200:112" />
+        <node operator="IgnoreFirst" id="9" position="2180:580" size="140:133" />
+        <node operator="Input: Boolean" id="11" name="useChildren" position="1435:49" size="140:112" />
+        <node operator="ClonerTransformChildMeshes.ext" id="12" position="1641:229" size="200:217" />
+        <node operator="Input: Boolean" id="14" name="randomizeChildren" position="1269:128" size="140:112" />
+        <node operator="Input: Int32" id="13" name="seed" position="1286:265" size="140:112" />
+        <node operator="Map" id="16" position="1000:80" size="140:133" />
+        <node operator="If" id="8" position="849:431" size="140:154" />
+        <node operator="Input: Boolean" id="17" name="useBox" position="609:420" size="140:112" />
+        <node operator="AndAlso" id="18" position="1644:86" size="140:133" />
+        <node operator="Not" id="19" position="1428:176" size="140:112" />
+        <node operator="Input: Boolean" id="20" name="createNodes" position="1280:380" size="140:112" />
+        <node operator="IfThen" id="22" position="1874:147" size="140:154" />
+        <node groupnode="Create clones from children" id="15" position="1260:20" size="787:484" bg_color="#ff646464">
+            <nodes>22,18,19,12,20,14,13,11</nodes>
+        </node>
+        <node groupnode="Create a transformed version of each mesh" id="35" position="760:0" size="415:329" bg_color="#ff646464">
+            <nodes>16,36,34</nodes>
+        </node>
+        <node groupnode="Flux mesh + ID" id="6" position="540:20" size="158:275" bg_color="#ff646464">
+            <nodes>4,5</nodes>
+        </node>
+        <node groupnode="Store flux data in new mesh so more effects can be stacked" id="44" position="2120:160" size="535:336" bg_color="#ff646464">
+            <nodes>41,43,7</nodes>
+        </node>
+        <node groupnode="Append original mesh if desired" id="40" position="1360:560" size="338:203" bg_color="#ff646464">
+            <nodes>39,3</nodes>
+        </node>
+        <node groupnode="Get mesh to clone (or use a box)" id="32" position="380:380" size="676:409" bg_color="#ff646464">
+            <nodes>33,1,8,17,29,30,0</nodes>
+        </node>
+        <node groupnode="Crete final mesh" id="21" position="2171:551" size="338:171" bg_color="#ff646464">
+            <nodes>2,9</nodes>
+        </node>
+        <node groupnode="Combine into single mesh" id="46" position="1760:600" size="239:160" bg_color="#ff646464">
+            <nodes>45</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="43" destport="0" />
+        <connection sourcenode="41" sourceport="0" destnode="43" destport="1" />
+        <connection sourcenode="45" sourceport="0" destnode="43" destport="2" />
+        <connection sourcenode="39" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="33" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="34" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="39" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="39" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="39" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="41" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="41" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="43" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="12" destport="3" />
+        <connection sourcenode="34" sourceport="0" destnode="12" destport="4" />
+        <connection sourcenode="13" sourceport="0" destnode="12" destport="5" />
+        <connection sourcenode="34" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="36" sourceport="1" destnode="16" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="33" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="12" sourceport="1" destnode="22" destport="1" />
+        <connection sourcenode="16" sourceport="1" destnode="22" destport="2" />
+    </connections>
+</graph>

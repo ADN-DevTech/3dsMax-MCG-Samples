@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="8bfcd819-4e1d-4de6-882e-c549a2392717">
+    <meta_info>
+        <graph_version guid="f8b27898-5045-4934-8035-400a32ed368c" number="0.0.1" />
+        <category>Geometry - Bounding sphere</category>
+        <description>Creates a random ray that traverses a bounding sphere.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Random" id="7" name="random" position="80:160" size="140:117" />
+        <node operator="Output: compound" id="1" position="760:280" size="140:69" />
+        <node operator="Input: BoundingSphere" id="0" name="sphere" position="80:360" size="140:117" />
+        <node operator="RandomPointOnSphere.ext" id="2" position="320:160" size="140:141" />
+        <node operator="RandomPointOnSphere.ext" id="3" position="320:300" size="140:141" />
+        <node operator="RayBetweenPoints.ext" id="4" position="540:220" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+    </connections>
+</graph>

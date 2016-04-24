@@ -1,0 +1,38 @@
+<graph version="0.50" uuid="60e864dc-f10f-4fd0-8481-10ef58c96917">
+    <meta_info>
+        <graph_version guid="30fb44f1-0ff9-4d3c-bda9-8137e73c1a26" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="CombinePairwiseElements.ext" id="0" position="1100:120" size="140:141" />
+        <node operator="Input: array" id="1" name="points" position="880:0" size="140:117" />
+        <node operator="Input: Vector3" id="2" name="axis" position="220:240" size="140:117" />
+        <node operator="Array3" id="3" position="880:140" size="140:165" />
+        <node operator="Pass-through: Vector3" id="4" position="0:80" size="140:117" />
+        <node operator="Pass-through: Vector3" id="5" position="0:220" size="140:117" />
+        <node operator="Subtract" id="6" position="220:60" size="140:141" />
+        <node operator="Cross" id="7" position="440:120" size="140:141" />
+        <node operator="Add" id="8" position="660:160" size="140:141" />
+        <node operator="MidPoint.ext" id="9" position="440:280" size="140:141" />
+        <node operator="Flatten" id="10" position="1320:160" size="140:117" />
+        <node operator="CreateMeshFromVertices" id="11" position="1540:180" size="140:117" />
+        <node operator="Output: compound" id="12" position="1760:220" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

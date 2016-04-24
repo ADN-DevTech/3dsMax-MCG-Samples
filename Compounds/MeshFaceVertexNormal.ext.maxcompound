@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="66e99eed-aaec-49c5-882d-8706d9bab515">
+    <meta_info>
+        <graph_version guid="308d46ab-f22a-4156-bd63-54a9e8b6e12b" number="0.0.2" />
+        <category>Geometry - TriMesh</category>
+        <description>Returns the vertex normal at the nth face-vertex. Where n/3 is the face index and n%3 is the face corner. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:40" size="140:117" />
+        <node operator="Input: Int32" id="1" name="n" position="220:280" size="140:117" />
+        <node operator="VertexNormals" id="4" position="220:0" size="140:117" />
+        <node operator="IndirectLookup.ext" id="2" position="440:140" size="140:165" />
+        <node operator="MeshIndices" id="3" position="220:140" size="140:117" />
+        <node operator="Output: compound" id="5" position="660:200" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

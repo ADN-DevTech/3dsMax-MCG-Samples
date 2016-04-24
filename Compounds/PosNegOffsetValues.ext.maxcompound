@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="011f0a0e-d650-4ee2-97c2-966b6c81b8ac">
+    <meta_info>
+        <graph_version guid="e66b73a5-cfb3-4a93-b098-c812eb37bd32" number="0.0.2" />
+        <category>Array</category>
+        <description>Given an array of floating point values (xs), creates a new array twice as long (ys) where ys[n] = (xs[n/2] - offset) and ys[n+1] = (xs[n/2] + offset). This is like splitting each value in two and moving them in opposite directions. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="array" position="20:160" size="140:117" />
+        <node operator="Input: Single" id="1" name="offset" position="20:280" size="140:117" />
+        <node operator="FlatMap" id="2" position="660:200" size="140:141" />
+        <node operator="Add" id="3" position="460:460" size="140:141" />
+        <node operator="Pass-through: Single" id="4" position="260:340" size="140:117" />
+        <node operator="Array2" id="5" position="680:420" size="140:141" />
+        <node operator="Subtract" id="6" position="460:260" size="140:141" />
+        <node operator="Output: compound" id="7" position="860:240" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

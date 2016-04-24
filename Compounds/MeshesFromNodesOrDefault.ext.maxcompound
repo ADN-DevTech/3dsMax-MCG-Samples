@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="a0436a2f-03fe-4cea-b800-22427caa1151">
+    <meta_info>
+        <graph_version guid="9b864d50-eff6-4c96-af76-564877b3aa44" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="nodes" position="160:220" size="140:117" />
+        <node operator="Input: TriMesh" id="1" name="defaultMesh" position="160:340" size="140:117" />
+        <node operator="MeshesFromNodes.ext" id="2" position="420:240" size="140:117" />
+        <node operator="Count" id="3" position="580:320" size="140:117" />
+        <node operator="GreaterThanZero" id="4" position="700:380" size="140:117" />
+        <node operator="If" id="5" position="880:420" size="140:165" />
+        <node operator="Unit" id="6" position="380:460" size="140:117" />
+        <node operator="Output: compound" id="7" position="1060:500" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

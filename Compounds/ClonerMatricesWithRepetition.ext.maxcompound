@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="01b2c008-d06e-4cfa-90c7-2065a6286d80">
+    <meta_info>
+        <graph_version guid="445c1c52-4a70-4df6-b681-5ed2447df1ff" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="ClonerMatricesOrIdentity.ext" id="0" position="220:200" size="180:141" />
+        <node operator="Input: Int32" id="1" name="duplicates" position="220:60" size="140:117" />
+        <node operator="Input: Int32" id="2" name="channelId" position="0:120" size="140:117" />
+        <node operator="Input: TriMesh" id="3" name="mesh" position="0:240" size="140:117" />
+        <node operator="GreaterThanOne.ext" id="4" position="480:0" size="140:117" />
+        <node operator="If" id="5" position="700:160" size="140:165" />
+        <node operator="RepeatElements.ext" id="6" position="480:140" size="140:141" />
+        <node operator="Output: compound" id="7" position="920:240" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

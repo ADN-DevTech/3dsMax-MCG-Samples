@@ -1,0 +1,53 @@
+<graph version="0.50" uuid="79ae69f7-e034-4b41-8131-1d36bbbb6850">
+    <meta_info>
+        <graph_version guid="d89496e6-095a-4890-8d02-fcb20e409add" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="DivideBy100.ext" id="40" position="471:556" size="140:117" />
+        <node operator="GetMatrixTranslation" id="35" position="229:309" size="140:117" />
+        <node operator="LessThan" id="36" position="708:495" size="140:141" />
+        <node operator="XOr.ext" id="41" position="859:423" size="140:141" />
+        <node operator="VectorBoxComponentDistanceAsRatio.ext" id="34" position="403:353" size="260:189" />
+        <node operator="Input: Int32" id="1" name="fluxChannelId" position="0:140" size="140:117" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:117" />
+        <node operator="Input: Single" id="2" name="distancePercent" position="260:560" size="140:117" />
+        <node operator="Input: Boolean" id="3" name="invertFilter" position="723:335" size="140:117" />
+        <node operator="Input: Int32" id="4" name="component" position="0:420" size="140:117" />
+        <node operator="Input: Int32" id="5" name="useMinMaxOrBoth" position="0:540" size="140:117" />
+        <node operator="StoreMatricesInMapChannel.ext" id="6" position="1320:240" size="140:165" />
+        <node operator="If" id="7" position="1540:220" size="140:165" />
+        <node operator="Input: Boolean" id="8" name="filterByBox" position="1320:100" size="140:117" />
+        <node operator="MatricesFromMapChannel.ext" id="9" position="220:120" size="200:141" />
+        <node operator="Filter" id="10" position="1100:300" size="140:141" />
+        <node operator="Output: compound" id="11" position="1980:260" size="140:69" />
+        <node operator="Input: BoundingBox" id="12" name="box" position="0:280" size="140:117" />
+        <node operator="IgnoreFirst" id="13" position="1760:220" size="140:141" />
+        <node groupnode="Function: matrix position (as percentage of bounding box) less than maximum " id="33" position="220:280" size="795:424" bg_color="#ff646464">
+            <nodes>2,40,3,35,36,41,34</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="40" destport="0" />
+        <connection sourcenode="34" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="36" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="41" destport="0" />
+        <connection sourcenode="36" sourceport="0" destnode="41" destport="1" />
+        <connection sourcenode="35" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="34" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="34" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="34" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="6" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="41" sourceport="1" destnode="10" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="13" destport="1" />
+    </connections>
+</graph>
