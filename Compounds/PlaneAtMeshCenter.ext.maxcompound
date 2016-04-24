@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="9e7aede4-7921-4546-a542-fb162399fcfb">
+    <meta_info>
+        <graph_version guid="b8d15e5a-5b89-4618-a755-c588e56b631c" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="80:120" size="140:112" />
+        <node operator="Plane" id="27" position="760:340" size="140:112" />
+        <node operator="Ray" id="28" position="540:320" size="140:133" />
+        <node operator="MeshVertices" id="6" position="340:300" size="140:112" />
+        <node operator="BoxFromPoints" id="7" position="340:160" size="140:112" />
+        <node operator="BoundingBoxCenter" id="8" position="540:160" size="140:112" />
+        <node operator="Input: Vector3" id="1" name="direction" position="80:320" size="140:112" />
+        <node operator="Output: compound" id="2" position="960:360" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="28" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="28" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="27" sourceport="0" destnode="2" destport="0" />
+    </connections>
+</graph>
