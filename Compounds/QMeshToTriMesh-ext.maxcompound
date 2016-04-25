@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="120996e4-b5a9-4578-9329-3021adc1e689">
+    <meta_info>
+        <graph_version guid="485c68a1-1e5b-48fc-bff0-4f00afd877f0" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: tuple2" id="0" name="qmesh" position="60:300" size="140:117" />
+        <node operator="QMeshQuads-ext" id="3" position="280:280" size="140:117" />
+        <node operator="QuadMeshToTriMesh-ext" id="2" position="540:320" size="140:117" />
+        <node operator="SetMaterialIds" id="4" position="760:380" size="140:141" />
+        <node operator="QMeshMaterials-ext" id="1" position="280:480" size="140:117" />
+        <node operator="FlatMap" id="5" position="560:520" size="140:141" />
+        <node operator="ArrayOf" id="6" position="360:640" size="140:141" />
+        <node operator="Two" id="7" position="200:740" size="140:93" />
+        <node operator="Output: compound" id="8" position="1000:420" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

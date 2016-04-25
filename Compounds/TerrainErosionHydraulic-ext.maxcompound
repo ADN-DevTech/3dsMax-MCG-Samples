@@ -1,0 +1,133 @@
+<graph version="0.50" uuid="e496a43e-747c-46d0-ad8f-5b80a937bcc6">
+    <meta_info>
+        <graph_version guid="06a11bb9-3372-433d-8b1d-39c52f14c864" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="2" name="rainAmount" position="220:360" size="140:117" />
+        <node operator="Output: compound" id="5" position="2320:840" size="140:69" />
+        <node operator="Input: tuple2" id="1" name="heightAndWater" position="0:160" size="140:117" />
+        <node operator="PairItem1" id="6" position="469:129" size="140:117" />
+        <node operator="PairItem2" id="7" position="229:209" size="140:117" />
+        <node operator="Array.AddScalar-ext" id="17" position="469:309" size="140:141" />
+        <node operator="Array.Add-ext" id="8" position="754:373" size="140:141" />
+        <node operator="Input: Int32" id="14" name="rows" position="736:56" size="140:117" />
+        <node operator="Input: Int32" id="15" name="cols" position="749:191" size="140:117" />
+        <node operator="GridCoordinatesMinimumVonNeumannNeighbourWithSelf-ext" id="16" position="1041:40" size="360:165" />
+        <node operator="Array.SubtractScalar-ext" id="20" position="1649:589" size="160:141" />
+        <node operator="Input: Single" id="22" name="solubility" position="1400:600" size="140:117" />
+        <node operator="Map" id="24" position="1689:69" size="140:141" />
+        <node operator="GridCoordinateToIndex-ext" id="25" position="1509:189" size="180:141" />
+        <node operator="SelectByIndex" id="28" position="1943:329" size="140:141" />
+        <node operator="Array.Subtract-ext" id="29" position="69:609" size="140:141" />
+        <node operator="ClampFloat" id="31" position="319:704" size="140:165" />
+        <node operator="Combine" id="30" position="530:703" size="140:165" />
+        <node operator="FloatZero" id="32" position="329:912" size="140:93" />
+        <node operator="SelectByIndex" id="9" position="813:636" size="140:141" />
+        <node operator="Array.Subtract-ext" id="19" position="1389:789" size="140:141" />
+        <node operator="Array.Add-ext" id="36" position="1121:709" size="140:141" />
+        <node operator="Pass-through: array" id="37" position="1114:912" size="140:117" />
+        <node operator="Array.MultiplyScalar-ext" id="0" position="1829:1021" size="160:141" />
+        <node operator="Input: Single" id="3" name="evaporation" position="1649:1103" size="140:117" />
+        <node operator="Array.MultiplyScalar-ext" id="42" position="1849:789" size="160:141" />
+        <node operator="Input: Single" id="43" name="deposit" position="1649:789" size="140:117" />
+        <node operator="Pair" id="45" position="2135:812" size="140:141" />
+        <node operator="Array.Add-ext" id="48" position="1960:549" size="140:141" />
+        <node groupnode="Rows and columns" id="21" position="700:20" size="219:297" bg_color="#ff646464">
+            <nodes>14,15</nodes>
+        </node>
+        <node groupnode="Subtract soil" id="23" position="1640:560" size="178:179" bg_color="#ff646464">
+            <nodes>20</nodes>
+        </node>
+        <node groupnode="Original water + new water" id="40" position="1080:680" size="248:179" bg_color="#ff646464">
+            <nodes>36</nodes>
+        </node>
+        <node groupnode="Land + Water" id="47" position="2100:780" size="194:182" bg_color="#ff646464">
+            <nodes>45</nodes>
+        </node>
+        <node groupnode="Water leaves some soil behind" id="46" position="1640:760" size="378:179" bg_color="#ff646464">
+            <nodes>42,43</nodes>
+        </node>
+        <node groupnode="Terrain" id="44" position="1940:520" size="169:188" bg_color="#ff646464">
+            <nodes>48</nodes>
+        </node>
+        <node groupnode="New water" id="4" position="1380:760" size="158:179" bg_color="#ff646464">
+            <nodes>19</nodes>
+        </node>
+        <node groupnode="Only water amount can move" id="35" position="300:660" size="379:354" bg_color="#ff646464">
+            <nodes>30,32,31</nodes>
+        </node>
+        <node groupnode="Height deltas" id="34" position="60:580" size="158:179" bg_color="#ff646464">
+            <nodes>29</nodes>
+        </node>
+        <node groupnode="Heights of targets" id="33" position="1920:300" size="199:179" bg_color="#ff646464">
+            <nodes>28</nodes>
+        </node>
+        <node groupnode="Target grid coordinates to Indices" id="26" position="1500:40" size="338:299" bg_color="#ff646464">
+            <nodes>24,25</nodes>
+        </node>
+        <node groupnode="Water after evaporation" id="39" position="1640:960" size="377:269" bg_color="#ff646464">
+            <nodes>3,0</nodes>
+        </node>
+        <node groupnode="Water to add" id="27" position="760:600" size="249:193" bg_color="#ff646464">
+            <nodes>9</nodes>
+        </node>
+        <node groupnode="Height map" id="13" position="460:100" size="158:155" bg_color="#ff646464">
+            <nodes>6</nodes>
+        </node>
+        <node groupnode="Total height" id="11" position="700:340" size="245:187" bg_color="#ff646464">
+            <nodes>8</nodes>
+        </node>
+        <node groupnode="Where water wants to go" id="18" position="1020:0" size="402:228" bg_color="#ff646464">
+            <nodes>16</nodes>
+        </node>
+        <node groupnode="Water to remove" id="38" position="1080:880" size="195:158" bg_color="#ff646464">
+            <nodes>37</nodes>
+        </node>
+        <node groupnode="Water map" id="12" position="220:180" size="158:155" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+        <node groupnode="Total water" id="10" position="460:280" size="158:179" bg_color="#ff646464">
+            <nodes>17</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="45" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="25" sourceport="1" destnode="24" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="24" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="28" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="28" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="32" sourceport="0" destnode="31" destport="1" />
+        <connection sourcenode="29" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="31" sourceport="1" destnode="30" destport="2" />
+        <connection sourcenode="24" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="36" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="37" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="36" destport="1" />
+        <connection sourcenode="30" sourceport="0" destnode="37" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="42" destport="0" />
+        <connection sourcenode="43" sourceport="0" destnode="42" destport="1" />
+        <connection sourcenode="48" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="45" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="48" destport="0" />
+        <connection sourcenode="42" sourceport="0" destnode="48" destport="1" />
+    </connections>
+</graph>

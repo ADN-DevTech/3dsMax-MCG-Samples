@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="b8f92291-ba22-4880-81ab-a173eac9ee91">
+    <meta_info>
+        <graph_version guid="30c042a8-9026-46fd-9c3c-7bd5fb348570" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Quaternion" id="0" name="rotation" position="220:140" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="pivot" position="0:120" size="140:117" />
+        <node operator="Output: compound" id="2" position="880:240" size="160:69" />
+        <node operator="TranslationMatrix" id="3" position="440:20" size="140:117" />
+        <node operator="Negate" id="4" position="220:20" size="140:117" />
+        <node operator="MatrixFromQuaternion" id="6" position="440:160" size="140:117" />
+        <node operator="TranslationMatrix" id="7" position="440:300" size="140:117" />
+        <node operator="Multiply3-ext" id="9" position="660:160" size="140:165" />
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="2" />
+    </connections>
+</graph>

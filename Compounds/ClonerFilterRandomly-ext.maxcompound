@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="1643b146-c231-4295-9f40-0c6e45c5d3a3">
+    <meta_info>
+        <graph_version guid="1a08cf1b-bb0e-49b2-9751-d0b750bd7763" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="FilterRandomly-ext" id="23" position="440:180" size="140:165" />
+        <node operator="DivideBy100-ext" id="19" position="220:280" size="140:117" />
+        <node operator="StoreMatricesInMapChannel-ext" id="29" position="660:160" size="280:165" />
+        <node operator="RandomNumberGenerator" id="21" position="220:420" size="140:117" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:117" />
+        <node operator="Input: Int32" id="1" name="channelId" position="0:140" size="140:117" />
+        <node operator="Input: Single" id="2" name="probabilityPercent" position="0:280" size="140:117" />
+        <node operator="Input: Int32" id="3" name="seed" position="0:420" size="140:117" />
+        <node operator="MatricesFromMapChannel-ext" id="4" position="220:120" size="140:141" />
+        <node operator="Output: compound" id="5" position="1020:220" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="23" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="23" sourceport="0" destnode="29" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="29" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

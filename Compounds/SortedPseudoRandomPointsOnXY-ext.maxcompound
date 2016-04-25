@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="ed7e0aa1-32a5-4f33-8c82-2f74fc9d77fc">
+    <meta_info>
+        <graph_version guid="fb92b254-7f5a-446d-8473-a0ba8917831e" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="PseudoRandomFloats-ext" id="1" position="460:360" size="140:141" />
+        <node operator="Input: Random" id="2" name="r" position="200:320" size="140:117" />
+        <node operator="Input: Int32" id="3" name="count" position="200:460" size="140:117" />
+        <node operator="PseudoRandomFloats-ext" id="0" position="460:540" size="140:141" />
+        <node operator="Output: compound" id="4" position="1140:640" size="140:69" />
+        <node operator="Combine" id="5" position="900:580" size="140:165" />
+        <node operator="Sort" id="6" position="640:460" size="140:117" />
+        <node operator="Sort" id="7" position="640:580" size="140:117" />
+        <node operator="Vector3FromXY" id="8" position="660:700" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

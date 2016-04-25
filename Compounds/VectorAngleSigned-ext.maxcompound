@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="fc850288-eeb3-4896-9f10-42ad93734b23">
+    <meta_info>
+        <graph_version guid="1d73ea61-5033-4e0a-af54-f0586274f9bb" number="0.0.5" />
+        <category>Geometry - Vectors</category>
+        <description>Returns the signed angle between two vectors (i.e. in the range of -pi to +pi).</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="v1" position="0:140" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="v2" position="0:280" size="140:117" />
+        <node operator="Input: Vector3" id="2" name="planeNormal" position="220:0" size="140:117" />
+        <node operator="AngleOfVectorsFix-ext" id="3" position="440:340" size="140:141" />
+        <node operator="Dot" id="4" position="440:100" size="140:141" />
+        <node operator="Cross" id="5" position="220:140" size="140:141" />
+        <node operator="NegativeFloat" id="6" position="660:300" size="140:117" />
+        <node operator="GtEqZ-ext" id="7" position="660:160" size="140:117" />
+        <node operator="If" id="9" position="880:320" size="140:165" />
+        <node operator="Output: compound" id="10" position="1100:400" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

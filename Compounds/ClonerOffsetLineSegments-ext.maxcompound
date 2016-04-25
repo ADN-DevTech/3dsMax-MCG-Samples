@@ -1,0 +1,48 @@
+<graph version="0.50" uuid="7b985681-c177-46c5-b675-8e225abdbfc8">
+    <meta_info>
+        <graph_version guid="5f0640d7-48fb-42ab-a12c-26ccb3e8f9bc" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="2" name="offsetA" position="580:300" size="140:117" />
+        <node operator="Input: Single" id="3" name="offsetB" position="600:420" size="140:117" />
+        <node operator="ModuloEqualsZero" id="45" position="696:109" size="140:141" />
+        <node operator="IgnoreFirst" id="54" position="1277:137" size="140:141" />
+        <node operator="MatrixTranslate-ext" id="49" position="1276:342" size="140:165" />
+        <node operator="AlongXAxis" id="51" position="1058:295" size="140:117" />
+        <node operator="Pass-through: Matrix" id="47" position="1053:434" size="140:117" />
+        <node operator="Pass-through: Int32" id="46" position="509:55" size="140:117" />
+        <node operator="If" id="44" position="899:134" size="140:165" />
+        <node operator="MapWithIndexes" id="43" position="1467:289" size="140:141" />
+        <node operator="True" id="50" position="1076:146" size="140:93" />
+        <node operator="Two" id="48" position="529:198" size="140:93" />
+        <node operator="Input: TriMesh" id="4" name="mesh" position="0:0" size="140:117" />
+        <node operator="Input: Int32" id="5" name="fluxChannelId" position="0:140" size="140:117" />
+        <node operator="StoreMatricesInMapChannel-ext" id="7" position="1700:40" size="200:165" />
+        <node operator="MatricesFromMapChannel-ext" id="6" position="220:160" size="200:141" />
+        <node operator="Output: compound" id="8" position="1980:120" size="140:69" />
+        <node groupnode="For each matrix pair offset A and B" id="55" position="500:0" size="1116:577" bg_color="#ff646464">
+            <nodes>45,54,49,51,47,46,44,43,50,48,3,2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="46" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="48" sourceport="0" destnode="45" destport="1" />
+        <connection sourcenode="47" sourceport="0" destnode="54" destport="0" />
+        <connection sourcenode="50" sourceport="0" destnode="54" destport="1" />
+        <connection sourcenode="54" sourceport="0" destnode="49" destport="0" />
+        <connection sourcenode="51" sourceport="0" destnode="49" destport="1" />
+        <connection sourcenode="47" sourceport="0" destnode="49" destport="2" />
+        <connection sourcenode="44" sourceport="0" destnode="51" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="44" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="44" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="43" destport="0" />
+        <connection sourcenode="49" sourceport="1" destnode="43" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="43" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

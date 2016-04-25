@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="3c49b618-bc13-4fca-89ba-fb879dcafc5f">
+    <meta_info>
+        <graph_version guid="9a897f81-f139-4809-97ce-6bae0011eaf8" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Constant" id="3" value="4" position="440:260" size="140:93" />
+        <node operator="Input: TriMesh" id="4" name="mesh" position="0:0" size="140:117" />
+        <node operator="Slices" id="2" position="660:200" size="140:141" />
+        <node operator="MatrixFromRows-ext" id="6" position="660:360" size="140:117" />
+        <node operator="Output: compound" id="7" position="1100:360" size="140:69" />
+        <node operator="Map" id="5" position="880:320" size="140:141" />
+        <node operator="MapChannelVertexBuffer" id="8" position="440:120" size="140:117" />
+        <node operator="GetMapChannel" id="9" position="220:80" size="140:141" />
+        <node operator="Input: Int32" id="0" name="channelId" position="0:140" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="1" />
+    </connections>
+</graph>
