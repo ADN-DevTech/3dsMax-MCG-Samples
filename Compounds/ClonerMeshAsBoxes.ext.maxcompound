@@ -1,34 +1,32 @@
 <graph version="0.50" uuid="9d8f3ecb-d1de-452b-be90-bbf95967313a">
     <meta_info>
-        <graph_version guid="8c336107-818f-4b83-a65a-b3bb8c8b6a84" number="0.0.6" />
+        <graph_version guid="a1b51fee-1484-4b8d-b257-ed22e42577bb" number="0.0.8" />
     </meta_info>
     <nodes>
-        <node operator="MatricesFromMapChannel.ext" id="34" position="660:100" size="200:133" />
-        <node operator="TransformMesh" id="36" position="660:260" size="140:133" />
-        <node operator="Map" id="16" position="940:180" size="140:133" />
-        <node operator="Input: Int32" id="5" name="channelId" position="440:140" size="140:112" />
-        <node operator="Input: TriMesh" id="4" name="mesh" position="440:0" size="140:112" />
-        <node operator="BoxFromRadius" id="30" position="220:240" size="140:112" />
-        <node operator="BoxTriMesh" id="29" position="440:260" size="140:112" />
-        <node operator="Input: Single" id="0" name="radius" position="0:220" size="140:112" />
-        <node operator="MeshCopyCustomMapChannelVertexBuffers.ext" id="41" position="1380:220" size="300:133" />
-        <node operator="Output: compound" id="1" position="1980:280" size="140:70" />
-        <node operator="CombineAllMeshes" id="2" position="1160:220" size="140:112" />
-        <node operator="IgnoreFirst" id="7" position="1760:220" size="140:133" />
+        <node operator="MatricesFromMapChannel.ext" id="34" position="440:100" size="200:133" />
+        <node operator="TransformMesh" id="36" position="440:260" size="140:133" />
+        <node operator="Map" id="16" position="720:180" size="140:133" />
+        <node operator="Input: Int32" id="5" name="channelId" position="220:140" size="140:112" />
+        <node operator="Input: TriMesh" id="4" name="mesh" position="220:0" size="140:112" />
+        <node operator="Input: Single" id="0" name="radius" position="0:240" size="140:112" />
+        <node operator="MeshCopyCustomMapChannelVertexBuffers.ext" id="41" position="1160:220" size="300:133" />
+        <node operator="Output: compound" id="1" position="1760:280" size="140:70" />
+        <node operator="CombineAllMeshes" id="2" position="940:200" size="140:112" />
+        <node operator="IgnoreFirst" id="7" position="1540:220" size="140:133" />
+        <node operator="CubeMesh.ext" id="3" position="220:260" size="140:112" />
     </nodes>
     <connections>
         <connection sourcenode="4" sourceport="0" destnode="34" destport="0" />
         <connection sourcenode="5" sourceport="0" destnode="34" destport="1" />
-        <connection sourcenode="29" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="36" destport="0" />
         <connection sourcenode="34" sourceport="0" destnode="16" destport="0" />
         <connection sourcenode="36" sourceport="1" destnode="16" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="30" destport="0" />
-        <connection sourcenode="30" sourceport="0" destnode="29" destport="0" />
         <connection sourcenode="4" sourceport="0" destnode="41" destport="0" />
         <connection sourcenode="2" sourceport="0" destnode="41" destport="1" />
         <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
         <connection sourcenode="16" sourceport="0" destnode="2" destport="0" />
         <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
         <connection sourcenode="41" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
     </connections>
 </graph>

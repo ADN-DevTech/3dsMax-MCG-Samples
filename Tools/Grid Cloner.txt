@@ -1,0 +1,582 @@
+(InstanceState state, Single total x, Single total y, Single total z, Int32 channel, Int32 grid_y, Int32 grid_x, Int32 grid_z, Single box radius) => 
+  {
+    Vector3 _0Vector3;// 6:Vector3 168731
+    Single _1Constant;// 1:BoxFromExtent.ext->0:Constant 168730
+    Vector3 _2MultiplyByScalar;// 1:BoxFromExtent.ext->1:MultiplyByScalar 168729
+    Vector3 _3Negate;// 1:BoxFromExtent.ext->3:Negate 168728
+    BoundingBox _4Box;// 1:BoxFromExtent.ext->4:Box 168727
+    QuadMesh _5BoxQuadMesh;// 14:BoxTriMesh->2:BoxQuadMesh 168725
+    TriMesh _6Triangulate;// 5:QuadToTriMesh.ext->4:Triangulate 168713
+    IArray[Int32] _7MeshIndices;// 5:QuadToTriMesh.ext->3:MeshIndices 168716
+    IArray[Int32] _8Indices;// 5:QuadToTriMesh.ext->8:Indices 168715
+    Int32 _9Constant;// 5:QuadToTriMesh.ext->0:Constant 168721
+    Int32 _10Constant;// 5:QuadToTriMesh.ext->0:Constant 168722
+    Int32 _11Constant;// 5:QuadToTriMesh.ext->0:Constant 168724
+    IArray[Boolean] _12Map;// 5:QuadToTriMesh.ext->5:Map 168714
+    TriMesh _13SetVisibleEdges;// 5:QuadToTriMesh.ext->9:SetVisibleEdges 168712
+    IArray[Int32] _14MeshIndices;// 4:HideEveryThirdEdge->2:MeshIndices 168702
+    IArray[Int32] _15Indices;// 4:HideEveryThirdEdge->8:Indices 168701
+    Int32 _16Constant;// 4:HideEveryThirdEdge->0:Constant 168709
+    Int32 _17Constant;// 4:HideEveryThirdEdge->0:Constant 168710
+    IArray[Boolean] _18Map;// 4:HideEveryThirdEdge->5:Map 168700
+    TriMesh _19SetVisibleEdges;// 4:HideEveryThirdEdge->9:SetVisibleEdges 168699
+    Int32 _20One;// 10:PlusOne->1:One 168772
+    Int32 _21Add;// 10:PlusOne->0:Add 168771
+    IArray[Single] _22RangeInclusiveFloat;// 5:SampleLerp->2:RangeInclusiveFloat 168768
+    Vector3 _23BoxMin;// 0:SubdivideBoxAlongDiagonal->2:BoxMin 168773
+    Vector3 _24BoxMax;// 0:SubdivideBoxAlongDiagonal->3:BoxMax 168774
+    Func[Single, Vector3] _25Pass-through: function1;// 0:Pass-through: function1 168766
+    IArray[Vector3] _26Map;// 5:SampleLerp->3:Map 168767
+    Int32 _27Count;// 3:LastIndex->2:Count 168761
+    Int32 _28One;// 3:MinusOne->2:One 168760
+    Int32 _29Subtract;// 3:MinusOne->1:Subtract 168759
+    IArray[Vector3] _30Take;// 6:DropLast->2:Take 168756
+    Int32 _31One;// 5:SkipOne->2:One 168777
+    IArray[Vector3] _32Skip;// 5:SkipOne->3:Skip 168776
+    IArray[BoundingBox] _33Combine;// 0:SubdivideBoxAlongDiagonal->7:Combine 168754
+    IArray[BoundingBox] _34Map;// 4:SubdivideBoxAlongX->1:Map 168751
+    Func[BoundingBox, IArray[BoundingBox]] _35Pass-through: function1;// 0:Pass-through: function1 168746
+    IArray[IArray[BoundingBox]] _36Map;// 7:FlatMap->4:Map 168748
+    IArray[BoundingBox] _37Flatten;// 7:FlatMap->3:Flatten 168747
+    Func[BoundingBox, IArray[BoundingBox]] _38Pass-through: function1;// 0:Pass-through: function1 168742
+    IArray[IArray[BoundingBox]] _39Map;// 8:FlatMap->4:Map 168744
+    IArray[BoundingBox] _40Flatten;// 8:FlatMap->3:Flatten 168743
+    IArray[Matrix] _41Map;// 2:Map 168736
+    Func[Matrix, IArray[Vector3]] _42Pass-through: function1;// 0:Pass-through: function1 168685
+    IArray[IArray[Vector3]] _43Map;// 5:FlatMap->4:Map 168687
+    IArray[Vector3] _44Flatten;// 5:FlatMap->3:Flatten 168686
+    IArray[Int32] _45MeshIndices;// 13:StoreMatricesInMapChannel.ext->0:MeshIndices 168696
+    TriMesh _46SetMapChannel;// 13:StoreMatricesInMapChannel.ext->7:SetMapChannel 168683
+    Int32 _47Constant;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->0:Constant 168545
+    IArray[Int32] _48Range;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->1:Range 168544
+    Int32 _49Two;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->4:Two 168546
+    IArray[Int32] _50Skip;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->3:Skip 168543
+    IArray[Int32] _51Filter;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->13:Filter 168542
+    MapChannel _52GetMapChannel;// 34:MatricesFromMapChannel.ext->9:GetMapChannel 168604
+    IArray[Vector3] _53MapChannelVertexBuffer;// 34:MatricesFromMapChannel.ext->8:MapChannelVertexBuffer 168603
+    Int32 _54Count;// 2:Slices->2:Count 168600
+    Int32 _55Constant;// 34:MatricesFromMapChannel.ext->0:Constant 168605
+    Int32 _56Divide;// 2:Slices->3:Divide 168599
+    IArray[Int32] _57Range;// 2:Slices->4:Range 168598
+    IArray[IArray[Vector3]] _58Map;// 2:Slices->5:Map 168597
+    IArray[Matrix] _59Map;// 34:MatricesFromMapChannel.ext->5:Map 168594
+    Single _60Constant;// 1:Origin->0:Constant 168676
+    Vector3 _61Vector3;// 1:Origin->1:Vector3 168675
+    Single _62Constant;// 1:MultiplyTwoFloat.ext->0:Constant 168679
+    Single _63Multiply;// 1:MultiplyTwoFloat.ext->0:Multiply 168678
+    BoundingSphere _64Sphere;// 0:BoxFromPointAndRadius->3:Sphere 168674
+    BoundingBox _65BoxFromSphere;// 0:BoxFromPointAndRadius->0:BoxFromSphere 168673
+    QuadMesh _66BoxQuadMesh;// 3:BoxTriMesh->2:BoxQuadMesh 168669
+    TriMesh _67Triangulate;// 5:QuadToTriMesh.ext->4:Triangulate 168657
+    IArray[Int32] _68MeshIndices;// 5:QuadToTriMesh.ext->3:MeshIndices 168660
+    IArray[Int32] _69Indices;// 5:QuadToTriMesh.ext->8:Indices 168659
+    Int32 _70Constant;// 5:QuadToTriMesh.ext->0:Constant 168665
+    Int32 _71Constant;// 5:QuadToTriMesh.ext->0:Constant 168666
+    Int32 _72Constant;// 5:QuadToTriMesh.ext->0:Constant 168668
+    IArray[Boolean] _73Map;// 5:QuadToTriMesh.ext->5:Map 168658
+    TriMesh _74SetVisibleEdges;// 5:QuadToTriMesh.ext->9:SetVisibleEdges 168656
+    IArray[Int32] _75MeshIndices;// 4:HideEveryThirdEdge->2:MeshIndices 168646
+    IArray[Int32] _76Indices;// 4:HideEveryThirdEdge->8:Indices 168645
+    Int32 _77Constant;// 4:HideEveryThirdEdge->0:Constant 168653
+    Int32 _78Constant;// 4:HideEveryThirdEdge->0:Constant 168654
+    IArray[Boolean] _79Map;// 4:HideEveryThirdEdge->5:Map 168644
+    TriMesh _80SetVisibleEdges;// 4:HideEveryThirdEdge->9:SetVisibleEdges 168643
+    IArray[TriMesh] _81Map;// 18:ClonerMeshAsBoxes.ext->16:Map 168591
+    TriMesh _82CombineAllMeshes;// 18:ClonerMeshAsBoxes.ext->2:CombineAllMeshes 168590
+    TriMesh _83Aggregate;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->6:Aggregate 168541
+    TriMesh _84IgnoreFirst;// 18:ClonerMeshAsBoxes.ext->7:IgnoreFirst 168538
+    _0Vector3 = Vector3(total x, total y, total z);
+    _1Constant = 0.5;
+    _2MultiplyByScalar = MultiplyByScalar(_0Vector3, _1Constant);
+    _3Negate = Negate(_2MultiplyByScalar);
+    _4Box = Box(_3Negate, _2MultiplyByScalar);
+    _5BoxQuadMesh = BoxQuadMesh(_4Box);
+    _6Triangulate = Triangulate(_5BoxQuadMesh);
+    _7MeshIndices = MeshIndices(_6Triangulate);
+    _8Indices = Indices(_7MeshIndices);
+    _9Constant = 6;
+    _10Constant = 2;
+    _11Constant = 3;
+    _12Map = Map(_8Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 5:QuadToTriMesh.ext->14:Modulo 168720
+        Boolean _1Equal;// 5:QuadToTriMesh.ext->7:Equal 168719
+        Boolean _2Equal;// 5:QuadToTriMesh.ext->13:Equal 168723
+        Boolean _3OrElse;// 5:QuadToTriMesh.ext->12:OrElse 168718
+        Boolean _4Not;// 5:QuadToTriMesh.ext->10:Not 168717
+        _0Modulo = Modulo(x0, _9Constant);
+        _1Equal = Equal(_0Modulo, _10Constant);
+        _2Equal = Equal(_0Modulo, _11Constant);
+        _3OrElse = OrElse(_1Equal, _2Equal);
+        _4Not = Not(_3OrElse);
+        _4Not;
+        });
+    _13SetVisibleEdges = SetVisibleEdges(_6Triangulate, _12Map);
+    _14MeshIndices = MeshIndices(_13SetVisibleEdges);
+    _15Indices = Indices(_14MeshIndices);
+    _16Constant = 3;
+    _17Constant = 2;
+    _18Map = Map(_15Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 168708
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 168707
+        Boolean _2Not;// 4:HideEveryThirdEdge->7:Not 168703
+        _0Modulo = Modulo(x0, _16Constant);
+        _1Equal = Equal(_0Modulo, _17Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _19SetVisibleEdges = SetVisibleEdges(_13SetVisibleEdges, _18Map);
+    _20One = One();
+    _21Add = Add(grid_y, _20One);
+    _22RangeInclusiveFloat = RangeInclusiveFloat(_21Add);
+    _23BoxMin = BoxMin(_4Box);
+    _24BoxMax = BoxMax(_4Box);
+    _25Pass-through: function1 = (Single x0) => 
+      {
+        Vector3 _0Lerp;// 4:ArrayOfLerpedVectors->3:Lerp 168769
+        _0Lerp = Lerp(_23BoxMin, _24BoxMax, x0);
+        _0Lerp;
+        };
+    _26Map = Map(_22RangeInclusiveFloat, _25Pass-through: function1);
+    _27Count = Count(_26Map);
+    _28One = One();
+    _29Subtract = Subtract(_27Count, _28One);
+    _30Take = Take(_26Map, _29Subtract);
+    _31One = One();
+    _32Skip = Skip(_26Map, _31One);
+    _33Combine = Combine(_30Take, _32Skip, (Vector3 x0, Vector3 x1) => 
+      {
+        BoundingBox _0Box;// 0:SubdivideBoxAlongDiagonal->8:Box 168778
+        _0Box = Box(x0, x1);
+        _0Box;
+        });
+    _34Map = Map(_33Combine, (BoundingBox x0) => 
+      {
+        Vector3 _0BoxMin;// 2:MatchBoxX->7:BoxMin 168784
+        Single _1X;// 2:MatchBoxX->4:X 168783
+        Vector3 _2BoxMin;// 2:MatchBoxX->5:BoxMin 168786
+        Single _3Y;// 2:MatchBoxX->8:Y 168785
+        Single _4Z;// 2:MatchBoxX->0:Z 168787
+        Vector3 _5Vector3;// 2:MatchBoxX->10:Vector3 168782
+        Vector3 _6BoxMax;// 2:MatchBoxX->9:BoxMax 168790
+        Single _7X;// 2:MatchBoxX->13:X 168789
+        Vector3 _8BoxMax;// 2:MatchBoxX->15:BoxMax 168792
+        Single _9Y;// 2:MatchBoxX->11:Y 168791
+        Single _10Z;// 2:MatchBoxX->12:Z 168793
+        Vector3 _11Vector3;// 2:MatchBoxX->6:Vector3 168788
+        BoundingBox _12Box;// 2:MatchBoxX->14:Box 168781
+        _0BoxMin = BoxMin(x0);
+        _1X = X(_0BoxMin);
+        _2BoxMin = BoxMin(_4Box);
+        _3Y = Y(_2BoxMin);
+        _4Z = Z(_2BoxMin);
+        _5Vector3 = Vector3(_1X, _3Y, _4Z);
+        _6BoxMax = BoxMax(x0);
+        _7X = X(_6BoxMax);
+        _8BoxMax = BoxMax(_4Box);
+        _9Y = Y(_8BoxMax);
+        _10Z = Z(_8BoxMax);
+        _11Vector3 = Vector3(_7X, _9Y, _10Z);
+        _12Box = Box(_5Vector3, _11Vector3);
+        _12Box;
+        });
+    _35Pass-through: function1 = (BoundingBox x0) => 
+      {
+        Int32 _0One;// 10:PlusOne->1:One 168817
+        Int32 _1Add;// 10:PlusOne->0:Add 168816
+        IArray[Single] _2RangeInclusiveFloat;// 5:SampleLerp->2:RangeInclusiveFloat 168813
+        Vector3 _3BoxMin;// 2:SubdivideBoxAlongDiagonal->2:BoxMin 168818
+        Vector3 _4BoxMax;// 2:SubdivideBoxAlongDiagonal->3:BoxMax 168819
+        Func[Single, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 168811
+        IArray[Vector3] _6Map;// 5:SampleLerp->3:Map 168812
+        Int32 _7Count;// 3:LastIndex->2:Count 168806
+        Int32 _8One;// 3:MinusOne->2:One 168805
+        Int32 _9Subtract;// 3:MinusOne->1:Subtract 168804
+        IArray[Vector3] _10Take;// 6:DropLast->2:Take 168801
+        Int32 _11One;// 5:SkipOne->2:One 168822
+        IArray[Vector3] _12Skip;// 5:SkipOne->3:Skip 168821
+        IArray[BoundingBox] _13Combine;// 2:SubdivideBoxAlongDiagonal->7:Combine 168799
+        IArray[BoundingBox] _14Map;// 5:SubdivideBoxAlongY->0:Map 168796
+        _0One = One();
+        _1Add = Add(grid_x, _0One);
+        _2RangeInclusiveFloat = RangeInclusiveFloat(_1Add);
+        _3BoxMin = BoxMin(x0);
+        _4BoxMax = BoxMax(x0);
+        _5Pass-through: function1 = (Single x0) => 
+          {
+            Vector3 _0Lerp;// 4:ArrayOfLerpedVectors->3:Lerp 168814
+            _0Lerp = Lerp(_3BoxMin, _4BoxMax, x0);
+            _0Lerp;
+            };
+        _6Map = Map(_2RangeInclusiveFloat, _5Pass-through: function1);
+        _7Count = Count(_6Map);
+        _8One = One();
+        _9Subtract = Subtract(_7Count, _8One);
+        _10Take = Take(_6Map, _9Subtract);
+        _11One = One();
+        _12Skip = Skip(_6Map, _11One);
+        _13Combine = Combine(_10Take, _12Skip, (Vector3 x0, Vector3 x1) => 
+          {
+            BoundingBox _0Box;// 2:SubdivideBoxAlongDiagonal->8:Box 168823
+            _0Box = Box(x0, x1);
+            _0Box;
+            });
+        _14Map = Map(_13Combine, (BoundingBox x0) => 
+          {
+            Vector3 _0BoxMin;// 5:MatchBoxY->5:BoxMin 168829
+            Single _1X;// 5:MatchBoxY->4:X 168828
+            Vector3 _2BoxMin;// 5:MatchBoxY->11:BoxMin 168831
+            Single _3Y;// 5:MatchBoxY->9:Y 168830
+            Single _4Z;// 5:MatchBoxY->0:Z 168832
+            Vector3 _5Vector3;// 5:MatchBoxY->8:Vector3 168827
+            Vector3 _6BoxMax;// 5:MatchBoxY->6:BoxMax 168835
+            Single _7X;// 5:MatchBoxY->14:X 168834
+            Vector3 _8BoxMax;// 5:MatchBoxY->10:BoxMax 168837
+            Single _9Y;// 5:MatchBoxY->13:Y 168836
+            Single _10Z;// 5:MatchBoxY->12:Z 168838
+            Vector3 _11Vector3;// 5:MatchBoxY->15:Vector3 168833
+            BoundingBox _12Box;// 5:MatchBoxY->7:Box 168826
+            _0BoxMin = BoxMin(x0);
+            _1X = X(_0BoxMin);
+            _2BoxMin = BoxMin(x0);
+            _3Y = Y(_2BoxMin);
+            _4Z = Z(_0BoxMin);
+            _5Vector3 = Vector3(_1X, _3Y, _4Z);
+            _6BoxMax = BoxMax(x0);
+            _7X = X(_6BoxMax);
+            _8BoxMax = BoxMax(x0);
+            _9Y = Y(_8BoxMax);
+            _10Z = Z(_6BoxMax);
+            _11Vector3 = Vector3(_7X, _9Y, _10Z);
+            _12Box = Box(_5Vector3, _11Vector3);
+            _12Box;
+            });
+        _14Map;
+        };
+    _36Map = Map(_34Map, _35Pass-through: function1);
+    _37Flatten = Flatten(_36Map);
+    _38Pass-through: function1 = (BoundingBox x0) => 
+      {
+        Int32 _0One;// 10:PlusOne->1:One 168862
+        Int32 _1Add;// 10:PlusOne->0:Add 168861
+        IArray[Single] _2RangeInclusiveFloat;// 5:SampleLerp->2:RangeInclusiveFloat 168858
+        Vector3 _3BoxMin;// 3:SubdivideBoxAlongDiagonal->2:BoxMin 168863
+        Vector3 _4BoxMax;// 3:SubdivideBoxAlongDiagonal->3:BoxMax 168864
+        Func[Single, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 168856
+        IArray[Vector3] _6Map;// 5:SampleLerp->3:Map 168857
+        Int32 _7Count;// 3:LastIndex->2:Count 168851
+        Int32 _8One;// 3:MinusOne->2:One 168850
+        Int32 _9Subtract;// 3:MinusOne->1:Subtract 168849
+        IArray[Vector3] _10Take;// 6:DropLast->2:Take 168846
+        Int32 _11One;// 5:SkipOne->2:One 168867
+        IArray[Vector3] _12Skip;// 5:SkipOne->3:Skip 168866
+        IArray[BoundingBox] _13Combine;// 3:SubdivideBoxAlongDiagonal->7:Combine 168844
+        IArray[BoundingBox] _14Map;// 6:SubdivideBoxAlongZ->0:Map 168841
+        _0One = One();
+        _1Add = Add(grid_z, _0One);
+        _2RangeInclusiveFloat = RangeInclusiveFloat(_1Add);
+        _3BoxMin = BoxMin(x0);
+        _4BoxMax = BoxMax(x0);
+        _5Pass-through: function1 = (Single x0) => 
+          {
+            Vector3 _0Lerp;// 4:ArrayOfLerpedVectors->3:Lerp 168859
+            _0Lerp = Lerp(_3BoxMin, _4BoxMax, x0);
+            _0Lerp;
+            };
+        _6Map = Map(_2RangeInclusiveFloat, _5Pass-through: function1);
+        _7Count = Count(_6Map);
+        _8One = One();
+        _9Subtract = Subtract(_7Count, _8One);
+        _10Take = Take(_6Map, _9Subtract);
+        _11One = One();
+        _12Skip = Skip(_6Map, _11One);
+        _13Combine = Combine(_10Take, _12Skip, (Vector3 x0, Vector3 x1) => 
+          {
+            BoundingBox _0Box;// 3:SubdivideBoxAlongDiagonal->8:Box 168868
+            _0Box = Box(x0, x1);
+            _0Box;
+            });
+        _14Map = Map(_13Combine, (BoundingBox x0) => 
+          {
+            Vector3 _0BoxMin;// 5:MatchBoxZ->7:BoxMin 168874
+            Single _1X;// 5:MatchBoxZ->6:X 168873
+            Single _2Y;// 5:MatchBoxZ->10:Y 168875
+            Vector3 _3BoxMin;// 5:MatchBoxZ->4:BoxMin 168877
+            Single _4Z;// 5:MatchBoxZ->11:Z 168876
+            Vector3 _5Vector3;// 5:MatchBoxZ->9:Vector3 168872
+            Vector3 _6BoxMax;// 5:MatchBoxZ->8:BoxMax 168880
+            Single _7X;// 5:MatchBoxZ->14:X 168879
+            Single _8Y;// 5:MatchBoxZ->13:Y 168881
+            Vector3 _9BoxMax;// 5:MatchBoxZ->3:BoxMax 168883
+            Single _10Z;// 5:MatchBoxZ->12:Z 168882
+            Vector3 _11Vector3;// 5:MatchBoxZ->15:Vector3 168878
+            BoundingBox _12Box;// 5:MatchBoxZ->2:Box 168871
+            _0BoxMin = BoxMin(x0);
+            _1X = X(_0BoxMin);
+            _2Y = Y(_0BoxMin);
+            _3BoxMin = BoxMin(x0);
+            _4Z = Z(_3BoxMin);
+            _5Vector3 = Vector3(_1X, _2Y, _4Z);
+            _6BoxMax = BoxMax(x0);
+            _7X = X(_6BoxMax);
+            _8Y = Y(_6BoxMax);
+            _9BoxMax = BoxMax(x0);
+            _10Z = Z(_9BoxMax);
+            _11Vector3 = Vector3(_7X, _8Y, _10Z);
+            _12Box = Box(_5Vector3, _11Vector3);
+            _12Box;
+            });
+        _14Map;
+        };
+    _39Map = Map(_37Flatten, _38Pass-through: function1);
+    _40Flatten = Flatten(_39Map);
+    _41Map = Map(_40Flatten, (BoundingBox x0) => 
+      {
+        BoundingSphere _0SphereFromBox;// 7:BoundingBoxCenter->2:SphereFromBox 168890
+        Vector3 _1SphereCenter;// 7:BoundingBoxCenter->3:SphereCenter 168889
+        Matrix _2TranslationMatrix;// 21:TranslationMatrix 168887
+        _0SphereFromBox = SphereFromBox(x0);
+        _1SphereCenter = SphereCenter(_0SphereFromBox);
+        _2TranslationMatrix = TranslationMatrix(_1SphereCenter);
+        _2TranslationMatrix;
+        });
+    _42Pass-through: function1 = (Matrix x0) => 
+      {
+        Int32 _0Constant;// 3:MatrixRows.ext->0:Constant 168691
+        IArray[Int32] _1Range;// 3:MatrixRows.ext->1:Range 168690
+        IArray[Vector3] _2Map;// 3:MatrixRows.ext->3:Map 168689
+        _0Constant = 4;
+        _1Range = Range(_0Constant);
+        _2Map = Map(_1Range, (Int32 x0) => 
+          {
+            Int32 _0One;// 5:PlusOne->1:One 168695
+            Int32 _1Add;// 5:PlusOne->0:Add 168694
+            Vector3 _2MatrixRow;// 3:MatrixRows.ext->4:MatrixRow 168692
+            _0One = One();
+            _1Add = Add(x0, _0One);
+            _2MatrixRow = MatrixRow(_1Add, x0);
+            _2MatrixRow;
+            });
+        _2Map;
+        };
+    _43Map = Map(_41Map, _42Pass-through: function1);
+    _44Flatten = Flatten(_43Map);
+    _45MeshIndices = MeshIndices(_19SetVisibleEdges);
+    _46SetMapChannel = SetMapChannel(_19SetVisibleEdges, channel, _44Flatten, _45MeshIndices);
+    _47Constant = 100;
+    _48Range = Range(_47Constant);
+    _49Two = Two();
+    _50Skip = Skip(_48Range, _49Two);
+    _51Filter = Filter(_50Skip, (Int32 x0) => 
+      {
+        Int32 _0Constant;// 5:GetMapChannelOrGeometry.ext->0:Constant 168559
+        Boolean _1Equal;// 5:GetMapChannelOrGeometry.ext->4:Equal 168558
+        MapChannel _4Pass-through: any;// 0:Pass-through: any 168550
+        Object _5Null;// 6:IsNullFix2.ext->3:Null 168554
+        Object _6As;// 6:IsNullFix2.ext->23:As 168552
+        Boolean _7Equal;// 6:IsNullFix2.ext->1:Equal 168551
+        Boolean _8Not;// 12:MapChannelExists.ext->4:Not 168549
+        _0Constant = -3;
+        _1Equal = Equal(x0, _0Constant);
+        _4Pass-through: any = if (_1Equal)
+          {
+            MapChannel _2TopologyChannel;// 5:GetMapChannelOrGeometry.ext->6:TopologyChannel 168560
+            _2TopologyChannel = TopologyChannel(_46SetMapChannel);
+            _2TopologyChannel;
+            }else
+          {
+            MapChannel _3GetMapChannel;// 5:GetMapChannelOrGeometry.ext->3:GetMapChannel 168561
+            _3GetMapChannel = GetMapChannel(_46SetMapChannel, x0);
+            _3GetMapChannel;
+            };
+        _5Null = Null();
+        _6As = As(_4Pass-through: any, (Object x0) => 
+          {
+            Object _0IgnoreFirst;// 6:IsNullFix2.ext->5:IgnoreFirst 168553
+            _0IgnoreFirst = IgnoreFirst(x0, _5Null);
+            _0IgnoreFirst;
+            });
+        _7Equal = Equal(_6As, _5Null);
+        _8Not = Not(_7Equal);
+        _8Not;
+        });
+    _52GetMapChannel = GetMapChannel(_46SetMapChannel, channel);
+    _53MapChannelVertexBuffer = MapChannelVertexBuffer(_52GetMapChannel);
+    _54Count = Count(_53MapChannelVertexBuffer);
+    _55Constant = 4;
+    _56Divide = Divide(_54Count, _55Constant);
+    _57Range = Range(_56Divide);
+    _58Map = Map(_57Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 2:Slices->6:Multiply 168602
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 168601
+        _0Multiply = Multiply(_55Constant, x0);
+        _1Slice = Slice(_53MapChannelVertexBuffer, _0Multiply, _55Constant);
+        _1Slice;
+        });
+    _59Map = Map(_58Map, (IArray[Vector3] x0) => 
+      {
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 168614
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 168615
+        Int32 _2Zero;// 6:MatrixFromRows.ext->7:Zero 168619
+        Vector3 _3At;// 6:MatrixFromRows.ext->3:At 168618
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 168613
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 168616
+        Int32 _6One;// 8:PlusOne->1:One 168623
+        Int32 _7Add;// 8:PlusOne->0:Add 168622
+        Vector3 _8At;// 6:MatrixFromRows.ext->4:At 168620
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 168612
+        Int32 _10Constant;// 25:Three->0:Constant 168617
+        Int32 _11One;// 9:PlusOne->1:One 168627
+        Int32 _12Add;// 9:PlusOne->0:Add 168626
+        Vector3 _13At;// 6:MatrixFromRows.ext->5:At 168624
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 168611
+        Int32 _15One;// 10:PlusOne->1:One 168631
+        Int32 _16Add;// 10:PlusOne->0:Add 168630
+        Vector3 _17At;// 6:MatrixFromRows.ext->6:At 168628
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows.ext->2:SetMatrixTranslation 168607
+        _0MatrixIdentity = MatrixIdentity();
+        _1One = One();
+        _2Zero = Zero();
+        _3At = At(x0, _2Zero);
+        _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+        _5Two = Two();
+        _6One = One();
+        _7Add = Add(_2Zero, _6One);
+        _8At = At(x0, _7Add);
+        _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+        _10Constant = 3;
+        _11One = One();
+        _12Add = Add(_7Add, _11One);
+        _13At = At(x0, _12Add);
+        _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+        _15One = One();
+        _16Add = Add(_12Add, _15One);
+        _17At = At(x0, _16Add);
+        _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+        _18SetMatrixTranslation;
+        });
+    _60Constant = 0;
+    _61Vector3 = Vector3(_60Constant, _60Constant, _60Constant);
+    _62Constant = 2;
+    _63Multiply = Multiply(box radius, _62Constant);
+    _64Sphere = Sphere(_61Vector3, _63Multiply);
+    _65BoxFromSphere = BoxFromSphere(_64Sphere);
+    _66BoxQuadMesh = BoxQuadMesh(_65BoxFromSphere);
+    _67Triangulate = Triangulate(_66BoxQuadMesh);
+    _68MeshIndices = MeshIndices(_67Triangulate);
+    _69Indices = Indices(_68MeshIndices);
+    _70Constant = 6;
+    _71Constant = 2;
+    _72Constant = 3;
+    _73Map = Map(_69Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 5:QuadToTriMesh.ext->14:Modulo 168664
+        Boolean _1Equal;// 5:QuadToTriMesh.ext->7:Equal 168663
+        Boolean _2Equal;// 5:QuadToTriMesh.ext->13:Equal 168667
+        Boolean _3OrElse;// 5:QuadToTriMesh.ext->12:OrElse 168662
+        Boolean _4Not;// 5:QuadToTriMesh.ext->10:Not 168661
+        _0Modulo = Modulo(x0, _70Constant);
+        _1Equal = Equal(_0Modulo, _71Constant);
+        _2Equal = Equal(_0Modulo, _72Constant);
+        _3OrElse = OrElse(_1Equal, _2Equal);
+        _4Not = Not(_3OrElse);
+        _4Not;
+        });
+    _74SetVisibleEdges = SetVisibleEdges(_67Triangulate, _73Map);
+    _75MeshIndices = MeshIndices(_74SetVisibleEdges);
+    _76Indices = Indices(_75MeshIndices);
+    _77Constant = 3;
+    _78Constant = 2;
+    _79Map = Map(_76Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 168652
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 168651
+        Boolean _2Not;// 4:HideEveryThirdEdge->7:Not 168647
+        _0Modulo = Modulo(x0, _77Constant);
+        _1Equal = Equal(_0Modulo, _78Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _80SetVisibleEdges = SetVisibleEdges(_74SetVisibleEdges, _79Map);
+    _81Map = Map(_59Map, (Matrix x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 168638
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 168635
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 168637
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 168636
+        _0MeshVertices = MeshVertices(_80SetVisibleEdges);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 36:TransformMesh->0:Transform 168639
+            _0Transform = Transform(x0, x0);
+            _0Transform;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(_80SetVisibleEdges, _2Map);
+        _3SetMeshVertices;
+        });
+    _82CombineAllMeshes = CombineAllMeshes(_81Map);
+    _83Aggregate = Aggregate(_51Filter, _82CombineAllMeshes, (TriMesh x0, Int32 x1) => 
+      {
+        TriMesh _0TryCatch;// 10:MapChannelCopyVertexBuffer.ext->10:TryCatch 168565
+        _0TryCatch = TryCatch(() => 
+          {
+            Int32 _0IgnoreFirst;// 41:MeshCopyCustomMapChannelVertexBuffers.ext->7:IgnoreFirst 168587
+            Int32 _1Constant;// 5:GetMapChannelOrGeometry.ext->0:Constant 168579
+            Boolean _2Equal;// 5:GetMapChannelOrGeometry.ext->4:Equal 168578
+            MapChannel _5Pass-through: any;// 0:Pass-through: any 168570
+            Object _6Null;// 6:IsNullFix2.ext->3:Null 168574
+            Object _7As;// 6:IsNullFix2.ext->23:As 168572
+            Boolean _8Equal;// 6:IsNullFix2.ext->1:Equal 168571
+            Boolean _9Not;// 5:MapChannelExists.ext->4:Not 168569
+            _0IgnoreFirst = IgnoreFirst(x0, x1);
+            _1Constant = -3;
+            _2Equal = Equal(_0IgnoreFirst, _1Constant);
+            _5Pass-through: any = if (_2Equal)
+              {
+                MapChannel _3TopologyChannel;// 5:GetMapChannelOrGeometry.ext->6:TopologyChannel 168580
+                _3TopologyChannel = TopologyChannel(_46SetMapChannel);
+                _3TopologyChannel;
+                }else
+              {
+                MapChannel _4GetMapChannel;// 5:GetMapChannelOrGeometry.ext->3:GetMapChannel 168581
+                _4GetMapChannel = GetMapChannel(_46SetMapChannel, _0IgnoreFirst);
+                _4GetMapChannel;
+                };
+            _6Null = Null();
+            _7As = As(_5Pass-through: any, (Object x0) => 
+              {
+                Object _0IgnoreFirst;// 6:IsNullFix2.ext->5:IgnoreFirst 168573
+                _0IgnoreFirst = IgnoreFirst(x0, _6Null);
+                _0IgnoreFirst;
+                });
+            _8Equal = Equal(_7As, _6Null);
+            _9Not = Not(_8Equal);
+            if (_9Not)
+              {
+                MapChannel _10GetMapChannel;// 10:MapChannelCopyVertexBuffer.ext->1:GetMapChannel 168584
+                IArray[Vector3] _11MapChannelVertexBuffer;// 10:MapChannelCopyVertexBuffer.ext->8:MapChannelVertexBuffer 168583
+                IArray[Int32] _12MeshIndices;// 10:MapChannelCopyVertexBuffer.ext->0:MeshIndices 168585
+                TriMesh _13SetMapChannel;// 10:MapChannelCopyVertexBuffer.ext->7:SetMapChannel 168582
+                _10GetMapChannel = GetMapChannel(_46SetMapChannel, _0IgnoreFirst);
+                _11MapChannelVertexBuffer = MapChannelVertexBuffer(_10GetMapChannel);
+                _12MeshIndices = MeshIndices(x0);
+                _13SetMapChannel = SetMapChannel(x0, _0IgnoreFirst, _11MapChannelVertexBuffer, _12MeshIndices);
+                _13SetMapChannel;
+                }else
+              {
+                x0;
+                };
+            }, (Exception x0) => 
+          {
+            TriMesh _0IgnoreFirst;// 10:MapChannelCopyVertexBuffer.ext->11:IgnoreFirst 168586
+            _0IgnoreFirst = IgnoreFirst(x0, x0);
+            _0IgnoreFirst;
+            });
+        _0TryCatch;
+        });
+    _84IgnoreFirst = IgnoreFirst(_46SetMapChannel, _83Aggregate);
+    _84IgnoreFirst;
+    }
