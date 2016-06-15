@@ -3,18 +3,14 @@
 A library of useful Max Creation Graph (MCG) compounds and tools for 3ds Max 2017.
 
 You can use these sample by downloading and unzipping the repository from:  
-  https://github.com/ADN-DevTech/3dsMax-MCG-Samples/archive/master.zip
+https://github.com/ADN-DevTech/3dsMax-MCG-Samples/archive/master.zip
   
-to:
-  %userprofile%\Autodesk\3ds Max 2017\Max Creation Graph\Tools
+to:  %userprofile%\Autodesk\3ds Max 2017\Max Creation Graph\Tools
 
-Where %userprofile% can be entered directly into Windows explorer. 
+Where %userprofile% can be entered directly into Windows explorer and usually maps to somewhere  like "C:\Users\digginc\"
 
-Once you have downloaded the new tools, either restart 3ds Max or open the Max Creation Graph Editor and selected 
-  Operators > ReloadOperators 
-
-Followed by: 
-  Build > Evaluate All Tools.
+Once you have downloaded the new tools, either restart 3ds Max or open the Max Creation Graph Editor and select from the menu
+"Operators > ReloadOperators" followed by "Build > Evaluate All Tools".
 
 ## Sample MCG Tools
 
