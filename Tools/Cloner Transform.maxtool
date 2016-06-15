@@ -1,17 +1,15 @@
 <graph version="0.50" uuid="4186a222-c00e-477b-9149-6534c3395ee8">
     <meta_info>
-        <graph_version guid="f5140787-b4e2-403d-bdc6-14ce61ebbfe7" number="0.0.71" />
+        <graph_version guid="fd8020bc-c7ec-40d1-a7c2-f4c03917d16c" number="0.0.72" />
     </meta_info>
     <nodes>
         <node operator="Parameter: Int32" id="7" name="channel id" min_value="-3" max_value="100" default_value="2" position="907:29" size="140:175" />
         <node operator="Output: modifier" id="15" position="2489:274" size="140:70" />
         <node operator="Modifier: TriMesh" id="1" position="906:240" size="140:91" />
-        <node operator="Parameter: Boolean" id="12" name="transform  local" default_value="false" position="764:657" size="140:133" />
         <node operator="PositionRotationScaleMatrix-ext" id="18" position="385:516" size="200:154" />
         <node operator="EulerDegreesToQuaternion-ext" id="52" position="129:489" size="200:112" />
         <node operator="ParallelMap" id="2" position="1249:511" size="140:133" />
-        <node operator="MatrixApplyOrSetTransform-ext" id="3" position="970:553" size="140:175" />
-        <node operator="Parameter: Boolean" id="4" name="absolute " default_value="false" position="749:511" size="140:133" />
+        <node operator="Parameter: Boolean" id="4" name="relative" default_value="true" position="749:491" size="140:133" />
         <node operator="StoreMatricesInMapChannel-ext" id="60" position="1630:229" size="280:154" />
         <node operator="MatricesRandomize-ext" id="14" position="2268:777" size="220:196" />
         <node operator="Parameter: Int32" id="16" name="random seed" min_value="0" max_value="10000" default_value="0" position="2249:549" size="140:175" />
@@ -43,20 +41,30 @@
         <node operator="Parameter: Single" id="54" name="rand rotation z" min_value="-1000000" max_value="1000000" default_value="0" system_units_value="false" position="1769:1349" size="180:196" />
         <node operator="Vector3" id="55" position="2009:1209" size="140:154" />
         <node operator="Parameter: Single" id="56" name="rand rotation x" min_value="-1000000" max_value="1000000" default_value="0" system_units_value="false" position="1669:1069" size="180:196" />
-        <node groupnode="Rotation" id="33" position="-580:340" size="564:517" bg_color="#ff646464">
-            <nodes>31,32,11,21</nodes>
+        <node operator="MatrixApplyTransform-ext" id="9" position="936:540" size="140:154" />
+        <node groupnode="Flux parameters" id="0" position="760:0" size="320:378" bg_color="#ff646464">
+            <nodes>7,1,26</nodes>
         </node>
-        <node groupnode="Create meshes" id="27" position="2100:140" size="538:316" bg_color="#ff646464">
-            <nodes>23,15,25</nodes>
+        <node groupnode="Create transform matrix" id="51" position="120:460" size="474:219" bg_color="#ff646464">
+            <nodes>18,52</nodes>
         </node>
-        <node groupnode="Translation" id="38" position="840:860" size="618:517" bg_color="#ff646464">
-            <nodes>48,47,46,45</nodes>
+        <node groupnode="Scaling" id="6" position="60:760" size="618:517" bg_color="#ff646464">
+            <nodes>13,34,35,36</nodes>
         </node>
         <node groupnode="Scaling" id="37" position="1540:480" size="618:517" bg_color="#ff646464">
-            <nodes>44,41,42,43</nodes>
+            <nodes>41,42,43,44</nodes>
         </node>
         <node groupnode="Rotation" id="40" position="1540:1040" size="618:517" bg_color="#ff646464">
-            <nodes>56,54,53,55</nodes>
+            <nodes>53,54,55,56</nodes>
+        </node>
+        <node groupnode="Translation" id="38" position="840:860" size="618:517" bg_color="#ff646464">
+            <nodes>45,46,47,48</nodes>
+        </node>
+        <node groupnode="Create meshes" id="27" position="2100:140" size="538:316" bg_color="#ff646464">
+            <nodes>15,23,25</nodes>
+        </node>
+        <node groupnode="Rotation" id="33" position="-580:340" size="564:517" bg_color="#ff646464">
+            <nodes>11,21,31,32</nodes>
         </node>
         <node groupnode="Places matrices in channel" id="68" position="1580:200" size="450:231" bg_color="#ff646464">
             <nodes>60</nodes>
@@ -64,23 +72,14 @@
         <node groupnode="Transform matrices" id="67" position="1200:271" size="276:390" bg_color="#ff646464">
             <nodes>2,28</nodes>
         </node>
-        <node groupnode="apply transform relative to self or modifier TM" id="10" position="740:460" size="402:342" bg_color="#ff646464">
-            <nodes>4,12,3</nodes>
+        <node groupnode="apply transform relative to self or modifier TM" id="10" position="740:440" size="402:282" bg_color="#ff646464">
+            <nodes>4,9</nodes>
         </node>
         <node groupnode="Random amounts matrix" id="20" position="2240:520" size="257:462" bg_color="#ff646464">
-            <nodes>16,14</nodes>
+            <nodes>14,16</nodes>
         </node>
         <node groupnode="Translation" id="5" position="60:-140" size="618:517" bg_color="#ff646464">
-            <nodes>8,30,22,24</nodes>
-        </node>
-        <node groupnode="Scaling" id="6" position="60:760" size="618:517" bg_color="#ff646464">
-            <nodes>36,35,13,34</nodes>
-        </node>
-        <node groupnode="Create transform matrix" id="51" position="120:460" size="474:219" bg_color="#ff646464">
-            <nodes>18,52</nodes>
-        </node>
-        <node groupnode="Flux parameters" id="0" position="760:0" size="320:378" bg_color="#ff646464">
-            <nodes>7,1,26</nodes>
+            <nodes>8,22,24,30</nodes>
         </node>
     </nodes>
     <connections>
@@ -90,10 +89,7 @@
         <connection sourcenode="36" sourceport="0" destnode="18" destport="2" />
         <connection sourcenode="31" sourceport="0" destnode="52" destport="0" />
         <connection sourcenode="28" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="3" sourceport="1" destnode="2" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="9" sourceport="1" destnode="2" destport="1" />
         <connection sourcenode="1" sourceport="0" destnode="60" destport="0" />
         <connection sourcenode="7" sourceport="0" destnode="60" destport="1" />
         <connection sourcenode="14" sourceport="0" destnode="60" destport="2" />
@@ -126,5 +122,7 @@
         <connection sourcenode="56" sourceport="0" destnode="55" destport="0" />
         <connection sourcenode="53" sourceport="0" destnode="55" destport="1" />
         <connection sourcenode="54" sourceport="0" destnode="55" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="9" destport="1" />
     </connections>
 </graph>

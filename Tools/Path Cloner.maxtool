@@ -1,6 +1,6 @@
 <graph version="0.50" uuid="cdcdb486-87d5-41f4-89d6-60c5dc4d1d65">
     <meta_info>
-        <graph_version guid="a4eb247d-98e4-4c14-b26f-9d2e72bd7e7a" number="0.0.33" />
+        <graph_version guid="af27c996-ffec-4995-8181-74dfef93cb6d" number="0.0.36" />
         <category>MCG Cloners</category>
     </meta_info>
     <nodes>
@@ -36,7 +36,6 @@
         <node operator="Parameter: Boolean" id="28" name="scale when spacing" default_value="false" position="1029:351" size="140:133" />
         <node operator="ClonerMeshAsBoxes-ext" id="9" position="1809:61" size="140:154" />
         <node operator="Output: geometry" id="1" position="2021:147" size="140:70" />
-        <node operator="Geometry: Matrix" id="6" position="-425:-81" size="140:91" />
         <node operator="CubeMesh-ext" id="10" position="1114:-262" size="140:112" />
         <node operator="If" id="21" position="2025:-31" size="140:154" />
         <node operator="CanGetSplineFromNode" id="22" position="1800:-60" size="140:112" />
@@ -44,29 +43,30 @@
         <node operator="ClonerFilterRandomly-ext" id="30" position="1831:405" size="140:175" />
         <node operator="Parameter: Int32" id="33" name="seed" min_value="0" max_value="10000" default_value="0" position="1593:557" size="140:175" />
         <node operator="Parameter: Single" id="34" name="probability" min_value="0" max_value="100" default_value="100" system_units_value="false" position="1590:360" size="140:196" />
+        <node operator="Geometry: Matrix" id="6" position="-400:-80" size="140:91" />
+        <node groupnode="Get line segments from spline" id="11" position="-640:-280" size="580:302" bg_color="#ff646464">
+            <nodes>13,23,31,6</nodes>
+        </node>
         <node groupnode="Apply spacing" id="29" position="1020:180" size="489:522" bg_color="#ff646464">
             <nodes>25,26,27,28</nodes>
-        </node>
-        <node groupnode="Store matrices in map channel" id="8" position="1080:-298" size="545:354" bg_color="#ff646464">
-            <nodes>2,0,10</nodes>
         </node>
         <node groupnode="Convert line to two matrices aligned along line" id="4" position="-680:200" size="479:217" bg_color="#ff646464">
             <nodes>3,5</nodes>
         </node>
-        <node groupnode="Get line segments from spline" id="11" position="-640:-280" size="580:318" bg_color="#ff646464">
-            <nodes>13,23,6,31</nodes>
-        </node>
-        <node groupnode="Create mesh" id="24" position="1780:-100" size="489:354" bg_color="#ff646464">
-            <nodes>9,1,21,22</nodes>
-        </node>
-        <node groupnode="For each matrix pair offset A and B" id="55" position="-160:180" size="1116:528" bg_color="#ff646464">
-            <nodes>52,53,51,49,50,54,43,44,45,46,47,48</nodes>
-        </node>
-        <node groupnode="Append matrices in the other direction" id="17" position="20:-320" size="822:431" bg_color="#ff646464">
-            <nodes>14,12,7,16,15,18,19</nodes>
+        <node groupnode="Store matrices in map channel" id="8" position="1080:-298" size="545:354" bg_color="#ff646464">
+            <nodes>2,0,10</nodes>
         </node>
         <node groupnode="Apply random filter" id="32" position="1580:320" size="400:424" bg_color="#ff646464">
             <nodes>30,33,34</nodes>
+        </node>
+        <node groupnode="For each matrix pair offset A and B" id="55" position="-160:180" size="1116:528" bg_color="#ff646464">
+            <nodes>49,50,51,52,53,54,43,44,45,46,47,48</nodes>
+        </node>
+        <node groupnode="Append matrices in the other direction" id="17" position="20:-320" size="822:431" bg_color="#ff646464">
+            <nodes>14,7,12,16,15,18,19</nodes>
+        </node>
+        <node groupnode="Create mesh" id="24" position="1780:-100" size="489:354" bg_color="#ff646464">
+            <nodes>9,1,21,22</nodes>
         </node>
     </nodes>
     <connections>

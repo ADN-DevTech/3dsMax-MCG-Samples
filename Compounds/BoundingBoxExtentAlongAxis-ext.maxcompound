@@ -1,18 +1,20 @@
 <graph version="0.50" uuid="031ca511-eb62-41cc-83bc-3053bb2019e3">
     <meta_info>
-        <graph_version guid="1c25672a-7f26-4f6d-a6e3-b9f3d06c626b" number="0.0.1" />
+        <graph_version guid="b718712f-d879-4003-b577-f871eb06ebd6" number="0.0.3" />
+        <category>Geometry - Bounding box</category>
+        <description>Returns the extent (max-min) of a bounding box along a given axis (0=X, 1=Y, 2=Z).</description>
     </meta_info>
     <nodes>
-        <node operator="Input: BoundingBox" id="0" name="box" position="100:480" size="140:117" />
-        <node operator="Input: Int32" id="1" name="axis" position="100:620" size="140:117" />
-        <node operator="BoundingBoxExtent-ext" id="2" position="320:500" size="140:117" />
-        <node operator="VectorElement-ext" id="4" position="540:600" size="140:141" />
-        <node operator="Output: compound" id="3" position="740:640" size="140:69" />
+        <node operator="Input: BoundingBox" id="0" name="box" position="100:480" size="140:112" />
+        <node operator="Input: Int32" id="1" name="axis" position="100:620" size="140:112" />
+        <node operator="VectorElement-ext" id="4" position="540:600" size="140:133" />
+        <node operator="Output: compound" id="3" position="740:640" size="140:70" />
+        <node operator="BoundingBoxExtent" id="5" position="340:520" size="140:112" />
     </nodes>
     <connections>
-        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
         <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
         <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
     </connections>
 </graph>

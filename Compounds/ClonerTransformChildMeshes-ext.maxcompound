@@ -1,26 +1,32 @@
 <graph version="0.50" uuid="2809830e-439f-4047-b300-2bef1cc3c191">
     <meta_info>
-        <graph_version guid="7fb63f05-a660-4cd2-8a4f-b029ec788f8f" number="0.0.28" />
+        <graph_version guid="df399209-6903-4ce2-baa5-f4eced4f6dd0" number="0.0.40" />
+        <category>Cloner</category>
     </meta_info>
     <nodes>
-        <node operator="Input: INode" id="2" name="node" position="0:260" size="140:112" />
-        <node operator="Input: array" id="6" name="matrices" position="0:520" size="140:112" />
-        <node operator="Input: Int32" id="7" name="seed" position="0:400" size="140:112" />
-        <node operator="Output: compound" id="11" position="1320:560" size="140:70" />
-        <node operator="Combine" id="12" position="660:540" size="140:154" />
-        <node operator="TransformMesh" id="13" position="440:600" size="140:133" />
+        <node operator="Input: INode" id="2" name="node" position="0:400" size="140:112" />
+        <node operator="Input: array" id="6" name="matrices" position="0:260" size="140:112" />
+        <node operator="Input: Int32" id="7" name="seed" position="0:520" size="140:112" />
+        <node operator="Output: compound" id="11" position="1320:500" size="140:70" />
+        <node operator="Combine" id="12" position="660:480" size="140:154" />
+        <node operator="TransformMesh" id="13" position="440:520" size="140:133" />
         <node operator="Input: Boolean" id="15" name="randomiChoice" position="0:140" size="140:112" />
-        <node operator="ClonerChildNodes-ext" id="17" position="220:220" size="140:196" />
-        <node operator="MeshFromNode" id="0" position="220:640" size="140:112" />
+        <node operator="ClonerChildNodes-ext" id="17" position="220:240" size="140:196" />
+        <node operator="MeshFromNode" id="0" position="220:500" size="140:112" />
         <node operator="Input: Boolean" id="1" name="useChildren" position="0:0" size="140:112" />
-        <node operator="Input: Boolean" id="4" name="createNodes" position="880:320" size="140:112" />
-        <node operator="SetNodeTransform" id="5" position="220:440" size="140:133" />
-        <node operator="Combine" id="8" position="660:340" size="140:154" />
-        <node operator="Map" id="10" position="440:140" size="140:133" />
-        <node operator="CloneAsInstance" id="14" position="220:60" size="140:112" />
-        <node operator="MeshFromNode" id="9" position="440:340" size="140:112" />
-        <node operator="IfThen" id="21" position="1100:500" size="140:154" />
-        <node operator="IgnoreFirst" id="3" position="880:460" size="140:133" />
+        <node operator="Input: Boolean" id="4" name="createNodes" position="1120:300" size="140:112" />
+        <node operator="SetNodeTransform" id="5" position="440:280" size="140:133" />
+        <node operator="Combine" id="8" position="660:280" size="140:154" />
+        <node operator="Map" id="10" position="440:80" size="140:133" />
+        <node operator="CloneAsInstance" id="14" position="220:100" size="140:112" />
+        <node operator="IfThen" id="21" position="1100:440" size="140:154" />
+        <node operator="IgnoreFirst" id="3" position="900:420" size="140:133" />
+        <node operator="SetParent" id="9" position="840:160" size="140:133" />
+        <node operator="CreateEditableMesh" id="16" position="840:40" size="140:112" />
+        <node operator="CubeMesh-ext" id="18" position="680:20" size="140:112" />
+        <node operator="FloatOne" id="19" position="500:-20" size="140:91" />
+        <node operator="Bind2of2" id="20" position="1020:120" size="140:133" />
+        <node operator="Map" id="22" position="900:300" size="140:133" />
     </nodes>
     <connections>
         <connection sourcenode="21" sourceport="0" destnode="11" destport="0" />
@@ -35,14 +41,19 @@
         <connection sourcenode="7" sourceport="0" destnode="17" destport="4" />
         <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
         <connection sourcenode="6" sourceport="0" destnode="8" destport="1" />
-        <connection sourcenode="9" sourceport="1" destnode="8" destport="2" />
+        <connection sourcenode="5" sourceport="1" destnode="8" destport="2" />
         <connection sourcenode="17" sourceport="0" destnode="10" destport="0" />
         <connection sourcenode="14" sourceport="1" destnode="10" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
         <connection sourcenode="4" sourceport="0" destnode="21" destport="0" />
         <connection sourcenode="3" sourceport="1" destnode="21" destport="1" />
         <connection sourcenode="12" sourceport="1" destnode="21" destport="2" />
-        <connection sourcenode="8" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="3" destport="0" />
         <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="20" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="22" destport="1" />
     </connections>
 </graph>
