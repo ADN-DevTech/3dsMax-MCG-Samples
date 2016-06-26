@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="9aa8bffe-55d0-40b0-9b40-848884603f33">
+    <meta_info>
+        <graph_version guid="97507689-45b1-435f-bfc0-3f042deb0611" number="0.0.9" />
+        <category>Geometry - TriMesh</category>
+        <description>Sets the vertices of a mesh using the soft-selection channel, if present, to interpolate between original vertices and new vertices. In most cases you should use this instead of &quot;SetMeshVertices&quot;.</description>
+    </meta_info>
+    <nodes>
+        <node operator="MeshVertices" id="0" position="249:37" size="140:112" />
+        <node operator="LerpVectors-ext" id="1" position="424:83" size="140:154" />
+        <node operator="Input: TriMesh" id="2" name="mesh" position="0:200" size="160:112" />
+        <node operator="Input: array" id="3" name="vertices" position="20:340" size="140:112" />
+        <node operator="HasSoftSelection" id="4" position="780:120" size="140:112" />
+        <node operator="SetMeshVertices" id="6" position="606:102" size="140:133" />
+        <node operator="SoftSelection" id="7" position="249:177" size="140:112" />
+        <node operator="SetMeshVertices" id="8" position="538:353" size="140:133" />
+        <node operator="Output: compound" id="9" position="960:360" size="140:70" />
+        <node operator="IfThen" id="10" position="980:160" size="140:154" />
+        <node groupnode="If no selection present" id="5" position="460:320" size="274:176" bg_color="#ff646464">
+            <nodes>8</nodes>
+        </node>
+        <node groupnode="Interpolate between original and new positions" id="11" position="240:-20" size="515:321" bg_color="#ff646464">
+            <nodes>6,7,1,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="10" destport="1" />
+        <connection sourcenode="8" sourceport="1" destnode="10" destport="2" />
+    </connections>
+</graph>
