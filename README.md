@@ -8,6 +8,8 @@ A library of useful Max Creation Graph (MCG) compounds and tools for 3ds Max 201
 
 Note that "%userprofile%" can be entered directly into Windows explorer and usually maps to somewhere  like "C:\Users\digginc\". We recommend that if you have installed previously you move the old "3dsMax-MCG-Samples" folder outside of the "Max Creation Graph\Tools" pathbefore unzipping.  
 
+This process is documented in video at: https://www.youtube.com/watch?v=C6qJNoEudaI 
+
 ## Sample MCG Tools
 
 In the object construction panel under the "MCG Cloners" category:
