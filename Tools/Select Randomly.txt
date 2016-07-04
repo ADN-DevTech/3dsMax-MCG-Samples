@@ -1,0 +1,292 @@
+(InstanceState state, Int32 subobject, TriMesh mesh, Int32 seed, Single probability, Int32 sel method) => 
+  {
+    Int32 _0Zero;// 2:Switch3-ext->5:Zero 131728
+    Boolean _1Equal;// 2:Switch3-ext->4:Equal 131727
+    TriMesh _2IfThen;// 2:Switch3-ext->6:IfThen 131726
+    _0Zero = Zero();
+    _1Equal = Equal(subobject, _0Zero);
+    _2IfThen = IfThen(_1Equal, () => 
+      {
+        Int32 _0Zero;// 2:Switch3-ext->5:Zero 131821
+        Boolean _1Equal;// 2:Switch3-ext->4:Equal 131820
+        IArray[Boolean] _2IfThen;// 2:Switch3-ext->6:IfThen 131819
+        Int32 _3Count;// 9:Count 131812
+        IArray[Int32] _4Range;// 7:MapRange-ext->2:Range 131806
+        Single _5Constant;// 6:DivideBy100Float->0:Constant 131831
+        Single _6Divide;// 6:DivideBy100Float->1:Divide 131830
+        Func[Int32, Boolean] _7Pass-through: function1;// 0:Pass-through: function1 131804
+        IArray[Boolean] _8Map;// 7:MapRange-ext->3:Map 131805
+        IArray[Boolean] _9VertexSelection;// 3:SelectVertices-ext->2:VertexSelection 131737
+        IArray[Boolean] _10Combine;// 3:SelectVertices-ext->10:Combine 131736
+        TriMesh _11SetVertexSelection;// 3:SelectVertices-ext->5:SetVertexSelection 131735
+        _0Zero = Zero();
+        _1Equal = Equal(subobject, _0Zero);
+        _2IfThen = IfThen(_1Equal, () => 
+          {
+            IArray[Boolean] _0VertexSelection;// 0:SubObjectSelection-ext->9:VertexSelection 131825
+            _0VertexSelection = VertexSelection(mesh);
+            _0VertexSelection;
+            }, () => 
+          {
+            Int32 _0One;// 2:Switch3-ext->2:One 131824
+            Boolean _1Equal;// 2:Switch3-ext->7:Equal 131823
+            IArray[Boolean] _2IfThen;// 2:Switch3-ext->8:IfThen 131822
+            _0One = One();
+            _1Equal = Equal(subobject, _0One);
+            _2IfThen = IfThen(_1Equal, () => 
+              {
+                IArray[Boolean] _0EdgeSelection;// 0:SubObjectSelection-ext->8:EdgeSelection 131826
+                _0EdgeSelection = EdgeSelection(mesh);
+                _0EdgeSelection;
+                }, () => 
+              {
+                IArray[Boolean] _0FaceSelection;// 0:SubObjectSelection-ext->5:FaceSelection 131827
+                _0FaceSelection = FaceSelection(mesh);
+                _0FaceSelection;
+                });
+            _2IfThen;
+            });
+        _3Count = Count(_2IfThen);
+        _4Range = Range(_3Count);
+        _5Constant = 100;
+        _6Divide = Divide(probability, _5Constant);
+        _7Pass-through: function1 = (Int32 x0) => 
+          {
+            Single _0RandFloat;// 2:RandBool-ext->2:RandFloat 131811
+            Boolean _1LessThan;// 2:RandBool-ext->4:LessThan 131810
+            _0RandFloat = RandFloat(seed, x0);
+            _1LessThan = LessThan(_0RandFloat, _6Divide);
+            _1LessThan;
+            };
+        _8Map = Map(_4Range, _7Pass-through: function1);
+        _9VertexSelection = VertexSelection(mesh);
+        _10Combine = Combine(_8Map, _9VertexSelection, (Boolean x0, Boolean x1) => 
+          {
+            Int32 _0Zero;// 3:Switch3-ext->5:Zero 131747
+            Boolean _1Equal;// 3:Switch3-ext->4:Equal 131746
+            Boolean _2IfThen;// 3:Switch3-ext->6:IfThen 131745
+            _0Zero = Zero();
+            _1Equal = Equal(sel method, _0Zero);
+            _2IfThen = IfThen(_1Equal, () => 
+              {
+                x0;
+                }, () => 
+              {
+                Int32 _0One;// 3:Switch3-ext->2:One 131750
+                Boolean _1Equal;// 3:Switch3-ext->7:Equal 131749
+                Boolean _2IfThen;// 3:Switch3-ext->8:IfThen 131748
+                _0One = One();
+                _1Equal = Equal(sel method, _0One);
+                _2IfThen = IfThen(_1Equal, () => 
+                  {
+                    Boolean _0OrElse;// 4:SelectionUpdateFunction-ext->4:OrElse 131751
+                    _0OrElse = OrElse(x0, x1);
+                    _0OrElse;
+                    }, () => 
+                  {
+                    Boolean _0Not;// 4:SelectionUpdateFunction-ext->6:Not 131753
+                    Boolean _1AndAlso;// 4:SelectionUpdateFunction-ext->5:AndAlso 131752
+                    _0Not = Not(x0);
+                    _1AndAlso = AndAlso(x1, _0Not);
+                    _1AndAlso;
+                    });
+                _2IfThen;
+                });
+            _2IfThen;
+            });
+        _11SetVertexSelection = SetVertexSelection(mesh, _10Combine);
+        _11SetVertexSelection;
+        }, () => 
+      {
+        Int32 _0One;// 2:Switch3-ext->2:One 131731
+        Boolean _1Equal;// 2:Switch3-ext->7:Equal 131730
+        TriMesh _2IfThen;// 2:Switch3-ext->8:IfThen 131729
+        _0One = One();
+        _1Equal = Equal(subobject, _0One);
+        _2IfThen = IfThen(_1Equal, () => 
+          {
+            Int32 _0Zero;// 2:Switch3-ext->5:Zero 131821
+            Boolean _1Equal;// 2:Switch3-ext->4:Equal 131820
+            IArray[Boolean] _2IfThen;// 2:Switch3-ext->6:IfThen 131819
+            Int32 _3Count;// 9:Count 131812
+            IArray[Int32] _4Range;// 7:MapRange-ext->2:Range 131806
+            Single _5Constant;// 6:DivideBy100Float->0:Constant 131831
+            Single _6Divide;// 6:DivideBy100Float->1:Divide 131830
+            Func[Int32, Boolean] _7Pass-through: function1;// 0:Pass-through: function1 131804
+            IArray[Boolean] _8Map;// 7:MapRange-ext->3:Map 131805
+            IArray[Boolean] _9EdgeSelection;// 4:SelectEdges-ext->5:EdgeSelection 131759
+            IArray[Boolean] _10Combine;// 4:SelectEdges-ext->10:Combine 131758
+            TriMesh _11SetEdgeSelection;// 4:SelectEdges-ext->2:SetEdgeSelection 131757
+            _0Zero = Zero();
+            _1Equal = Equal(subobject, _0Zero);
+            _2IfThen = IfThen(_1Equal, () => 
+              {
+                IArray[Boolean] _0VertexSelection;// 0:SubObjectSelection-ext->9:VertexSelection 131825
+                _0VertexSelection = VertexSelection(mesh);
+                _0VertexSelection;
+                }, () => 
+              {
+                Int32 _0One;// 2:Switch3-ext->2:One 131824
+                Boolean _1Equal;// 2:Switch3-ext->7:Equal 131823
+                IArray[Boolean] _2IfThen;// 2:Switch3-ext->8:IfThen 131822
+                _0One = One();
+                _1Equal = Equal(subobject, _0One);
+                _2IfThen = IfThen(_1Equal, () => 
+                  {
+                    IArray[Boolean] _0EdgeSelection;// 0:SubObjectSelection-ext->8:EdgeSelection 131826
+                    _0EdgeSelection = EdgeSelection(mesh);
+                    _0EdgeSelection;
+                    }, () => 
+                  {
+                    IArray[Boolean] _0FaceSelection;// 0:SubObjectSelection-ext->5:FaceSelection 131827
+                    _0FaceSelection = FaceSelection(mesh);
+                    _0FaceSelection;
+                    });
+                _2IfThen;
+                });
+            _3Count = Count(_2IfThen);
+            _4Range = Range(_3Count);
+            _5Constant = 100;
+            _6Divide = Divide(probability, _5Constant);
+            _7Pass-through: function1 = (Int32 x0) => 
+              {
+                Single _0RandFloat;// 2:RandBool-ext->2:RandFloat 131811
+                Boolean _1LessThan;// 2:RandBool-ext->4:LessThan 131810
+                _0RandFloat = RandFloat(seed, x0);
+                _1LessThan = LessThan(_0RandFloat, _6Divide);
+                _1LessThan;
+                };
+            _8Map = Map(_4Range, _7Pass-through: function1);
+            _9EdgeSelection = EdgeSelection(mesh);
+            _10Combine = Combine(_8Map, _9EdgeSelection, (Boolean x0, Boolean x1) => 
+              {
+                Int32 _0Zero;// 3:Switch3-ext->5:Zero 131769
+                Boolean _1Equal;// 3:Switch3-ext->4:Equal 131768
+                Boolean _2IfThen;// 3:Switch3-ext->6:IfThen 131767
+                _0Zero = Zero();
+                _1Equal = Equal(sel method, _0Zero);
+                _2IfThen = IfThen(_1Equal, () => 
+                  {
+                    x0;
+                    }, () => 
+                  {
+                    Int32 _0One;// 3:Switch3-ext->2:One 131772
+                    Boolean _1Equal;// 3:Switch3-ext->7:Equal 131771
+                    Boolean _2IfThen;// 3:Switch3-ext->8:IfThen 131770
+                    _0One = One();
+                    _1Equal = Equal(sel method, _0One);
+                    _2IfThen = IfThen(_1Equal, () => 
+                      {
+                        Boolean _0OrElse;// 4:SelectionUpdateFunction-ext->4:OrElse 131773
+                        _0OrElse = OrElse(x0, x1);
+                        _0OrElse;
+                        }, () => 
+                      {
+                        Boolean _0Not;// 4:SelectionUpdateFunction-ext->6:Not 131775
+                        Boolean _1AndAlso;// 4:SelectionUpdateFunction-ext->5:AndAlso 131774
+                        _0Not = Not(x0);
+                        _1AndAlso = AndAlso(x1, _0Not);
+                        _1AndAlso;
+                        });
+                    _2IfThen;
+                    });
+                _2IfThen;
+                });
+            _11SetEdgeSelection = SetEdgeSelection(mesh, _10Combine);
+            _11SetEdgeSelection;
+            }, () => 
+          {
+            Int32 _0Zero;// 2:Switch3-ext->5:Zero 131821
+            Boolean _1Equal;// 2:Switch3-ext->4:Equal 131820
+            IArray[Boolean] _2IfThen;// 2:Switch3-ext->6:IfThen 131819
+            Int32 _3Count;// 9:Count 131812
+            IArray[Int32] _4Range;// 7:MapRange-ext->2:Range 131806
+            Single _5Constant;// 6:DivideBy100Float->0:Constant 131831
+            Single _6Divide;// 6:DivideBy100Float->1:Divide 131830
+            Func[Int32, Boolean] _7Pass-through: function1;// 0:Pass-through: function1 131804
+            IArray[Boolean] _8Map;// 7:MapRange-ext->3:Map 131805
+            IArray[Boolean] _9FaceSelection;// 6:SelectFaces-ext->2:FaceSelection 131781
+            IArray[Boolean] _10Combine;// 6:SelectFaces-ext->10:Combine 131780
+            TriMesh _11SetFaceSelection;// 6:SelectFaces-ext->11:SetFaceSelection 131779
+            _0Zero = Zero();
+            _1Equal = Equal(subobject, _0Zero);
+            _2IfThen = IfThen(_1Equal, () => 
+              {
+                IArray[Boolean] _0VertexSelection;// 0:SubObjectSelection-ext->9:VertexSelection 131825
+                _0VertexSelection = VertexSelection(mesh);
+                _0VertexSelection;
+                }, () => 
+              {
+                Int32 _0One;// 2:Switch3-ext->2:One 131824
+                Boolean _1Equal;// 2:Switch3-ext->7:Equal 131823
+                IArray[Boolean] _2IfThen;// 2:Switch3-ext->8:IfThen 131822
+                _0One = One();
+                _1Equal = Equal(subobject, _0One);
+                _2IfThen = IfThen(_1Equal, () => 
+                  {
+                    IArray[Boolean] _0EdgeSelection;// 0:SubObjectSelection-ext->8:EdgeSelection 131826
+                    _0EdgeSelection = EdgeSelection(mesh);
+                    _0EdgeSelection;
+                    }, () => 
+                  {
+                    IArray[Boolean] _0FaceSelection;// 0:SubObjectSelection-ext->5:FaceSelection 131827
+                    _0FaceSelection = FaceSelection(mesh);
+                    _0FaceSelection;
+                    });
+                _2IfThen;
+                });
+            _3Count = Count(_2IfThen);
+            _4Range = Range(_3Count);
+            _5Constant = 100;
+            _6Divide = Divide(probability, _5Constant);
+            _7Pass-through: function1 = (Int32 x0) => 
+              {
+                Single _0RandFloat;// 2:RandBool-ext->2:RandFloat 131811
+                Boolean _1LessThan;// 2:RandBool-ext->4:LessThan 131810
+                _0RandFloat = RandFloat(seed, x0);
+                _1LessThan = LessThan(_0RandFloat, _6Divide);
+                _1LessThan;
+                };
+            _8Map = Map(_4Range, _7Pass-through: function1);
+            _9FaceSelection = FaceSelection(mesh);
+            _10Combine = Combine(_8Map, _9FaceSelection, (Boolean x0, Boolean x1) => 
+              {
+                Int32 _0Zero;// 3:Switch3-ext->5:Zero 131791
+                Boolean _1Equal;// 3:Switch3-ext->4:Equal 131790
+                Boolean _2IfThen;// 3:Switch3-ext->6:IfThen 131789
+                _0Zero = Zero();
+                _1Equal = Equal(sel method, _0Zero);
+                _2IfThen = IfThen(_1Equal, () => 
+                  {
+                    x0;
+                    }, () => 
+                  {
+                    Int32 _0One;// 3:Switch3-ext->2:One 131794
+                    Boolean _1Equal;// 3:Switch3-ext->7:Equal 131793
+                    Boolean _2IfThen;// 3:Switch3-ext->8:IfThen 131792
+                    _0One = One();
+                    _1Equal = Equal(sel method, _0One);
+                    _2IfThen = IfThen(_1Equal, () => 
+                      {
+                        Boolean _0OrElse;// 4:SelectionUpdateFunction-ext->4:OrElse 131795
+                        _0OrElse = OrElse(x0, x1);
+                        _0OrElse;
+                        }, () => 
+                      {
+                        Boolean _0Not;// 4:SelectionUpdateFunction-ext->6:Not 131797
+                        Boolean _1AndAlso;// 4:SelectionUpdateFunction-ext->5:AndAlso 131796
+                        _0Not = Not(x0);
+                        _1AndAlso = AndAlso(x1, _0Not);
+                        _1AndAlso;
+                        });
+                    _2IfThen;
+                    });
+                _2IfThen;
+                });
+            _11SetFaceSelection = SetFaceSelection(mesh, _10Combine);
+            _11SetFaceSelection;
+            });
+        _2IfThen;
+        });
+    _2IfThen;
+    }

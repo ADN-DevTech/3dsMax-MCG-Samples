@@ -1,0 +1,204 @@
+(InstanceState state, TriMesh mesh, Single angle, Int32 axis, Boolean useGizmoXform, INode gizmo, Matrix modifierTransform, Single direction) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 8:BendMesh->15:MeshVertices 120313
+    Single _1ToRadians;// 19:ToRadians 120412
+    IArray[Vector3] _2MeshVertices;// 2:MeshBoundingBox->1:MeshVertices 120410
+    BoundingBox _3BoxFromPoints;// 2:MeshBoundingBox->0:BoxFromPoints 120409
+    Matrix _12Pass-through: Matrix;// 0:Pass-through: Matrix 120308
+    Single _13ToRadians;// 16:ToRadians 120435
+    IArray[Vector3] _14ParallelMap;// 8:BendMesh->11:ParallelMap 120312
+    TriMesh _15SetMeshVertices;// 8:BendMesh->18:SetMeshVertices 120310
+    _0MeshVertices = MeshVertices(mesh);
+    _1ToRadians = ToRadians(angle);
+    _2MeshVertices = MeshVertices(mesh);
+    _3BoxFromPoints = BoxFromPoints(_2MeshVertices);
+    _12Pass-through: Matrix = if (useGizmoXform)
+      {
+        Boolean _4IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 120420
+        _4IsValidNode = IsValidNode(gizmo);
+        if (_4IsValidNode)
+          {
+            Boolean _5IsValidNode;// 3:ValidNodeWorldTransform->2:IsValidNode 120426
+            Matrix _8InvertMatrix;// 37:MaxtoolMatrixWorldToLocalTransform->2:InvertMatrix 120430
+            Matrix _9Multiply;// 32:NodeToLocalTransform->18:Multiply 120423
+            _5IsValidNode = IsValidNode(gizmo);
+            _8InvertMatrix = InvertMatrix(modifierTransform);
+            _9Multiply = Multiply(if (_5IsValidNode)
+                {
+                  Matrix _6WorldTransform;// 3:ValidNodeWorldTransform->1:WorldTransform 120427
+                  _6WorldTransform = WorldTransform(gizmo);
+                  _6WorldTransform;
+                  }else
+                {
+                  Matrix _7MatrixIdentity;// 3:ValidNodeWorldTransform->4:MatrixIdentity 120428
+                  _7MatrixIdentity = MatrixIdentity();
+                  _7MatrixIdentity;
+                  }, _8InvertMatrix);
+            _9Multiply;
+            }else
+          {
+            Matrix _10MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 120431
+            _10MatrixIdentity = MatrixIdentity();
+            _10MatrixIdentity;
+            };
+        }else
+      {
+        Matrix _11MatrixIdentity;// 12:MatrixIdentity 120434
+        _11MatrixIdentity = MatrixIdentity();
+        _11MatrixIdentity;
+        };
+    _13ToRadians = ToRadians(direction);
+    _14ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+      {
+        Single _0FloatZero;// 1:BendDeformer->88:FloatZero 120323
+        Single _1Abs;// 1:BendDeformer->31:Abs 120327
+        Single _2Constant;// 1:BendDeformer->0:Constant 120328
+        Boolean _3LessThan;// 1:BendDeformer->25:LessThan 120326
+        Single _21Pass-through: Single;// 1:BendDeformer->39:Pass-through: Single 120324
+        Boolean _22Equal;// 1:BendDeformer->89:Equal 120322
+        Matrix _23InvertMatrix;// 1:BendDeformer->79:InvertMatrix 120360
+        Vector3 _24Transform;// 1:BendDeformer->78:Transform 120359
+        Boolean _33IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 120420
+        Boolean _40IsValidNode;// 3:ValidNodeWorldTransform->2:IsValidNode 120426
+        Matrix _43InvertMatrix;// 37:MaxtoolMatrixWorldToLocalTransform->2:InvertMatrix 120430
+        Vector3 _78Transform;// 1:BendDeformer->83:Transform 120320
+        _0FloatZero = FloatZero();
+        _1Abs = Abs(_1ToRadians);
+        _2Constant = 0.0001;
+        _3LessThan = LessThan(_1Abs, _2Constant);
+        _21Pass-through: Single = if (_3LessThan)
+          {
+            Single _4FloatZero;// 1:BendDeformer->28:FloatZero 120329
+            _4FloatZero = FloatZero();
+            _4FloatZero;
+            }else
+          {
+            Vector3 _5BoxMax;// 47:BoundingBoxExtent->1:BoxMax 120354
+            Vector3 _6BoxMin;// 47:BoundingBoxExtent->2:BoxMin 120355
+            Vector3 _7Subtract;// 47:BoundingBoxExtent->3:Subtract 120353
+            Single _8X;// 2:Vector3ToArray->1:X 120341
+            IArray[Single] _9Unit;// 4:Array3->2:Unit 120340
+            Single _10Y;// 2:Vector3ToArray->2:Y 120342
+            IArray[Single] _11Append;// 4:Array3->3:Append 120339
+            Single _12Z;// 2:Vector3ToArray->3:Z 120343
+            IArray[Single] _13Append;// 4:Array3->6:Append 120338
+            Int32 _14Zero;// 4:ValidIndex->2:Zero 120347
+            Int32 _15Count;// 4:ValidIndex->4:Count 120351
+            Int32 _16One;// 5:MinusOne->2:One 120350
+            Int32 _17Subtract;// 5:MinusOne->1:Subtract 120349
+            Int32 _18ClampInt;// 4:ValidIndex->3:ClampInt 120346
+            Single _19At;// 48:Vector3At->3:At 120333
+            Single _20Divide;// 1:BendDeformer->32:Divide 120330
+            _5BoxMax = BoxMax(_3BoxFromPoints);
+            _6BoxMin = BoxMin(_3BoxFromPoints);
+            _7Subtract = Subtract(_5BoxMax, _6BoxMin);
+            _8X = X(_7Subtract);
+            _9Unit = Unit(_8X);
+            _10Y = Y(_7Subtract);
+            _11Append = Append(_9Unit, _10Y);
+            _12Z = Z(_7Subtract);
+            _13Append = Append(_11Append, _12Z);
+            _14Zero = Zero();
+            _15Count = Count(_13Append);
+            _16One = One();
+            _17Subtract = Subtract(_15Count, _16One);
+            _18ClampInt = ClampInt(axis, _14Zero, _17Subtract);
+            _19At = At(_13Append, _18ClampInt);
+            _20Divide = Divide(_19At, _1ToRadians);
+            _20Divide;
+            };
+        _22Equal = Equal(_0FloatZero, _21Pass-through: Single);
+        _23InvertMatrix = InvertMatrix(_12Pass-through: Matrix);
+        _24Transform = Transform(x0, _23InvertMatrix);
+        _33IsValidNode = IsValidNode(gizmo);
+        _40IsValidNode = IsValidNode(gizmo);
+        _43InvertMatrix = InvertMatrix(modifierTransform);
+        _78Transform = Transform(if (_22Equal)
+          {
+            _24Transform;
+            }else
+          {
+            Single _44Pi;// 1:BendDeformer->37:Pi 120372
+            Single _45HalfPi;// 1:BendDeformer->3:HalfPi 120390
+            Single _46NegativeFloat;// 1:BendDeformer->4:NegativeFloat 120389
+            Matrix _47RotationYMatrix;// 1:BendDeformer->1:RotationYMatrix 120388
+            Func[Matrix] _48Pass-through: any;// 0:Pass-through: any 120382
+            IArray[Func[Matrix]] _49Unit;// 7:Array3->2:Unit 120387
+            Matrix _50RotationXMatrix;// 1:BendDeformer->6:RotationXMatrix 120391
+            Func[Matrix] _51Pass-through: any;// 0:Pass-through: any 120383
+            IArray[Func[Matrix]] _52Append;// 7:Array3->3:Append 120386
+            Matrix _53MatrixIdentity;// 1:BendDeformer->5:MatrixIdentity 120392
+            Func[Matrix] _54Pass-through: any;// 0:Pass-through: any 120384
+            IArray[Func[Matrix]] _55Append;// 7:Array3->6:Append 120385
+            Func[Matrix] _56At;// 1:BendDeformer->8:At 120381
+            Matrix _57Apply0;// 1:BendDeformer->74:Apply0 120380
+            Matrix _58RotationZMatrix;// 1:BendDeformer->81:RotationZMatrix 120395
+            Matrix _59Multiply;// 1:BendDeformer->82:Multiply 120378
+            Vector3 _60Transform;// 1:BendDeformer->18:Transform 120376
+            Single _61Z;// 1:BendDeformer->38:Z 120374
+            Single _62Divide;// 1:BendDeformer->46:Divide 120373
+            Single _63Subtract;// 1:BendDeformer->51:Subtract 120371
+            Single _64Cos;// 1:BendDeformer->50:Cos 120370
+            Single _65Multiply;// 1:BendDeformer->57:Multiply 120369
+            Single _66Add;// 1:BendDeformer->58:Add 120366
+            Single _67X;// 1:BendDeformer->40:X 120398
+            Single _68Multiply;// 1:BendDeformer->61:Multiply 120396
+            Single _69Subtract;// 1:BendDeformer->60:Subtract 120365
+            Single _70Y;// 1:BendDeformer->41:Y 120400
+            Single _71Sin;// 1:BendDeformer->55:Sin 120404
+            Single _72Multiply;// 1:BendDeformer->63:Multiply 120403
+            Single _73Multiply;// 1:BendDeformer->65:Multiply 120405
+            Single _74Subtract;// 1:BendDeformer->66:Subtract 120402
+            Vector3 _75Vector3;// 1:BendDeformer->36:Vector3 120363
+            Matrix _76InvertMatrix;// 1:BendDeformer->14:InvertMatrix 120406
+            Vector3 _77Transform;// 1:BendDeformer->19:Transform 120362
+            _44Pi = Pi();
+            _45HalfPi = HalfPi();
+            _46NegativeFloat = NegativeFloat(_45HalfPi);
+            _47RotationYMatrix = RotationYMatrix(_46NegativeFloat);
+            _48Pass-through: any = () => 
+              {
+                _47RotationYMatrix;
+                };
+            _49Unit = Unit(_48Pass-through: any);
+            _50RotationXMatrix = RotationXMatrix(_45HalfPi);
+            _51Pass-through: any = () => 
+              {
+                _50RotationXMatrix;
+                };
+            _52Append = Append(_49Unit, _51Pass-through: any);
+            _53MatrixIdentity = MatrixIdentity();
+            _54Pass-through: any = () => 
+              {
+                _53MatrixIdentity;
+                };
+            _55Append = Append(_52Append, _54Pass-through: any);
+            _56At = At(_55Append, axis);
+            _57Apply0 = Apply0(_56At);
+            _58RotationZMatrix = RotationZMatrix(_13ToRadians);
+            _59Multiply = Multiply(_57Apply0, _58RotationZMatrix);
+            _60Transform = Transform(_24Transform, _59Multiply);
+            _61Z = Z(_60Transform);
+            _62Divide = Divide(_61Z, _21Pass-through: Single);
+            _63Subtract = Subtract(_44Pi, _62Divide);
+            _64Cos = Cos(_63Subtract);
+            _65Multiply = Multiply(_21Pass-through: Single, _64Cos);
+            _66Add = Add(_21Pass-through: Single, _65Multiply);
+            _67X = X(_60Transform);
+            _68Multiply = Multiply(_67X, _64Cos);
+            _69Subtract = Subtract(_66Add, _68Multiply);
+            _70Y = Y(_60Transform);
+            _71Sin = Sin(_63Subtract);
+            _72Multiply = Multiply(_21Pass-through: Single, _71Sin);
+            _73Multiply = Multiply(_67X, _71Sin);
+            _74Subtract = Subtract(_72Multiply, _73Multiply);
+            _75Vector3 = Vector3(_69Subtract, _70Y, _74Subtract);
+            _76InvertMatrix = InvertMatrix(_59Multiply);
+            _77Transform = Transform(_75Vector3, _76InvertMatrix);
+            _77Transform;
+            }, _12Pass-through: Matrix);
+        _78Transform;
+        });
+    _15SetMeshVertices = SetMeshVertices(mesh, _14ParallelMap);
+    _15SetMeshVertices;
+    }
