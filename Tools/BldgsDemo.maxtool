@@ -1,0 +1,50 @@
+<graph version="0.50" uuid="2be3f492-b7f2-47b8-b80d-eac7b552fb6e">
+    <meta_info>
+        <graph_version guid="d3343164-5d24-4546-8517-473cc3d82bf5" number="0.0.8" />
+    </meta_info>
+    <nodes>
+        <node operator="RandomSimpleBuildings.ext" id="0" position="1100:340" size="220:213" />
+        <node operator="RandomNumberGenerator" id="1" position="880:280" size="140:117" />
+        <node operator="OffsetMeshesByVectors.ext" id="4" position="1400:540" size="140:141" />
+        <node operator="CombineAllMeshes" id="5" position="1620:600" size="140:117" />
+        <node operator="Output: geometry" id="6" position="1840:620" size="140:69" />
+        <node operator="Parameter: Int32" id="7" name="maxFloors" min_value="1" max_value="1000" default_value="40" position="880:0" size="140:189" />
+        <node operator="Parameter: Int32" id="10" name="seed" min_value="0" max_value="1000" default_value="0" position="660:200" size="140:189" />
+        <node operator="Parameter: Int32" id="11" name="height_segments" min_value="1" max_value="1000" default_value="10" position="0:380" size="140:189" />
+        <node operator="Parameter: Single" id="13" name="building_side" min_value="0" max_value="1000" default_value="20" system_units_value="false" position="180:-120" size="140:213" />
+        <node operator="Parameter: Int32" id="14" name="width_segments" min_value="1" max_value="100" default_value="10" position="0:0" size="140:189" />
+        <node operator="IntAsFloat" id="18" position="220:240" size="140:117" />
+        <node operator="PointsOnXYPlane.ext" id="8" position="660:400" size="140:189" />
+        <node operator="Count" id="2" position="880:420" size="140:117" />
+        <node operator="Multiply" id="3" position="440:360" size="140:141" />
+        <node operator="Multiply" id="9" position="440:160" size="140:141" />
+        <node operator="IntAsFloat" id="12" position="220:380" size="140:117" />
+        <node operator="Parameter: Single" id="15" name="spacing" min_value="0" max_value="1000" default_value="5" system_units_value="false" position="400:-200" size="140:213" />
+        <node operator="Add" id="16" position="600:-80" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="10" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="3" />
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="16" destport="1" />
+    </connections>
+</graph>

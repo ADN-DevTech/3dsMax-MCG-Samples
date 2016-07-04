@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="a30ed27e-8276-40d5-a525-d7ec67086392">
+    <meta_info>
+        <graph_version guid="15a3092f-b7d1-4cbd-b22c-47bfe054defd" number="0.0.7" />
+    </meta_info>
+    <nodes>
+        <node operator="BowlMesh.ext" id="0" position="440:480" size="140:237" />
+        <node operator="ToTriMesh.ext" id="1" position="660:640" size="140:117" />
+        <node operator="Output: geometry" id="2" position="880:660" size="140:69" />
+        <node operator="Parameter: Int32" id="3" name="ciruclarSegments" min_value="1" max_value="1000" default_value="6" position="220:0" size="140:189" />
+        <node operator="Parameter: Int32" id="4" name="edgeSegments" min_value="1" max_value="1000" default_value="16" position="220:200" size="140:189" />
+        <node operator="Parameter: Single" id="5" name="minCurvePercentage" min_value="0" max_value="1000" default_value="25" system_units_value="false" position="0:260" size="140:213" />
+        <node operator="Parameter: Single" id="6" name="maxCurvePercentage" min_value="0" max_value="1000" default_value="40" system_units_value="false" position="0:480" size="140:213" />
+        <node operator="Parameter: Single" id="7" name="innerRadius" min_value="0" max_value="1000" default_value="10" system_units_value="false" position="220:700" size="140:213" />
+        <node operator="Parameter: Single" id="8" name="outerRadius" min_value="0" max_value="1000" default_value="12" system_units_value="false" position="220:920" size="140:213" />
+        <node operator="DivideBy100.ext" id="9" position="220:420" size="140:117" />
+        <node operator="DivideBy100.ext" id="10" position="220:560" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="7" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="5" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

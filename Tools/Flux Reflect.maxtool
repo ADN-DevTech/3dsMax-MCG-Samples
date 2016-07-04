@@ -1,0 +1,58 @@
+<graph version="0.50" uuid="e1bd1b4a-66e9-421b-a7de-e2ba9ce253bc">
+    <meta_info>
+        <graph_version guid="0e258060-6998-414f-951a-5b9fc5d2f37b" number="0.0.8" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="669:69" size="140:93" />
+        <node operator="Parameter: Int32" id="5" name="flux channel" min_value="-2" max_value="100" default_value="2" position="669:189" size="140:189" />
+        <node operator="Output: modifier" id="6" position="1480:260" size="140:69" />
+        <node operator="MatricesFromMapChannel.ext" id="18" position="869:169" size="200:141" />
+        <node operator="Multiply" id="3" position="689:529" size="140:141" />
+        <node operator="Vector3" id="4" position="147:85" size="140:165" />
+        <node operator="Parameter: Single" id="7" name="x" min_value="-100000" max_value="10000" default_value="0" system_units_value="false" position="-58:72" size="140:45" isClosed="1" />
+        <node operator="Parameter: Single" id="8" name="y" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="-61:118" size="140:45" isClosed="1" />
+        <node operator="Parameter: Single" id="9" name="z" min_value="-10000" max_value="100000" default_value="0" system_units_value="false" position="-58:171" size="140:45" isClosed="1" />
+        <node operator="ChooseAxis.ext" id="10" position="162:265" size="140:117" />
+        <node operator="Parameter: Int32" id="12" name="axis" min_value="-3" max_value="100" default_value="0" position="-51:254" size="140:189" />
+        <node operator="Parameter: Boolean" id="19" name="keep original" default_value="true" position="1089:449" size="140:141" />
+        <node operator="ReflectionMatrixFromPositionDirection.ext" id="21" position="347:204" size="260:141" />
+        <node operator="StoreMatricesInMapChannel.ext" id="16" position="1169:189" size="240:165" />
+        <node operator="Map" id="2" position="889:489" size="140:141" />
+        <node operator="ConcatenateIf.ext" id="11" position="1289:529" size="140:165" />
+        <node groupnode="Add the original matrix array if desired" id="15" position="1080:420" size="358:283" bg_color="#ff646464">
+            <nodes>11,19</nodes>
+        </node>
+        <node groupnode="Get current arrays" id="14" position="660:40" size="418:347" bg_color="#ff646464">
+            <nodes>1,5,18</nodes>
+        </node>
+        <node groupnode="Multiply matrices by reflection matrix" id="13" position="680:460" size="358:219" bg_color="#ff646464">
+            <nodes>3,2</nodes>
+        </node>
+        <node groupnode="Compute reflection matrix" id="0" position="-80:40" size="696:423" bg_color="#ff646464">
+            <nodes>9,10,12,4,7,8,21</nodes>
+        </node>
+        <node groupnode="Store matrices" id="17" position="1160:160" size="258:203" bg_color="#ff646464">
+            <nodes>16</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="16" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="21" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="11" destport="2" />
+    </connections>
+</graph>

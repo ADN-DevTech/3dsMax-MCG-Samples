@@ -1,0 +1,45 @@
+<graph version="0.50" uuid="d444fc62-b67f-4ec1-9f7e-b6bc57a4cb4f">
+    <meta_info>
+        <graph_version guid="d19fae34-0e5d-426a-9004-f5e8be5f2852" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="180:320" size="140:93" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-3" max_value="100" default_value="2" position="180:440" size="140:189" />
+        <node operator="QuadMeshStrip" id="0" position="629:340" size="140:189" />
+        <node operator="Parameter: Boolean" id="3" name="bWrapRows" default_value="false" position="409:320" size="140:141" />
+        <node operator="Parameter: Boolean" id="4" name="bWrapCols" default_value="false" position="409:480" size="140:141" />
+        <node operator="Two" id="2" position="409:200" size="140:93" />
+        <node operator="ClonerGetPositions.ext" id="5" position="160:160" size="140:141" />
+        <node operator="ToTriMesh.ext" id="6" position="869:209" size="140:117" />
+        <node operator="Output: modifier" id="8" position="1200:220" size="140:69" />
+        <node operator="StoreMatricesInMapChannel.ext" id="9" position="1169:450" size="200:165" />
+        <node operator="MatricesFromMapChannel.ext" id="10" position="849:470" size="200:141" />
+        <node groupnode="Create a quad mesh strip" id="11" position="400:160" size="378:469" bg_color="#ff646464">
+            <nodes>2,3,4,0</nodes>
+        </node>
+        <node groupnode="Get positions of Flux matrices" id="13" position="151:131" size="178:507" bg_color="#ff646464">
+            <nodes>5,7,1</nodes>
+        </node>
+        <node groupnode="Make sure Flux data is still available" id="14" position="820:380" size="558:244" bg_color="#ff646464">
+            <nodes>10,9</nodes>
+        </node>
+        <node groupnode="Convert to tri mesh" id="12" position="860:180" size="258:155" bg_color="#ff646464">
+            <nodes>6</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="1" />
+    </connections>
+</graph>

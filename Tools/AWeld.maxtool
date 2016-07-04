@@ -1,0 +1,51 @@
+<graph version="0.50" uuid="cb212fcd-cad7-4c93-9aa2-189bdb630fad">
+    <meta_info>
+        <graph_version guid="c1b8f792-e08c-470c-b52c-3ecbadf59f51" number="0.0.9" />
+        <author>Autodesk</author>
+        <company>Autodesk</company>
+        <copyright>(c) Autodesk, Inc.</copyright>
+        <url>http://autodesk.com</url>
+        <category>MCG</category>
+        <description>This is a simple weld mesh modifier. You can find it in the modifier panel dropdown. Once applied, it will weld vertices together based on the threshold input. You can also turn the welding on and off with the checkbox.</description>
+    </meta_info>
+    <nodes>
+        <node operator="WeldMesh" id="0" position="289:381" size="140:141" />
+        <node operator="Modifier: TriMesh" id="2" position="9:589" size="140:93" />
+        <node operator="Output: modifier" id="3" position="749:494" size="140:69" />
+        <node operator="Parameter: Single" id="1" name="threshold" min_value="0" max_value="100" default_value="1" system_units_value="false" position="40:241" size="140:213" />
+        <node operator="If" id="4" position="529:403" size="140:165" />
+        <node operator="Parameter: Boolean" id="5" name="Weld" default_value="true" position="289:83" size="140:141" />
+        <node groupnode="If statement" id="10" position="520:260" size="158:317" bg_color="#fff38964">
+            <comment>This operator is a switch. If true, it does one thing and if false, it does another. In this case if it&apos;s true, it will pass the welded mesh. If false, it will pass the original mesh.</comment>
+            <nodes>4</nodes>
+        </node>
+        <node groupnode="Weld" id="9" position="280:300" size="159:234" bg_color="#ff6483b5">
+            <comment>This operator combines vertices that are closer than the given threshold. </comment>
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="Weld Parameter" id="8" position="280:20" size="158:213" bg_color="#ff64bc87">
+            <comment>This operator turns welding on or off.</comment>
+            <nodes>5</nodes>
+        </node>
+        <node groupnode="modifier" id="11" position="740:360" size="158:212" bg_color="#ff646464">
+            <comment>This ouput operator defines what type of tool it will be. In this case it will be a modifier.</comment>
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="Mesh" id="6" position="0:500" size="158:191" bg_color="#ff4872b5">
+            <comment>Gets the mesh passed throught the geometry stack to the modifier.</comment>
+            <nodes>2</nodes>
+        </node>
+        <node groupnode="Threshold Param." id="7" position="0:160" size="207:311" bg_color="#ff64bc87">
+            <comment>This operator defines the threshold in which vertices are searched distance wise to weld to one another.</comment>
+            <nodes>1</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="2" />
+    </connections>
+</graph>

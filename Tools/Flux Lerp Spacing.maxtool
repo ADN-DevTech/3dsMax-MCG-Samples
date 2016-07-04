@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="f946aaa8-8510-47d8-ad3e-9badeeb4ca71">
+    <meta_info>
+        <graph_version guid="25e2c198-f8e2-4c04-83a4-a9703faacbff" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Boolean" id="12" name="include original" default_value="true" position="659:334" size="160:141" />
+        <node operator="MatricesFromMapChannel.ext" id="5" position="381:398" size="200:141" />
+        <node operator="AppendFirstIf.ext" id="9" position="562:137" size="140:141" />
+        <node operator="Parameter: Boolean" id="4" name="closed" default_value="false" position="350:132" size="140:141" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="169:417" size="140:189" />
+        <node operator="StoreMatricesInMapChannel.ext" id="3" position="869:129" size="200:165" />
+        <node operator="Modifier: TriMesh" id="1" position="175:329" size="140:93" />
+        <node operator="Output: modifier" id="15" position="1140:220" size="140:69" />
+        <node operator="MatrixArrayInterpolateWithSpacing.ext" id="13" position="891:415" size="240:165" />
+        <node operator="Parameter: Single" id="6" name="spacing" min_value="0" max_value="100000" default_value="5" system_units_value="false" position="643:475" size="140:213" />
+        <node groupnode="Get Flux matrices" id="8" position="160:300" size="445:315" bg_color="#ff646464">
+            <nodes>5,7,1</nodes>
+        </node>
+        <node groupnode="Store matrices" id="11" position="860:100" size="218:203" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="If closed append first element to end of array" id="2" position="300:100" size="421:192" bg_color="#ff646464">
+            <nodes>9,4</nodes>
+        </node>
+        <node groupnode="Add additional matrices in between existing ones" id="10" position="631:293" size="559:404" bg_color="#ff646464">
+            <nodes>13,12,6</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="13" destport="2" />
+    </connections>
+</graph>

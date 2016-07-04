@@ -1,0 +1,34 @@
+<graph version="0.50" uuid="cc3df75c-8960-443e-99cc-3211e54a3ecd">
+    <meta_info>
+        <graph_version guid="13a9a26f-1b4e-4f32-b4b8-b3f70fe11a4c" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineInterpolate.ext" id="0" position="220:240" size="140:141" />
+        <node operator="RangeExclusiveFloat" id="2" position="220:100" size="140:117" />
+        <node operator="Map" id="1" position="440:200" size="140:141" />
+        <node operator="Modifier: TriMesh" id="3" position="0:260" size="140:93" />
+        <node operator="Parameter: Int32" id="4" name="count" min_value="0" max_value="100" default_value="20" position="0:0" size="140:189" />
+        <node operator="ExtrudeCircleAlongPoints" id="5" position="660:700" size="140:237" />
+        <node operator="Parameter: Boolean" id="6" name="closedSpline" default_value="false" position="440:360" size="140:141" />
+        <node operator="Parameter: Single" id="7" name="startScale" min_value="0" max_value="100" default_value="1" system_units_value="false" position="440:520" size="140:213" />
+        <node operator="Parameter: Single" id="8" name="taperPerCent" min_value="0" max_value="100" default_value="0" system_units_value="false" position="440:760" size="140:213" />
+        <node operator="Parameter: Int32" id="9" name="profile segments" min_value="0" max_value="100" default_value="10" position="440:980" size="140:189" />
+        <node operator="Parameter: Single" id="10" name="profile radius" min_value="0" max_value="100" default_value="5" system_units_value="false" position="440:1200" size="140:213" />
+        <node operator="PairItem1" id="11" position="880:840" size="140:117" />
+        <node operator="Output: modifier" id="12" position="1100:860" size="180:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="1" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="4" />
+        <connection sourcenode="10" sourceport="0" destnode="5" destport="5" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

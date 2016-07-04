@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="f3efaa35-be0d-4bfd-a2ad-5956de638e83">
+    <meta_info>
+        <graph_version guid="115d585c-fb57-4fc4-8527-c39c8e7ecbbe" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Skew.ext" id="0" position="880:500" size="140:165" />
+        <node operator="Modifier: TriMesh" id="1" position="660:360" size="140:93" />
+        <node operator="Output: modifier" id="2" position="1100:580" size="140:69" />
+        <node operator="ChooseAxis.ext" id="3" position="220:160" size="140:117" />
+        <node operator="ChooseAxis.ext" id="4" position="220:500" size="140:117" />
+        <node operator="Parameter: Int32" id="5" name="axis" min_value="0" max_value="2" default_value="2" position="0:440" size="140:189" />
+        <node operator="Parameter: Int32" id="6" name="skew_direction" min_value="0" max_value="2" default_value="1" position="0:0" size="140:189" />
+        <node operator="Parameter: Single" id="7" name="degrees" min_value="-3600" max_value="3600" default_value="360" system_units_value="false" position="0:200" size="140:213" />
+        <node operator="RotatePoint.ext" id="8" position="440:240" size="140:165" />
+        <node operator="ToRadians" id="9" position="220:300" size="140:117" />
+        <node operator="Parameter: Single" id="10" name="amount" min_value="0" max_value="100" default_value="20" system_units_value="false" position="440:420" size="140:213" />
+        <node operator="MultiplyByScalar" id="11" position="660:460" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+    </connections>
+</graph>

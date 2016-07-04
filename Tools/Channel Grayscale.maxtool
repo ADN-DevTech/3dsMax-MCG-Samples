@@ -1,0 +1,40 @@
+<graph version="0.50" uuid="131411ef-d08b-4c16-9973-0ed1fcf6db13">
+    <meta_info>
+        <graph_version guid="7e5b30f7-0da5-4666-9de2-17bbead87a99" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="2" position="1120:580" size="140:69" />
+        <node operator="MapChannelTransform.ext" id="5" position="880:520" size="160:165" />
+        <node operator="Parameter: Int32" id="11" name="channel ID" min_value="-3" max_value="100" default_value="0" position="660:320" size="140:189" />
+        <node operator="Modifier: TriMesh" id="9" position="660:520" size="140:93" />
+        <node operator="At" id="3" position="660:640" size="140:141" />
+        <node operator="Parameter: Int32" id="4" name="method" min_value="0" max_value="6" default_value="0" position="440:660" size="140:189" />
+        <node operator="GrayFromAverage.ext" id="6" position="0:0" size="140:117" />
+        <node operator="GrayFromLightness.ext" id="7" position="0:140" size="140:117" />
+        <node operator="GrayFromLuminosity.ext" id="8" position="0:280" size="140:117" />
+        <node operator="Array4.ext" id="0" position="220:260" size="140:189" />
+        <node operator="GrayFromVectorLength.ext" id="1" position="0:420" size="140:117" />
+        <node operator="GrayFromBlue.ext" id="13" position="0:680" size="140:117" />
+        <node operator="GrayFromGreen.ext" id="14" position="0:820" size="140:117" />
+        <node operator="GrayFromRed.ext" id="15" position="0:540" size="140:117" />
+        <node operator="Array3.ext" id="16" position="220:600" size="140:165" />
+        <node operator="Concatenate" id="10" position="440:500" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="1" destnode="0" destport="0" />
+        <connection sourcenode="7" sourceport="1" destnode="0" destport="1" />
+        <connection sourcenode="8" sourceport="1" destnode="0" destport="2" />
+        <connection sourcenode="1" sourceport="1" destnode="0" destport="3" />
+        <connection sourcenode="15" sourceport="1" destnode="16" destport="0" />
+        <connection sourcenode="13" sourceport="1" destnode="16" destport="1" />
+        <connection sourcenode="14" sourceport="1" destnode="16" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="10" destport="1" />
+    </connections>
+</graph>

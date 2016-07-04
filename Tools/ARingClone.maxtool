@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="1203ab59-7164-4eb9-95ed-d5ebf62dcfce">
+    <meta_info>
+        <graph_version guid="b90708a8-7413-45b5-852b-b86927a2c965" number="0.0.34" />
+    </meta_info>
+    <nodes>
+        <node operator="Map" id="13" position="452:186" size="140:141" />
+        <node operator="Parameter: Int32" id="6" name="count" min_value="0" max_value="100" default_value="5" position="-211:69" size="140:189" />
+        <node operator="Modifier: TriMesh" id="0" position="689:69" size="140:93" />
+        <node operator="Map" id="15" position="909:129" size="140:141" />
+        <node operator="TransformMesh.ext" id="16" position="718:177" size="140:141" />
+        <node operator="Output: modifier" id="17" position="869:489" size="140:69" />
+        <node operator="CombineAllMeshes" id="18" position="689:449" size="140:117" />
+        <node operator="Parameter: Single" id="11" name="radius" min_value="0" max_value="100" default_value="20" system_units_value="false" position="-207:259" size="140:213" />
+        <node operator="CircleOfPoints.ext" id="10" position="199:103" size="140:165" />
+        <node operator="ZAxis" id="7" position="14:317" size="140:93" />
+        <node operator="AlongXAxis.ext" id="30" position="10:188" size="140:117" />
+        <node operator="LookAtAndTranslateTo.ext" id="14" position="200:280" size="180:117" />
+        <node groupnode="Create array of transformed meshes" id="19" position="680:40" size="378:339" bg_color="#ff646464">
+            <nodes>15,0,16</nodes>
+        </node>
+        <node groupnode="Create final mesh" id="21" position="680:420" size="338:155" bg_color="#ff646464">
+            <nodes>17,18</nodes>
+        </node>
+        <node groupnode="Create an array of transformation matrices" id="8" position="-220:40" size="844:441" bg_color="#ff646464">
+            <nodes>14,7,13,6,30,10,11</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="10" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="14" sourceport="1" destnode="13" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="16" sourceport="1" destnode="15" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="30" destport="0" />
+    </connections>
+</graph>

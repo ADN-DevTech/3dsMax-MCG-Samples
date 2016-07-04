@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="e338f3cf-6433-4c29-b89e-5304d71ce9af">
+    <meta_info>
+        <graph_version guid="52f46a71-9945-405d-8e43-8b90f8327cfa" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="ScaleSpline.ext" id="0" position="580:180" size="140:165" />
+        <node operator="If" id="1" position="380:100" size="140:165" />
+        <node operator="Origin.ext" id="2" position="0:160" size="140:93" />
+        <node operator="Parameter: Boolean" id="3" name="origin or center" default_value="false" position="0:20" size="140:141" />
+        <node operator="Modifier: TriMesh" id="4" position="0:260" size="140:93" />
+        <node operator="MeshBoundingSphere.ext" id="5" position="200:220" size="140:117" />
+        <node operator="Parameter: Single" id="6" name="amount" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="400:320" size="140:213" />
+        <node operator="Output: modifier" id="7" position="760:300" size="140:69" />
+        <node operator="SphereCenter" id="8" position="180:380" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="16616deb-bda4-42ed-a229-d5206ca0371c">
+    <meta_info>
+        <graph_version guid="c6d4f453-7d84-41a3-a00f-e165571ab962" number="0.0.10" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Boolean" id="25" name="smooth" default_value="false" position="1540:900" size="140:141" />
+        <node operator="PointsAsSpline.ext" id="16" position="1760:1080" size="140:165" />
+        <node operator="Multiply" id="24" position="1320:1120" size="140:141" />
+        <node operator="Parameter: Single" id="20" name="x" min_value="0" max_value="1000" default_value="10" system_units_value="false" position="880:1040" size="140:213" />
+        <node operator="Parameter: Single" id="21" name="y" min_value="0" max_value="1000" default_value="10" system_units_value="false" position="880:1260" size="140:213" />
+        <node operator="Vector3FromXY.ext" id="22" position="1100:1160" size="140:141" />
+        <node operator="Map" id="23" position="1540:1060" size="140:141" />
+        <node operator="Parameter: Boolean" id="0" name="closed" default_value="false" position="1540:1220" size="140:141" />
+        <node operator="Output: geometry" id="2" position="1980:1160" size="140:69" />
+        <node operator="Parameter: Int32" id="3" name="segments" min_value="0" max_value="100" default_value="10" position="1100:620" size="140:189" />
+        <node operator="Parameter: Int32" id="9" name="fxn" min_value="0" max_value="11" default_value="0" position="660:420" size="140:189" />
+        <node operator="At" id="10" position="880:400" size="140:141" />
+        <node operator="SampleLerp.ext" id="26" position="1320:920" size="140:141" />
+        <node operator="MapFunctionDomain.ext" id="18" position="1100:840" size="140:189" />
+        <node operator="Parameter: Single" id="4" name="min domain" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="880:800" size="140:213" />
+        <node operator="Parameter: Single" id="13" name="max domain" min_value="0" max_value="100" default_value="1" system_units_value="false" position="880:560" size="140:213" />
+        <node operator="TestCurveFunctions.ext" id="19" position="660:300" size="140:93" />
+    </nodes>
+    <connections>
+        <connection sourcenode="25" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="22" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="26" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="24" sourceport="1" destnode="23" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="26" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="18" destport="3" />
+    </connections>
+</graph>

@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="c0041053-623f-40ff-948c-e932b6d37287">
+    <meta_info>
+        <graph_version guid="4826fed3-7a5b-48e4-94e6-db7e105b7a91" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineMeshLathe.ext" id="0" position="680:400" size="140:237" />
+        <node operator="Parameter: Int32" id="1" name="rotationalSegments" min_value="0" max_value="1000" default_value="7" position="460:-60" size="140:189" />
+        <node operator="Parameter: Single" id="2" name="degrees" min_value="-10000" max_value="10000" default_value="360" system_units_value="false" position="460:140" size="140:213" />
+        <node operator="Parameter: Int32" id="3" name="pathSegments" min_value="0" max_value="1000" default_value="20" position="460:380" size="140:189" />
+        <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="2" default_value="1" position="460:580" size="140:189" />
+        <node operator="Parameter: Boolean" id="5" name="cap" default_value="true" position="460:800" size="140:141" />
+        <node operator="Modifier: TriMesh" id="6" position="200:520" size="140:93" />
+        <node operator="ToTriMesh.ext" id="7" position="880:520" size="140:117" />
+        <node operator="Output: modifier" id="8" position="1100:540" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="5" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

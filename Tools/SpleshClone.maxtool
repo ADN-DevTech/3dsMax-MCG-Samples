@@ -1,0 +1,47 @@
+<graph version="0.50" uuid="b5f7da62-2a66-4841-b1e3-adca03745c9d">
+    <meta_info>
+        <graph_version guid="ad62f066-17cb-4b94-b4e0-3bb0390a684a" number="0.0.16" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineInterpolate.ext" id="1" position="300:500" size="140:141" />
+        <node operator="SampleInRange.ext" id="4" position="480:280" size="140:189" />
+        <node operator="CloneMeshAtTransforms.ext" id="7" position="880:200" size="200:141" />
+        <node operator="CloneMeshAtPositions.ext" id="9" position="880:380" size="180:141" />
+        <node operator="Parameter: Int32" id="2" name="count" min_value="0" max_value="1000" default_value="5" position="220:0" size="140:189" />
+        <node operator="Parameter: Single" id="3" name="offset" min_value="-100" max_value="1000" default_value="0" system_units_value="false" position="0:20" size="140:213" />
+        <node operator="Parameter: Single" id="6" name="percentage" min_value="-1000" max_value="1000" default_value="50" system_units_value="false" position="-40:260" size="140:213" />
+        <node operator="DivideBy100.ext" id="10" position="220:200" size="140:117" />
+        <node operator="DivideBy100.ext" id="11" position="140:340" size="140:117" />
+        <node operator="Modifier: TriMesh" id="12" position="0:500" size="140:93" />
+        <node operator="Parameter: INode" id="0" name="obj" position="440:140" size="140:117" />
+        <node operator="NodeMeshOrTetrahedron.ext" id="13" position="640:260" size="200:117" />
+        <node operator="If" id="14" position="1140:220" size="140:165" />
+        <node operator="Parameter: Boolean" id="15" name="useTransforms" default_value="false" position="880:40" size="140:141" />
+        <node operator="ReferenceFrames.ext" id="16" position="640:140" size="180:117" />
+        <node operator="CombineAllMeshes" id="17" position="1360:280" size="140:117" />
+        <node operator="Add" id="5" position="300:340" size="140:141" />
+        <node operator="Output: modifier" id="18" position="1560:380" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="12" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="1" sourceport="1" destnode="4" destport="3" />
+        <connection sourcenode="16" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+    </connections>
+</graph>

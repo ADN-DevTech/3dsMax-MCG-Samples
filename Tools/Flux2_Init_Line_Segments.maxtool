@@ -1,0 +1,108 @@
+<graph version="0.50" uuid="ad1764a9-6a26-4b00-bdd7-0a048da5d3d5">
+    <meta_info>
+        <graph_version guid="64789468-c0b3-4805-9e52-a53132b1c91a" number="0.0.27" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="900:129" size="140:175" />
+        <node operator="StoreMatricesInMapChannel.ext" id="0" position="1153:132" size="220:154" />
+        <node operator="Parameter: INode" id="13" name="spline" position="-443:13" size="140:112" />
+        <node operator="Output: modifier" id="6" position="1680:500" size="140:70" />
+        <node operator="FlatMap.ext" id="3" position="588:96" size="140:133" />
+        <node operator="LineMatrices.ext" id="5" position="378:104" size="140:112" />
+        <node operator="Parameter: Boolean" id="16" name="bidirectional" default_value="true" position="27:346" size="140:133" />
+        <node operator="LineReverse.ext" id="12" position="-75:622" size="140:112" />
+        <node operator="If" id="7" position="245:377" size="140:154" />
+        <node operator="Pass-through: array" id="14" position="-242:399" size="140:112" />
+        <node operator="Concatenate" id="15" position="343:558" size="140:133" />
+        <node operator="Reverse" id="18" position="-80:500" size="140:112" />
+        <node operator="Map" id="19" position="129:577" size="140:133" />
+        <node operator="SplineLinesInLocalSpace.ext" id="9" position="-88:33" size="160:154" />
+        <node operator="Modifier: Matrix" id="10" position="-346:140" size="140:91" />
+        <node operator="Modifier: TriMesh" id="21" position="903:30" size="140:91" />
+        <node operator="MatrixTranslate.ext" id="49" position="116:1102" size="140:154" />
+        <node operator="True" id="50" position="-84:906" size="140:91" />
+        <node operator="AlongXAxis.ext" id="51" position="-102:1055" size="140:112" />
+        <node operator="Parameter: Single" id="52" name="cornerA offset" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="-607:1099" size="140:196" />
+        <node operator="Parameter: Single" id="53" name="cornerB offset" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="-368:1115" size="140:196" />
+        <node operator="IgnoreFirst" id="54" position="117:897" size="140:133" />
+        <node operator="MapWithIndexes.ext" id="43" position="307:1049" size="140:133" />
+        <node operator="If" id="44" position="-261:894" size="140:154" />
+        <node operator="ModuloEqualsZero.ext" id="45" position="-464:869" size="140:133" />
+        <node operator="Pass-through: Int32" id="46" position="-651:815" size="140:112" />
+        <node operator="Pass-through: Matrix" id="47" position="-107:1194" size="140:112" />
+        <node operator="Two" id="48" position="-631:958" size="140:91" />
+        <node operator="ClonerMeshAsBoxes.ext" id="1" position="1329:429" size="140:175" />
+        <node operator="Parameter: Single" id="20" name="box radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="1069:429" size="140:196" />
+        <node operator="Parameter: Boolean" id="23" name="world space" default_value="true" position="-297:-58" size="140:133" />
+        <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1069:669" size="140:133" />
+        <node operator="ClonerSpacing.ext" id="25" position="1789:170" size="140:238" />
+        <node operator="Parameter: Boolean" id="26" name="apply spacing" default_value="false" position="1549:-10" size="140:133" />
+        <node operator="Parameter: Single" id="27" name="max distance" min_value="0" max_value="100000" default_value="5" system_units_value="false" position="1609:270" size="140:196" />
+        <node operator="Parameter: Boolean" id="28" name="scale when spacing" default_value="false" position="1549:130" size="140:133" />
+        <node groupnode="Append matrices in the other direction" id="17" position="-280:317" size="840:431" bg_color="#ff646464">
+            <nodes>14,7,12,16,15,18,19</nodes>
+        </node>
+        <node groupnode="Store matrices in map channel" id="8" position="880:1" size="536:326" bg_color="#ff646464">
+            <nodes>0,2,21</nodes>
+        </node>
+        <node groupnode="Convert line to two matrices aligned along line" id="4" position="300:40" size="479:217" bg_color="#ff646464">
+            <nodes>3,5</nodes>
+        </node>
+        <node groupnode="Get line segments from spline" id="11" position="-520:-100" size="669:378" bg_color="#ff646464">
+            <nodes>13,9,10,23</nodes>
+        </node>
+        <node groupnode="For each matrix pair offset A and B" id="55" position="-660:760" size="1116:577" bg_color="#ff646464">
+            <nodes>44,46,49,45,47,48,52,53,43,51,50,54</nodes>
+        </node>
+        <node groupnode="Create mesh" id="24" position="1060:400" size="418:419" bg_color="#ff646464">
+            <nodes>1,20,22</nodes>
+        </node>
+        <node groupnode="Apply spacing" id="29" position="1540:-60" size="398:538" bg_color="#ff646464">
+            <nodes>25,26,27,28</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="21" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="43" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="12" sourceport="1" destnode="19" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="54" sourceport="0" destnode="49" destport="0" />
+        <connection sourcenode="51" sourceport="0" destnode="49" destport="1" />
+        <connection sourcenode="47" sourceport="0" destnode="49" destport="2" />
+        <connection sourcenode="44" sourceport="0" destnode="51" destport="0" />
+        <connection sourcenode="47" sourceport="0" destnode="54" destport="0" />
+        <connection sourcenode="50" sourceport="0" destnode="54" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="43" destport="0" />
+        <connection sourcenode="49" sourceport="1" destnode="43" destport="1" />
+        <connection sourcenode="45" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="52" sourceport="0" destnode="44" destport="1" />
+        <connection sourcenode="53" sourceport="0" destnode="44" destport="2" />
+        <connection sourcenode="46" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="48" sourceport="0" destnode="45" destport="1" />
+        <connection sourcenode="25" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="20" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="26" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="25" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="25" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="25" destport="4" />
+        <connection sourcenode="28" sourceport="0" destnode="25" destport="5" />
+        <connection sourcenode="27" sourceport="0" destnode="25" destport="6" />
+    </connections>
+</graph>

@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="f8f18a27-511b-4643-9816-2bc8133ab8dd">
+    <meta_info>
+        <graph_version guid="bdb4ee96-c4bc-4c83-850e-9a83c5cacf1a" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: INode" id="0" name="node" position="229:109" size="140:117" />
+        <node operator="Modifier: Matrix" id="2" position="220:240" size="140:93" />
+        <node operator="NodePositionInLocalSpace.ext" id="1" position="480:140" size="140:141" />
+        <node operator="CachePreviousValue.ext" id="3" position="720:160" size="140:117" />
+        <node operator="DifferenceFromPrevious.ext" id="4" position="920:200" size="140:117" />
+        <node operator="Parameter: Single" id="6" name="weight" min_value="-100" max_value="100" default_value="0.8" system_units_value="false" position="420:340" size="140:213" />
+        <node operator="MultiplyByScalar" id="7" position="920:340" size="140:141" />
+        <node operator="OffsetMesh.ext" id="5" position="1180:340" size="140:141" />
+        <node operator="Modifier: TriMesh" id="8" position="1000:320" size="140:93" />
+        <node operator="Output: modifier" id="9" position="1380:380" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="9c58d8e3-af93-4968-af17-86618d80878c">
+    <meta_info>
+        <graph_version guid="4ac7dd2b-d5a6-4f33-8cce-885302890df5" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="5" name="minimum" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="0:60" size="140:213" />
+        <node operator="Output: modifier" id="4" position="780:220" size="140:69" />
+        <node operator="PerVertexDataTransform.ext" id="1" position="520:140" size="180:165" />
+        <node operator="Modifier: TriMesh" id="2" position="220:0" size="140:93" />
+        <node operator="ClampFloat" id="3" position="220:260" size="140:165" />
+        <node operator="Parameter: Single" id="6" name="maximum" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="0:300" size="140:213" />
+        <node operator="Zero" id="7" position="250:149" size="140:93" />
+        <node groupnode="Bug: only 0 supported" id="8" position="220:120" size="215:131" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="1" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="2" />
+    </connections>
+</graph>

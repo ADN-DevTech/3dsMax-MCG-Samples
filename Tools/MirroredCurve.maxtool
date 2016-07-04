@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="5cdf4d1f-017c-4fd6-a25e-95df802d76c3">
+    <meta_info>
+        <graph_version guid="262bb597-6536-4996-aae4-0053b365c07d" number="0.0.22" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="4" name="curvature" min_value="-10" max_value="10" default_value="0.5" system_units_value="false" position="0:360" size="140:213" />
+        <node operator="ToTriMesh.ext" id="9" position="1180:620" size="140:117" />
+        <node operator="AlongZAxis.ext" id="8" position="740:680" size="140:117" />
+        <node operator="Parameter: Int32" id="6" name="pathSegments" min_value="1" max_value="100" default_value="5" position="220:0" size="140:189" />
+        <node operator="Parameter: Int32" id="5" name="heightSegments" min_value="1" max_value="100" default_value="2" position="740:140" size="140:189" />
+        <node operator="RightAngleCurvatureOnXY.ext" id="1" position="220:320" size="160:189" />
+        <node operator="Parameter: Single" id="10" name="height" min_value="-1000" max_value="1000" default_value="10" system_units_value="false" position="460:660" size="140:213" />
+        <node operator="Output: geometry" id="0" position="1400:640" size="140:69" />
+        <node operator="Parameter: Single" id="3" name="length" min_value="0" max_value="1000" default_value="10" system_units_value="false" position="0:120" size="140:213" />
+        <node operator="ExtrudeCurve.ext" id="2" position="960:500" size="140:213" />
+        <node operator="ConcatenateMirroredCurve.ext" id="11" position="460:360" size="200:165" />
+        <node operator="XAxisAsPlane.ext" id="12" position="280:660" size="140:93" />
+        <node operator="ConcatenateMirroredCurve.ext" id="13" position="740:500" size="140:165" />
+        <node operator="YAxisAsPlane.ext" id="14" position="460:540" size="140:93" />
+        <node operator="True" id="7" position="740:820" size="140:93" />
+        <node operator="PlusOne.ext" id="15" position="740:360" size="140:117" />
+        <node operator="Multiply" id="16" position="460:200" size="140:141" />
+        <node operator="Constant" id="17" value="4" position="220:200" size="140:93" />
+        <node operator="Parameter: Single" id="18" name="angularity" min_value="-10" max_value="10" default_value="0.5" system_units_value="false" position="0:600" size="140:213" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="13" sourceport="1" destnode="2" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="4" />
+        <connection sourcenode="1" sourceport="1" destnode="11" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="11" sourceport="1" destnode="13" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+    </connections>
+</graph>

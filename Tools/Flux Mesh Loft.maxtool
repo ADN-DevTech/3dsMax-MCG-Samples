@@ -1,0 +1,60 @@
+<graph version="0.50" uuid="87675e72-6fd7-44ab-83d2-48e04ebc0abc">
+    <meta_info>
+        <graph_version guid="6dba9bf9-46d8-4313-b15b-af4b352d871a" number="0.0.8" />
+    </meta_info>
+    <nodes>
+        <node operator="StoreMatricesInMapChannel.ext" id="9" position="1849:309" size="140:165" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-3" max_value="100" default_value="2" position="320:180" size="140:189" />
+        <node operator="ToTriMesh.ext" id="6" position="929:249" size="140:117" />
+        <node operator="Output: modifier" id="8" position="2069:389" size="140:69" />
+        <node operator="MatricesFromMapChannel.ext" id="10" position="1569:349" size="200:141" />
+        <node operator="Modifier: TriMesh" id="1" position="320:60" size="140:93" />
+        <node operator="Parameter: Boolean" id="12" name="closePath" default_value="false" position="440:400" size="140:141" />
+        <node operator="Parameter: Boolean" id="13" name="closeShape" default_value="false" position="440:460" size="140:141" />
+        <node operator="Parameter: INode" id="0" name="shape" position="-100:60" size="140:117" />
+        <node operator="MeshFromNodeOrExit.ext" id="14" position="80:60" size="200:117" />
+        <node operator="MeshVertices" id="2" position="0:220" size="140:117" />
+        <node operator="LoftMatrices.ext" id="3" position="769:209" size="140:189" />
+        <node operator="MatricesFromMapChannel.ext" id="4" position="482:144" size="220:141" />
+        <node operator="If" id="5" position="1329:329" size="140:165" />
+        <node operator="Parameter: Boolean" id="11" name="keep original" default_value="false" position="1149:189" size="140:141" />
+        <node operator="CombineMeshes" id="15" position="1149:349" size="140:141" />
+        <node groupnode="Combine with original mesh if desired" id="18" position="1140:160" size="338:343" bg_color="#ff646464">
+            <nodes>15,5,11</nodes>
+        </node>
+        <node groupnode="Store the flux data in new mesh" id="20" position="1560:280" size="658:219" bg_color="#ff646464">
+            <nodes>9,8,10</nodes>
+        </node>
+        <node groupnode="Loft shape along matrices" id="19" position="760:180" size="318:227" bg_color="#ff646464">
+            <nodes>3,6</nodes>
+        </node>
+        <node groupnode="Get Flux matrices" id="17" position="311:31" size="400:347" bg_color="#ff646464">
+            <nodes>1,7,4</nodes>
+        </node>
+        <node groupnode="Get shape vertices" id="16" position="-109:31" size="398:315" bg_color="#ff646464">
+            <nodes>14,2,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="15" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,54 @@
+<graph version="0.50" uuid="b03e8200-591d-46b8-baf2-af288c4c3a42">
+    <meta_info>
+        <graph_version guid="afb87a3f-8e53-4201-b6c4-a97734388c05" number="0.0.16" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="49:249" size="140:93" />
+        <node operator="Parameter: Single" id="4" name="percentage" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="469:50" size="140:213" />
+        <node operator="ClonerLerpMatrices.ext" id="7" position="1215:271" size="140:213" />
+        <node operator="MatricesFromMapChannel.ext" id="5" position="69:429" size="180:141" />
+        <node operator="Parameter: Single" id="15" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="269:149" size="140:213" />
+        <node operator="Parameter: Boolean" id="13" name="combine effects" default_value="false" position="269:-11" size="140:141" />
+        <node operator="Count" id="8" position="249:429" size="140:117" />
+        <node operator="Output: modifier" id="9" position="1220:540" size="140:69" />
+        <node operator="Parameter: Int32" id="3" name="flux channel " min_value="-2" max_value="100" default_value="2" position="49:49" size="140:189" />
+        <node operator="FloatWeightsUsingFalloff.ext" id="12" position="932:172" size="220:237" />
+        <node operator="DivideBy100.ext" id="1" position="672:32" size="140:117" />
+        <node operator="Parameter: Boolean" id="16" name="linearOrCubic" default_value="true" position="672:312" size="140:141" />
+        <node operator="Parameter: Single" id="17" name="falloffDistance" min_value="-1000" max_value="10000" default_value="10" system_units_value="false" position="484:373" size="140:213" />
+        <node operator="DivideBy100.ext" id="2" position="690:460" size="140:117" />
+        <node operator="False" id="10" position="672:192" size="140:93" />
+        <node operator="True" id="6" position="481:271" size="140:93" />
+        <node groupnode="Flux parameters" id="14" position="40:-40" size="378:411" bg_color="#ff646464">
+            <nodes>3,13,0,15</nodes>
+        </node>
+        <node groupnode="Lerp matrices" id="11" position="1200:240" size="178:253" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+        <node groupnode="Compute the weights for interpolation" id="19" position="460:-20" size="701:615" bg_color="#ff646464">
+            <nodes>12,16,1,4,6,17,2,10</nodes>
+        </node>
+        <node groupnode="Number of Flux matrices" id="18" position="60:400" size="338:179" bg_color="#ff646464">
+            <nodes>5,8</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="15" sourceport="0" destnode="7" destport="4" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="3" />
+        <connection sourcenode="16" sourceport="0" destnode="12" destport="4" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="5" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="2" destport="0" />
+    </connections>
+</graph>

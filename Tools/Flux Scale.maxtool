@@ -1,0 +1,43 @@
+<graph version="0.50" uuid="17d8b6c7-7c44-44a8-9e0d-185677bd3a79">
+    <meta_info>
+        <graph_version guid="b76e364c-fbd7-4713-a9da-bb25194e4f21" number="0.0.9" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="17" name="z" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="180:290" size="140:45" isClosed="1" />
+        <node operator="Parameter: Single" id="14" name="x" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="190:149" size="140:45" isClosed="1" />
+        <node operator="Parameter: Single" id="16" name="y" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="191:222" size="140:45" isClosed="1" />
+        <node operator="Vector3" id="4" position="374:169" size="140:165" />
+        <node operator="Output: modifier" id="15" position="1360:340" size="140:69" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="849:109" size="140:189" />
+        <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="849:550" size="140:213" />
+        <node operator="Modifier: TriMesh" id="3" position="849:309" size="140:93" />
+        <node operator="ClonerTransformMatrices.ext" id="10" position="1077:229" size="200:213" />
+        <node operator="Parameter: Boolean" id="13" name="combine effect" default_value="false" position="849:409" size="140:141" />
+        <node operator="ScalingMatrix.ext" id="1" position="365:344" size="140:117" />
+        <node operator="MatrixApplyTransform.ext" id="11" position="633:273" size="140:165" />
+        <node operator="Parameter: Boolean" id="12" name="relative" default_value="false" position="520:160" size="140:141" />
+        <node groupnode="Function: scale a matrix relative to self or the modifier TM" id="8" position="160:120" size="635:364" bg_color="#ff646464">
+            <nodes>4,11,1,16,14,17</nodes>
+        </node>
+        <node groupnode="Apply function to matrices" id="5" position="1040:200" size="269:261" bg_color="#ff646464">
+            <nodes>10</nodes>
+        </node>
+        <node groupnode="Flux parameters" id="9" position="840:80" size="158:703" bg_color="#ff646464">
+            <nodes>7,6,3,13</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="14" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="11" sourceport="1" destnode="10" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="3" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="4" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="2" />
+    </connections>
+</graph>

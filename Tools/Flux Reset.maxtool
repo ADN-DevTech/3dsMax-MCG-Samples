@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="7ac418a5-4285-44a3-820e-0893c4419b7c">
+    <meta_info>
+        <graph_version guid="c82677c9-a065-4d36-a273-2ef355c5b3d0" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="ClonerTransformMatrices.ext" id="3" position="1097:69" size="200:213" />
+        <node operator="Output: modifier" id="15" position="1360:160" size="140:69" />
+        <node operator="Modifier: TriMesh" id="1" position="709:149" size="140:93" />
+        <node operator="Parameter: Boolean" id="0" name="combine effect" default_value="false" position="853:-30" size="140:141" />
+        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="709:-51" size="140:189" />
+        <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="862:141" size="140:213" />
+        <node operator="IgnoreFirst" id="2" position="490:70" size="140:141" />
+        <node operator="MatrixIdentity" id="10" position="309:116" size="140:93" />
+        <node groupnode="Apply function to matrices" id="5" position="1060:40" size="269:261" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="Flux parameters" id="9" position="700:-80" size="324:468" bg_color="#ff646464">
+            <nodes>1,0,7,6</nodes>
+        </node>
+        <node groupnode="Function: return the identity matrix" id="8" position="300:35" size="358:221" bg_color="#ff646464">
+            <nodes>10,2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="1" destnode="3" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="1" />
+    </connections>
+</graph>

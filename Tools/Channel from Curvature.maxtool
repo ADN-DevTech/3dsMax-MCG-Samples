@@ -1,0 +1,21 @@
+<graph version="0.50" uuid="53871567-3f12-42d9-b884-3a1a79ee7561">
+    <meta_info>
+        <graph_version guid="7dd98beb-037e-41fa-8467-04a9ac16827a" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="1" position="0:220" size="140:93" />
+        <node operator="Parameter: Int32" id="2" name="target channel" min_value="-3" max_value="100" default_value="0" position="500:0" size="140:189" />
+        <node operator="Output: modifier" id="8" position="1000:240" size="140:69" />
+        <node operator="ScalarToVector.ext" id="3" position="500:240" size="140:117" />
+        <node operator="MapChannelFromFaceVertex.ext" id="5" position="680:220" size="220:165" />
+        <node operator="MeshFaceVertexCurvature.ext" id="0" position="220:140" size="200:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+    </connections>
+</graph>
