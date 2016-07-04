@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="23ac2693-2696-4e47-9101-2baaf0483e77">
+    <meta_info>
+        <graph_version guid="595c8548-f242-42a4-a38a-293512e55460" number="0.0.3" />
+        <category>Selection</category>
+        <description>Selects edges that are borders or if inverted edges that are not borders.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:112" />
+        <node operator="Edges-ext" id="1" position="220:40" size="140:112" />
+        <node operator="Map" id="3" position="440:100" size="140:133" />
+        <node operator="NegateBooleanConditional-ext" id="5" position="220:180" size="140:133" />
+        <node operator="Input: Boolean" id="6" name="invert" position="0:140" size="140:112" />
+        <node operator="Output: compound" id="7" position="880:200" size="140:70" />
+        <node operator="SelectEdges-ext" id="8" position="660:140" size="140:154" />
+        <node operator="Input: Int32" id="9" name="selectionMethod" position="440:260" size="140:112" />
+        <node operator="EdgeIsBorder-ext" id="2" position="0:280" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="2" />
+    </connections>
+</graph>

@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="514e80fe-2d84-4541-95f2-3145bd16a976">
+    <meta_info>
+        <graph_version guid="f9586df6-edd2-4d73-a928-1d0ffecba4a3" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="xs" position="0:120" size="140:117" />
+        <node operator="Input: Int32" id="1" name="offset" position="220:140" size="140:117" />
+        <node operator="RangeWithOffset-ext" id="2" position="440:100" size="140:141" />
+        <node operator="Count" id="3" position="220:0" size="140:117" />
+        <node operator="Map" id="5" position="660:220" size="140:141" />
+        <node operator="AtModulo-ext" id="6" position="440:260" size="140:141" />
+        <node operator="Output: compound" id="7" position="880:260" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

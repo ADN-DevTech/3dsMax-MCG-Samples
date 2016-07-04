@@ -1,0 +1,75 @@
+<graph version="0.50" uuid="e757be2c-4ec0-4093-8747-2a1f8aea52a8">
+    <meta_info>
+        <graph_version guid="d9951344-7fd7-4417-9a41-5ca26a666519" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Vector3" id="36" position="3700:620" size="140:154" />
+        <node operator="Input: Vector3" id="10" name="point" position="1729:-31" size="140:112" />
+        <node operator="Pass-through: Single" id="44" position="3500:860" size="140:112" />
+        <node operator="Pass-through: Vector3" id="45" position="2120:600" size="140:112" />
+        <node operator="Pass-through: Single" id="43" position="3500:360" size="140:112" />
+        <node operator="Pass-through: Single" id="42" position="3500:620" size="140:112" />
+        <node operator="Pass-through: Vector3" id="20" position="3880:620" size="140:112" />
+        <node operator="X" id="40" position="2340:340" size="140:112" />
+        <node operator="Y" id="41" position="2340:600" size="140:112" />
+        <node operator="Output: compound" id="11" position="4420:220" size="140:70" />
+        <node operator="Z" id="38" position="2340:860" size="140:112" />
+        <node operator="Transform" id="9" position="4160:191" size="140:133" />
+        <node operator="Input: Matrix" id="35" name="localGizmoTransform" position="1549:129" size="140:112" />
+        <node operator="Transform" id="37" position="1909:69" size="140:133" />
+        <node operator="InvertMatrix" id="46" position="1729:89" size="140:112" />
+        <node operator="Pass-through: Matrix" id="49" position="1729:189" size="140:112" />
+        <node operator="Input: Single" id="1" name="amplitude1" position="2161:1046" size="140:112" />
+        <node operator="Input: Single" id="2" name="amplitude2" position="2161:1166" size="140:112" />
+        <node operator="Input: Single" id="3" name="waveLength" position="2840:1300" size="140:112" />
+        <node operator="Input: Single" id="4" name="phase" position="2840:1400" size="140:112" />
+        <node operator="Input: Single" id="5" name="decay" position="2840:1500" size="140:112" />
+        <node operator="Vector3FromXY" id="0" position="2540:460" size="140:133" />
+        <node operator="Length" id="6" position="2840:1200" size="140:112" />
+        <node operator="WaveDeformerWaveFunc" id="7" position="3080:1120" size="180:196" />
+        <node operator="Add" id="8" position="3340:860" size="140:133" />
+        <node operator="SinWaveDeformerWeightedAmplitude" id="14" position="2353:1061" size="240:154" />
+        <node groupnode="Point in gizmo space" id="21" position="1540:-60" size="518:370" bg_color="#ffc0c0c0">
+            <nodes>10,35,37,46,49</nodes>
+        </node>
+        <node groupnode="get out of gizmo space" id="34" position="4100:160" size="252:177" bg_color="#ffc0c0c0">
+            <nodes>9</nodes>
+        </node>
+        <node groupnode="Main deformation logic" id="13" position="2111:311" size="1918:1313" bg_color="#ffc0c0c0">
+            <nodes>5,4,3,8,7,0,6,45,38,44,41,36,40,20,42,43,1,2,14</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="43" sourceport="0" destnode="36" destport="0" />
+        <connection sourcenode="42" sourceport="0" destnode="36" destport="1" />
+        <connection sourcenode="44" sourceport="0" destnode="36" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="37" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="43" destport="0" />
+        <connection sourcenode="41" sourceport="0" destnode="42" destport="0" />
+        <connection sourcenode="36" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="40" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="41" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="38" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="49" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="37" destport="0" />
+        <connection sourcenode="46" sourceport="0" destnode="37" destport="1" />
+        <connection sourcenode="35" sourceport="0" destnode="46" destport="0" />
+        <connection sourcenode="35" sourceport="0" destnode="49" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="41" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="4" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="38" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="45" sourceport="0" destnode="14" destport="2" />
+    </connections>
+</graph>

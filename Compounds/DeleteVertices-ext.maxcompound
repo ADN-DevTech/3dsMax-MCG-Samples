@@ -1,0 +1,21 @@
+<graph version="0.50" uuid="66c495a0-311a-4115-86a3-1dbf3e514825">
+    <meta_info>
+        <graph_version guid="cfa441a2-0ff0-4db3-9d76-eb964cdbfce6" number="0.0.7" />
+        <category>Geometry - TriMesh</category>
+        <description>Deletes the specified vertices and the faces they are part of. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="vertexFlags" position="0:120" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:0" size="140:112" />
+        <node operator="DeleteFaces-ext" id="2" position="440:80" size="140:133" />
+        <node operator="VertexFlagsToFaceFlags-ext" id="3" position="220:140" size="140:133" />
+        <node operator="Output: compound" id="4" position="660:120" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

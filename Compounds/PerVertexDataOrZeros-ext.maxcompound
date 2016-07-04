@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="19e6c18d-9ec2-4a60-97e6-b86fb04b6ae5">
+    <meta_info>
+        <graph_version guid="05547f2c-f80e-4d92-84fa-882999cc5514" number="0.0.3" />
+        <category>Geometry - TriMesh</category>
+        <description>Returns a per vertex data channel or an array of zeros. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:140" size="140:112" />
+        <node operator="Input: Int32" id="1" name="vertexDataChannel" position="220:120" size="140:112" />
+        <node operator="PerVertexData" id="2" position="440:120" size="140:133" />
+        <node operator="IsNull" id="3" position="660:0" size="140:112" />
+        <node operator="MeshVertices" id="4" position="220:260" size="140:112" />
+        <node operator="FloatZero" id="6" position="440:0" size="140:91" />
+        <node operator="Count" id="7" position="440:260" size="140:112" />
+        <node operator="ArrayOf" id="8" position="660:140" size="140:133" />
+        <node operator="If" id="9" position="880:160" size="140:154" />
+        <node operator="Output: compound" id="10" position="1100:220" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

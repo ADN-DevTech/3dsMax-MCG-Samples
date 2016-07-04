@@ -1,0 +1,20 @@
+<graph version="0.50" uuid="28e4d660-3b62-471c-926c-e770953e4a0f">
+    <meta_info>
+        <graph_version guid="f8652693-24c1-4385-b1e2-1cd353155b06" number="0.0.2" />
+        <category>Geometry - TriMesh</category>
+        <description>Returns the vertex selection as if it was a soft-selection channel by converting true values to 1.0 and false values to 0.0.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="320:160" size="140:112" />
+        <node operator="VertexSelection" id="1" position="488:232" size="140:112" />
+        <node operator="Map" id="2" position="669:338" size="140:133" />
+        <node operator="BooleanToFloat-ext" id="3" position="480:380" size="140:112" />
+        <node operator="Output: compound" id="4" position="860:340" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

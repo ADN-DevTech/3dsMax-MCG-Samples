@@ -1,0 +1,57 @@
+<graph version="0.50" uuid="c21f697f-e5bb-41e7-8e91-8d3f475ae2d0">
+    <meta_info>
+        <graph_version guid="c3e59008-0eb7-4dba-aade-5d1a2dd116eb" number="0.0.21" />
+        <company>Autodesk</company>
+        <category>Bullet Physics</category>
+        <description>Update animated Colliding nodes.&#x0A;&#x0A;An optional Bullet Physics compound that works with &quot;Create Collision Nodes&quot; compound.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="0" position="1789:69" size="200:69" />
+        <node operator="Pass-through: World" id="48" position="781:450" size="140:117" />
+        <node operator="SetRigidBodyWorldTransform" id="26" position="1194:425" size="220:165" />
+        <node operator="GetRigidBodyByIndex" id="45" position="979:586" size="180:141" />
+        <node operator="Input: World" id="3" name="World" position="369:9" size="140:117" />
+        <node operator="Input: array" id="4" name="iNodes array" position="369:269" size="140:117" />
+        <node operator="Pass-through: Int32" id="7" position="590:405" size="160:117" />
+        <node operator="GetNumberOfRigidBodies" id="9" position="1049:63" size="180:117" />
+        <node operator="Repeat" id="13" position="1509:3" size="140:165" />
+        <node operator="MinusOne" id="11" position="1289:83" size="140:117" />
+        <node operator="At" id="6" position="781:290" size="140:141" />
+        <node operator="WorldTransform" id="12" position="965:341" size="140:117" />
+        <node operator="PlusOne" id="5" position="781:590" size="140:117" />
+        <node groupnode="Output World" id="1" position="1780:40" size="218:107" bg_color="#ff646464">
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="Update Rigid Bodies world Matrix" id="14" position="1000:-220" size="501:85" bg_color="#ff646464">
+            <comment>For each Rigid Body colliders, update their Matrix in the Simulation World cache.</comment>
+        </node>
+        <node groupnode="Repeat for each Rigid Bodies" id="2" position="1040:-60" size="618:269" bg_color="#ff646464">
+            <comment>Repeat the function for each rigid bodies minus the Simulated Body</comment>
+            <nodes>9,13,11</nodes>
+        </node>
+        <node groupnode="Animated Rigid Bodies" id="8" position="580:227" size="843:529" bg_color="#ff646464">
+            <comment>Get Rigid bodies world matrix from Max and update it to the Simulation world</comment>
+            <nodes>45,48,26,7,6,12,5</nodes>
+        </node>
+        <node groupnode="Input Context" id="10" position="360:-20" size="158:415" bg_color="#ffcd5c5c">
+            <nodes>3,4</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="13" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="48" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="26" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="26" destport="2" />
+        <connection sourcenode="48" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="45" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="26" sourceport="1" destnode="13" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

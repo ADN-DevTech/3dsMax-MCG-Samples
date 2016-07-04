@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="85eab417-8d79-40bc-a5cd-38c27bd9d8a7">
+    <meta_info>
+        <graph_version guid="95f429fc-3e4e-4889-9cc0-941294d318f4" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="SplineBoundingBox" id="20" position="440:440" size="140:112" />
+        <node operator="Input: Spline" id="1" name="spline" position="240:200" size="140:112" />
+        <node operator="Output: compound" id="2" position="1140:280" size="140:70" />
+        <node operator="Input: Single" id="3" name="angle" position="440:320" size="140:112" />
+        <node operator="Input: Int32" id="4" name="axis" position="440:580" size="140:112" />
+        <node operator="Input: Matrix" id="6" name="localGizmoTransform" position="440:700" size="140:112" />
+        <node operator="Input: Single" id="7" name="direction" position="440:820" size="140:112" />
+        <node operator="BendDeformer" id="5" position="680:340" size="140:217" />
+        <node operator="SplineDeformKnots" id="0" position="860:220" size="160:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="4" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="5" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="0" destport="1" />
+    </connections>
+</graph>

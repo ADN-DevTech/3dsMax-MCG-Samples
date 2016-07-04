@@ -1,0 +1,20 @@
+<graph version="0.50" uuid="796d7bb1-84c6-4136-9bc7-2beed4bedd9c">
+    <meta_info>
+        <graph_version guid="bfe69b8b-2efc-4bf4-b39a-e73a9cf1fab5" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: BoundingBox" id="0" name="box" position="0:120" size="180:117" />
+        <node operator="Input: Vector3" id="1" name="v" position="260:0" size="140:117" />
+        <node operator="Input: Int32" id="2" name="component" position="260:280" size="140:117" />
+        <node operator="Output: compound" id="5" position="700:200" size="140:69" />
+        <node operator="VectorComponentDistance-ext" id="4" position="480:140" size="140:165" />
+        <node operator="BoxMax" id="6" position="260:140" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

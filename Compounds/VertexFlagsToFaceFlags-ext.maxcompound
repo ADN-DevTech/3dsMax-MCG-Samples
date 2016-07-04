@@ -1,0 +1,43 @@
+<graph version="0.50" uuid="8ecf0d71-7cd7-4993-be46-bf7f5b003a57">
+    <meta_info>
+        <graph_version guid="afeec4b7-1799-4629-9783-a92171c49120" number="0.0.13" />
+        <category>Geometry - TriMesh</category>
+        <description>Converts an array of vertex flags to an array of face flags. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="vertexFlags" position="0:260" size="160:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="0:120" size="140:112" />
+        <node operator="Output: compound" id="2" position="1140:360" size="140:70" />
+        <node operator="VertexFaceLookup" id="3" position="240:380" size="140:133" />
+        <node operator="BooleansToIndices-ext" id="5" position="240:240" size="160:112" />
+        <node operator="FlatMap" id="6" position="480:320" size="140:133" />
+        <node operator="MeshFaces" id="4" position="240:0" size="140:112" />
+        <node operator="SetValues" id="9" position="920:320" size="140:133" />
+        <node operator="Map" id="10" position="700:380" size="140:133" />
+        <node operator="Pair" id="11" position="480:480" size="140:133" />
+        <node operator="True" id="12" position="240:660" size="140:91" />
+        <node operator="Indices" id="13" position="480:40" size="140:112" />
+        <node operator="Pass-through: Int32" id="14" position="240:520" size="140:112" />
+        <node operator="Map" id="15" position="700:200" size="140:133" />
+        <node operator="IgnoreFirst" id="16" position="480:180" size="140:133" />
+        <node operator="False" id="7" position="240:140" size="140:91" />
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="6" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="11" sourceport="1" destnode="10" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="16" sourceport="1" destnode="15" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="16" destport="1" />
+    </connections>
+</graph>

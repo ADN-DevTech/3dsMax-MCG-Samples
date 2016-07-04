@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="e5e3c9a9-eb49-4d72-ab4f-7fe179e0ddad">
+    <meta_info>
+        <graph_version guid="17c9d8f9-8ee5-4c6c-9203-ffae8d800959" number="0.0.3" />
+        <category>Mesh Topology</category>
+        <description>Add vertices to a mesh and then new faces. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="120:320" size="140:112" />
+        <node operator="MeshAddVertices-ext" id="1" position="320:360" size="140:133" />
+        <node operator="MeshAddFaces-ext" id="2" position="560:380" size="140:133" />
+        <node operator="Output: compound" id="3" position="780:420" size="140:70" />
+        <node operator="Input: array" id="4" name="vertices" position="120:460" size="140:112" />
+        <node operator="Input: array" id="5" name="indices" position="320:500" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+    </connections>
+</graph>

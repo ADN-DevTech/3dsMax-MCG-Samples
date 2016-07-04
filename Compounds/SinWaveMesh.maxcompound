@@ -1,0 +1,38 @@
+<graph version="0.50" uuid="1b44ae56-24a3-46f5-9461-13b517a69365">
+    <meta_info>
+        <graph_version guid="8155e1c4-518e-451c-8e56-88fb0505ebfe" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="MeshVertices" id="15" position="829:409" size="140:112" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="340:320" size="140:112" />
+        <node operator="Output: compound" id="3" position="1460:360" size="140:70" />
+        <node operator="ParallelMap" id="11" position="1049:429" size="140:133" />
+        <node operator="Pass-through: TriMesh" id="27" position="669:329" size="140:112" />
+        <node operator="SetMeshVertices" id="18" position="1269:349" size="140:133" />
+        <node operator="Input: Matrix" id="12" name="localGizmoTransform" position="540:680" size="140:112" />
+        <node operator="Input: Single" id="13" name="amplitude1" position="540:820" size="140:112" />
+        <node operator="Input: Single" id="14" name="amplitude2" position="540:960" size="140:112" />
+        <node operator="Input: Single" id="16" name="waveLength" position="540:1100" size="140:112" />
+        <node operator="Input: Single" id="17" name="phase" position="540:1220" size="140:112" />
+        <node operator="Input: Single" id="19" name="decay" position="540:1360" size="140:112" />
+        <node operator="SinWaveDeformer" id="1" position="820:680" size="180:238" />
+        <node groupnode="Deform the mesh vertices" id="7" position="660:300" size="958:271" bg_color="#ffc0c0c0">
+            <nodes>11,3,15,18,27</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="27" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="11" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="27" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="16" sourceport="0" destnode="1" destport="4" />
+        <connection sourcenode="17" sourceport="0" destnode="1" destport="5" />
+        <connection sourcenode="19" sourceport="0" destnode="1" destport="6" />
+    </connections>
+</graph>

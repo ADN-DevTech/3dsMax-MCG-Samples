@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="7f5d9bda-09f7-4b8d-9949-109fcfa60f7a">
+    <meta_info>
+        <graph_version guid="9bc41b25-b335-4930-a64f-83398076a179" number="0.0.75" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="3" position="1386:318" size="140:70" />
+        <node operator="Pass-through: TriMesh" id="27" position="449:269" size="140:112" />
+        <node operator="ParallelMap" id="11" position="862:366" size="140:133" />
+        <node operator="SetMeshVertices" id="18" position="1215:287" size="140:133" />
+        <node operator="MeshVertices" id="15" position="609:349" size="140:112" />
+        <node operator="Input: TriMesh" id="8" name="mesh" position="240:280" size="140:112" />
+        <node operator="Input: Single" id="9" name="scale" position="180:920" size="140:112" />
+        <node operator="Input: Matrix" id="12" name="localGizmoTransform" position="180:420" size="140:112" />
+        <node operator="Input: Single" id="10" name="roughness" position="180:620" size="140:112" />
+        <node operator="Input: Vector3" id="14" name="strength" position="180:1020" size="140:112" />
+        <node operator="Input: Int32" id="1" name="iterations" position="180:520" size="140:112" />
+        <node operator="NoiseDeformer" id="0" position="420:580" size="140:280" />
+        <node operator="NoiseDeformerNoiseInit" id="72" position="120:1140" size="200:112" />
+        <node operator="Input: Int32" id="77" name="seed" position="-60:1140" size="140:112" />
+        <node operator="Bind2of2" id="5" position="620:860" size="140:133" />
+        <node operator="Input: Single" id="6" name="frequency" position="180:820" size="140:112" />
+        <node operator="Input: Int32" id="13" name="phase" position="180:720" size="140:112" />
+        <node groupnode="Deform the mesh vertices" id="7" position="440:240" size="1095:271" bg_color="#ffc0c0c0">
+            <nodes>3,27,11,18,15</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="18" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="27" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="27" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="13" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="5" />
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="7" />
+        <connection sourcenode="14" sourceport="0" destnode="0" destport="8" />
+        <connection sourcenode="77" sourceport="0" destnode="72" destport="0" />
+        <connection sourcenode="0" sourceport="1" destnode="5" destport="0" />
+        <connection sourcenode="72" sourceport="0" destnode="5" destport="1" />
+    </connections>
+</graph>

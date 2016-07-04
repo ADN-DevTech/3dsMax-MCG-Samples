@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="493e3343-6c29-4cd0-bd10-b84168fce389">
+    <meta_info>
+        <graph_version guid="97f5da63-4b53-4436-a287-4ea2691f54ce" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="1" name="count" position="60:180" size="140:117" />
+        <node operator="PseudoRandomFloats-ext" id="2" position="520:60" size="140:141" />
+        <node operator="Input: Random" id="0" name="rng" position="60:40" size="140:117" />
+        <node operator="PlusOne" id="4" position="300:180" size="140:117" />
+        <node operator="CombinePairwiseElements-ext" id="3" position="780:160" size="180:141" />
+        <node operator="BoxMuller-ext" id="5" position="520:220" size="140:141" />
+        <node operator="Output: compound" id="7" position="1040:220" size="180:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

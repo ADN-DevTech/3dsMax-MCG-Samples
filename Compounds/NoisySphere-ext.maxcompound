@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="ef3ff316-fd6f-4131-99f2-03e4bb0bbd33">
+    <meta_info>
+        <graph_version guid="1a51f365-837c-4200-93a2-0cfd677b55d1" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="SpherePointFromUV-ext" id="4" position="220:140" size="140:141" />
+        <node operator="RangeExclusiveFloat" id="1" position="440:140" size="160:117" />
+        <node operator="UVsToQuadMesh-ext" id="0" position="680:240" size="140:213" />
+        <node operator="Input: Int32" id="2" name="segments" position="220:0" size="140:117" />
+        <node operator="Output: compound" id="5" position="900:360" size="140:69" />
+        <node operator="RangeInclusiveFloat" id="6" position="440:0" size="140:117" />
+        <node operator="True" id="3" position="440:440" size="140:93" />
+        <node operator="Pass-through: Single" id="7" position="0:100" size="140:117" />
+        <node operator="Pass-through: Single" id="8" position="0:240" size="140:117" />
+        <node operator="NoiseLoop2-ext" id="9" position="120:480" size="140:165" />
+        <node operator="SetVectorLength" id="10" position="460:280" size="140:141" />
+        <node operator="Input: function2" id="11" name="noise" position="0:380" size="140:117" />
+        <node operator="Length" id="12" position="220:280" size="140:117" />
+        <node operator="Add" id="13" position="260:420" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="10" sourceport="1" destnode="0" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,140 @@
+<graph version="0.50" uuid="a708f489-4af1-464c-9b45-dd2ab756d552">
+    <meta_info>
+        <graph_version guid="794fa7f7-f778-49c6-962c-bfc271950025" number="0.0.50" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="77" position="2940:240" size="140:70" />
+        <node operator="Transform" id="78" position="-124:69" size="140:133" />
+        <node operator="InvertMatrix" id="79" position="-304:109" size="140:112" />
+        <node operator="Input: Matrix" id="80" name="localGizmoTransform" position="-489:141" size="140:112" />
+        <node operator="Input: Vector3" id="10" name="point" position="-304:9" size="140:112" />
+        <node operator="Transform" id="83" position="2674:209" size="140:133" />
+        <node operator="Pass-through: Matrix" id="76" position="-304:209" size="140:112" />
+        <node operator="Pass-through: Vector3" id="1" position="900:800" size="140:112" />
+        <node operator="X" id="5" position="1140:700" size="140:112" />
+        <node operator="Y" id="6" position="1140:820" size="140:112" />
+        <node operator="Z" id="7" position="1140:940" size="140:112" />
+        <node operator="Vector3" id="14" position="1940:840" size="140:154" />
+        <node operator="NoiseDeformerfBm1" id="27" position="1174:1352" size="180:196" />
+        <node operator="Constant" id="32" value="2.0" position="954:1252" size="140:91" />
+        <node operator="Vector3" id="0" position="974:1672" size="140:154" />
+        <node operator="Apply2" id="4" position="1460:640" size="140:154" />
+        <node operator="MultiplyByScalar" id="16" position="529:649" size="140:133" />
+        <node operator="Pass-through: Vector3" id="17" position="329:589" size="140:112" />
+        <node operator="Add" id="18" position="709:749" size="140:133" />
+        <node operator="Constant" id="19" value="[0.5, 0.5, 0.5]" position="529:769" size="140:91" />
+        <node operator="Input: Vector3" id="21" name="strength" position="1940:980" size="140:112" />
+        <node operator="Multiply" id="22" position="2120:900" size="140:133" />
+        <node operator="Pass-through: Vector3" id="23" position="80:340" size="140:112" />
+        <node operator="Pass-through: Vector3" id="24" position="2160:360" size="140:112" />
+        <node operator="Add" id="25" position="2460:460" size="140:133" />
+        <node operator="Apply2" id="2" position="1460:820" size="140:154" />
+        <node operator="Apply2" id="15" position="1460:980" size="140:154" />
+        <node operator="Pass-through: Single" id="26" position="1700:700" size="140:112" />
+        <node operator="Pass-through: Single" id="9" position="1700:840" size="140:112" />
+        <node operator="Pass-through: Single" id="12" position="1700:1020" size="140:112" />
+        <node operator="AsFloat" id="13" position="954:1152" size="140:112" />
+        <node operator="Input: Int32" id="28" name="iterations" position="774:1152" size="140:112" />
+        <node operator="Input: tuple2" id="36" name="noiseInitResult" position="980:1825" size="140:112" />
+        <node operator="Subtract" id="3" position="954:1332" size="140:133" />
+        <node operator="Constant" id="29" value="4800.0" position="211:2204" size="140:91" />
+        <node operator="Multiply" id="30" position="411:1984" size="140:133" />
+        <node operator="Divide" id="31" position="411:2124" size="140:133" />
+        <node operator="Constant" id="34" value="0.005" position="211:2044" size="140:91" />
+        <node operator="Multiply" id="38" position="771:2044" size="140:133" />
+        <node operator="Multiply" id="39" position="591:2084" size="140:133" />
+        <node operator="FloatOne" id="40" position="147:688" size="140:91" />
+        <node operator="Divide" id="41" position="327:728" size="140:133" />
+        <node operator="AsFloat" id="43" position="591:1964" size="140:112" />
+        <node operator="FloatOne" id="46" position="754:1332" size="140:91" />
+        <node operator="Constant" id="47" value="1200.0" position="211:2124" size="140:91" />
+        <node operator="Input: Single" id="48" name="roughness" position="754:1412" size="140:112" />
+        <node operator="Input: Int32" id="33" name="phase" position="411:1884" size="140:112" />
+        <node operator="Input: Single" id="45" name="frequency" position="211:1944" size="140:112" />
+        <node operator="Input: Single" id="8" name="scale" position="147:788" size="140:112" />
+        <node operator="Pass-through: Single" id="51" position="763:1561" size="140:112" />
+        <node operator="Pass-through: Single" id="54" position="763:1721" size="140:112" />
+        <node groupnode="Bring the point into the gizmo space" id="11" position="-500:-20" size="525:350" bg_color="#ffc0c0c0">
+            <nodes>78,79,80,10,76</nodes>
+        </node>
+        <node groupnode="sp" id="20" position="128:560" size="730:401" bg_color="#ffc0c0c0">
+            <nodes>16,17,18,19,40,41,8</nodes>
+        </node>
+        <node groupnode="Get out of gizmo space" id="85" position="2620:180" size="247:182" bg_color="#ffc0c0c0">
+            <nodes>83</nodes>
+        </node>
+        <node groupnode="function: given an x and y coordinate, return a continuously sampled fractal random value" id="55" position="186:1111" size="1203:1205" bg_color="#ffc0c0c0">
+            <nodes>27,32,0,13,28,36,3,46,48,37,52,53</nodes>
+        </node>
+        <node groupnode="Compute the time-varying component of the noise sampling vector" id="37" position="195:1855" size="725:452" bg_color="#ffc0c0c0">
+            <nodes>29,30,31,34,38,39,43,47,33,45</nodes>
+        </node>
+        <node groupnode="arg: x" id="52" position="754:1532" size="158:150" bg_color="#fff4c1f7">
+            <nodes>51</nodes>
+        </node>
+        <node groupnode="arg: y" id="53" position="754:1692" size="158:150" bg_color="#fff4c1f7">
+            <nodes>54</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="83" sourceport="0" destnode="77" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="78" destport="0" />
+        <connection sourcenode="79" sourceport="0" destnode="78" destport="1" />
+        <connection sourcenode="80" sourceport="0" destnode="79" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="83" destport="0" />
+        <connection sourcenode="76" sourceport="0" destnode="83" destport="1" />
+        <connection sourcenode="80" sourceport="0" destnode="76" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="26" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="13" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="32" sourceport="0" destnode="27" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="27" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="27" destport="3" />
+        <connection sourcenode="36" sourceport="0" destnode="27" destport="4" />
+        <connection sourcenode="51" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="54" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="38" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="27" sourceport="1" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="41" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="23" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="78" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="24" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="27" sourceport="1" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="27" sourceport="1" destnode="15" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="15" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="28" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="46" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="48" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="45" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="34" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="47" sourceport="0" destnode="31" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="31" destport="1" />
+        <connection sourcenode="43" sourceport="0" destnode="38" destport="0" />
+        <connection sourcenode="39" sourceport="0" destnode="38" destport="1" />
+        <connection sourcenode="30" sourceport="0" destnode="39" destport="0" />
+        <connection sourcenode="31" sourceport="0" destnode="39" destport="1" />
+        <connection sourcenode="40" sourceport="0" destnode="41" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="41" destport="1" />
+        <connection sourcenode="33" sourceport="0" destnode="43" destport="0" />
+    </connections>
+</graph>

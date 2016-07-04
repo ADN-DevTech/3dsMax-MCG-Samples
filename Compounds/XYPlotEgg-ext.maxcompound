@@ -1,0 +1,69 @@
+<graph version="0.50" uuid="92a02340-d023-432a-aa92-52f4d19184e9">
+    <meta_info>
+        <graph_version guid="ce378cc9-3733-43c0-812e-39120a4b493f" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="0" name="a" position="389:449" size="140:117" />
+        <node operator="Input: Single" id="1" name="b" position="169:549" size="140:117" />
+        <node operator="Input: Single" id="2" name="c" position="880:8" size="140:117" />
+        <node operator="Input: Single" id="3" name="theta" position="89:89" size="140:117" />
+        <node operator="Multiply" id="4" position="309:109" size="140:141" />
+        <node operator="TwoPi" id="5" position="89:229" size="140:93" />
+        <node operator="Cos" id="6" position="529:69" size="140:117" />
+        <node operator="Sin" id="7" position="1004:489" size="140:117" />
+        <node operator="Multiply" id="8" position="389:569" size="160:141" />
+        <node operator="Add" id="9" position="669:609" size="140:141" />
+        <node operator="Vector3FromXY" id="10" position="1638:483" size="140:141" />
+        <node operator="Multiply" id="11" position="1296:598" size="140:141" />
+        <node operator="Multiply" id="12" position="1056:245" size="140:141" />
+        <node operator="Multiply" id="13" position="1060:28" size="140:141" />
+        <node operator="Add" id="14" position="1329:229" size="140:141" />
+        <node operator="Output: compound" id="15" position="1820:529" size="140:69" />
+        <node groupnode="Source" id="16" position="1629:417" size="340:216" bg_color="#ff646464">
+            <comment>http://matheminutes.blogspot.ca/2013/03/eggquations.html</comment>
+            <nodes>10,15</nodes>
+        </node>
+        <node groupnode="a + b cos(theta)" id="17" position="160:420" size="658:339" bg_color="#ff646464">
+            <nodes>1,0,9,8</nodes>
+        </node>
+        <node groupnode="c cos(theta)" id="20" position="871:-21" size="338:199" bg_color="#ff646464">
+            <nodes>2,13</nodes>
+        </node>
+        <node groupnode="c cos(theta) + (a + b cos(theta))cos(theta)" id="21" position="1320:200" size="433:179" bg_color="#ff646464">
+            <nodes>14</nodes>
+        </node>
+        <node groupnode="cos(theta)" id="18" position="80:40" size="598:291" bg_color="#ff646464">
+            <nodes>3,5,4,6</nodes>
+        </node>
+        <node groupnode=" (a + b cos(theta))cos(theta)" id="23" position="987:211" size="261:184" bg_color="#ff646464">
+            <nodes>12</nodes>
+        </node>
+        <node groupnode="(a + b cos(theta)) sin(theta)" id="22" position="1220:560" size="290:187" bg_color="#ff646464">
+            <nodes>11</nodes>
+        </node>
+        <node groupnode="sin(theta)" id="19" position="980:460" size="172:155" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
+    </connections>
+</graph>

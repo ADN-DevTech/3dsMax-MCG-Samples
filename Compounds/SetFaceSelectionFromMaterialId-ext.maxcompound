@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="fa48334c-b617-4d3f-8e8e-310c94dc3c4d">
+    <meta_info>
+        <graph_version guid="9a98ce02-f0e3-4572-9c90-130e637c94d3" number="0.0.6" />
+        <category>Selection</category>
+        <description>Sets face selection based on whether each face match a material ID, or does not match a material ID (if invert is true). The selection method is 0, 1, or 2 depending on whether the selection updating method is replacement, adding, or subtracting. If &quot;matchOrLessThan&quot; is true, then the material ID is compared using &quot;Equals&quot;, otherwise it is checked using &quot;LessThanOrEqual&quot;.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="440:0" size="140:112" />
+        <node operator="Input: Int32" id="2" name="selectionMethod" position="880:240" size="140:112" />
+        <node operator="MaterialIds" id="3" position="660:40" size="140:112" />
+        <node operator="Input: Int32" id="1" name="materialId" position="0:380" size="140:112" />
+        <node operator="Map" id="4" position="880:100" size="140:133" />
+        <node operator="Equal" id="5" position="220:240" size="140:133" />
+        <node operator="Output: compound" id="6" position="1320:200" size="140:70" />
+        <node operator="NegateBooleanConditional-ext" id="9" position="660:180" size="140:133" />
+        <node operator="Input: Boolean" id="10" name="invert" position="440:140" size="140:112" />
+        <node operator="Input: Boolean" id="8" name="matchOrLessThan" position="220:120" size="140:112" />
+        <node operator="If" id="11" position="440:260" size="140:154" />
+        <node operator="LessThanOrEqual" id="13" position="220:400" size="140:133" />
+        <node operator="Pass-through: Int32" id="14" position="0:240" size="140:112" />
+        <node operator="SelectFaces-ext" id="12" position="1100:140" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="2" />
+    </connections>
+</graph>

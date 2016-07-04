@@ -1,0 +1,32 @@
+<graph version="0.50" uuid="662f6481-3ae9-4d66-8a10-1d6aca1ea705">
+    <meta_info>
+        <graph_version guid="d601e2c3-39e6-47b8-bca8-160170aa2195" number="0.0.5" />
+        <category>Geometry - Bounding box</category>
+        <description>Returns true if the bounding box is in a mesh in the given RayTrace scene.</description>
+    </meta_info>
+    <nodes>
+        <node operator="BoundingBoxCenter" id="15" position="20:180" size="140:117" />
+        <node operator="Count" id="21" position="680:260" size="140:117" />
+        <node operator="RayTraceAllIntersectingFaces" id="18" position="460:220" size="140:141" />
+        <node operator="Ray" id="2" position="240:260" size="140:141" />
+        <node operator="Input: RayTraceScene" id="0" name="scene" position="240:120" size="140:117" />
+        <node operator="Input: BoundingBox" id="1" name="box" position="-200:160" size="140:117" />
+        <node operator="Output: compound" id="3" position="1160:420" size="140:69" />
+        <node operator="ModuloEquals" id="4" position="880:300" size="140:165" />
+        <node operator="One" id="5" position="680:500" size="140:93" />
+        <node operator="Two" id="6" position="680:400" size="140:93" />
+        <node operator="ZAxis" id="7" position="20:320" size="140:93" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="2" />
+    </connections>
+</graph>

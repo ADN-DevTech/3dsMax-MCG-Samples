@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="71f50a93-b365-4bda-aac9-a24d04999a48">
+    <meta_info>
+        <graph_version guid="7aedbc4e-fcf4-4c9a-9733-a5912a2d66aa" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="21" position="960:280" size="140:70" />
+        <node operator="Parameter: Single" id="17" name="angle" min_value="-10000" max_value="10000" default_value="15" system_units_value="false" position="300:280" size="140:196" />
+        <node operator="Parameter: INode" id="31" name="gizmo" position="40:620" size="140:112" />
+        <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="2" default_value="2" position="480:480" size="140:175" />
+        <node operator="Modifier: TriMesh" id="3" position="300:200" size="140:91" />
+        <node operator="Parameter: Single" id="14" name="bias" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="260:900" size="140:196" />
+        <node operator="GizmoTransformInLocalSpace" id="1" position="220:680" size="200:133" />
+        <node operator="If" id="10" position="480:660" size="140:154" />
+        <node operator="Modifier: Matrix" id="38" position="40:740" size="140:91" />
+        <node operator="Parameter: Boolean" id="9" name="useGizmoXform" default_value="true" position="260:540" size="140:133" />
+        <node operator="MatrixIdentity" id="12" position="260:800" size="140:91" />
+        <node operator="ToRadians" id="19" position="480:360" size="140:112" />
+        <node operator="DivideBy100Float" id="20" position="480:980" size="140:112" />
+        <node operator="TwistMesh" id="0" position="740:200" size="140:196" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="31" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="38" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="20" sourceport="0" destnode="0" destport="4" />
+    </connections>
+</graph>

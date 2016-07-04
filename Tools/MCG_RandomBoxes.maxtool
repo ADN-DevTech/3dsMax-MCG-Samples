@@ -1,0 +1,92 @@
+<graph version="0.50" uuid="6db9d31e-25b5-442c-950e-7067a1e80aba">
+    <meta_info>
+        <graph_version guid="2ba5c95c-82df-4c21-bc72-c6983ca0d2f9" number="0.0.10" />
+    </meta_info>
+    <nodes>
+        <node operator="RandFloat" id="1" position="245:617" size="140:133" />
+        <node operator="Range" id="2" position="775:332" size="140:112" />
+        <node operator="Vector3" id="3" position="429:775" size="140:154" />
+        <node operator="RandFloat" id="4" position="241:763" size="140:133" />
+        <node operator="RandFloat" id="5" position="242:911" size="140:133" />
+        <node operator="Parameter: Int32" id="6" name="numBoxes" min_value="0" max_value="10000" default_value="50" position="599:254" size="140:175" />
+        <node operator="Parameter: Int32" id="7" name="seed" min_value="0" max_value="100" default_value="0" position="-319:467" size="140:175" />
+        <node operator="Pass-through: Int32" id="8" position="-499:622" size="140:112" />
+        <node operator="OffsetMesh" id="12" position="1611:672" size="140:133" />
+        <node operator="CreateBox" id="15" position="1407:523" size="140:154" />
+        <node operator="Parameter: Single" id="14" name="boxSize" min_value="0" max_value="100" default_value="1" system_units_value="false" position="1181:456" size="140:196" />
+        <node operator="MultiplyByScalar" id="16" position="1425:774" size="140:133" />
+        <node operator="Map" id="17" position="969:337" size="140:133" />
+        <node operator="Constant" id="18" value="-0.5" position="429:556" size="140:91" />
+        <node operator="Vector3" id="19" position="602:537" size="140:154" />
+        <node operator="Add" id="20" position="782:627" size="140:133" />
+        <node operator="Map" id="22" position="1787:289" size="140:133" />
+        <node operator="Pass-through: Vector3" id="23" position="1209:691" size="140:112" />
+        <node operator="Parameter: Single" id="25" name="volumeSize" min_value="0" max_value="10000" default_value="100" system_units_value="false" position="1236:822" size="140:196" />
+        <node operator="CombineAllMeshes" id="26" position="1967:309" size="140:112" />
+        <node operator="Output: geometry" id="27" position="2147:329" size="140:70" />
+        <node operator="Pass-through: array" id="29" position="1165:269" size="140:112" />
+        <node operator="Pass-through: Int32" id="32" position="43:553" size="140:112" />
+        <node operator="RandInt" id="0" position="-133:744" size="140:133" />
+        <node operator="RandInt" id="10" position="49:892" size="140:133" />
+        <node groupnode="arg: random vector" id="24" position="1176:660" size="197:152" bg_color="#ffc964c5">
+            <nodes>23</nodes>
+        </node>
+        <node groupnode="re-hash the index" id="11" position="-142:715" size="340:326" bg_color="#ff9c9c9c">
+            <nodes>0,10</nodes>
+        </node>
+        <node groupnode="Function: given a random vector, offset the box mesh." id="31" position="1167:413" size="614:617" bg_color="#ffc7c7c7">
+            <nodes>12,15,14,16,25,24</nodes>
+        </node>
+        <node groupnode="arg: current box index" id="9" position="-545:593" size="212:157" bg_color="#ffc964c5">
+            <nodes>8</nodes>
+        </node>
+        <node groupnode="Apply the random vectors to box meshes" id="28" position="1140:240" size="1168:799" bg_color="#ffececec">
+            <nodes>22,26,27,29,31</nodes>
+        </node>
+        <node groupnode="Generate an array of random vectors" id="30" position="-563:225" size="1681:837" bg_color="#ffececec">
+            <nodes>2,6,17,13</nodes>
+        </node>
+        <node groupnode="Center the vector between [-.5, -.5, -.5] and [.5, .5, .5]" id="21" position="420:491" size="512:278" bg_color="#ff9c9c9c">
+            <nodes>18,19,20</nodes>
+        </node>
+        <node groupnode="Function: given an integer, generate a random vector." id="13" position="-554:438" size="1495:615" bg_color="#ffc7c7c7">
+            <nodes>3,7,1,4,5,11,9,21,32</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="32" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="32" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="32" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="2" />
+        <connection sourcenode="23" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="20" sourceport="1" destnode="17" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="2" />
+        <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="29" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="12" sourceport="1" destnode="22" destport="1" />
+        <connection sourcenode="22" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="26" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="32" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="1" />
+    </connections>
+</graph>

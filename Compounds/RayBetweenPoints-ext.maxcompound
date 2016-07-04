@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="ceeae172-9750-463a-90b8-dbeffe3c6501">
+    <meta_info>
+        <graph_version guid="d88c70db-593f-4122-8e85-f0fe945b290c" number="0.0.3" />
+        <category>Geometry - Rays</category>
+        <description>Creates a ray given an origin point and a destination point.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="origin" position="240:240" size="140:112" />
+        <node operator="Input: Vector3" id="1" name="target" position="260:380" size="140:112" />
+        <node operator="Ray" id="4" position="680:260" size="140:133" />
+        <node operator="Subtract" id="5" position="480:340" size="140:133" />
+        <node operator="Output: compound" id="2" position="880:320" size="140:70" />
+        <node operator="Normalize" id="3" position="626:431" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+    </connections>
+</graph>

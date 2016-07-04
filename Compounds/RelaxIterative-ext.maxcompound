@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="d36ee944-30cd-41ea-9c6e-90a82f0722bf">
+    <meta_info>
+        <graph_version guid="e862e037-ef5c-4902-a73e-161fa2c3c1d7" number="0.0.6" />
+        <category>Geometry - Deformers</category>
+        <description>Applies a relax operation to a mesh N times. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="13" name="iterations" position="220:140" size="140:112" />
+        <node operator="Input: Single" id="12" name="amount" position="0:260" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:0" size="140:112" />
+        <node operator="Output: compound" id="2" position="740:200" size="140:70" />
+        <node operator="Relax-ext" id="3" position="220:260" size="140:133" />
+        <node operator="Iterate-ext" id="4" position="480:120" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="4" destport="2" />
+    </connections>
+</graph>

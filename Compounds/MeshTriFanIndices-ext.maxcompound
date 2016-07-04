@@ -1,0 +1,54 @@
+<graph version="0.50" uuid="0ffb6ce6-af40-4bd7-8545-0758c44a5c8b">
+    <meta_info>
+        <graph_version guid="e4fdb604-054e-44fe-adf3-5de2d0e8481e" number="0.0.1" />
+        <category>Mesh Topology</category>
+        <description>Computes new face indices for a triangular mesh when creating a triangle fan.  </description>
+    </meta_info>
+    <nodes>
+        <node operator="PlusOne" id="10" position="440:420" size="140:112" />
+        <node operator="Prepend" id="4" position="1540:480" size="140:133" />
+        <node operator="Input: Boolean" id="5" name="closed" position="1100:100" size="140:112" />
+        <node operator="Map" id="7" position="880:300" size="140:133" />
+        <node operator="Flatten" id="11" position="1540:360" size="140:112" />
+        <node operator="PlusOne" id="13" position="220:300" size="140:112" />
+        <node operator="Range" id="6" position="660:220" size="140:112" />
+        <node operator="Output: compound" id="0" position="1980:480" size="140:70" />
+        <node operator="Input: array" id="1" name="indices" position="0:280" size="140:112" />
+        <node operator="Append" id="9" position="1100:220" size="140:133" />
+        <node operator="MinusOne" id="16" position="440:120" size="140:112" />
+        <node operator="Zero" id="15" position="660:0" size="140:91" />
+        <node operator="Array3" id="3" position="660:360" size="140:154" />
+        <node operator="Count" id="17" position="220:180" size="140:112" />
+        <node operator="Zero" id="12" position="440:300" size="140:91" />
+        <node operator="One" id="19" position="660:120" size="140:91" />
+        <node operator="If" id="14" position="1320:260" size="140:154" />
+        <node operator="Array3" id="18" position="880:120" size="140:154" />
+        <node operator="Input: Int32" id="8" name="sharedIndex" position="1320:520" size="140:112" />
+        <node operator="SelectByIndex" id="20" position="1760:440" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="7" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="20" destport="1" />
+    </connections>
+</graph>

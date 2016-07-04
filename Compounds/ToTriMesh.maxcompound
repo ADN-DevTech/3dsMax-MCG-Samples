@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="0d9f26fe-736d-49df-ab10-0c9f5ea13482">
+  <meta_info>
+    <graph_version guid="a8a2f123-0af9-4ff3-b040-88f19a9219be" number="1.0.0" />
+    <category>Geometry - QuadMesh</category>
+    <description>Converts a QuadMesh to a TriMesh but sets edge visbility so that it appears like a QuadMesh in the viewport.</description>
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+  </meta_info>
+  <nodes>
+    <node operator="Input: QuadMesh" id="0" name="mesh" position="40:160" size="140:128" />
+    <node operator="Output: compound" id="1" position="580:240" size="140:80" />
+    <node operator="Triangulate" id="2" position="220:180" size="140:128" />
+    <node operator="HideEveryThirdEdge" id="3" position="400:200" size="140:128" />
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+  </connections>
+</graph>

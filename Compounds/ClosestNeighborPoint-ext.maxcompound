@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="fcd6b18b-385c-42de-8e17-fa5a70510c58">
+    <meta_info>
+        <graph_version guid="e5c8884f-2b80-4abc-94d5-1c2046516280" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="vectors" position="0:0" size="140:117" />
+        <node operator="Input: Int32" id="1" name="index" position="0:140" size="140:117" />
+        <node operator="Remove" id="16" position="440:40" size="140:141" />
+        <node operator="Distance" id="18" position="440:200" size="140:141" />
+        <node operator="At" id="19" position="220:200" size="140:141" />
+        <node operator="IndexOfMinimum" id="2" position="880:180" size="140:117" />
+        <node operator="At" id="3" position="1100:140" size="140:141" />
+        <node operator="Output: compound" id="4" position="1320:200" size="140:69" />
+        <node operator="ParallelMap" id="5" position="640:180" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="5" destport="1" />
+    </connections>
+</graph>

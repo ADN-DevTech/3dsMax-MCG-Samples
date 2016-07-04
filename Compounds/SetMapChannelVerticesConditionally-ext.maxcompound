@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="ca467986-5fd1-4262-974d-801fda6e038b">
+    <meta_info>
+        <graph_version guid="dbd08f47-4338-4e24-a5b5-a564a1fc4e8b" number="0.0.2" />
+        <category>Geometry - TriMesh</category>
+        <description>if condition is true, sets the map channel with an array of values that corresponds to each vertex. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:180" size="140:112" />
+        <node operator="Input: array" id="1" name="values" position="220:180" size="140:112" />
+        <node operator="Input: Int32" id="2" name="mapChannelId" position="220:60" size="140:112" />
+        <node operator="SetMapChannel" id="3" position="440:140" size="140:175" />
+        <node operator="MeshIndices" id="4" position="220:320" size="140:112" />
+        <node operator="If" id="5" position="660:140" size="140:154" />
+        <node operator="Input: Boolean" id="6" name="condition" position="440:0" size="140:112" />
+        <node operator="IgnoreFirst" id="7" position="880:100" size="140:133" />
+        <node operator="Output: compound" id="8" position="1100:160" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

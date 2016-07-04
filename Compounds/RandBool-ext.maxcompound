@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="6f0638ab-5e27-4b4b-b144-09d1824f49c3">
+    <meta_info>
+        <graph_version guid="37b3fbaa-1789-433e-88ad-a11a8688ee5e" number="0.0.2" />
+        <category>Random</category>
+        <description>Returns a random boolean. The provide probability, is the chance that it is true, otherwise it will be false.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="seed" position="0:0" size="140:112" />
+        <node operator="Input: Single" id="1" name="probability" position="220:220" size="140:112" />
+        <node operator="RandFloat" id="2" position="220:80" size="140:133" />
+        <node operator="Input: Int32" id="3" name="index" position="0:140" size="140:112" />
+        <node operator="LessThan" id="4" position="440:180" size="140:133" />
+        <node operator="Output: compound" id="5" position="660:220" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

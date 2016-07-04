@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="a1f240cf-555c-4b79-af0c-f331d4b5b485">
+    <meta_info>
+        <graph_version guid="b7c9676e-7b24-4ebe-b2df-86158121c9ad" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Face4" id="0" name="quad" position="0:0" size="140:117" />
+        <node operator="AreaOfTriangle-ext" id="1" position="660:0" size="140:117" />
+        <node operator="Face4Points" id="2" position="220:20" size="140:117" />
+        <node operator="Add" id="3" position="880:80" size="140:141" />
+        <node operator="SkipOne" id="5" position="440:80" size="140:117" />
+        <node operator="AreaOfTriangle-ext" id="4" position="660:140" size="140:117" />
+        <node operator="Output: compound" id="6" position="1100:140" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

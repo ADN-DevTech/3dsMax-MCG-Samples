@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="eca2073f-1489-41ab-94e6-144c230ee567">
+    <meta_info>
+        <graph_version guid="20c2abaf-fd50-4266-9d7f-8b9d45baaabd" number="0.0.3" />
+        <category>Geometry - TriMesh</category>
+        <description>Moves vertices of the tri-mesh towards the new mesh according to the value provided. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:112" />
+        <node operator="Input: array" id="1" name="positions" position="220:180" size="140:112" />
+        <node operator="MeshVertices" id="2" position="220:40" size="140:112" />
+        <node operator="SetMeshVertices" id="3" position="660:180" size="140:133" />
+        <node operator="Input: Single" id="4" name="amount" position="0:320" size="140:112" />
+        <node operator="Combine" id="5" position="440:160" size="140:154" />
+        <node operator="Lerp" id="8" position="220:300" size="140:154" />
+        <node operator="Output: compound" id="6" position="880:240" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

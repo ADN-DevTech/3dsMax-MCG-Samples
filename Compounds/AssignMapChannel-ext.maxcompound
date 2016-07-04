@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="e7cbbbc3-8583-4550-99a9-3924583ec259">
+    <meta_info>
+        <graph_version guid="d242b433-2e40-4323-9dbc-6cd242d3cc25" number="0.0.3" />
+        <category>Map Channel</category>
+        <description>Copies map channel data into a given channel. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="5" position="760:280" size="140:69" />
+        <node operator="Input: Int32" id="6" name="id" position="220:0" size="140:117" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:420" size="140:117" />
+        <node operator="Input: MapChannel" id="0" name="channel" position="0:180" size="140:117" />
+        <node operator="MapChannelVertexBuffer" id="3" position="220:140" size="180:117" />
+        <node operator="MapChannelIndexBuffer" id="4" position="220:280" size="180:117" />
+        <node operator="SetMapChannelOrGeometry-ext" id="7" position="480:200" size="200:189" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="3" />
+    </connections>
+</graph>

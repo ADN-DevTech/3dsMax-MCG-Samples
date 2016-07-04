@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="26492ab0-e7ca-4d7e-9572-f17caff952fb">
+    <meta_info>
+        <graph_version guid="9f3038ee-5103-44b8-85e0-1fe5b055f17b" number="0.0.32" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="points" position="104:43" size="140:117" />
+        <node operator="First" id="3" position="417:154" size="140:117" />
+        <node operator="Second" id="4" position="418:36" size="140:117" />
+        <node operator="SkipOne" id="6" position="989:62" size="140:117" />
+        <node operator="Output: compound" id="70" position="1440:120" size="140:69" />
+        <node operator="GenerateFromArray-ext" id="11" position="1187:72" size="180:165" />
+        <node operator="ReferenceFrameInitial-ext" id="7" position="647:79" size="160:141" />
+        <node operator="ReferenceFrameNext-ext" id="2" position="960:200" size="200:141" />
+        <node groupnode="Source" id="1" position="80:-20" size="244:202" bg_color="#ff646464">
+            <comment>http://webhome.cs.uvic.ca/~blob/courses/305/notes/pdf/ref-frames.pdf</comment>
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="First reference frame" id="5" position="378:0" size="488:290" bg_color="#ff646464">
+            <nodes>7,4,3</nodes>
+        </node>
+        <node groupnode="Compute the reference frame array" id="75" position="920:0" size="483:382" bg_color="#ff646464">
+            <nodes>11,6,2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="70" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="2" sourceport="1" destnode="11" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="1" />
+    </connections>
+</graph>

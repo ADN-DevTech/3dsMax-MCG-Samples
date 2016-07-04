@@ -1,0 +1,44 @@
+<graph version="0.50" uuid="5cdb3aac-7c82-49f1-8fdd-25705f7bfdd7">
+    <meta_info>
+        <graph_version guid="572d42a2-fe15-4eba-adef-84552f3db8b7" number="0.0.2" />
+        <category>Control Flow</category>
+        <description>Returns one of four inputs depending on whether the switch value is 0, 1, 2, or 3 respecitively. If any other integer is provided the fourth output is chosen. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="switch" position="440:40" size="140:112" />
+        <node operator="If" id="1" position="1320:160" size="140:154" />
+        <node operator="Input: any" id="3" name="a" position="1100:160" size="140:112" />
+        <node operator="Equal" id="4" position="1100:0" size="140:133" />
+        <node operator="Zero" id="5" position="0:120" size="140:91" />
+        <node operator="PlusOne" id="6" position="220:120" size="140:112" />
+        <node operator="Equal" id="7" position="880:120" size="140:133" />
+        <node operator="Equal" id="2" position="660:220" size="140:133" />
+        <node operator="PlusOne" id="8" position="440:220" size="140:112" />
+        <node operator="If" id="10" position="1100:280" size="140:154" />
+        <node operator="If" id="11" position="880:400" size="140:154" />
+        <node operator="Input: any" id="12" name="b" position="880:260" size="140:112" />
+        <node operator="Input: any" id="13" name="c" position="660:380" size="140:112" />
+        <node operator="Input: any" id="14" name="d" position="660:500" size="140:112" />
+        <node operator="Output: compound" id="15" position="1540:240" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="11" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="15" destport="0" />
+    </connections>
+</graph>

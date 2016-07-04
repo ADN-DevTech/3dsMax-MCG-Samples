@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="de760a75-3606-45a3-8fb9-8ede2f89fa5c">
+    <meta_info>
+        <graph_version guid="4cb5172d-3891-41b8-a845-ec70a211513e" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="a" position="0:0" size="140:117" />
+        <node operator="Input: Vector3" id="1" name="b" position="0:140" size="140:117" />
+        <node operator="Input: Single" id="2" name="distance" position="220:300" size="140:117" />
+        <node operator="Subtract" id="5" position="229:129" size="140:141" />
+        <node operator="SetVectorLength" id="10" position="460:200" size="140:141" />
+        <node operator="Add" id="11" position="1349:169" size="140:141" />
+        <node operator="Output: compound" id="12" position="1880:280" size="140:69" />
+        <node operator="Input: Single" id="3" name="speed" position="1340:340" size="140:117" />
+        <node operator="VectorMoveTowardsAtSpeed-ext" id="13" position="1580:220" size="220:165" />
+        <node operator="If" id="4" position="1120:160" size="140:165" />
+        <node operator="LengthSquared" id="7" position="680:80" size="140:117" />
+        <node operator="LessThanOrEqual" id="9" position="900:100" size="140:141" />
+        <node operator="Constant" id="14" value="0.000001" position="680:220" size="140:93" />
+        <node operator="Vector3FromZ" id="15" position="900:260" size="140:117" />
+        <node groupnode="Target (C)" id="6" position="1340:140" size="158:179" bg_color="#ff646464">
+            <nodes>11</nodes>
+        </node>
+        <node groupnode="A - B" id="8" position="220:100" size="158:179" bg_color="#ff646464">
+            <nodes>5</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
+    </connections>
+</graph>

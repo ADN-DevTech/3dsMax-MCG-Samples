@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="acb935c8-795e-45c5-9024-f7a0b9d864b4">
+    <meta_info>
+        <graph_version guid="6a86f022-07c8-447e-8aac-8c8df43219ae" number="0.0.7" />
+        <category>Geometry - TriMesh</category>
+        <description>Computes a per vertex data array for a set of vertices from another mesh using a weighted nearest neighbour average. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: any" id="7" name="pointOctree" position="220:260" size="140:112" />
+        <node operator="Constant" id="1" value="6" position="220:400" size="140:91" />
+        <node operator="InterpolatePointFloatData-ext" id="3" position="460:240" size="220:196" />
+        <node operator="Map" id="4" position="720:160" size="140:133" />
+        <node operator="Output: compound" id="6" position="1140:160" size="140:70" />
+        <node operator="Input: TriMesh" id="8" name="srcMesh" position="0:440" size="140:112" />
+        <node operator="Input: Int32" id="10" name="srcChannelID" position="0:560" size="140:112" />
+        <node operator="PerVertexDataOrZeros-ext" id="13" position="220:500" size="180:133" />
+        <node operator="MeshVertices" id="5" position="220:140" size="140:112" />
+        <node operator="Input: array" id="0" name="vertices" position="0:120" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="3" />
+        <connection sourcenode="13" sourceport="0" destnode="3" destport="4" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

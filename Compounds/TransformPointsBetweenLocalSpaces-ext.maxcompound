@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="8a2b5b9f-b0b9-4b70-a1df-468f70b6b51c">
+    <meta_info>
+        <graph_version guid="deb61082-20ed-4420-9fcf-5e8675fd452a" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="InvertMatrix" id="21" position="220:340" size="140:117" />
+        <node operator="MapConditional-ext" id="3" position="660:160" size="140:165" />
+        <node operator="Transform" id="11" position="440:280" size="140:141" />
+        <node operator="Input: Boolean" id="0" name="worldSpace" position="440:0" size="140:117" />
+        <node operator="Input: Matrix" id="1" name="sourceWorldTM" position="0:180" size="140:117" />
+        <node operator="Input: Matrix" id="2" name="targetWorldTM" position="0:300" size="140:117" />
+        <node operator="Input: array" id="4" name="points" position="440:140" size="140:117" />
+        <node operator="Transform" id="5" position="220:180" size="140:141" />
+        <node operator="Output: compound" id="6" position="860:240" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="11" sourceport="1" destnode="3" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

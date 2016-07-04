@@ -1,0 +1,40 @@
+<graph version="0.50" uuid="da47c160-3471-427e-9a63-2e945fa06002">
+    <meta_info>
+        <graph_version guid="697eccb5-cd99-4e9e-afd5-98b681e6c9d6" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="0" name="amplitude2" min_value="-10000" max_value="10000" default_value="2" system_units_value="true" position="720:820" size="140:196" />
+        <node operator="Modifier: TriMesh" id="3" position="720:220" size="140:91" />
+        <node operator="GizmoTransformInLocalSpace" id="1" position="460:320" size="200:133" />
+        <node operator="Parameter: Boolean" id="9" name="useGizmoXform" default_value="true" position="500:180" size="140:133" />
+        <node operator="MatrixIdentity" id="12" position="520:440" size="140:91" />
+        <node operator="Parameter: INode" id="31" name="gizmo" position="260:260" size="140:112" />
+        <node operator="Output: modifier" id="21" position="1380:300" size="140:70" />
+        <node operator="Divide" id="7" position="920:1240" size="140:133" />
+        <node operator="Constant" id="8" value="1000.0" position="720:1360" size="140:91" />
+        <node operator="If" id="10" position="720:300" size="140:154" />
+        <node operator="Parameter: Single" id="6" name="decay" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="720:1180" size="140:196" />
+        <node operator="Parameter: Single" id="5" name="phase" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="720:1000" size="140:196" />
+        <node operator="Parameter: Single" id="4" name="waveLength" min_value="-10000" max_value="10000" default_value="10" system_units_value="true" position="720:460" size="140:196" />
+        <node operator="Modifier: Matrix" id="38" position="260:380" size="140:91" />
+        <node operator="Parameter: Single" id="17" name="amplitude1" min_value="-10000" max_value="10000" default_value="0" system_units_value="true" position="720:640" size="140:196" />
+        <node operator="LinearWaveMesh" id="2" position="1160:220" size="140:238" />
+    </nodes>
+    <connections>
+        <connection sourcenode="31" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="38" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="5" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="6" />
+    </connections>
+</graph>

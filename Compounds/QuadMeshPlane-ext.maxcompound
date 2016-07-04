@@ -1,0 +1,38 @@
+<graph version="0.50" uuid="822c84bb-137e-4436-b9e3-fc24df69080b">
+    <meta_info>
+        <graph_version guid="6aa03298-60ef-4319-83fd-8176a73c9673" number="0.0.4" />
+        <category>Geometry - QuadMesh</category>
+        <description>Generates a quad mesh on a plane defined by two points. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="bottomLeft" position="-20:140" size="140:112" />
+        <node operator="Input: Vector3" id="1" name="topRight" position="-20:300" size="140:112" />
+        <node operator="X" id="2" position="220:200" size="140:112" />
+        <node operator="Y" id="3" position="220:320" size="140:112" />
+        <node operator="Vector3FromXY" id="4" position="440:320" size="140:133" />
+        <node operator="Vector3FromXY" id="7" position="440:480" size="140:133" />
+        <node operator="Input: Int32" id="11" name="ySegments" position="440:140" size="140:112" />
+        <node operator="Input: Int32" id="12" name="xSegments" position="440:0" size="140:112" />
+        <node operator="Output: compound" id="13" position="880:400" size="140:70" />
+        <node operator="QuadMeshGrid-ext" id="5" position="660:280" size="180:217" />
+        <node operator="X" id="6" position="220:440" size="140:112" />
+        <node operator="Y" id="8" position="220:560" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="4" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="5" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

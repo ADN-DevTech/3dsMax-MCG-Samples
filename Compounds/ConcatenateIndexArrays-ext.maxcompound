@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="91a1c910-38cc-4e41-b446-adc36141fe78">
+    <meta_info>
+        <graph_version guid="63a3d153-b710-4a4b-936a-d7d6241eb04a" number="0.0.2" />
+        <category>Array</category>
+        <description>Given an array of indices (xs) of size nx and another array (ys) this will add nx to all elements in ys and concatenate the result with the first array. This is useful when concatenating index buffers. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="xs" position="300:240" size="140:117" />
+        <node operator="Input: array" id="1" name="ys" position="300:380" size="140:117" />
+        <node operator="Count" id="2" position="500:300" size="140:117" />
+        <node operator="Map" id="3" position="720:440" size="140:141" />
+        <node operator="Add" id="4" position="520:520" size="140:141" />
+        <node operator="Concatenate" id="5" position="920:360" size="140:141" />
+        <node operator="Output: compound" id="6" position="1100:420" size="140:69" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="b79eacb2-16c3-4cd3-8f54-40bb7752a0b3">
+    <meta_info>
+        <graph_version guid="d16f3a15-2da9-47ad-8102-afc6b2fe0994" number="0.0.3" />
+        <category>Geometry - QuadMesh</category>
+        <description>Creates a square quad mesh on the origin on the XY plane.</description>
+    </meta_info>
+    <nodes>
+        <node operator="QuadMeshPlane-ext" id="0" position="880:140" size="180:175" />
+        <node operator="Input: Int32" id="1" name="segments" position="660:0" size="140:112" />
+        <node operator="Input: Single" id="2" name="side" position="0:180" size="140:112" />
+        <node operator="DivideByTwoFloat" id="3" position="220:200" size="140:112" />
+        <node operator="NegativeFloat" id="4" position="440:120" size="140:112" />
+        <node operator="Vector3FromXY" id="5" position="660:140" size="140:133" />
+        <node operator="Vector3FromXY" id="6" position="660:280" size="140:133" />
+        <node operator="Output: compound" id="7" position="1100:260" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>
