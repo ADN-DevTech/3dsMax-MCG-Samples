@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="9b4bd940-6726-4e1d-80f9-5aa9e3a10f27">
+  <meta_info>
+    <graph_version guid="70ae15d6-8e55-41c7-81de-c8771262cfd4" number="0.0.7" />
+  </meta_info>
+  <nodes>
+    <node operator="Modifier: TriMesh" id="3" position="0:0" size="140:93" />
+    <node operator="Output: modifier" id="2" position="880:280" size="140:69" />
+    <node operator="NoiseHeight-ext" id="12" position="440:200" size="140:213" />
+    <node operator="NoiseOp" id="13" position="220:180" size="140:141" />
+    <node operator="Parameter: Single" id="14" name="frequency" min_value="0" max_value="1000000" default_value="1" system_units_value="false" position="0:120" size="140:213" />
+    <node operator="Parameter: Single" id="16" name="amplitude" min_value="0" max_value="100" default_value="0" system_units_value="false" position="220:660" size="140:213" />
+    <node operator="SetMeshVertices" id="17" position="660:240" size="140:141" />
+    <node operator="MeshVertices" id="1" position="220:40" size="140:117" />
+    <node operator="Vector3FromXY" id="4" position="220:500" size="140:141" />
+    <node operator="Parameter: Single" id="0" name="x" min_value="-1000" max_value="10000" default_value="0" system_units_value="false" position="0:580" size="140:213" />
+    <node operator="Parameter: Single" id="5" name="y" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="0:820" size="140:213" />
+    <node operator="Parameter: Single" id="7" name="scaling" min_value="0" max_value="100000" default_value="1000" system_units_value="false" position="0:340" size="140:213" />
+    <node operator="Divide" id="8" position="220:340" size="140:141" />
+  </nodes>
+  <connections>
+    <connection sourcenode="17" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="13" sourceport="1" destnode="12" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="8" sourceport="0" destnode="12" destport="3" />
+    <connection sourcenode="16" sourceport="0" destnode="12" destport="4" />
+    <connection sourcenode="3" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="17" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="8" destport="1" />
+  </connections>
+</graph>

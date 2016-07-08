@@ -1,27 +1,28 @@
-<graph version="0.50" uuid="e1f2e2a4-dc42-4e99-9b2d-eb2d931c2d34">
-    <meta_info>
-        <graph_version guid="f9c8050c-2a0a-4bdc-8b9e-963d712aa55b" number="0.0.7" />
-        <category>Geometry - TriMesh</category>
-        <description>Moves points of a mesh towards the target points, unless it intercepts another mesh on the way in whcih case it stops. </description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: TriMesh" id="1" name="mesh" position="0:20" size="140:112" />
-        <node operator="MovePointLimited-ext" id="0" position="220:260" size="140:154" />
-        <node operator="Input: RayTraceScene" id="2" name="rtScene" position="0:280" size="140:112" />
-        <node operator="MeshVertices" id="3" position="220:140" size="140:112" />
-        <node operator="Input: array" id="4" name="targets" position="220:0" size="140:112" />
-        <node operator="Combine" id="5" position="440:120" size="140:154" />
-        <node operator="MeshSetVertices-ext" id="6" position="660:140" size="140:133" />
-        <node operator="Output: compound" id="7" position="880:220" size="140:70" />
-    </nodes>
-    <connections>
-        <connection sourcenode="2" sourceport="0" destnode="0" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="0" sourceport="1" destnode="5" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="aefeb204-aaf7-491c-9a5d-fbd58fb009ca">
+  <meta_info>
+    <graph_version guid="f9c8050c-2a0a-4bdc-8b9e-963d712aa55b" number="0.0.7" />
+    <category>Geometry - TriMesh</category>
+    <description>Moves points of a mesh towards the target points, unless it intercepts another mesh on the way in whcih case it stops. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="1" name="mesh" position="0:20" size="140:112" />
+    <node operator="MovePointLimited-ext" id="0" position="220:260" size="140:154" />
+    <node operator="Input: RayTraceScene" id="2" name="rtScene" position="0:280" size="140:112" />
+    <node operator="MeshVertices" id="3" position="220:140" size="140:112" />
+    <node operator="Input: array" id="4" name="targets" position="220:0" size="140:112" />
+    <node operator="Combine" id="5" position="440:120" size="140:154" />
+    <node operator="MeshSetVertices-ext" id="6" position="660:140" size="140:133" />
+    <node operator="Output: compound" id="7" position="880:220" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="0" sourceport="1" destnode="5" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+  </connections>
 </graph>

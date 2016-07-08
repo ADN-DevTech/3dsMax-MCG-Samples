@@ -1,6 +1,6 @@
 plugin simpleMeshMod Cache_Test
 	name:"Cache_Test"
-	classID:#(0x10B8B7AA, 0x2686E0A0)
+	classID:#(0x5067474E, 0x55D3D1E5)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (
@@ -56,7 +56,7 @@ plugin simpleMeshMod Cache_Test
 		_meshWrapper = meshWrapperClass._CreateWrapper undefined
 		_meshWrapper_SetValue = _meshWrapper._SetValue
 		pluginGraph = pluginDefinitionFile
-		pluginGraphDependencies = #(@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MeshFromNodeWithDefault-ext.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\ExtractCurrentValueFromCache.maxcompound")
+		pluginGraphDependencies = #(@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\NodeMeshOrDefault-ext.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\ExtractCurrentValueFromCache.maxcompound")
 
 		-- value wrapper local initializations
 		local nodeWrapperClass = dotNetClass "Autodesk.Max.MaxPlus.INode"

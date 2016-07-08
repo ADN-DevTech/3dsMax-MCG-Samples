@@ -1,0 +1,421 @@
+(InstanceState state, Vector3 minCorner, Vector3 maxCorner, Int32 numSubdivisions, Single angle, Int32 axis, Single direction, Matrix shapeTransform) => 
+  {
+    IArray[Vector3] _0Unit;// 11:Array2->2:Unit 75358
+    IArray[Vector3] _1Append;// 11:Array2->3:Append 75357
+    BoundingBox _2BoxFromPoints;// 2:SplineBoxPrimitive->10:BoxFromPoints 75354
+    IArray[Vector3] _3BoxCorners;// 2:SplineBoxPrimitive->4:BoxCorners 75353
+    Int32 _4Constant;// 2:SplineBoxPrimitive->0:Constant 75359
+    IArray[Vector3] _5Take;// 2:SplineBoxPrimitive->20:Take 75352
+    IArray[IArray[Vector3]] _6Apply1;// 2:SplineBoxPrimitive->33:Apply1 75295
+    IArray[IArray[IArray[Vector3]]] _7Unit;// 37:Array3->2:Unit 75294
+    IArray[Vector3] _8Skip;// 2:SplineBoxPrimitive->21:Skip 75361
+    IArray[IArray[Vector3]] _9Apply1;// 2:SplineBoxPrimitive->34:Apply1 75360
+    IArray[IArray[IArray[Vector3]]] _10Append;// 37:Array3->3:Append 75293
+    IArray[IArray[Vector3]] _11Combine;// 35:CombineToSubArray->2:Combine 75364
+    IArray[IArray[IArray[Vector3]]] _12Append;// 37:Array3->6:Append 75292
+    IArray[IArray[Vector3]] _13Flatten;// 2:SplineBoxPrimitive->38:Flatten 75288
+    IArray[Single] _14RangeInclusiveFloat;// 2:SplineBoxPrimitive->9:RangeInclusiveFloat 75371
+    Boolean _15False;// 2:SplineBoxPrimitive->6:False 75381
+    IArray[Spline] _16Map;// 2:SplineBoxPrimitive->8:Map 75287
+    Spline _17CombineSplines;// 2:SplineBoxPrimitive->7:CombineSplines 75286
+    IArray[Vector3] _18SplineVerticesBuffer;// 0:SplineDeformKnots->10:SplineVerticesBuffer 75189
+    Single _19ToRadians;// 25:ToRadians 75385
+    IArray[Vector3] _20SplineVerticesBuffer;// 20:BoundingBoxFromSpline->1:SplineVerticesBuffer 75282
+    BoundingBox _21BoxFromPoints;// 20:BoundingBoxFromSpline->2:BoxFromPoints 75281
+    Matrix _22MatrixIdentity;// 16:MatrixIdentity 75388
+    Single _23ToRadians;// 4:ToRadians 75389
+    Func[Vector3, Vector3] _24Pass-through: function1;// 0:Pass-through: function1 75186
+    IArray[Vector3] _25Map;// 0:SplineDeformKnots->15:Map 75188
+    IArray[Int32] _26SplineSegmentIndices;// 0:SplineDeformKnots->11:SplineSegmentIndices 75190
+    IArray[Vector3] _27SplineTangentsBuffer;// 0:SplineDeformKnots->12:SplineTangentsBuffer 75191
+    IArray[Int32] _28SplineTangentIndices;// 0:SplineDeformKnots->13:SplineTangentIndices 75192
+    IArray[Int32] _29SplineSegmentTypes;// 0:SplineDeformKnots->14:SplineSegmentTypes 75193
+    Spline _30CreateSplineFromBuffers;// 0:SplineDeformKnots->9:CreateSplineFromBuffers 75187
+    Spline _31IgnoreSecond;// 17:IgnoreSecond 75179
+    _0Unit = Unit(minCorner);
+    _1Append = Append(_0Unit, maxCorner);
+    _2BoxFromPoints = BoxFromPoints(_1Append);
+    _3BoxCorners = BoxCorners(_2BoxFromPoints);
+    _4Constant = 4;
+    _5Take = Take(_3BoxCorners, _4Constant);
+    _6Apply1 = Apply1((IArray[Vector3] x0) => 
+      {
+        IArray[Vector3] _0Map;// 42:VectorArrayType-ext->1:Map 75335
+        IArray[Vector3] _1IgnoreSecond;// 42:VectorArrayType-ext->2:IgnoreSecond 75334
+        IArray[Int32] _2Indices;// 25:ArraySlidingWindow->8:Indices 75304
+        Int32 _3Two;// 2:SplineBoxPrimitive->31:Two 75337
+        IArray[IArray[Int32]] _4Map;// 25:ArraySlidingWindow->3:Map 75303
+        IArray[IArray[Int32]] _5Filter;// 25:ArraySlidingWindow->16:Filter 75301
+        IArray[IArray[Vector3]] _6Map;// 25:ArraySlidingWindow->36:Map 75299
+        Int32 _7Count;// 3:LastIndex->2:Count 75348
+        Int32 _8One;// 3:MinusOne->2:One 75347
+        Int32 _9Subtract;// 3:MinusOne->1:Subtract 75346
+        Vector3 _10At;// 29:Last->0:At 75343
+        IArray[Vector3] _11Unit;// 27:Array2->2:Unit 75341
+        Int32 _12Zero;// 28:First->2:Zero 75351
+        Vector3 _13At;// 28:First->0:At 75350
+        IArray[Vector3] _14Append;// 27:Array2->3:Append 75340
+        IArray[IArray[Vector3]] _15Append;// 2:SplineBoxPrimitive->30:Append 75296
+        _0Map = Map(x0, (Vector3 x0) => 
+          {
+            x0;
+            });
+        _1IgnoreSecond = IgnoreSecond(x0, () => 
+          {
+            _0Map;
+            });
+        _2Indices = Indices(_1IgnoreSecond);
+        _3Two = Two();
+        _4Map = Map(_2Indices, (Int32 x0) => 
+          {
+            IArray[Int32] _0GenerateN;// 25:ArraySlidingWindow->14:GenerateN 75308
+            Int32 _1Count;// 25:ArraySlidingWindow->24:Count 75316
+            Int32 _2Zero;// 25:ArraySlidingWindow->23:Zero 75318
+            IArray[Int32] _3Filter;// 25:ArraySlidingWindow->15:Filter 75306
+            _0GenerateN = GenerateN(x0, _3Two, (Int32 x0) => 
+              {
+                Int32 _0One;// 2:PlusOne->1:One 75312
+                Int32 _1Add;// 2:PlusOne->0:Add 75311
+                _0One = One();
+                _1Add = Add(x0, _0One);
+                _1Add;
+                });
+            _1Count = Count(_1IgnoreSecond);
+            _2Zero = Zero();
+            _3Filter = Filter(_0GenerateN, (Int32 x0) => 
+              {
+                Boolean _0LessThan;// 25:ArraySlidingWindow->20:LessThan 75314
+                Boolean _1GreaterThanOrEqual;// 25:ArraySlidingWindow->22:GreaterThanOrEqual 75317
+                Boolean _2AndAlso;// 25:ArraySlidingWindow->21:AndAlso 75313
+                _0LessThan = LessThan(x0, _1Count);
+                _1GreaterThanOrEqual = GreaterThanOrEqual(x0, _2Zero);
+                _2AndAlso = AndAlso(_0LessThan, _1GreaterThanOrEqual);
+                _2AndAlso;
+                });
+            _3Filter;
+            });
+        _5Filter = Filter(_4Map, (IArray[Int32] x0) => 
+          {
+            IArray[Int32] _0Map;// 39:Int32ArrayType->2:Map 75323
+            IArray[Int32] _1IgnoreSecond;// 39:Int32ArrayType->1:IgnoreSecond 75322
+            Int32 _2Count;// 25:ArraySlidingWindow->25:Count 75320
+            Boolean _3Equal;// 25:ArraySlidingWindow->30:Equal 75319
+            _0Map = Map(x0, (Int32 x0) => 
+              {
+                x0;
+                });
+            _1IgnoreSecond = IgnoreSecond(x0, () => 
+              {
+                _0Map;
+                });
+            _2Count = Count(_1IgnoreSecond);
+            _3Equal = Equal(_2Count, _3Two);
+            _3Equal;
+            });
+        _6Map = Map(_5Filter, (IArray[Int32] x0) => 
+          {
+            IArray[Vector3] _0Map;// 38:SelectByIndex->2:Map 75329
+            _0Map = Map(x0, (Int32 x0) => 
+              {
+                Vector3 _0At;// 38:SelectByIndex->3:At 75330
+                _0At = At(_1IgnoreSecond, x0);
+                _0At;
+                });
+            _0Map;
+            });
+        _7Count = Count(_1IgnoreSecond);
+        _8One = One();
+        _9Subtract = Subtract(_7Count, _8One);
+        _10At = At(_1IgnoreSecond, _9Subtract);
+        _11Unit = Unit(_10At);
+        _12Zero = Zero();
+        _13At = At(_1IgnoreSecond, _12Zero);
+        _14Append = Append(_11Unit, _13At);
+        _15Append = Append(_6Map, _14Append);
+        _15Append;
+        }, _5Take);
+    _7Unit = Unit(_6Apply1);
+    _8Skip = Skip(_3BoxCorners, _4Constant);
+    _9Apply1 = Apply1((IArray[Vector3] x0) => 
+      {
+        IArray[Vector3] _0Map;// 42:VectorArrayType-ext->1:Map 75335
+        IArray[Vector3] _1IgnoreSecond;// 42:VectorArrayType-ext->2:IgnoreSecond 75334
+        IArray[Int32] _2Indices;// 25:ArraySlidingWindow->8:Indices 75304
+        Int32 _3Two;// 2:SplineBoxPrimitive->31:Two 75337
+        IArray[IArray[Int32]] _4Map;// 25:ArraySlidingWindow->3:Map 75303
+        IArray[IArray[Int32]] _5Filter;// 25:ArraySlidingWindow->16:Filter 75301
+        IArray[IArray[Vector3]] _6Map;// 25:ArraySlidingWindow->36:Map 75299
+        Int32 _7Count;// 3:LastIndex->2:Count 75348
+        Int32 _8One;// 3:MinusOne->2:One 75347
+        Int32 _9Subtract;// 3:MinusOne->1:Subtract 75346
+        Vector3 _10At;// 29:Last->0:At 75343
+        IArray[Vector3] _11Unit;// 27:Array2->2:Unit 75341
+        Int32 _12Zero;// 28:First->2:Zero 75351
+        Vector3 _13At;// 28:First->0:At 75350
+        IArray[Vector3] _14Append;// 27:Array2->3:Append 75340
+        IArray[IArray[Vector3]] _15Append;// 2:SplineBoxPrimitive->30:Append 75296
+        _0Map = Map(x0, (Vector3 x0) => 
+          {
+            x0;
+            });
+        _1IgnoreSecond = IgnoreSecond(x0, () => 
+          {
+            _0Map;
+            });
+        _2Indices = Indices(_1IgnoreSecond);
+        _3Two = Two();
+        _4Map = Map(_2Indices, (Int32 x0) => 
+          {
+            IArray[Int32] _0GenerateN;// 25:ArraySlidingWindow->14:GenerateN 75308
+            Int32 _1Count;// 25:ArraySlidingWindow->24:Count 75316
+            Int32 _2Zero;// 25:ArraySlidingWindow->23:Zero 75318
+            IArray[Int32] _3Filter;// 25:ArraySlidingWindow->15:Filter 75306
+            _0GenerateN = GenerateN(x0, _3Two, (Int32 x0) => 
+              {
+                Int32 _0One;// 2:PlusOne->1:One 75312
+                Int32 _1Add;// 2:PlusOne->0:Add 75311
+                _0One = One();
+                _1Add = Add(x0, _0One);
+                _1Add;
+                });
+            _1Count = Count(_1IgnoreSecond);
+            _2Zero = Zero();
+            _3Filter = Filter(_0GenerateN, (Int32 x0) => 
+              {
+                Boolean _0LessThan;// 25:ArraySlidingWindow->20:LessThan 75314
+                Boolean _1GreaterThanOrEqual;// 25:ArraySlidingWindow->22:GreaterThanOrEqual 75317
+                Boolean _2AndAlso;// 25:ArraySlidingWindow->21:AndAlso 75313
+                _0LessThan = LessThan(x0, _1Count);
+                _1GreaterThanOrEqual = GreaterThanOrEqual(x0, _2Zero);
+                _2AndAlso = AndAlso(_0LessThan, _1GreaterThanOrEqual);
+                _2AndAlso;
+                });
+            _3Filter;
+            });
+        _5Filter = Filter(_4Map, (IArray[Int32] x0) => 
+          {
+            IArray[Int32] _0Map;// 39:Int32ArrayType->2:Map 75323
+            IArray[Int32] _1IgnoreSecond;// 39:Int32ArrayType->1:IgnoreSecond 75322
+            Int32 _2Count;// 25:ArraySlidingWindow->25:Count 75320
+            Boolean _3Equal;// 25:ArraySlidingWindow->30:Equal 75319
+            _0Map = Map(x0, (Int32 x0) => 
+              {
+                x0;
+                });
+            _1IgnoreSecond = IgnoreSecond(x0, () => 
+              {
+                _0Map;
+                });
+            _2Count = Count(_1IgnoreSecond);
+            _3Equal = Equal(_2Count, _3Two);
+            _3Equal;
+            });
+        _6Map = Map(_5Filter, (IArray[Int32] x0) => 
+          {
+            IArray[Vector3] _0Map;// 38:SelectByIndex->2:Map 75329
+            _0Map = Map(x0, (Int32 x0) => 
+              {
+                Vector3 _0At;// 38:SelectByIndex->3:At 75330
+                _0At = At(_1IgnoreSecond, x0);
+                _0At;
+                });
+            _0Map;
+            });
+        _7Count = Count(_1IgnoreSecond);
+        _8One = One();
+        _9Subtract = Subtract(_7Count, _8One);
+        _10At = At(_1IgnoreSecond, _9Subtract);
+        _11Unit = Unit(_10At);
+        _12Zero = Zero();
+        _13At = At(_1IgnoreSecond, _12Zero);
+        _14Append = Append(_11Unit, _13At);
+        _15Append = Append(_6Map, _14Append);
+        _15Append;
+        }, _8Skip);
+    _10Append = Append(_7Unit, _9Apply1);
+    _11Combine = Combine(_5Take, _8Skip, (Vector3 x0, Vector3 x1) => 
+      {
+        IArray[Vector3] _0Unit;// 3:Array2->2:Unit 75368
+        IArray[Vector3] _1Append;// 3:Array2->3:Append 75367
+        _0Unit = Unit(x0);
+        _1Append = Append(_0Unit, x1);
+        _1Append;
+        });
+    _12Append = Append(_10Append, _11Combine);
+    _13Flatten = Flatten(_12Append);
+    _14RangeInclusiveFloat = RangeInclusiveFloat(numSubdivisions);
+    _15False = False();
+    _16Map = Map(_13Flatten, (IArray[Vector3] x0) => 
+      {
+        Func[Single, Vector3] _0Bind1of2;// 2:SplineBoxPrimitive->15:Bind1of2 75372
+        IArray[Vector3] _1Map;// 2:SplineBoxPrimitive->13:Map 75370
+        Spline _2CreateSplineFromKnots;// 2:SplineBoxPrimitive->5:CreateSplineFromKnots 75369
+        _0Bind1of2 = Bind1of2((IArray[Vector3] x0, Single x1) => 
+          {
+            Int32 _0Zero;// 18:First->2:Zero 75376
+            Vector3 _1At;// 18:First->0:At 75375
+            Int32 _2One;// 19:Second->2:One 75380
+            Vector3 _3At;// 19:Second->0:At 75379
+            Vector3 _4Lerp;// 2:SplineBoxPrimitive->16:Lerp 75373
+            _0Zero = Zero();
+            _1At = At(x0, _0Zero);
+            _2One = One();
+            _3At = At(x0, _2One);
+            _4Lerp = Lerp(_1At, _3At, x1);
+            _4Lerp;
+            }, x0);
+        _1Map = Map(_14RangeInclusiveFloat, _0Bind1of2);
+        _2CreateSplineFromKnots = CreateSplineFromKnots(_1Map, _15False);
+        _2CreateSplineFromKnots;
+        });
+    _17CombineSplines = CombineSplines(_16Map);
+    _18SplineVerticesBuffer = SplineVerticesBuffer(_17CombineSplines);
+    _19ToRadians = ToRadians(angle);
+    _20SplineVerticesBuffer = SplineVerticesBuffer(_17CombineSplines);
+    _21BoxFromPoints = BoxFromPoints(_20SplineVerticesBuffer);
+    _22MatrixIdentity = MatrixIdentity();
+    _23ToRadians = ToRadians(direction);
+    _24Pass-through: function1 = (Vector3 x0) => 
+      {
+        Single _0FloatZero;// 5:BendDeformer-ext->88:FloatZero 75203
+        Single _1Abs;// 5:BendDeformer-ext->31:Abs 75207
+        Single _2Constant;// 5:BendDeformer-ext->0:Constant 75208
+        Boolean _3LessThan;// 5:BendDeformer-ext->25:LessThan 75206
+        Single _16Pass-through: Single;// 5:BendDeformer-ext->39:Pass-through: Single 75204
+        Boolean _17Equal;// 5:BendDeformer-ext->89:Equal 75202
+        Matrix _18InvertMatrix;// 5:BendDeformer-ext->79:InvertMatrix 75232
+        Vector3 _19Transform;// 5:BendDeformer-ext->78:Transform 75231
+        Vector3 _54Transform;// 5:BendDeformer-ext->83:Transform 75200
+        _0FloatZero = FloatZero();
+        _1Abs = Abs(_19ToRadians);
+        _2Constant = 0.0001;
+        _3LessThan = LessThan(_1Abs, _2Constant);
+        _16Pass-through: Single = if (_3LessThan)
+          {
+            Single _4FloatZero;// 5:BendDeformer-ext->28:FloatZero 75209
+            _4FloatZero = FloatZero();
+            _4FloatZero;
+            }else
+          {
+            Vector3 _5BoxMax;// 47:BoundingBoxExtent->1:BoxMax 75226
+            Vector3 _6BoxMin;// 47:BoundingBoxExtent->2:BoxMin 75227
+            Vector3 _7Subtract;// 47:BoundingBoxExtent->3:Subtract 75225
+            Single _8X;// 2:VectorAsArray->1:X 75221
+            IArray[Single] _9Unit;// 4:Array3->2:Unit 75220
+            Single _10Y;// 2:VectorAsArray->2:Y 75222
+            IArray[Single] _11Append;// 4:Array3->3:Append 75219
+            Single _12Z;// 2:VectorAsArray->3:Z 75223
+            IArray[Single] _13Append;// 4:Array3->6:Append 75218
+            Single _14At;// 48:VectorComponent-ext->3:At 75213
+            Single _15Divide;// 5:BendDeformer-ext->32:Divide 75210
+            _5BoxMax = BoxMax(_21BoxFromPoints);
+            _6BoxMin = BoxMin(_21BoxFromPoints);
+            _7Subtract = Subtract(_5BoxMax, _6BoxMin);
+            _8X = X(_7Subtract);
+            _9Unit = Unit(_8X);
+            _10Y = Y(_7Subtract);
+            _11Append = Append(_9Unit, _10Y);
+            _12Z = Z(_7Subtract);
+            _13Append = Append(_11Append, _12Z);
+            _14At = At(_13Append, axis);
+            _15Divide = Divide(_14At, _19ToRadians);
+            _15Divide;
+            };
+        _17Equal = Equal(_0FloatZero, _16Pass-through: Single);
+        _18InvertMatrix = InvertMatrix(_22MatrixIdentity);
+        _19Transform = Transform(x0, _18InvertMatrix);
+        _54Transform = Transform(if (_17Equal)
+          {
+            _19Transform;
+            }else
+          {
+            Single _20Pi;// 5:BendDeformer-ext->37:Pi 75244
+            Single _21HalfPi;// 5:BendDeformer-ext->3:HalfPi 75262
+            Single _22NegativeFloat;// 5:BendDeformer-ext->4:NegativeFloat 75261
+            Matrix _23RotationYMatrix;// 5:BendDeformer-ext->1:RotationYMatrix 75260
+            Func[Matrix] _24Pass-through: any;// 0:Pass-through: any 75254
+            IArray[Func[Matrix]] _25Unit;// 7:Array3->2:Unit 75259
+            Matrix _26RotationXMatrix;// 5:BendDeformer-ext->6:RotationXMatrix 75263
+            Func[Matrix] _27Pass-through: any;// 0:Pass-through: any 75255
+            IArray[Func[Matrix]] _28Append;// 7:Array3->3:Append 75258
+            Matrix _29MatrixIdentity;// 5:BendDeformer-ext->5:MatrixIdentity 75264
+            Func[Matrix] _30Pass-through: any;// 0:Pass-through: any 75256
+            IArray[Func[Matrix]] _31Append;// 7:Array3->6:Append 75257
+            Func[Matrix] _32At;// 5:BendDeformer-ext->8:At 75253
+            Matrix _33Apply0;// 5:BendDeformer-ext->74:Apply0 75252
+            Matrix _34RotationZMatrix;// 5:BendDeformer-ext->81:RotationZMatrix 75267
+            Matrix _35Multiply;// 5:BendDeformer-ext->82:Multiply 75250
+            Vector3 _36Transform;// 5:BendDeformer-ext->18:Transform 75248
+            Single _37Z;// 5:BendDeformer-ext->38:Z 75246
+            Single _38Divide;// 5:BendDeformer-ext->46:Divide 75245
+            Single _39Subtract;// 5:BendDeformer-ext->51:Subtract 75243
+            Single _40Cos;// 5:BendDeformer-ext->50:Cos 75242
+            Single _41Multiply;// 5:BendDeformer-ext->57:Multiply 75241
+            Single _42Add;// 5:BendDeformer-ext->58:Add 75238
+            Single _43X;// 5:BendDeformer-ext->40:X 75270
+            Single _44Multiply;// 5:BendDeformer-ext->61:Multiply 75268
+            Single _45Subtract;// 5:BendDeformer-ext->60:Subtract 75237
+            Single _46Y;// 5:BendDeformer-ext->41:Y 75272
+            Single _47Sin;// 5:BendDeformer-ext->55:Sin 75276
+            Single _48Multiply;// 5:BendDeformer-ext->63:Multiply 75275
+            Single _49Multiply;// 5:BendDeformer-ext->65:Multiply 75277
+            Single _50Subtract;// 5:BendDeformer-ext->66:Subtract 75274
+            Vector3 _51Vector3;// 5:BendDeformer-ext->36:Vector3 75235
+            Matrix _52InvertMatrix;// 5:BendDeformer-ext->14:InvertMatrix 75278
+            Vector3 _53Transform;// 5:BendDeformer-ext->19:Transform 75234
+            _20Pi = Pi();
+            _21HalfPi = HalfPi();
+            _22NegativeFloat = NegativeFloat(_21HalfPi);
+            _23RotationYMatrix = RotationYMatrix(_22NegativeFloat);
+            _24Pass-through: any = () => 
+              {
+                _23RotationYMatrix;
+                };
+            _25Unit = Unit(_24Pass-through: any);
+            _26RotationXMatrix = RotationXMatrix(_21HalfPi);
+            _27Pass-through: any = () => 
+              {
+                _26RotationXMatrix;
+                };
+            _28Append = Append(_25Unit, _27Pass-through: any);
+            _29MatrixIdentity = MatrixIdentity();
+            _30Pass-through: any = () => 
+              {
+                _29MatrixIdentity;
+                };
+            _31Append = Append(_28Append, _30Pass-through: any);
+            _32At = At(_31Append, axis);
+            _33Apply0 = Apply0(_32At);
+            _34RotationZMatrix = RotationZMatrix(_23ToRadians);
+            _35Multiply = Multiply(_33Apply0, _34RotationZMatrix);
+            _36Transform = Transform(_19Transform, _35Multiply);
+            _37Z = Z(_36Transform);
+            _38Divide = Divide(_37Z, _16Pass-through: Single);
+            _39Subtract = Subtract(_20Pi, _38Divide);
+            _40Cos = Cos(_39Subtract);
+            _41Multiply = Multiply(_16Pass-through: Single, _40Cos);
+            _42Add = Add(_16Pass-through: Single, _41Multiply);
+            _43X = X(_36Transform);
+            _44Multiply = Multiply(_43X, _40Cos);
+            _45Subtract = Subtract(_42Add, _44Multiply);
+            _46Y = Y(_36Transform);
+            _47Sin = Sin(_39Subtract);
+            _48Multiply = Multiply(_16Pass-through: Single, _47Sin);
+            _49Multiply = Multiply(_43X, _47Sin);
+            _50Subtract = Subtract(_48Multiply, _49Multiply);
+            _51Vector3 = Vector3(_45Subtract, _46Y, _50Subtract);
+            _52InvertMatrix = InvertMatrix(_35Multiply);
+            _53Transform = Transform(_51Vector3, _52InvertMatrix);
+            _53Transform;
+            }, _22MatrixIdentity);
+        _54Transform;
+        };
+    _25Map = Map(_18SplineVerticesBuffer, _24Pass-through: function1);
+    _26SplineSegmentIndices = SplineSegmentIndices(_17CombineSplines);
+    _27SplineTangentsBuffer = SplineTangentsBuffer(_17CombineSplines);
+    _28SplineTangentIndices = SplineTangentIndices(_17CombineSplines);
+    _29SplineSegmentTypes = SplineSegmentTypes(_17CombineSplines);
+    _30CreateSplineFromBuffers = CreateSplineFromBuffers(_25Map, _26SplineSegmentIndices, _27SplineTangentsBuffer, _28SplineTangentIndices, _29SplineSegmentTypes);
+    _31IgnoreSecond = IgnoreSecond(_30CreateSplineFromBuffers, shapeTransform);
+    _31IgnoreSecond;
+    }

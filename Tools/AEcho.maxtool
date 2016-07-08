@@ -1,65 +1,66 @@
-<graph version="0.50" uuid="3d43a07f-c749-4d48-812c-4b1ae76bc269">
-    <meta_info>
-        <graph_version guid="daed677a-0820-4562-8e6a-ca1dec2e8253" number="0.0.27" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: INode" id="0" name="node" position="227:-191" size="140:117" />
-        <node operator="CheckNodeValidity.ext" id="1" position="395:-160" size="140:117" />
-        <node operator="Output: geometry" id="2" position="1217:468" size="140:69" />
-        <node operator="Parameter: Int32" id="3" name="count" min_value="1" max_value="1000" default_value="10" position="769:-91" size="140:189" />
-        <node operator="CombineAllMeshes" id="7" position="876:462" size="140:117" />
-        <node operator="CachedValue" id="11" position="815:189" size="140:141" />
-        <node operator="PerFrameValueCache.ext" id="13" position="949:-151" size="140:141" />
-        <node operator="Geometry: Matrix" id="4" position="223:-48" size="140:93" />
-        <node operator="NodeMeshInLocalSpace.ext" id="5" position="550:-54" size="140:141" />
-        <node operator="MapRange.ext" id="15" position="1011:194" size="140:141" />
-        <node operator="NodePositionInLocalSpace.ext" id="16" position="212:189" size="140:141" />
-        <node operator="CacheValue.ext" id="12" position="575:240" size="140:117" />
-        <node operator="Negate" id="19" position="384:224" size="140:117" />
-        <node operator="OffsetMesh.ext" id="9" position="1044:433" size="140:141" />
-        <node operator="Filter" id="17" position="645:458" size="140:141" />
-        <node operator="IsNullFix2.ext" id="18" position="309:469" size="140:117" />
-        <node operator="Pass-through: TriMesh" id="20" position="149:469" size="140:117" />
-        <node operator="Not" id="22" position="473:465" size="140:117" />
-        <node groupnode="Extract meshes from cache" id="14" position="780:160" size="392:201" bg_color="#ff646464">
-            <nodes>11,15</nodes>
-        </node>
-        <node groupnode="Create final mesh" id="10" position="840:391" size="526:215" bg_color="#ff646464">
-            <nodes>2,9,7</nodes>
-        </node>
-        <node groupnode="Store original offset of mesh" id="21" position="184:160" size="540:210" bg_color="#ff646464">
-            <nodes>16,12,19</nodes>
-        </node>
-        <node groupnode="Remove null meshes" id="23" position="140:420" size="654:211" bg_color="#ff646464">
-            <nodes>17,18,20,22</nodes>
-        </node>
-        <node groupnode="Offset mesh and place in cache" id="8" position="760:-280" size="338:387" bg_color="#ff646464">
-            <nodes>3,13</nodes>
-        </node>
-        <node groupnode="Get target mesh and convert it local space" id="6" position="200:-240" size="510:340" bg_color="#ff646464">
-            <nodes>1,4,5,0</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="11" sourceport="1" destnode="15" destport="1" />
-        <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="17" destport="0" />
-        <connection sourcenode="22" sourceport="1" destnode="17" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="22" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="d3364e1d-e049-4ddf-b5c7-9a532ae55aa7">
+  <meta_info>
+    <graph_version guid="daed677a-0820-4562-8e6a-ca1dec2e8253" number="0.0.27" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: INode" id="0" name="node" position="227:-191" size="140:117" />
+    <node operator="CheckNodeValidity" id="1" position="395:-160" size="140:117" />
+    <node operator="Output: geometry" id="2" position="1217:468" size="140:69" />
+    <node operator="Parameter: Int32" id="3" name="count" min_value="1" max_value="1000" default_value="10" position="769:-91" size="140:189" />
+    <node operator="CombineAllMeshes" id="7" position="876:462" size="140:117" />
+    <node operator="CachedValue" id="11" position="815:189" size="140:141" />
+    <node operator="PerFrameValueCache-ext" id="13" position="949:-151" size="140:141" />
+    <node operator="Geometry: Matrix" id="4" position="223:-48" size="140:93" />
+    <node operator="NodeMeshInLocalSpace-ext" id="5" position="550:-54" size="140:141" />
+    <node operator="MapRange-ext" id="15" position="1011:194" size="140:141" />
+    <node operator="NodePositionInLocalSpace-ext" id="16" position="212:189" size="140:141" />
+    <node operator="CacheValue-ext" id="12" position="575:240" size="140:117" />
+    <node operator="Negate" id="19" position="384:224" size="140:117" />
+    <node operator="MeshOffset-ext" id="9" position="1044:433" size="140:141" />
+    <node operator="Filter" id="17" position="645:458" size="140:141" />
+    <node operator="IsNullFix2-ext" id="18" position="309:469" size="140:117" />
+    <node operator="Pass-through: TriMesh" id="20" position="149:469" size="140:117" />
+    <node operator="Not" id="22" position="473:465" size="140:117" />
+    <node groupnode="Extract meshes from cache" id="14" position="780:160" size="392:201" bg_color="#ff646464">
+      <nodes>11,15</nodes>
+    </node>
+    <node groupnode="Create final mesh" id="10" position="840:391" size="526:215" bg_color="#ff646464">
+      <nodes>2,9,7</nodes>
+    </node>
+    <node groupnode="Store original offset of mesh" id="21" position="184:160" size="540:210" bg_color="#ff646464">
+      <nodes>16,12,19</nodes>
+    </node>
+    <node groupnode="Remove null meshes" id="23" position="140:420" size="654:211" bg_color="#ff646464">
+      <nodes>17,18,20,22</nodes>
+    </node>
+    <node groupnode="Offset mesh and place in cache" id="8" position="760:-280" size="338:387" bg_color="#ff646464">
+      <nodes>3,13</nodes>
+    </node>
+    <node groupnode="Get target mesh and convert it local space" id="6" position="200:-240" size="510:340" bg_color="#ff646464">
+      <nodes>1,4,5,0</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="11" sourceport="1" destnode="15" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="22" sourceport="1" destnode="17" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="22" destport="0" />
+  </connections>
 </graph>

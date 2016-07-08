@@ -1,0 +1,90 @@
+<graph version="0.50" uuid="c3c3d951-ede7-478c-b937-784653a62821">
+    <meta_info>
+        <graph_version guid="3623aa0e-327e-4def-a178-1ac08ca0db23" number="0.0.33" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="880:280" size="140:117" />
+        <node operator="Input: Int32" id="1" name="uvw channel" position="1760:440" size="140:117" />
+        <node operator="Output: compound" id="5" position="2200:540" size="140:69" />
+        <node operator="OddItems" id="6" position="1320:480" size="140:117" />
+        <node operator="EvenItems" id="7" position="1320:340" size="140:117" />
+        <node operator="ParallelCombine" id="8" position="1540:460" size="140:165" />
+        <node operator="IgnoreFirst" id="11" position="720:240" size="140:141" />
+        <node operator="IgnoreFirst" id="12" position="880:560" size="140:141" />
+        <node operator="Vector3" id="13" position="209:-91" size="140:165" />
+        <node operator="Flatten" id="15" position="1760:560" size="140:117" />
+        <node operator="SetMapChannelWithoutIndices" id="16" position="1980:460" size="140:165" />
+        <node operator="FloatZero" id="4" position="-100:300" size="140:93" />
+        <node operator="Vector3" id="17" position="209:129" size="140:165" />
+        <node operator="Array3" id="18" position="500:120" size="140:165" />
+        <node operator="Flatten" id="19" position="1320:620" size="140:117" />
+        <node operator="Vector3" id="20" position="209:569" size="140:165" />
+        <node operator="FloatOne" id="21" position="-100:80" size="140:93" />
+        <node operator="Array3" id="22" position="500:380" size="140:165" />
+        <node operator="Vector3" id="23" position="209:349" size="140:165" />
+        <node operator="Pass-through: Int32" id="3" position="500:-80" size="140:117" />
+        <node operator="Pass-through: Int32" id="9" position="720:440" size="140:117" />
+        <node operator="Unit" id="30" position="880:420" size="140:117" />
+        <node operator="Append" id="33" position="1100:540" size="140:141" />
+        <node operator="FaceCount" id="2" position="1100:200" size="140:117" />
+        <node operator="Range" id="10" position="1320:200" size="140:117" />
+        <node groupnode="Tri 1" id="31" position="491:351" size="158:203" bg_color="#ff646464">
+            <nodes>22</nodes>
+        </node>
+        <node groupnode="Tri 2" id="32" position="491:91" size="158:203" bg_color="#ff646464">
+            <nodes>18</nodes>
+        </node>
+        <node groupnode="[1,1,0]" id="26" position="200:540" size="158:203" bg_color="#ff035000">
+            <nodes>20</nodes>
+        </node>
+        <node groupnode="[1,0,0]" id="28" position="200:320" size="158:203" bg_color="#ff65ff77">
+            <nodes>23</nodes>
+        </node>
+        <node groupnode="[0,1,0]" id="27" position="200:100" size="158:203" bg_color="#ff642a2a">
+            <nodes>17</nodes>
+        </node>
+        <node groupnode="[0,0,0]" id="29" position="200:-120" size="158:203" bg_color="#ffdc7c35">
+            <nodes>13</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="16" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="19" sourceport="1" destnode="8" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="16" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="17" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="23" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="33" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="20" destport="2" />
+        <connection sourcenode="17" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="22" destport="2" />
+        <connection sourcenode="21" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="23" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="33" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

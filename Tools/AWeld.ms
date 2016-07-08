@@ -1,6 +1,6 @@
 plugin simpleMeshMod AWeld
 	name:"AWeld"
-	classID:#(0x7B2E51A, 0x3617C141)
+	classID:#(0x48A8797, 0xF86AE13)
 	category:"MCG"
 	usePBValidity:true
 (

@@ -1,74 +1,75 @@
-<graph version="0.50" uuid="188a3abe-4b62-4cfd-9dee-144d15dc66e3">
-    <meta_info>
-        <graph_version guid="12784f94-cf7f-4a41-9d8e-d80b73aeab1a" number="0.0.84" />
-    </meta_info>
-    <nodes>
-        <node operator="Output: modifier" id="0" position="349:949" size="140:69" />
-        <node operator="Modifier: TriMesh" id="1" position="-71:921" size="140:93" />
-        <node operator="DeformMeshPoints.ext" id="2" position="149:909" size="140:141" />
-        <node operator="Pass-through: Vector3" id="7" position="-568:569" size="140:117" />
-        <node operator="Subtract" id="59" position="-565:824" size="140:141" />
-        <node operator="Pass-through: Vector3" id="60" position="-763:849" size="140:117" />
-        <node operator="Add" id="3" position="-387:934" size="140:141" />
-        <node operator="Parameter: Single" id="46" name="radius" min_value="0.1" max_value="100" default_value="1" system_units_value="false" position="-955:963" size="140:213" />
-        <node operator="Multiply" id="47" position="-756:978" size="140:141" />
-        <node operator="Parameter: Single" id="54" name="spherify" min_value="0" max_value="20" default_value="0.5" system_units_value="false" position="29:629" size="140:213" />
-        <node operator="Lerp" id="62" position="229:589" size="140:165" />
-        <node operator="Modifier: BoundingBox" id="5" position="-1023:411" size="140:93" />
-        <node operator="Modifier: Matrix" id="58" position="-1024:311" size="140:93" />
-        <node operator="NodePositionOrBoxCenter.ext" id="61" position="-794:273" size="140:165" />
-        <node operator="Parameter: INode" id="64" name="helper" position="-1021:193" size="140:117" />
-        <node operator="Parameter: Boolean" id="4" name="ignore Y" default_value="false" position="-471:229" size="140:141" />
-        <node operator="ChooseVectorElements.ext" id="6" position="29:274" size="180:165" />
-        <node operator="Parameter: Boolean" id="39" name="ignore Z" default_value="false" position="-471:369" size="140:141" />
-        <node operator="Array3.ext" id="40" position="-204:221" size="140:165" />
-        <node operator="Parameter: Boolean" id="41" name="ignore X" default_value="false" position="-471:89" size="140:141" />
-        <node operator="BoundingBoxRadius.ext" id="10" position="-958:813" size="140:117" />
-        <node operator="SetVectorLength.ext" id="11" position="-556:991" size="140:141" />
-        <node groupnode="Mask different components" id="9" position="-480:60" size="724:459" bg_color="#ff646464">
-            <nodes>6,39,40,41,4</nodes>
-        </node>
-        <node groupnode="Create final mesh" id="13" position="-80:880" size="578:179" bg_color="#ff646464">
-            <nodes>1,2,0</nodes>
-        </node>
-        <node groupnode="Lerp point between current and target" id="12" position="20:560" size="358:291" bg_color="#ff646464">
-            <nodes>54,62</nodes>
-        </node>
-        <node groupnode="Get helper node position or bounding box center" id="65" position="-1080:140" size="475:393" bg_color="#ff646464">
-            <nodes>5,58,61,64</nodes>
-        </node>
-        <node groupnode="Resize the vector between the vertex and the centerpoint to be the distance as box radius times the radius" id="52" position="-1040:780" size="928:448" bg_color="#ff646464">
-            <nodes>59,10,11,47,60,3,46</nodes>
-        </node>
-        <node groupnode="Original position" id="33" position="-580:540" size="172:155" bg_color="#ff646464">
-            <nodes>7</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="62" sourceport="1" destnode="2" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="59" destport="0" />
-        <connection sourcenode="60" sourceport="0" destnode="59" destport="1" />
-        <connection sourcenode="61" sourceport="0" destnode="60" destport="0" />
-        <connection sourcenode="60" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="47" destport="0" />
-        <connection sourcenode="46" sourceport="0" destnode="47" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="62" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="62" destport="1" />
-        <connection sourcenode="54" sourceport="0" destnode="62" destport="2" />
-        <connection sourcenode="64" sourceport="0" destnode="61" destport="0" />
-        <connection sourcenode="58" sourceport="0" destnode="61" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="61" destport="2" />
-        <connection sourcenode="40" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="6" destport="2" />
-        <connection sourcenode="41" sourceport="0" destnode="40" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="40" destport="1" />
-        <connection sourcenode="39" sourceport="0" destnode="40" destport="2" />
-        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="59" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="47" sourceport="0" destnode="11" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2002cce0-2875-4fa1-bb01-d80ae52ae34a">
+  <meta_info>
+    <graph_version guid="12784f94-cf7f-4a41-9d8e-d80b73aeab1a" number="0.0.84" />
+  </meta_info>
+  <nodes>
+    <node operator="Output: modifier" id="0" position="349:949" size="140:69" />
+    <node operator="Modifier: TriMesh" id="1" position="-71:921" size="140:93" />
+    <node operator="MeshDeformPoints-ext" id="2" position="149:909" size="140:141" />
+    <node operator="Pass-through: Vector3" id="7" position="-568:569" size="140:117" />
+    <node operator="Subtract" id="59" position="-565:824" size="140:141" />
+    <node operator="Pass-through: Vector3" id="60" position="-763:849" size="140:117" />
+    <node operator="Add" id="3" position="-387:934" size="140:141" />
+    <node operator="Parameter: Single" id="46" name="radius" min_value="0.1" max_value="100" default_value="1" system_units_value="false" position="-955:963" size="140:213" />
+    <node operator="Multiply" id="47" position="-756:978" size="140:141" />
+    <node operator="Parameter: Single" id="54" name="spherify" min_value="0" max_value="20" default_value="0.5" system_units_value="false" position="29:629" size="140:213" />
+    <node operator="Lerp" id="62" position="229:589" size="140:165" />
+    <node operator="Modifier: BoundingBox" id="5" position="-1023:411" size="140:93" />
+    <node operator="Modifier: Matrix" id="58" position="-1024:311" size="140:93" />
+    <node operator="NodePositionOrBoxCenter-ext" id="61" position="-794:273" size="140:165" />
+    <node operator="Parameter: INode" id="64" name="helper" position="-1021:193" size="140:117" />
+    <node operator="Parameter: Boolean" id="4" name="ignore Y" default_value="false" position="-471:229" size="140:141" />
+    <node operator="VectorElementsChoose-ext" id="6" position="29:274" size="180:165" />
+    <node operator="Parameter: Boolean" id="39" name="ignore Z" default_value="false" position="-471:369" size="140:141" />
+    <node operator="Array3-ext" id="40" position="-204:221" size="140:165" />
+    <node operator="Parameter: Boolean" id="41" name="ignore X" default_value="false" position="-471:89" size="140:141" />
+    <node operator="BoundingBoxRadius" id="10" position="-958:813" size="140:117" />
+    <node operator="SetVectorLength-ext" id="11" position="-556:991" size="140:141" />
+    <node groupnode="Mask different components" id="9" position="-480:60" size="724:459" bg_color="#ff646464">
+      <nodes>6,39,40,41,4</nodes>
+    </node>
+    <node groupnode="Create final mesh" id="13" position="-80:880" size="578:179" bg_color="#ff646464">
+      <nodes>1,2,0</nodes>
+    </node>
+    <node groupnode="Lerp point between current and target" id="12" position="20:560" size="358:291" bg_color="#ff646464">
+      <nodes>54,62</nodes>
+    </node>
+    <node groupnode="Get helper node position or bounding box center" id="65" position="-1080:140" size="475:393" bg_color="#ff646464">
+      <nodes>5,58,61,64</nodes>
+    </node>
+    <node groupnode="Resize the vector between the vertex and the centerpoint to be the distance as box radius times the radius" id="52" position="-1040:780" size="928:448" bg_color="#ff646464">
+      <nodes>59,10,11,47,60,3,46</nodes>
+    </node>
+    <node groupnode="Original position" id="33" position="-580:540" size="172:155" bg_color="#ff646464">
+      <nodes>7</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="62" sourceport="1" destnode="2" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="59" destport="0" />
+    <connection sourcenode="60" sourceport="0" destnode="59" destport="1" />
+    <connection sourcenode="61" sourceport="0" destnode="60" destport="0" />
+    <connection sourcenode="60" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="47" destport="0" />
+    <connection sourcenode="46" sourceport="0" destnode="47" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="62" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="62" destport="1" />
+    <connection sourcenode="54" sourceport="0" destnode="62" destport="2" />
+    <connection sourcenode="64" sourceport="0" destnode="61" destport="0" />
+    <connection sourcenode="58" sourceport="0" destnode="61" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="61" destport="2" />
+    <connection sourcenode="40" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="41" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="40" destport="1" />
+    <connection sourcenode="39" sourceport="0" destnode="40" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="59" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="47" sourceport="0" destnode="11" destport="1" />
+  </connections>
 </graph>

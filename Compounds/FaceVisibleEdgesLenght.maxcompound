@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="0bdff13c-4c4f-4918-91ed-1550c45f2226">
+    <meta_info>
+        <graph_version guid="4d9848f9-01c2-49e4-9863-8b26671a57cb" number="0.0.6" />
+        <category>Geometry - Edges</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="face index" position="140:200" size="140:117" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="140:80" size="140:117" />
+        <node operator="FaceEdges" id="2" position="360:140" size="140:141" />
+        <node operator="Filter" id="3" position="580:180" size="140:141" />
+        <node operator="EdgeVisible" id="4" position="360:280" size="140:117" />
+        <node operator="Map" id="5" position="780:340" size="140:141" />
+        <node operator="Distance" id="6" position="569:469" size="140:141" />
+        <node operator="EdgeToLine" id="7" position="229:529" size="140:117" />
+        <node operator="LineA" id="8" position="389:489" size="140:117" />
+        <node operator="LineB" id="9" position="389:609" size="140:117" />
+        <node operator="Take" id="10" position="1020:400" size="140:141" />
+        <node operator="Two" id="11" position="780:500" size="140:93" />
+        <node operator="Output: compound" id="12" position="1260:460" size="140:69" />
+        <node groupnode="Filter Edges based on visibility" id="13" position="131:51" size="598:355" bg_color="#ff646464">
+            <nodes>3,2,0,4,1</nodes>
+        </node>
+        <node groupnode="Calculate Edge Lenght" id="14" position="220:440" size="498:295" bg_color="#ff646464">
+            <nodes>9,6,7,8</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

@@ -1,79 +1,80 @@
-<graph version="0.50" uuid="23e6bb59-badb-425c-a4f3-8e95331f57a3">
-    <meta_info>
-        <graph_version guid="83258c23-317a-494e-8970-46139bc45c9e" number="1.0.6" />
-        <author>Autodesk 3ds Max</author>
-        <company>Autodesk Inc.</company>
-        <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
-        <url>http://www.autodesk.com</url>
-        <category>CFD</category>
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Single" id="14" name="Field Sampling" min_value="0.001" max_value="999999999" default_value="2" system_units_value="false" position="1120:1720" size="140:196" />
-        <node operator="Parameter: Int32" id="12" name="Spline Vertices" min_value="3" max_value="9999999" default_value="20" position="1120:160" size="140:175" />
-        <node operator="CheckNodeValidity" id="1" position="220:220" size="140:112" />
-        <node operator="Parameter: Int32" id="5" name="Field Interpolation" min_value="1" max_value="9999999" default_value="8" position="1120:640" size="140:175" />
-        <node operator="Parameter: INode" id="8" name="CFD Points" position="0:200" size="140:112" />
-        <node operator="Parameter: Single" id="30" name="Smoothing" min_value="0" max_value="2" default_value="1" system_units_value="false" position="1120:860" size="140:196" />
-        <node operator="NodeMeshInWorldSpace" id="2" position="440:240" size="140:112" />
-        <node operator="MeshVertices" id="7" position="660:440" size="140:112" />
-        <node operator="False" id="15" position="1720:1320" size="140:91" />
-        <node operator="CreateSplineFromKnots" id="13" position="1940:1260" size="200:133" />
-        <node operator="Shape: Matrix" id="17" position="660:960" size="140:91" />
-        <node operator="WorldTransform" id="18" position="880:120" size="140:112" />
-        <node operator="Origin" id="23" position="880:20" size="140:91" />
-        <node operator="Transform" id="34" position="1120:0" size="180:133" />
-        <node operator="Parameter: INode" id="35" name="Spline Origin Helper" position="660:140" size="140:112" />
-        <node operator="InvertMatrix" id="6" position="1400:1340" size="140:112" />
-        <node operator="Constant" id="39" value="5" position="1129:1109" size="120:91" />
-        <node operator="Constant" id="40" value="6" position="1157:1289" size="140:91" />
-        <node operator="Constant" id="41" value="7" position="1176:1589" size="140:91" />
-        <node operator="TransformPoints" id="3" position="1720:1180" size="140:133" />
-        <node operator="Parameter: Signal" id="0" name="Refresh Data" position="1120:340" size="140:112" />
-        <node operator="PointOctree" id="10" position="880:520" size="160:112" />
-        <node operator="GenerateSplineFromVelocity" id="16" position="1400:760" size="240:343" />
-        <node operator="Output: shape" id="4" position="2220:1300" size="140:70" />
-        <node operator="CacheValueUntilControlChanged" id="9" position="1120:480" size="140:133" />
-        <node operator="Parameter: Signal" id="21" name="update cache" position="880:380" size="140:112" />
-        <node operator="GetMatrixTranslation" id="11" position="860:916" size="140:112" />
-        <node operator="CombineSplines" id="19" position="1840:760" size="140:112" />
-        <node groupnode="VZ" id="38" position="1120:1520" size="205:174" bg_color="#ff646464">
-            <nodes>41</nodes>
-        </node>
-        <node groupnode="VY" id="37" position="1120:1240" size="186:154" bg_color="#ff646464">
-            <nodes>40</nodes>
-        </node>
-        <node groupnode="VX" id="36" position="1120:1080" size="158:134" bg_color="#ff646464">
-            <nodes>39</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="35" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="23" sourceport="0" destnode="34" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="34" destport="1" />
-        <connection sourcenode="17" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="16" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="16" destport="3" />
-        <connection sourcenode="9" sourceport="0" destnode="16" destport="4" />
-        <connection sourcenode="5" sourceport="0" destnode="16" destport="5" />
-        <connection sourcenode="7" sourceport="0" destnode="16" destport="6" />
-        <connection sourcenode="30" sourceport="0" destnode="16" destport="7" />
-        <connection sourcenode="39" sourceport="0" destnode="16" destport="8" />
-        <connection sourcenode="40" sourceport="0" destnode="16" destport="9" />
-        <connection sourcenode="41" sourceport="0" destnode="16" destport="10" />
-        <connection sourcenode="14" sourceport="0" destnode="16" destport="11" />
-        <connection sourcenode="13" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="17" sourceport="0" destnode="11" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f8701f98-3dc6-4359-b42f-f9a8451ec143">
+  <meta_info>
+    <graph_version guid="83258c23-317a-494e-8970-46139bc45c9e" number="1.0.6" />
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+    <category>CFD</category>
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Single" id="14" name="Field Sampling" min_value="0.001" max_value="999999999" default_value="2" system_units_value="false" position="1120:1720" size="140:196" />
+    <node operator="Parameter: Int32" id="12" name="Spline Vertices" min_value="3" max_value="9999999" default_value="20" position="1120:160" size="140:175" />
+    <node operator="CheckNodeValidity" id="1" position="220:220" size="140:112" />
+    <node operator="Parameter: Int32" id="5" name="Field Interpolation" min_value="1" max_value="9999999" default_value="8" position="1120:640" size="140:175" />
+    <node operator="Parameter: INode" id="8" name="CFD Points" position="0:200" size="140:112" />
+    <node operator="Parameter: Single" id="30" name="Smoothing" min_value="0" max_value="2" default_value="1" system_units_value="false" position="1120:860" size="140:196" />
+    <node operator="NodeMeshInWorldSpace-ext" id="2" position="440:240" size="140:112" />
+    <node operator="MeshVertices" id="7" position="660:440" size="140:112" />
+    <node operator="False" id="15" position="1720:1320" size="140:91" />
+    <node operator="CreateSplineFromKnots" id="13" position="1940:1260" size="200:133" />
+    <node operator="Shape: Matrix" id="17" position="660:960" size="140:91" />
+    <node operator="WorldTransform" id="18" position="880:120" size="140:112" />
+    <node operator="Origin-ext" id="23" position="880:20" size="140:91" />
+    <node operator="Transform" id="34" position="1120:0" size="180:133" />
+    <node operator="Parameter: INode" id="35" name="Spline Origin Helper" position="660:140" size="140:112" />
+    <node operator="InvertMatrix" id="6" position="1400:1340" size="140:112" />
+    <node operator="Constant" id="39" value="5" position="1129:1109" size="120:91" />
+    <node operator="Constant" id="40" value="6" position="1157:1289" size="140:91" />
+    <node operator="Constant" id="41" value="7" position="1176:1589" size="140:91" />
+    <node operator="TransformPoints" id="3" position="1720:1180" size="140:133" />
+    <node operator="Parameter: Signal" id="0" name="Refresh Data" position="1120:340" size="140:112" />
+    <node operator="PointOctree" id="10" position="880:520" size="160:112" />
+    <node operator="GenerateSplineFromVelocity" id="16" position="1400:760" size="240:343" />
+    <node operator="Output: shape" id="4" position="2220:1300" size="140:70" />
+    <node operator="CacheValueUntilControlChanged" id="9" position="1120:480" size="140:133" />
+    <node operator="Parameter: Signal" id="21" name="update cache" position="880:380" size="140:112" />
+    <node operator="GetMatrixTranslation" id="11" position="860:916" size="140:112" />
+    <node operator="CombineSplines" id="19" position="1840:760" size="140:112" />
+    <node groupnode="VZ" id="38" position="1120:1520" size="205:174" bg_color="#ff646464">
+      <nodes>41</nodes>
+    </node>
+    <node groupnode="VY" id="37" position="1120:1240" size="186:154" bg_color="#ff646464">
+      <nodes>40</nodes>
+    </node>
+    <node groupnode="VX" id="36" position="1120:1080" size="158:134" bg_color="#ff646464">
+      <nodes>39</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="35" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="34" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="16" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="16" destport="3" />
+    <connection sourcenode="9" sourceport="0" destnode="16" destport="4" />
+    <connection sourcenode="5" sourceport="0" destnode="16" destport="5" />
+    <connection sourcenode="7" sourceport="0" destnode="16" destport="6" />
+    <connection sourcenode="30" sourceport="0" destnode="16" destport="7" />
+    <connection sourcenode="39" sourceport="0" destnode="16" destport="8" />
+    <connection sourcenode="40" sourceport="0" destnode="16" destport="9" />
+    <connection sourcenode="41" sourceport="0" destnode="16" destport="10" />
+    <connection sourcenode="14" sourceport="0" destnode="16" destport="11" />
+    <connection sourcenode="13" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="11" destport="0" />
+  </connections>
 </graph>

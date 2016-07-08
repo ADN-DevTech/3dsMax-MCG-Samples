@@ -1,47 +1,48 @@
-<graph version="0.50" uuid="995ca1db-daae-45d9-8b8e-b0c172c2962d">
-    <meta_info>
-        <graph_version guid="b0ce2902-609b-49c1-a2e4-982211579602" number="0.0.14" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Int32" id="2" name="seed" min_value="0" max_value="100000" default_value="0" position="266:399" size="140:175" />
-        <node operator="Parameter: Int32" id="11" name="axis" min_value="-3" max_value="2" default_value="2" position="416:401" size="140:175" />
-        <node operator="Modifier: TriMesh" id="16" position="651:102" size="140:91" />
-        <node operator="MeshRandomFacePositionMatrices-ext" id="3" position="759:417" size="260:196" />
-        <node operator="Parameter: Boolean" id="0" name="position only" default_value="false" position="238:247" size="140:133" />
-        <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="1334:175" size="140:196" />
-        <node operator="Output: modifier" id="23" position="1800:240" size="160:70" />
-        <node operator="StoreMatricesInMapChannel-ext" id="4" position="1062:30" size="140:154" />
-        <node operator="ClonerMeshAsBoxes-ext" id="6" position="1506:145" size="140:154" />
-        <node operator="Parameter: Int32" id="1" name="channel" min_value="-2" max_value="100" default_value="2" position="893:100" size="140:175" />
-        <node operator="Parameter: Int32" id="5" name="count" min_value="0" max_value="1000000" default_value="10" position="411:209" size="140:175" />
-        <node groupnode="Store matrices in map channel" id="10" position="880:-20" size="331:307" bg_color="#ff646464">
-            <nodes>4,1</nodes>
-        </node>
-        <node groupnode="Compute random locations on surface" id="20" position="660:360" size="422:265" bg_color="#ff646464">
-            <nodes>3</nodes>
-        </node>
-        <node groupnode="Create mesh" id="25" position="1300:100" size="366:302" bg_color="#ff646464">
-            <nodes>6,21</nodes>
-        </node>
-        <node groupnode="Parameters for random placement" id="14" position="220:180" size="348:422" bg_color="#ff646464">
-            <nodes>5,11,2,0</nodes>
-        </node>
-        <node groupnode="Get mesh" id="18" position="640:40" size="192:203" bg_color="#ff646464">
-            <nodes>16</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="3" destport="2" />
-        <connection sourcenode="5" sourceport="0" destnode="3" destport="3" />
-        <connection sourcenode="11" sourceport="0" destnode="3" destport="4" />
-        <connection sourcenode="6" sourceport="0" destnode="23" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="4" destport="2" />
-        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="21" sourceport="0" destnode="6" destport="2" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2c71c1cd-c1b1-4066-8b72-7ce8441b4300">
+  <meta_info>
+    <graph_version guid="b0ce2902-609b-49c1-a2e4-982211579602" number="0.0.14" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="2" name="seed" min_value="0" max_value="100000" default_value="0" position="266:399" size="140:175" />
+    <node operator="Parameter: Int32" id="11" name="axis" min_value="-3" max_value="2" default_value="2" position="416:401" size="140:175" />
+    <node operator="Modifier: TriMesh" id="16" position="651:102" size="140:91" />
+    <node operator="MeshRandomFacePositionMatrices-ext" id="3" position="759:417" size="260:196" />
+    <node operator="Parameter: Boolean" id="0" name="position only" default_value="false" position="238:247" size="140:133" />
+    <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="1334:175" size="140:196" />
+    <node operator="Output: modifier" id="23" position="1800:240" size="160:70" />
+    <node operator="MapChannelStoreMatrices-ext" id="4" position="1062:30" size="140:154" />
+    <node operator="ClonerMeshAsBoxes-ext" id="6" position="1506:145" size="140:154" />
+    <node operator="Parameter: Int32" id="1" name="channel" min_value="-2" max_value="100" default_value="2" position="893:100" size="140:175" />
+    <node operator="Parameter: Int32" id="5" name="count" min_value="0" max_value="1000000" default_value="10" position="411:209" size="140:175" />
+    <node groupnode="Store matrices in map channel" id="10" position="880:-20" size="331:307" bg_color="#ff646464">
+      <nodes>4,1</nodes>
+    </node>
+    <node groupnode="Compute random locations on surface" id="20" position="660:360" size="422:265" bg_color="#ff646464">
+      <nodes>3</nodes>
+    </node>
+    <node groupnode="Create mesh" id="25" position="1300:100" size="366:302" bg_color="#ff646464">
+      <nodes>6,21</nodes>
+    </node>
+    <node groupnode="Parameters for random placement" id="14" position="220:180" size="348:422" bg_color="#ff646464">
+      <nodes>5,11,2,0</nodes>
+    </node>
+    <node groupnode="Get mesh" id="18" position="640:40" size="192:203" bg_color="#ff646464">
+      <nodes>16</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="3" destport="3" />
+    <connection sourcenode="11" sourceport="0" destnode="3" destport="4" />
+    <connection sourcenode="6" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="2" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="6" destport="2" />
+  </connections>
 </graph>

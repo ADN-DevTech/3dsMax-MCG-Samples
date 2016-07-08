@@ -1,6 +1,6 @@
 plugin simpleMeshMod Select_by_Material_Id
 	name:"Select_by_Material_Id"
-	classID:#(0x839F385, 0x50A4FC0B)
+	classID:#(0x1288F355, 0xF9063E7)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

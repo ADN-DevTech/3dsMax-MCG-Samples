@@ -1,105 +1,106 @@
-<graph version="0.50" uuid="aede1bc3-58ea-47e6-872e-1c3fbdff955a">
-    <meta_info>
-        <graph_version guid="9f8d1fa7-e636-4f8e-b13e-cdbfba7eda70" number="0.0.14" />
-        <category>Geometry - Rotation</category>
-        <description>Given two unit vectors computes a quaternion. http://lolengine.net/blog/2014/02/24/quaternion-from-two-vectors-final</description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: Vector3" id="0" name="u" position="0:520" size="140:117" />
-        <node operator="Input: Vector3" id="1" name="v" position="0:1000" size="140:117" />
-        <node operator="Cross" id="2" position="220:900" size="140:141" />
-        <node operator="QuaternionNormalize" id="3" position="1900:980" size="180:117" />
-        <node operator="Output: compound" id="4" position="2140:1020" size="140:69" />
-        <node operator="QuaternionFromVectorAndTheta" id="5" position="1369:1209" size="140:141" />
-        <node operator="Dot" id="6" position="589:1169" size="140:141" />
-        <node operator="Add" id="7" position="809:1309" size="140:141" />
-        <node operator="FloatOne" id="8" position="589:1329" size="140:93" />
-        <node operator="If" id="10" position="1613:919" size="140:165" />
-        <node operator="Abs" id="11" position="829:69" size="140:117" />
-        <node operator="X" id="12" position="629:29" size="140:117" />
-        <node operator="Abs" id="13" position="829:209" size="140:117" />
-        <node operator="Z" id="14" position="629:189" size="140:117" />
-        <node operator="GreaterThan" id="15" position="1029:129" size="140:141" />
-        <node operator="Pass-through: Vector3" id="16" position="453:82" size="140:117" />
-        <node operator="If" id="18" position="1249:589" size="140:165" />
-        <node operator="Vector3" id="19" position="890:429" size="140:165" />
-        <node operator="Vector3" id="20" position="929:731" size="140:165" />
-        <node operator="FloatZero" id="21" position="650:549" size="140:93" />
-        <node operator="FloatZero" id="22" position="629:711" size="140:93" />
-        <node operator="Y" id="24" position="651:966" size="140:117" />
-        <node operator="NegativeFloat" id="25" position="639:832" size="140:117" />
-        <node operator="Z" id="26" position="449:831" size="140:117" />
-        <node operator="Y" id="29" position="453:414" size="140:117" />
-        <node operator="NegativeFloat" id="30" position="630:389" size="140:117" />
-        <node operator="X" id="23" position="461:520" size="140:117" />
-        <node operator="Constant" id="9" value="0.0000001" position="1264:1027" size="140:93" />
-        <node operator="QuaternionFromVectorAndTheta" id="35" position="1620:620" size="220:141" />
-        <node operator="FloatZero" id="36" position="1460:700" size="140:93" />
-        <node operator="LessThan" id="40" position="1384:856" size="140:141" />
-        <node groupnode="w = cross(u, v)" id="38" position="1360:1180" size="158:179" bg_color="#ff646464">
-            <nodes>5</nodes>
-        </node>
-        <node groupnode="if (real_part &lt; 1.e-6)" id="37" position="1240:800" size="580:329" bg_color="#ff646464">
-            <nodes>10,9,40</nodes>
-        </node>
-        <node groupnode="abs(u.x) &gt; abs(u.z)" id="17" position="440:0" size="738:340" bg_color="#ff646464">
-            <nodes>11,12,14,15,16,13</nodes>
-        </node>
-        <node groupnode="[0.0, -u.z, u.y]" id="28" position="440:680" size="638:416" bg_color="#ff646464">
-            <nodes>24,26,25,22,20</nodes>
-        </node>
-        <node groupnode="w" id="33" position="1240:560" size="158:203" bg_color="#ff646464">
-            <nodes>18</nodes>
-        </node>
-        <node groupnode="[-u.y, u.x, 0.0]" id="31" position="440:360" size="622:291" bg_color="#ff646464">
-            <nodes>19,30,21,29,23</nodes>
-        </node>
-        <node groupnode="cross(u, v)" id="27" position="211:871" size="158:179" bg_color="#ff646464">
-            <nodes>2</nodes>
-        </node>
-        <node groupnode="real_part = 1.0f + dot(u,v)" id="32" position="580:1140" size="378:319" bg_color="#ff646464">
-            <nodes>8,7,6</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="40" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="35" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="10" destport="2" />
-        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="15" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="18" destport="2" />
-        <connection sourcenode="30" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="23" sourceport="0" destnode="19" destport="1" />
-        <connection sourcenode="21" sourceport="0" destnode="19" destport="2" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="25" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="24" sourceport="0" destnode="20" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="24" destport="0" />
-        <connection sourcenode="26" sourceport="0" destnode="25" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="26" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="29" destport="0" />
-        <connection sourcenode="29" sourceport="0" destnode="30" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="23" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="35" destport="0" />
-        <connection sourcenode="36" sourceport="0" destnode="35" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="40" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="40" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="5ae63d2f-20dd-4c11-9fa9-eed17614121e">
+  <meta_info>
+    <graph_version guid="9f8d1fa7-e636-4f8e-b13e-cdbfba7eda70" number="0.0.14" />
+    <category>Geometry - Rotation</category>
+    <description>Given two unit vectors computes a quaternion. http://lolengine.net/blog/2014/02/24/quaternion-from-two-vectors-final</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Vector3" id="0" name="u" position="0:520" size="140:117" />
+    <node operator="Input: Vector3" id="1" name="v" position="0:1000" size="140:117" />
+    <node operator="Cross" id="2" position="220:900" size="140:141" />
+    <node operator="QuaternionNormalize" id="3" position="1900:980" size="180:117" />
+    <node operator="Output: compound" id="4" position="2140:1020" size="140:69" />
+    <node operator="QuaternionFromVectorAndTheta" id="5" position="1369:1209" size="140:141" />
+    <node operator="Dot" id="6" position="589:1169" size="140:141" />
+    <node operator="Add" id="7" position="809:1309" size="140:141" />
+    <node operator="FloatOne" id="8" position="589:1329" size="140:93" />
+    <node operator="If" id="10" position="1613:919" size="140:165" />
+    <node operator="Abs" id="11" position="829:69" size="140:117" />
+    <node operator="X" id="12" position="629:29" size="140:117" />
+    <node operator="Abs" id="13" position="829:209" size="140:117" />
+    <node operator="Z" id="14" position="629:189" size="140:117" />
+    <node operator="GreaterThan" id="15" position="1029:129" size="140:141" />
+    <node operator="Pass-through: Vector3" id="16" position="453:82" size="140:117" />
+    <node operator="If" id="18" position="1249:589" size="140:165" />
+    <node operator="Vector3" id="19" position="890:429" size="140:165" />
+    <node operator="Vector3" id="20" position="929:731" size="140:165" />
+    <node operator="FloatZero" id="21" position="650:549" size="140:93" />
+    <node operator="FloatZero" id="22" position="629:711" size="140:93" />
+    <node operator="Y" id="24" position="651:966" size="140:117" />
+    <node operator="NegativeFloat" id="25" position="639:832" size="140:117" />
+    <node operator="Z" id="26" position="449:831" size="140:117" />
+    <node operator="Y" id="29" position="453:414" size="140:117" />
+    <node operator="NegativeFloat" id="30" position="630:389" size="140:117" />
+    <node operator="X" id="23" position="461:520" size="140:117" />
+    <node operator="Constant" id="9" value="0.0000001" position="1264:1027" size="140:93" />
+    <node operator="QuaternionFromVectorAndTheta" id="35" position="1620:620" size="220:141" />
+    <node operator="FloatZero" id="36" position="1460:700" size="140:93" />
+    <node operator="LessThan" id="40" position="1384:856" size="140:141" />
+    <node groupnode="w = cross(u, v)" id="38" position="1360:1180" size="158:179" bg_color="#ff646464">
+      <nodes>5</nodes>
+    </node>
+    <node groupnode="if (real_part &lt; 1.e-6)" id="37" position="1240:800" size="580:329" bg_color="#ff646464">
+      <nodes>10,9,40</nodes>
+    </node>
+    <node groupnode="abs(u.x) &gt; abs(u.z)" id="17" position="440:0" size="738:340" bg_color="#ff646464">
+      <nodes>11,12,14,15,16,13</nodes>
+    </node>
+    <node groupnode="[0.0, -u.z, u.y]" id="28" position="440:680" size="638:416" bg_color="#ff646464">
+      <nodes>24,26,25,22,20</nodes>
+    </node>
+    <node groupnode="w" id="33" position="1240:560" size="158:203" bg_color="#ff646464">
+      <nodes>18</nodes>
+    </node>
+    <node groupnode="[-u.y, u.x, 0.0]" id="31" position="440:360" size="622:291" bg_color="#ff646464">
+      <nodes>19,30,21,29,23</nodes>
+    </node>
+    <node groupnode="cross(u, v)" id="27" position="211:871" size="158:179" bg_color="#ff646464">
+      <nodes>2</nodes>
+    </node>
+    <node groupnode="real_part = 1.0f + dot(u,v)" id="32" position="580:1140" size="378:319" bg_color="#ff646464">
+      <nodes>8,7,6</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="40" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="35" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="2" />
+    <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="30" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="19" destport="2" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="24" sourceport="0" destnode="20" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="26" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="29" destport="0" />
+    <connection sourcenode="29" sourceport="0" destnode="30" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="35" destport="0" />
+    <connection sourcenode="36" sourceport="0" destnode="35" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="40" destport="1" />
+  </connections>
 </graph>

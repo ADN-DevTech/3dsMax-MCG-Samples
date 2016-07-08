@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="251c8dc4-8ec0-4377-8ec5-cb9036e69ad7">
+  <meta_info>
+    <graph_version guid="8d29c390-462a-4498-8168-7f3da3fa95df" number="0.0.3" />
+  </meta_info>
+  <nodes>
+    <node operator="TerrainErosionHydraulic-ext" id="0" position="1300:420" size="240:261" />
+    <node operator="Parameter: Single" id="1" name="solubility" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="1100:340" size="140:213" />
+    <node operator="Parameter: Single" id="2" name="rainAmount" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="1100:560" size="140:213" />
+    <node operator="Parameter: Single" id="5" name="deposit" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="1100:940" size="140:213" />
+    <node operator="Parameter: Single" id="6" name="evaporation" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="1100:1160" size="140:213" />
+    <node operator="Modifier: TriMesh" id="7" position="0:0" size="140:93" />
+    <node operator="MeshVertices" id="8" position="220:20" size="140:117" />
+    <node operator="Count" id="9" position="440:180" size="140:117" />
+    <node operator="IntAsFloat" id="10" position="660:380" size="140:117" />
+    <node operator="Sqrt" id="11" position="880:580" size="140:117" />
+    <node operator="FloatAsInt" id="12" position="1100:800" size="140:117" />
+    <node operator="Pair" id="4" position="1320:40" size="140:141" />
+    <node operator="ArrayOf" id="13" position="1100:180" size="140:141" />
+    <node operator="FloatZero" id="14" position="880:180" size="140:93" />
+    <node operator="Parameter: Int32" id="15" name="iterations" min_value="0" max_value="100" default_value="5" position="1320:200" size="140:189" />
+    <node operator="PairItem1" id="16" position="1860:100" size="140:117" />
+    <node operator="Map" id="17" position="1100:-40" size="140:141" />
+    <node operator="Z" id="18" position="880:60" size="140:117" />
+    <node operator="Combine" id="19" position="2080:100" size="140:165" />
+    <node operator="SetZ" id="20" position="1860:240" size="140:141" />
+    <node operator="SetMeshVertices" id="21" position="2300:120" size="140:141" />
+    <node operator="Output: modifier" id="22" position="2520:160" size="140:69" />
+    <node operator="RepeatWithoutIndex-ext" id="23" position="1640:380" size="140:165" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="12" sourceport="0" destnode="0" destport="3" />
+    <connection sourcenode="12" sourceport="0" destnode="0" destport="4" />
+    <connection sourcenode="5" sourceport="0" destnode="0" destport="5" />
+    <connection sourcenode="6" sourceport="0" destnode="0" destport="6" />
+    <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="18" sourceport="1" destnode="17" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="20" sourceport="1" destnode="19" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="23" destport="1" />
+    <connection sourcenode="0" sourceport="1" destnode="23" destport="2" />
+  </connections>
+</graph>

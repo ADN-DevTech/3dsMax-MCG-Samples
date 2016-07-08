@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="971ef0df-e726-417e-937d-0544bc3a0ab6">
+  <meta_info>
+    <graph_version guid="c97e3d31-242f-4aab-8797-4e8f367c4438" number="0.0.4" />
+    <category>Deformers</category>
+  </meta_info>
+  <nodes>
+    <node operator="Pass-through: Single" id="23" position="578:998" size="140:112" />
+    <node operator="Constant" id="4" value="4096.0" position="118:638" size="140:91" />
+    <node operator="AsFloat" id="17" position="919:1139" size="140:112" />
+    <node operator="PlusOne" id="13" position="929:749" size="140:112" />
+    <node operator="And" id="14" position="1089:789" size="140:133" />
+    <node operator="Add" id="5" position="372:700" size="140:133" />
+    <node operator="Subtract" id="16" position="1082:1019" size="140:133" />
+    <node operator="Floor" id="22" position="759:1130" size="140:112" />
+    <node operator="FloatOne" id="20" position="869:1332" size="140:91" />
+    <node operator="Subtract" id="19" position="1077:1309" size="140:133" />
+    <node operator="Constant" id="10" value="255" position="858:598" size="140:91" />
+    <node operator="And" id="8" position="1089:509" size="140:133" />
+    <node operator="Floor" id="7" position="849:449" size="140:112" />
+    <node operator="Input: Vector3" id="0" name="vec" position="-100:720" size="140:112" />
+    <node operator="VectorComponent-ext" id="1" position="120:740" size="140:133" />
+    <node operator="Input: Int32" id="2" name="i" position="-80:860" size="140:112" />
+    <node operator="Pair" id="3" position="1340:660" size="140:133" />
+    <node operator="Pair" id="25" position="1340:1140" size="140:133" />
+    <node operator="Pair" id="26" position="1540:880" size="140:133" />
+    <node operator="Output: compound" id="27" position="1760:920" size="140:70" />
+    <node groupnode="r0 = t - (int) t" id="18" position="560:940" size="671:323" bg_color="#ffc0c0c0">
+      <nodes>16,22,17,24</nodes>
+    </node>
+    <node groupnode="t" id="24" position="569:969" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>23</nodes>
+    </node>
+    <node groupnode="r1 = r0 - 1.0" id="21" position="860:1280" size="366:203" bg_color="#ffc0c0c0">
+      <nodes>20,19</nodes>
+    </node>
+    <node groupnode="b1 = (b0+1) &amp; BM" id="15" position="920:720" size="318:211" bg_color="#ffc0c0c0">
+      <nodes>14,13</nodes>
+    </node>
+    <node groupnode="BM = 0xff" id="11" position="849:569" size="158:132" bg_color="#ffc0c0c0">
+      <nodes>10</nodes>
+    </node>
+    <node groupnode="b0 = (int)t &amp; BM" id="12" position="840:420" size="398:290" bg_color="#ffc0c0c0">
+      <nodes>7,8,11</nodes>
+    </node>
+    <node groupnode="t = vec[0] + N" id="6" position="100:580" size="421:302" bg_color="#ffc0c0c0">
+      <nodes>1,5,9</nodes>
+    </node>
+    <node groupnode="N = 0x1000" id="9" position="109:609" size="158:132" bg_color="#ffc0c0c0">
+      <nodes>4</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="5" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="25" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="26" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="27" destport="0" />
+  </connections>
+</graph>

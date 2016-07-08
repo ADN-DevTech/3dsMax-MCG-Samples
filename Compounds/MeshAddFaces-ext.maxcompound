@@ -1,46 +1,47 @@
-<graph version="0.50" uuid="7f5b2d6d-1b3a-4be5-a065-c92401faa600">
-    <meta_info>
-        <graph_version guid="3f934284-a4e7-4ee6-ad51-34f5f9dc65d6" number="0.0.4" />
-        <category>Mesh Topology</category>
-        <description>Adds new faces to a mesh: the face vertices array must be divisible by three and contains the indices into the vertex buffer for each corner or each new face.</description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: TriMesh" id="0" name="mesh" position="220:80" size="140:112" />
-        <node operator="Input: array" id="2" name="indices" position="0:300" size="140:112" />
-        <node operator="RemapFaces" id="3" position="1100:100" size="140:133" />
-        <node operator="Count" id="4" position="220:260" size="140:112" />
-        <node operator="DivideByThree" id="5" position="440:240" size="140:112" />
-        <node operator="ArrayOf" id="7" position="660:180" size="140:133" />
-        <node operator="NegativeOne" id="8" position="440:140" size="140:91" />
-        <node operator="FaceCount" id="9" position="440:0" size="140:112" />
-        <node operator="Range" id="10" position="660:40" size="140:112" />
-        <node operator="Concatenate" id="11" position="880:100" size="140:133" />
-        <node operator="CreateMeshWithMeshData" id="1" position="1540:300" size="140:154" />
-        <node operator="MeshVertices" id="6" position="1320:120" size="140:112" />
-        <node operator="MeshData" id="12" position="1320:400" size="140:112" />
-        <node operator="Concatenate" id="13" position="1320:240" size="140:133" />
-        <node operator="MeshIndices" id="14" position="1100:260" size="140:112" />
-        <node operator="Output: compound" id="15" position="1740:400" size="140:70" />
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="11" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="1" destport="2" />
-        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="15" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="bfc69269-1710-4131-9b6d-e8a47edf88c6">
+  <meta_info>
+    <graph_version guid="3f934284-a4e7-4ee6-ad51-34f5f9dc65d6" number="0.0.4" />
+    <category>Mesh Topology</category>
+    <description>Adds new faces to a mesh: the face vertices array must be divisible by three and contains the indices into the vertex buffer for each corner or each new face.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="220:80" size="140:112" />
+    <node operator="Input: array" id="2" name="indices" position="0:300" size="140:112" />
+    <node operator="RemapFaces" id="3" position="1100:100" size="140:133" />
+    <node operator="Count" id="4" position="220:260" size="140:112" />
+    <node operator="DivideByThree" id="5" position="440:240" size="140:112" />
+    <node operator="ArrayOf" id="7" position="660:180" size="140:133" />
+    <node operator="NegativeOne" id="8" position="440:140" size="140:91" />
+    <node operator="FaceCount" id="9" position="440:0" size="140:112" />
+    <node operator="Range" id="10" position="660:40" size="140:112" />
+    <node operator="Concatenate" id="11" position="880:100" size="140:133" />
+    <node operator="CreateMeshWithMeshData" id="1" position="1540:300" size="140:154" />
+    <node operator="MeshVertices" id="6" position="1320:120" size="140:112" />
+    <node operator="MeshData" id="12" position="1320:400" size="140:112" />
+    <node operator="Concatenate" id="13" position="1320:240" size="140:133" />
+    <node operator="MeshIndices" id="14" position="1100:260" size="140:112" />
+    <node operator="Output: compound" id="15" position="1740:400" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="15" destport="0" />
+  </connections>
 </graph>

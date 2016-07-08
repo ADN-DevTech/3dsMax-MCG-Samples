@@ -1,43 +1,44 @@
-<graph version="0.50" uuid="30c707db-aa58-46ed-9c7e-d9011350be61">
-    <meta_info>
-        <graph_version guid="35eab6a3-423e-4b32-8e88-fb386a88b634" number="0.0.8" />
-        <category>3ds Max Shapes</category>
-        <description>Returns an array of lines between every two points of a spline, optionally converting the points to local space.</description>
-    </meta_info>
-    <nodes>
-        <node operator="SplineSegmentIndices" id="1" position="1160:160" size="200:112" />
-        <node operator="SplineVerticesBuffer" id="2" position="440:220" size="200:112" />
-        <node operator="SelectByIndex" id="3" position="1440:280" size="140:133" />
-        <node operator="CombineEveryTwoElements-ext" id="4" position="1660:420" size="140:133" />
-        <node operator="Line" id="5" position="1440:440" size="140:133" />
-        <node operator="Output: compound" id="6" position="1880:480" size="140:70" />
-        <node operator="TransformPoints" id="7" position="1160:300" size="140:133" />
-        <node operator="InvertMatrix" id="8" position="940:360" size="140:112" />
-        <node operator="Input: Matrix" id="9" name="worldSpace" position="720:340" size="140:112" />
-        <node operator="TransformPoints" id="10" position="720:160" size="140:133" />
-        <node operator="Input: INode" id="11" name="splineNode" position="0:40" size="140:112" />
-        <node operator="ObjectTransformBeforeWSM" id="12" position="440:80" size="140:112" />
-        <node operator="SplineFromNodeOrExit-ext" id="13" position="220:0" size="140:112" />
-        <node operator="Input: Boolean" id="0" name="convertSpace" position="720:20" size="140:112" />
-        <node operator="If" id="14" position="940:200" size="140:154" />
-    </nodes>
-    <connections>
-        <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="14" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="14" destport="2" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="86208ae7-bcd4-4e9b-955b-0d11c382c72b">
+  <meta_info>
+    <graph_version guid="35eab6a3-423e-4b32-8e88-fb386a88b634" number="0.0.8" />
+    <category>3ds Max Shapes</category>
+    <description>Returns an array of lines between every two points of a spline, optionally converting the points to local space.</description>
+  </meta_info>
+  <nodes>
+    <node operator="SplineSegmentIndices" id="1" position="1160:160" size="200:112" />
+    <node operator="SplineVerticesBuffer" id="2" position="440:220" size="200:112" />
+    <node operator="SelectByIndex" id="3" position="1440:280" size="140:133" />
+    <node operator="CombineEveryTwoElements-ext" id="4" position="1660:420" size="140:133" />
+    <node operator="Line" id="5" position="1440:440" size="140:133" />
+    <node operator="Output: compound" id="6" position="1880:480" size="140:70" />
+    <node operator="TransformPoints" id="7" position="1160:300" size="140:133" />
+    <node operator="InvertMatrix" id="8" position="940:360" size="140:112" />
+    <node operator="Input: Matrix" id="9" name="worldSpace" position="720:340" size="140:112" />
+    <node operator="TransformPoints" id="10" position="720:160" size="140:133" />
+    <node operator="Input: INode" id="11" name="splineNode" position="0:40" size="140:112" />
+    <node operator="ObjectTransformBeforeWSM" id="12" position="440:80" size="140:112" />
+    <node operator="SplineFromNodeOrExit-ext" id="13" position="220:0" size="140:112" />
+    <node operator="Input: Boolean" id="0" name="convertSpace" position="720:20" size="140:112" />
+    <node operator="If" id="14" position="940:200" size="140:154" />
+  </nodes>
+  <connections>
+    <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="14" destport="2" />
+  </connections>
 </graph>

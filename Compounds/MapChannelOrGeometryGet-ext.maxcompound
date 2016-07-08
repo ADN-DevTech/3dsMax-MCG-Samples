@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="9bbebe7b-ea73-4c62-8f82-7305075330c6">
+  <meta_info>
+    <graph_version guid="18a94b67-bec8-4dc4-9bb3-74de35073350" number="0.0.2" />
+    <category>MapChannel</category>
+    <description>Returns the nth map channel, or if -3 is specified returns the topology of the mesh as a channel.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Int32" id="1" name="id" position="0:120" size="140:112" />
+    <node operator="Input: TriMesh" id="0" name="mesh" position="0:260" size="140:112" />
+    <node operator="GetMapChannel" id="3" position="220:300" size="140:133" />
+    <node operator="If" id="2" position="440:140" size="140:154" />
+    <node operator="Equal" id="4" position="220:0" size="140:133" />
+    <node operator="Constant" id="5" value="-3" position="0:0" size="140:91" />
+    <node operator="TopologyChannel" id="6" position="220:160" size="140:112" />
+    <node operator="Output: compound" id="7" position="660:200" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+  </connections>
+</graph>

@@ -1,6 +1,6 @@
 plugin simpleObject AIco
 	name:"AIco"
-	classID:#(0x2626711C, 0x7BCB480C)
+	classID:#(0x6AA4DE53, 0x39C323E6)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

@@ -1,45 +1,47 @@
-<graph version="0.50" uuid="2f85d963-d375-4bed-8d0d-d67f998bae5a">
-    <meta_info>
-        <graph_version guid="8cc76b4f-9e42-4b4b-a06d-3d5ab62998dc" number="0.0.3" />
-    </meta_info>
-    <nodes>
-        <node operator="Input: Int32" id="0" name="materialId" position="440:560" size="140:117" />
-        <node operator="Input: TriMesh" id="1" name="mesh" position="0:240" size="140:117" />
-        <node operator="Input: Int32" id="2" name="fluxChannelId" position="440:80" size="140:117" />
-        <node operator="MatricesFromMapChannel-ext" id="3" position="660:140" size="180:141" />
-        <node operator="MaterialIds" id="4" position="220:300" size="140:117" />
-        <node operator="FilterWithIndexesOnly-ext" id="5" position="920:200" size="140:141" />
-        <node operator="Input: Boolean" id="6" name="exactOrAnyBit" position="440:260" size="140:117" />
-        <node operator="TestEqualsOrAnyBit-ext" id="12" position="660:380" size="140:165" />
-        <node operator="At" id="7" position="440:380" size="140:141" />
-        <node operator="Output: compound" id="8" position="1800:160" size="140:69" />
-        <node operator="StoreMatricesInMapChannel-ext" id="9" position="1140:140" size="140:165" />
-        <node operator="If" id="10" position="1360:100" size="140:165" />
-        <node operator="IgnoreFirst" id="13" position="1580:120" size="140:141" />
-        <node operator="Input: Boolean" id="11" name="applyFilter" position="1140:0" size="140:117" />
-        <node operator="XOr-ext" id="14" position="1020:420" size="140:141" />
-        <node operator="Input: Boolean" id="15" name="name" position="860:340" size="140:117" />
-    </nodes>
-    <connections>
-        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="14" sourceport="1" destnode="5" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="12" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="12" destport="2" />
-        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="9" destport="2" />
-        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="1" sourceport="0" destnode="10" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="14" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f602bc49-0b60-470b-8b93-c83f5690e337">
+  <meta_info>
+    <graph_version guid="8cc76b4f-9e42-4b4b-a06d-3d5ab62998dc" number="0.0.3" />
+    <category>Cloning and Scattering</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Int32" id="0" name="materialId" position="440:560" size="140:117" />
+    <node operator="Input: TriMesh" id="1" name="mesh" position="0:240" size="140:117" />
+    <node operator="Input: Int32" id="2" name="fluxChannelId" position="440:80" size="140:117" />
+    <node operator="MatricesFromMapChannel-ext" id="3" position="660:140" size="180:141" />
+    <node operator="MaterialIds" id="4" position="220:300" size="140:117" />
+    <node operator="FilterWithIndexesOnly-ext" id="5" position="920:200" size="140:141" />
+    <node operator="Input: Boolean" id="6" name="exactOrAnyBit" position="440:260" size="140:117" />
+    <node operator="BitEqualsOrAnyBit-ext" id="12" position="660:380" size="140:165" />
+    <node operator="At" id="7" position="440:380" size="140:141" />
+    <node operator="Output: compound" id="8" position="1800:160" size="140:69" />
+    <node operator="MapChannelStoreMatrices-ext" id="9" position="1140:140" size="140:165" />
+    <node operator="If" id="10" position="1360:100" size="140:165" />
+    <node operator="IgnoreFirst" id="13" position="1580:120" size="140:141" />
+    <node operator="Input: Boolean" id="11" name="applyFilter" position="1140:0" size="140:117" />
+    <node operator="XOr-ext" id="14" position="1020:420" size="140:141" />
+    <node operator="Input: Boolean" id="15" name="name" position="860:340" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="14" sourceport="1" destnode="5" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="9" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="10" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="14" destport="1" />
+  </connections>
 </graph>

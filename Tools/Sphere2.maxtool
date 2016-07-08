@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f1ea5e90-60c8-429b-b537-81ccb7f1adac">
+  <meta_info>
+    <graph_version guid="b78c4782-f562-41ef-8ede-6bb09469eb33" number="0.0.10" />
+  </meta_info>
+  <nodes>
+    <node operator="SphereQuadMeshAsCompound-ext" id="1" position="220:100" size="140:117" />
+    <node operator="Parameter: Int32" id="0" name="segments" min_value="0" max_value="1000" default_value="8" position="0:0" size="140:189" />
+    <node operator="ToTriMesh" id="2" position="440:160" size="140:117" />
+    <node operator="Output: geometry" id="3" position="880:300" size="140:69" />
+    <node operator="MeshScale-ext" id="4" position="660:240" size="140:141" />
+    <node operator="ScalarToVector-ext" id="5" position="440:300" size="140:117" />
+    <node operator="Parameter: Single" id="6" name="radius" min_value="0" max_value="100" default_value="10" system_units_value="false" position="220:240" size="140:213" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+  </connections>
+</graph>

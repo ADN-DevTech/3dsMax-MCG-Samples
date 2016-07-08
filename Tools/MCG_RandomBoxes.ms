@@ -1,6 +1,6 @@
 plugin simpleObject MCG_RandomBoxes
 	name:"MCG_RandomBoxes"
-	classID:#(0x2995F6AB, 0x5D7AE634)
+	classID:#(0x19B4F88A, 0x5735216B)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (
@@ -57,7 +57,7 @@ plugin simpleObject MCG_RandomBoxes
 		_meshWrapper = meshWrapperClass._CreateWrapper undefined
 		_meshWrapper_SetValue = _meshWrapper._SetValue
 		pluginGraph = pluginDefinitionFile
-		pluginGraphDependencies = #(@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\OffsetMesh.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\DeformMeshPoints.maxcompound")
+		pluginGraphDependencies = #(@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MeshOffset-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MeshDeformPoints-ext.maxcompound")
 
 		-- value wrapper local initializations
 

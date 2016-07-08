@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="1e94ab17-6244-45fd-8819-831c527b9d90">
+  <meta_info>
+    <graph_version guid="6563c780-73dd-49a1-b473-c277a58a181b" number="0.0.2" />
+    <category>Geometry - Bounding Box</category>
+    <description>Given a point, clamps it to the edges of a bounding box.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: BoundingBox" id="4" name="box" position="0:180" size="140:117" />
+    <node operator="BoxMin" id="5" position="220:140" size="140:117" />
+    <node operator="BoxMax" id="3" position="220:280" size="140:117" />
+    <node operator="Clamp" id="1" position="440:140" size="140:165" />
+    <node operator="Input: Vector3" id="0" name="vector" position="220:0" size="140:117" />
+    <node operator="Output: compound" id="2" position="660:200" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+  </connections>
+</graph>

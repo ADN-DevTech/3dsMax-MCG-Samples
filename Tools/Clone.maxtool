@@ -1,112 +1,119 @@
-<graph version="0.50" uuid="765fc738-d7de-4f1d-b895-d212931b13fd">
-    <meta_info>
-        <graph_version guid="2f581def-f8f3-4e76-961f-b6607050c7b7" number="0.0.25" />
-        <author>Autodesk</author>
-        <company>Autodesk</company>
-        <copyright>(c) Autodesk, Inc.</copyright>
-        <url>http://autodesk.com</url>
-        <category>MCG Clone Tools</category>
-        <description>Clone Modifier:&#x0A;This tool can be found in the modifier panel. It takes your mesh and creates a number of clones which you can offset in position, rotation and scale.</description>
-    </meta_info>
-    <nodes>
-        <node operator="Output: modifier" id="0" position="1920:920" size="140:70" />
-        <node operator="Modifier: TriMesh" id="1" position="1146:1063" size="140:91" />
-        <node operator="CloneAndTransformMesh" id="2" position="1449:923" size="180:154" />
-        <node operator="Parameter: Int32" id="3" name="# Clones" min_value="0" max_value="9999" default_value="5" position="1142:685" size="140:175" />
-        <node operator="CombineAllMeshes" id="4" position="1718:876" size="140:112" />
-        <node operator="TranslationMatrix" id="5" position="449:423" size="160:112" />
-        <node operator="Vector3" id="6" position="214:392" size="140:154" />
-        <node operator="Parameter: Single" id="7" name="X Offset" min_value="-10000" max_value="10000" default_value="5" system_units_value="false" position="-271:343" size="140:196" />
-        <node operator="Parameter: Single" id="8" name="Y Offset" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-131:343" size="140:196" />
-        <node operator="Parameter: Single" id="9" name="Z Offset" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="9:343" size="140:196" />
-        <node operator="Multiply" id="10" position="723:653" size="140:133" />
-        <node operator="Parameter: Single" id="13" name="Y Rotation" min_value="-1000" max_value="10000" default_value="0" system_units_value="false" position="-416:615" size="140:196" />
-        <node operator="Parameter: Single" id="14" name="X Rotation" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-264:685" size="140:196" />
-        <node operator="Parameter: Single" id="15" name="Z Rotation" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-99:775" size="140:196" />
-        <node operator="ToRadians" id="16" position="105:873" size="140:112" />
-        <node operator="ToRadians" id="17" position="105:753" size="140:112" />
-        <node operator="ToRadians" id="18" position="105:633" size="140:112" />
-        <node operator="Multiply" id="19" position="910:1014" size="140:133" />
-        <node operator="Parameter: Single" id="21" name="scale" min_value="-10000" max_value="100000" default_value="100" system_units_value="false" position="-31:1075" size="140:196" />
-        <node operator="MatrixFromYawPitchRoll" id="37" position="340:820" size="180:154" />
-        <node operator="DivideBy100Float" id="11" position="179:1201" size="140:112" />
-        <node operator="ScalingMatrix-ext" id="22" position="460:1080" size="140:112" />
-        <node operator="ScalarToVector-ext" id="38" position="368:1207" size="140:112" />
-        <node groupnode="Cloning parameter" id="33" position="1123:590" size="239:295" bg_color="#ff9064c2">
-            <comment>Defines the number of clones</comment>
-            <nodes>3</nodes>
-        </node>
-        <node groupnode="Multiply scale with Pos&amp;Rot" id="32" position="718:836" size="341:334" bg_color="#ffaea06a">
-            <comment>Here we are taking our final matrix value from scale and placing it together with the rotation and position.</comment>
-            <nodes>19</nodes>
-        </node>
-        <node groupnode="CloneAndTransform compound" id="35" position="1380:591" size="277:567" bg_color="#ff9064c2">
-            <comment>This compound takes a mesh, a value for the number of clones, and a transform for each cloned mesh, puts them together and spits out a new mesh. &#x0A;&#x0A;This is a compound. It&apos;s a special type of operator. It is a graph within a operator. You can select this operator,  right click and choose &quot;Open Compound in new Tab&quot; and you will see that this is just a graph.  </comment>
-            <nodes>2</nodes>
-        </node>
-        <node groupnode="Position from vector3" id="29" position="259:196" size="339:200" bg_color="#ffa66969">
-            <comment>Input of three single float values into a vector3 operator. Then we take that vector3 and convert it to a matrix. In this case we want to convert the position, rotation and scale into matrix values so it&apos;s easier to add together.</comment>
-        </node>
-        <node groupnode="Scale" id="24" position="-40:1020" size="664:308" bg_color="#ff5454a6">
-            <nodes>11,38,21,22,30</nodes>
-        </node>
-        <node groupnode="Rotation" id="23" position="-425:584" size="1048:417" bg_color="#ff68a568">
-            <nodes>15,13,17,14,16,18,37,28</nodes>
-        </node>
-        <node groupnode="Quaternions" id="28" position="336:637" size="213:172" bg_color="#ff68a568">
-            <comment>Gets rotation from :&#x0A;&#x0A;Yaw (Y Rotation)&#x0A;Pitch (X Rotation) &#x0A;Roll (Z Rotation)</comment>
-        </node>
-        <node groupnode="Mesh to clone" id="34" position="1126:897" size="236:268" bg_color="#ff9064c2">
-            <comment>modifier: trimesh takes the mesh from the stack. If the mesh changes below this modifier, it will update automatically.</comment>
-            <nodes>1</nodes>
-        </node>
-        <node groupnode="Multiply Position &amp; Rotation" id="31" position="714:558" size="345:245" bg_color="#ffaea06a">
-            <comment>This will add the position and rotation together.</comment>
-            <nodes>10</nodes>
-        </node>
-        <node groupnode="Add Matrices together" id="25" position="700:520" size="378:668" bg_color="#ffaea06a">
-            <nodes>32,31</nodes>
-        </node>
-        <node groupnode="Position" id="12" position="-280:160" size="898:411" bg_color="#ffa66969">
-            <nodes>6,5,7,8,9,29</nodes>
-        </node>
-        <node groupnode="Output to modifier" id="36" position="1911:728" size="220:271" bg_color="#ff646464">
-            <comment>The output node defines what type of tool you are making. In this case it&apos;s a modifier.</comment>
-            <nodes>0</nodes>
-        </node>
-        <node groupnode="Combine Results" id="27" position="1680:642" size="211:360" bg_color="#ff64919c">
-            <comment>This operator combines all the cloned meshes into one mesh.</comment>
-            <nodes>4</nodes>
-        </node>
-        <node groupnode="Clone and Transform Mesh" id="26" position="1114:557" size="552:617" bg_color="#ff9064c2">
-            <nodes>35,34,33</nodes>
-        </node>
-        <node groupnode="Scale to matrix" id="30" position="159:1054" size="200:142" bg_color="#ff5454a6">
-            <comment>Here we have the scale value. This is a single value in this case, but we still want to convert it to a matrix value.</comment>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="2" destport="2" />
-        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="9" sourceport="0" destnode="6" destport="2" />
-        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="37" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="17" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="19" destport="1" />
-        <connection sourcenode="18" sourceport="0" destnode="37" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="37" destport="1" />
-        <connection sourcenode="16" sourceport="0" destnode="37" destport="2" />
-        <connection sourcenode="21" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="38" sourceport="0" destnode="22" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="38" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2efb9b6b-3697-4cd1-b5d2-d68b5ba7600a">
+  <meta_info>
+    <graph_version guid="2f581def-f8f3-4e76-961f-b6607050c7b7" number="0.0.25" />
+    <author>Autodesk</author>
+    <company>Autodesk</company>
+    <copyright>(c) Autodesk, Inc.</copyright>
+    <url>http://autodesk.com</url>
+    <category>MCG Clone Tools</category>
+    <description>AutodeskAutodesk(c) Autodesk, Inc.http://autodesk.comMCG Clone ToolsClone Modifier: This tool can be found in the modifier panel. It takes your mesh and creates a number of clones which you can offset in position, rotation and scale.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Output: modifier" id="0" position="1920:920" size="140:70" />
+    <node operator="Modifier: TriMesh" id="1" position="1146:1063" size="140:91" />
+    <node operator="CloneAndTransformMesh" id="2" position="1449:923" size="180:154" />
+    <node operator="Parameter: Int32" id="3" name="# Clones" min_value="0" max_value="9999" default_value="5" position="1142:685" size="140:175" />
+    <node operator="CombineAllMeshes" id="4" position="1718:876" size="140:112" />
+    <node operator="TranslationMatrix" id="5" position="449:423" size="160:112" />
+    <node operator="Vector3" id="6" position="214:392" size="140:154" />
+    <node operator="Parameter: Single" id="7" name="X Offset" min_value="-10000" max_value="10000" default_value="5" system_units_value="false" position="-271:343" size="140:196" />
+    <node operator="Parameter: Single" id="8" name="Y Offset" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-131:343" size="140:196" />
+    <node operator="Parameter: Single" id="9" name="Z Offset" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="9:343" size="140:196" />
+    <node operator="Multiply" id="10" position="723:653" size="140:133" />
+    <node operator="Parameter: Single" id="13" name="Y Rotation" min_value="-1000" max_value="10000" default_value="0" system_units_value="false" position="-416:615" size="140:196" />
+    <node operator="Parameter: Single" id="14" name="X Rotation" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-264:685" size="140:196" />
+    <node operator="Parameter: Single" id="15" name="Z Rotation" min_value="-100" max_value="10000" default_value="0" system_units_value="false" position="-99:775" size="140:196" />
+    <node operator="ToRadians" id="16" position="105:873" size="140:112" />
+    <node operator="ToRadians" id="17" position="105:753" size="140:112" />
+    <node operator="ToRadians" id="18" position="105:633" size="140:112" />
+    <node operator="Multiply" id="19" position="910:1014" size="140:133" />
+    <node operator="Parameter: Single" id="21" name="scale" min_value="-10000" max_value="100000" default_value="100" system_units_value="false" position="-31:1075" size="140:196" />
+    <node operator="MatrixFromYawPitchRoll" id="37" position="340:820" size="180:154" />
+    <node operator="DivideBy100Float" id="11" position="179:1201" size="140:112" />
+    <node operator="MatrixFromScalingVector2-ext" id="22" position="460:1080" size="140:112" />
+    <node operator="ScalarToVector-ext" id="38" position="368:1207" size="140:112" />
+    <node groupnode="Cloning parameter" id="33" position="1123:590" size="239:295" bg_color="#ff9064c2">
+      <comment>Defines the number of clones</comment>
+      <nodes>3</nodes>
+    </node>
+    <node groupnode="Multiply scale with Pos&amp;Rot" id="32" position="718:836" size="341:334" bg_color="#ffaea06a">
+      <comment>Here we are taking our final matrix value from scale and placing it together with the rotation and position.</comment>
+      <nodes>19</nodes>
+    </node>
+    <node groupnode="CloneAndTransform compound" id="35" position="1380:591" size="277:567" bg_color="#ff9064c2">
+      <comment>This compound takes a mesh, a value for the number of clones, and a transform for each cloned mesh, puts them together and spits out a new mesh. 
+
+This is a compound. It's a special type of operator. It is a graph within a operator. You can select this operator,  right click and choose "Open Compound in new Tab" and you will see that this is just a graph.  </comment>
+      <nodes>2</nodes>
+    </node>
+    <node groupnode="Position from vector3" id="29" position="259:196" size="339:200" bg_color="#ffa66969">
+      <comment>Input of three single float values into a vector3 operator. Then we take that vector3 and convert it to a matrix. In this case we want to convert the position, rotation and scale into matrix values so it's easier to add together.</comment>
+    </node>
+    <node groupnode="Scale" id="24" position="-40:1020" size="664:308" bg_color="#ff5454a6">
+      <nodes>11,38,21,22,30</nodes>
+    </node>
+    <node groupnode="Rotation" id="23" position="-425:584" size="1048:417" bg_color="#ff68a568">
+      <nodes>15,13,17,14,16,18,37,28</nodes>
+    </node>
+    <node groupnode="Quaternions" id="28" position="336:637" size="213:172" bg_color="#ff68a568">
+      <comment>Gets rotation from :
+
+Yaw (Y Rotation)
+Pitch (X Rotation) 
+Roll (Z Rotation)</comment>
+    </node>
+    <node groupnode="Mesh to clone" id="34" position="1126:897" size="236:268" bg_color="#ff9064c2">
+      <comment>modifier: trimesh takes the mesh from the stack. If the mesh changes below this modifier, it will update automatically.</comment>
+      <nodes>1</nodes>
+    </node>
+    <node groupnode="Multiply Position &amp; Rotation" id="31" position="714:558" size="345:245" bg_color="#ffaea06a">
+      <comment>This will add the position and rotation together.</comment>
+      <nodes>10</nodes>
+    </node>
+    <node groupnode="Add Matrices together" id="25" position="700:520" size="378:668" bg_color="#ffaea06a">
+      <nodes>32,31</nodes>
+    </node>
+    <node groupnode="Position" id="12" position="-280:160" size="898:411" bg_color="#ffa66969">
+      <nodes>6,5,7,8,9,29</nodes>
+    </node>
+    <node groupnode="Output to modifier" id="36" position="1911:728" size="220:271" bg_color="#ff646464">
+      <comment>The output node defines what type of tool you are making. In this case it's a modifier.</comment>
+      <nodes>0</nodes>
+    </node>
+    <node groupnode="Combine Results" id="27" position="1680:642" size="211:360" bg_color="#ff64919c">
+      <comment>This operator combines all the cloned meshes into one mesh.</comment>
+      <nodes>4</nodes>
+    </node>
+    <node groupnode="Clone and Transform Mesh" id="26" position="1114:557" size="552:617" bg_color="#ff9064c2">
+      <nodes>35,34,33</nodes>
+    </node>
+    <node groupnode="Scale to matrix" id="30" position="159:1054" size="200:142" bg_color="#ff5454a6">
+      <comment>Here we have the scale value. This is a single value in this case, but we still want to convert it to a matrix value.</comment>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="2" destport="2" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="37" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="37" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="37" destport="2" />
+    <connection sourcenode="21" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="38" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="38" destport="0" />
+  </connections>
 </graph>

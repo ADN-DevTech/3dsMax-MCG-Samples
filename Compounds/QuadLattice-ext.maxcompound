@@ -1,57 +1,58 @@
-<graph version="0.50" uuid="13946476-d99f-4cdf-a0cf-2a4e44aee9bd">
-    <meta_info>
-        <graph_version guid="fed610a1-45e5-4143-9cba-c2aa8cd4234f" number="0.0.2" />
-        <category>Geometry - QuadMesh</category>
-        <description>Replaces QuadMeshStrip. This creates a two-dimensional lattice of quadrilaterals from a flattened array of vertices arranged in two or more rows.  Each row of vertices is read from the left to the right. The first row is the bottom row, and the subsequent rows are read up. </description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: array" id="0" name="points" position="20:320" size="140:117" />
-        <node operator="QuadMesh" id="1" position="1380:700" size="140:141" />
-        <node operator="Input: Int32" id="2" name="rowCount" position="200:660" size="140:117" />
-        <node operator="MapRange" id="4" position="1040:860" size="140:141" />
-        <node operator="Count" id="5" position="180:460" size="140:117" />
-        <node operator="Divide" id="6" position="389:629" size="140:141" />
-        <node operator="Array4" id="9" position="538:1154" size="140:189" />
-        <node operator="Pass-through: Int32" id="8" position="249:989" size="140:117" />
-        <node operator="MinusOne" id="3" position="580:760" size="140:117" />
-        <node operator="PlusOne" id="10" position="249:1129" size="140:117" />
-        <node operator="Add" id="11" position="249:1289" size="140:141" />
-        <node operator="MinusOne" id="12" position="249:1449" size="140:117" />
-        <node operator="MinusOne" id="15" position="580:640" size="140:117" />
-        <node operator="Multiply" id="21" position="800:720" size="140:141" />
-        <node operator="Flatten" id="16" position="1220:800" size="140:117" />
-        <node operator="Output: compound" id="17" position="1600:760" size="140:69" />
-        <node groupnode="Compute a single faces indices" id="14" position="240:960" size="478:615" bg_color="#ff646464">
-            <nodes>11,10,9,8,12</nodes>
-        </node>
-        <node groupnode="Number of new faces" id="13" position="571:611" size="378:275" bg_color="#ff646464">
-            <nodes>21,3,15</nodes>
-        </node>
-        <node groupnode="Column Count" id="7" position="380:600" size="158:179" bg_color="#ff646464">
-            <nodes>6</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="21" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="9" sourceport="1" destnode="4" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="9" destport="2" />
-        <connection sourcenode="12" sourceport="0" destnode="9" destport="3" />
-        <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="11" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="21" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="21" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="17" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f5ca69b1-8486-48e4-8e4b-ba8e79f77560">
+  <meta_info>
+    <graph_version guid="fed610a1-45e5-4143-9cba-c2aa8cd4234f" number="0.0.2" />
+    <category>Geometry - QuadMesh</category>
+    <description>Replaces QuadMeshStrip. This creates a two-dimensional lattice of quadrilaterals from a flattened array of vertices arranged in two or more rows.  Each row of vertices is read from the left to the right. The first row is the bottom row, and the subsequent rows are read up. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="points" position="20:320" size="140:117" />
+    <node operator="QuadMesh" id="1" position="1380:700" size="140:141" />
+    <node operator="Input: Int32" id="2" name="rowCount" position="200:660" size="140:117" />
+    <node operator="MapRange" id="4" position="1040:860" size="140:141" />
+    <node operator="Count" id="5" position="180:460" size="140:117" />
+    <node operator="Divide" id="6" position="389:629" size="140:141" />
+    <node operator="Array4" id="9" position="538:1154" size="140:189" />
+    <node operator="Pass-through: Int32" id="8" position="249:989" size="140:117" />
+    <node operator="MinusOne" id="3" position="580:760" size="140:117" />
+    <node operator="PlusOne" id="10" position="249:1129" size="140:117" />
+    <node operator="Add" id="11" position="249:1289" size="140:141" />
+    <node operator="MinusOne" id="12" position="249:1449" size="140:117" />
+    <node operator="MinusOne" id="15" position="580:640" size="140:117" />
+    <node operator="Multiply" id="21" position="800:720" size="140:141" />
+    <node operator="Flatten" id="16" position="1220:800" size="140:117" />
+    <node operator="Output: compound" id="17" position="1600:760" size="140:69" />
+    <node groupnode="Compute a single faces indices" id="14" position="240:960" size="478:615" bg_color="#ff646464">
+      <nodes>11,10,9,8,12</nodes>
+    </node>
+    <node groupnode="Number of new faces" id="13" position="571:611" size="378:275" bg_color="#ff646464">
+      <nodes>21,3,15</nodes>
+    </node>
+    <node groupnode="Column Count" id="7" position="380:600" size="158:179" bg_color="#ff646464">
+      <nodes>6</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="9" sourceport="1" destnode="4" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="9" destport="2" />
+    <connection sourcenode="12" sourceport="0" destnode="9" destport="3" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="17" destport="0" />
+  </connections>
 </graph>

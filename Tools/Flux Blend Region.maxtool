@@ -1,60 +1,61 @@
-<graph version="0.50" uuid="cfd57a2b-9dae-43b3-87a1-dac90d73208d">
-    <meta_info>
-        <graph_version guid="ee364bb1-c43c-4888-85ed-0ea25e437ad6" number="0.0.7" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="709:569" size="140:189" />
-        <node operator="Output: modifier" id="9" position="1060:540" size="140:69" />
-        <node operator="Modifier: TriMesh" id="0" position="729:769" size="140:93" />
-        <node operator="MatrixLerp.ext" id="1" position="578:322" size="200:165" />
-        <node operator="Parameter: INode" id="3" name="node" position="-144:549" size="140:117" />
-        <node operator="NodePositionInLocalSpaceOrOrigin.ext" id="4" position="31:571" size="240:141" />
-        <node operator="Modifier: Matrix" id="12" position="-151:678" size="140:93" />
-        <node operator="AffectRegion" id="13" position="521:559" size="140:189" />
-        <node operator="GetMatrixTranslation" id="10" position="110:259" size="180:117" />
-        <node operator="Pass-through: Matrix" id="14" position="-131:269" size="140:117" />
-        <node operator="Distance" id="15" position="369:289" size="140:141" />
-        <node operator="Pass-through: Matrix" id="16" position="-131:389" size="140:117" />
-        <node operator="Parameter: Single" id="17" name="falloff" min_value="-1000" max_value="1000" default_value="10" system_units_value="false" position="309:549" size="140:213" />
-        <node operator="Parameter: Single" id="18" name="bubble" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="309:769" size="140:213" />
-        <node operator="Parameter: Single" id="19" name="pinch" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="518:762" size="140:213" />
-        <node operator="Parameter: Boolean" id="11" name="combine effects" default_value="false" position="889:769" size="140:141" />
-        <node operator="Parameter: Single" id="21" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="889:549" size="140:213" />
-        <node operator="ClonerCombineMatrices.ext" id="22" position="880:269" size="180:213" />
-        <node groupnode="Use function to combine flux arrays" id="20" position="820:240" size="322:257" bg_color="#ff646464">
-            <nodes>22</nodes>
-        </node>
-        <node groupnode="Affect region parameters" id="6" position="300:520" size="387:481" bg_color="#ff646464">
-            <nodes>17,18,19,13</nodes>
-        </node>
-        <node groupnode="Function: lerp between two matrices based on affect region applied to distance from target" id="8" position="-140:223" size="938:291" bg_color="#ff646464">
-            <nodes>15,16,1,10,14</nodes>
-        </node>
-        <node groupnode="Get target node&apos;s position or use origin" id="7" position="-160:520" size="440:273" bg_color="#ff646464">
-            <nodes>3,4,12</nodes>
-        </node>
-        <node groupnode="Flux parameters" id="5" position="700:520" size="338:399" bg_color="#ff646464">
-            <nodes>11,21,0,2</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="22" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="13" sourceport="0" destnode="1" destport="2" />
-        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="18" sourceport="0" destnode="13" destport="2" />
-        <connection sourcenode="19" sourceport="0" destnode="13" destport="3" />
-        <connection sourcenode="14" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="15" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="22" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="22" destport="1" />
-        <connection sourcenode="1" sourceport="1" destnode="22" destport="2" />
-        <connection sourcenode="11" sourceport="0" destnode="22" destport="3" />
-        <connection sourcenode="21" sourceport="0" destnode="22" destport="4" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="d6dbc584-57ca-48bc-b4d6-f75901a31cfe">
+  <meta_info>
+    <graph_version guid="ee364bb1-c43c-4888-85ed-0ea25e437ad6" number="0.0.7" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="709:569" size="140:189" />
+    <node operator="Output: modifier" id="9" position="1060:540" size="140:69" />
+    <node operator="Modifier: TriMesh" id="0" position="729:769" size="140:93" />
+    <node operator="MatrixLerp-ext" id="1" position="578:322" size="200:165" />
+    <node operator="Parameter: INode" id="3" name="node" position="-144:549" size="140:117" />
+    <node operator="NodePositionInLocalSpaceOrOrigin-ext" id="4" position="31:571" size="240:141" />
+    <node operator="Modifier: Matrix" id="12" position="-151:678" size="140:93" />
+    <node operator="AffectRegion" id="13" position="521:559" size="140:189" />
+    <node operator="GetMatrixTranslation" id="10" position="110:259" size="180:117" />
+    <node operator="Pass-through: Matrix" id="14" position="-131:269" size="140:117" />
+    <node operator="Distance" id="15" position="369:289" size="140:141" />
+    <node operator="Pass-through: Matrix" id="16" position="-131:389" size="140:117" />
+    <node operator="Parameter: Single" id="17" name="falloff" min_value="-1000" max_value="1000" default_value="10" system_units_value="false" position="309:549" size="140:213" />
+    <node operator="Parameter: Single" id="18" name="bubble" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="309:769" size="140:213" />
+    <node operator="Parameter: Single" id="19" name="pinch" min_value="-100" max_value="100" default_value="0" system_units_value="false" position="518:762" size="140:213" />
+    <node operator="Parameter: Boolean" id="11" name="combine effects" default_value="false" position="889:769" size="140:141" />
+    <node operator="Parameter: Single" id="21" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="889:549" size="140:213" />
+    <node operator="FluxCombineMatrices" id="22" position="880:269" size="180:213" />
+    <node groupnode="Use function to combine flux arrays" id="20" position="820:240" size="322:257" bg_color="#ff646464">
+      <nodes>22</nodes>
+    </node>
+    <node groupnode="Affect region parameters" id="6" position="300:520" size="387:481" bg_color="#ff646464">
+      <nodes>17,18,19,13</nodes>
+    </node>
+    <node groupnode="Function: lerp between two matrices based on affect region applied to distance from target" id="8" position="-140:223" size="938:291" bg_color="#ff646464">
+      <nodes>15,16,1,10,14</nodes>
+    </node>
+    <node groupnode="Get target node's position or use origin" id="7" position="-160:520" size="440:273" bg_color="#ff646464">
+      <nodes>3,4,12</nodes>
+    </node>
+    <node groupnode="Flux parameters" id="5" position="700:520" size="338:399" bg_color="#ff646464">
+      <nodes>11,21,0,2</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="22" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="13" destport="2" />
+    <connection sourcenode="19" sourceport="0" destnode="13" destport="3" />
+    <connection sourcenode="14" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="22" destport="1" />
+    <connection sourcenode="1" sourceport="1" destnode="22" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="22" destport="3" />
+    <connection sourcenode="21" sourceport="0" destnode="22" destport="4" />
+  </connections>
 </graph>

@@ -1,27 +1,28 @@
-<graph version="0.50" uuid="5d479bd5-4d6e-44ca-b43e-d88d87ec25ba">
-    <meta_info>
-        <graph_version guid="8c6be8bf-2d3a-41e0-88bc-e573f8a59165" number="0.0.3" />
-        <category>Geometry - TriMesh</category>
-        <description>Aligns a source mesh to be next to a target mesh along the X,Y, or Z axis (0,1,2 respectively), adds an offset, and combines the result into a single mesh. </description>
-    </meta_info>
-    <nodes>
-        <node operator="CombineMeshes" id="5" position="660:320" size="140:133" />
-        <node operator="MeshAlign-ext" id="18" position="220:140" size="140:154" />
-        <node operator="Input: TriMesh" id="0" name="meshTarget" position="0:140" size="140:112" />
-        <node operator="Input: TriMesh" id="1" name="meshSrc" position="0:0" size="140:112" />
-        <node operator="Input: Int32" id="2" name="axis" position="0:280" size="140:112" />
-        <node operator="Output: compound" id="3" position="880:400" size="140:70" />
-        <node operator="OffsetMesh-ext" id="4" position="440:280" size="140:133" />
-        <node operator="Input: Vector3" id="6" name="offset" position="220:340" size="140:112" />
-    </nodes>
-    <connections>
-        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="18" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="18" destport="2" />
-        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="435cede8-6645-4d55-958a-bd872024c075">
+  <meta_info>
+    <graph_version guid="8c6be8bf-2d3a-41e0-88bc-e573f8a59165" number="0.0.3" />
+    <category>Geometry - TriMesh</category>
+    <description>Aligns a source mesh to be next to a target mesh along the X,Y, or Z axis (0,1,2 respectively), adds an offset, and combines the result into a single mesh. </description>
+  </meta_info>
+  <nodes>
+    <node operator="CombineMeshes" id="5" position="660:320" size="140:133" />
+    <node operator="MeshAlign-ext" id="18" position="220:140" size="140:154" />
+    <node operator="Input: TriMesh" id="0" name="meshTarget" position="0:140" size="140:112" />
+    <node operator="Input: TriMesh" id="1" name="meshSrc" position="0:0" size="140:112" />
+    <node operator="Input: Int32" id="2" name="axis" position="0:280" size="140:112" />
+    <node operator="Output: compound" id="3" position="880:400" size="140:70" />
+    <node operator="MeshOffset-ext" id="4" position="440:280" size="140:133" />
+    <node operator="Input: Vector3" id="6" name="offset" position="220:340" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="4" destport="1" />
+  </connections>
 </graph>

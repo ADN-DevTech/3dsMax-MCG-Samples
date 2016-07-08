@@ -1,62 +1,63 @@
-<graph version="0.50" uuid="c7f792f6-705a-43fc-ad95-11a0b6af0f56">
-    <meta_info>
-        <graph_version guid="14429c6b-5732-4276-8734-7ba0cdf675d5" number="0.0.12" />
-        <category>MCG Cloners</category>
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Single" id="3" name="total x" min_value="0" max_value="100000" default_value="20" system_units_value="true" position="529:289" size="140:196" />
-        <node operator="Parameter: Single" id="4" name="total y" min_value="0" max_value="10000" default_value="20" system_units_value="true" position="697:292" size="140:196" />
-        <node operator="Parameter: Single" id="5" name="total z" min_value="0" max_value="10000" default_value="20" system_units_value="true" position="853:302" size="140:196" />
-        <node operator="Vector3" id="6" position="588:559" size="140:154" />
-        <node operator="Parameter: Int32" id="10" name="grid_x" min_value="1" max_value="10000" default_value="10" position="1076:96" size="140:175" />
-        <node operator="Parameter: Int32" id="12" name="grid_z" min_value="1" max_value="1000" default_value="10" position="1404:89" size="140:175" />
-        <node operator="SubdivideBox" id="8" position="1275:283" size="140:175" />
-        <node operator="Parameter: Int32" id="11" name="grid_y" min_value="1" max_value="1000" default_value="10" position="1242:91" size="140:175" />
-        <node operator="BoxFromExtent-ext" id="1" position="808:542" size="180:112" />
-        <node operator="Map" id="2" position="1439:549" size="140:133" />
-        <node operator="BoundingBoxCenter" id="7" position="1084:612" size="180:112" />
-        <node operator="StoreMatricesInMapChannel-ext" id="13" position="1833:188" size="240:154" />
-        <node operator="BoxTriMesh" id="14" position="1649:69" size="140:112" />
-        <node operator="Parameter: Int32" id="15" name="channel" min_value="-2" max_value="100" default_value="2" position="1649:229" size="140:175" />
-        <node operator="Output: geometry" id="17" position="2069:509" size="140:70" />
-        <node operator="ClonerMeshAsBoxes-ext" id="18" position="1857:539" size="200:154" />
-        <node operator="Parameter: Single" id="19" name="box radius" min_value="0" max_value="10000" default_value="1" system_units_value="true" position="1689:549" size="140:196" />
-        <node operator="TranslationMatrix" id="21" position="1280:580" size="140:112" />
-        <node groupnode="Subdivide bounding box into candidate voxels" id="134" position="1067:60" size="486:430" bg_color="#ff646464">
-            <nodes>12,11,10,8</nodes>
-        </node>
-        <node groupnode="Bounding box" id="0" position="520:260" size="482:471" bg_color="#ff646464">
-            <nodes>5,3,6,4,1</nodes>
-        </node>
-        <node groupnode="Channel info" id="16" position="1640:40" size="442:376" bg_color="#ff646464">
-            <nodes>14,13,15</nodes>
-        </node>
-        <node groupnode="Create final mesh representation" id="20" position="1680:480" size="538:277" bg_color="#ff646464">
-            <nodes>18,19,17</nodes>
-        </node>
-        <node groupnode="Compute box origins" id="9" position="1075:520" size="543:220" bg_color="#ff646464">
-            <nodes>21,2,7</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="6" destport="2" />
-        <connection sourcenode="11" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="8" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="8" destport="2" />
-        <connection sourcenode="12" sourceport="0" destnode="8" destport="3" />
-        <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="21" sourceport="1" destnode="2" destport="1" />
-        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="13" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="18" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="18" destport="2" />
-        <connection sourcenode="7" sourceport="0" destnode="21" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="7e8f1f5e-41ea-469a-9253-b039e56111de">
+  <meta_info>
+    <graph_version guid="14429c6b-5732-4276-8734-7ba0cdf675d5" number="0.0.12" />
+    <category>MCG Cloners</category>
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Single" id="3" name="total x" min_value="0" max_value="100000" default_value="20" system_units_value="true" position="529:289" size="140:196" />
+    <node operator="Parameter: Single" id="4" name="total y" min_value="0" max_value="10000" default_value="20" system_units_value="true" position="697:292" size="140:196" />
+    <node operator="Parameter: Single" id="5" name="total z" min_value="0" max_value="10000" default_value="20" system_units_value="true" position="853:302" size="140:196" />
+    <node operator="Vector3" id="6" position="588:559" size="140:154" />
+    <node operator="Parameter: Int32" id="10" name="grid_x" min_value="1" max_value="10000" default_value="10" position="1076:96" size="140:175" />
+    <node operator="Parameter: Int32" id="12" name="grid_z" min_value="1" max_value="1000" default_value="10" position="1404:89" size="140:175" />
+    <node operator="SubdivideBox" id="8" position="1275:283" size="140:175" />
+    <node operator="Parameter: Int32" id="11" name="grid_y" min_value="1" max_value="1000" default_value="10" position="1242:91" size="140:175" />
+    <node operator="BoxFromExtent-ext" id="1" position="808:542" size="180:112" />
+    <node operator="Map" id="2" position="1439:549" size="140:133" />
+    <node operator="BoundingBoxCenter" id="7" position="1084:612" size="180:112" />
+    <node operator="MapChannelStoreMatrices-ext" id="13" position="1833:188" size="240:154" />
+    <node operator="BoxTriMesh" id="14" position="1649:69" size="140:112" />
+    <node operator="Parameter: Int32" id="15" name="channel" min_value="-2" max_value="100" default_value="2" position="1649:229" size="140:175" />
+    <node operator="Output: geometry" id="17" position="2069:509" size="140:70" />
+    <node operator="ClonerMeshAsBoxes-ext" id="18" position="1857:539" size="200:154" />
+    <node operator="Parameter: Single" id="19" name="box radius" min_value="0" max_value="10000" default_value="1" system_units_value="true" position="1689:549" size="140:196" />
+    <node operator="TranslationMatrix" id="21" position="1280:580" size="140:112" />
+    <node groupnode="Subdivide bounding box into candidate voxels" id="134" position="1067:60" size="486:430" bg_color="#ff646464">
+      <nodes>12,11,10,8</nodes>
+    </node>
+    <node groupnode="Bounding box" id="0" position="520:260" size="482:471" bg_color="#ff646464">
+      <nodes>5,3,6,4,1</nodes>
+    </node>
+    <node groupnode="Channel info" id="16" position="1640:40" size="442:376" bg_color="#ff646464">
+      <nodes>14,13,15</nodes>
+    </node>
+    <node groupnode="Create final mesh representation" id="20" position="1680:480" size="538:277" bg_color="#ff646464">
+      <nodes>18,19,17</nodes>
+    </node>
+    <node groupnode="Compute box origins" id="9" position="1075:520" size="543:220" bg_color="#ff646464">
+      <nodes>21,2,7</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="8" destport="2" />
+    <connection sourcenode="12" sourceport="0" destnode="8" destport="3" />
+    <connection sourcenode="6" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="21" sourceport="1" destnode="2" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="21" destport="0" />
+  </connections>
 </graph>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f3ea0d9c-01b6-4bc0-9006-e218d661edb3">
+  <meta_info>
+    <graph_version guid="718bc3c0-3744-490f-ae2e-9f557d4a82a3" number="0.0.71" />
+    <category>Utopia Tools</category>
+    <customui>	rollout params "Parameters"
+	(
+		group "Custom Floor Shape"
+		(
+			pickbutton shape "Spline" autodisplay:true type:#node toolTip:"If you want to change to a diferent floor plan."
+		)
+		group "Struture"
+		(
+			checkbox Divide "Divide" checked:False
+			spinner Element_Width "Element Width" range:[0, 999999, 4] type:#worldUnits fieldwidth:40 offset:[-20,0]
+			spinner Floor_Height "Floor Height" range:[0, 9999999, 3] type:#worldUnits fieldwidth:40 offset:[-20,0]
+			spinner Number_of_Floors "Number of Floors" range:[1, 100, 1] type:#integer fieldwidth:40 offset:[-20,0]
+		)
+		group "Material"
+		(
+			spinner UV_Channel "UV Channel" range:[1, 100, 1] type:#integer fieldwidth:40 offset:[-20,0]
+			spinner Mat__Id "Mat. Id" range:[1, 100, 1] type:#integer fieldwidth:40 offset:[-20,0]
+		)
+		group "Cap"
+		(
+			checkbox Cap "Create Cap" checked:False
+			spinner Cap_Material_ID "Cap Material ID" range:[1, 1000, 1] type:#integer fieldwidth:40 offset:[-20,0]
+			checkbox Realworld_Mode "Realworld Mode" checked:False
+			spinner Realworld_Multiplier "UVW Multiplier" range:[-1000, 10000, 1] type:#worldUnits fieldwidth:40 offset:[-20,0]
+			spinner Cap_UV_Channel "Cap UV Channel" range:[1, 100, 1] type:#integer fieldwidth:40 offset:[-20,0]
+		)
+		group "Advanced"
+		(
+			spinner Utopia_Channel "Utopia Channel" range:[2, 99, 3] type:#integer fieldwidth:40 offset:[-20,0]
+		)
+		
+		on Divide changed val do Element_Width.enabled = Divide.checked
+		
+		on params open do
+		(
+			Element_Width.enabled = Divide.checked
+		)
+
+	)</customui>
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: INode" id="1" name="shape" position="0:40" size="140:117" />
+    <node operator="Concatenate" id="8" position="2420:80" size="140:141" />
+    <node operator="GenerateN" id="18" position="1980:180" size="140:165" />
+    <node operator="QuadMeshStrip" id="7" position="2620:340" size="140:189" />
+    <node operator="Parameter: Int32" id="23" name="Utopia Channel" min_value="2" max_value="99" default_value="3" position="220:300" size="140:189" />
+    <node operator="IsSplineClosed" id="35" position="2420:480" size="140:117" />
+    <node operator="SplineInterpolateSegmentsByDistance" id="29" position="880:340" size="140:141" />
+    <node operator="MovePoints" id="5" position="1760:240" size="140:141" />
+    <node operator="Flatten" id="19" position="2200:180" size="140:117" />
+    <node operator="Vector3FromZ" id="6" position="1540:320" size="140:117" />
+    <node operator="Parameter: Int32" id="33" name="Mat. Id" min_value="1" max_value="100" default_value="1" position="3480:460" size="140:189" />
+    <node operator="SplineVerticesBuffer" id="3" position="880:500" size="140:117" />
+    <node operator="True" id="25" position="1100:80" size="140:93" />
+    <node operator="ObjectTransformBeforeWSM" id="28" position="1080:200" size="140:117" />
+    <node operator="VectorConvertBetweenLocalSpaces-ext" id="27" position="1320:100" size="140:189" />
+    <node operator="ExitOrINode" id="21" position="220:0" size="140:117" />
+    <node operator="QuadToTriMesh-ext" id="34" position="3000:420" size="140:117" />
+    <node operator="MovePoints" id="20" position="1760:80" size="140:141" />
+    <node operator="Pass-through: Spline" id="11" position="1440:880" size="140:117" />
+    <node operator="SplineFromNode" id="4" position="440:200" size="140:117" />
+    <node operator="Parameter: Boolean" id="15" name="Divide" default_value="false" position="880:180" size="140:141" />
+    <node operator="If" id="32" position="1100:460" size="140:165" />
+    <node operator="Parameter: Single" id="17" name="Element Width" min_value="0" max_value="999999" default_value="4" system_units_value="true" position="660:120" size="140:213" />
+    <node operator="Parameter: Single" id="2" name="Floor Height" min_value="0" max_value="9999999" default_value="3" system_units_value="true" position="1320:360" size="140:213" />
+    <node operator="PlusOne" id="13" position="2420:240" size="140:117" />
+    <node operator="StoreSplineInMapChannel" id="14" position="5160:1120" size="140:165" />
+    <node operator="False" id="10" position="2420:380" size="140:93" />
+    <node operator="Parameter: Int32" id="9" name="Number of Floors" min_value="1" max_value="100" default_value="1" position="1760:400" size="140:189" />
+    <node operator="Modifier: Matrix" id="12" position="1100:340" size="140:93" />
+    <node operator="IsValidNode" id="22" position="440:0" size="140:117" />
+    <node operator="If" id="26" position="660:340" size="140:165" />
+    <node operator="If" id="36" position="1540:100" size="140:165" />
+    <node operator="RestoreSplineFromMapChannel" id="37" position="440:340" size="140:141" />
+    <node operator="Modifier: TriMesh" id="38" position="220:500" size="140:93" />
+    <node operator="Pass-through: Int32" id="39" position="1440:1000" size="140:117" />
+    <node operator="Pass-through: TriMesh" id="40" position="3780:920" size="140:117" />
+    <node operator="MeshOffset-ext" id="41" position="4620:760" size="140:141" />
+    <node operator="CombineMeshes" id="42" position="4960:940" size="140:141" />
+    <node operator="MeshBoundingBox-ext" id="43" position="3960:780" size="140:117" />
+    <node operator="BoxMax" id="44" position="4180:720" size="140:117" />
+    <node operator="SetXY" id="45" position="4400:780" size="140:165" />
+    <node operator="FloatZero" id="46" position="4180:860" size="140:93" />
+    <node operator="Output: modifier" id="0" position="5460:1200" size="140:69" />
+    <node operator="Last" id="47" position="2420:-40" size="140:117" />
+    <node operator="If" id="49" position="3920:80" size="140:165" />
+    <node operator="Parameter: Boolean" id="50" name="Cap" default_value="false" position="3380:-200" size="140:141" />
+    <node operator="CombineMeshes" id="51" position="3640:80" size="140:141" />
+    <node operator="UtopiaPlanarMapQuads" id="16" position="3360:320" size="140:141" />
+    <node operator="Parameter: Int32" id="55" name="UV Channel" min_value="1" max_value="100" default_value="1" position="3140:200" size="140:189" />
+    <node operator="TransformSpline" id="56" position="4360:1280" size="140:141" />
+    <node operator="TransformSpline" id="57" position="4380:1440" size="140:141" />
+    <node operator="InvertMatrix" id="58" position="4140:1440" size="140:117" />
+    <node operator="Pass-through: Matrix" id="59" position="1440:1120" size="140:117" />
+    <node operator="Pass-through: Matrix" id="60" position="1440:1260" size="140:117" />
+    <node operator="If" id="61" position="4720:1200" size="140:165" />
+    <node operator="CapFromVertices" id="62" position="2600:-60" size="140:117" />
+    <node operator="UVPlanarMap" id="52" position="3160:-80" size="140:237" />
+    <node operator="Parameter: Int32" id="54" name="Cap UV Channel" min_value="1" max_value="100" default_value="1" position="2600:-480" size="140:189" />
+    <node operator="Parameter: Int32" id="63" name="Cap Material ID" min_value="1" max_value="1000" default_value="1" position="2600:-680" size="140:189" />
+    <node operator="SetMeshMaterialID" id="64" position="3340:0" size="140:141" />
+    <node operator="SetMeshMaterialID" id="65" position="3680:300" size="140:141" />
+    <node operator="Parameter: Boolean" id="24" name="Realworld Mode" default_value="false" position="2600:60" size="140:141" />
+    <node operator="Parameter: Single" id="30" name="Realworld Multiplier" min_value="-1000" max_value="10000" default_value="1" system_units_value="true" position="2960:80" size="140:213" />
+    <node operator="False" id="31" position="2980:-40" size="140:93" />
+    <node operator="Zero" id="48" position="2960:-140" size="140:93" />
+    <node operator="SplineVerticesBuffer" id="53" position="1220:-200" size="140:117" />
+    <node operator="MovePoints" id="66" position="1640:-220" size="140:141" />
+    <node operator="ZAxis" id="67" position="1220:-40" size="140:93" />
+    <node operator="MultiplyByScalar" id="68" position="1380:-60" size="140:141" />
+    <node operator="MultiplyByScalar" id="69" position="1560:-80" size="140:141" />
+    <node operator="AsFloat" id="70" position="1760:-40" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="36" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="5" sourceport="1" destnode="18" destport="2" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="7" destport="2" />
+    <connection sourcenode="35" sourceport="0" destnode="7" destport="3" />
+    <connection sourcenode="11" sourceport="0" destnode="35" destport="0" />
+    <connection sourcenode="26" sourceport="0" destnode="29" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="29" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="26" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="32" sourceport="0" destnode="27" destport="1" />
+    <connection sourcenode="28" sourceport="0" destnode="27" destport="2" />
+    <connection sourcenode="12" sourceport="0" destnode="27" destport="3" />
+    <connection sourcenode="1" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="36" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="32" destport="0" />
+    <connection sourcenode="29" sourceport="0" destnode="32" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="32" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="42" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="39" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="61" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="26" destport="1" />
+    <connection sourcenode="37" sourceport="0" destnode="26" destport="2" />
+    <connection sourcenode="22" sourceport="0" destnode="36" destport="0" />
+    <connection sourcenode="27" sourceport="0" destnode="36" destport="1" />
+    <connection sourcenode="32" sourceport="0" destnode="36" destport="2" />
+    <connection sourcenode="38" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="37" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="39" destport="0" />
+    <connection sourcenode="38" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="49" sourceport="0" destnode="41" destport="0" />
+    <connection sourcenode="45" sourceport="0" destnode="41" destport="1" />
+    <connection sourcenode="40" sourceport="0" destnode="42" destport="0" />
+    <connection sourcenode="41" sourceport="0" destnode="42" destport="1" />
+    <connection sourcenode="40" sourceport="0" destnode="43" destport="0" />
+    <connection sourcenode="43" sourceport="0" destnode="44" destport="0" />
+    <connection sourcenode="46" sourceport="0" destnode="45" destport="0" />
+    <connection sourcenode="44" sourceport="0" destnode="45" destport="1" />
+    <connection sourcenode="46" sourceport="0" destnode="45" destport="2" />
+    <connection sourcenode="14" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="47" destport="0" />
+    <connection sourcenode="50" sourceport="0" destnode="49" destport="0" />
+    <connection sourcenode="51" sourceport="0" destnode="49" destport="1" />
+    <connection sourcenode="65" sourceport="0" destnode="49" destport="2" />
+    <connection sourcenode="64" sourceport="0" destnode="51" destport="0" />
+    <connection sourcenode="65" sourceport="0" destnode="51" destport="1" />
+    <connection sourcenode="34" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="55" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="57" sourceport="0" destnode="56" destport="0" />
+    <connection sourcenode="59" sourceport="0" destnode="56" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="57" destport="0" />
+    <connection sourcenode="58" sourceport="0" destnode="57" destport="1" />
+    <connection sourcenode="60" sourceport="0" destnode="58" destport="0" />
+    <connection sourcenode="28" sourceport="0" destnode="59" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="60" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="61" destport="0" />
+    <connection sourcenode="56" sourceport="0" destnode="61" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="61" destport="2" />
+    <connection sourcenode="66" sourceport="0" destnode="62" destport="0" />
+    <connection sourcenode="54" sourceport="0" destnode="52" destport="0" />
+    <connection sourcenode="62" sourceport="0" destnode="52" destport="1" />
+    <connection sourcenode="48" sourceport="0" destnode="52" destport="2" />
+    <connection sourcenode="31" sourceport="0" destnode="52" destport="3" />
+    <connection sourcenode="24" sourceport="0" destnode="52" destport="4" />
+    <connection sourcenode="30" sourceport="0" destnode="52" destport="5" />
+    <connection sourcenode="52" sourceport="0" destnode="64" destport="0" />
+    <connection sourcenode="63" sourceport="0" destnode="64" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="65" destport="0" />
+    <connection sourcenode="33" sourceport="0" destnode="65" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="53" destport="0" />
+    <connection sourcenode="53" sourceport="0" destnode="66" destport="0" />
+    <connection sourcenode="69" sourceport="0" destnode="66" destport="1" />
+    <connection sourcenode="67" sourceport="0" destnode="68" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="68" destport="1" />
+    <connection sourcenode="68" sourceport="0" destnode="69" destport="0" />
+    <connection sourcenode="70" sourceport="0" destnode="69" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="70" destport="0" />
+  </connections>
+</graph>

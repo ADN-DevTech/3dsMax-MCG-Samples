@@ -1,0 +1,255 @@
+(InstanceState state, Int32 num stairs, Single Y-spacing, Single Z-spacing, Single stair width, Single stair height, Single stair depth, Single rail post width, Single rail post height, Single rail post depth, Single rail post X offset, Single rail post Y offset, Single handrail width, Single handrail depth, Single handrail height) => 
+  {
+    IArray[Int32] _0Range;// 8:Range 72559
+    Single _1Constant;// 0:Constant 72563
+    Vector3 _2Vector3;// 12:Vector3 72562
+    IArray[Vector3] _3Map;// 9:Map 72558
+    TriMesh _4CreateBox;// 7:CreateBox 72593
+    Int32 _5Constant;// 0:Constant 72597
+    TriMesh _6Apply2;// 126:Apply2 72584
+    TriMesh _7CreateBox;// 19:CreateBox 72615
+    Int32 _8Constant;// 0:Constant 72619
+    TriMesh _9Apply2;// 128:Apply2 72614
+    Single _10Constant;// 0:Constant 72629
+    IArray[TriMesh] _11Map;// 32:Map 72555
+    Single _12Constant;// 30:DivideByTwoFloat->0:Constant 72634
+    Single _13Divide;// 30:DivideByTwoFloat->2:Divide 72633
+    Single _14Add;// 24:Add 72631
+    Single _15Constant;// 28:DivideByTwoFloat->0:Constant 72639
+    Single _16Divide;// 28:DivideByTwoFloat->2:Divide 72638
+    Vector3 _17Vector3;// 40:Vector3 72630
+    IArray[Vector3] _18Unit;// 74:Array2->2:Unit 72655
+    Single _19NegativeFloat;// 27:NegativeFloat 72649
+    Vector3 _20Vector3;// 46:Vector3 72648
+    IArray[Vector3] _21Append;// 74:Array2->3:Append 72654
+    Func[TriMesh, Int32, TriMesh] _22Pass-through: function2;// 137:Pass-through: function2 72668
+    Int32 _23Zero;// 66:First->2:Zero 72675
+    Vector3 _24At;// 66:First->0:At 72674
+    Int32 _25Constant;// 0:Constant 72687
+    Single _26Constant;// 0:Origin->0:Constant 72628
+    Vector3 _27Vector3;// 0:Origin->1:Vector3 72627
+    Single _28X;// 1:SetZ->4:X 72625
+    Single _29Y;// 1:SetZ->5:Y 72626
+    Vector3 _30Vector3;// 1:SetZ->2:Vector3 72624
+    Single _31Constant;// 0:Constant 72696
+    Vector3 _32ZAxis;// 148:ZAxis 72698
+    IArray[TriMesh] _33Map;// 37:Map 72651
+    IArray[TriMesh] _34Concatenate;// 71:Concatenate 72554
+    TriMesh _35CombineAllMeshes;// 17:CombineAllMeshes 72553
+    _0Range = Range(num stairs);
+    _1Constant = 0;
+    _2Vector3 = Vector3(_1Constant, Y-spacing, Z-spacing);
+    _3Map = Map(_0Range, (Int32 x0) => 
+      {
+        Single _0IntAsFloat;// 15:IntAsFloat 72566
+        Vector3 _1MultiplyByScalar;// 14:MultiplyByScalar 72561
+        _0IntAsFloat = IntAsFloat(x0);
+        _1MultiplyByScalar = MultiplyByScalar(_2Vector3, _0IntAsFloat);
+        _1MultiplyByScalar;
+        });
+    _4CreateBox = CreateBox(stair width, stair height, stair depth);
+    _5Constant = 1;
+    _6Apply2 = Apply2((TriMesh x0, Int32 x1) => 
+      {
+        Int32 _0One;// 138:MinusOne->2:One 72590
+        Int32 _1Subtract;// 138:MinusOne->1:Subtract 72589
+        Int32 _2FaceCount;// 122:FaceCount 72592
+        IArray[Int32] _3ArrayOf;// 123:ArrayOf 72587
+        TriMesh _4SetMaterialIds;// 114:SetMaterialIds 72585
+        _0One = One();
+        _1Subtract = Subtract(x1, _0One);
+        _2FaceCount = FaceCount(x0);
+        _3ArrayOf = ArrayOf(_1Subtract, _2FaceCount);
+        _4SetMaterialIds = SetMaterialIds(x0, _3ArrayOf);
+        _4SetMaterialIds;
+        }, _4CreateBox, _5Constant);
+    _7CreateBox = CreateBox(rail post width, rail post height, rail post depth);
+    _8Constant = 2;
+    _9Apply2 = Apply2((TriMesh x0, Int32 x1) => 
+      {
+        Int32 _0One;// 138:MinusOne->2:One 72590
+        Int32 _1Subtract;// 138:MinusOne->1:Subtract 72589
+        Int32 _2FaceCount;// 122:FaceCount 72592
+        IArray[Int32] _3ArrayOf;// 123:ArrayOf 72587
+        TriMesh _4SetMaterialIds;// 114:SetMaterialIds 72585
+        _0One = One();
+        _1Subtract = Subtract(x1, _0One);
+        _2FaceCount = FaceCount(x0);
+        _3ArrayOf = ArrayOf(_1Subtract, _2FaceCount);
+        _4SetMaterialIds = SetMaterialIds(x0, _3ArrayOf);
+        _4SetMaterialIds;
+        }, _7CreateBox, _8Constant);
+    _10Constant = 0.5;
+    _11Map = Map(_3Map, (Vector3 x0) => 
+      {
+        IArray[TriMesh] _0Unit;// 61:Array3-ext->2:Unit 72582
+        IArray[Vector3] _1MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 72612
+        Single _2Constant;// 0:Origin->0:Constant 72628
+        Vector3 _3Vector3;// 0:Origin->1:Vector3 72627
+        Single _4X;// 1:SetZ->4:X 72625
+        Single _5Y;// 1:SetZ->5:Y 72626
+        Vector3 _6Vector3;// 1:SetZ->2:Vector3 72624
+        Vector3 _7MultiplyByScalar;// 41:MultiplyByScalar 72620
+        Func[Vector3, Vector3] _8Pass-through: function1;// 0:Pass-through: function1 72609
+        IArray[Vector3] _9Map;// 0:MeshDeformPoints-ext->1:Map 72611
+        TriMesh _10SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 72610
+        IArray[Vector3] _11MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 72604
+        Single _12Constant;// 30:DivideByTwoFloat->0:Constant 72634
+        Single _13Divide;// 30:DivideByTwoFloat->2:Divide 72633
+        Single _14Add;// 24:Add 72631
+        Single _15Constant;// 28:DivideByTwoFloat->0:Constant 72639
+        Single _16Divide;// 28:DivideByTwoFloat->2:Divide 72638
+        Vector3 _17Vector3;// 40:Vector3 72630
+        Func[Vector3, Vector3] _18Pass-through: function1;// 0:Pass-through: function1 72601
+        IArray[Vector3] _19Map;// 0:MeshDeformPoints-ext->1:Map 72603
+        TriMesh _20SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 72602
+        IArray[TriMesh] _21Append;// 61:Array3-ext->3:Append 72581
+        IArray[Vector3] _22MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 72646
+        Single _23NegativeFloat;// 27:NegativeFloat 72649
+        Vector3 _24Vector3;// 46:Vector3 72648
+        Func[Vector3, Vector3] _25Pass-through: function1;// 0:Pass-through: function1 72643
+        IArray[Vector3] _26Map;// 0:MeshDeformPoints-ext->1:Map 72645
+        TriMesh _27SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 72644
+        IArray[TriMesh] _28Append;// 61:Array3-ext->6:Append 72580
+        TriMesh _29CombineAllMeshes;// 62:CombineAllMeshes 72576
+        IArray[Vector3] _30MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 72574
+        Func[Vector3, Vector3] _31Pass-through: function1;// 0:Pass-through: function1 72571
+        IArray[Vector3] _32Map;// 0:MeshDeformPoints-ext->1:Map 72573
+        TriMesh _33SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 72572
+        _0Unit = Unit(_6Apply2);
+        _1MeshVertices = MeshVertices(_9Apply2);
+        _2Constant = 0;
+        _3Vector3 = Vector3(_2Constant, _2Constant, _2Constant);
+        _4X = X(_3Vector3);
+        _5Y = Y(_3Vector3);
+        _6Vector3 = Vector3(_4X, _5Y, rail post height);
+        _7MultiplyByScalar = MultiplyByScalar(_6Vector3, _10Constant);
+        _8Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 54:MeshOffset-ext->2:Add 72613
+            _0Add = Add(x0, _7MultiplyByScalar);
+            _0Add;
+            };
+        _9Map = Map(_1MeshVertices, _8Pass-through: function1);
+        _10SetMeshVertices = SetMeshVertices(_9Apply2, _9Map);
+        _11MeshVertices = MeshVertices(_10SetMeshVertices);
+        _12Constant = 2;
+        _13Divide = Divide(stair width, _12Constant);
+        _14Add = Add(_13Divide, rail post X offset);
+        _15Constant = 2;
+        _16Divide = Divide(stair height, _15Constant);
+        _17Vector3 = Vector3(_14Add, rail post Y offset, _16Divide);
+        _18Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 47:MeshOffset-ext->2:Add 72605
+            _0Add = Add(x0, _17Vector3);
+            _0Add;
+            };
+        _19Map = Map(_11MeshVertices, _18Pass-through: function1);
+        _20SetMeshVertices = SetMeshVertices(_10SetMeshVertices, _19Map);
+        _21Append = Append(_0Unit, _20SetMeshVertices);
+        _22MeshVertices = MeshVertices(_10SetMeshVertices);
+        _23NegativeFloat = NegativeFloat(_14Add);
+        _24Vector3 = Vector3(_23NegativeFloat, rail post Y offset, _16Divide);
+        _25Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 42:MeshOffset-ext->2:Add 72647
+            _0Add = Add(x0, _24Vector3);
+            _0Add;
+            };
+        _26Map = Map(_22MeshVertices, _25Pass-through: function1);
+        _27SetMeshVertices = SetMeshVertices(_10SetMeshVertices, _26Map);
+        _28Append = Append(_21Append, _27SetMeshVertices);
+        _29CombineAllMeshes = CombineAllMeshes(_28Append);
+        _30MeshVertices = MeshVertices(_29CombineAllMeshes);
+        _31Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 29:MeshOffset-ext->2:Add 72575
+            _0Add = Add(x0, x0);
+            _0Add;
+            };
+        _32Map = Map(_30MeshVertices, _31Pass-through: function1);
+        _33SetMeshVertices = SetMeshVertices(_29CombineAllMeshes, _32Map);
+        _33SetMeshVertices;
+        });
+    _12Constant = 2;
+    _13Divide = Divide(stair width, _12Constant);
+    _14Add = Add(_13Divide, rail post X offset);
+    _15Constant = 2;
+    _16Divide = Divide(stair height, _15Constant);
+    _17Vector3 = Vector3(_14Add, rail post Y offset, _16Divide);
+    _18Unit = Unit(_17Vector3);
+    _19NegativeFloat = NegativeFloat(_14Add);
+    _20Vector3 = Vector3(_19NegativeFloat, rail post Y offset, _16Divide);
+    _21Append = Append(_18Unit, _20Vector3);
+    _22Pass-through: function2 = (TriMesh x0, Int32 x1) => 
+      {
+        Int32 _0One;// 138:MinusOne->2:One 72590
+        Int32 _1Subtract;// 138:MinusOne->1:Subtract 72589
+        Int32 _2FaceCount;// 122:FaceCount 72592
+        IArray[Int32] _3ArrayOf;// 123:ArrayOf 72587
+        TriMesh _4SetMaterialIds;// 114:SetMaterialIds 72585
+        _0One = One();
+        _1Subtract = Subtract(x1, _0One);
+        _2FaceCount = FaceCount(x0);
+        _3ArrayOf = ArrayOf(_1Subtract, _2FaceCount);
+        _4SetMaterialIds = SetMaterialIds(x0, _3ArrayOf);
+        _4SetMaterialIds;
+        };
+    _23Zero = Zero();
+    _24At = At(_3Map, _23Zero);
+    _25Constant = 3;
+    _26Constant = 0;
+    _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
+    _28X = X(_27Vector3);
+    _29Y = Y(_27Vector3);
+    _30Vector3 = Vector3(_28X, _29Y, rail post height);
+    _31Constant = 0.5;
+    _32ZAxis = ZAxis();
+    _33Map = Map(_21Append, (Vector3 x0) => 
+      {
+        Int32 _0Count;// 3:LastIndex->2:Count 72684
+        Int32 _1One;// 3:MinusOne->2:One 72683
+        Int32 _2Subtract;// 3:MinusOne->1:Subtract 72682
+        Vector3 _3At;// 67:Last->0:At 72679
+        Single _4Distance;// 80:Distance 72672
+        Single _5Add;// 153:Add 72671
+        TriMesh _6CreateBox;// 152:CreateBox 72669
+        TriMesh _7Apply2;// 133:Apply2 72667
+        IArray[Vector3] _8MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 72664
+        Vector3 _9Lerp;// 79:Lerp 72695
+        Vector3 _10Add;// 38:Add 72692
+        Vector3 _11Add;// 68:Add 72689
+        Vector3 _12Normalize;// 150:Normalize 72697
+        Matrix _13WorldMatrix;// 147:WorldMatrix 72688
+        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 72661
+        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 72663
+        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 72662
+        _0Count = Count(_3Map);
+        _1One = One();
+        _2Subtract = Subtract(_0Count, _1One);
+        _3At = At(_3Map, _2Subtract);
+        _4Distance = Distance(_24At, _3At);
+        _5Add = Add(_4Distance, handrail depth);
+        _6CreateBox = CreateBox(handrail width, _5Add, handrail height);
+        _7Apply2 = Apply2(_22Pass-through: function2, _6CreateBox, _25Constant);
+        _8MeshVertices = MeshVertices(_7Apply2);
+        _9Lerp = Lerp(_24At, _3At, _31Constant);
+        _10Add = Add(_30Vector3, _9Lerp);
+        _11Add = Add(x0, _10Add);
+        _12Normalize = Normalize(_9Lerp);
+        _13WorldMatrix = WorldMatrix(_11Add, _12Normalize, _32ZAxis);
+        _14Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 65:TransformMesh->0:Transform 72665
+            _0Transform = Transform(x0, _13WorldMatrix);
+            _0Transform;
+            };
+        _15Map = Map(_8MeshVertices, _14Pass-through: function1);
+        _16SetMeshVertices = SetMeshVertices(_7Apply2, _15Map);
+        _16SetMeshVertices;
+        });
+    _34Concatenate = Concatenate(_11Map, _33Map);
+    _35CombineAllMeshes = CombineAllMeshes(_34Concatenate);
+    _35CombineAllMeshes;
+    }

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="17cb7576-95f9-4313-a5f4-22477246d3c3">
+  <meta_info>
+    <graph_version guid="b6287297-8602-4e83-aba2-681c9f170cd9" number="0.0.7" />
+  </meta_info>
+  <nodes>
+    <node operator="Output: modifier" id="0" position="1789:469" size="160:69" />
+    <node operator="Modifier: TriMesh" id="1" position="1489:149" size="140:93" />
+    <node operator="MapUVToVertexColor-ext" id="2" position="1709:209" size="140:141" />
+    <node operator="NoiseOp" id="8" position="1269:109" size="140:141" />
+    <node operator="Vector3FromZ" id="3" position="1533:456" size="140:117" />
+    <node operator="Pass-through: Vector3" id="4" position="169:129" size="140:117" />
+    <node operator="X" id="5" position="1049:49" size="140:117" />
+    <node operator="Y" id="6" position="1049:189" size="140:117" />
+    <node operator="MultiplyByScalar" id="7" position="829:-31" size="140:141" />
+    <node operator="Parameter: Single" id="9" name="frequency" min_value="-1000000" max_value="1000000" default_value="1" system_units_value="false" position="389:49" size="140:213" />
+    <node operator="DivideBy100-ext" id="10" position="609:49" size="140:117" />
+    <node operator="Vector3FromXY" id="11" position="759:589" size="140:141" />
+    <node operator="Parameter: Single" id="12" name="x offset" min_value="-10000" max_value="100000" default_value="0" system_units_value="false" position="319:349" size="140:213" />
+    <node operator="Parameter: Single" id="13" name="y offset" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="319:589" size="140:213" />
+    <node operator="Add" id="14" position="746:425" size="140:141" />
+    <node operator="DivideBy100-ext" id="15" position="539:649" size="140:117" />
+    <node operator="DivideBy100-ext" id="16" position="539:509" size="140:117" />
+    <node operator="Multiply" id="17" position="1269:389" size="140:141" />
+    <node operator="Parameter: Single" id="18" name="amplitude" min_value="-1000" max_value="10000" default_value="1" system_units_value="false" position="1049:409" size="140:213" />
+    <node groupnode="Provided modified UV to noise function" id="22" position="1040:20" size="378:295" bg_color="#ff646464">
+      <nodes>8,5,6</nodes>
+    </node>
+    <node groupnode="Multiply noise by amplitude" id="23" position="1040:360" size="378:271" bg_color="#ff646464">
+      <nodes>18,17</nodes>
+    </node>
+    <node groupnode="Offset the UV Coordinate on X and Y" id="19" position="280:320" size="701:491" bg_color="#ff646464">
+      <nodes>14,15,16,12,11,13</nodes>
+    </node>
+    <node groupnode="Multiply vector by frequency" id="20" position="380:-60" size="598:331" bg_color="#ff646464">
+      <nodes>10,9,7</nodes>
+    </node>
+    <node groupnode="UV Coordinate" id="21" position="160:100" size="158:155" bg_color="#ff646464">
+      <nodes>4</nodes>
+    </node>
+    <node groupnode="Convert UV to Vertex Color using function" id="24" position="1480:120" size="378:239" bg_color="#ff646464">
+      <nodes>1,2</nodes>
+    </node>
+    <node groupnode="Create vertex color" id="25" position="1480:420" size="245:162" bg_color="#ff646464">
+      <nodes>3</nodes>
+    </node>
+    <node groupnode="Create final mesh" id="26" position="1780:440" size="178:107" bg_color="#ff646464">
+      <nodes>0</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="3" sourceport="1" destnode="2" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="17" destport="1" />
+  </connections>
+</graph>

@@ -1,7 +1,7 @@
 
 plugin TransformController MCG_BulletController
 	name:"MCG_BulletController"
-	classID:#(0x2F183AB1, 0x5B12C2BF)
+	classID:#(0x4738561A, 0x217740B3)
 	category:"Bullet Physics"
 	usePBValidity:false
 (

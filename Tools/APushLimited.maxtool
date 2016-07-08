@@ -1,55 +1,56 @@
-<graph version="0.50" uuid="11ca3340-2aee-437b-8da2-084ac2198b2a">
-    <meta_info>
-        <graph_version guid="16129be1-9146-428f-b06a-c3064907e097" number="0.0.113" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Single" id="0" name="amount" min_value="-100" max_value="9999" default_value="1" system_units_value="false" position="-11:50" size="140:213" />
-        <node operator="Output: modifier" id="1" position="1055:97" size="140:69" />
-        <node operator="MeshVertices" id="3" position="159:-220" size="140:117" />
-        <node operator="VertexNormals" id="4" position="164:-97" size="140:117" />
-        <node operator="ParallelCombine" id="5" position="368:-81" size="140:165" />
-        <node operator="SetMeshVertices" id="6" position="715:13" size="140:141" />
-        <node operator="Modifier: TriMesh" id="9" position="-200:80" size="140:93" />
-        <node operator="Parameter: INode" id="8" name="node" position="-31:329" size="140:117" />
-        <node operator="NodeMeshInLocalSpace.ext" id="10" position="174:362" size="140:141" />
-        <node operator="Modifier: Matrix" id="11" position="-31:489" size="140:93" />
-        <node operator="RayTraceCachedScene.ext" id="7" position="369:409" size="140:141" />
-        <node operator="PushVertexLimited.ext" id="2" position="164:25" size="140:189" />
-        <node operator="Parameter: Boolean" id="12" name="caching" default_value="true" position="189:509" size="140:141" />
-        <node operator="If" id="14" position="906:47" size="140:165" />
-        <node operator="IsValidNode" id="15" position="718:153" size="140:117" />
-        <node operator="Pass-through: TriMesh" id="18" position="-8:-101" size="140:117" />
-        <node operator="Pass-through: TriMesh" id="19" position="544:72" size="140:117" />
-        <node groupnode="Get node mesh and cache and store in ray-trace scene" id="13" position="-40:300" size="558:362" bg_color="#ff646464">
-            <nodes>8,12,10,11,7</nodes>
-        </node>
-        <node groupnode="Apply transform if input node valid" id="16" position="535:-20" size="671:307" bg_color="#ff646464">
-            <nodes>6,14,15,1,19</nodes>
-        </node>
-        <node groupnode="Compute new vertex positions" id="17" position="-20:-260" size="537:532" bg_color="#ff646464">
-            <nodes>4,0,3,18,2,5</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="14" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="2" sourceport="1" destnode="5" destport="2" />
-        <connection sourcenode="19" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="2" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="2" destport="3" />
-        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="14" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="14" destport="2" />
-        <connection sourcenode="8" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="19" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2b3df72d-ab2c-47e2-9ba7-83451723b400">
+  <meta_info>
+    <graph_version guid="9be7caee-e42f-465c-8c14-43f38e324f51" number="0.0.114" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Single" id="0" name="amount" min_value="-100" max_value="9999" default_value="1" system_units_value="false" position="-11:50" size="140:196" />
+    <node operator="Output: modifier" id="1" position="1055:97" size="140:70" />
+    <node operator="MeshVertices" id="3" position="159:-220" size="140:112" />
+    <node operator="VertexNormals" id="4" position="164:-97" size="140:112" />
+    <node operator="ParallelCombine" id="5" position="368:-81" size="140:154" />
+    <node operator="SetMeshVertices" id="6" position="715:13" size="140:133" />
+    <node operator="Modifier: TriMesh" id="9" position="560:-220" size="140:91" />
+    <node operator="Parameter: INode" id="8" name="node" position="-31:329" size="140:112" />
+    <node operator="NodeMeshInLocalSpace-ext" id="10" position="188:378" size="140:133" />
+    <node operator="Modifier: Matrix" id="11" position="-31:489" size="140:91" />
+    <node operator="Parameter: Boolean" id="12" name="caching" default_value="true" position="189:509" size="140:133" />
+    <node operator="If" id="14" position="906:47" size="140:154" />
+    <node operator="IsValidNode" id="15" position="718:153" size="140:112" />
+    <node operator="Pass-through: TriMesh" id="18" position="-8:-101" size="140:112" />
+    <node operator="Pass-through: TriMesh" id="19" position="544:72" size="140:112" />
+    <node operator="PointPushVertexLimited-ext" id="20" position="187:50" size="140:175" />
+    <node operator="RayTraceCachedScene-ext" id="21" position="405:458" size="140:133" />
+    <node groupnode="Compute new vertex positions" id="17" position="-20:-260" size="537:532" bg_color="#ff646464">
+      <nodes>20,18,5,0,3,4</nodes>
+    </node>
+    <node groupnode="Get node mesh and cache and store in ray-trace scene" id="13" position="-40:300" size="748:362" bg_color="#ff646464">
+      <nodes>21,12,8,11,10</nodes>
+    </node>
+    <node groupnode="Apply transform if input node valid" id="16" position="535:-20" size="671:307" bg_color="#ff646464">
+      <nodes>19,15,14,6,1</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="14" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="20" sourceport="1" destnode="5" destport="2" />
+    <connection sourcenode="19" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="8" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="20" destport="3" />
+    <connection sourcenode="10" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="21" destport="1" />
+  </connections>
 </graph>

@@ -1,49 +1,50 @@
-<graph version="0.50" uuid="14eeb793-b0eb-433e-8175-56dc853b2602">
-    <meta_info>
-        <graph_version guid="e1c3fc44-c948-4f24-ab61-00643d165b4e" number="0.0.5" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Int32" id="0" name="targetChannel" min_value="-3" max_value="100" default_value="0" position="360:50" size="140:189" />
-        <node operator="Parameter: Int32" id="2" name="channelA" min_value="-3" max_value="100" default_value="0" position="-140:40" size="140:189" />
-        <node operator="Modifier: TriMesh" id="3" position="-420:300" size="140:93" />
-        <node operator="Output: modifier" id="4" position="820:400" size="140:69" />
-        <node operator="Parameter: INode" id="5" name="sourceA" position="-140:240" size="140:117" />
-        <node operator="GetMapChannelFromNode.ext" id="6" position="38:82" size="200:165" />
-        <node operator="Parameter: Single" id="11" name="weight" min_value="-1000" max_value="1000" default_value="0.5" system_units_value="false" position="289:389" size="140:213" />
-        <node operator="GetMapChannelFromNode.ext" id="1" position="29:469" size="200:165" />
-        <node operator="Parameter: Int32" id="8" name="channelB" min_value="-3" max_value="100" default_value="0" position="-151:429" size="140:189" />
-        <node operator="Parameter: INode" id="9" name="sourceB" position="-151:629" size="140:117" />
-        <node operator="MapChannelLerp.ext" id="7" position="740:89" size="140:237" />
-        <node operator="Parameter: Boolean" id="10" name="useSoftSelection" default_value="false" position="460:400" size="140:141" />
-        <node groupnode="Linear interpolation parameters" id="14" position="280:360" size="329:251" bg_color="#ff646464">
-            <nodes>11,10</nodes>
-        </node>
-        <node groupnode="Map channel A from node B (or current)" id="13" position="-149:11" size="396:355" bg_color="#ff646464">
-            <nodes>6,5,2</nodes>
-        </node>
-        <node groupnode="Target channel ID" id="15" position="340:20" size="206:228" bg_color="#ff646464">
-            <nodes>0</nodes>
-        </node>
-        <node groupnode="Group" id="12" position="-160:400" size="398:355" bg_color="#ff646464">
-            <nodes>8,9,1</nodes>
-        </node>
-        <node groupnode="Combine map channels" id="16" position="680:60" size="262:275" bg_color="#ff646464">
-            <nodes>7</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="6" destport="2" />
-        <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="1" destport="2" />
-        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="7" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="7" destport="3" />
-        <connection sourcenode="10" sourceport="0" destnode="7" destport="4" />
-        <connection sourcenode="11" sourceport="0" destnode="7" destport="5" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="13e9b5c6-eaf3-4552-a5a8-f8f70648a8d4">
+  <meta_info>
+    <graph_version guid="e1c3fc44-c948-4f24-ab61-00643d165b4e" number="0.0.5" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="0" name="targetChannel" min_value="-3" max_value="100" default_value="0" position="360:50" size="140:189" />
+    <node operator="Parameter: Int32" id="2" name="channelA" min_value="-3" max_value="100" default_value="0" position="-140:40" size="140:189" />
+    <node operator="Modifier: TriMesh" id="3" position="-420:300" size="140:93" />
+    <node operator="Output: modifier" id="4" position="820:400" size="140:69" />
+    <node operator="Parameter: INode" id="5" name="sourceA" position="-140:240" size="140:117" />
+    <node operator="MapChannelFromNode-ext" id="6" position="38:82" size="200:165" />
+    <node operator="Parameter: Single" id="11" name="weight" min_value="-1000" max_value="1000" default_value="0.5" system_units_value="false" position="289:389" size="140:213" />
+    <node operator="MapChannelFromNode-ext" id="1" position="29:469" size="200:165" />
+    <node operator="Parameter: Int32" id="8" name="channelB" min_value="-3" max_value="100" default_value="0" position="-151:429" size="140:189" />
+    <node operator="Parameter: INode" id="9" name="sourceB" position="-151:629" size="140:117" />
+    <node operator="MapChannelLerp-ext" id="7" position="740:89" size="140:237" />
+    <node operator="Parameter: Boolean" id="10" name="useSoftSelection" default_value="false" position="460:400" size="140:141" />
+    <node groupnode="Linear interpolation parameters" id="14" position="280:360" size="329:251" bg_color="#ff646464">
+      <nodes>11,10</nodes>
+    </node>
+    <node groupnode="Map channel A from node B (or current)" id="13" position="-149:11" size="396:355" bg_color="#ff646464">
+      <nodes>6,5,2</nodes>
+    </node>
+    <node groupnode="Target channel ID" id="15" position="340:20" size="206:228" bg_color="#ff646464">
+      <nodes>0</nodes>
+    </node>
+    <node groupnode="Group" id="12" position="-160:400" size="398:355" bg_color="#ff646464">
+      <nodes>8,9,1</nodes>
+    </node>
+    <node groupnode="Combine map channels" id="16" position="680:60" size="262:275" bg_color="#ff646464">
+      <nodes>7</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="7" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="7" destport="3" />
+    <connection sourcenode="10" sourceport="0" destnode="7" destport="4" />
+    <connection sourcenode="11" sourceport="0" destnode="7" destport="5" />
+  </connections>
 </graph>

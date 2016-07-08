@@ -1,66 +1,67 @@
-<graph version="0.50" uuid="7628fd74-b38f-419f-bac0-f49b58a54a6f">
-    <meta_info>
-        <graph_version guid="970756b6-7369-46fd-b4df-62239b5168d4" number="0.0.52" />
-        <category>Cloner</category>
-        <description>Clones a mesh, or the child meshes, using the position information stored in the specified map channel to create a new mesh. </description>
-    </meta_info>
-    <nodes>
-        <node operator="If" id="43" position="2333:93" size="140:154" />
-        <node operator="CombineAllMeshes" id="45" position="2152:449" size="140:112" />
-        <node operator="MatricesFromMapChannel-ext" id="34" position="1451:488" size="200:133" />
-        <node operator="AppendIf" id="39" position="1889:429" size="140:154" />
-        <node operator="MeshCopyCustomMapChannelVertexBuffers-ext" id="41" position="1969:213" size="300:133" />
-        <node operator="Input: INode" id="0" name="cloneTarget" position="1557:211" size="140:112" />
-        <node operator="Output: compound" id="2" position="2149:-91" size="140:70" />
-        <node operator="Input: Boolean" id="3" name="includeOriginal" position="1720:440" size="140:112" />
-        <node operator="Input: TriMesh" id="4" name="clonerMesh" position="1229:409" size="140:112" />
-        <node operator="Input: Int32" id="5" name="channelId" position="1229:529" size="140:112" />
-        <node operator="Input: Boolean" id="7" name="keepCustomChannels" position="2065:89" size="200:112" />
-        <node operator="IgnoreFirst" id="9" position="1969:-111" size="140:133" />
-        <node operator="Input: Boolean" id="11" name="useChildren" position="1349:-131" size="140:112" />
-        <node operator="ClonerTransformChildMeshes-ext" id="12" position="1597:-58" size="200:217" />
-        <node operator="Input: Boolean" id="14" name="randomizeChildren" position="1354:-8" size="140:112" />
-        <node operator="Input: Int32" id="13" name="seed" position="1346:103" size="140:112" />
-        <node operator="Input: Boolean" id="20" name="createNodes" position="1354:218" size="140:112" />
-        <node groupnode="Store data in new mesh so more effects can be stacked" id="44" position="1960:60" size="602:306" bg_color="#ff646464">
-            <nodes>43,41,7</nodes>
-        </node>
-        <node groupnode="Create final mesh" id="21" position="1960:-140" size="338:171" bg_color="#ff646464">
-            <nodes>9,2</nodes>
-        </node>
-        <node groupnode="Create clones from children" id="15" position="1337:-160" size="548:528" bg_color="#ff646464">
-            <nodes>0,13,20,14,11,12</nodes>
-        </node>
-        <node groupnode="Cloner and channel ID" id="6" position="1220:380" size="440:275" bg_color="#ff646464">
-            <nodes>5,34,4</nodes>
-        </node>
-        <node groupnode="Combine into single mesh" id="46" position="2100:420" size="239:160" bg_color="#ff646464">
-            <nodes>45</nodes>
-        </node>
-        <node groupnode="Append original mesh if desired" id="40" position="1700:400" size="338:203" bg_color="#ff646464">
-            <nodes>39,3</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="7" sourceport="0" destnode="43" destport="0" />
-        <connection sourcenode="41" sourceport="0" destnode="43" destport="1" />
-        <connection sourcenode="45" sourceport="0" destnode="43" destport="2" />
-        <connection sourcenode="39" sourceport="0" destnode="45" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="34" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="34" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="39" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="39" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="39" destport="2" />
-        <connection sourcenode="4" sourceport="0" destnode="41" destport="0" />
-        <connection sourcenode="45" sourceport="0" destnode="41" destport="1" />
-        <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="43" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="12" destport="1" />
-        <connection sourcenode="14" sourceport="0" destnode="12" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="12" destport="3" />
-        <connection sourcenode="34" sourceport="0" destnode="12" destport="4" />
-        <connection sourcenode="13" sourceport="0" destnode="12" destport="5" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="3c2cc7d1-d804-4c89-8e41-71dbf816ae5c">
+  <meta_info>
+    <graph_version guid="970756b6-7369-46fd-b4df-62239b5168d4" number="0.0.52" />
+    <category>Cloning and scattering</category>
+    <description>Clones a mesh, or the child meshes, using the position information stored in the specified map channel to create a new mesh. </description>
+  </meta_info>
+  <nodes>
+    <node operator="If" id="43" position="2333:93" size="140:154" />
+    <node operator="CombineAllMeshes" id="45" position="2152:449" size="140:112" />
+    <node operator="MatricesFromMapChannel-ext" id="34" position="1451:488" size="200:133" />
+    <node operator="AppendIf" id="39" position="1889:429" size="140:154" />
+    <node operator="MeshCopyCustomMapChannelVertexBuffers-ext" id="41" position="1969:213" size="300:133" />
+    <node operator="Input: INode" id="0" name="cloneTarget" position="1557:211" size="140:112" />
+    <node operator="Output: compound" id="2" position="2149:-91" size="140:70" />
+    <node operator="Input: Boolean" id="3" name="includeOriginal" position="1720:440" size="140:112" />
+    <node operator="Input: TriMesh" id="4" name="clonerMesh" position="1229:409" size="140:112" />
+    <node operator="Input: Int32" id="5" name="channelId" position="1229:529" size="140:112" />
+    <node operator="Input: Boolean" id="7" name="keepCustomChannels" position="2065:89" size="200:112" />
+    <node operator="IgnoreFirst" id="9" position="1969:-111" size="140:133" />
+    <node operator="Input: Boolean" id="11" name="useChildren" position="1349:-131" size="140:112" />
+    <node operator="ClonerTransformChildMeshes-ext" id="12" position="1597:-58" size="200:217" />
+    <node operator="Input: Boolean" id="14" name="randomizeChildren" position="1354:-8" size="140:112" />
+    <node operator="Input: Int32" id="13" name="seed" position="1346:103" size="140:112" />
+    <node operator="Input: Boolean" id="20" name="createNodes" position="1354:218" size="140:112" />
+    <node groupnode="Store data in new mesh so more effects can be stacked" id="44" position="1960:60" size="602:306" bg_color="#ff646464">
+      <nodes>43,41,7</nodes>
+    </node>
+    <node groupnode="Create final mesh" id="21" position="1960:-140" size="338:171" bg_color="#ff646464">
+      <nodes>9,2</nodes>
+    </node>
+    <node groupnode="Create clones from children" id="15" position="1337:-160" size="548:528" bg_color="#ff646464">
+      <nodes>0,13,20,14,11,12</nodes>
+    </node>
+    <node groupnode="Cloner and channel ID" id="6" position="1220:380" size="440:275" bg_color="#ff646464">
+      <nodes>5,34,4</nodes>
+    </node>
+    <node groupnode="Combine into single mesh" id="46" position="2100:420" size="239:160" bg_color="#ff646464">
+      <nodes>45</nodes>
+    </node>
+    <node groupnode="Append original mesh if desired" id="40" position="1700:400" size="338:203" bg_color="#ff646464">
+      <nodes>39,3</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="7" sourceport="0" destnode="43" destport="0" />
+    <connection sourcenode="41" sourceport="0" destnode="43" destport="1" />
+    <connection sourcenode="45" sourceport="0" destnode="43" destport="2" />
+    <connection sourcenode="39" sourceport="0" destnode="45" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="34" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="39" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="39" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="39" destport="2" />
+    <connection sourcenode="4" sourceport="0" destnode="41" destport="0" />
+    <connection sourcenode="45" sourceport="0" destnode="41" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="43" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="12" destport="3" />
+    <connection sourcenode="34" sourceport="0" destnode="12" destport="4" />
+    <connection sourcenode="13" sourceport="0" destnode="12" destport="5" />
+  </connections>
 </graph>

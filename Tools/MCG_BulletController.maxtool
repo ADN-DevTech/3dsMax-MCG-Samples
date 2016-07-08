@@ -1,91 +1,177 @@
-<graph version="0.50" uuid="e5e359c6-6377-4afb-aabf-41c4157d539f">
-    <meta_info>
-        <graph_version guid="f7d036ee-91b8-486c-8377-1deb51eb5ba9" number="0.0.268" />
-        <company>Autodesk</company>
-        <category>Bullet Physics</category>
-        <description>Bullet Physics Controller.&#x0A;Basic simulation graph for Bullet Physics.&#x0A;- One controlled node&#x0A;- Multiple animatable colliders</description>
-        <customui>&#x09;rollout params &quot;Parameters&quot;&#x0A;&#x09;(&#x0A;&#x09;&#x09;group &quot;Start Node&quot;&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;pickbutton Pick_Start_Node &quot;Pick Start Node&quot; autodisplay:true type:#node toolTip:&quot;Pick Start Node&quot;&#x0A;&#x09;&#x09;)&#x0A;&#x09;&#x09;group &quot;Dynamic Properties&quot;&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;spinner Mass &quot;Mass&quot; range:[-1000, 1000, 1] type:#float width:72 height:16 align:#right&#x0A;&#x09;&#x09;spinner Friction &quot;Friction&quot; range:[0, 1000, 1] type:#float width:81 height:16 align:#right&#x0A;&#x09;&#x09;spinner Rolling_Friction &quot;Rolling Friction&quot; range:[0, 1000, 1] type:#float width:107 height:16 align:#right&#x0A;&#x09;&#x09;spinner Restitution &quot;Restitution&quot; range:[0, 100, 1] type:#float width:95 height:16 align:#right&#x0A;&#x09;&#x09;spinner Linear_Damping &quot;Linear Damping&quot; range:[0, 100, 0.1] type:#float width:110 height:16 align:#right&#x0A;&#x09;&#x09;spinner Angular_Damping &quot;Angular Damping&quot; range:[0, 100, 0] type:#float width:117 height:16 align:#right&#x0A;&#x09;&#x09;label Inertia_Label &quot;Inertia&quot; align:#left &#x0A;&#x09;&#x09;spinner Inertia_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3&#x0A;&#x09;&#x09;spinner Inertia_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;spinner Inertia_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;on Inertia_XSpinner changed val do Inertia.X = val&#x0A;&#x09;&#x09;on Inertia_YSpinner changed val do Inertia.Y = val&#x0A;&#x09;&#x09;on Inertia_ZSpinner changed val do Inertia.Z = val&#x0A;&#x0A;&#x09;&#x09;label Linear_Velocity_Label &quot;Linear Impulse Velocity&quot; align:#left&#x0A;&#x09;&#x09;spinner Linear_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3&#x0A;&#x09;&#x09;spinner Linear_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;spinner Linear_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;on Linear_Velocity_XSpinner changed val do Linear_Velocity.X = val&#x0A;&#x09;&#x09;on Linear_Velocity_YSpinner changed val do Linear_Velocity.Y = val&#x0A;&#x09;&#x09;on Linear_Velocity_ZSpinner changed val do Linear_Velocity.Z = val&#x0A;&#x0A;&#x09;&#x09;label Angular_Velocity_Label &quot;Angular Impulse Velocity&quot; align:#left&#x0A;&#x09;&#x09;spinner Angular_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3&#x0A;&#x09;&#x09;spinner Angular_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;spinner Angular_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left&#x0A;&#x09;&#x09;on Angular_Velocity_XSpinner changed val do Angular_Velocity.X = val&#x0A;&#x09;&#x09;on Angular_Velocity_YSpinner changed val do Angular_Velocity.Y = val&#x0A;&#x09;&#x09;on Angular_Velocity_ZSpinner changed val do Angular_Velocity.Z = val&#x0A;&#x09;&#x09;)&#x0A;&#x09;&#x09;group &quot;Colliders&quot;&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;dotNetControl Colliders_UI &quot;ListView&quot; width:140 height:190 align:#center&#x0A;&#x09;&#x09;checkbutton addToList_Colliders_UI mcgAPOps.AddButtonText width:140&#x0A;&#x09;&#x09;button removeFromList_Colliders_UI mcgAPOps.RemoveButtonText width:140&#x0A;&#x09;&#x09;on addToList_Colliders_UI changed state do with undo label:&quot;Parameter Change&quot; on mcgAPOps.INodeA_AddToList Colliders_Tab state addToList_Colliders_UI&#x0A;&#x09;&#x09;on removeFromList_Colliders_UI pressed do with undo label:&quot;Parameter Change&quot; on mcgAPOps.INodeA_RemoveFromList Colliders_UI Colliders_List_Tab&#x0A;&#x09;&#x09;)&#x0A;&#x09;&#x09;group &quot;World&quot;&#x0A;&#x09;&#x09;( &#x0A;&#x09;&#x09;spinner Gravity &quot;Gravity&quot; range:[-1000, 1000, -50] type:#worldUnits&#x0A;&#x09;&#x09;)&#x0A;&#x09;&#x09;on params open do&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;&#x09;paramsOpen = true&#x0A;&#x09;&#x09;&#x09;mcgAPOps.OneColParamsOpen Colliders_UI Colliders_Tab mcgAPOps.INodeToStringFunc #(&quot;Colliders&quot;) selected:&amp;Colliders_selection&#x09;&#x09;&#x09;Inertia_XSpinner.value = Inertia.X&#x0A;&#x09;&#x09;&#x09;Inertia_YSpinner.value = Inertia.Y&#x0A;&#x09;&#x09;&#x09;Inertia_ZSpinner.value = Inertia.Z&#x0A;&#x09;&#x09;&#x09;Linear_Velocity_XSpinner.value = Linear_Velocity.X&#x0A;&#x09;&#x09;&#x09;Linear_Velocity_YSpinner.value = Linear_Velocity.Y&#x0A;&#x09;&#x09;&#x09;Linear_Velocity_ZSpinner.value = Linear_Velocity.Z&#x0A;&#x09;&#x09;&#x09;Angular_Velocity_XSpinner.value = Angular_Velocity.X&#x0A;&#x09;&#x09;&#x09;Angular_Velocity_YSpinner.value = Angular_Velocity.Y&#x0A;&#x09;&#x09;&#x09;Angular_Velocity_ZSpinner.value = Angular_Velocity.Z&#x0A;&#x0A;&#x09;&#x09;)&#x0A;&#x09;&#x09;on params close do&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;&#x09;mcgAPOps.OneColParamsClose Colliders_UI selected:&amp;Colliders_selection&#x0A;&#x09;&#x09;&#x09;paramsOpen = false&#x0A;&#x09;&#x09;)&#x0A;&#x09;)&#x0A;&#x0A;&#x09;rollout simRollout &quot;Simulation&quot;&#x0A;&#x09;(&#x0A;&#x09;&#x09;button resetSimulation mcgAPOps.ReinitSimButtonText&#x0A;&#x09;&#x09;on resetSimulation pressed do&#x0A;&#x09;&#x09;(&#x0A;&#x09;&#x09;&#x09;--clear the caches related to this graph&#x0A;&#x09;&#x09;&#x09;pluginInstance.ClearPluginCaches()&#x0A;&#x09;&#x09;&#x09;_lastTime = 0.0&#x0A;&#x09;&#x09;&#x09;_dummy = not _dummy&#x0A;&#x09;&#x09;)&#x0A;&#x09;)</customui>
-        <simulation>true</simulation>
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: INode" id="0" name="Pick Start Node" position="-868:-671" size="140:117" />
-        <node operator="Output: Transform Controller" id="31" position="1355:610" size="200:69" />
-        <node operator="Parameter: Single" id="84" name="Mass" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="-868:-551" size="160:213" />
-        <node operator="Parameter: Single" id="85" name="Friction" min_value="0" max_value="1000" default_value="1" system_units_value="false" position="-868:-331" size="160:213" />
-        <node operator="Parameter: Single" id="56" name="Linear Damping" min_value="0" max_value="100" default_value="0.1" system_units_value="false" position="-871:334" size="160:213" />
-        <node operator="Parameter: Single" id="74" name="Angular Damping" min_value="0" max_value="100" default_value="0" system_units_value="false" position="-868:550" size="160:213" />
-        <node operator="Parameter: Single" id="9" name="Rolling Friction" min_value="0" max_value="1000" default_value="1" system_units_value="false" position="-868:-111" size="160:213" />
-        <node operator="Parameter: Vector3" id="94" name="Inertia" position="-864:770" size="140:117" />
-        <node operator="Parameter: Vector3" id="95" name="Linear Velocity" position="-865:896" size="140:117" />
-        <node operator="Parameter: Vector3" id="96" name="Angular Velocity" position="-867:1020" size="140:117" />
-        <node operator="Parameter: Single" id="4" name="Restitution" min_value="0" max_value="100" default_value="1" system_units_value="false" position="-869:110" size="160:213" />
-        <node operator="Parameter: Single" id="8" name="Gravity" min_value="-1000" max_value="1000" default_value="-50" system_units_value="true" position="-868:1139" size="160:213" />
-        <node operator="Parameter: IArray&lt;INode&gt;" id="6" name="Colliders" position="-323:623" size="200:117" />
-        <node operator="Constant" id="10" value="1.0" position="91:539" size="140:93" />
-        <node operator="Time: Int32" id="13" position="440:963" size="140:93" />
-        <node operator="MCG_CreateSimNode" id="18" position="-360:80" size="220:357" />
-        <node operator="MCG_CreateWorldController" id="19" position="961:554" size="260:141" />
-        <node operator="MCG_UpdateCollisionNodes" id="20" position="129:888" size="200:141" />
-        <node operator="MCG_UpdateWorld" id="21" position="625:883" size="160:141" />
-        <node operator="MCG_CreateCollisionNodes" id="22" position="300:400" size="220:237" />
-        <node groupnode="Create Colliders" id="26" position="80:340" size="498:351" bg_color="#ff646464">
-            <comment>Create collider nodes inside Bullet World</comment>
-            <nodes>10,22</nodes>
-        </node>
-        <node groupnode="update Colliders animation" id="44" position="89:830" size="278:219" bg_color="#ff646464">
-            <comment>update colliders animation from Max</comment>
-            <nodes>20</nodes>
-        </node>
-        <node groupnode="Output Simulation matrix Controller" id="1" position="1300:560" size="334:128" bg_color="#ff646464">
-            <comment>Return resulting Physics matrix to Max </comment>
-            <nodes>31</nodes>
-        </node>
-        <node groupnode="Create the simulated node" id="16" position="-400:20" size="304:427" bg_color="#ff646464">
-            <comment>Create the simulated node</comment>
-            <nodes>18</nodes>
-        </node>
-        <node groupnode="Bullet Physics Controller" id="7" position="160:20" size="639:143" bg_color="#ff646464">
-            <comment>Create Sim Node compound as the leaf input (Mandatory)&#x0A;Create Collision Nodes (Optional)&#x0A;Update Animated Collision Nodes (Optional)&#x0A;Create World Controller (Mandatory)&#x0A;Update World (Mandatory)</comment>
-        </node>
-        <node groupnode="Parameters - Sim Node" id="3" position="-880:-700" size="223:2061" bg_color="#ff8b4513">
-            <nodes>84,0,85,8,4,96,95,94,56,74,9</nodes>
-        </node>
-        <node groupnode="Parameter : add Colliders" id="17" position="-340:560" size="261:189" bg_color="#ff8b4513">
-            <comment>Add Colliders</comment>
-            <nodes>6</nodes>
-        </node>
-        <node groupnode="World" id="2" position="820:500" size="432:231" bg_color="#ff646464">
-            <comment>Create World</comment>
-            <nodes>19</nodes>
-        </node>
-        <node groupnode="World Update function" id="5" position="71:760" size="765:311" bg_color="#ff646464">
-            <comment>Update World and Colliders Animation</comment>
-            <nodes>13,21,44</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="19" sourceport="0" destnode="31" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="84" sourceport="0" destnode="18" destport="1" />
-        <connection sourcenode="85" sourceport="0" destnode="18" destport="2" />
-        <connection sourcenode="9" sourceport="0" destnode="18" destport="3" />
-        <connection sourcenode="4" sourceport="0" destnode="18" destport="4" />
-        <connection sourcenode="56" sourceport="0" destnode="18" destport="5" />
-        <connection sourcenode="74" sourceport="0" destnode="18" destport="6" />
-        <connection sourcenode="94" sourceport="0" destnode="18" destport="7" />
-        <connection sourcenode="95" sourceport="0" destnode="18" destport="8" />
-        <connection sourcenode="96" sourceport="0" destnode="18" destport="9" />
-        <connection sourcenode="8" sourceport="0" destnode="18" destport="10" />
-        <connection sourcenode="22" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="21" sourceport="1" destnode="19" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="21" destport="1" />
-        <connection sourcenode="6" sourceport="0" destnode="22" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="22" destport="1" />
-        <connection sourcenode="84" sourceport="0" destnode="22" destport="2" />
-        <connection sourcenode="10" sourceport="0" destnode="22" destport="3" />
-        <connection sourcenode="10" sourceport="0" destnode="22" destport="4" />
-        <connection sourcenode="10" sourceport="0" destnode="22" destport="5" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="899747ea-11f0-4eaf-9b50-9b312810ec90">
+  <meta_info>
+    <graph_version guid="f7d036ee-91b8-486c-8377-1deb51eb5ba9" number="0.0.268" />
+    <company>Autodesk</company>
+    <category>Bullet Physics</category>
+    <description>AutodeskBullet PhysicsBullet Physics Controller. Basic simulation graph for Bullet Physics. - One controlled node - Multiple animatable colliders rollout params "Parameters"  (   group "Start Node"   (   pickbutton Pick_Start_Node "Pick Start Node" autodisplay:true type:#node toolTip:"Pick Start Node"   )   group "Dynamic Properties"   (   spinner Mass "Mass" range:[-1000, 1000, 1] type:#float width:72 height:16 align:#right   spinner Friction "Friction" range:[0, 1000, 1] type:#float width:81 height:16 align:#right   spinner Rolling_Friction "Rolling Friction" range:[0, 1000, 1] type:#float width:107 height:16 align:#right   spinner Restitution "Restitution" range:[0, 100, 1] type:#float width:95 height:16 align:#right   spinner Linear_Damping "Linear Damping" range:[0, 100, 0.1] type:#float width:110 height:16 align:#right   spinner Angular_Damping "Angular Damping" range:[0, 100, 0] type:#float width:117 height:16 align:#right   label Inertia_Label "Inertia" align:#left    spinner Inertia_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3   spinner Inertia_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   spinner Inertia_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   on Inertia_XSpinner changed val do Inertia.X = val   on Inertia_YSpinner changed val do Inertia.Y = val   on Inertia_ZSpinner changed val do Inertia.Z = val    label Linear_Velocity_Label "Linear Impulse Velocity" align:#left   spinner Linear_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3   spinner Linear_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   spinner Linear_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   on Linear_Velocity_XSpinner changed val do Linear_Velocity.X = val   on Linear_Velocity_YSpinner changed val do Linear_Velocity.Y = val   on Linear_Velocity_ZSpinner changed val do Linear_Velocity.Z = val    label Angular_Velocity_Label "Angular Impulse Velocity" align:#left   spinner Angular_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3   spinner Angular_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   spinner Angular_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left   on Angular_Velocity_XSpinner changed val do Angular_Velocity.X = val   on Angular_Velocity_YSpinner changed val do Angular_Velocity.Y = val   on Angular_Velocity_ZSpinner changed val do Angular_Velocity.Z = val   )   group "Colliders"   (   dotNetControl Colliders_UI "ListView" width:140 height:190 align:#center   checkbutton addToList_Colliders_UI mcgAPOps.AddButtonText width:140   button removeFromList_Colliders_UI mcgAPOps.RemoveButtonText width:140   on addToList_Colliders_UI changed state do with undo label:"Parameter Change" on mcgAPOps.INodeA_AddToList Colliders_Tab state addToList_Colliders_UI   on removeFromList_Colliders_UI pressed do with undo label:"Parameter Change" on mcgAPOps.INodeA_RemoveFromList Colliders_UI Colliders_List_Tab   )   group "World"   (    spinner Gravity "Gravity" range:[-1000, 1000, -50] type:#worldUnits   )   on params open do   (    paramsOpen = true    mcgAPOps.OneColParamsOpen Colliders_UI Colliders_Tab mcgAPOps.INodeToStringFunc #("Colliders") selected:&amp;Colliders_selection   Inertia_XSpinner.value = Inertia.X    Inertia_YSpinner.value = Inertia.Y    Inertia_ZSpinner.value = Inertia.Z    Linear_Velocity_XSpinner.value = Linear_Velocity.X    Linear_Velocity_YSpinner.value = Linear_Velocity.Y    Linear_Velocity_ZSpinner.value = Linear_Velocity.Z    Angular_Velocity_XSpinner.value = Angular_Velocity.X    Angular_Velocity_YSpinner.value = Angular_Velocity.Y    Angular_Velocity_ZSpinner.value = Angular_Velocity.Z    )   on params close do   (    mcgAPOps.OneColParamsClose Colliders_UI selected:&amp;Colliders_selection    paramsOpen = false   )  )   rollout simRollout "Simulation"  (   button resetSimulation mcgAPOps.ReinitSimButtonText   on resetSimulation pressed do   (    --clear the caches related to this graph    pluginInstance.ClearPluginCaches()    _lastTime = 0.0    _dummy = not _dummy   )  )true</description>
+    <customui>	rollout params "Parameters"
+	(
+		group "Start Node"
+		(
+		pickbutton Pick_Start_Node "Pick Start Node" autodisplay:true type:#node toolTip:"Pick Start Node"
+		)
+		group "Dynamic Properties"
+		(
+		spinner Mass "Mass" range:[-1000, 1000, 1] type:#float width:72 height:16 align:#right
+		spinner Friction "Friction" range:[0, 1000, 1] type:#float width:81 height:16 align:#right
+		spinner Rolling_Friction "Rolling Friction" range:[0, 1000, 1] type:#float width:107 height:16 align:#right
+		spinner Restitution "Restitution" range:[0, 100, 1] type:#float width:95 height:16 align:#right
+		spinner Linear_Damping "Linear Damping" range:[0, 100, 0.1] type:#float width:110 height:16 align:#right
+		spinner Angular_Damping "Angular Damping" range:[0, 100, 0] type:#float width:117 height:16 align:#right
+		label Inertia_Label "Inertia" align:#left 
+		spinner Inertia_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3
+		spinner Inertia_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		spinner Inertia_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		on Inertia_XSpinner changed val do Inertia.X = val
+		on Inertia_YSpinner changed val do Inertia.Y = val
+		on Inertia_ZSpinner changed val do Inertia.Z = val
+
+		label Linear_Velocity_Label "Linear Impulse Velocity" align:#left
+		spinner Linear_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3
+		spinner Linear_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		spinner Linear_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		on Linear_Velocity_XSpinner changed val do Linear_Velocity.X = val
+		on Linear_Velocity_YSpinner changed val do Linear_Velocity.Y = val
+		on Linear_Velocity_ZSpinner changed val do Linear_Velocity.Z = val
+
+		label Angular_Velocity_Label "Angular Impulse Velocity" align:#left
+		spinner Angular_Velocity_XSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left across:3
+		spinner Angular_Velocity_YSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		spinner Angular_Velocity_ZSpinner range:[-2147483648, 2147483648, 0] width:48 height:16 align:#left
+		on Angular_Velocity_XSpinner changed val do Angular_Velocity.X = val
+		on Angular_Velocity_YSpinner changed val do Angular_Velocity.Y = val
+		on Angular_Velocity_ZSpinner changed val do Angular_Velocity.Z = val
+		)
+		group "Colliders"
+		(
+		dotNetControl Colliders_UI "ListView" width:140 height:190 align:#center
+		checkbutton addToList_Colliders_UI mcgAPOps.AddButtonText width:140
+		button removeFromList_Colliders_UI mcgAPOps.RemoveButtonText width:140
+		on addToList_Colliders_UI changed state do with undo label:"Parameter Change" on mcgAPOps.INodeA_AddToList Colliders_Tab state addToList_Colliders_UI
+		on removeFromList_Colliders_UI pressed do with undo label:"Parameter Change" on mcgAPOps.INodeA_RemoveFromList Colliders_UI Colliders_List_Tab
+		)
+		group "World"
+		( 
+		spinner Gravity "Gravity" range:[-1000, 1000, -50] type:#worldUnits
+		)
+		on params open do
+		(
+			paramsOpen = true
+			mcgAPOps.OneColParamsOpen Colliders_UI Colliders_Tab mcgAPOps.INodeToStringFunc #("Colliders") selected:&amp;Colliders_selection			Inertia_XSpinner.value = Inertia.X
+			Inertia_YSpinner.value = Inertia.Y
+			Inertia_ZSpinner.value = Inertia.Z
+			Linear_Velocity_XSpinner.value = Linear_Velocity.X
+			Linear_Velocity_YSpinner.value = Linear_Velocity.Y
+			Linear_Velocity_ZSpinner.value = Linear_Velocity.Z
+			Angular_Velocity_XSpinner.value = Angular_Velocity.X
+			Angular_Velocity_YSpinner.value = Angular_Velocity.Y
+			Angular_Velocity_ZSpinner.value = Angular_Velocity.Z
+
+		)
+		on params close do
+		(
+			mcgAPOps.OneColParamsClose Colliders_UI selected:&amp;Colliders_selection
+			paramsOpen = false
+		)
+	)
+
+	rollout simRollout "Simulation"
+	(
+		button resetSimulation mcgAPOps.ReinitSimButtonText
+		on resetSimulation pressed do
+		(
+			--clear the caches related to this graph
+			pluginInstance.ClearPluginCaches()
+			_lastTime = 0.0
+			_dummy = not _dummy
+		)
+	)</customui>
+    <simulation>true</simulation>
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: INode" id="0" name="Pick Start Node" position="-868:-671" size="140:117" />
+    <node operator="Output: Transform Controller" id="31" position="1355:610" size="200:69" />
+    <node operator="Parameter: Single" id="84" name="Mass" min_value="-1000" max_value="1000" default_value="1" system_units_value="false" position="-868:-551" size="160:213" />
+    <node operator="Parameter: Single" id="85" name="Friction" min_value="0" max_value="1000" default_value="1" system_units_value="false" position="-868:-331" size="160:213" />
+    <node operator="Parameter: Single" id="56" name="Linear Damping" min_value="0" max_value="100" default_value="0.1" system_units_value="false" position="-871:334" size="160:213" />
+    <node operator="Parameter: Single" id="74" name="Angular Damping" min_value="0" max_value="100" default_value="0" system_units_value="false" position="-868:550" size="160:213" />
+    <node operator="Parameter: Single" id="9" name="Rolling Friction" min_value="0" max_value="1000" default_value="1" system_units_value="false" position="-868:-111" size="160:213" />
+    <node operator="Parameter: Vector3" id="94" name="Inertia" position="-864:770" size="140:117" />
+    <node operator="Parameter: Vector3" id="95" name="Linear Velocity" position="-865:896" size="140:117" />
+    <node operator="Parameter: Vector3" id="96" name="Angular Velocity" position="-867:1020" size="140:117" />
+    <node operator="Parameter: Single" id="4" name="Restitution" min_value="0" max_value="100" default_value="1" system_units_value="false" position="-869:110" size="160:213" />
+    <node operator="Parameter: Single" id="8" name="Gravity" min_value="-1000" max_value="1000" default_value="-50" system_units_value="true" position="-868:1139" size="160:213" />
+    <node operator="Parameter: IArray&lt;INode&gt;" id="6" name="Colliders" position="-323:623" size="200:117" />
+    <node operator="Constant" id="10" value="1.0" position="91:539" size="140:93" />
+    <node operator="Time: Int32" id="13" position="440:963" size="140:93" />
+    <node operator="MCG_CreateSimNode" id="18" position="-360:80" size="220:357" />
+    <node operator="MCG_CreateWorldController" id="19" position="961:554" size="260:141" />
+    <node operator="MCG_UpdateCollisionNodes" id="20" position="129:888" size="200:141" />
+    <node operator="MCG_UpdateWorld" id="21" position="625:883" size="160:141" />
+    <node operator="MCG_CreateCollisionNodes" id="22" position="300:400" size="220:237" />
+    <node groupnode="Create Colliders" id="26" position="80:340" size="498:351" bg_color="#ff646464">
+      <comment>Create collider nodes inside Bullet World</comment>
+      <nodes>10,22</nodes>
+    </node>
+    <node groupnode="update Colliders animation" id="44" position="89:830" size="278:219" bg_color="#ff646464">
+      <comment>update colliders animation from Max</comment>
+      <nodes>20</nodes>
+    </node>
+    <node groupnode="Output Simulation matrix Controller" id="1" position="1300:560" size="334:128" bg_color="#ff646464">
+      <comment>Return resulting Physics matrix to Max </comment>
+      <nodes>31</nodes>
+    </node>
+    <node groupnode="Create the simulated node" id="16" position="-400:20" size="304:427" bg_color="#ff646464">
+      <comment>Create the simulated node</comment>
+      <nodes>18</nodes>
+    </node>
+    <node groupnode="Bullet Physics Controller" id="7" position="160:20" size="639:143" bg_color="#ff646464">
+      <comment>Create Sim Node compound as the leaf input (Mandatory)
+Create Collision Nodes (Optional)
+Update Animated Collision Nodes (Optional)
+Create World Controller (Mandatory)
+Update World (Mandatory)</comment>
+    </node>
+    <node groupnode="Parameters - Sim Node" id="3" position="-880:-700" size="223:2061" bg_color="#ff8b4513">
+      <nodes>84,0,85,8,4,96,95,94,56,74,9</nodes>
+    </node>
+    <node groupnode="Parameter : add Colliders" id="17" position="-340:560" size="261:189" bg_color="#ff8b4513">
+      <comment>Add Colliders</comment>
+      <nodes>6</nodes>
+    </node>
+    <node groupnode="World" id="2" position="820:500" size="432:231" bg_color="#ff646464">
+      <comment>Create World</comment>
+      <nodes>19</nodes>
+    </node>
+    <node groupnode="World Update function" id="5" position="71:760" size="765:311" bg_color="#ff646464">
+      <comment>Update World and Colliders Animation</comment>
+      <nodes>13,21,44</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="19" sourceport="0" destnode="31" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="84" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="85" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="18" destport="3" />
+    <connection sourcenode="4" sourceport="0" destnode="18" destport="4" />
+    <connection sourcenode="56" sourceport="0" destnode="18" destport="5" />
+    <connection sourcenode="74" sourceport="0" destnode="18" destport="6" />
+    <connection sourcenode="94" sourceport="0" destnode="18" destport="7" />
+    <connection sourcenode="95" sourceport="0" destnode="18" destport="8" />
+    <connection sourcenode="96" sourceport="0" destnode="18" destport="9" />
+    <connection sourcenode="8" sourceport="0" destnode="18" destport="10" />
+    <connection sourcenode="22" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="21" sourceport="1" destnode="19" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="22" destport="1" />
+    <connection sourcenode="84" sourceport="0" destnode="22" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="22" destport="3" />
+    <connection sourcenode="10" sourceport="0" destnode="22" destport="4" />
+    <connection sourcenode="10" sourceport="0" destnode="22" destport="5" />
+  </connections>
 </graph>

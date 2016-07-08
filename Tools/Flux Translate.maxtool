@@ -1,41 +1,42 @@
-<graph version="0.50" uuid="cdbb9bf4-10c8-4673-92c3-b3bc851715d8">
-    <meta_info>
-        <graph_version guid="dcab71ec-44ab-4a3b-b36a-a4c6b482da00" number="0.0.22" />
-    </meta_info>
-    <nodes>
-        <node operator="Vector3" id="4" position="-6:389" size="140:165" />
-        <node operator="Parameter: Single" id="14" name="x" min_value="-1000000" max_value="100000" default_value="10" system_units_value="false" position="-225:248" size="140:45" isClosed="1" />
-        <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="440:200" size="140:189" />
-        <node operator="Modifier: TriMesh" id="1" position="440:400" size="140:93" />
-        <node operator="Parameter: Single" id="17" name="z" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-229:363" size="140:45" isClosed="1" />
-        <node operator="Parameter: Single" id="16" name="y" min_value="-100000" max_value="10000" default_value="0" system_units_value="false" position="-226:312" size="140:45" isClosed="1" />
-        <node operator="Output: modifier" id="15" position="1200:420" size="140:69" />
-        <node operator="ClonerTransformMatrices.ext" id="3" position="716:309" size="200:213" />
-        <node operator="Parameter: Boolean" id="0" name="combine effect" default_value="false" position="440:500" size="140:141" />
-        <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="440:641" size="140:213" />
-        <node operator="Parameter: Boolean" id="2" name="relative" default_value="false" position="-6:229" size="160:141" />
-        <node operator="MatrixTranslate.ext" id="12" position="214:349" size="140:165" />
-        <node groupnode="Flux parameters" id="9" position="431:171" size="158:703" bg_color="#ff646464">
-            <nodes>6,1,7,0</nodes>
-        </node>
-        <node groupnode="Function: translate a matrix relative to self or the modifier TM" id="8" position="-240:200" size="603:371" bg_color="#ff646464">
-            <nodes>12,16,14,17,4,2</nodes>
-        </node>
-        <node groupnode="Apply function to matrices" id="5" position="680:280" size="269:261" bg_color="#ff646464">
-            <nodes>3</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="14" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="17" sourceport="0" destnode="4" destport="2" />
-        <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="12" sourceport="1" destnode="3" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="3" destport="3" />
-        <connection sourcenode="6" sourceport="0" destnode="3" destport="4" />
-        <connection sourcenode="2" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="12" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="1cb1736f-6a3b-4007-bbad-ed428a053926">
+  <meta_info>
+    <graph_version guid="dcab71ec-44ab-4a3b-b36a-a4c6b482da00" number="0.0.22" />
+  </meta_info>
+  <nodes>
+    <node operator="Vector3" id="4" position="-6:389" size="140:165" />
+    <node operator="Parameter: Single" id="14" name="x" min_value="-1000000" max_value="100000" default_value="10" system_units_value="false" position="-225:248" size="140:45" isClosed="1" />
+    <node operator="Parameter: Int32" id="7" name="flux channel" min_value="-2" max_value="100" default_value="2" position="440:200" size="140:189" />
+    <node operator="Modifier: TriMesh" id="1" position="440:400" size="140:93" />
+    <node operator="Parameter: Single" id="17" name="z" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-229:363" size="140:45" isClosed="1" />
+    <node operator="Parameter: Single" id="16" name="y" min_value="-100000" max_value="10000" default_value="0" system_units_value="false" position="-226:312" size="140:45" isClosed="1" />
+    <node operator="Output: modifier" id="15" position="1200:420" size="140:69" />
+    <node operator="FluxTransformMatrices" id="3" position="716:309" size="200:213" />
+    <node operator="Parameter: Boolean" id="0" name="combine effect" default_value="false" position="440:500" size="140:141" />
+    <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="440:641" size="140:213" />
+    <node operator="Parameter: Boolean" id="2" name="relative" default_value="false" position="-6:229" size="160:141" />
+    <node operator="MatrixTranslate-ext" id="12" position="214:349" size="140:165" />
+    <node groupnode="Flux parameters" id="9" position="431:171" size="158:703" bg_color="#ff646464">
+      <nodes>6,1,7,0</nodes>
+    </node>
+    <node groupnode="Function: translate a matrix relative to self or the modifier TM" id="8" position="-240:200" size="603:371" bg_color="#ff646464">
+      <nodes>12,16,14,17,4,2</nodes>
+    </node>
+    <node groupnode="Apply function to matrices" id="5" position="680:280" size="269:261" bg_color="#ff646464">
+      <nodes>3</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="14" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="4" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="12" sourceport="1" destnode="3" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="3" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="4" />
+    <connection sourcenode="2" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="12" destport="1" />
+  </connections>
 </graph>

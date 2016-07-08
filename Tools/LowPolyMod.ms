@@ -1,6 +1,6 @@
 plugin simpleMeshMod LowPolyMod
 	name:"LowPolyMod"
-	classID:#(0x3C93329C, 0x73231D6E)
+	classID:#(0x55795B29, 0x115610F0)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (
@@ -58,7 +58,7 @@ plugin simpleMeshMod LowPolyMod
 		_meshWrapper = meshWrapperClass._CreateWrapper undefined
 		_meshWrapper_SetValue = _meshWrapper._SetValue
 		pluginGraph = pluginDefinitionFile
-		pluginGraphDependencies = #(@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\InverseFloatLerp.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\Array3.maxcompound")
+		pluginGraphDependencies = #(@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\InverseFloatLerp.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\Array3-ext.maxcompound")
 
 		-- value wrapper local initializations
 		local meshWrapperClass = dotNetClass "Autodesk.Max.MaxPlus.Mesh"

@@ -1,56 +1,57 @@
-<graph version="0.50" uuid="dd823b9f-2985-41d5-a8c9-5470e5927932">
-    <meta_info>
-        <graph_version guid="be774594-0e1c-43d7-bdca-5b039f1c4d91" number="0.0.12" />
-    </meta_info>
-    <nodes>
-        <node operator="Modifier: TriMesh" id="1" position="450:-311" size="140:93" />
-        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="1310:-272" size="140:189" />
-        <node operator="Parameter: Boolean" id="15" name="position only" default_value="false" position="729:-10" size="140:141" />
-        <node operator="StoreMatricesInMapChannel.ext" id="0" position="1495:-311" size="220:165" />
-        <node operator="Output: modifier" id="6" position="2329:-131" size="160:69" />
-        <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="100" default_value="2" position="897:-6" size="140:189" />
-        <node operator="Parameter: INode" id="13" name="source" position="449:-202" size="140:117" />
-        <node operator="MeshFromNodeWithDefault.ext" id="14" position="670:-251" size="200:141" />
-        <node operator="Map" id="19" position="1452:-28" size="140:141" />
-        <node operator="RayToMatrix.ext" id="16" position="1122:7" size="140:165" />
-        <node operator="MeshVertexNormalsAsRays.ext" id="5" position="970:-231" size="220:117" />
-        <node operator="ClonerMeshAsBoxes.ext" id="20" position="2089:-171" size="200:189" />
-        <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="10000" default_value="1" system_units_value="false" position="1829:-31" size="180:213" />
-        <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1849:-191" size="140:141" />
-        <node groupnode="Get current or picked mesh" id="17" position="440:-340" size="439:264" bg_color="#ff646464">
-            <nodes>1,13,14</nodes>
-        </node>
-        <node groupnode="Function: convert a ray to a matrix" id="3" position="720:-60" size="576:263" bg_color="#ff646464">
-            <nodes>15,4,16</nodes>
-        </node>
-        <node groupnode="Transform array of rays to matrices" id="7" position="1340:-60" size="366:182" bg_color="#ff646464">
-            <nodes>19</nodes>
-        </node>
-        <node groupnode="Get rays from vertices" id="12" position="940:-260" size="283:173" bg_color="#ff646464">
-            <nodes>5</nodes>
-        </node>
-        <node groupnode="Store matrices in map channel" id="8" position="1300:-340" size="441:266" bg_color="#ff646464">
-            <nodes>2,0</nodes>
-        </node>
-        <node groupnode="Represent transforms as boxes" id="23" position="1820:-220" size="678:411" bg_color="#ff646464">
-            <nodes>21,22,6,20</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="0" destport="2" />
-        <connection sourcenode="20" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="14" destport="1" />
-        <connection sourcenode="5" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="16" sourceport="1" destnode="19" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="20" destport="2" />
-        <connection sourcenode="21" sourceport="0" destnode="20" destport="3" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="c343d23b-9abf-458d-ae75-c4ecf68ef421">
+  <meta_info>
+    <graph_version guid="be774594-0e1c-43d7-bdca-5b039f1c4d91" number="0.0.12" />
+  </meta_info>
+  <nodes>
+    <node operator="Modifier: TriMesh" id="1" position="450:-311" size="140:93" />
+    <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="1310:-272" size="140:189" />
+    <node operator="Parameter: Boolean" id="15" name="position only" default_value="false" position="729:-10" size="140:141" />
+    <node operator="MapChannelStoreMatrices-ext" id="0" position="1495:-311" size="220:165" />
+    <node operator="Output: modifier" id="6" position="2329:-131" size="160:69" />
+    <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="100" default_value="2" position="897:-6" size="140:189" />
+    <node operator="Parameter: INode" id="13" name="source" position="449:-202" size="140:117" />
+    <node operator="NodeMeshOrDefault-ext" id="14" position="670:-251" size="200:141" />
+    <node operator="Map" id="19" position="1452:-28" size="140:141" />
+    <node operator="MatrixFromRay-ext" id="16" position="1122:7" size="140:165" />
+    <node operator="MeshVertexNormalsAsRays-ext" id="5" position="970:-231" size="220:117" />
+    <node operator="FluxMeshAsBoxes" id="20" position="2089:-171" size="200:189" />
+    <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="10000" default_value="1" system_units_value="false" position="1829:-31" size="180:213" />
+    <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1849:-191" size="140:141" />
+    <node groupnode="Get current or picked mesh" id="17" position="440:-340" size="439:264" bg_color="#ff646464">
+      <nodes>1,13,14</nodes>
+    </node>
+    <node groupnode="Function: convert a ray to a matrix" id="3" position="720:-60" size="576:263" bg_color="#ff646464">
+      <nodes>15,4,16</nodes>
+    </node>
+    <node groupnode="Transform array of rays to matrices" id="7" position="1340:-60" size="366:182" bg_color="#ff646464">
+      <nodes>19</nodes>
+    </node>
+    <node groupnode="Get rays from vertices" id="12" position="940:-260" size="283:173" bg_color="#ff646464">
+      <nodes>5</nodes>
+    </node>
+    <node groupnode="Store matrices in map channel" id="8" position="1300:-340" size="441:266" bg_color="#ff646464">
+      <nodes>2,0</nodes>
+    </node>
+    <node groupnode="Represent transforms as boxes" id="23" position="1820:-220" size="678:411" bg_color="#ff646464">
+      <nodes>21,22,6,20</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="20" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="16" sourceport="1" destnode="19" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="20" destport="2" />
+    <connection sourcenode="21" sourceport="0" destnode="20" destport="3" />
+  </connections>
 </graph>

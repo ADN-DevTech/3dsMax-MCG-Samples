@@ -1,133 +1,134 @@
-<graph version="0.50" uuid="7b29712a-e751-424a-a3f1-73e3f006a6de">
-    <meta_info>
-        <graph_version guid="e725601b-4962-46d0-829c-765f9f443e4c" number="0.0.12" />
-        <category>Geometry - TriMesh</category>
-        <description>Given a face index and vertex index, returns the indices of all vertices on that face adjacent to the given vertex via visible edges.</description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: Int32" id="1" name="face" position="-380:240" size="140:117" />
-        <node operator="MultiplyByThree" id="2" position="20:320" size="140:117" />
-        <node operator="PlusOne" id="3" position="20:440" size="140:117" />
-        <node operator="PlusOne" id="4" position="20:560" size="140:117" />
-        <node operator="Output: compound" id="5" position="1940:400" size="140:69" />
-        <node operator="Input: TriMesh" id="6" name="mesh" position="-700:780" size="140:117" />
-        <node operator="MeshIndices" id="7" position="-460:740" size="140:117" />
-        <node operator="Input: Int32" id="9" name="vertexIndex" position="-420:440" size="140:117" />
-        <node operator="VisibleEdges" id="10" position="-460:960" size="140:117" />
-        <node operator="Equal" id="12" position="640:-80" size="140:141" />
-        <node operator="At" id="13" position="280:-180" size="140:141" />
-        <node operator="If" id="14" position="1400:200" size="140:165" />
-        <node operator="At" id="15" position="280:-40" size="140:141" />
-        <node operator="If" id="16" position="800:60" size="140:165" />
-        <node operator="EmptyArray-ext" id="18" position="640:160" size="140:93" />
-        <node operator="At" id="19" position="280:100" size="140:141" />
-        <node operator="If" id="20" position="800:260" size="140:165" />
-        <node operator="EmptyArray-ext" id="22" position="640:360" size="140:93" />
-        <node operator="Concatenate" id="0" position="980:160" size="140:141" />
-        <node operator="At" id="8" position="320:720" size="140:141" />
-        <node operator="EmptyArray-ext" id="11" position="640:720" size="140:93" />
-        <node operator="Equal" id="24" position="640:480" size="140:141" />
-        <node operator="Concatenate" id="25" position="980:720" size="140:141" />
-        <node operator="At" id="26" position="320:440" size="140:141" />
-        <node operator="At" id="27" position="320:580" size="140:141" />
-        <node operator="If" id="28" position="800:620" size="140:165" />
-        <node operator="EmptyArray-ext" id="29" position="640:920" size="140:93" />
-        <node operator="If" id="31" position="800:820" size="140:165" />
-        <node operator="If" id="32" position="1200:600" size="140:165" />
-        <node operator="At" id="33" position="200:1180" size="140:141" />
-        <node operator="EmptyArray-ext" id="34" position="640:1160" size="140:93" />
-        <node operator="Concatenate" id="37" position="980:1160" size="140:141" />
-        <node operator="At" id="39" position="220:980" size="140:141" />
-        <node operator="If" id="40" position="800:1060" size="140:165" />
-        <node operator="EmptyArray-ext" id="41" position="640:1360" size="140:93" />
-        <node operator="If" id="43" position="800:1260" size="140:165" />
-        <node operator="At" id="36" position="440:1040" size="140:141" />
-        <node operator="At" id="38" position="440:1260" size="140:141" />
-        <node operator="At" id="44" position="480:60" size="140:141" />
-        <node operator="At" id="45" position="480:220" size="140:141" />
-        <node operator="At" id="46" position="480:620" size="140:141" />
-        <node operator="At" id="47" position="480:780" size="140:141" />
-        <node operator="Unit" id="17" position="640:1260" size="140:117" />
-        <node operator="Unit" id="21" position="640:1060" size="140:117" />
-        <node operator="Unit" id="23" position="640:820" size="140:117" />
-        <node operator="Unit" id="30" position="640:620" size="140:117" />
-        <node operator="Unit" id="35" position="640:260" size="140:117" />
-        <node operator="Unit" id="42" position="640:60" size="140:117" />
-    </nodes>
-    <connections>
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="12" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="14" destport="1" />
-        <connection sourcenode="32" sourceport="0" destnode="14" destport="2" />
-        <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="15" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="42" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="18" sourceport="0" destnode="16" destport="2" />
-        <connection sourcenode="10" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="19" destport="1" />
-        <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="35" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="2" />
-        <connection sourcenode="16" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="20" sourceport="0" destnode="0" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
-        <connection sourcenode="26" sourceport="0" destnode="24" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="24" destport="1" />
-        <connection sourcenode="28" sourceport="0" destnode="25" destport="0" />
-        <connection sourcenode="31" sourceport="0" destnode="25" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="26" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="26" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="27" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="27" destport="1" />
-        <connection sourcenode="27" sourceport="0" destnode="28" destport="0" />
-        <connection sourcenode="30" sourceport="0" destnode="28" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="28" destport="2" />
-        <connection sourcenode="8" sourceport="0" destnode="31" destport="0" />
-        <connection sourcenode="23" sourceport="0" destnode="31" destport="1" />
-        <connection sourcenode="29" sourceport="0" destnode="31" destport="2" />
-        <connection sourcenode="24" sourceport="0" destnode="32" destport="0" />
-        <connection sourcenode="25" sourceport="0" destnode="32" destport="1" />
-        <connection sourcenode="37" sourceport="0" destnode="32" destport="2" />
-        <connection sourcenode="10" sourceport="0" destnode="33" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="33" destport="1" />
-        <connection sourcenode="40" sourceport="0" destnode="37" destport="0" />
-        <connection sourcenode="43" sourceport="0" destnode="37" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="39" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="39" destport="1" />
-        <connection sourcenode="39" sourceport="0" destnode="40" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="40" destport="1" />
-        <connection sourcenode="34" sourceport="0" destnode="40" destport="2" />
-        <connection sourcenode="33" sourceport="0" destnode="43" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="43" destport="1" />
-        <connection sourcenode="41" sourceport="0" destnode="43" destport="2" />
-        <connection sourcenode="7" sourceport="0" destnode="36" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="36" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="38" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="38" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="44" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="44" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="45" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="45" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="46" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="46" destport="1" />
-        <connection sourcenode="7" sourceport="0" destnode="47" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="47" destport="1" />
-        <connection sourcenode="38" sourceport="0" destnode="17" destport="0" />
-        <connection sourcenode="36" sourceport="0" destnode="21" destport="0" />
-        <connection sourcenode="47" sourceport="0" destnode="23" destport="0" />
-        <connection sourcenode="46" sourceport="0" destnode="30" destport="0" />
-        <connection sourcenode="45" sourceport="0" destnode="35" destport="0" />
-        <connection sourcenode="44" sourceport="0" destnode="42" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="e4098e72-aa76-4ec8-9c02-5b4698017cad">
+  <meta_info>
+    <graph_version guid="e725601b-4962-46d0-829c-765f9f443e4c" number="0.0.12" />
+    <category>Geometry - TriMesh</category>
+    <description>Given a face index and vertex index, returns the indices of all vertices on that face adjacent to the given vertex via visible edges.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Int32" id="1" name="face" position="-380:240" size="140:117" />
+    <node operator="MultiplyByThree" id="2" position="20:320" size="140:117" />
+    <node operator="PlusOne" id="3" position="20:440" size="140:117" />
+    <node operator="PlusOne" id="4" position="20:560" size="140:117" />
+    <node operator="Output: compound" id="5" position="1940:400" size="140:69" />
+    <node operator="Input: TriMesh" id="6" name="mesh" position="-700:780" size="140:117" />
+    <node operator="MeshIndices" id="7" position="-460:740" size="140:117" />
+    <node operator="Input: Int32" id="9" name="vertexIndex" position="-420:440" size="140:117" />
+    <node operator="VisibleEdges" id="10" position="-460:960" size="140:117" />
+    <node operator="Equal" id="12" position="640:-80" size="140:141" />
+    <node operator="At" id="13" position="280:-180" size="140:141" />
+    <node operator="If" id="14" position="1400:200" size="140:165" />
+    <node operator="At" id="15" position="280:-40" size="140:141" />
+    <node operator="If" id="16" position="800:60" size="140:165" />
+    <node operator="EmptyArray-ext" id="18" position="640:160" size="140:93" />
+    <node operator="At" id="19" position="280:100" size="140:141" />
+    <node operator="If" id="20" position="800:260" size="140:165" />
+    <node operator="EmptyArray-ext" id="22" position="640:360" size="140:93" />
+    <node operator="Concatenate" id="0" position="980:160" size="140:141" />
+    <node operator="At" id="8" position="320:720" size="140:141" />
+    <node operator="EmptyArray-ext" id="11" position="640:720" size="140:93" />
+    <node operator="Equal" id="24" position="640:480" size="140:141" />
+    <node operator="Concatenate" id="25" position="980:720" size="140:141" />
+    <node operator="At" id="26" position="320:440" size="140:141" />
+    <node operator="At" id="27" position="320:580" size="140:141" />
+    <node operator="If" id="28" position="800:620" size="140:165" />
+    <node operator="EmptyArray-ext" id="29" position="640:920" size="140:93" />
+    <node operator="If" id="31" position="800:820" size="140:165" />
+    <node operator="If" id="32" position="1200:600" size="140:165" />
+    <node operator="At" id="33" position="200:1180" size="140:141" />
+    <node operator="EmptyArray-ext" id="34" position="640:1160" size="140:93" />
+    <node operator="Concatenate" id="37" position="980:1160" size="140:141" />
+    <node operator="At" id="39" position="220:980" size="140:141" />
+    <node operator="If" id="40" position="800:1060" size="140:165" />
+    <node operator="EmptyArray-ext" id="41" position="640:1360" size="140:93" />
+    <node operator="If" id="43" position="800:1260" size="140:165" />
+    <node operator="At" id="36" position="440:1040" size="140:141" />
+    <node operator="At" id="38" position="440:1260" size="140:141" />
+    <node operator="At" id="44" position="480:60" size="140:141" />
+    <node operator="At" id="45" position="480:220" size="140:141" />
+    <node operator="At" id="46" position="480:620" size="140:141" />
+    <node operator="At" id="47" position="480:780" size="140:141" />
+    <node operator="Unit" id="17" position="640:1260" size="140:117" />
+    <node operator="Unit" id="21" position="640:1060" size="140:117" />
+    <node operator="Unit" id="23" position="640:820" size="140:117" />
+    <node operator="Unit" id="30" position="640:620" size="140:117" />
+    <node operator="Unit" id="35" position="640:260" size="140:117" />
+    <node operator="Unit" id="42" position="640:60" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="32" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="42" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="16" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="35" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="2" />
+    <connection sourcenode="16" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="24" destport="1" />
+    <connection sourcenode="28" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="31" sourceport="0" destnode="25" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="26" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="27" destport="1" />
+    <connection sourcenode="27" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="30" sourceport="0" destnode="28" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="28" destport="2" />
+    <connection sourcenode="8" sourceport="0" destnode="31" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="31" destport="1" />
+    <connection sourcenode="29" sourceport="0" destnode="31" destport="2" />
+    <connection sourcenode="24" sourceport="0" destnode="32" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="32" destport="1" />
+    <connection sourcenode="37" sourceport="0" destnode="32" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="33" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="33" destport="1" />
+    <connection sourcenode="40" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="43" sourceport="0" destnode="37" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="39" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="39" destport="1" />
+    <connection sourcenode="39" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="40" destport="1" />
+    <connection sourcenode="34" sourceport="0" destnode="40" destport="2" />
+    <connection sourcenode="33" sourceport="0" destnode="43" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="43" destport="1" />
+    <connection sourcenode="41" sourceport="0" destnode="43" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="36" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="36" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="38" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="38" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="44" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="44" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="45" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="45" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="46" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="46" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="47" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="47" destport="1" />
+    <connection sourcenode="38" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="36" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="47" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="46" sourceport="0" destnode="30" destport="0" />
+    <connection sourcenode="45" sourceport="0" destnode="35" destport="0" />
+    <connection sourcenode="44" sourceport="0" destnode="42" destport="0" />
+  </connections>
 </graph>

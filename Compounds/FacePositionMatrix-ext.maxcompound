@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="7ee14c58-0eaa-415b-8e9f-267f0885027e">
+  <meta_info>
+    <graph_version guid="1ab8c04c-002e-4cc7-bd91-b31ef5e7822a" number="0.0.5" />
+    <category>Geometry - Faces</category>
+    <description>Given a mesh, a tuple representing the face index and a vector offset, and the up axis, returns a matrix. </description>
+  </meta_info>
+  <nodes>
+    <node operator="FaceMatrix-ext" id="6" position="880:140" size="140:154" />
+    <node operator="FacePositionFromTuple-ext" id="7" position="200:220" size="200:112" />
+    <node operator="PairItem1" id="4" position="440:180" size="140:112" />
+    <node operator="MeshFace" id="8" position="660:140" size="140:133" />
+    <node operator="Input: Int32" id="0" name="axis" position="660:0" size="140:112" />
+    <node operator="Input: TriMesh" id="1" name="mesh" position="440:40" size="140:112" />
+    <node operator="PairItem2" id="2" position="660:300" size="140:112" />
+    <node operator="Input: tuple2" id="3" name="facePosition" position="0:200" size="140:112" />
+    <node operator="Output: compound" id="5" position="1100:220" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+  </connections>
+</graph>

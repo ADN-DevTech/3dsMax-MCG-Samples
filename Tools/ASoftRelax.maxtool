@@ -1,22 +1,23 @@
-<graph version="0.50" uuid="4ac483a7-ff4f-406c-bb33-f131635782ed">
-    <meta_info>
-        <graph_version guid="6041f754-d596-40ed-8aa9-50685c3f8048" number="0.0.64" />
-        <author>Tom Hudson</author>
-        <company>Autodesk, Inc.</company>
-        <category>Modifier</category>
-        <description>Soft-Push modifier -- Pushes vertices out along normals by an amount modulated by soft-selection channel values.</description>
-    </meta_info>
-    <nodes>
-        <node operator="Output: modifier" id="1" position="460:240" size="140:69" />
-        <node operator="Modifier: TriMesh" id="2" position="0:0" size="140:93" />
-        <node operator="Parameter: Int32" id="6" name="iterations" min_value="0" max_value="100" default_value="1" position="0:120" size="140:189" />
-        <node operator="RelaxSoft.ext" id="8" position="0:320" size="140:117" />
-        <node operator="RepeatWithoutIndex.ext" id="10" position="220:160" size="180:165" />
-    </nodes>
-    <connections>
-        <connection sourcenode="10" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="8" sourceport="1" destnode="10" destport="2" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="f45578c1-6c8a-4000-84ad-e5ff9a183e06">
+  <meta_info>
+    <graph_version guid="6041f754-d596-40ed-8aa9-50685c3f8048" number="0.0.64" />
+    <author>Tom Hudson</author>
+    <company>Autodesk, Inc.</company>
+    <category>Modifier</category>
+    <description>Tom HudsonAutodesk, Inc.ModifierSoft-Push modifier -- Pushes vertices out along normals by an amount modulated by soft-selection channel values.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Output: modifier" id="1" position="460:240" size="140:69" />
+    <node operator="Modifier: TriMesh" id="2" position="0:0" size="140:93" />
+    <node operator="Parameter: Int32" id="6" name="iterations" min_value="0" max_value="100" default_value="1" position="0:120" size="140:189" />
+    <node operator="MeshRelaxSoft-ext" id="8" position="0:320" size="140:117" />
+    <node operator="RepeatWithoutIndex-ext" id="10" position="220:160" size="180:165" />
+  </nodes>
+  <connections>
+    <connection sourcenode="10" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="8" sourceport="1" destnode="10" destport="2" />
+  </connections>
 </graph>

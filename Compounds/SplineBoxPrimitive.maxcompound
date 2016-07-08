@@ -1,111 +1,113 @@
-<graph version="0.50" uuid="c11b137a-6941-4e55-a4c4-232872b70e14">
-    <meta_info>
-        <graph_version guid="963d5148-cabd-4c96-8504-b868118985d0" number="0.0.5" />
-    </meta_info>
-    <nodes>
-        <node operator="Input: Vector3" id="0" name="minCorner" position="580:-96" size="140:112" />
-        <node operator="Input: Vector3" id="1" name="maxCorner" position="580:24" size="140:112" />
-        <node operator="Array2" id="11" position="800:-36" size="140:133" />
-        <node operator="BoxFromPoints" id="10" position="980:-36" size="140:112" />
-        <node operator="BoxCorners" id="4" position="1160:-36" size="140:112" />
-        <node operator="Output: compound" id="3" position="2720:-20" size="140:70" />
-        <node operator="CreateSplineFromKnots" id="5" position="2149:369" size="140:133" />
-        <node operator="False" id="6" position="1949:489" size="140:91" />
-        <node operator="CombineSplines" id="7" position="2540:-40" size="140:112" />
-        <node operator="RangeInclusiveFloat" id="9" position="1769:349" size="140:112" />
-        <node operator="Input: Int32" id="12" name="numSubdivisions" position="1589:329" size="140:112" />
-        <node operator="Map" id="13" position="1949:349" size="140:133" />
-        <node operator="Map" id="8" position="2360:-40" size="140:133" />
-        <node operator="Bind1of2" id="15" position="1769:489" size="140:133" />
-        <node operator="Lerp" id="16" position="1589:489" size="140:154" />
-        <node operator="Pass-through: array" id="17" position="1169:429" size="140:112" />
-        <node operator="First" id="18" position="1389:369" size="140:112" />
-        <node operator="Second" id="19" position="1389:489" size="140:112" />
-        <node operator="Take" id="20" position="1389:-131" size="140:133" />
-        <node operator="Skip" id="21" position="1389:49" size="140:133" />
-        <node operator="Constant" id="22" value="4" position="1160:160" size="140:91" />
-        <node operator="ArraySlidingWindow" id="25" position="1029:-351" size="140:133" />
-        <node operator="Pass-through: array" id="26" position="815:-467" size="140:112" />
-        <node operator="Array2" id="27" position="1209:-511" size="140:133" />
-        <node operator="First" id="28" position="1029:-451" size="140:112" />
-        <node operator="Last" id="29" position="1029:-571" size="140:112" />
-        <node operator="Append" id="30" position="1389:-311" size="140:133" />
-        <node operator="Two" id="31" position="849:-311" size="140:91" />
-        <node operator="Apply1" id="33" position="1649:-311" size="140:133" />
-        <node operator="Apply1" id="34" position="1649:-131" size="140:133" />
-        <node operator="ZipToSubArray" id="35" position="1649:49" size="140:133" />
-        <node operator="Array3" id="37" position="1889:-111" size="140:154" />
-        <node operator="Flatten" id="38" position="2069:-71" size="140:112" />
-        <node operator="Vector3ArrayType" id="42" position="636:-474" size="140:112" />
-        <node groupnode="top segments" id="36" position="1640:-340" size="171:171" bg_color="#ffc0c0c0">
-            <nodes>33</nodes>
-        </node>
-        <node groupnode="function: create pairs of vectors to define line segment endpoints" id="32" position="627:-600" size="911:431" bg_color="#ffc0c0c0">
-            <nodes>30,29,31,25,26,27,28,42</nodes>
-        </node>
-        <node groupnode="between segments" id="14" position="1640:20" size="177:171" bg_color="#ffc0c0c0">
-            <nodes>35</nodes>
-        </node>
-        <node groupnode="function: given a segment, create a subdivided line" id="40" position="1160:300" size="1138:352" bg_color="#ffc0c0c0">
-            <nodes>13,5,6,9,12,15,18,16,17,19</nodes>
-        </node>
-        <node groupnode="bottom segments" id="2" position="1640:-160" size="173:171" bg_color="#ffc0c0c0">
-            <nodes>34</nodes>
-        </node>
-        <node groupnode="all segments" id="39" position="1880:-140" size="338:192" bg_color="#ffc0c0c0">
-            <nodes>38,37</nodes>
-        </node>
-        <node groupnode="bottom points" id="24" position="1380:20" size="158:171" bg_color="#ffc0c0c0">
-            <nodes>21</nodes>
-        </node>
-        <node groupnode="Obtain the corners of a box" id="41" position="571:-125" size="738:273" bg_color="#ffc0c0c0">
-            <nodes>0,10,11,1,4</nodes>
-        </node>
-        <node groupnode="top points" id="23" position="1380:-160" size="158:171" bg_color="#ffc0c0c0">
-            <nodes>20</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="11" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
-        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
-        <connection sourcenode="38" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="5" sourceport="1" destnode="8" destport="1" />
-        <connection sourcenode="16" sourceport="1" destnode="15" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="19" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="21" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="21" destport="1" />
-        <connection sourcenode="26" sourceport="0" destnode="25" destport="0" />
-        <connection sourcenode="31" sourceport="0" destnode="25" destport="1" />
-        <connection sourcenode="42" sourceport="0" destnode="26" destport="0" />
-        <connection sourcenode="29" sourceport="0" destnode="27" destport="0" />
-        <connection sourcenode="28" sourceport="0" destnode="27" destport="1" />
-        <connection sourcenode="26" sourceport="0" destnode="28" destport="0" />
-        <connection sourcenode="26" sourceport="0" destnode="29" destport="0" />
-        <connection sourcenode="25" sourceport="0" destnode="30" destport="0" />
-        <connection sourcenode="27" sourceport="0" destnode="30" destport="1" />
-        <connection sourcenode="30" sourceport="1" destnode="33" destport="0" />
-        <connection sourcenode="20" sourceport="0" destnode="33" destport="1" />
-        <connection sourcenode="30" sourceport="1" destnode="34" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="34" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="35" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="35" destport="1" />
-        <connection sourcenode="33" sourceport="0" destnode="37" destport="0" />
-        <connection sourcenode="34" sourceport="0" destnode="37" destport="1" />
-        <connection sourcenode="35" sourceport="0" destnode="37" destport="2" />
-        <connection sourcenode="37" sourceport="0" destnode="38" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="70976b71-c5a5-4762-b86f-bb3cd854c85c">
+  <meta_info>
+    <graph_version guid="963d5148-cabd-4c96-8504-b868118985d0" number="0.0.5" />
+    <category>Spline</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Vector3" id="0" name="minCorner" position="580:-96" size="140:112" />
+    <node operator="Input: Vector3" id="1" name="maxCorner" position="580:24" size="140:112" />
+    <node operator="Array2" id="11" position="800:-36" size="140:133" />
+    <node operator="BoxFromPoints" id="10" position="980:-36" size="140:112" />
+    <node operator="BoxCorners" id="4" position="1160:-36" size="140:112" />
+    <node operator="Output: compound" id="3" position="2720:-20" size="140:70" />
+    <node operator="CreateSplineFromKnots" id="5" position="2149:369" size="140:133" />
+    <node operator="False" id="6" position="1949:489" size="140:91" />
+    <node operator="CombineSplines" id="7" position="2540:-40" size="140:112" />
+    <node operator="RangeInclusiveFloat" id="9" position="1769:349" size="140:112" />
+    <node operator="Input: Int32" id="12" name="numSubdivisions" position="1589:329" size="140:112" />
+    <node operator="Map" id="13" position="1949:349" size="140:133" />
+    <node operator="Map" id="8" position="2360:-40" size="140:133" />
+    <node operator="Bind1of2" id="15" position="1769:489" size="140:133" />
+    <node operator="Lerp" id="16" position="1589:489" size="140:154" />
+    <node operator="Pass-through: array" id="17" position="1169:429" size="140:112" />
+    <node operator="First" id="18" position="1389:369" size="140:112" />
+    <node operator="Second" id="19" position="1389:489" size="140:112" />
+    <node operator="Take" id="20" position="1389:-131" size="140:133" />
+    <node operator="Skip" id="21" position="1389:49" size="140:133" />
+    <node operator="Constant" id="22" value="4" position="1160:160" size="140:91" />
+    <node operator="ArraySlidingWindow" id="25" position="1029:-351" size="140:133" />
+    <node operator="Pass-through: array" id="26" position="815:-467" size="140:112" />
+    <node operator="Array2" id="27" position="1209:-511" size="140:133" />
+    <node operator="First" id="28" position="1029:-451" size="140:112" />
+    <node operator="Last" id="29" position="1029:-571" size="140:112" />
+    <node operator="Append" id="30" position="1389:-311" size="140:133" />
+    <node operator="Two" id="31" position="849:-311" size="140:91" />
+    <node operator="Apply1" id="33" position="1649:-311" size="140:133" />
+    <node operator="Apply1" id="34" position="1649:-131" size="140:133" />
+    <node operator="CombineToSubArray" id="35" position="1649:49" size="140:133" />
+    <node operator="Array3" id="37" position="1889:-111" size="140:154" />
+    <node operator="Flatten" id="38" position="2069:-71" size="140:112" />
+    <node operator="VectorArrayType-ext" id="42" position="636:-474" size="140:112" />
+    <node groupnode="top segments" id="36" position="1640:-340" size="171:171" bg_color="#ffc0c0c0">
+      <nodes>33</nodes>
+    </node>
+    <node groupnode="function: create pairs of vectors to define line segment endpoints" id="32" position="627:-600" size="911:431" bg_color="#ffc0c0c0">
+      <nodes>30,29,31,25,26,27,28,42</nodes>
+    </node>
+    <node groupnode="between segments" id="14" position="1640:20" size="177:171" bg_color="#ffc0c0c0">
+      <nodes>35</nodes>
+    </node>
+    <node groupnode="function: given a segment, create a subdivided line" id="40" position="1160:300" size="1138:352" bg_color="#ffc0c0c0">
+      <nodes>13,5,6,9,12,15,18,16,17,19</nodes>
+    </node>
+    <node groupnode="bottom segments" id="2" position="1640:-160" size="173:171" bg_color="#ffc0c0c0">
+      <nodes>34</nodes>
+    </node>
+    <node groupnode="all segments" id="39" position="1880:-140" size="338:192" bg_color="#ffc0c0c0">
+      <nodes>38,37</nodes>
+    </node>
+    <node groupnode="bottom points" id="24" position="1380:20" size="158:171" bg_color="#ffc0c0c0">
+      <nodes>21</nodes>
+    </node>
+    <node groupnode="Obtain the corners of a box" id="41" position="571:-125" size="738:273" bg_color="#ffc0c0c0">
+      <nodes>0,10,11,1,4</nodes>
+    </node>
+    <node groupnode="top points" id="23" position="1380:-160" size="158:171" bg_color="#ffc0c0c0">
+      <nodes>20</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="38" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="5" sourceport="1" destnode="8" destport="1" />
+    <connection sourcenode="16" sourceport="1" destnode="15" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="31" sourceport="0" destnode="25" destport="1" />
+    <connection sourcenode="42" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="29" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="28" sourceport="0" destnode="27" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="26" sourceport="0" destnode="29" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="30" destport="0" />
+    <connection sourcenode="27" sourceport="0" destnode="30" destport="1" />
+    <connection sourcenode="30" sourceport="1" destnode="33" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="33" destport="1" />
+    <connection sourcenode="30" sourceport="1" destnode="34" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="34" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="35" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="35" destport="1" />
+    <connection sourcenode="33" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="34" sourceport="0" destnode="37" destport="1" />
+    <connection sourcenode="35" sourceport="0" destnode="37" destport="2" />
+    <connection sourcenode="37" sourceport="0" destnode="38" destport="0" />
+  </connections>
 </graph>

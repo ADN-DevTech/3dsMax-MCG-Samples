@@ -1,66 +1,67 @@
-<graph version="0.50" uuid="01c13e47-2185-4257-8d9b-0cd58f2d0ea8">
-    <meta_info>
-        <graph_version guid="59276460-5d46-474e-ba85-6d1ddf9c26d4" number="0.0.11" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: INode" id="0" name="nodeA" position="-909:540" size="140:112" />
-        <node operator="Parameter: INode" id="2" name="nodeB" position="-909:660" size="140:112" />
-        <node operator="CheckNodeValidity" id="5" position="-749:540" size="140:112" />
-        <node operator="CheckNodeValidity" id="7" position="-749:660" size="140:112" />
-        <node operator="Distance" id="8" position="-369:600" size="140:133" />
-        <node operator="Parameter: Single" id="12" name="minDist" min_value="0" max_value="10000" default_value="0" system_units_value="true" position="-197:507" size="140:196" />
-        <node operator="Output: Point4 Controller" id="13" position="857:439" size="180:70" />
-        <node operator="Vector4" id="14" position="687:354" size="140:175" />
-        <node operator="X" id="15" position="514:256" size="140:112" />
-        <node operator="Y" id="16" position="514:356" size="140:112" />
-        <node operator="Parameter: Color" id="18" name="color2" default_value="[0,1,0]" position="-391:269" size="140:133" />
-        <node operator="Parameter: Color" id="19" name="color1" default_value="[1,0,0]" position="-531:269" size="140:133" />
-        <node operator="Parameter: Color" id="20" name="color3" default_value="[0,0,1]" position="-246:269" size="140:133" />
-        <node operator="Array3" id="21" position="-71:249" size="140:154" />
-        <node operator="BlendNColors" id="22" position="149:309" size="140:133" />
-        <node operator="Z" id="23" position="514:456" size="140:112" />
-        <node operator="FloatOne" id="1" position="514:556" size="140:91" />
-        <node operator="InverseFloatLerp" id="3" position="150:615" size="140:154" />
-        <node operator="Parameter: Single" id="17" name="maxDist" min_value="0" max_value="10000" default_value="50" system_units_value="true" position="-42:556" size="140:196" />
-        <node operator="NodePosition" id="24" position="-569:540" size="140:112" />
-        <node operator="NodePosition" id="4" position="-569:660" size="140:112" />
-        <node operator="Pass-through: Vector3" id="25" position="347:337" size="140:112" />
-        <node groupnode="Get the distance between the two input nodes" id="10" position="-918:511" size="698:273" bg_color="#ff848484">
-            <nodes>7,5,2,0,8,24,4</nodes>
-        </node>
-        <node groupnode="Obtain the proportion between [0,1] of the distance relative to the min and max." id="11" position="-940:460" size="1239:353" bg_color="#ffa9a9a9">
-            <nodes>12,3,17,10</nodes>
-        </node>
-        <node groupnode="Convert the color from a vector3 to a vector4" id="6" position="320:220" size="726:441" bg_color="#ffa9a9a9">
-            <nodes>15,16,14,13,23,1,25</nodes>
-        </node>
-        <node groupnode="Blend the input colors together using a proportional value between [0,1]" id="9" position="-540:220" size="838:231" bg_color="#ffa9a9a9">
-            <nodes>18,19,20,21,22</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="24" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
-        <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="14" destport="1" />
-        <connection sourcenode="23" sourceport="0" destnode="14" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="14" destport="3" />
-        <connection sourcenode="25" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="25" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="19" sourceport="0" destnode="21" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="21" destport="1" />
-        <connection sourcenode="20" sourceport="0" destnode="21" destport="2" />
-        <connection sourcenode="21" sourceport="0" destnode="22" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="22" destport="1" />
-        <connection sourcenode="25" sourceport="0" destnode="23" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="17" sourceport="0" destnode="3" destport="2" />
-        <connection sourcenode="5" sourceport="0" destnode="24" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="25" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="236bd9b1-6b7a-48d7-8792-0b753d9d172c">
+  <meta_info>
+    <graph_version guid="59276460-5d46-474e-ba85-6d1ddf9c26d4" number="0.0.11" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: INode" id="0" name="nodeA" position="-909:540" size="140:112" />
+    <node operator="Parameter: INode" id="2" name="nodeB" position="-909:660" size="140:112" />
+    <node operator="CheckNodeValidity" id="5" position="-749:540" size="140:112" />
+    <node operator="CheckNodeValidity" id="7" position="-749:660" size="140:112" />
+    <node operator="Distance" id="8" position="-369:600" size="140:133" />
+    <node operator="Parameter: Single" id="12" name="minDist" min_value="0" max_value="10000" default_value="0" system_units_value="true" position="-197:507" size="140:196" />
+    <node operator="Output: Point4 Controller" id="13" position="857:439" size="180:70" />
+    <node operator="Vector4" id="14" position="687:354" size="140:175" />
+    <node operator="X" id="15" position="514:256" size="140:112" />
+    <node operator="Y" id="16" position="514:356" size="140:112" />
+    <node operator="Parameter: Color" id="18" name="color2" default_value="[0,1,0]" position="-391:269" size="140:133" />
+    <node operator="Parameter: Color" id="19" name="color1" default_value="[1,0,0]" position="-531:269" size="140:133" />
+    <node operator="Parameter: Color" id="20" name="color3" default_value="[0,0,1]" position="-246:269" size="140:133" />
+    <node operator="Array3-ext" id="21" position="-71:249" size="140:154" />
+    <node operator="BlendNColors" id="22" position="149:309" size="140:133" />
+    <node operator="Z" id="23" position="514:456" size="140:112" />
+    <node operator="FloatOne" id="1" position="514:556" size="140:91" />
+    <node operator="InverseFloatLerp" id="3" position="150:615" size="140:154" />
+    <node operator="Parameter: Single" id="17" name="maxDist" min_value="0" max_value="10000" default_value="50" system_units_value="true" position="-42:556" size="140:196" />
+    <node operator="NodePosition" id="24" position="-569:540" size="140:112" />
+    <node operator="NodePosition" id="4" position="-569:660" size="140:112" />
+    <node operator="Pass-through: Vector3" id="25" position="347:337" size="140:112" />
+    <node groupnode="Get the distance between the two input nodes" id="10" position="-918:511" size="698:273" bg_color="#ff848484">
+      <nodes>7,5,2,0,8,24,4</nodes>
+    </node>
+    <node groupnode="Obtain the proportion between [0,1] of the distance relative to the min and max." id="11" position="-940:460" size="1239:353" bg_color="#ffa9a9a9">
+      <nodes>12,3,17,10</nodes>
+    </node>
+    <node groupnode="Convert the color from a vector3 to a vector4" id="6" position="320:220" size="726:441" bg_color="#ffa9a9a9">
+      <nodes>15,16,14,13,23,1,25</nodes>
+    </node>
+    <node groupnode="Blend the input colors together using a proportional value between [0,1]" id="9" position="-540:220" size="838:231" bg_color="#ffa9a9a9">
+      <nodes>18,19,20,21,22</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="24" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="14" destport="3" />
+    <connection sourcenode="25" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="21" destport="2" />
+    <connection sourcenode="21" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="22" destport="1" />
+    <connection sourcenode="25" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="3" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="25" destport="0" />
+  </connections>
 </graph>

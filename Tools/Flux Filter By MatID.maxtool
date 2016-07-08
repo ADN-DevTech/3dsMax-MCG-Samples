@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="d4958e87-90ac-4412-9b12-9cc0655cec0f">
+  <meta_info>
+    <graph_version guid="3a8c630f-d465-4339-841d-ea5a45402dee" number="0.0.34" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="0" name="flux channel" min_value="-2" max_value="100" default_value="2" position="2020:321" size="140:189" />
+    <node operator="Modifier: TriMesh" id="1" position="60:500" size="140:93" />
+    <node operator="MaterialIds" id="2" position="300:500" size="140:117" />
+    <node operator="Zero" id="5" position="-91:849" size="140:93" />
+    <node operator="Pass-through: Int32" id="6" position="-88:729" size="140:117" />
+    <node operator="ExitIf" id="7" position="589:764" size="140:141" />
+    <node operator="Parameter: Int32" id="8" name="material id" min_value="1" max_value="10000" default_value="1" position="1091:436" size="140:189" />
+    <node operator="Indices" id="10" position="1030:130" size="140:117" />
+    <node operator="ParallelCombine" id="11" position="1265:148" size="140:165" />
+    <node operator="Filter" id="13" position="1575:221" size="140:141" />
+    <node operator="Equal" id="16" position="1377:343" size="140:141" />
+    <node operator="Pass-through: TriMesh" id="17" position="869:604" size="140:117" />
+    <node operator="Map" id="18" position="1816:579" size="140:141" />
+    <node operator="Pass-through: TriMesh" id="24" position="2016:505" size="140:117" />
+    <node operator="MatricesFromMapChannel-ext" id="23" position="2250:452" size="140:141" />
+    <node operator="Filter" id="25" position="2541:488" size="140:141" />
+    <node operator="MapChannelStoreMatrices-ext" id="26" position="2732:478" size="140:165" />
+    <node operator="Output: modifier" id="32" position="3320:800" size="140:69" />
+    <node operator="MeshFace" id="35" position="1646:635" size="140:141" />
+    <node operator="PointOnAnyFace" id="28" position="2253:608" size="140:165" />
+    <node operator="GetMatrixTranslation" id="27" position="2041:651" size="140:117" />
+    <node operator="Array2" id="12" position="1028:243" size="140:141" />
+    <node operator="Second" id="14" position="1192:311" size="140:117" />
+    <node operator="First" id="15" position="1461:676" size="140:117" />
+    <node operator="Parameter: Single" id="31" name="name" min_value="0" max_value="10000" default_value="0.001" system_units_value="false" position="2040:800" size="140:213" />
+    <node operator="All" id="29" position="342:752" size="140:141" />
+    <node operator="Equal" id="3" position="140:780" size="140:141" />
+    <node operator="MinusOne" id="4" position="1240:440" size="140:117" />
+    <node groupnode="Exit if we don&amp;apos;t have any material id&amp;apos;s set" id="21" position="-100:700" size="838:260" bg_color="#ff646464">
+      <nodes>29,5,6,7</nodes>
+    </node>
+    <node groupnode="Get Per Face Vertices for the given MatIds" id="20" position="860:67" size="1105:735" bg_color="#ff646464">
+      <comment>This is where we get the vertices for the faces with the given Material ID</comment>
+      <nodes>35,12,14,15,4,11,8,13,16,10,17,18</nodes>
+    </node>
+    <node groupnode="Filter Matrices based on Material ID" id="38" position="2007:258" size="874:524" bg_color="#ff646464">
+      <comment>We use a bounding box to determine if the matrix is on a given face.</comment>
+      <nodes>28,25,27,26,0,24,23</nodes>
+    </node>
+    <node groupnode="Mesh and materials" id="22" position="51:471" size="398:155" bg_color="#ff646464">
+      <nodes>1,2</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="29" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="12" sourceport="1" destnode="11" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="16" sourceport="1" destnode="13" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="35" sourceport="1" destnode="18" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="24" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="23" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="28" sourceport="1" destnode="25" destport="1" />
+    <connection sourcenode="24" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="26" destport="1" />
+    <connection sourcenode="25" sourceport="0" destnode="26" destport="2" />
+    <connection sourcenode="26" sourceport="0" destnode="32" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="35" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="35" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="27" sourceport="0" destnode="28" destport="1" />
+    <connection sourcenode="31" sourceport="0" destnode="28" destport="2" />
+    <connection sourcenode="2" sourceport="0" destnode="29" destport="0" />
+    <connection sourcenode="3" sourceport="1" destnode="29" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="4" destport="0" />
+  </connections>
+</graph>

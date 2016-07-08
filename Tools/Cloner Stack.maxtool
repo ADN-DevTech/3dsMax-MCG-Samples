@@ -1,72 +1,73 @@
-<graph version="0.50" uuid="6f237c24-8a38-4ad4-b0ae-16f83d46bdcd">
-    <meta_info>
-        <graph_version guid="8dd87b32-a5a0-4be5-a31e-1147475b97f3" number="0.0.6" />
-    </meta_info>
-    <nodes>
-        <node operator="MatricesFromMapChannel.ext" id="4" position="1129:569" size="200:133" />
-        <node operator="Modifier: TriMesh" id="9" position="938:496" size="140:91" />
-        <node operator="Parameter: Int32" id="12" name="flux channel" min_value="-2" max_value="100" default_value="2" position="929:589" size="140:175" />
-        <node operator="MatrixPositions.ext" id="1" position="669:29" size="140:112" />
-        <node operator="BoxFromPoints" id="2" position="870:71" size="140:112" />
-        <node operator="Filter" id="0" position="1058:106" size="140:133" />
-        <node operator="MatrixNearBoxTop.ext" id="13" position="1013:242" size="140:154" />
-        <node operator="Parameter: Single" id="14" name="maxDistanceFromTop" min_value="0" max_value="10000" default_value="0.1" system_units_value="false" position="739:190" size="140:196" />
-        <node operator="Parameter: Single" id="6" name="height" min_value="-10000" max_value="100000" default_value="10" system_units_value="false" position="1369:9" size="140:196" />
-        <node operator="Parameter: Int32" id="7" name="levels" min_value="0" max_value="100" default_value="1" position="1369:249" size="140:175" />
-        <node operator="GenerateN" id="8" position="1629:209" size="140:154" />
-        <node operator="AlongZAxis" id="10" position="1509:49" size="140:112" />
-        <node operator="TranslateMatrices.ext" id="11" position="1671:70" size="140:133" />
-        <node operator="Flatten" id="15" position="1829:269" size="140:112" />
-        <node operator="StoreMatricesInMapChannel.ext" id="16" position="1489:549" size="200:154" />
-        <node operator="Output: modifier" id="18" position="2380:640" size="140:70" />
-        <node operator="ClonerMeshAsBoxes.ext" id="20" position="2189:569" size="140:175" />
-        <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="1929:569" size="140:196" />
-        <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1935:785" size="140:133" />
-        <node operator="Parameter: Single" id="23" name="height offset" min_value="-100000" max_value="1000000" default_value="0" system_units_value="true" position="580:580" size="140:196" />
-        <node operator="Modifier: BoundingBox" id="25" position="580:480" size="140:91" />
-        <node operator="TranslateMatrices.ext" id="26" position="1221:159" size="140:133" />
-        <node operator="AlongZAxis" id="27" position="770:461" size="140:112" />
-        <node groupnode="Create mesh" id="24" position="1920:540" size="418:395" bg_color="#ff646464">
-            <nodes>22,21,20</nodes>
-        </node>
-        <node groupnode="Store meshes in channel" id="19" position="1480:520" size="409:203" bg_color="#ff646464">
-            <nodes>16</nodes>
-        </node>
-        <node groupnode="Create multiple levels of matrices" id="17" position="1360:-20" size="618:467" bg_color="#ff646464">
-            <nodes>10,11,8,15,6,7</nodes>
-        </node>
-        <node groupnode="Keep matrices close to top of box" id="3" position="660:0" size="710:416" bg_color="#ff646464">
-            <nodes>2,0,13,14,1,26</nodes>
-        </node>
-        <node groupnode="Get initial matrices" id="5" position="920:460" size="427:327" bg_color="#ff646464">
-            <nodes>9,12,4</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="13" sourceport="1" destnode="0" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="13" destport="2" />
-        <connection sourcenode="26" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="8" destport="1" />
-        <connection sourcenode="11" sourceport="1" destnode="8" destport="2" />
-        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
-        <connection sourcenode="8" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="16" destport="2" />
-        <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="20" destport="2" />
-        <connection sourcenode="21" sourceport="0" destnode="20" destport="3" />
-        <connection sourcenode="0" sourceport="0" destnode="26" destport="0" />
-        <connection sourcenode="27" sourceport="0" destnode="26" destport="1" />
-        <connection sourcenode="23" sourceport="0" destnode="27" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="1fab38eb-06d6-44f5-8e5c-56b572060556">
+  <meta_info>
+    <graph_version guid="8dd87b32-a5a0-4be5-a31e-1147475b97f3" number="0.0.6" />
+  </meta_info>
+  <nodes>
+    <node operator="MatricesFromMapChannel-ext" id="4" position="1129:569" size="200:133" />
+    <node operator="Modifier: TriMesh" id="9" position="938:496" size="140:91" />
+    <node operator="Parameter: Int32" id="12" name="flux channel" min_value="-2" max_value="100" default_value="2" position="929:589" size="140:175" />
+    <node operator="MatrixPositions-ext" id="1" position="669:29" size="140:112" />
+    <node operator="BoxFromPoints" id="2" position="870:71" size="140:112" />
+    <node operator="Filter" id="0" position="1058:106" size="140:133" />
+    <node operator="MatrixNearBoxTop-ext" id="13" position="1013:242" size="140:154" />
+    <node operator="Parameter: Single" id="14" name="maxDistanceFromTop" min_value="0" max_value="10000" default_value="0.1" system_units_value="false" position="739:190" size="140:196" />
+    <node operator="Parameter: Single" id="6" name="height" min_value="-10000" max_value="100000" default_value="10" system_units_value="false" position="1369:9" size="140:196" />
+    <node operator="Parameter: Int32" id="7" name="levels" min_value="0" max_value="100" default_value="1" position="1369:249" size="140:175" />
+    <node operator="GenerateN" id="8" position="1629:209" size="140:154" />
+    <node operator="AlongZAxis" id="10" position="1509:49" size="140:112" />
+    <node operator="MatricesTranslate-ext" id="11" position="1671:70" size="140:133" />
+    <node operator="Flatten" id="15" position="1829:269" size="140:112" />
+    <node operator="MapChannelStoreMatrices-ext" id="16" position="1489:549" size="200:154" />
+    <node operator="Output: modifier" id="18" position="2380:640" size="140:70" />
+    <node operator="ClonerMeshAsBoxes-ext" id="20" position="2189:569" size="140:175" />
+    <node operator="Parameter: Single" id="21" name="box radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="1929:569" size="140:196" />
+    <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1935:785" size="140:133" />
+    <node operator="Parameter: Single" id="23" name="height offset" min_value="-100000" max_value="1000000" default_value="0" system_units_value="true" position="580:580" size="140:196" />
+    <node operator="Modifier: BoundingBox" id="25" position="580:480" size="140:91" />
+    <node operator="MatricesTranslate-ext" id="26" position="1221:159" size="140:133" />
+    <node operator="AlongZAxis" id="27" position="770:461" size="140:112" />
+    <node groupnode="Create mesh" id="24" position="1920:540" size="418:395" bg_color="#ff646464">
+      <nodes>22,21,20</nodes>
+    </node>
+    <node groupnode="Store meshes in channel" id="19" position="1480:520" size="409:203" bg_color="#ff646464">
+      <nodes>16</nodes>
+    </node>
+    <node groupnode="Create multiple levels of matrices" id="17" position="1360:-20" size="618:467" bg_color="#ff646464">
+      <nodes>10,11,8,15,6,7</nodes>
+    </node>
+    <node groupnode="Keep matrices close to top of box" id="3" position="660:0" size="710:416" bg_color="#ff646464">
+      <nodes>2,0,13,14,1,26</nodes>
+    </node>
+    <node groupnode="Get initial matrices" id="5" position="920:460" size="427:327" bg_color="#ff646464">
+      <nodes>9,12,4</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="13" sourceport="1" destnode="0" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="2" />
+    <connection sourcenode="26" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="11" sourceport="1" destnode="8" destport="2" />
+    <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="2" />
+    <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="20" destport="2" />
+    <connection sourcenode="21" sourceport="0" destnode="20" destport="3" />
+    <connection sourcenode="0" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="27" sourceport="0" destnode="26" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="27" destport="0" />
+  </connections>
 </graph>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2dfb74fa-61d0-4cba-90c9-f07d57095252">
+  <meta_info>
+    <graph_version guid="f6b1244c-045f-45f4-b3b6-5f0c85ee824e" number="0.0.7" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="0" name="channel" min_value="0" max_value="100" default_value="99" position="260:120" size="140:189" />
+    <node operator="Modifier: TriMesh" id="1" position="260:0" size="140:93" />
+    <node operator="MeshVertices" id="2" position="480:60" size="140:117" />
+    <node operator="Lerp" id="4" position="860:640" size="140:165" />
+    <node operator="Combine3" id="5" position="1020:280" size="140:189" />
+    <node operator="SoftSelectionOrDefault-ext" id="6" position="740:400" size="200:165" />
+    <node operator="Parameter: Boolean" id="7" name="soft selection" default_value="false" position="480:580" size="140:141" />
+    <node operator="FloatOne" id="8" position="480:740" size="140:93" />
+    <node operator="PerVertexData" id="9" position="480:200" size="140:141" />
+    <node operator="Output: modifier" id="13" position="1460:320" size="140:69" />
+    <node operator="SetMeshVertices" id="14" position="1240:280" size="140:141" />
+    <node operator="VectorSetComponent-ext" id="16" position="480:360" size="180:165" />
+    <node operator="Parameter: Int32" id="17" name="component" min_value="0" max_value="2" default_value="2" position="260:320" size="140:189" />
+    <node operator="Combine" id="3" position="740:220" size="140:165" />
+    <node operator="Multiply" id="10" position="260:540" size="140:141" />
+    <node operator="Parameter: Single" id="11" name="multiplier" min_value="0" max_value="100" default_value="1" system_units_value="false" position="0:440" size="180:213" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="2" />
+    <connection sourcenode="4" sourceport="1" destnode="5" destport="3" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="16" destport="2" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="16" sourceport="1" destnode="3" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
+  </connections>
+</graph>

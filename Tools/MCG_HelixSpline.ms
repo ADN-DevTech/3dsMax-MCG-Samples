@@ -1,6 +1,6 @@
 plugin simpleSpline MCG_HelixSpline
 	name:"MCG_HelixSpline"
-	classID:#(0x6B3A1788, 0x406C54E5)
+	classID:#(0x76867B28, 0x4319836A)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

@@ -1,60 +1,61 @@
-<graph version="0.50" uuid="5530d10b-d8ab-4e1f-abb3-704d8f98813b">
-    <meta_info>
-        <graph_version guid="164d4626-ec5a-4569-b546-4594796d2711" number="0.0.3" />
-        <category>Bullet Physics</category>
-        <description>Creates a dynamic rigid body at the specified location with default physics settings and the specified mass. The mesh must be a convex hull. </description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: TriMesh" id="0" name="mesh" position="0:160" size="140:117" />
-        <node operator="Input: Matrix" id="1" name="worldTM" position="0:20" size="140:117" />
-        <node operator="AverageVector" id="28" position="598:108" size="140:117" />
-        <node operator="Origin" id="110" position="1240:300" size="140:93" />
-        <node operator="CreateRigidBody" id="107" position="1660:360" size="140:237" />
-        <node operator="False" id="122" position="1240:680" size="140:93" />
-        <node operator="TranslationMatrix" id="40" position="774:81" size="140:117" />
-        <node operator="MeshVertices" id="27" position="438:88" size="140:117" />
-        <node operator="Multiply" id="42" position="1004:52" size="140:141" />
-        <node operator="OffsetMesh" id="37" position="1009:199" size="140:141" />
-        <node operator="Pass-through: Matrix" id="106" position="1337:114" size="140:117" />
-        <node operator="Negate" id="46" position="809:239" size="140:117" />
-        <node operator="CreateRigidBodyDynamics" id="111" position="1240:420" size="140:237" />
-        <node operator="FloatZero" id="112" position="1020:480" size="140:93" />
-        <node operator="Input: Single" id="2" name="mass" position="740:400" size="140:117" />
-        <node operator="Pass-through: TriMesh" id="3" position="232:188" size="140:117" />
-        <node operator="Output: compound" id="5" position="1880:440" size="140:69" />
-        <node groupnode="Center of mass compensated transform" id="60" position="1240:80" size="345:163" bg_color="#ff646464">
-            <nodes>106</nodes>
-        </node>
-        <node groupnode="Mesh center of mass" id="33" position="429:59" size="318:175" bg_color="#ff646464">
-            <nodes>28,27</nodes>
-        </node>
-        <node groupnode="Compensate for the center of mass in case the pivot is not centered." id="4" position="220:0" size="938:367" bg_color="#ff646464">
-            <nodes>33,40,42,37,46,3</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="27" sourceport="0" destnode="28" destport="0" />
-        <connection sourcenode="106" sourceport="0" destnode="107" destport="0" />
-        <connection sourcenode="110" sourceport="0" destnode="107" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="107" destport="2" />
-        <connection sourcenode="111" sourceport="0" destnode="107" destport="3" />
-        <connection sourcenode="110" sourceport="0" destnode="107" destport="4" />
-        <connection sourcenode="122" sourceport="0" destnode="107" destport="5" />
-        <connection sourcenode="28" sourceport="0" destnode="40" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="27" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="42" destport="0" />
-        <connection sourcenode="40" sourceport="0" destnode="42" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="37" destport="0" />
-        <connection sourcenode="46" sourceport="0" destnode="37" destport="1" />
-        <connection sourcenode="42" sourceport="0" destnode="106" destport="0" />
-        <connection sourcenode="28" sourceport="0" destnode="46" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="111" destport="0" />
-        <connection sourcenode="112" sourceport="0" destnode="111" destport="1" />
-        <connection sourcenode="112" sourceport="0" destnode="111" destport="2" />
-        <connection sourcenode="112" sourceport="0" destnode="111" destport="3" />
-        <connection sourcenode="112" sourceport="0" destnode="111" destport="4" />
-        <connection sourcenode="112" sourceport="0" destnode="111" destport="5" />
-        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="107" sourceport="0" destnode="5" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="57d0caeb-7f69-4634-8deb-862ad595e5a1">
+  <meta_info>
+    <graph_version guid="164d4626-ec5a-4569-b546-4594796d2711" number="0.0.3" />
+    <category>Bullet Physics</category>
+    <description>Creates a dynamic rigid body at the specified location with default physics settings and the specified mass. The mesh must be a convex hull. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="0:160" size="140:117" />
+    <node operator="Input: Matrix" id="1" name="worldTM" position="0:20" size="140:117" />
+    <node operator="AverageVector" id="28" position="598:108" size="140:117" />
+    <node operator="Origin" id="110" position="1240:300" size="140:93" />
+    <node operator="CreateRigidBody" id="107" position="1660:360" size="140:237" />
+    <node operator="False" id="122" position="1240:680" size="140:93" />
+    <node operator="TranslationMatrix" id="40" position="774:81" size="140:117" />
+    <node operator="MeshVertices" id="27" position="438:88" size="140:117" />
+    <node operator="Multiply" id="42" position="1004:52" size="140:141" />
+    <node operator="OffsetMesh" id="37" position="1009:199" size="140:141" />
+    <node operator="Pass-through: Matrix" id="106" position="1337:114" size="140:117" />
+    <node operator="Negate" id="46" position="809:239" size="140:117" />
+    <node operator="CreateRigidBodyDynamics" id="111" position="1240:420" size="140:237" />
+    <node operator="FloatZero" id="112" position="1020:480" size="140:93" />
+    <node operator="Input: Single" id="2" name="mass" position="740:400" size="140:117" />
+    <node operator="Pass-through: TriMesh" id="3" position="232:188" size="140:117" />
+    <node operator="Output: compound" id="5" position="1880:440" size="140:69" />
+    <node groupnode="Center of mass compensated transform" id="60" position="1240:80" size="345:163" bg_color="#ff646464">
+      <nodes>106</nodes>
+    </node>
+    <node groupnode="Mesh center of mass" id="33" position="429:59" size="318:175" bg_color="#ff646464">
+      <nodes>28,27</nodes>
+    </node>
+    <node groupnode="Compensate for the center of mass in case the pivot is not centered." id="4" position="220:0" size="938:367" bg_color="#ff646464">
+      <nodes>33,40,42,37,46,3</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="27" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="106" sourceport="0" destnode="107" destport="0" />
+    <connection sourcenode="110" sourceport="0" destnode="107" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="107" destport="2" />
+    <connection sourcenode="111" sourceport="0" destnode="107" destport="3" />
+    <connection sourcenode="110" sourceport="0" destnode="107" destport="4" />
+    <connection sourcenode="122" sourceport="0" destnode="107" destport="5" />
+    <connection sourcenode="28" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="42" destport="0" />
+    <connection sourcenode="40" sourceport="0" destnode="42" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="46" sourceport="0" destnode="37" destport="1" />
+    <connection sourcenode="42" sourceport="0" destnode="106" destport="0" />
+    <connection sourcenode="28" sourceport="0" destnode="46" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="111" destport="0" />
+    <connection sourcenode="112" sourceport="0" destnode="111" destport="1" />
+    <connection sourcenode="112" sourceport="0" destnode="111" destport="2" />
+    <connection sourcenode="112" sourceport="0" destnode="111" destport="3" />
+    <connection sourcenode="112" sourceport="0" destnode="111" destport="4" />
+    <connection sourcenode="112" sourceport="0" destnode="111" destport="5" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="107" sourceport="0" destnode="5" destport="0" />
+  </connections>
 </graph>

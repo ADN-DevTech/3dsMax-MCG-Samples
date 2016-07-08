@@ -1,61 +1,48 @@
-<graph version="0.50" uuid="ee8c36e3-4f9c-4f38-9f0d-e2cc1892a1f9">
-    <meta_info>
-        <graph_version guid="851b2850-925c-452c-be4c-bafe53815c2c" number="0.0.6" />
-    </meta_info>
-    <nodes>
-        <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="820:49" size="140:175" />
-        <node operator="StoreMatricesInMapChannel.ext" id="0" position="1073:52" size="220:154" />
-        <node operator="Modifier: TriMesh" id="21" position="100:-120" size="140:91" />
-        <node operator="ClonerMeshAsBoxes.ext" id="1" position="2050:69" size="140:175" />
-        <node operator="Parameter: Single" id="20" name="box radius" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="1789:69" size="140:196" />
-        <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="1795:285" size="140:133" />
-        <node operator="Output: modifier" id="6" position="2240:20" size="160:70" />
-        <node operator="MeshVertices" id="9" position="155:212" size="140:112" />
-        <node operator="CombinePairwiseElements.ext" id="11" position="379:287" size="200:133" />
-        <node operator="Flatten" id="13" position="609:338" size="140:112" />
-        <node operator="LineMatrices.ext" id="10" position="169:338" size="140:112" />
-        <node operator="Line" id="23" position="-11:298" size="140:133" />
-        <node operator="AppendFirstIf.ext" id="4" position="392:102" size="140:133" />
-        <node operator="Parameter: Boolean" id="5" name="closed shape" default_value="false" position="20:69" size="140:133" />
-        <node operator="ClonerSpacing.ext" id="7" position="1629:150" size="140:238" />
-        <node operator="Parameter: Boolean" id="12" name="apply spacing" default_value="false" position="1389:-30" size="140:133" />
-        <node operator="Parameter: Single" id="14" name="max distance" min_value="0" max_value="100000" default_value="5" system_units_value="false" position="1449:250" size="140:196" />
-        <node operator="Parameter: Boolean" id="15" name="scale when spacing" default_value="false" position="1389:110" size="140:133" />
-        <node groupnode="Apply spacing" id="16" position="1380:-80" size="398:535" bg_color="#ff646464">
-            <nodes>7,14,12,15</nodes>
-        </node>
-        <node groupnode="Store matrices in map channel" id="8" position="800:20" size="536:227" bg_color="#ff646464">
-            <nodes>2,0</nodes>
-        </node>
-        <node groupnode="Compute pairs of matrices " id="3" position="-20:40" size="778:425" bg_color="#ff646464">
-            <nodes>11,9,13,10,23,4,5</nodes>
-        </node>
-        <node groupnode="Create mesh" id="24" position="1780:40" size="419:395" bg_color="#ff646464">
-            <nodes>1,20,22</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="21" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
-        <connection sourcenode="13" sourceport="0" destnode="0" destport="2" />
-        <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="1" destport="2" />
-        <connection sourcenode="20" sourceport="0" destnode="1" destport="3" />
-        <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="10" sourceport="1" destnode="11" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
-        <connection sourcenode="23" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="12" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="7" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="7" destport="3" />
-        <connection sourcenode="2" sourceport="0" destnode="7" destport="4" />
-        <connection sourcenode="15" sourceport="0" destnode="7" destport="5" />
-        <connection sourcenode="14" sourceport="0" destnode="7" destport="6" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="6899c360-84bf-4ef5-8fa6-0c74c7379f14">
+  <meta_info>
+    <graph_version guid="6ae298f0-1dde-497d-bd18-dbc8867d748a" number="0.0.4" />
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="880:69" size="140:189" />
+    <node operator="MapChannelStoreMatrices-ext" id="0" position="1133:72" size="220:165" />
+    <node operator="Modifier: TriMesh" id="21" position="100:-120" size="140:93" />
+    <node operator="FluxMeshAsBoxes" id="1" position="1169:329" size="140:189" />
+    <node operator="Parameter: Single" id="20" name="box radius" min_value="0" max_value="100" default_value="1" system_units_value="false" position="909:329" size="140:213" />
+    <node operator="Parameter: Boolean" id="22" name="create mesh" default_value="true" position="915:545" size="140:141" />
+    <node operator="Output: modifier" id="6" position="1420:420" size="140:69" />
+    <node operator="MeshVertices" id="9" position="155:212" size="140:117" />
+    <node operator="CombinePairwiseElements-ext" id="11" position="379:287" size="200:141" />
+    <node operator="Flatten" id="13" position="609:338" size="140:117" />
+    <node operator="LineMatrices-ext" id="10" position="169:338" size="140:117" />
+    <node operator="Line" id="23" position="-11:298" size="140:141" />
+    <node operator="AppendFirstIf-ext" id="4" position="392:102" size="140:141" />
+    <node operator="Parameter: Boolean" id="5" name="closed shape" default_value="false" position="20:69" size="140:141" />
+    <node groupnode="Create mesh" id="24" position="900:300" size="418:395" bg_color="#ff646464">
+      <nodes>22,1,20</nodes>
+    </node>
+    <node groupnode="Store matrices in map channel" id="8" position="860:40" size="536:227" bg_color="#ff646464">
+      <nodes>2,0</nodes>
+    </node>
+    <node groupnode="Compute pairs of matrices " id="3" position="-20:40" size="778:425" bg_color="#ff646464">
+      <nodes>5,4,9,11,13,10,23</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="21" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="20" sourceport="0" destnode="1" destport="3" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="10" sourceport="1" destnode="11" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="4" destport="1" />
+  </connections>
 </graph>

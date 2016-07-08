@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="7dbc64da-f237-4bf2-95a0-91aea0b655b9">
+  <meta_info>
+    <graph_version guid="43c3e3b9-b429-433c-9ed0-01b34a3240e6" number="0.0.21" />
+    <category>MCG - Flux</category>
+  </meta_info>
+  <nodes>
+    <node operator="Parameter: Int32" id="2" name="flux channel" min_value="-2" max_value="100" default_value="2" position="1610:-247" size="140:189" />
+    <node operator="Parameter: Boolean" id="15" name="position only" default_value="false" position="729:-10" size="140:141" />
+    <node operator="MapChannelStoreMatrices-ext" id="0" position="1795:-286" size="220:165" />
+    <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="100" default_value="2" position="897:-6" size="140:189" />
+    <node operator="Parameter: INode" id="13" name="source" position="449:-202" size="140:117" />
+    <node operator="Map" id="19" position="1752:12" size="140:141" />
+    <node operator="MatrixFromRay-ext" id="16" position="1122:7" size="140:165" />
+    <node operator="MeshVertexNormalsAsRays-ext" id="5" position="970:-231" size="220:117" />
+    <node operator="Output: geometry" id="6" position="2060:-80" size="140:69" />
+    <node operator="SplineToTriMesh" id="9" position="676:-337" size="140:117" />
+    <node operator="SplineFromNode" id="1" position="450:-322" size="140:117" />
+    <node operator="MeshInLocalSpace" id="10" position="860:-500" size="140:141" />
+    <node operator="Geometry: Matrix" id="11" position="400:-560" size="140:93" />
+    <node operator="InvertMatrix" id="14" position="520:-500" size="140:117" />
+    <node operator="ObjectTransformBeforeWSM" id="18" position="380:-440" size="140:117" />
+    <node operator="Multiply" id="20" position="680:-500" size="140:141" />
+    <node operator="SplineKnotsDirections" id="21" position="1100:-480" size="140:141" />
+    <node groupnode="Transform array of rays to matrices" id="7" position="1640:-20" size="366:182" bg_color="#ff646464">
+      <nodes>19</nodes>
+    </node>
+    <node groupnode="Store matrices in map channel" id="8" position="1600:-380" size="441:331" bg_color="#ff646464">
+      <nodes>0,2</nodes>
+    </node>
+    <node groupnode="Get current or picked mesh" id="17" position="431:-366" size="448:290" bg_color="#ff646464">
+      <nodes>13,1,9</nodes>
+    </node>
+    <node groupnode="Function: convert a ray to a matrix" id="3" position="720:-60" size="576:263" bg_color="#ff646464">
+      <nodes>15,4,16</nodes>
+    </node>
+    <node groupnode="Get rays from vertices" id="12" position="940:-260" size="283:173" bg_color="#ff646464">
+      <nodes>5</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="10" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="16" sourceport="1" destnode="19" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="21" destport="1" />
+  </connections>
+</graph>

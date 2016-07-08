@@ -1,6 +1,6 @@
 plugin simpleObject ATetra
 	name:"ATetra"
-	classID:#(0x6540B499, 0x77D928C8)
+	classID:#(0x1E59DBAE, 0xA54D0E5)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

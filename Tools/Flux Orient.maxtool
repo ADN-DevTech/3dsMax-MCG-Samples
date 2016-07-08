@@ -1,52 +1,53 @@
-<graph version="0.50" uuid="c819e231-4bf6-4ff7-8002-3742f1e97e8e">
-    <meta_info>
-        <graph_version guid="cd260e4b-81a8-4a1e-abf2-5d5b7da000bc" number="0.0.110" />
-    </meta_info>
-    <nodes>
-        <node operator="Modifier: Matrix" id="10" position="-159:334" size="140:93" />
-        <node operator="Parameter: INode" id="4" name="target" position="-154:189" size="140:117" />
-        <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="529:590" size="140:213" />
-        <node operator="ClonerTransformMatrices.ext" id="7" position="757:289" size="200:213" />
-        <node operator="Output: modifier" id="15" position="1040:400" size="140:69" />
-        <node operator="Modifier: TriMesh" id="8" position="529:349" size="140:93" />
-        <node operator="Parameter: Boolean" id="11" name="combine effect" default_value="false" position="529:449" size="140:141" />
-        <node operator="Parameter: Int32" id="13" name="flux channel" min_value="-2" max_value="100" default_value="2" position="529:149" size="140:189" />
-        <node operator="MatrixLookat.ext" id="1" position="318:231" size="140:213" />
-        <node operator="NodePositionInLocalSpaceOrOrigin.ext" id="2" position="49:240" size="200:141" />
-        <node operator="Parameter: Int32" id="9" name="rotation axis 1" min_value="-3" max_value="2" default_value="2" position="-111:609" size="140:189" />
-        <node operator="Parameter: Int32" id="12" name="rotation axis 2" min_value="-3" max_value="2" default_value="1" position="59:617" size="140:189" />
-        <node operator="Parameter: Int32" id="14" name="directioni" min_value="-3" max_value="2" default_value="0" position="252:627" size="140:189" />
-        <node operator="ChooseAxis.ext" id="16" position="249:509" size="140:117" />
-        <node operator="ChooseAxis.ext" id="17" position="69:509" size="140:117" />
-        <node operator="ChooseAxis.ext" id="18" position="-91:509" size="140:117" />
-        <node groupnode="Axii" id="19" position="-120:480" size="521:347" bg_color="#ff646464">
-            <nodes>16,12,14,9,18,17</nodes>
-        </node>
-        <node groupnode="Flux parameters" id="0" position="520:120" size="158:703" bg_color="#ff646464">
-            <nodes>6,8,11,13</nodes>
-        </node>
-        <node groupnode="Apply function to matrices" id="3" position="720:260" size="269:261" bg_color="#ff646464">
-            <nodes>7</nodes>
-        </node>
-        <node groupnode="Function: look at target (rotate around Z axis then Y axis" id="5" position="-180:160" size="647:293" bg_color="#ff646464">
-            <nodes>4,10,2,1</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="13" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
-        <connection sourcenode="1" sourceport="1" destnode="7" destport="2" />
-        <connection sourcenode="11" sourceport="0" destnode="7" destport="3" />
-        <connection sourcenode="6" sourceport="0" destnode="7" destport="4" />
-        <connection sourcenode="7" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="1" destport="2" />
-        <connection sourcenode="17" sourceport="0" destnode="1" destport="3" />
-        <connection sourcenode="16" sourceport="0" destnode="1" destport="4" />
-        <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="2" destport="1" />
-        <connection sourcenode="14" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="17" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="18" destport="0" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="8dc7f467-7332-416e-bd28-210b6a419f69">
+  <meta_info>
+    <graph_version guid="cd260e4b-81a8-4a1e-abf2-5d5b7da000bc" number="0.0.110" />
+  </meta_info>
+  <nodes>
+    <node operator="Modifier: Matrix" id="10" position="-159:334" size="140:93" />
+    <node operator="Parameter: INode" id="4" name="target" position="-154:189" size="140:117" />
+    <node operator="Parameter: Single" id="6" name="strength" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="529:590" size="140:213" />
+    <node operator="FluxTransformMatrices" id="7" position="757:289" size="200:213" />
+    <node operator="Output: modifier" id="15" position="1040:400" size="140:69" />
+    <node operator="Modifier: TriMesh" id="8" position="529:349" size="140:93" />
+    <node operator="Parameter: Boolean" id="11" name="combine effect" default_value="false" position="529:449" size="140:141" />
+    <node operator="Parameter: Int32" id="13" name="flux channel" min_value="-2" max_value="100" default_value="2" position="529:149" size="140:189" />
+    <node operator="MatrixLookat-ext" id="1" position="318:231" size="140:213" />
+    <node operator="NodePositionInLocalSpaceOrOrigin-ext" id="2" position="49:240" size="200:141" />
+    <node operator="Parameter: Int32" id="9" name="rotation axis 1" min_value="-3" max_value="2" default_value="2" position="-111:609" size="140:189" />
+    <node operator="Parameter: Int32" id="12" name="rotation axis 2" min_value="-3" max_value="2" default_value="1" position="59:617" size="140:189" />
+    <node operator="Parameter: Int32" id="14" name="directioni" min_value="-3" max_value="2" default_value="0" position="252:627" size="140:189" />
+    <node operator="AxisChoose-ext" id="16" position="249:509" size="140:117" />
+    <node operator="AxisChoose-ext" id="17" position="69:509" size="140:117" />
+    <node operator="AxisChoose-ext" id="18" position="-91:509" size="140:117" />
+    <node groupnode="Axii" id="19" position="-120:480" size="521:347" bg_color="#ff646464">
+      <nodes>16,12,14,9,18,17</nodes>
+    </node>
+    <node groupnode="Flux parameters" id="0" position="520:120" size="158:703" bg_color="#ff646464">
+      <nodes>6,8,11,13</nodes>
+    </node>
+    <node groupnode="Apply function to matrices" id="3" position="720:260" size="269:261" bg_color="#ff646464">
+      <nodes>7</nodes>
+    </node>
+    <node groupnode="Function: look at target (rotate around Z axis then Y axis" id="5" position="-180:160" size="647:293" bg_color="#ff646464">
+      <nodes>4,10,2,1</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="13" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="1" sourceport="1" destnode="7" destport="2" />
+    <connection sourcenode="11" sourceport="0" destnode="7" destport="3" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="4" />
+    <connection sourcenode="7" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="17" sourceport="0" destnode="1" destport="3" />
+    <connection sourcenode="16" sourceport="0" destnode="1" destport="4" />
+    <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="18" destport="0" />
+  </connections>
 </graph>

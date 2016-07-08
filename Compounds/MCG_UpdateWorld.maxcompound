@@ -1,40 +1,42 @@
-<graph version="0.50" uuid="36f5140e-0650-4f02-8baa-a90700c1a44a">
-    <meta_info>
-        <graph_version guid="0ed7e277-62dd-4e58-ba91-0d2b6abdb6f8" number="0.0.9" />
-        <company>Autodesk</company>
-        <category>Bullet Physics</category>
-        <description>Update Bullet World function.&#x0A;Updates on Time.&#x0A;Connect the Function output of this node to the Update input of Create World Controller.</description>
-    </meta_info>
-    <nodes>
-        <node operator="Output: compound" id="0" position="1749:909" size="180:69" />
-        <node operator="Pass-through: World" id="2" position="914:843" size="140:117" />
-        <node operator="StepSimulation" id="23" position="1536:868" size="140:141" />
-        <node operator="GetSimulationTime" id="25" position="1099:931" size="160:117" />
-        <node operator="Subtract" id="27" position="1355:964" size="140:141" />
-        <node operator="Input: World" id="1" name="World" position="649:823" size="140:117" />
-        <node operator="Input: Int32" id="3" name="Time" position="649:983" size="140:117" />
-        <node groupnode="Inputs" id="4" position="640:760" size="158:349" bg_color="#ffcd5c5c">
-            <comment>World &amp; Time</comment>
-            <nodes>1,3</nodes>
-        </node>
-        <node groupnode="Output World" id="5" position="1740:880" size="198:107" bg_color="#ff646464">
-            <nodes>0</nodes>
-        </node>
-        <node groupnode="Step sim forward on Update Cache" id="37" position="900:780" size="785:346" bg_color="#ff646464">
-            <comment>Update World function based on time.</comment>
-            <nodes>2,23,25,27</nodes>
-        </node>
-        <node groupnode="Update World function" id="6" position="1080:560" size="416:105" bg_color="#ff646464">
-            <comment>World update function based on time.&#x0A;Use the function output to the Update function input of Create World Controller </comment>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="23" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="23" destport="0" />
-        <connection sourcenode="27" sourceport="0" destnode="23" destport="1" />
-        <connection sourcenode="2" sourceport="0" destnode="25" destport="0" />
-        <connection sourcenode="3" sourceport="0" destnode="27" destport="0" />
-        <connection sourcenode="25" sourceport="0" destnode="27" destport="1" />
-    </connections>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="9b6f9be1-2d9c-4e50-b263-d51b9db9154d">
+  <meta_info>
+    <graph_version guid="0ed7e277-62dd-4e58-ba91-0d2b6abdb6f8" number="0.0.9" />
+    <company>Autodesk</company>
+    <category>Bullet Physics</category>
+    <description>Update Bullet World function. Updates on Time. Connect the Function output of this node to the Update input of Create World Controller.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Output: compound" id="0" position="1749:909" size="180:69" />
+    <node operator="Pass-through: World" id="2" position="914:843" size="140:117" />
+    <node operator="StepSimulation" id="23" position="1536:868" size="140:141" />
+    <node operator="GetSimulationTime" id="25" position="1099:931" size="160:117" />
+    <node operator="Subtract" id="27" position="1355:964" size="140:141" />
+    <node operator="Input: World" id="1" name="World" position="649:823" size="140:117" />
+    <node operator="Input: Int32" id="3" name="Time" position="649:983" size="140:117" />
+    <node groupnode="Inputs" id="4" position="640:760" size="158:349" bg_color="#ffcd5c5c">
+      <comment>World &amp; Time</comment>
+      <nodes>1,3</nodes>
+    </node>
+    <node groupnode="Output World" id="5" position="1740:880" size="198:107" bg_color="#ff646464">
+      <nodes>0</nodes>
+    </node>
+    <node groupnode="Step sim forward on Update Cache" id="37" position="900:780" size="785:346" bg_color="#ff646464">
+      <comment>Update World function based on time.</comment>
+      <nodes>2,23,25,27</nodes>
+    </node>
+    <node groupnode="Update World function" id="6" position="1080:560" size="416:105" bg_color="#ff646464">
+      <comment>World update function based on time.
+Use the function output to the Update function input of Create World Controller </comment>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="23" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="27" sourceport="0" destnode="23" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="27" destport="1" />
+  </connections>
 </graph>

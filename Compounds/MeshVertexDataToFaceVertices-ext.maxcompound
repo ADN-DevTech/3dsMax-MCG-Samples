@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="eaadf028-cb2d-45f6-87bb-1726dcbec782">
+  <meta_info>
+    <graph_version guid="5ad809c6-000b-490f-8019-a8105161789d" number="0.0.2" />
+    <category>Geometry - TriMesh</category>
+    <description>Given an array of data organized by vertices this rearranges the data in an array according to face vertex.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="160:180" size="140:117" />
+    <node operator="Input: array" id="1" name="data" position="160:320" size="140:117" />
+    <node operator="SelectByIndex" id="2" position="640:300" size="140:141" />
+    <node operator="MeshIndices" id="3" position="420:240" size="140:117" />
+    <node operator="Output: compound" id="4" position="860:380" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+  </connections>
+</graph>
