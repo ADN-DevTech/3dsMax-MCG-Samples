@@ -1,0 +1,148 @@
+<graph version="0.50" uuid="865447b6-5718-4452-85a8-66e26709ad65">
+    <meta_info>
+        <graph_version guid="d70d4db0-5fb7-4926-8841-72c1705536bf" number="0.0.6" />
+        <category>Noise</category>
+        <description>Improved Perlin noise. See http://mrl.nyu.edu/~perlin/noise/ and http://flafla2.github.io/2014/08/09/perlinnoise.html. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Single" id="10" name="z" position="-31:189" size="140:112" />
+        <node operator="Input: Single" id="9" name="y" position="-31:69" size="140:112" />
+        <node operator="Input: Single" id="8" name="x" position="-31:-51" size="140:112" />
+        <node operator="Floor" id="0" position="129:589" size="140:112" />
+        <node operator="Floor" id="1" position="130:714" size="140:112" />
+        <node operator="Floor" id="2" position="125:844" size="140:112" />
+        <node operator="Constant" id="15" value="255" position="-111:738" size="140:91" />
+        <node operator="And" id="16" position="317:616" size="140:133" />
+        <node operator="And" id="4" position="308:747" size="140:133" />
+        <node operator="And" id="6" position="306:888" size="140:133" />
+        <node operator="FloatFractionalPart-ext" id="3" position="609:-91" size="140:112" />
+        <node operator="FloatFractionalPart-ext" id="7" position="609:29" size="140:112" />
+        <node operator="FloatFractionalPart-ext" id="11" position="609:169" size="140:112" />
+        <node operator="NoisePerlinFade-ext" id="12" position="1098:-71" size="140:112" />
+        <node operator="NoisePerlinFade-ext" id="13" position="1109:60" size="140:112" />
+        <node operator="NoisePerlinFade-ext" id="14" position="1103:187" size="140:112" />
+        <node operator="At" id="17" position="938:539" size="140:133" />
+        <node operator="Add" id="21" position="1111:538" size="140:133" />
+        <node operator="PlusOne" id="23" position="768:1063" size="140:112" />
+        <node operator="At" id="24" position="938:1041" size="140:133" />
+        <node operator="Add" id="25" position="1103:1038" size="140:133" />
+        <node operator="At" id="27" position="1454:548" size="140:133" />
+        <node operator="At" id="28" position="1452:755" size="140:133" />
+        <node operator="Add" id="29" position="1628:559" size="140:133" />
+        <node operator="Add" id="30" position="1632:775" size="140:133" />
+        <node operator="At" id="33" position="1487:980" size="140:133" />
+        <node operator="Add" id="34" position="1628:975" size="140:133" />
+        <node operator="At" id="37" position="1476:1181" size="140:133" />
+        <node operator="Add" id="38" position="1624:1187" size="140:133" />
+        <node operator="Pass-through: array" id="39" position="509:409" size="140:112" />
+        <node operator="Pass-through: array" id="40" position="929:749" size="140:112" />
+        <node operator="PlusOne" id="41" position="1332:1198" size="140:112" />
+        <node operator="PlusOne" id="42" position="1333:987" size="140:112" />
+        <node operator="NoisePerlinBlendCorners-ext" id="19" position="2100:380" size="240:322" />
+        <node operator="Output: compound" id="20" position="2200:260" size="200:70" />
+        <node operator="NoisePerlinPermutationTable-ext" id="44" position="255:357" size="220:91" />
+        <node operator="FloatFractionalPart-ext" id="46" position="1749:-71" size="140:112" />
+        <node operator="FloatFractionalPart-ext" id="47" position="1749:49" size="140:112" />
+        <node operator="FloatFractionalPart-ext" id="48" position="1749:149" size="140:112" />
+        <node groupnode="xf, yf, zf" id="49" position="1740:-100" size="158:370" bg_color="#ff646464">
+            <nodes>47,48,46</nodes>
+        </node>
+        <node groupnode="x,y,z" id="81" position="-40:-80" size="158:393" bg_color="#ff646464">
+            <nodes>10,9,8</nodes>
+        </node>
+        <node groupnode="X, Y, Z" id="18" position="-120:560" size="589:470" bg_color="#ff646464">
+            <nodes>1,6,4,16,0,2,15</nodes>
+        </node>
+        <node groupnode="BB = P[B+1] + Z" id="35" position="1323:1152" size="463:192" bg_color="#ff646464">
+            <nodes>37,41,38</nodes>
+        </node>
+        <node groupnode="P (permutation array)" id="5" position="246:320" size="412:210" bg_color="#ff646464">
+            <nodes>39,44</nodes>
+        </node>
+        <node groupnode="AB = P[A+1] + Z" id="36" position="1324:946" size="453:181" bg_color="#ff646464">
+            <nodes>34,33,42</nodes>
+        </node>
+        <node groupnode="A = P[X] + Y" id="22" position="929:509" size="331:172" bg_color="#ff646464">
+            <nodes>21,17</nodes>
+        </node>
+        <node groupnode="xf, yf, zf" id="82" position="600:-120" size="158:410" bg_color="#ff646464">
+            <nodes>3,7,11</nodes>
+        </node>
+        <node groupnode="BA = P[B] + Z" id="32" position="1443:726" size="338:191" bg_color="#ff646464">
+            <nodes>30,28</nodes>
+        </node>
+        <node groupnode="U, V, W" id="45" position="1080:-100" size="183:420" bg_color="#ff646464">
+            <nodes>12,14,13</nodes>
+        </node>
+        <node groupnode="B = P[X+1] + Y" id="26" position="759:1009" size="493:191" bg_color="#ff646464">
+            <nodes>24,23,25</nodes>
+        </node>
+        <node groupnode="AA = P[A] + Z" id="31" position="1445:504" size="344:197" bg_color="#ff646464">
+            <nodes>29,27</nodes>
+        </node>
+        <node groupnode="" id="43" position="750:475" size="1059:882" bg_color="#ff646464">
+            <nodes>35,36,26,31,32,40,22</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="39" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="21" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="23" destport="0" />
+        <connection sourcenode="39" sourceport="0" destnode="24" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="24" destport="1" />
+        <connection sourcenode="24" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="39" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="27" destport="1" />
+        <connection sourcenode="39" sourceport="0" destnode="28" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="28" destport="1" />
+        <connection sourcenode="27" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="28" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="40" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="42" sourceport="0" destnode="33" destport="1" />
+        <connection sourcenode="33" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="34" destport="1" />
+        <connection sourcenode="40" sourceport="0" destnode="37" destport="0" />
+        <connection sourcenode="41" sourceport="0" destnode="37" destport="1" />
+        <connection sourcenode="37" sourceport="0" destnode="38" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="38" destport="1" />
+        <connection sourcenode="44" sourceport="0" destnode="39" destport="0" />
+        <connection sourcenode="39" sourceport="0" destnode="40" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="41" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="42" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="46" sourceport="0" destnode="19" destport="2" />
+        <connection sourcenode="47" sourceport="0" destnode="19" destport="3" />
+        <connection sourcenode="48" sourceport="0" destnode="19" destport="4" />
+        <connection sourcenode="30" sourceport="0" destnode="19" destport="5" />
+        <connection sourcenode="12" sourceport="0" destnode="19" destport="6" />
+        <connection sourcenode="34" sourceport="0" destnode="19" destport="7" />
+        <connection sourcenode="38" sourceport="0" destnode="19" destport="8" />
+        <connection sourcenode="13" sourceport="0" destnode="19" destport="9" />
+        <connection sourcenode="14" sourceport="0" destnode="19" destport="10" />
+        <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="46" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="47" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="48" destport="0" />
+    </connections>
+</graph>

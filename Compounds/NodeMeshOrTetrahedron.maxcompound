@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="bcf67aec-495f-47c4-a6e7-6a7013bee19d">
+  <meta_info>
+    <graph_version guid="92bbe664-56e0-4fe8-86bd-177993777f8b" number="1.0.0" />
+    <category>3ds Max Nodes</category>
+    <description>Returns a node's mesh if one is available, otherwise returns a tetrahedron mesh.</description>
+    <author>Autodesk 3ds Max</author>
+    <company>Autodesk Inc.</company>
+    <copyright>Copyright © 2015 Autodesk , Inc. All rights reserved</copyright>
+    <url>http://www.autodesk.com</url>
+  </meta_info>
+  <nodes>
+    <node operator="Tetrahedron" id="4" position="300:560" size="140:117" />
+    <node operator="Constant" id="7" value="15.0" position="120:560" size="140:93" />
+    <node operator="If" id="3" position="420:260" size="140:165" />
+    <node operator="CanGetMeshFromNode" id="2" position="220:260" size="140:117" />
+    <node operator="MeshFromNode" id="6" position="220:400" size="140:117" />
+    <node operator="Input: INode" id="0" name="node" position="40:300" size="140:117" />
+    <node operator="Output: compound" id="1" position="600:320" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="3" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+  </connections>
+</graph>

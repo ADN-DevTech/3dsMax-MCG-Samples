@@ -1,0 +1,510 @@
+(InstanceState state, TriMesh mesh, Boolean invert, Int32 selectionMethod, Boolean statistics) => 
+  {
+    IArray[Int32] _0MeshIndices;// 1:Edges-ext->1:MeshIndices 106063
+    IArray[Edge] _1Map;// 1:Edges-ext->2:Map 106062
+    IArray[Boolean] _2Map;// 0:SelectBorderEdges-ext->3:Map 106060
+    IArray[Boolean] _3EdgeSelection;// 8:SelectEdges-ext->5:EdgeSelection 106043
+    IArray[Boolean] _4Combine;// 8:SelectEdges-ext->10:Combine 106042
+    TriMesh _5SetEdgeSelection;// 8:SelectEdges-ext->2:SetEdgeSelection 106041
+    String _6Constant;// 4:ArrayStatisticsString-ext->0:Constant 106189
+    IArray[Int32] _7MeshIndices;// 8:Edges-ext->1:MeshIndices 106306
+    IArray[Edge] _8Map;// 8:Edges-ext->2:Map 106305
+    IArray[Int32] _9Map;// 9:Map 106303
+    Int32 _10Count;// 4:ArrayStatisticsString-ext->32:Count 106208
+    String _11ToString;// 4:ArrayStatisticsString-ext->33:ToString 106207
+    IArray[String] _12Unit;// 4:Array3->2:Unit 106206
+    IArray[Int32] _13Indices;// 2:IndexOfMinimum->1:Indices 106225
+    Int32 _14Zero;// 2:IndexOfMinimum->3:Zero 106226
+    Int32 _15Aggregate;// 2:IndexOfMinimum->2:Aggregate 106224
+    IArray[Int32] _16Unit;// 4:Array2->2:Unit 106222
+    IArray[Int32] _17Indices;// 3:IndexOfMaximum->1:Indices 106236
+    Int32 _18Zero;// 3:IndexOfMaximum->3:Zero 106237
+    Int32 _19Aggregate;// 3:IndexOfMaximum->2:Aggregate 106235
+    IArray[Int32] _20Append;// 4:Array2->3:Append 106221
+    IArray[Int32] _21Map;// 2:SelectByIndex->2:Map 106216
+    Int32 _22Zero;// 35:First->2:Zero 106212
+    Int32 _23At;// 35:First->0:At 106211
+    String _24ToString;// 4:ArrayStatisticsString-ext->40:ToString 106209
+    IArray[String] _25Append;// 4:Array3->3:Append 106205
+    Int32 _26One;// 36:Second->2:One 106248
+    Int32 _27At;// 36:Second->0:At 106247
+    String _28ToString;// 4:ArrayStatisticsString-ext->41:ToString 106245
+    IArray[String] _29Append;// 4:Array3->6:Append 106204
+    Int32 _30DefaultValueOfElement;// 21:Sum->4:DefaultValueOfElement 106252
+    Int32 _31Aggregate;// 21:Sum->0:Aggregate 106251
+    String _32ToString;// 4:ArrayStatisticsString-ext->42:ToString 106249
+    IArray[String] _33Append;// 0:Array4->5:Append 106200
+    Int32 _34Count;// 1:StringEllidedJoin-ext->7:Count 106259
+    Int32 _35Constant;// 4:ArrayStatisticsString-ext->0:Constant 106301
+    Boolean _36GreaterThan;// 1:StringEllidedJoin-ext->9:GreaterThan 106258
+    String _37IfThen;// 1:StringEllidedJoin-ext->16:IfThen 106257
+    IArray[String] _38Append;// 31:Array5-ext->1:Append 106195
+    Int32 _39Count;// 29:StringFormat-ext->4:Count 106177
+    String _40Repeat;// 29:StringFormat-ext->2:Repeat 106176
+    TriMesh _42IgnoreSecond;// 6:PrintOnSignal-ext->1:IgnoreSecond 106032
+    _0MeshIndices = MeshIndices(mesh);
+    _1Map = Map(_0MeshIndices, (Int32 x0) => 
+      {
+        Edge _0GetEdge;// 1:Edges-ext->3:GetEdge 106064
+        _0GetEdge = GetEdge(mesh, x0);
+        _0GetEdge;
+        });
+    _2Map = Map(_1Map, (Edge x0) => 
+      {
+        TriMesh _0EdgeMesh;// 1:EdgesFromEdgeB-ext->4:EdgeMesh 106080
+        TriMesh _1EdgeMesh;// 3:EdgeVertexIdB-ext->3:EdgeMesh 106086
+        IArray[Int32] _2MeshIndices;// 2:FaceVertexToVertexId-ext->2:MeshIndices 106085
+        TriMesh _3EdgeMesh;// 0:EdgeVertexIdA-ext->2:EdgeMesh 106117
+        IArray[Int32] _4MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106116
+        Int32 _5EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106119
+        Int32 _6At;// 7:FaceVertexToVertexId-ext->3:At 106115
+        Int32 _7Constant;// 2:Three->0:Constant 106101
+        Int32 _8Divide;// 1:DivideByThree->1:Divide 106100
+        Int32 _9Constant;// 1:Three->0:Constant 106094
+        Int32 _10Multiply;// 3:MultiplyByThree->2:Multiply 106093
+        Int32 _11Constant;// 2:Three->0:Constant 106111
+        Int32 _12Modulo;// 3:ModuloThree->1:Modulo 106110
+        Int32 _13One;// 4:PlusOne->1:One 106107
+        Int32 _14Add;// 4:PlusOne->0:Add 106106
+        Int32 _15Constant;// 2:Three->0:Constant 106104
+        Int32 _16Modulo;// 5:ModuloThree->1:Modulo 106103
+        Int32 _17Constant;// 2:Three->0:Constant 106097
+        Int32 _18Modulo;// 2:ModuloThree->1:Modulo 106096
+        Int32 _19Add;// 3:FaceVertexIndex-ext->4:Add 106091
+        Int32 _20At;// 2:FaceVertexToVertexId-ext->3:At 106084
+        IArray[Int32] _21VertexFaceLookup;// 2:EdgesFromVertexId-ext->2:VertexFaceLookup 106078
+        IArray[Edge] _22Map;// 2:EdgesFromVertexId-ext->3:Map 106077
+        TriMesh _23EdgeMesh;// 2:EdgeVertexIdA-ext->2:EdgeMesh 106165
+        IArray[Int32] _24MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106164
+        Int32 _25EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106167
+        Int32 _26At;// 7:FaceVertexToVertexId-ext->3:At 106163
+        IArray[Edge] _27Filter;// 1:EdgesShared-ext->7:Filter 106073
+        Int32 _28Count;// 2:EdgeIsBorder-ext->2:Count 106071
+        Int32 _29Zero;// 2:EdgeIsBorder-ext->3:Zero 106168
+        Boolean _30LessThanOrEqual;// 2:EdgeIsBorder-ext->6:LessThanOrEqual 106070
+        _0EdgeMesh = EdgeMesh(x0);
+        _1EdgeMesh = EdgeMesh(x0);
+        _2MeshIndices = MeshIndices(_1EdgeMesh);
+        _3EdgeMesh = EdgeMesh(x0);
+        _4MeshIndices = MeshIndices(_3EdgeMesh);
+        _5EdgeIndex = EdgeIndex(x0);
+        _6At = At(_4MeshIndices, _5EdgeIndex);
+        _7Constant = 3;
+        _8Divide = Divide(_6At, _7Constant);
+        _9Constant = 3;
+        _10Multiply = Multiply(_8Divide, _9Constant);
+        _11Constant = 3;
+        _12Modulo = Modulo(_6At, _11Constant);
+        _13One = One();
+        _14Add = Add(_12Modulo, _13One);
+        _15Constant = 3;
+        _16Modulo = Modulo(_14Add, _15Constant);
+        _17Constant = 3;
+        _18Modulo = Modulo(_16Modulo, _17Constant);
+        _19Add = Add(_10Multiply, _18Modulo);
+        _20At = At(_2MeshIndices, _19Add);
+        _21VertexFaceLookup = VertexFaceLookup(_0EdgeMesh, _20At);
+        _22Map = Map(_21VertexFaceLookup, (Int32 x0) => 
+          {
+            Edge _0GetEdge;// 2:EdgesFromVertexId-ext->4:GetEdge 106079
+            _0GetEdge = GetEdge(_0EdgeMesh, x0);
+            _0GetEdge;
+            });
+        _23EdgeMesh = EdgeMesh(x0);
+        _24MeshIndices = MeshIndices(_23EdgeMesh);
+        _25EdgeIndex = EdgeIndex(x0);
+        _26At = At(_24MeshIndices, _25EdgeIndex);
+        _27Filter = Filter(_22Map, (Edge x0) => 
+          {
+            TriMesh _0EdgeMesh;// 8:EdgeVertexIdB-ext->3:EdgeMesh 106126
+            IArray[Int32] _1MeshIndices;// 2:FaceVertexToVertexId-ext->2:MeshIndices 106125
+            TriMesh _2EdgeMesh;// 0:EdgeVertexIdA-ext->2:EdgeMesh 106157
+            IArray[Int32] _3MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106156
+            Int32 _4EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106159
+            Int32 _5At;// 7:FaceVertexToVertexId-ext->3:At 106155
+            Int32 _6Constant;// 2:Three->0:Constant 106141
+            Int32 _7Divide;// 1:DivideByThree->1:Divide 106140
+            Int32 _8Constant;// 1:Three->0:Constant 106134
+            Int32 _9Multiply;// 3:MultiplyByThree->2:Multiply 106133
+            Int32 _10Constant;// 2:Three->0:Constant 106151
+            Int32 _11Modulo;// 3:ModuloThree->1:Modulo 106150
+            Int32 _12One;// 4:PlusOne->1:One 106147
+            Int32 _13Add;// 4:PlusOne->0:Add 106146
+            Int32 _14Constant;// 2:Three->0:Constant 106144
+            Int32 _15Modulo;// 5:ModuloThree->1:Modulo 106143
+            Int32 _16Constant;// 2:Three->0:Constant 106137
+            Int32 _17Modulo;// 2:ModuloThree->1:Modulo 106136
+            Int32 _18Add;// 3:FaceVertexIndex-ext->4:Add 106131
+            Int32 _19At;// 2:FaceVertexToVertexId-ext->3:At 106124
+            Boolean _20Equal;// 1:EdgesShared-ext->6:Equal 106120
+            _0EdgeMesh = EdgeMesh(x0);
+            _1MeshIndices = MeshIndices(_0EdgeMesh);
+            _2EdgeMesh = EdgeMesh(x0);
+            _3MeshIndices = MeshIndices(_2EdgeMesh);
+            _4EdgeIndex = EdgeIndex(x0);
+            _5At = At(_3MeshIndices, _4EdgeIndex);
+            _6Constant = 3;
+            _7Divide = Divide(_5At, _6Constant);
+            _8Constant = 3;
+            _9Multiply = Multiply(_7Divide, _8Constant);
+            _10Constant = 3;
+            _11Modulo = Modulo(_5At, _10Constant);
+            _12One = One();
+            _13Add = Add(_11Modulo, _12One);
+            _14Constant = 3;
+            _15Modulo = Modulo(_13Add, _14Constant);
+            _16Constant = 3;
+            _17Modulo = Modulo(_15Modulo, _16Constant);
+            _18Add = Add(_9Multiply, _17Modulo);
+            _19At = At(_1MeshIndices, _18Add);
+            _20Equal = Equal(_19At, _26At);
+            _20Equal;
+            });
+        _28Count = Count(_27Filter);
+        _29Zero = Zero();
+        _30LessThanOrEqual = LessThanOrEqual(_28Count, _29Zero);
+        if (invert)
+          {
+            Boolean _31Not;// 5:NegateBooleanConditional-ext->3:Not 106068
+            _31Not = Not(_30LessThanOrEqual);
+            _31Not;
+            }else
+          {
+            _30LessThanOrEqual;
+            };
+        });
+    _3EdgeSelection = EdgeSelection(mesh);
+    _4Combine = Combine(_2Map, _3EdgeSelection, (Boolean x0, Boolean x1) => 
+      {
+        Int32 _0Zero;// 3:Switch3-ext->5:Zero 106053
+        Boolean _1Equal;// 3:Switch3-ext->4:Equal 106052
+        Boolean _2IfThen;// 3:Switch3-ext->6:IfThen 106051
+        _0Zero = Zero();
+        _1Equal = Equal(selectionMethod, _0Zero);
+        _2IfThen = IfThen(_1Equal, () => 
+          {
+            x0;
+            }, () => 
+          {
+            Int32 _0One;// 3:Switch3-ext->2:One 106056
+            Boolean _1Equal;// 3:Switch3-ext->7:Equal 106055
+            Boolean _2IfThen;// 3:Switch3-ext->8:IfThen 106054
+            _0One = One();
+            _1Equal = Equal(selectionMethod, _0One);
+            _2IfThen = IfThen(_1Equal, () => 
+              {
+                Boolean _0OrElse;// 4:SelectionUpdateFunction-ext->4:OrElse 106057
+                _0OrElse = OrElse(x0, x1);
+                _0OrElse;
+                }, () => 
+              {
+                Boolean _0Not;// 4:SelectionUpdateFunction-ext->6:Not 106059
+                Boolean _1AndAlso;// 4:SelectionUpdateFunction-ext->5:AndAlso 106058
+                _0Not = Not(x0);
+                _1AndAlso = AndAlso(x1, _0Not);
+                _1AndAlso;
+                });
+            _2IfThen;
+            });
+        _2IfThen;
+        });
+    _5SetEdgeSelection = SetEdgeSelection(mesh, _4Combine);
+    _6Constant = Count = {0}, Minimum = {1}, Maximum = {2}, Sum = {3}. Values = {4};
+    _7MeshIndices = MeshIndices(mesh);
+    _8Map = Map(_7MeshIndices, (Int32 x0) => 
+      {
+        Edge _0GetEdge;// 8:Edges-ext->3:GetEdge 106307
+        _0GetEdge = GetEdge(mesh, x0);
+        _0GetEdge;
+        });
+    _9Map = Map(_8Map, (Edge x0) => 
+      {
+        TriMesh _0EdgeMesh;// 1:EdgesFromEdgeB-ext->4:EdgeMesh 106317
+        TriMesh _1EdgeMesh;// 3:EdgeVertexIdB-ext->3:EdgeMesh 106323
+        IArray[Int32] _2MeshIndices;// 2:FaceVertexToVertexId-ext->2:MeshIndices 106322
+        TriMesh _3EdgeMesh;// 0:EdgeVertexIdA-ext->2:EdgeMesh 106354
+        IArray[Int32] _4MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106353
+        Int32 _5EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106356
+        Int32 _6At;// 7:FaceVertexToVertexId-ext->3:At 106352
+        Int32 _7Constant;// 2:Three->0:Constant 106338
+        Int32 _8Divide;// 1:DivideByThree->1:Divide 106337
+        Int32 _9Constant;// 1:Three->0:Constant 106331
+        Int32 _10Multiply;// 3:MultiplyByThree->2:Multiply 106330
+        Int32 _11Constant;// 2:Three->0:Constant 106348
+        Int32 _12Modulo;// 3:ModuloThree->1:Modulo 106347
+        Int32 _13One;// 4:PlusOne->1:One 106344
+        Int32 _14Add;// 4:PlusOne->0:Add 106343
+        Int32 _15Constant;// 2:Three->0:Constant 106341
+        Int32 _16Modulo;// 5:ModuloThree->1:Modulo 106340
+        Int32 _17Constant;// 2:Three->0:Constant 106334
+        Int32 _18Modulo;// 2:ModuloThree->1:Modulo 106333
+        Int32 _19Add;// 3:FaceVertexIndex-ext->4:Add 106328
+        Int32 _20At;// 2:FaceVertexToVertexId-ext->3:At 106321
+        IArray[Int32] _21VertexFaceLookup;// 2:EdgesFromVertexId-ext->2:VertexFaceLookup 106315
+        IArray[Edge] _22Map;// 2:EdgesFromVertexId-ext->3:Map 106314
+        TriMesh _23EdgeMesh;// 2:EdgeVertexIdA-ext->2:EdgeMesh 106402
+        IArray[Int32] _24MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106401
+        Int32 _25EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106404
+        Int32 _26At;// 7:FaceVertexToVertexId-ext->3:At 106400
+        IArray[Edge] _27Filter;// 11:EdgesShared-ext->7:Filter 106310
+        Int32 _28Count;// 10:Count 106308
+        _0EdgeMesh = EdgeMesh(x0);
+        _1EdgeMesh = EdgeMesh(x0);
+        _2MeshIndices = MeshIndices(_1EdgeMesh);
+        _3EdgeMesh = EdgeMesh(x0);
+        _4MeshIndices = MeshIndices(_3EdgeMesh);
+        _5EdgeIndex = EdgeIndex(x0);
+        _6At = At(_4MeshIndices, _5EdgeIndex);
+        _7Constant = 3;
+        _8Divide = Divide(_6At, _7Constant);
+        _9Constant = 3;
+        _10Multiply = Multiply(_8Divide, _9Constant);
+        _11Constant = 3;
+        _12Modulo = Modulo(_6At, _11Constant);
+        _13One = One();
+        _14Add = Add(_12Modulo, _13One);
+        _15Constant = 3;
+        _16Modulo = Modulo(_14Add, _15Constant);
+        _17Constant = 3;
+        _18Modulo = Modulo(_16Modulo, _17Constant);
+        _19Add = Add(_10Multiply, _18Modulo);
+        _20At = At(_2MeshIndices, _19Add);
+        _21VertexFaceLookup = VertexFaceLookup(_0EdgeMesh, _20At);
+        _22Map = Map(_21VertexFaceLookup, (Int32 x0) => 
+          {
+            Edge _0GetEdge;// 2:EdgesFromVertexId-ext->4:GetEdge 106316
+            _0GetEdge = GetEdge(_0EdgeMesh, x0);
+            _0GetEdge;
+            });
+        _23EdgeMesh = EdgeMesh(x0);
+        _24MeshIndices = MeshIndices(_23EdgeMesh);
+        _25EdgeIndex = EdgeIndex(x0);
+        _26At = At(_24MeshIndices, _25EdgeIndex);
+        _27Filter = Filter(_22Map, (Edge x0) => 
+          {
+            TriMesh _0EdgeMesh;// 8:EdgeVertexIdB-ext->3:EdgeMesh 106363
+            IArray[Int32] _1MeshIndices;// 2:FaceVertexToVertexId-ext->2:MeshIndices 106362
+            TriMesh _2EdgeMesh;// 0:EdgeVertexIdA-ext->2:EdgeMesh 106394
+            IArray[Int32] _3MeshIndices;// 7:FaceVertexToVertexId-ext->2:MeshIndices 106393
+            Int32 _4EdgeIndex;// 6:EdgeFaceVertexA-ext->1:EdgeIndex 106396
+            Int32 _5At;// 7:FaceVertexToVertexId-ext->3:At 106392
+            Int32 _6Constant;// 2:Three->0:Constant 106378
+            Int32 _7Divide;// 1:DivideByThree->1:Divide 106377
+            Int32 _8Constant;// 1:Three->0:Constant 106371
+            Int32 _9Multiply;// 3:MultiplyByThree->2:Multiply 106370
+            Int32 _10Constant;// 2:Three->0:Constant 106388
+            Int32 _11Modulo;// 3:ModuloThree->1:Modulo 106387
+            Int32 _12One;// 4:PlusOne->1:One 106384
+            Int32 _13Add;// 4:PlusOne->0:Add 106383
+            Int32 _14Constant;// 2:Three->0:Constant 106381
+            Int32 _15Modulo;// 5:ModuloThree->1:Modulo 106380
+            Int32 _16Constant;// 2:Three->0:Constant 106374
+            Int32 _17Modulo;// 2:ModuloThree->1:Modulo 106373
+            Int32 _18Add;// 3:FaceVertexIndex-ext->4:Add 106368
+            Int32 _19At;// 2:FaceVertexToVertexId-ext->3:At 106361
+            Boolean _20Equal;// 11:EdgesShared-ext->6:Equal 106357
+            _0EdgeMesh = EdgeMesh(x0);
+            _1MeshIndices = MeshIndices(_0EdgeMesh);
+            _2EdgeMesh = EdgeMesh(x0);
+            _3MeshIndices = MeshIndices(_2EdgeMesh);
+            _4EdgeIndex = EdgeIndex(x0);
+            _5At = At(_3MeshIndices, _4EdgeIndex);
+            _6Constant = 3;
+            _7Divide = Divide(_5At, _6Constant);
+            _8Constant = 3;
+            _9Multiply = Multiply(_7Divide, _8Constant);
+            _10Constant = 3;
+            _11Modulo = Modulo(_5At, _10Constant);
+            _12One = One();
+            _13Add = Add(_11Modulo, _12One);
+            _14Constant = 3;
+            _15Modulo = Modulo(_13Add, _14Constant);
+            _16Constant = 3;
+            _17Modulo = Modulo(_15Modulo, _16Constant);
+            _18Add = Add(_9Multiply, _17Modulo);
+            _19At = At(_1MeshIndices, _18Add);
+            _20Equal = Equal(_19At, _26At);
+            _20Equal;
+            });
+        _28Count = Count(_27Filter);
+        _28Count;
+        });
+    _10Count = Count(_9Map);
+    _11ToString = ToString(_10Count);
+    _12Unit = Unit(_11ToString);
+    _13Indices = Indices(_9Map);
+    _14Zero = Zero();
+    _15Aggregate = Aggregate(_13Indices, _14Zero, (Int32 x0, Int32 x1) => 
+      {
+        Int32 _0At;// 4:IndexOfLesserElement->4:At 106232
+        Int32 _1At;// 4:IndexOfLesserElement->5:At 106233
+        Boolean _2LessThanOrEqual;// 4:IndexOfLesserElement->2:LessThanOrEqual 106231
+        _0At = At(_9Map, x0);
+        _1At = At(_9Map, x1);
+        _2LessThanOrEqual = LessThanOrEqual(_0At, _1At);
+        if (_2LessThanOrEqual)
+          {
+            x0;
+            }else
+          {
+            x1;
+            };
+        });
+    _16Unit = Unit(_15Aggregate);
+    _17Indices = Indices(_9Map);
+    _18Zero = Zero();
+    _19Aggregate = Aggregate(_17Indices, _18Zero, (Int32 x0, Int32 x1) => 
+      {
+        Int32 _0At;// 4:IndexOfGreaterElement->4:At 106243
+        Int32 _1At;// 4:IndexOfGreaterElement->5:At 106244
+        Boolean _2GreaterThanOrEqual;// 4:IndexOfGreaterElement->2:GreaterThanOrEqual 106242
+        _0At = At(_9Map, x0);
+        _1At = At(_9Map, x1);
+        _2GreaterThanOrEqual = GreaterThanOrEqual(_0At, _1At);
+        if (_2GreaterThanOrEqual)
+          {
+            x0;
+            }else
+          {
+            x1;
+            };
+        });
+    _20Append = Append(_16Unit, _19Aggregate);
+    _21Map = Map(_20Append, (Int32 x0) => 
+      {
+        Int32 _0At;// 2:SelectByIndex->3:At 106217
+        _0At = At(_9Map, x0);
+        _0At;
+        });
+    _22Zero = Zero();
+    _23At = At(_21Map, _22Zero);
+    _24ToString = ToString(_23At);
+    _25Append = Append(_12Unit, _24ToString);
+    _26One = One();
+    _27At = At(_21Map, _26One);
+    _28ToString = ToString(_27At);
+    _29Append = Append(_25Append, _28ToString);
+    _30DefaultValueOfElement = DefaultValueOfElement(_9Map);
+    _31Aggregate = Aggregate(_9Map, _30DefaultValueOfElement, (Int32 x0, Int32 x1) => 
+      {
+        Int32 _0Add;// 21:Sum->2:Add 106253
+        _0Add = Add(x0, x1);
+        _0Add;
+        });
+    _32ToString = ToString(_31Aggregate);
+    _33Append = Append(_29Append, _32ToString);
+    _34Count = Count(_9Map);
+    _35Constant = 10;
+    _36GreaterThan = GreaterThan(_34Count, _35Constant);
+    _37IfThen = IfThen(_36GreaterThan, () => 
+      {
+        Int32 _0One;// 0:MinusOne->2:One 106278
+        Int32 _1Subtract;// 0:MinusOne->1:Subtract 106277
+        IArray[Int32] _2Take;// 1:StringEllidedJoin-ext->5:Take 106275
+        IArray[String] _3Map;// 6:StringJoin->7:Map 106268
+        Int32 _4One;// 10:SkipOne->2:One 106267
+        IArray[String] _5Skip;// 10:SkipOne->3:Skip 106266
+        Int32 _6Zero;// 3:First->2:Zero 106272
+        String _7At;// 3:First->0:At 106271
+        String _8Constant;// 4:ArrayStatisticsString-ext->0:Constant 106302
+        String _9Aggregate;// 6:StringJoin->2:Aggregate 106264
+        String _10Constant;// 1:StringEllidedJoin-ext->0:Constant 106279
+        String _11ConcatenateStrings;// 1:StringEllidedJoin-ext->10:ConcatenateStrings 106261
+        Int32 _12Count;// 3:LastIndex->2:Count 106287
+        Int32 _13One;// 3:MinusOne->2:One 106286
+        Int32 _14Subtract;// 3:MinusOne->1:Subtract 106285
+        Int32 _15At;// 14:Last->0:At 106282
+        String _16ToString;// 1:StringEllidedJoin-ext->13:ToString 106280
+        String _17ConcatenateStrings;// 1:StringEllidedJoin-ext->12:ConcatenateStrings 106260
+        _0One = One();
+        _1Subtract = Subtract(_35Constant, _0One);
+        _2Take = Take(_9Map, _1Subtract);
+        _3Map = Map(_2Take, (Int32 x0) => 
+          {
+            String _0ToString;// 6:StringJoin->8:ToString 106269
+            _0ToString = ToString(x0);
+            _0ToString;
+            });
+        _4One = One();
+        _5Skip = Skip(_3Map, _4One);
+        _6Zero = Zero();
+        _7At = At(_3Map, _6Zero);
+        _8Constant = , ;
+        _9Aggregate = Aggregate(_5Skip, _7At, (String x0, String x1) => 
+          {
+            String _0ConcatenateStrings;// 6:StringJoin->4:ConcatenateStrings 106274
+            String _1ConcatenateStrings;// 6:StringJoin->5:ConcatenateStrings 106273
+            _0ConcatenateStrings = ConcatenateStrings(x0, _8Constant);
+            _1ConcatenateStrings = ConcatenateStrings(_0ConcatenateStrings, x1);
+            _1ConcatenateStrings;
+            });
+        _10Constant =  ... ;
+        _11ConcatenateStrings = ConcatenateStrings(_9Aggregate, _10Constant);
+        _12Count = Count(_9Map);
+        _13One = One();
+        _14Subtract = Subtract(_12Count, _13One);
+        _15At = At(_9Map, _14Subtract);
+        _16ToString = ToString(_15At);
+        _17ConcatenateStrings = ConcatenateStrings(_11ConcatenateStrings, _16ToString);
+        _17ConcatenateStrings;
+        }, () => 
+      {
+        IArray[String] _0Map;// 2:StringJoin->7:Map 106294
+        Int32 _1One;// 10:SkipOne->2:One 106293
+        IArray[String] _2Skip;// 10:SkipOne->3:Skip 106292
+        Int32 _3Zero;// 3:First->2:Zero 106298
+        String _4At;// 3:First->0:At 106297
+        String _5Constant;// 4:ArrayStatisticsString-ext->0:Constant 106302
+        String _6Aggregate;// 2:StringJoin->2:Aggregate 106290
+        _0Map = Map(_9Map, (Int32 x0) => 
+          {
+            String _0ToString;// 2:StringJoin->8:ToString 106295
+            _0ToString = ToString(x0);
+            _0ToString;
+            });
+        _1One = One();
+        _2Skip = Skip(_0Map, _1One);
+        _3Zero = Zero();
+        _4At = At(_0Map, _3Zero);
+        _5Constant = , ;
+        _6Aggregate = Aggregate(_2Skip, _4At, (String x0, String x1) => 
+          {
+            String _0ConcatenateStrings;// 2:StringJoin->4:ConcatenateStrings 106300
+            String _1ConcatenateStrings;// 2:StringJoin->5:ConcatenateStrings 106299
+            _0ConcatenateStrings = ConcatenateStrings(x0, _5Constant);
+            _1ConcatenateStrings = ConcatenateStrings(_0ConcatenateStrings, x1);
+            _1ConcatenateStrings;
+            });
+        _6Aggregate;
+        });
+    _38Append = Append(_33Append, _37IfThen);
+    _39Count = Count(_38Append);
+    _40Repeat = Repeat(_6Constant, _39Count, (String x0, Int32 x1) => 
+      {
+        String _0Constant;// 29:StringFormat-ext->0:Constant 106184
+        String _1ToString;// 29:StringFormat-ext->8:ToString 106185
+        String _2ConcatenateStrings;// 9:StringsConcatenate3-ext->3:ConcatenateStrings 106183
+        String _3Constant;// 29:StringFormat-ext->0:Constant 106187
+        String _4ConcatenateStrings;// 9:StringsConcatenate3-ext->4:ConcatenateStrings 106182
+        String _5At;// 29:StringFormat-ext->3:At 106188
+        String _6ReplaceString;// 29:StringFormat-ext->6:ReplaceString 106178
+        _0Constant = {;
+        _1ToString = ToString(x1);
+        _2ConcatenateStrings = ConcatenateStrings(_0Constant, _1ToString);
+        _3Constant = };
+        _4ConcatenateStrings = ConcatenateStrings(_2ConcatenateStrings, _3Constant);
+        _5At = At(_38Append, x1);
+        _6ReplaceString = ReplaceString(x0, _4ConcatenateStrings, _5At);
+        _6ReplaceString;
+        });
+    _42IgnoreSecond = IgnoreSecond(_5SetEdgeSelection, if (statistics)
+      {
+        String _41Print;// 6:PrintOnSignal-ext->3:Print 106034
+        _41Print = Print(_40Repeat);
+        _41Print;
+        }else
+      {
+        _40Repeat;
+        });
+    _42IgnoreSecond;
+    }

@@ -1,0 +1,28 @@
+<graph version="0.50" uuid="d0c3b030-7ae6-46ad-a251-a98011d77cd8">
+    <meta_info>
+        <graph_version guid="55fa52d2-51b4-47bb-aec1-168e0d9792c5" number="0.0.8" />
+        <category>Geometry - Deformers</category>
+    </meta_info>
+    <nodes>
+        <node operator="MeshBoundingBox" id="2" position="220:140" size="180:112" />
+        <node operator="Input: TriMesh" id="8" name="mesh" position="0:20" size="140:112" />
+        <node operator="Input: Single" id="20" name="angle" position="220:0" size="140:112" />
+        <node operator="Input: Int32" id="21" name="axis" position="220:260" size="140:112" />
+        <node operator="Input: Matrix" id="4" name="deformationMatrix" position="480:40" size="140:112" />
+        <node operator="Input: Single" id="22" name="direction" position="220:400" size="140:112" />
+        <node operator="BendDeformer-ext" id="1" position="480:160" size="180:196" />
+        <node operator="MeshDeformVertices-ext" id="0" position="740:100" size="260:154" />
+        <node operator="Output: compound" id="3" position="1080:160" size="200:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="22" sourceport="0" destnode="1" destport="4" />
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="1" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,93 @@
+(InstanceState state, TriMesh mesh, BoundingBox boundingBox, Int32 seed, Int32 count) => 
+  {
+    Cache[Tuple[RayTraceScene, Int32]] _0CreateStaticCache;// 23:CreateStaticCache 105329
+    Int32 _1Zero;// 24:Zero 105334
+    Tuple[RayTraceScene, Int32] _2CachedValue;// 22:CachedValue 105328
+    RayTraceScene _3PairItem1;// 7:PairItem1 105327
+    BoundingSphere _4SphereFromBox;// 13:SphereFromBox 105389
+    Func[Random, Ray] _5Pass-through: function1;// 0:Pass-through: function1 105335
+    Random _6RandomNumberGenerator;// 10:RandomNumberGenerator 105391
+    Func[Ray] _7Bind;// 12:RandomArray-ext->4:Bind 105339
+    IArray[Ray] _8ArrayOfFunction;// 12:RandomArray-ext->5:ArrayOfFunction 105338
+    IArray[RayTraceIntersection] _9Filter;// 17:Filter 105325
+    Int32 _10Count;// 16:Count 105324
+    Int32 _11Print;// 14:Print 105323
+    TriMesh _12IgnoreFirst;// 15:IgnoreFirst 105322
+    _0CreateStaticCache = CreateStaticCache(() => 
+      {
+        Boolean _0True;// 2:True 105332
+        _0True = True();
+        RayTraceAddGeometry(RayTraceScene(_0True), mesh);
+        }).SetId(state, 0);
+    _1Zero = Zero();
+    _2CachedValue = CachedValue(_0CreateStaticCache, _1Zero);
+    _3PairItem1 = PairItem1(_2CachedValue);
+    _4SphereFromBox = SphereFromBox(boundingBox);
+    _5Pass-through: function1 = (Random x0) => 
+      {
+        Vector3 _0ZAxis;// 2:RandomPointOnSphere-ext->12:ZAxis 105359
+        Vector3 _1Vector3;// 2:PseudoRandomVector->1:Vector3 105361
+        Single _2TwoPi;// 2:RandomPointOnSphere-ext->11:TwoPi 105365
+        Single _3Multiply;// 2:RandomPointOnSphere-ext->10:Multiply 105363
+        Matrix _4MatrixFromAxisAngle;// 13:RotatePoint->1:MatrixFromAxisAngle 105358
+        Vector3 _5Transform;// 13:RotatePoint->2:Transform 105357
+        Vector3 _6Normalize;// 5:SetVectorLength->1:Normalize 105353
+        Single _7SphereRadius;// 2:RandomPointOnSphere-ext->9:SphereRadius 105366
+        Vector3 _8MultiplyByScalar;// 5:SetVectorLength->3:MultiplyByScalar 105352
+        Vector3 _9SphereCenter;// 2:RandomPointOnSphere-ext->4:SphereCenter 105367
+        Vector3 _10Add;// 2:RandomPointOnSphere-ext->3:Add 105349
+        Vector3 _11ZAxis;// 3:RandomPointOnSphere-ext->12:ZAxis 105380
+        Vector3 _12Vector3;// 2:PseudoRandomVector->1:Vector3 105382
+        Single _13TwoPi;// 3:RandomPointOnSphere-ext->11:TwoPi 105386
+        Single _14Multiply;// 3:RandomPointOnSphere-ext->10:Multiply 105384
+        Matrix _15MatrixFromAxisAngle;// 13:RotatePoint->1:MatrixFromAxisAngle 105379
+        Vector3 _16Transform;// 13:RotatePoint->2:Transform 105378
+        Vector3 _17Normalize;// 5:SetVectorLength->1:Normalize 105374
+        Single _18SphereRadius;// 3:RandomPointOnSphere-ext->9:SphereRadius 105387
+        Vector3 _19MultiplyByScalar;// 5:SetVectorLength->3:MultiplyByScalar 105373
+        Vector3 _20SphereCenter;// 3:RandomPointOnSphere-ext->4:SphereCenter 105388
+        Vector3 _21Add;// 3:RandomPointOnSphere-ext->3:Add 105370
+        Vector3 _22Subtract;// 4:RayBetweenPoints-ext->5:Subtract 105346
+        Vector3 _23Normalize;// 4:RayBetweenPoints-ext->3:Normalize 105345
+        Ray _24Ray;// 4:RayBetweenPoints-ext->4:Ray 105344
+        _0ZAxis = ZAxis();
+        _1Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _2TwoPi = TwoPi();
+        _3Multiply = Multiply(PseudoRandomFloat(x0), _2TwoPi);
+        _4MatrixFromAxisAngle = MatrixFromAxisAngle(_1Vector3, _3Multiply);
+        _5Transform = Transform(_0ZAxis, _4MatrixFromAxisAngle);
+        _6Normalize = Normalize(_5Transform);
+        _7SphereRadius = SphereRadius(_4SphereFromBox);
+        _8MultiplyByScalar = MultiplyByScalar(_6Normalize, _7SphereRadius);
+        _9SphereCenter = SphereCenter(_4SphereFromBox);
+        _10Add = Add(_8MultiplyByScalar, _9SphereCenter);
+        _11ZAxis = ZAxis();
+        _12Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _13TwoPi = TwoPi();
+        _14Multiply = Multiply(PseudoRandomFloat(x0), _13TwoPi);
+        _15MatrixFromAxisAngle = MatrixFromAxisAngle(_12Vector3, _14Multiply);
+        _16Transform = Transform(_11ZAxis, _15MatrixFromAxisAngle);
+        _17Normalize = Normalize(_16Transform);
+        _18SphereRadius = SphereRadius(_4SphereFromBox);
+        _19MultiplyByScalar = MultiplyByScalar(_17Normalize, _18SphereRadius);
+        _20SphereCenter = SphereCenter(_4SphereFromBox);
+        _21Add = Add(_19MultiplyByScalar, _20SphereCenter);
+        _22Subtract = Subtract(_21Add, _10Add);
+        _23Normalize = Normalize(_22Subtract);
+        _24Ray = Ray(_10Add, _23Normalize);
+        _24Ray;
+        };
+    _6RandomNumberGenerator = RandomNumberGenerator(seed);
+    _7Bind = Bind(_5Pass-through: function1, _6RandomNumberGenerator);
+    _8ArrayOfFunction = ArrayOfFunction(_7Bind, count);
+    _9Filter = Filter(RayTraceFaceIntersections(_3PairItem1, _8ArrayOfFunction), (RayTraceIntersection x0) => 
+      {
+        Boolean _0RayTraceHit;// 18:RayTraceHit 105394
+        _0RayTraceHit = RayTraceHit(x0);
+        _0RayTraceHit;
+        });
+    _10Count = Count(_9Filter);
+    _11Print = Print(_10Count);
+    _12IgnoreFirst = IgnoreFirst(_11Print, mesh);
+    _12IgnoreFirst;
+    }

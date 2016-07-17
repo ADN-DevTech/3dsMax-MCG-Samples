@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="c5801865-c59d-412c-9190-12ed8a77a5d4">
+    <meta_info>
+        <graph_version guid="feb145bf-8b2f-46cf-926f-fdbe7cb11998" number="0.0.4" />
+        <category>String</category>
+        <description>Parses a string of integers (delimited by spaces, commas, tabs, newlines, or other delimiter) into an array.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Regex" id="40" position="220:140" size="140:112" />
+        <node operator="RegexMatches" id="43" position="440:80" size="140:133" />
+        <node operator="Constant" id="3" value='&quot;-?\d*&quot;' position="0:140" size="140:91" />
+        <node operator="Map" id="0" position="880:300" size="140:133" />
+        <node operator="AsInt" id="5" position="660:360" size="140:112" />
+        <node operator="Output: compound" id="1" position="1100:340" size="140:70" />
+        <node operator="Input: String" id="2" name="string" position="220:0" size="140:112" />
+        <node operator="Filter" id="4" position="660:200" size="140:133" />
+        <node operator="Constant" id="10" value='&quot;&quot;' position="220:260" size="140:91" />
+        <node operator="NotEqual" id="11" position="440:240" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="40" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="43" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="43" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="0" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="43" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="11" sourceport="1" destnode="4" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+    </connections>
+</graph>

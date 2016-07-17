@@ -1,0 +1,85 @@
+(InstanceState state, TriMesh mesh) => 
+  {
+    Int32 _0Constant;// 1:MeshClearCustomMapChannels-ext->0:Constant 90967
+    IArray[Int32] _1Range;// 1:MeshClearCustomMapChannels-ext->1:Range 90966
+    Int32 _2Two;// 1:MeshClearCustomMapChannels-ext->4:Two 90968
+    IArray[Int32] _3Skip;// 1:MeshClearCustomMapChannels-ext->3:Skip 90965
+    IArray[Int32] _4Filter;// 1:MeshClearCustomMapChannels-ext->13:Filter 90964
+    TriMesh _5Aggregate;// 1:MeshClearCustomMapChannels-ext->6:Aggregate 90963
+    _0Constant = 100;
+    _1Range = Range(_0Constant);
+    _2Two = Two();
+    _3Skip = Skip(_1Range, _2Two);
+    _4Filter = Filter(_3Skip, (Int32 x0) => 
+      {
+        Int32 _0Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 90981
+        Boolean _1Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 90980
+        MapChannel _4Pass-through: any;// 0:Pass-through: any 90972
+        Object _5Null;// 6:IsNullFix2-ext->3:Null 90976
+        Object _6As;// 6:IsNullFix2-ext->23:As 90974
+        Boolean _7Equal;// 6:IsNullFix2-ext->1:Equal 90973
+        Boolean _8Not;// 12:MapChannelExists-ext->4:Not 90971
+        _0Constant = -3;
+        _1Equal = Equal(x0, _0Constant);
+        _4Pass-through: any = if (_1Equal)
+          {
+            MapChannel _2TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 90982
+            _2TopologyChannel = TopologyChannel(mesh);
+            _2TopologyChannel;
+            }else
+          {
+            MapChannel _3GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 90983
+            _3GetMapChannel = GetMapChannel(mesh, x0);
+            _3GetMapChannel;
+            };
+        _5Null = Null();
+        _6As = As(_4Pass-through: any, (Object x0) => 
+          {
+            Object _0IgnoreFirst;// 6:IsNullFix2-ext->5:IgnoreFirst 90975
+            _0IgnoreFirst = IgnoreFirst(x0, _5Null);
+            _0IgnoreFirst;
+            });
+        _7Equal = Equal(_6As, _5Null);
+        _8Not = Not(_7Equal);
+        _8Not;
+        });
+    _5Aggregate = Aggregate(_4Filter, mesh, (TriMesh x0, Int32 x1) => 
+      {
+        Int32 _0Constant;// 10:MapChannelOrGeometrySet-ext->0:Constant 90992
+        Int32 _1IgnoreFirst;// 1:MeshClearCustomMapChannels-ext->7:IgnoreFirst 91005
+        Boolean _2Equal;// 10:MapChannelOrGeometrySet-ext->6:Equal 90991
+        Single _3Constant;// 5:Origin->0:Constant 90998
+        Vector3 _4Vector3;// 5:Origin->1:Vector3 90997
+        IArray[Vector3] _5Unit;// 0:MapChannelClear-ext->4:Unit 90996
+        Int32 _6Zero;// 0:MapChannelClear-ext->9:Zero 91000
+        Int32 _7FaceCount;// 0:MapChannelClear-ext->6:FaceCount 91004
+        Int32 _8Constant;// 1:Three->0:Constant 91003
+        Int32 _9Multiply;// 7:MultiplyByThree->2:Multiply 91002
+        IArray[Int32] _10ArrayOf;// 0:MapChannelClear-ext->8:ArrayOf 90999
+        _0Constant = -3;
+        _1IgnoreFirst = IgnoreFirst(x0, x1);
+        _2Equal = Equal(_0Constant, _1IgnoreFirst);
+        _3Constant = 0;
+        _4Vector3 = Vector3(_3Constant, _3Constant, _3Constant);
+        _5Unit = Unit(_4Vector3);
+        _6Zero = Zero();
+        _7FaceCount = FaceCount(x0);
+        _8Constant = 3;
+        _9Multiply = Multiply(_7FaceCount, _8Constant);
+        _10ArrayOf = ArrayOf(_6Zero, _9Multiply);
+        if (_2Equal)
+          {
+            MeshData _11MeshData;// 10:MapChannelOrGeometrySet-ext->9:MeshData 90994
+            TriMesh _12CreateMeshWithMeshData;// 10:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 90993
+            _11MeshData = MeshData(x0);
+            _12CreateMeshWithMeshData = CreateMeshWithMeshData(_5Unit, _10ArrayOf, _11MeshData);
+            _12CreateMeshWithMeshData;
+            }else
+          {
+            TriMesh _13SetMapChannel;// 10:MapChannelOrGeometrySet-ext->0:SetMapChannel 90995
+            _13SetMapChannel = SetMapChannel(x0, _1IgnoreFirst, _5Unit, _10ArrayOf);
+            _13SetMapChannel;
+            };
+        });
+    _5Aggregate;
+    }

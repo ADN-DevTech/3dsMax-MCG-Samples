@@ -1,0 +1,259 @@
+(InstanceState state, Int32 channel ID, TriMesh mesh, Boolean clamp, Vector3 pre multiply, Vector3 offset, Vector3 multiply, Vector3 lower limit, Vector3 upper limit) => 
+  {
+    Int32 _0Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 92828
+    Boolean _1Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 92827
+    MapChannel _4Pass-through: any;// 0:Pass-through: any 92819
+    Object _5Null;// 6:IsNullFix2-ext->3:Null 92823
+    Object _6As;// 6:IsNullFix2-ext->23:As 92821
+    Boolean _7Equal;// 6:IsNullFix2-ext->1:Equal 92820
+    Boolean _8Not;// 4:MapChannelExists-ext->4:Not 92818
+    _0Constant = -3;
+    _1Equal = Equal(channel ID, _0Constant);
+    _4Pass-through: any = if (_1Equal)
+      {
+        MapChannel _2TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 92829
+        _2TopologyChannel = TopologyChannel(mesh);
+        _2TopologyChannel;
+        }else
+      {
+        MapChannel _3GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 92830
+        _3GetMapChannel = GetMapChannel(mesh, channel ID);
+        _3GetMapChannel;
+        };
+    _5Null = Null();
+    _6As = As(_4Pass-through: any, (Object x0) => 
+      {
+        Object _0IgnoreFirst;// 6:IsNullFix2-ext->5:IgnoreFirst 92822
+        _0IgnoreFirst = IgnoreFirst(x0, _5Null);
+        _0IgnoreFirst;
+        });
+    _7Equal = Equal(_6As, _5Null);
+    _8Not = Not(_7Equal);
+    if (_8Not)
+      {
+        Int32 _9Constant;// 9:MapChannelOrGeometrySet-ext->0:Constant 92837
+        Boolean _10Equal;// 9:MapChannelOrGeometrySet-ext->6:Equal 92836
+        Int32 _11Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 92858
+        Boolean _12Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 92857
+        MapChannel _15Pass-through: any;// 0:Pass-through: any 92849
+        Object _16Null;// 6:IsNullFix2-ext->3:Null 92853
+        Object _17As;// 6:IsNullFix2-ext->23:As 92851
+        Boolean _18Equal;// 6:IsNullFix2-ext->1:Equal 92850
+        Boolean _19Not;// 1:MapChannelExists-ext->4:Not 92848
+        IArray[Vector3] _45MapChannelVertexBuffer;// 5:MapChannelTransform-ext->0:MapChannelVertexBuffer 92842
+        Func[Vector3, Vector3] _46Pass-through: function1;// 0:Pass-through: function1 92814
+        IArray[Vector3] _47Map;// 5:MapChannelTransform-ext->1:Map 92841
+        Int32 _79Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 92865
+        Boolean _80Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 92864
+        Int32 _83Constant;// 8:MapChannelOrGeometryGet-ext->0:Constant 92872
+        Boolean _84Equal;// 8:MapChannelOrGeometryGet-ext->4:Equal 92871
+        Int32 _85Constant;// 10:MapChannelOrGeometrySet-ext->0:Constant 92883
+        Boolean _86Equal;// 10:MapChannelOrGeometrySet-ext->6:Equal 92882
+        Single _87Constant;// 5:Origin->0:Constant 92889
+        Vector3 _88Vector3;// 5:Origin->1:Vector3 92888
+        IArray[Vector3] _89Unit;// 4:MapChannelClear-ext->4:Unit 92887
+        Int32 _90Zero;// 4:MapChannelClear-ext->9:Zero 92891
+        Int32 _91FaceCount;// 4:MapChannelClear-ext->6:FaceCount 92895
+        Int32 _92Constant;// 1:Three->0:Constant 92894
+        Int32 _93Multiply;// 7:MultiplyByThree->2:Multiply 92893
+        IArray[Int32] _94ArrayOf;// 4:MapChannelClear-ext->8:ArrayOf 92890
+        IArray[Int32] _126MapChannelIndexBuffer;// 5:MapChannelTransform-ext->8:MapChannelIndexBuffer 92896
+        _9Constant = -3;
+        _10Equal = Equal(_9Constant, channel ID);
+        _11Constant = -3;
+        _12Equal = Equal(channel ID, _11Constant);
+        _15Pass-through: any = if (_12Equal)
+          {
+            MapChannel _13TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 92859
+            _13TopologyChannel = TopologyChannel(mesh);
+            _13TopologyChannel;
+            }else
+          {
+            MapChannel _14GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 92860
+            _14GetMapChannel = GetMapChannel(mesh, channel ID);
+            _14GetMapChannel;
+            };
+        _16Null = Null();
+        _17As = As(_15Pass-through: any, (Object x0) => 
+          {
+            Object _0IgnoreFirst;// 6:IsNullFix2-ext->5:IgnoreFirst 92852
+            _0IgnoreFirst = IgnoreFirst(x0, _16Null);
+            _0IgnoreFirst;
+            });
+        _18Equal = Equal(_17As, _16Null);
+        _19Not = Not(_18Equal);
+        _45MapChannelVertexBuffer = MapChannelVertexBuffer(if (_19Not)
+          {
+            Int32 _20Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 92865
+            Boolean _21Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 92864
+            _20Constant = -3;
+            _21Equal = Equal(channel ID, _20Constant);
+            if (_21Equal)
+              {
+                MapChannel _22TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 92866
+                _22TopologyChannel = TopologyChannel(mesh);
+                _22TopologyChannel;
+                }else
+              {
+                MapChannel _23GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 92867
+                _23GetMapChannel = GetMapChannel(mesh, channel ID);
+                _23GetMapChannel;
+                };
+            }else
+          {
+            Int32 _24Constant;// 8:MapChannelOrGeometryGet-ext->0:Constant 92872
+            Boolean _25Equal;// 8:MapChannelOrGeometryGet-ext->4:Equal 92871
+            Int32 _26Constant;// 10:MapChannelOrGeometrySet-ext->0:Constant 92883
+            Boolean _27Equal;// 10:MapChannelOrGeometrySet-ext->6:Equal 92882
+            Single _28Constant;// 5:Origin->0:Constant 92889
+            Vector3 _29Vector3;// 5:Origin->1:Vector3 92888
+            IArray[Vector3] _30Unit;// 4:MapChannelClear-ext->4:Unit 92887
+            Int32 _31Zero;// 4:MapChannelClear-ext->9:Zero 92891
+            Int32 _32FaceCount;// 4:MapChannelClear-ext->6:FaceCount 92895
+            Int32 _33Constant;// 1:Three->0:Constant 92894
+            Int32 _34Multiply;// 7:MultiplyByThree->2:Multiply 92893
+            IArray[Int32] _35ArrayOf;// 4:MapChannelClear-ext->8:ArrayOf 92890
+            TriMesh _39Pass-through: TriMesh;// 0:Pass-through: TriMesh 92869
+            _24Constant = -3;
+            _25Equal = Equal(channel ID, _24Constant);
+            _26Constant = -3;
+            _27Equal = Equal(_26Constant, channel ID);
+            _28Constant = 0;
+            _29Vector3 = Vector3(_28Constant, _28Constant, _28Constant);
+            _30Unit = Unit(_29Vector3);
+            _31Zero = Zero();
+            _32FaceCount = FaceCount(mesh);
+            _33Constant = 3;
+            _34Multiply = Multiply(_32FaceCount, _33Constant);
+            _35ArrayOf = ArrayOf(_31Zero, _34Multiply);
+            _39Pass-through: TriMesh = if (_27Equal)
+              {
+                MeshData _36MeshData;// 10:MapChannelOrGeometrySet-ext->9:MeshData 92885
+                TriMesh _37CreateMeshWithMeshData;// 10:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 92884
+                _36MeshData = MeshData(mesh);
+                _37CreateMeshWithMeshData = CreateMeshWithMeshData(_30Unit, _35ArrayOf, _36MeshData);
+                _37CreateMeshWithMeshData;
+                }else
+              {
+                TriMesh _38SetMapChannel;// 10:MapChannelOrGeometrySet-ext->0:SetMapChannel 92886
+                _38SetMapChannel = SetMapChannel(mesh, channel ID, _30Unit, _35ArrayOf);
+                _38SetMapChannel;
+                };
+            if (_25Equal)
+              {
+                MapChannel _43TopologyChannel;// 8:MapChannelOrGeometryGet-ext->6:TopologyChannel 92873
+                _43TopologyChannel = TopologyChannel(_39Pass-through: TriMesh);
+                _43TopologyChannel;
+                }else
+              {
+                MapChannel _44GetMapChannel;// 8:MapChannelOrGeometryGet-ext->3:GetMapChannel 92874
+                _44GetMapChannel = GetMapChannel(_39Pass-through: TriMesh, channel ID);
+                _44GetMapChannel;
+                };
+            });
+        _46Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Multiply;// 7:Multiply 92904
+            Vector3 _1Add;// 8:Add 92903
+            Vector3 _2Multiply;// 9:Multiply 92902
+            _0Multiply = Multiply(pre multiply, x0);
+            _1Add = Add(_0Multiply, offset);
+            _2Multiply = Multiply(_1Add, multiply);
+            if (clamp)
+              {
+                Vector3 _3Clamp;// 12:Clamp 92901
+                _3Clamp = Clamp(_2Multiply, lower limit, upper limit);
+                _3Clamp;
+                }else
+              {
+                _2Multiply;
+                };
+            };
+        _47Map = Map(_45MapChannelVertexBuffer, _46Pass-through: function1);
+        _79Constant = -3;
+        _80Equal = Equal(channel ID, _79Constant);
+        _83Constant = -3;
+        _84Equal = Equal(channel ID, _83Constant);
+        _85Constant = -3;
+        _86Equal = Equal(_85Constant, channel ID);
+        _87Constant = 0;
+        _88Vector3 = Vector3(_87Constant, _87Constant, _87Constant);
+        _89Unit = Unit(_88Vector3);
+        _90Zero = Zero();
+        _91FaceCount = FaceCount(mesh);
+        _92Constant = 3;
+        _93Multiply = Multiply(_91FaceCount, _92Constant);
+        _94ArrayOf = ArrayOf(_90Zero, _93Multiply);
+        _126MapChannelIndexBuffer = MapChannelIndexBuffer(if (_19Not)
+          {
+            if (_80Equal)
+              {
+                MapChannel _111TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 92866
+                _111TopologyChannel = TopologyChannel(mesh);
+                _111TopologyChannel;
+                }else
+              {
+                MapChannel _112GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 92867
+                _112GetMapChannel = GetMapChannel(mesh, channel ID);
+                _112GetMapChannel;
+                };
+            }else
+          {
+            if (_84Equal)
+              {
+                TriMesh _119Pass-through: TriMesh;// 0:Pass-through: TriMesh 92869
+                MapChannel _120TopologyChannel;// 8:MapChannelOrGeometryGet-ext->6:TopologyChannel 92873
+                _119Pass-through: TriMesh = if (_86Equal)
+                  {
+                    MeshData _116MeshData;// 10:MapChannelOrGeometrySet-ext->9:MeshData 92885
+                    TriMesh _117CreateMeshWithMeshData;// 10:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 92884
+                    _116MeshData = MeshData(mesh);
+                    _117CreateMeshWithMeshData = CreateMeshWithMeshData(_89Unit, _94ArrayOf, _116MeshData);
+                    _117CreateMeshWithMeshData;
+                    }else
+                  {
+                    TriMesh _118SetMapChannel;// 10:MapChannelOrGeometrySet-ext->0:SetMapChannel 92886
+                    _118SetMapChannel = SetMapChannel(mesh, channel ID, _89Unit, _94ArrayOf);
+                    _118SetMapChannel;
+                    };
+                _120TopologyChannel = TopologyChannel(_119Pass-through: TriMesh);
+                _120TopologyChannel;
+                }else
+              {
+                TriMesh _124Pass-through: TriMesh;// 0:Pass-through: TriMesh 92869
+                MapChannel _125GetMapChannel;// 8:MapChannelOrGeometryGet-ext->3:GetMapChannel 92874
+                _124Pass-through: TriMesh = if (_86Equal)
+                  {
+                    MeshData _121MeshData;// 10:MapChannelOrGeometrySet-ext->9:MeshData 92885
+                    TriMesh _122CreateMeshWithMeshData;// 10:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 92884
+                    _121MeshData = MeshData(mesh);
+                    _122CreateMeshWithMeshData = CreateMeshWithMeshData(_89Unit, _94ArrayOf, _121MeshData);
+                    _122CreateMeshWithMeshData;
+                    }else
+                  {
+                    TriMesh _123SetMapChannel;// 10:MapChannelOrGeometrySet-ext->0:SetMapChannel 92886
+                    _123SetMapChannel = SetMapChannel(mesh, channel ID, _89Unit, _94ArrayOf);
+                    _123SetMapChannel;
+                    };
+                _125GetMapChannel = GetMapChannel(_124Pass-through: TriMesh, channel ID);
+                _125GetMapChannel;
+                };
+            });
+        if (_10Equal)
+          {
+            MeshData _127MeshData;// 9:MapChannelOrGeometrySet-ext->9:MeshData 92839
+            TriMesh _128CreateMeshWithMeshData;// 9:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 92838
+            _127MeshData = MeshData(mesh);
+            _128CreateMeshWithMeshData = CreateMeshWithMeshData(_47Map, _126MapChannelIndexBuffer, _127MeshData);
+            _128CreateMeshWithMeshData;
+            }else
+          {
+            TriMesh _129SetMapChannel;// 9:MapChannelOrGeometrySet-ext->0:SetMapChannel 92840
+            _129SetMapChannel = SetMapChannel(mesh, channel ID, _47Map, _126MapChannelIndexBuffer);
+            _129SetMapChannel;
+            };
+        }else
+      {
+        mesh;
+        };
+    }

@@ -1,0 +1,57 @@
+(InstanceState state, TriMesh mesh, INode node, Matrix modifierTransform, Single weight) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 108366
+    Int32 _1Two;// 3:CachePreviousValue-ext->2:Two 108383
+    Cache[Vector3] _2CreateCache;// 1:PerFrameValueCache-ext->4:CreateCache 108381
+    Int32 _3Zero;// 2:ExtractCurrentValueFromCache->3:Zero 108374
+    Vector3 _4CachedValue;// 2:ExtractCurrentValueFromCache->1:CachedValue 108373
+    Int32 _5One;// 0:ExtractPreviousValueFromCache->2:One 108377
+    Vector3 _6CachedValue;// 0:ExtractPreviousValueFromCache->1:CachedValue 108376
+    Vector3 _7Subtract;// 4:DifferenceFromPrevious-ext->3:Subtract 108371
+    Vector3 _8MultiplyByScalar;// 7:MultiplyByScalar 108369
+    Func[Vector3, Vector3] _9Pass-through: function1;// 0:Pass-through: function1 108363
+    IArray[Vector3] _10Map;// 0:MeshDeformPoints-ext->1:Map 108365
+    TriMesh _11SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 108364
+    _0MeshVertices = MeshVertices(mesh);
+    _1Two = Two();
+    _2CreateCache = CreateCache(() => 
+      {
+        Matrix _0ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 108390
+        Matrix _1InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 108391
+        Matrix _2Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 108389
+        Vector3 _3GetMatrixTranslation;// 1:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 108386
+        _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(node);
+        _1InvertMatrix = InvertMatrix(modifierTransform);
+        _2Multiply = Multiply(_0ObjectTransformBeforeWSM, _1InvertMatrix);
+        _3GetMatrixTranslation = GetMatrixTranslation(_2Multiply);
+        _3GetMatrixTranslation;
+        }, (Vector3 x0) => 
+      {
+        Matrix _0ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 108390
+        Matrix _1InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 108391
+        Matrix _2Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 108389
+        Vector3 _3GetMatrixTranslation;// 1:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 108386
+        Vector3 _4IgnoreFirst;// 1:PerFrameValueCache-ext->2:IgnoreFirst 108382
+        _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(node);
+        _1InvertMatrix = InvertMatrix(modifierTransform);
+        _2Multiply = Multiply(_0ObjectTransformBeforeWSM, _1InvertMatrix);
+        _3GetMatrixTranslation = GetMatrixTranslation(_2Multiply);
+        _4IgnoreFirst = IgnoreFirst(x0, _3GetMatrixTranslation);
+        _4IgnoreFirst;
+        }, _1Two).SetId(state, 0);
+    _3Zero = Zero();
+    _4CachedValue = CachedValue(_2CreateCache, _3Zero);
+    _5One = One();
+    _6CachedValue = CachedValue(_2CreateCache, _5One);
+    _7Subtract = Subtract(_4CachedValue, _6CachedValue);
+    _8MultiplyByScalar = MultiplyByScalar(_7Subtract, weight);
+    _9Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Add;// 5:MeshOffset-ext->2:Add 108367
+        _0Add = Add(x0, _8MultiplyByScalar);
+        _0Add;
+        };
+    _10Map = Map(_0MeshVertices, _9Pass-through: function1);
+    _11SetMeshVertices = SetMeshVertices(mesh, _10Map);
+    _11SetMeshVertices;
+    }

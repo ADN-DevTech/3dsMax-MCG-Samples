@@ -1,22 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="5b989899-dd66-489d-901b-70b03cc2bf2a">
-  <meta_info>
-    <graph_version guid="cfa441a2-0ff0-4db3-9d76-eb964cdbfce6" number="0.0.7" />
-    <category>Geometry - TriMesh</category>
-    <description>Deletes the specified vertices and the faces they are part of. </description>
-  </meta_info>
-  <nodes>
-    <node operator="Input: array" id="0" name="vertexFlags" position="0:120" size="140:112" />
-    <node operator="Input: TriMesh" id="1" name="mesh" position="220:0" size="140:112" />
-    <node operator="MeshDeleteFaces-ext" id="2" position="440:80" size="140:133" />
-    <node operator="VertexFlagsToFaceFlags-ext" id="3" position="220:140" size="140:133" />
-    <node operator="Output: compound" id="4" position="660:120" size="140:70" />
-  </nodes>
-  <connections>
-    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
-    <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
-    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
-    <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
-    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
-  </connections>
+    <meta_info>
+        <graph_version guid="bfddd213-7df1-459b-aa69-6873c69a418f" number="0.0.14" />
+        <category>Geometry - TriMesh</category>
+        <description>Deletes the specified vertices and the faces they are part of. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="vertexFlags" position="0:60" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="0:180" size="140:112" />
+        <node operator="MeshDeleteFaces-ext" id="2" position="440:220" size="180:133" />
+        <node operator="VertexFlagsToFaceFlags-ext" id="3" position="200:320" size="200:133" />
+        <node operator="Output: compound" id="4" position="1440:240" size="140:70" />
+        <node operator="VertexDataRemap-ext" id="5" position="1200:80" size="160:154" />
+        <node operator="BooleansToIndices-ext" id="6" position="480:-60" size="180:112" />
+        <node operator="NegateBooleanValues-ext" id="7" position="220:0" size="180:112" />
+        <node operator="CreateMeshWithMeshData" id="8" position="1220:360" size="200:154" />
+        <node operator="MeshIndices" id="9" position="960:80" size="140:112" />
+        <node operator="MeshVertices" id="10" position="760:80" size="140:112" />
+        <node operator="SelectByIndex" id="11" position="940:-140" size="140:133" />
+        <node operator="MeshData" id="12" position="1000:340" size="140:112" />
+        <node operator="CreateMesh" id="13" position="1094:-61" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="1" />
+    </connections>
 </graph>

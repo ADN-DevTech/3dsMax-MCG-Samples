@@ -1,0 +1,233 @@
+(InstanceState state, TriMesh mesh, INode node, BoundingBox boundingBox) => 
+  {
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 105928
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 105930
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 105929
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 105927
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 105926
+    TriMesh _5IfThen;// 2:MeshSetVertices-ext->10:IfThen 105922
+    _0Constant = per-vertex data channel ;
+    _1Zero = Zero();
+    _2ToString = ToString(_1Zero);
+    _3ConcatenateStrings = ConcatenateStrings(_0Constant, _2ToString);
+    _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
+    _5IfThen = IfThen(_4IsChannelAvailable, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:MeshSetVertices-ext->0:MeshVertices 105937
+        IArray[Vector3] _1MeshVertices;// 6:MeshTransform-ext->3:MeshVertices 105943
+        Boolean _2IsValidNode;// 2:CheckNodeValidity->0:IsValidNode 106000
+        Boolean _3Not;// 2:CheckNodeValidity->1:Not 105999
+        INode _4ExitIf;// 2:CheckNodeValidity->2:ExitIf 105998
+        TriMesh _5MeshFromNode;// 3:BoundingBoxFromNode->1:MeshFromNode 105996
+        IArray[Vector3] _6MeshVertices;// 3:MeshBoundingBox->1:MeshVertices 105995
+        BoundingBox _7BoxFromPoints;// 3:MeshBoundingBox->0:BoxFromPoints 105994
+        Vector3 _8BoxMax;// 3:BoundingBoxExtent-ext->1:BoxMax 105985
+        Vector3 _9BoxMin;// 3:BoundingBoxExtent-ext->2:BoxMin 105986
+        Vector3 _10Subtract;// 3:BoundingBoxExtent-ext->3:Subtract 105984
+        Vector3 _11BoxMax;// 2:BoundingBoxExtent-ext->1:BoxMax 105989
+        Vector3 _12BoxMin;// 2:BoundingBoxExtent-ext->2:BoxMin 105990
+        Vector3 _13Subtract;// 2:BoundingBoxExtent-ext->3:Subtract 105988
+        Vector3 _14Divide;// 5:BoxRelativeScaling-ext->4:Divide 105982
+        Single _15X;// 5:VectorReplaceNaN-ext->1:X 105963
+        Single _16NaN;// 1:FloatIsNaN->1:NaN 105961
+        Int32 _17Compare;// 1:FloatIsNaN->2:Compare 105960
+        Int32 _18Zero;// 1:FloatIsNaN->4:Zero 105962
+        Boolean _19Equal;// 1:FloatIsNaN->3:Equal 105959
+        Single _21Y;// 5:VectorReplaceNaN-ext->4:Y 105972
+        Single _22NaN;// 1:FloatIsNaN->1:NaN 105970
+        Int32 _23Compare;// 1:FloatIsNaN->2:Compare 105969
+        Int32 _24Zero;// 1:FloatIsNaN->4:Zero 105971
+        Boolean _25Equal;// 1:FloatIsNaN->3:Equal 105968
+        Single _27Z;// 5:VectorReplaceNaN-ext->5:Z 105981
+        Single _28NaN;// 1:FloatIsNaN->1:NaN 105979
+        Int32 _29Compare;// 1:FloatIsNaN->2:Compare 105978
+        Int32 _30Zero;// 1:FloatIsNaN->4:Zero 105980
+        Boolean _31Equal;// 1:FloatIsNaN->3:Equal 105977
+        Vector3 _33Vector3;// 5:VectorReplaceNaN-ext->8:Vector3 105954
+        Single _34Constant;// 8:Origin->0:Constant 105949
+        Vector3 _35Vector3;// 8:Origin->1:Vector3 105948
+        Matrix _36ScalingTranslationMatrix;// 7:MatrixFromScalingVector-ext->4:ScalingTranslationMatrix 105947
+        IArray[Vector3] _37Map;// 6:MeshTransform-ext->4:Map 105942
+        Int32 _38Zero;// 7:SoftSelection->2:Zero 105940
+        IArray[Single] _39PerVertexData;// 7:SoftSelection->3:PerVertexData 105939
+        IArray[Vector3] _40Combine3;// 1:LerpVectors-ext->10:Combine3 105935
+        TriMesh _41SetMeshVertices;// 2:MeshSetVertices-ext->6:SetMeshVertices 105931
+        _0MeshVertices = MeshVertices(mesh);
+        _1MeshVertices = MeshVertices(mesh);
+        _2IsValidNode = IsValidNode(node);
+        _3Not = Not(_2IsValidNode);
+        _4ExitIf = ExitIf(node, _3Not);
+        _5MeshFromNode = MeshFromNode(_4ExitIf);
+        _6MeshVertices = MeshVertices(_5MeshFromNode);
+        _7BoxFromPoints = BoxFromPoints(_6MeshVertices);
+        _8BoxMax = BoxMax(_7BoxFromPoints);
+        _9BoxMin = BoxMin(_7BoxFromPoints);
+        _10Subtract = Subtract(_8BoxMax, _9BoxMin);
+        _11BoxMax = BoxMax(boundingBox);
+        _12BoxMin = BoxMin(boundingBox);
+        _13Subtract = Subtract(_11BoxMax, _12BoxMin);
+        _14Divide = Divide(_10Subtract, _13Subtract);
+        _15X = X(_14Divide);
+        _16NaN = NaN();
+        _17Compare = Compare(_15X, _16NaN);
+        _18Zero = Zero();
+        _19Equal = Equal(_17Compare, _18Zero);
+        _21Y = Y(_14Divide);
+        _22NaN = NaN();
+        _23Compare = Compare(_21Y, _22NaN);
+        _24Zero = Zero();
+        _25Equal = Equal(_23Compare, _24Zero);
+        _27Z = Z(_14Divide);
+        _28NaN = NaN();
+        _29Compare = Compare(_27Z, _28NaN);
+        _30Zero = Zero();
+        _31Equal = Equal(_29Compare, _30Zero);
+        _33Vector3 = Vector3(if (_19Equal)
+          {
+            Single _20FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _20FloatOne = FloatOne();
+            _20FloatOne;
+            }else
+          {
+            _15X;
+            }, if (_25Equal)
+          {
+            Single _26FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _26FloatOne = FloatOne();
+            _26FloatOne;
+            }else
+          {
+            _21Y;
+            }, if (_31Equal)
+          {
+            Single _32FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _32FloatOne = FloatOne();
+            _32FloatOne;
+            }else
+          {
+            _27Z;
+            });
+        _34Constant = 0;
+        _35Vector3 = Vector3(_34Constant, _34Constant, _34Constant);
+        _36ScalingTranslationMatrix = ScalingTranslationMatrix(_33Vector3, _35Vector3);
+        _37Map = Map(_1MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 6:MeshTransform-ext->5:Transform 105944
+            _0Transform = Transform(x0, _36ScalingTranslationMatrix);
+            _0Transform;
+            });
+        _38Zero = Zero();
+        _39PerVertexData = PerVertexData(mesh, _38Zero);
+        _40Combine3 = Combine3(_0MeshVertices, _37Map, _39PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+          {
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 105936
+            _0Lerp = Lerp(x0, x1, x2);
+            _0Lerp;
+            });
+        _41SetMeshVertices = SetMeshVertices(mesh, _40Combine3);
+        _41SetMeshVertices;
+        }, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 6:MeshTransform-ext->3:MeshVertices 105943
+        Boolean _1IsValidNode;// 2:CheckNodeValidity->0:IsValidNode 106000
+        Boolean _2Not;// 2:CheckNodeValidity->1:Not 105999
+        INode _3ExitIf;// 2:CheckNodeValidity->2:ExitIf 105998
+        TriMesh _4MeshFromNode;// 3:BoundingBoxFromNode->1:MeshFromNode 105996
+        IArray[Vector3] _5MeshVertices;// 3:MeshBoundingBox->1:MeshVertices 105995
+        BoundingBox _6BoxFromPoints;// 3:MeshBoundingBox->0:BoxFromPoints 105994
+        Vector3 _7BoxMax;// 3:BoundingBoxExtent-ext->1:BoxMax 105985
+        Vector3 _8BoxMin;// 3:BoundingBoxExtent-ext->2:BoxMin 105986
+        Vector3 _9Subtract;// 3:BoundingBoxExtent-ext->3:Subtract 105984
+        Vector3 _10BoxMax;// 2:BoundingBoxExtent-ext->1:BoxMax 105989
+        Vector3 _11BoxMin;// 2:BoundingBoxExtent-ext->2:BoxMin 105990
+        Vector3 _12Subtract;// 2:BoundingBoxExtent-ext->3:Subtract 105988
+        Vector3 _13Divide;// 5:BoxRelativeScaling-ext->4:Divide 105982
+        Single _14X;// 5:VectorReplaceNaN-ext->1:X 105963
+        Single _15NaN;// 1:FloatIsNaN->1:NaN 105961
+        Int32 _16Compare;// 1:FloatIsNaN->2:Compare 105960
+        Int32 _17Zero;// 1:FloatIsNaN->4:Zero 105962
+        Boolean _18Equal;// 1:FloatIsNaN->3:Equal 105959
+        Single _20Y;// 5:VectorReplaceNaN-ext->4:Y 105972
+        Single _21NaN;// 1:FloatIsNaN->1:NaN 105970
+        Int32 _22Compare;// 1:FloatIsNaN->2:Compare 105969
+        Int32 _23Zero;// 1:FloatIsNaN->4:Zero 105971
+        Boolean _24Equal;// 1:FloatIsNaN->3:Equal 105968
+        Single _26Z;// 5:VectorReplaceNaN-ext->5:Z 105981
+        Single _27NaN;// 1:FloatIsNaN->1:NaN 105979
+        Int32 _28Compare;// 1:FloatIsNaN->2:Compare 105978
+        Int32 _29Zero;// 1:FloatIsNaN->4:Zero 105980
+        Boolean _30Equal;// 1:FloatIsNaN->3:Equal 105977
+        Vector3 _32Vector3;// 5:VectorReplaceNaN-ext->8:Vector3 105954
+        Single _33Constant;// 8:Origin->0:Constant 105949
+        Vector3 _34Vector3;// 8:Origin->1:Vector3 105948
+        Matrix _35ScalingTranslationMatrix;// 7:MatrixFromScalingVector-ext->4:ScalingTranslationMatrix 105947
+        IArray[Vector3] _36Map;// 6:MeshTransform-ext->4:Map 105942
+        TriMesh _37SetMeshVertices;// 2:MeshSetVertices-ext->8:SetMeshVertices 105941
+        _0MeshVertices = MeshVertices(mesh);
+        _1IsValidNode = IsValidNode(node);
+        _2Not = Not(_1IsValidNode);
+        _3ExitIf = ExitIf(node, _2Not);
+        _4MeshFromNode = MeshFromNode(_3ExitIf);
+        _5MeshVertices = MeshVertices(_4MeshFromNode);
+        _6BoxFromPoints = BoxFromPoints(_5MeshVertices);
+        _7BoxMax = BoxMax(_6BoxFromPoints);
+        _8BoxMin = BoxMin(_6BoxFromPoints);
+        _9Subtract = Subtract(_7BoxMax, _8BoxMin);
+        _10BoxMax = BoxMax(boundingBox);
+        _11BoxMin = BoxMin(boundingBox);
+        _12Subtract = Subtract(_10BoxMax, _11BoxMin);
+        _13Divide = Divide(_9Subtract, _12Subtract);
+        _14X = X(_13Divide);
+        _15NaN = NaN();
+        _16Compare = Compare(_14X, _15NaN);
+        _17Zero = Zero();
+        _18Equal = Equal(_16Compare, _17Zero);
+        _20Y = Y(_13Divide);
+        _21NaN = NaN();
+        _22Compare = Compare(_20Y, _21NaN);
+        _23Zero = Zero();
+        _24Equal = Equal(_22Compare, _23Zero);
+        _26Z = Z(_13Divide);
+        _27NaN = NaN();
+        _28Compare = Compare(_26Z, _27NaN);
+        _29Zero = Zero();
+        _30Equal = Equal(_28Compare, _29Zero);
+        _32Vector3 = Vector3(if (_18Equal)
+          {
+            Single _19FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _19FloatOne = FloatOne();
+            _19FloatOne;
+            }else
+          {
+            _14X;
+            }, if (_24Equal)
+          {
+            Single _25FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _25FloatOne = FloatOne();
+            _25FloatOne;
+            }else
+          {
+            _20Y;
+            }, if (_30Equal)
+          {
+            Single _31FloatOne;// 5:BoxRelativeScaling-ext->6:FloatOne 105991
+            _31FloatOne = FloatOne();
+            _31FloatOne;
+            }else
+          {
+            _26Z;
+            });
+        _33Constant = 0;
+        _34Vector3 = Vector3(_33Constant, _33Constant, _33Constant);
+        _35ScalingTranslationMatrix = ScalingTranslationMatrix(_32Vector3, _34Vector3);
+        _36Map = Map(_0MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 6:MeshTransform-ext->5:Transform 105944
+            _0Transform = Transform(x0, _35ScalingTranslationMatrix);
+            _0Transform;
+            });
+        _37SetMeshVertices = SetMeshVertices(mesh, _36Map);
+        _37SetMeshVertices;
+        });
+    _5IfThen;
+    }

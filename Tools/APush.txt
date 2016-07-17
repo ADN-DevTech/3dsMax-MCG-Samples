@@ -1,0 +1,19 @@
+(InstanceState state, TriMesh mesh, Single Amount) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 3:PushMeshVertices->8:MeshVertices 89075
+    IArray[Vector3] _1VertexNormals;// 3:PushMeshVertices->9:VertexNormals 89076
+    IArray[Vector3] _2ParallelCombine;// 3:PushMeshVertices->2:ParallelCombine 89074
+    TriMesh _3SetMeshVertices;// 3:PushMeshVertices->10:SetMeshVertices 89073
+    _0MeshVertices = MeshVertices(mesh);
+    _1VertexNormals = VertexNormals(mesh);
+    _2ParallelCombine = ParallelCombine(_0MeshVertices, _1VertexNormals, (Vector3 x0, Vector3 x1) => 
+      {
+        Vector3 _0MultiplyByScalar;// 3:PushMeshVertices->0:MultiplyByScalar 89078
+        Vector3 _1Add;// 3:PushMeshVertices->1:Add 89077
+        _0MultiplyByScalar = MultiplyByScalar(x1, Amount);
+        _1Add = Add(x0, _0MultiplyByScalar);
+        _1Add;
+        });
+    _3SetMeshVertices = SetMeshVertices(mesh, _2ParallelCombine);
+    _3SetMeshVertices;
+    }

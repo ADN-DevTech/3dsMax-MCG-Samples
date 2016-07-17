@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="a2c3cfe6-9960-4950-8508-deb0187d2c2a">
+    <meta_info>
+        <graph_version guid="fae3c77e-b355-4459-80c9-b2bba3493b80" number="0.0.8" />
+        <category>Map Channel</category>
+        <description>Returns the map channel data associated with each vertex. If there is more than one piece of data associated with a vertex it is averaged together. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="8" name="srcMesh" position="0:0" size="140:112" />
+        <node operator="MapChannelOrCreate-ext" id="12" position="220:100" size="200:133" />
+        <node operator="Input: Int32" id="10" name="srcChannelID" position="0:140" size="140:112" />
+        <node operator="Output: compound" id="0" position="1040:180" size="140:70" />
+        <node operator="MapChannelAverageVertexLookup-ext" id="2" position="500:140" size="240:154" />
+        <node operator="MeshVertexCount-ext" id="1" position="500:0" size="140:112" />
+        <node operator="MapRange-ext" id="3" position="820:120" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="1" destnode="3" destport="1" />
+    </connections>
+</graph>

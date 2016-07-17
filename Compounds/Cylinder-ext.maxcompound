@@ -1,43 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="9b2f2a7b-c5b6-41f6-84b5-9d3f5528eec5">
-  <meta_info>
-    <graph_version guid="591f33df-bc98-4e2d-b29e-30baf19f2cc5" number="0.0.2" />
-    <category>Primitives</category>
-  </meta_info>
-  <nodes>
-    <node operator="Input: Int32" id="0" name="numSides" position="0:220" size="140:117" />
-    <node operator="FunctionCircle-ext" id="2" position="220:60" size="140:117" />
-    <node operator="Extrude" id="3" position="880:240" size="140:189" />
-    <node operator="ZAxis" id="5" position="440:300" size="140:93" />
-    <node operator="RangeExclusiveFloat" id="6" position="440:0" size="140:117" />
-    <node operator="Map" id="7" position="660:160" size="140:141" />
-    <node operator="True" id="8" position="660:480" size="140:93" />
-    <node operator="ToTriMesh" id="9" position="1100:340" size="140:117" />
-    <node operator="Input: Int32" id="1" name="numSegments" position="660:20" size="140:117" />
-    <node operator="Output: compound" id="4" position="1320:360" size="140:69" />
-    <node operator="MultiplyByScalar" id="10" position="660:320" size="140:141" />
-    <node operator="Input: Single" id="11" name="height" position="220:340" size="140:117" />
-    <node operator="Divide" id="12" position="440:420" size="140:141" />
-    <node operator="IntAsFloat" id="13" position="220:460" size="140:117" />
-    <node operator="MultiplyByScalar" id="14" position="440:140" size="140:141" />
-    <node operator="Input: Single" id="15" name="radius" position="220:200" size="140:117" />
-  </nodes>
-  <connections>
-    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
-    <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
-    <connection sourcenode="10" sourceport="0" destnode="3" destport="2" />
-    <connection sourcenode="8" sourceport="0" destnode="3" destport="3" />
-    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
-    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
-    <connection sourcenode="14" sourceport="1" destnode="7" destport="1" />
-    <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
-    <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
-    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
-    <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
-    <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
-    <connection sourcenode="13" sourceport="0" destnode="12" destport="1" />
-    <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
-    <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
-    <connection sourcenode="15" sourceport="0" destnode="14" destport="1" />
-  </connections>
+    <meta_info>
+        <graph_version guid="3ecd63cc-fdde-4a2e-a9e4-d0bc70124ec9" number="0.0.25" />
+        <category>Primitives</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="numSides" position="220:40" size="140:112" />
+        <node operator="FunctionCircle-ext" id="2" position="220:180" size="140:112" />
+        <node operator="ZAxis" id="5" position="440:420" size="140:91" />
+        <node operator="RangeExclusiveFloat" id="6" position="440:140" size="140:112" />
+        <node operator="Map" id="7" position="660:300" size="140:133" />
+        <node operator="Input: Int32" id="1" name="numSegments" position="0:280" size="140:112" />
+        <node operator="Output: compound" id="4" position="1360:420" size="140:70" />
+        <node operator="MultiplyByScalar" id="10" position="660:460" size="140:133" />
+        <node operator="Input: Single" id="11" name="height" position="220:440" size="140:112" />
+        <node operator="MultiplyByScalar" id="14" position="440:260" size="140:133" />
+        <node operator="Input: Single" id="15" name="radius" position="220:300" size="140:112" />
+        <node operator="PointsExtrude-ext" id="9" position="880:260" size="140:217" />
+        <node operator="QuadMeshToTriMesh-ext" id="3" position="1100:400" size="180:112" />
+        <node operator="Input: Boolean" id="12" name="capBottom" position="660:0" size="140:112" />
+        <node operator="Divide" id="13" position="440:520" size="140:133" />
+        <node operator="IntAsFloat" id="16" position="220:560" size="140:112" />
+        <node operator="Input: Boolean" id="17" name="capTop" position="660:140" size="140:112" />
+        <node operator="Input: Boolean" id="8" name="closed" position="660:620" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="14" sourceport="1" destnode="7" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="3" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="4" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="5" />
+        <connection sourcenode="9" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+    </connections>
 </graph>

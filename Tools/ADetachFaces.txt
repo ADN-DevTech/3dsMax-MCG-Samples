@@ -1,0 +1,23 @@
+(InstanceState state, TriMesh mesh) => 
+  {
+    IArray[Int32] _0MeshIndices;// 2:MeshFaceVertices->1:MeshIndices 89057
+    IArray[Vector3] _1MeshVertices;// 2:MeshFaceVertices->2:MeshVertices 89058
+    IArray[Vector3] _2Map;// 3:SelectByIndex->2:Map 89055
+    IArray[Int32] _3Indices;// 0:DetachFaces->5:Indices 89059
+    MeshData _4MeshData;// 0:DetachFaces->4:MeshData 89061
+    MeshData _5ClearVertexData;// 0:DetachFaces->6:ClearVertexData 89060
+    TriMesh _6CreateMeshWithMeshData;// 0:DetachFaces->3:CreateMeshWithMeshData 89051
+    _0MeshIndices = MeshIndices(mesh);
+    _1MeshVertices = MeshVertices(mesh);
+    _2Map = Map(_0MeshIndices, (Int32 x0) => 
+      {
+        Vector3 _0At;// 3:SelectByIndex->3:At 89056
+        _0At = At(_1MeshVertices, x0);
+        _0At;
+        });
+    _3Indices = Indices(_2Map);
+    _4MeshData = MeshData(mesh);
+    _5ClearVertexData = ClearVertexData(_4MeshData);
+    _6CreateMeshWithMeshData = CreateMeshWithMeshData(_2Map, _3Indices, _5ClearVertexData);
+    _6CreateMeshWithMeshData;
+    }

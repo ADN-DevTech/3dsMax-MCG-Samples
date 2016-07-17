@@ -1,0 +1,1046 @@
+(InstanceState state, TriMesh mesh, Single x, Single y, Single frequency, Single scaling, Single amplitude) => 
+  {
+    Int32 _0Zero;// 11:Zero 94988
+    MapChannel _1UVChannel;// 1:UVChannel 95011
+    IArray[Vector3] _2MapChannelVertexBuffer;// 10:MapChannelVertexBuffer 95010
+    Func[Single, Single, Single] _3Pass-through: function2;// 0:Pass-through: function2 94990
+    Single _4Constant;// 4:Vector3FromXY->0:Constant 95506
+    Vector3 _5Vector3;// 4:Vector3FromXY->0:Vector3 95505
+    Single _6Divide;// 8:Divide 95509
+    IArray[Single] _7Map;// 12:NoiseHeight-ext->12:Map 94995
+    IArray[Vector3] _8Combine;// 12:NoiseHeight-ext->8:Combine 94994
+    IArray[Int32] _9MapChannelIndexBuffer;// 15:MapChannelIndexBuffer 95513
+    TriMesh _10SetMapChannel;// 6:SetMapChannel 94986
+    _0Zero = Zero();
+    _1UVChannel = UVChannel(mesh);
+    _2MapChannelVertexBuffer = MapChannelVertexBuffer(_1UVChannel);
+    _3Pass-through: function2 = (Single x0, Single x1) => 
+      {
+        Cache[IArray[Int32]] _0CreateStaticCache;// 2:CacheValue-ext->17:CreateStaticCache 95410
+        Int32 _1Zero;// 2:CacheValue-ext->7:Zero 95411
+        IArray[Int32] _2CachedValue;// 2:CacheValue-ext->4:CachedValue 95409
+        Int32 _3Floor;// 0:NoisePerlin-ext->0:Floor 95428
+        Int32 _4Constant;// 0:NoisePerlin-ext->0:Constant 95429
+        Int32 _5And;// 0:NoisePerlin-ext->16:And 95427
+        Int32 _6At;// 0:NoisePerlin-ext->17:At 95426
+        Int32 _7Floor;// 0:NoisePerlin-ext->1:Floor 95431
+        Int32 _8And;// 0:NoisePerlin-ext->4:And 95430
+        Int32 _9Add;// 0:NoisePerlin-ext->21:Add 95425
+        Int32 _10At;// 0:NoisePerlin-ext->27:At 95424
+        Single _11FloatZero;// 13:NoiseOp->3:FloatZero 95502
+        Int32 _12Floor;// 0:NoisePerlin-ext->2:Floor 95433
+        Int32 _13And;// 0:NoisePerlin-ext->6:And 95432
+        Int32 _14Add;// 0:NoisePerlin-ext->29:Add 95423
+        Int32 _15At;// 19:NoisePerlinBlendCorners-ext->12:At 95069
+        Int32 _16Constant;// 20:NoisePerlinGrad-ext->0:Constant 95045
+        Int32 _17And;// 20:NoisePerlinGrad-ext->5:And 95044
+        Int32 _18One;// 20:NoisePerlinGrad-ext->21:One 95046
+        Int32 _19And;// 3:BitsSet-ext->4:And 95042
+        Int32 _20Zero;// 2:GreaterThanZero->1:Zero 95041
+        Boolean _21GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95040
+        Int32 _22Constant;// 20:NoisePerlinGrad-ext->0:Constant 95050
+        Boolean _23LessThan;// 20:NoisePerlinGrad-ext->7:LessThan 95049
+        Single _28FloorAsFloat;// 46:FloatFractionalPart-ext->4:FloorAsFloat 95436
+        Single _29Subtract;// 46:FloatFractionalPart-ext->6:Subtract 95435
+        Single _30FloorAsFloat;// 47:FloatFractionalPart-ext->4:FloorAsFloat 95439
+        Single _31Subtract;// 47:FloatFractionalPart-ext->6:Subtract 95438
+        Int32 _33Two;// 20:NoisePerlinGrad-ext->29:Two 95058
+        Int32 _34And;// 22:BitsSet-ext->4:And 95057
+        Int32 _35Zero;// 2:GreaterThanZero->1:Zero 95056
+        Boolean _36GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95055
+        Int32 _37Constant;// 20:NoisePerlinGrad-ext->0:Constant 95062
+        Boolean _38LessThan;// 20:NoisePerlinGrad-ext->12:LessThan 95061
+        Int32 _46Constant;// 20:NoisePerlinGrad-ext->0:Constant 95066
+        Boolean _47Equal;// 20:NoisePerlinGrad-ext->16:Equal 95065
+        Int32 _48Constant;// 20:NoisePerlinGrad-ext->0:Constant 95068
+        Boolean _49Equal;// 20:NoisePerlinGrad-ext->19:Equal 95067
+        Boolean _50OrElse;// 20:NoisePerlinGrad-ext->18:OrElse 95064
+        Single _53FloorAsFloat;// 48:FloatFractionalPart-ext->4:FloorAsFloat 95442
+        Single _54Subtract;// 48:FloatFractionalPart-ext->6:Subtract 95441
+        Single _56Add;// 20:NoisePerlinGrad-ext->33:Add 95035
+        Int32 _57One;// 23:PlusOne->1:One 95449
+        Int32 _58Add;// 23:PlusOne->0:Add 95448
+        Int32 _59At;// 0:NoisePerlin-ext->24:At 95446
+        Int32 _60Add;// 0:NoisePerlin-ext->25:Add 95445
+        Int32 _61At;// 0:NoisePerlin-ext->28:At 95444
+        Int32 _62Add;// 0:NoisePerlin-ext->30:Add 95443
+        Int32 _63At;// 19:NoisePerlinBlendCorners-ext->13:At 95112
+        Int32 _64Constant;// 23:NoisePerlinGrad-ext->0:Constant 95088
+        Int32 _65And;// 23:NoisePerlinGrad-ext->5:And 95087
+        Int32 _66One;// 23:NoisePerlinGrad-ext->21:One 95089
+        Int32 _67And;// 3:BitsSet-ext->4:And 95085
+        Int32 _68Zero;// 2:GreaterThanZero->1:Zero 95084
+        Boolean _69GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95083
+        Int32 _70Constant;// 23:NoisePerlinGrad-ext->0:Constant 95093
+        Boolean _71LessThan;// 23:NoisePerlinGrad-ext->7:LessThan 95092
+        Single _74FloatOne;// 24:MinusOneFloat-ext->3:FloatOne 95115
+        Single _75Subtract;// 24:MinusOneFloat-ext->2:Subtract 95114
+        Int32 _77Two;// 23:NoisePerlinGrad-ext->29:Two 95101
+        Int32 _78And;// 22:BitsSet-ext->4:And 95100
+        Int32 _79Zero;// 2:GreaterThanZero->1:Zero 95099
+        Boolean _80GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95098
+        Int32 _81Constant;// 23:NoisePerlinGrad-ext->0:Constant 95105
+        Boolean _82LessThan;// 23:NoisePerlinGrad-ext->12:LessThan 95104
+        Int32 _88Constant;// 23:NoisePerlinGrad-ext->0:Constant 95109
+        Boolean _89Equal;// 23:NoisePerlinGrad-ext->16:Equal 95108
+        Int32 _90Constant;// 23:NoisePerlinGrad-ext->0:Constant 95111
+        Boolean _91Equal;// 23:NoisePerlinGrad-ext->19:Equal 95110
+        Boolean _92OrElse;// 23:NoisePerlinGrad-ext->18:OrElse 95107
+        Single _94Add;// 23:NoisePerlinGrad-ext->33:Add 95078
+        Single _95FloorAsFloat;// 3:FloatFractionalPart-ext->4:FloorAsFloat 95463
+        Single _96Subtract;// 3:FloatFractionalPart-ext->6:Subtract 95462
+        Single _97Multiply;// 12:NoisePerlinFade-ext->8:Multiply 95453
+        Single _98Multiply;// 12:NoisePerlinFade-ext->9:Multiply 95452
+        Single _99Constant;// 12:NoisePerlinFade-ext->0:Constant 95458
+        Single _100Multiply;// 12:NoisePerlinFade-ext->1:Multiply 95457
+        Single _101Constant;// 12:NoisePerlinFade-ext->0:Constant 95459
+        Single _102Subtract;// 12:NoisePerlinFade-ext->5:Subtract 95456
+        Single _103Multiply;// 12:NoisePerlinFade-ext->3:Multiply 95455
+        Single _104Constant;// 12:NoisePerlinFade-ext->0:Constant 95460
+        Single _105Add;// 12:NoisePerlinFade-ext->6:Add 95454
+        Single _106Multiply;// 12:NoisePerlinFade-ext->10:Multiply 95451
+        Single _107FloatLerp;// 19:NoisePerlinBlendCorners-ext->25:FloatLerp 95030
+        Int32 _108One;// 42:PlusOne->1:One 95468
+        Int32 _109Add;// 42:PlusOne->0:Add 95467
+        Int32 _110At;// 0:NoisePerlin-ext->33:At 95465
+        Int32 _111Add;// 0:NoisePerlin-ext->34:Add 95464
+        Int32 _112At;// 19:NoisePerlinBlendCorners-ext->47:At 95156
+        Int32 _113Constant;// 38:NoisePerlinGrad-ext->0:Constant 95132
+        Int32 _114And;// 38:NoisePerlinGrad-ext->5:And 95131
+        Int32 _115One;// 38:NoisePerlinGrad-ext->21:One 95133
+        Int32 _116And;// 3:BitsSet-ext->4:And 95129
+        Int32 _117Zero;// 2:GreaterThanZero->1:Zero 95128
+        Boolean _118GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95127
+        Int32 _119Constant;// 38:NoisePerlinGrad-ext->0:Constant 95137
+        Boolean _120LessThan;// 38:NoisePerlinGrad-ext->7:LessThan 95136
+        Single _123FloatOne;// 87:MinusOneFloat-ext->3:FloatOne 95161
+        Single _124Subtract;// 87:MinusOneFloat-ext->2:Subtract 95160
+        Int32 _126Two;// 38:NoisePerlinGrad-ext->29:Two 95145
+        Int32 _127And;// 22:BitsSet-ext->4:And 95144
+        Int32 _128Zero;// 2:GreaterThanZero->1:Zero 95143
+        Boolean _129GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95142
+        Int32 _130Constant;// 38:NoisePerlinGrad-ext->0:Constant 95149
+        Boolean _131LessThan;// 38:NoisePerlinGrad-ext->12:LessThan 95148
+        Int32 _137Constant;// 38:NoisePerlinGrad-ext->0:Constant 95153
+        Boolean _138Equal;// 38:NoisePerlinGrad-ext->16:Equal 95152
+        Int32 _139Constant;// 38:NoisePerlinGrad-ext->0:Constant 95155
+        Boolean _140Equal;// 38:NoisePerlinGrad-ext->19:Equal 95154
+        Boolean _141OrElse;// 38:NoisePerlinGrad-ext->18:OrElse 95151
+        Single _143Add;// 38:NoisePerlinGrad-ext->33:Add 95122
+        Int32 _144One;// 41:PlusOne->1:One 95473
+        Int32 _145Add;// 41:PlusOne->0:Add 95472
+        Int32 _146At;// 0:NoisePerlin-ext->37:At 95470
+        Int32 _147Add;// 0:NoisePerlin-ext->38:Add 95469
+        Int32 _148At;// 19:NoisePerlinBlendCorners-ext->37:At 95202
+        Int32 _149Constant;// 42:NoisePerlinGrad-ext->0:Constant 95178
+        Int32 _150And;// 42:NoisePerlinGrad-ext->5:And 95177
+        Int32 _151One;// 42:NoisePerlinGrad-ext->21:One 95179
+        Int32 _152And;// 3:BitsSet-ext->4:And 95175
+        Int32 _153Zero;// 2:GreaterThanZero->1:Zero 95174
+        Boolean _154GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95173
+        Int32 _155Constant;// 42:NoisePerlinGrad-ext->0:Constant 95183
+        Boolean _156LessThan;// 42:NoisePerlinGrad-ext->7:LessThan 95182
+        Single _159FloatOne;// 44:MinusOneFloat-ext->3:FloatOne 95205
+        Single _160Subtract;// 44:MinusOneFloat-ext->2:Subtract 95204
+        Int32 _162Two;// 42:NoisePerlinGrad-ext->29:Two 95191
+        Int32 _163And;// 22:BitsSet-ext->4:And 95190
+        Int32 _164Zero;// 2:GreaterThanZero->1:Zero 95189
+        Boolean _165GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95188
+        Int32 _166Constant;// 42:NoisePerlinGrad-ext->0:Constant 95195
+        Boolean _167LessThan;// 42:NoisePerlinGrad-ext->12:LessThan 95194
+        Int32 _173Constant;// 42:NoisePerlinGrad-ext->0:Constant 95199
+        Boolean _174Equal;// 42:NoisePerlinGrad-ext->16:Equal 95198
+        Int32 _175Constant;// 42:NoisePerlinGrad-ext->0:Constant 95201
+        Boolean _176Equal;// 42:NoisePerlinGrad-ext->19:Equal 95200
+        Boolean _177OrElse;// 42:NoisePerlinGrad-ext->18:OrElse 95197
+        Single _179Add;// 42:NoisePerlinGrad-ext->33:Add 95168
+        Single _180FloatLerp;// 19:NoisePerlinBlendCorners-ext->45:FloatLerp 95117
+        Single _181FloorAsFloat;// 7:FloatFractionalPart-ext->4:FloorAsFloat 95487
+        Single _182Subtract;// 7:FloatFractionalPart-ext->6:Subtract 95486
+        Single _183Multiply;// 13:NoisePerlinFade-ext->8:Multiply 95477
+        Single _184Multiply;// 13:NoisePerlinFade-ext->9:Multiply 95476
+        Single _185Constant;// 13:NoisePerlinFade-ext->0:Constant 95482
+        Single _186Multiply;// 13:NoisePerlinFade-ext->1:Multiply 95481
+        Single _187Constant;// 13:NoisePerlinFade-ext->0:Constant 95483
+        Single _188Subtract;// 13:NoisePerlinFade-ext->5:Subtract 95480
+        Single _189Multiply;// 13:NoisePerlinFade-ext->3:Multiply 95479
+        Single _190Constant;// 13:NoisePerlinFade-ext->0:Constant 95484
+        Single _191Add;// 13:NoisePerlinFade-ext->6:Add 95478
+        Single _192Multiply;// 13:NoisePerlinFade-ext->10:Multiply 95475
+        Single _193FloatLerp;// 19:NoisePerlinBlendCorners-ext->88:FloatLerp 95029
+        Int32 _194One;// 8:PlusOne->1:One 95251
+        Int32 _195Add;// 8:PlusOne->0:Add 95250
+        Int32 _196At;// 19:NoisePerlinBlendCorners-ext->59:At 95247
+        Int32 _197Constant;// 16:NoisePerlinGrad-ext->0:Constant 95223
+        Int32 _198And;// 16:NoisePerlinGrad-ext->5:And 95222
+        Int32 _199One;// 16:NoisePerlinGrad-ext->21:One 95224
+        Int32 _200And;// 3:BitsSet-ext->4:And 95220
+        Int32 _201Zero;// 2:GreaterThanZero->1:Zero 95219
+        Boolean _202GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95218
+        Int32 _203Constant;// 16:NoisePerlinGrad-ext->0:Constant 95228
+        Boolean _204LessThan;// 16:NoisePerlinGrad-ext->7:LessThan 95227
+        Int32 _206Two;// 16:NoisePerlinGrad-ext->29:Two 95236
+        Int32 _207And;// 22:BitsSet-ext->4:And 95235
+        Int32 _208Zero;// 2:GreaterThanZero->1:Zero 95234
+        Boolean _209GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95233
+        Int32 _210Constant;// 16:NoisePerlinGrad-ext->0:Constant 95240
+        Boolean _211LessThan;// 16:NoisePerlinGrad-ext->12:LessThan 95239
+        Int32 _219Constant;// 16:NoisePerlinGrad-ext->0:Constant 95244
+        Boolean _220Equal;// 16:NoisePerlinGrad-ext->16:Equal 95243
+        Int32 _221Constant;// 16:NoisePerlinGrad-ext->0:Constant 95246
+        Boolean _222Equal;// 16:NoisePerlinGrad-ext->19:Equal 95245
+        Boolean _223OrElse;// 16:NoisePerlinGrad-ext->18:OrElse 95242
+        Single _226FloatOne;// 86:MinusOneFloat-ext->3:FloatOne 95256
+        Single _227Subtract;// 86:MinusOneFloat-ext->2:Subtract 95255
+        Single _229Add;// 16:NoisePerlinGrad-ext->33:Add 95213
+        Int32 _230One;// 10:PlusOne->1:One 95299
+        Int32 _231Add;// 10:PlusOne->0:Add 95298
+        Int32 _232At;// 19:NoisePerlinBlendCorners-ext->15:At 95296
+        Int32 _233Constant;// 54:NoisePerlinGrad-ext->0:Constant 95272
+        Int32 _234And;// 54:NoisePerlinGrad-ext->5:And 95271
+        Int32 _235One;// 54:NoisePerlinGrad-ext->21:One 95273
+        Int32 _236And;// 3:BitsSet-ext->4:And 95269
+        Int32 _237Zero;// 2:GreaterThanZero->1:Zero 95268
+        Boolean _238GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95267
+        Int32 _239Constant;// 54:NoisePerlinGrad-ext->0:Constant 95277
+        Boolean _240LessThan;// 54:NoisePerlinGrad-ext->7:LessThan 95276
+        Single _243FloatOne;// 56:MinusOneFloat-ext->3:FloatOne 95302
+        Single _244Subtract;// 56:MinusOneFloat-ext->2:Subtract 95301
+        Int32 _246Two;// 54:NoisePerlinGrad-ext->29:Two 95285
+        Int32 _247And;// 22:BitsSet-ext->4:And 95284
+        Int32 _248Zero;// 2:GreaterThanZero->1:Zero 95283
+        Boolean _249GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95282
+        Int32 _250Constant;// 54:NoisePerlinGrad-ext->0:Constant 95289
+        Boolean _251LessThan;// 54:NoisePerlinGrad-ext->12:LessThan 95288
+        Int32 _259Constant;// 54:NoisePerlinGrad-ext->0:Constant 95293
+        Boolean _260Equal;// 54:NoisePerlinGrad-ext->16:Equal 95292
+        Int32 _261Constant;// 54:NoisePerlinGrad-ext->0:Constant 95295
+        Boolean _262Equal;// 54:NoisePerlinGrad-ext->19:Equal 95294
+        Boolean _263OrElse;// 54:NoisePerlinGrad-ext->18:OrElse 95291
+        Single _266FloatOne;// 85:MinusOneFloat-ext->3:FloatOne 95305
+        Single _267Subtract;// 85:MinusOneFloat-ext->2:Subtract 95304
+        Single _269Add;// 54:NoisePerlinGrad-ext->33:Add 95262
+        Single _270FloatLerp;// 19:NoisePerlinBlendCorners-ext->57:FloatLerp 95208
+        Int32 _271One;// 9:PlusOne->1:One 95350
+        Int32 _272Add;// 9:PlusOne->0:Add 95349
+        Int32 _273At;// 19:NoisePerlinBlendCorners-ext->76:At 95346
+        Int32 _274Constant;// 67:NoisePerlinGrad-ext->0:Constant 95322
+        Int32 _275And;// 67:NoisePerlinGrad-ext->5:And 95321
+        Int32 _276One;// 67:NoisePerlinGrad-ext->21:One 95323
+        Int32 _277And;// 3:BitsSet-ext->4:And 95319
+        Int32 _278Zero;// 2:GreaterThanZero->1:Zero 95318
+        Boolean _279GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95317
+        Int32 _280Constant;// 67:NoisePerlinGrad-ext->0:Constant 95327
+        Boolean _281LessThan;// 67:NoisePerlinGrad-ext->7:LessThan 95326
+        Single _284FloatOne;// 84:MinusOneFloat-ext->3:FloatOne 95354
+        Single _285Subtract;// 84:MinusOneFloat-ext->2:Subtract 95353
+        Int32 _287Two;// 67:NoisePerlinGrad-ext->29:Two 95335
+        Int32 _288And;// 22:BitsSet-ext->4:And 95334
+        Int32 _289Zero;// 2:GreaterThanZero->1:Zero 95333
+        Boolean _290GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95332
+        Int32 _291Constant;// 67:NoisePerlinGrad-ext->0:Constant 95339
+        Boolean _292LessThan;// 67:NoisePerlinGrad-ext->12:LessThan 95338
+        Int32 _300Constant;// 67:NoisePerlinGrad-ext->0:Constant 95343
+        Boolean _301Equal;// 67:NoisePerlinGrad-ext->16:Equal 95342
+        Int32 _302Constant;// 67:NoisePerlinGrad-ext->0:Constant 95345
+        Boolean _303Equal;// 67:NoisePerlinGrad-ext->19:Equal 95344
+        Boolean _304OrElse;// 67:NoisePerlinGrad-ext->18:OrElse 95341
+        Single _307FloatOne;// 83:MinusOneFloat-ext->3:FloatOne 95358
+        Single _308Subtract;// 83:MinusOneFloat-ext->2:Subtract 95357
+        Single _310Add;// 67:NoisePerlinGrad-ext->33:Add 95312
+        Int32 _311One;// 11:PlusOne->1:One 95401
+        Int32 _312Add;// 11:PlusOne->0:Add 95400
+        Int32 _313At;// 19:NoisePerlinBlendCorners-ext->66:At 95398
+        Int32 _314Constant;// 71:NoisePerlinGrad-ext->0:Constant 95374
+        Int32 _315And;// 71:NoisePerlinGrad-ext->5:And 95373
+        Int32 _316One;// 71:NoisePerlinGrad-ext->21:One 95375
+        Int32 _317And;// 3:BitsSet-ext->4:And 95371
+        Int32 _318Zero;// 2:GreaterThanZero->1:Zero 95370
+        Boolean _319GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95369
+        Int32 _320Constant;// 71:NoisePerlinGrad-ext->0:Constant 95379
+        Boolean _321LessThan;// 71:NoisePerlinGrad-ext->7:LessThan 95378
+        Single _324FloatOne;// 73:MinusOneFloat-ext->3:FloatOne 95404
+        Single _325Subtract;// 73:MinusOneFloat-ext->2:Subtract 95403
+        Int32 _327Two;// 71:NoisePerlinGrad-ext->29:Two 95387
+        Int32 _328And;// 22:BitsSet-ext->4:And 95386
+        Int32 _329Zero;// 2:GreaterThanZero->1:Zero 95385
+        Boolean _330GreaterThan;// 2:GreaterThanZero->3:GreaterThan 95384
+        Int32 _331Constant;// 71:NoisePerlinGrad-ext->0:Constant 95391
+        Boolean _332LessThan;// 71:NoisePerlinGrad-ext->12:LessThan 95390
+        Int32 _338Constant;// 71:NoisePerlinGrad-ext->0:Constant 95395
+        Boolean _339Equal;// 71:NoisePerlinGrad-ext->16:Equal 95394
+        Int32 _340Constant;// 71:NoisePerlinGrad-ext->0:Constant 95397
+        Boolean _341Equal;// 71:NoisePerlinGrad-ext->19:Equal 95396
+        Boolean _342OrElse;// 71:NoisePerlinGrad-ext->18:OrElse 95393
+        Single _344Add;// 71:NoisePerlinGrad-ext->33:Add 95364
+        Single _345FloatLerp;// 19:NoisePerlinBlendCorners-ext->74:FloatLerp 95307
+        Single _346FloatLerp;// 19:NoisePerlinBlendCorners-ext->89:FloatLerp 95207
+        Single _347FloorAsFloat;// 11:FloatFractionalPart-ext->4:FloorAsFloat 95501
+        Single _348Subtract;// 11:FloatFractionalPart-ext->6:Subtract 95500
+        Single _349Multiply;// 14:NoisePerlinFade-ext->8:Multiply 95491
+        Single _350Multiply;// 14:NoisePerlinFade-ext->9:Multiply 95490
+        Single _351Constant;// 14:NoisePerlinFade-ext->0:Constant 95496
+        Single _352Multiply;// 14:NoisePerlinFade-ext->1:Multiply 95495
+        Single _353Constant;// 14:NoisePerlinFade-ext->0:Constant 95497
+        Single _354Subtract;// 14:NoisePerlinFade-ext->5:Subtract 95494
+        Single _355Multiply;// 14:NoisePerlinFade-ext->3:Multiply 95493
+        Single _356Constant;// 14:NoisePerlinFade-ext->0:Constant 95498
+        Single _357Add;// 14:NoisePerlinFade-ext->6:Add 95492
+        Single _358Multiply;// 14:NoisePerlinFade-ext->10:Multiply 95489
+        Single _359FloatLerp;// 19:NoisePerlinBlendCorners-ext->98:FloatLerp 95028
+        _0CreateStaticCache = CreateStaticCache(() => 
+          {
+            String _0Constant;// 44:NoisePerlinPermutationTable-ext->0:Constant 95422
+            String _1Constant;// 1:StringToInts-ext->0:Constant 95418
+            Regex _2Regex;// 1:StringToInts-ext->40:Regex 95417
+            IArray[String] _3RegexMatches;// 1:StringToInts-ext->43:RegexMatches 95416
+            String _4Constant;// 1:StringToInts-ext->0:Constant 95420
+            IArray[String] _5Filter;// 1:StringToInts-ext->4:Filter 95415
+            IArray[Int32] _6Map;// 1:StringToInts-ext->0:Map 95414
+            IArray[Int32] _7Concatenate;// 44:NoisePerlinPermutationTable-ext->4:Concatenate 95412
+            _0Constant = 151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208,89,18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180;
+            _1Constant = -?\d*;
+            _2Regex = Regex(_1Constant);
+            _3RegexMatches = RegexMatches(_0Constant, _2Regex);
+            _4Constant = ;
+            _5Filter = Filter(_3RegexMatches, (String x0) => 
+              {
+                Boolean _0NotEqual;// 1:StringToInts-ext->11:NotEqual 95419
+                _0NotEqual = NotEqual(x0, _4Constant);
+                _0NotEqual;
+                });
+            _6Map = Map(_5Filter, (String x0) => 
+              {
+                Int32 _0AsInt;// 1:StringToInts-ext->5:AsInt 95421
+                _0AsInt = AsInt(x0);
+                _0AsInt;
+                });
+            _7Concatenate = Concatenate(_6Map, _6Map);
+            _7Concatenate;
+            }).SetId(state, 0);
+        _1Zero = Zero();
+        _2CachedValue = CachedValue(_0CreateStaticCache, _1Zero);
+        _3Floor = Floor(x0);
+        _4Constant = 255;
+        _5And = And(_3Floor, _4Constant);
+        _6At = At(_2CachedValue, _5And);
+        _7Floor = Floor(x1);
+        _8And = And(_7Floor, _4Constant);
+        _9Add = Add(_6At, _8And);
+        _10At = At(_2CachedValue, _9Add);
+        _11FloatZero = FloatZero();
+        _12Floor = Floor(_11FloatZero);
+        _13And = And(_12Floor, _4Constant);
+        _14Add = Add(_10At, _13And);
+        _15At = At(_2CachedValue, _14Add);
+        _16Constant = 15;
+        _17And = And(_15At, _16Constant);
+        _18One = One();
+        _19And = And(_17And, _18One);
+        _20Zero = Zero();
+        _21GreaterThan = GreaterThan(_19And, _20Zero);
+        _22Constant = 8;
+        _23LessThan = LessThan(_17And, _22Constant);
+        _28FloorAsFloat = FloorAsFloat(x0);
+        _29Subtract = Subtract(x0, _28FloorAsFloat);
+        _30FloorAsFloat = FloorAsFloat(x1);
+        _31Subtract = Subtract(x1, _30FloorAsFloat);
+        _33Two = Two();
+        _34And = And(_17And, _33Two);
+        _35Zero = Zero();
+        _36GreaterThan = GreaterThan(_34And, _35Zero);
+        _37Constant = 4;
+        _38LessThan = LessThan(_17And, _37Constant);
+        _46Constant = 12;
+        _47Equal = Equal(_17And, _46Constant);
+        _48Constant = 14;
+        _49Equal = Equal(_17And, _48Constant);
+        _50OrElse = OrElse(_47Equal, _49Equal);
+        _53FloorAsFloat = FloorAsFloat(_11FloatZero);
+        _54Subtract = Subtract(_11FloatZero, _53FloorAsFloat);
+        _56Add = Add(if (_21GreaterThan)
+            {
+              Single _32NegativeFloat;// 20:NoisePerlinGrad-ext->26:NegativeFloat 95047
+              _32NegativeFloat = NegativeFloat(if (_23LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  });
+              _32NegativeFloat;
+              }else
+            {
+              if (_23LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  };
+              }, if (_36GreaterThan)
+            {
+              Single _55NegativeFloat;// 20:NoisePerlinGrad-ext->31:NegativeFloat 95059
+              _55NegativeFloat = NegativeFloat(if (_38LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_50OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  });
+              _55NegativeFloat;
+              }else
+            {
+              if (_38LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_50OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  };
+              });
+        _57One = One();
+        _58Add = Add(_5And, _57One);
+        _59At = At(_2CachedValue, _58Add);
+        _60Add = Add(_59At, _8And);
+        _61At = At(_2CachedValue, _60Add);
+        _62Add = Add(_61At, _13And);
+        _63At = At(_2CachedValue, _62Add);
+        _64Constant = 15;
+        _65And = And(_63At, _64Constant);
+        _66One = One();
+        _67And = And(_65And, _66One);
+        _68Zero = Zero();
+        _69GreaterThan = GreaterThan(_67And, _68Zero);
+        _70Constant = 8;
+        _71LessThan = LessThan(_65And, _70Constant);
+        _74FloatOne = FloatOne();
+        _75Subtract = Subtract(_29Subtract, _74FloatOne);
+        _77Two = Two();
+        _78And = And(_65And, _77Two);
+        _79Zero = Zero();
+        _80GreaterThan = GreaterThan(_78And, _79Zero);
+        _81Constant = 4;
+        _82LessThan = LessThan(_65And, _81Constant);
+        _88Constant = 12;
+        _89Equal = Equal(_65And, _88Constant);
+        _90Constant = 14;
+        _91Equal = Equal(_65And, _90Constant);
+        _92OrElse = OrElse(_89Equal, _91Equal);
+        _94Add = Add(if (_69GreaterThan)
+            {
+              Single _76NegativeFloat;// 23:NoisePerlinGrad-ext->26:NegativeFloat 95090
+              _76NegativeFloat = NegativeFloat(if (_71LessThan)
+                {
+                  _75Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  });
+              _76NegativeFloat;
+              }else
+            {
+              if (_71LessThan)
+                {
+                  _75Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  };
+              }, if (_80GreaterThan)
+            {
+              Single _93NegativeFloat;// 23:NoisePerlinGrad-ext->31:NegativeFloat 95102
+              _93NegativeFloat = NegativeFloat(if (_82LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_92OrElse)
+                    {
+                      _75Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  });
+              _93NegativeFloat;
+              }else
+            {
+              if (_82LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_92OrElse)
+                    {
+                      _75Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  };
+              });
+        _95FloorAsFloat = FloorAsFloat(x0);
+        _96Subtract = Subtract(x0, _95FloorAsFloat);
+        _97Multiply = Multiply(_96Subtract, _96Subtract);
+        _98Multiply = Multiply(_97Multiply, _96Subtract);
+        _99Constant = 6;
+        _100Multiply = Multiply(_96Subtract, _99Constant);
+        _101Constant = 15;
+        _102Subtract = Subtract(_100Multiply, _101Constant);
+        _103Multiply = Multiply(_96Subtract, _102Subtract);
+        _104Constant = 10;
+        _105Add = Add(_103Multiply, _104Constant);
+        _106Multiply = Multiply(_98Multiply, _105Add);
+        _107FloatLerp = FloatLerp(_56Add, _94Add, _106Multiply);
+        _108One = One();
+        _109Add = Add(_9Add, _108One);
+        _110At = At(_2CachedValue, _109Add);
+        _111Add = Add(_110At, _13And);
+        _112At = At(_2CachedValue, _111Add);
+        _113Constant = 15;
+        _114And = And(_112At, _113Constant);
+        _115One = One();
+        _116And = And(_114And, _115One);
+        _117Zero = Zero();
+        _118GreaterThan = GreaterThan(_116And, _117Zero);
+        _119Constant = 8;
+        _120LessThan = LessThan(_114And, _119Constant);
+        _123FloatOne = FloatOne();
+        _124Subtract = Subtract(_31Subtract, _123FloatOne);
+        _126Two = Two();
+        _127And = And(_114And, _126Two);
+        _128Zero = Zero();
+        _129GreaterThan = GreaterThan(_127And, _128Zero);
+        _130Constant = 4;
+        _131LessThan = LessThan(_114And, _130Constant);
+        _137Constant = 12;
+        _138Equal = Equal(_114And, _137Constant);
+        _139Constant = 14;
+        _140Equal = Equal(_114And, _139Constant);
+        _141OrElse = OrElse(_138Equal, _140Equal);
+        _143Add = Add(if (_118GreaterThan)
+            {
+              Single _125NegativeFloat;// 38:NoisePerlinGrad-ext->26:NegativeFloat 95134
+              _125NegativeFloat = NegativeFloat(if (_120LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _124Subtract;
+                  });
+              _125NegativeFloat;
+              }else
+            {
+              if (_120LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _124Subtract;
+                  };
+              }, if (_129GreaterThan)
+            {
+              Single _142NegativeFloat;// 38:NoisePerlinGrad-ext->31:NegativeFloat 95146
+              _142NegativeFloat = NegativeFloat(if (_131LessThan)
+                {
+                  _124Subtract;
+                  }else
+                {
+                  if (_141OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  });
+              _142NegativeFloat;
+              }else
+            {
+              if (_131LessThan)
+                {
+                  _124Subtract;
+                  }else
+                {
+                  if (_141OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  };
+              });
+        _144One = One();
+        _145Add = Add(_60Add, _144One);
+        _146At = At(_2CachedValue, _145Add);
+        _147Add = Add(_146At, _13And);
+        _148At = At(_2CachedValue, _147Add);
+        _149Constant = 15;
+        _150And = And(_148At, _149Constant);
+        _151One = One();
+        _152And = And(_150And, _151One);
+        _153Zero = Zero();
+        _154GreaterThan = GreaterThan(_152And, _153Zero);
+        _155Constant = 8;
+        _156LessThan = LessThan(_150And, _155Constant);
+        _159FloatOne = FloatOne();
+        _160Subtract = Subtract(_29Subtract, _159FloatOne);
+        _162Two = Two();
+        _163And = And(_150And, _162Two);
+        _164Zero = Zero();
+        _165GreaterThan = GreaterThan(_163And, _164Zero);
+        _166Constant = 4;
+        _167LessThan = LessThan(_150And, _166Constant);
+        _173Constant = 12;
+        _174Equal = Equal(_150And, _173Constant);
+        _175Constant = 14;
+        _176Equal = Equal(_150And, _175Constant);
+        _177OrElse = OrElse(_174Equal, _176Equal);
+        _179Add = Add(if (_154GreaterThan)
+            {
+              Single _161NegativeFloat;// 42:NoisePerlinGrad-ext->26:NegativeFloat 95180
+              _161NegativeFloat = NegativeFloat(if (_156LessThan)
+                {
+                  _160Subtract;
+                  }else
+                {
+                  _124Subtract;
+                  });
+              _161NegativeFloat;
+              }else
+            {
+              if (_156LessThan)
+                {
+                  _160Subtract;
+                  }else
+                {
+                  _124Subtract;
+                  };
+              }, if (_165GreaterThan)
+            {
+              Single _178NegativeFloat;// 42:NoisePerlinGrad-ext->31:NegativeFloat 95192
+              _178NegativeFloat = NegativeFloat(if (_167LessThan)
+                {
+                  _124Subtract;
+                  }else
+                {
+                  if (_177OrElse)
+                    {
+                      _160Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  });
+              _178NegativeFloat;
+              }else
+            {
+              if (_167LessThan)
+                {
+                  _124Subtract;
+                  }else
+                {
+                  if (_177OrElse)
+                    {
+                      _160Subtract;
+                      }else
+                    {
+                      _54Subtract;
+                      };
+                  };
+              });
+        _180FloatLerp = FloatLerp(_143Add, _179Add, _106Multiply);
+        _181FloorAsFloat = FloorAsFloat(x1);
+        _182Subtract = Subtract(x1, _181FloorAsFloat);
+        _183Multiply = Multiply(_182Subtract, _182Subtract);
+        _184Multiply = Multiply(_183Multiply, _182Subtract);
+        _185Constant = 6;
+        _186Multiply = Multiply(_182Subtract, _185Constant);
+        _187Constant = 15;
+        _188Subtract = Subtract(_186Multiply, _187Constant);
+        _189Multiply = Multiply(_182Subtract, _188Subtract);
+        _190Constant = 10;
+        _191Add = Add(_189Multiply, _190Constant);
+        _192Multiply = Multiply(_184Multiply, _191Add);
+        _193FloatLerp = FloatLerp(_107FloatLerp, _180FloatLerp, _192Multiply);
+        _194One = One();
+        _195Add = Add(_14Add, _194One);
+        _196At = At(_2CachedValue, _195Add);
+        _197Constant = 15;
+        _198And = And(_196At, _197Constant);
+        _199One = One();
+        _200And = And(_198And, _199One);
+        _201Zero = Zero();
+        _202GreaterThan = GreaterThan(_200And, _201Zero);
+        _203Constant = 8;
+        _204LessThan = LessThan(_198And, _203Constant);
+        _206Two = Two();
+        _207And = And(_198And, _206Two);
+        _208Zero = Zero();
+        _209GreaterThan = GreaterThan(_207And, _208Zero);
+        _210Constant = 4;
+        _211LessThan = LessThan(_198And, _210Constant);
+        _219Constant = 12;
+        _220Equal = Equal(_198And, _219Constant);
+        _221Constant = 14;
+        _222Equal = Equal(_198And, _221Constant);
+        _223OrElse = OrElse(_220Equal, _222Equal);
+        _226FloatOne = FloatOne();
+        _227Subtract = Subtract(_54Subtract, _226FloatOne);
+        _229Add = Add(if (_202GreaterThan)
+            {
+              Single _205NegativeFloat;// 16:NoisePerlinGrad-ext->26:NegativeFloat 95225
+              _205NegativeFloat = NegativeFloat(if (_204LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  });
+              _205NegativeFloat;
+              }else
+            {
+              if (_204LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  };
+              }, if (_209GreaterThan)
+            {
+              Single _228NegativeFloat;// 16:NoisePerlinGrad-ext->31:NegativeFloat 95237
+              _228NegativeFloat = NegativeFloat(if (_211LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_223OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _227Subtract;
+                      };
+                  });
+              _228NegativeFloat;
+              }else
+            {
+              if (_211LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_223OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _227Subtract;
+                      };
+                  };
+              });
+        _230One = One();
+        _231Add = Add(_62Add, _230One);
+        _232At = At(_2CachedValue, _231Add);
+        _233Constant = 15;
+        _234And = And(_232At, _233Constant);
+        _235One = One();
+        _236And = And(_234And, _235One);
+        _237Zero = Zero();
+        _238GreaterThan = GreaterThan(_236And, _237Zero);
+        _239Constant = 8;
+        _240LessThan = LessThan(_234And, _239Constant);
+        _243FloatOne = FloatOne();
+        _244Subtract = Subtract(_29Subtract, _243FloatOne);
+        _246Two = Two();
+        _247And = And(_234And, _246Two);
+        _248Zero = Zero();
+        _249GreaterThan = GreaterThan(_247And, _248Zero);
+        _250Constant = 4;
+        _251LessThan = LessThan(_234And, _250Constant);
+        _259Constant = 12;
+        _260Equal = Equal(_234And, _259Constant);
+        _261Constant = 14;
+        _262Equal = Equal(_234And, _261Constant);
+        _263OrElse = OrElse(_260Equal, _262Equal);
+        _266FloatOne = FloatOne();
+        _267Subtract = Subtract(_54Subtract, _266FloatOne);
+        _269Add = Add(if (_238GreaterThan)
+            {
+              Single _245NegativeFloat;// 54:NoisePerlinGrad-ext->26:NegativeFloat 95274
+              _245NegativeFloat = NegativeFloat(if (_240LessThan)
+                {
+                  _244Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  });
+              _245NegativeFloat;
+              }else
+            {
+              if (_240LessThan)
+                {
+                  _244Subtract;
+                  }else
+                {
+                  _31Subtract;
+                  };
+              }, if (_249GreaterThan)
+            {
+              Single _268NegativeFloat;// 54:NoisePerlinGrad-ext->31:NegativeFloat 95286
+              _268NegativeFloat = NegativeFloat(if (_251LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_263OrElse)
+                    {
+                      _244Subtract;
+                      }else
+                    {
+                      _267Subtract;
+                      };
+                  });
+              _268NegativeFloat;
+              }else
+            {
+              if (_251LessThan)
+                {
+                  _31Subtract;
+                  }else
+                {
+                  if (_263OrElse)
+                    {
+                      _244Subtract;
+                      }else
+                    {
+                      _267Subtract;
+                      };
+                  };
+              });
+        _270FloatLerp = FloatLerp(_229Add, _269Add, _106Multiply);
+        _271One = One();
+        _272Add = Add(_111Add, _271One);
+        _273At = At(_2CachedValue, _272Add);
+        _274Constant = 15;
+        _275And = And(_273At, _274Constant);
+        _276One = One();
+        _277And = And(_275And, _276One);
+        _278Zero = Zero();
+        _279GreaterThan = GreaterThan(_277And, _278Zero);
+        _280Constant = 8;
+        _281LessThan = LessThan(_275And, _280Constant);
+        _284FloatOne = FloatOne();
+        _285Subtract = Subtract(_31Subtract, _284FloatOne);
+        _287Two = Two();
+        _288And = And(_275And, _287Two);
+        _289Zero = Zero();
+        _290GreaterThan = GreaterThan(_288And, _289Zero);
+        _291Constant = 4;
+        _292LessThan = LessThan(_275And, _291Constant);
+        _300Constant = 12;
+        _301Equal = Equal(_275And, _300Constant);
+        _302Constant = 14;
+        _303Equal = Equal(_275And, _302Constant);
+        _304OrElse = OrElse(_301Equal, _303Equal);
+        _307FloatOne = FloatOne();
+        _308Subtract = Subtract(_54Subtract, _307FloatOne);
+        _310Add = Add(if (_279GreaterThan)
+            {
+              Single _286NegativeFloat;// 67:NoisePerlinGrad-ext->26:NegativeFloat 95324
+              _286NegativeFloat = NegativeFloat(if (_281LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _285Subtract;
+                  });
+              _286NegativeFloat;
+              }else
+            {
+              if (_281LessThan)
+                {
+                  _29Subtract;
+                  }else
+                {
+                  _285Subtract;
+                  };
+              }, if (_290GreaterThan)
+            {
+              Single _309NegativeFloat;// 67:NoisePerlinGrad-ext->31:NegativeFloat 95336
+              _309NegativeFloat = NegativeFloat(if (_292LessThan)
+                {
+                  _285Subtract;
+                  }else
+                {
+                  if (_304OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _308Subtract;
+                      };
+                  });
+              _309NegativeFloat;
+              }else
+            {
+              if (_292LessThan)
+                {
+                  _285Subtract;
+                  }else
+                {
+                  if (_304OrElse)
+                    {
+                      _29Subtract;
+                      }else
+                    {
+                      _308Subtract;
+                      };
+                  };
+              });
+        _311One = One();
+        _312Add = Add(_147Add, _311One);
+        _313At = At(_2CachedValue, _312Add);
+        _314Constant = 15;
+        _315And = And(_313At, _314Constant);
+        _316One = One();
+        _317And = And(_315And, _316One);
+        _318Zero = Zero();
+        _319GreaterThan = GreaterThan(_317And, _318Zero);
+        _320Constant = 8;
+        _321LessThan = LessThan(_315And, _320Constant);
+        _324FloatOne = FloatOne();
+        _325Subtract = Subtract(_29Subtract, _324FloatOne);
+        _327Two = Two();
+        _328And = And(_315And, _327Two);
+        _329Zero = Zero();
+        _330GreaterThan = GreaterThan(_328And, _329Zero);
+        _331Constant = 4;
+        _332LessThan = LessThan(_315And, _331Constant);
+        _338Constant = 12;
+        _339Equal = Equal(_315And, _338Constant);
+        _340Constant = 14;
+        _341Equal = Equal(_315And, _340Constant);
+        _342OrElse = OrElse(_339Equal, _341Equal);
+        _344Add = Add(if (_319GreaterThan)
+            {
+              Single _326NegativeFloat;// 71:NoisePerlinGrad-ext->26:NegativeFloat 95376
+              _326NegativeFloat = NegativeFloat(if (_321LessThan)
+                {
+                  _325Subtract;
+                  }else
+                {
+                  _285Subtract;
+                  });
+              _326NegativeFloat;
+              }else
+            {
+              if (_321LessThan)
+                {
+                  _325Subtract;
+                  }else
+                {
+                  _285Subtract;
+                  };
+              }, if (_330GreaterThan)
+            {
+              Single _343NegativeFloat;// 71:NoisePerlinGrad-ext->31:NegativeFloat 95388
+              _343NegativeFloat = NegativeFloat(if (_332LessThan)
+                {
+                  _285Subtract;
+                  }else
+                {
+                  if (_342OrElse)
+                    {
+                      _325Subtract;
+                      }else
+                    {
+                      _308Subtract;
+                      };
+                  });
+              _343NegativeFloat;
+              }else
+            {
+              if (_332LessThan)
+                {
+                  _285Subtract;
+                  }else
+                {
+                  if (_342OrElse)
+                    {
+                      _325Subtract;
+                      }else
+                    {
+                      _308Subtract;
+                      };
+                  };
+              });
+        _345FloatLerp = FloatLerp(_310Add, _344Add, _106Multiply);
+        _346FloatLerp = FloatLerp(_270FloatLerp, _345FloatLerp, _192Multiply);
+        _347FloorAsFloat = FloorAsFloat(_11FloatZero);
+        _348Subtract = Subtract(_11FloatZero, _347FloorAsFloat);
+        _349Multiply = Multiply(_348Subtract, _348Subtract);
+        _350Multiply = Multiply(_349Multiply, _348Subtract);
+        _351Constant = 6;
+        _352Multiply = Multiply(_348Subtract, _351Constant);
+        _353Constant = 15;
+        _354Subtract = Subtract(_352Multiply, _353Constant);
+        _355Multiply = Multiply(_348Subtract, _354Subtract);
+        _356Constant = 10;
+        _357Add = Add(_355Multiply, _356Constant);
+        _358Multiply = Multiply(_350Multiply, _357Add);
+        _359FloatLerp = FloatLerp(_193FloatLerp, _346FloatLerp, _358Multiply);
+        _359FloatLerp;
+        };
+    _4Constant = 0;
+    _5Vector3 = Vector3(x, y, _4Constant);
+    _6Divide = Divide(frequency, scaling);
+    _7Map = Map(_2MapChannelVertexBuffer, (Vector3 x0) => 
+      {
+        Vector3 _0Add;// 12:NoiseHeight-ext->13:Add 95000
+        Vector3 _1MultiplyByScalar;// 12:NoiseHeight-ext->9:MultiplyByScalar 94999
+        Single _2X;// 12:NoiseHeight-ext->6:X 94998
+        Single _3Y;// 12:NoiseHeight-ext->7:Y 95002
+        Single _4Apply2;// 12:NoiseHeight-ext->15:Apply2 94997
+        Single _5Multiply;// 12:NoiseHeight-ext->4:Multiply 94996
+        _0Add = Add(x0, _5Vector3);
+        _1MultiplyByScalar = MultiplyByScalar(_0Add, _6Divide);
+        _2X = X(_1MultiplyByScalar);
+        _3Y = Y(_1MultiplyByScalar);
+        _4Apply2 = Apply2(_3Pass-through: function2, _2X, _3Y);
+        _5Multiply = Multiply(_4Apply2, amplitude);
+        _5Multiply;
+        });
+    _8Combine = Combine(_2MapChannelVertexBuffer, _7Map, (Vector3 x0, Single x1) => 
+      {
+        Single _0X;// 0:OffsetZ->7:X 95006
+        Single _1Y;// 0:OffsetZ->6:Y 95007
+        Single _2Z;// 0:OffsetZ->5:Z 95009
+        Single _3Add;// 0:OffsetZ->3:Add 95008
+        Vector3 _4Vector3;// 0:OffsetZ->1:Vector3 95005
+        _0X = X(x0);
+        _1Y = Y(x0);
+        _2Z = Z(x0);
+        _3Add = Add(_2Z, x1);
+        _4Vector3 = Vector3(_0X, _1Y, _3Add);
+        _4Vector3;
+        });
+    _9MapChannelIndexBuffer = MapChannelIndexBuffer(_1UVChannel);
+    _10SetMapChannel = SetMapChannel(mesh, _0Zero, _8Combine, _9MapChannelIndexBuffer);
+    _10SetMapChannel;
+    }

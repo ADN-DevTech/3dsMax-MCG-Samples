@@ -1,0 +1,36 @@
+<graph version="0.50" uuid="aa4af52f-2107-487f-a30c-d227d98f26a1">
+    <meta_info>
+        <graph_version guid="eda4474c-b0d3-4252-9bf5-5b57c9889fbd" number="0.0.5" />
+        <category>Deformers</category>
+        <description>Sets a mesh vertices by applying a transform function to each vertex. This takes into account soft-selection automatically. The matrix specifies a deformation space in which the transform is applied. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Matrix" id="2" name="matrix" position="0:280" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="660:0" size="140:112" />
+        <node operator="MeshSetVertices-ext" id="3" position="1320:160" size="180:133" />
+        <node operator="Input: function1" id="0" name="deformFunction" position="440:40" size="140:112" />
+        <node operator="MeshVertices" id="4" position="880:60" size="140:112" />
+        <node operator="ParallelMap" id="5" position="1100:140" size="140:133" />
+        <node operator="InvertMatrix" id="7" position="220:220" size="140:112" />
+        <node operator="Transform" id="9" position="880:200" size="140:133" />
+        <node operator="Output: compound" id="10" position="1580:220" size="160:70" />
+        <node operator="Apply1" id="8" position="660:140" size="140:133" />
+        <node operator="Transform" id="11" position="440:180" size="140:133" />
+        <node operator="Pass-through: Vector3" id="12" position="220:80" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="11" destport="1" />
+    </connections>
+</graph>

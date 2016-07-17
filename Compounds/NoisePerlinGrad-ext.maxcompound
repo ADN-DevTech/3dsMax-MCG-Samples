@@ -1,0 +1,102 @@
+<graph version="0.50" uuid="71fea847-18b0-471d-9754-eeb6773c7997">
+    <meta_info>
+        <graph_version guid="0076fb95-d422-4381-ab3b-61354da2f4c0" number="0.0.4" />
+        <category>Noise</category>
+        <description>The gradient computation function &quot;grad&quot; from the improved Perlin noise: http://mrl.nyu.edu/~perlin/noise/. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="0" name="hash" position="0:320" size="140:112" />
+        <node operator="And" id="5" position="229:389" size="140:133" />
+        <node operator="Constant" id="6" value="15" position="0:460" size="140:91" />
+        <node operator="LessThan" id="7" position="449:429" size="140:133" />
+        <node operator="Constant" id="8" value="8" position="229:529" size="140:91" />
+        <node operator="If" id="9" position="1938:158" size="140:154" />
+        <node operator="Y" id="11" position="2780:920" size="140:112" />
+        <node operator="LessThan" id="12" position="1689:389" size="140:133" />
+        <node operator="Constant" id="13" value="4" position="1509:369" size="140:91" />
+        <node operator="If" id="14" position="1964:505" size="140:154" />
+        <node operator="If" id="15" position="1500:560" size="140:154" />
+        <node operator="Equal" id="16" position="1109:449" size="140:133" />
+        <node operator="Constant" id="17" value="12" position="929:529" size="140:91" />
+        <node operator="OrElse" id="18" position="1269:569" size="140:133" />
+        <node operator="Equal" id="19" position="1129:609" size="140:133" />
+        <node operator="Constant" id="20" value="14" position="929:649" size="140:91" />
+        <node operator="Pass-through: Int32" id="2" position="689:509" size="140:112" />
+        <node operator="BitsSet-ext" id="3" position="2149:29" size="140:133" />
+        <node operator="One" id="21" position="2149:169" size="140:91" />
+        <node operator="BitsSet-ext" id="22" position="2149:670" size="140:133" />
+        <node operator="If" id="25" position="2329:189" size="140:154" />
+        <node operator="NegativeFloat" id="26" position="2139:282" size="140:112" />
+        <node operator="Two" id="29" position="1949:730" size="140:91" />
+        <node operator="If" id="30" position="2329:490" size="140:154" />
+        <node operator="NegativeFloat" id="31" position="2149:490" size="140:112" />
+        <node operator="Add" id="33" position="2560:400" size="140:133" />
+        <node operator="Output: compound" id="37" position="2780:460" size="140:70" />
+        <node operator="Input: Single" id="1" name="x" position="920:240" size="140:112" />
+        <node operator="Input: Single" id="38" name="y" position="1500:220" size="140:112" />
+        <node operator="Input: Single" id="39" name="z" position="920:760" size="140:112" />
+        <node groupnode="((h&amp;1) == 0 ? u : -u)" id="27" position="1920:0" size="558:410" bg_color="#ff646464">
+            <nodes>24,3,21,25,26</nodes>
+        </node>
+        <node groupnode="((h&amp;2) == 0 ? v : -v)" id="32" position="1920:420" size="558:410" bg_color="#ff646464">
+            <nodes>23,22,29,30,31</nodes>
+        </node>
+        <node groupnode="u" id="24" position="1929:129" size="158:192" bg_color="#ff646464">
+            <nodes>9</nodes>
+        </node>
+        <node groupnode="v" id="23" position="1929:470" size="197:233" bg_color="#ff646464">
+            <nodes>14</nodes>
+        </node>
+        <node groupnode="h &lt; 8" id="36" position="220:360" size="378:272" bg_color="#ff646464">
+            <nodes>8,5,7</nodes>
+        </node>
+        <node groupnode="h &lt; 4" id="34" position="1500:340" size="338:191" bg_color="#ff646464">
+            <nodes>12,13</nodes>
+        </node>
+        <node groupnode="h == 12 || h == 14" id="35" position="920:420" size="498:332" bg_color="#ff646464">
+            <nodes>20,16,17,18,19</nodes>
+        </node>
+        <node groupnode="h" id="28" position="680:480" size="158:150" bg_color="#ff646464">
+            <nodes>2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="38" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="38" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="39" sourceport="0" destnode="15" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="26" sourceport="0" destnode="25" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="25" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="26" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="31" sourceport="0" destnode="30" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="30" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="31" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="30" sourceport="0" destnode="33" destport="1" />
+        <connection sourcenode="33" sourceport="0" destnode="37" destport="0" />
+    </connections>
+</graph>

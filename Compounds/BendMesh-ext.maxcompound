@@ -1,39 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="28515a76-bfea-401b-8abd-250c4ff6864c">
-  <meta_info>
-    <graph_version guid="bab18348-af35-4100-a36c-d582f147d077" number="0.0.3" />
-    <category>Geometry - Deformers</category>
-  </meta_info>
-  <nodes>
-    <node operator="MeshBoundingBox" id="2" position="860:560" size="180:112" />
-    <node operator="MeshVertices" id="15" position="1109:249" size="140:112" />
-    <node operator="ParallelMap" id="11" position="1329:269" size="140:133" />
-    <node operator="Pass-through: TriMesh" id="27" position="949:169" size="140:112" />
-    <node operator="SetMeshVertices" id="18" position="1549:189" size="140:133" />
-    <node operator="Input: TriMesh" id="8" name="mesh" position="660:220" size="140:112" />
-    <node operator="Output: compound" id="3" position="1720:220" size="140:70" />
-    <node operator="Input: Single" id="20" name="angle" position="900:440" size="140:112" />
-    <node operator="Input: Int32" id="21" name="axis" position="900:680" size="140:112" />
-    <node operator="Input: Matrix" id="4" name="localGizmoTransform" position="900:800" size="140:112" />
-    <node operator="Input: Single" id="22" name="direction" position="900:920" size="140:112" />
-    <node operator="BendDeformer-ext" id="1" position="1140:460" size="140:217" />
-    <node groupnode="Deform the mesh vertices" id="7" position="940:140" size="929:271" bg_color="#ffc0c0c0">
-      <nodes>3,27,18,15,11</nodes>
-    </node>
-  </nodes>
-  <connections>
-    <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
-    <connection sourcenode="27" sourceport="0" destnode="15" destport="0" />
-    <connection sourcenode="15" sourceport="0" destnode="11" destport="0" />
-    <connection sourcenode="1" sourceport="1" destnode="11" destport="1" />
-    <connection sourcenode="8" sourceport="0" destnode="27" destport="0" />
-    <connection sourcenode="27" sourceport="0" destnode="18" destport="0" />
-    <connection sourcenode="11" sourceport="0" destnode="18" destport="1" />
-    <connection sourcenode="18" sourceport="0" destnode="3" destport="0" />
-    <connection sourcenode="20" sourceport="0" destnode="1" destport="0" />
-    <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
-    <connection sourcenode="21" sourceport="0" destnode="1" destport="2" />
-    <connection sourcenode="4" sourceport="0" destnode="1" destport="4" />
-    <connection sourcenode="22" sourceport="0" destnode="1" destport="5" />
-  </connections>
+    <meta_info>
+        <graph_version guid="be9b81a1-cf9a-4348-9312-02ca4bb26a30" number="0.0.13" />
+        <category>Geometry - Deformers</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="8" name="mesh" position="440:0" size="140:112" />
+        <node operator="Input: Single" id="20" name="angle" position="220:60" size="140:112" />
+        <node operator="Input: Int32" id="21" name="axis" position="0:280" size="140:112" />
+        <node operator="Input: Matrix" id="4" name="deformationMatrix" position="440:500" size="140:112" />
+        <node operator="Input: Single" id="22" name="direction" position="220:240" size="140:112" />
+        <node operator="BendDeformer-ext" id="1" position="440:140" size="180:196" />
+        <node operator="Output: compound" id="3" position="1000:400" size="200:70" />
+        <node operator="MeshDeformVerticesWithAmounts-ext" id="5" position="700:300" size="260:175" />
+        <node operator="ProjectionAmount-ext" id="6" position="20:440" size="180:133" />
+        <node operator="AxisChoose-ext" id="7" position="220:360" size="140:112" />
+        <node operator="MultiplyThreeFloat-ext" id="0" position="140:496" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="20" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="22" sourceport="0" destnode="1" destport="4" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="21" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="0" />
+    </connections>
 </graph>

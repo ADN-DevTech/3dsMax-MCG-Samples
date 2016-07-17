@@ -1,0 +1,20 @@
+<graph version="0.50" uuid="627a5fc3-67e3-41de-acf7-255aab5b0cc6">
+    <meta_info>
+        <graph_version guid="0b91f5df-ea7c-42fd-b264-0651a7c06709" number="0.0.1" />
+        <category>Cloning and Scattering</category>
+        <description>Clones a mesh at each face on the given surface.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="faces" position="0:0" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="cloneMesh" position="220:160" size="140:112" />
+        <node operator="CloneMeshAtTransforms-ext" id="2" position="440:100" size="200:133" />
+        <node operator="MeshFaceMatrices-ext" id="3" position="220:20" size="180:112" />
+        <node operator="Output: compound" id="4" position="660:140" size="160:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

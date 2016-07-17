@@ -1,0 +1,25 @@
+<graph version="0.50" uuid="8ba364c3-e83d-4fde-b44a-2f218379d05d">
+    <meta_info>
+        <graph_version guid="b9e8a5d7-02d0-4e53-8443-6199c43b317e" number="0.0.2" />
+        <category>MCG Sample Primitives</category>
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="0" name="x" min_value="0" max_value="100" default_value="10" system_units_value="false" position="80:160" size="140:196" />
+        <node operator="Parameter: Single" id="1" name="y" min_value="0" max_value="100" default_value="10" system_units_value="false" position="80:360" size="140:196" />
+        <node operator="Parameter: Single" id="2" name="z" min_value="0" max_value="100" default_value="10" system_units_value="false" position="80:560" size="140:196" />
+        <node operator="Vector3" id="3" position="360:320" size="140:154" />
+        <node operator="BoxFromExtent-ext" id="4" position="560:360" size="160:112" />
+        <node operator="BoxQuadMesh" id="5" position="740:380" size="140:112" />
+        <node operator="QuadMeshToTriMesh-ext" id="6" position="940:420" size="180:112" />
+        <node operator="Output: geometry" id="7" position="1160:460" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,90 @@
+(InstanceState state, TriMesh mesh, Int32 channel, Int32 component, Single multiplier, Boolean soft selection) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 2:MeshVertices 110396
+    IArray[Single] _1PerVertexData;// 9:PerVertexData 110398
+    IArray[Vector3] _2Combine;// 3:Combine 110397
+    String _3Constant;// 0:HasPerVertexChannel->0:Constant 110444
+    Int32 _4Zero;// 14:HasSoftSelection->3:Zero 110446
+    String _5ToString;// 0:HasPerVertexChannel->7:ToString 110445
+    String _6ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 110443
+    Boolean _7IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 110442
+    Boolean _8AndAlso;// 6:SoftSelectionOrDefault-ext->15:AndAlso 110438
+    IArray[Vector3] _15Combine3;// 5:Combine3 110395
+    TriMesh _16SetMeshVertices;// 14:SetMeshVertices 110393
+    _0MeshVertices = MeshVertices(mesh);
+    _1PerVertexData = PerVertexData(mesh, channel);
+    _2Combine = Combine(_0MeshVertices, _1PerVertexData, (Vector3 x0, Single x1) => 
+      {
+        Single _0X;// 1:VectorAsArray->1:X 110428
+        IArray[Single] _1Unit;// 4:Array3->2:Unit 110427
+        Single _2Y;// 1:VectorAsArray->2:Y 110429
+        IArray[Single] _3Append;// 4:Array3->3:Append 110426
+        Single _4Z;// 1:VectorAsArray->3:Z 110430
+        IArray[Single] _5Append;// 4:Array3->6:Append 110425
+        Single _6Multiply;// 10:Multiply 110432
+        Tuple[Int32, Single] _7Pair;// 3:SetValue->1:Pair 110420
+        IArray[Tuple[Int32, Single]] _8Unit;// 3:SetValue->5:Unit 110419
+        IArray[Single] _9SetValues;// 3:SetValue->0:SetValues 110418
+        Int32 _10Zero;// 6:VectorFromArray-ext->5:Zero 110406
+        Single _11At;// 6:VectorFromArray-ext->1:At 110405
+        Int32 _12One;// 6:PlusOne->1:One 110410
+        Int32 _13Add;// 6:PlusOne->0:Add 110409
+        Single _14At;// 6:VectorFromArray-ext->2:At 110407
+        Int32 _15One;// 7:PlusOne->1:One 110414
+        Int32 _16Add;// 7:PlusOne->0:Add 110413
+        Single _17At;// 6:VectorFromArray-ext->3:At 110411
+        Vector3 _18Vector3;// 6:VectorFromArray-ext->4:Vector3 110404
+        _0X = X(x0);
+        _1Unit = Unit(_0X);
+        _2Y = Y(x0);
+        _3Append = Append(_1Unit, _2Y);
+        _4Z = Z(x0);
+        _5Append = Append(_3Append, _4Z);
+        _6Multiply = Multiply(x1, multiplier);
+        _7Pair = Pair(component, _6Multiply);
+        _8Unit = Unit(_7Pair);
+        _9SetValues = SetValues(_5Append, _8Unit);
+        _10Zero = Zero();
+        _11At = At(_9SetValues, _10Zero);
+        _12One = One();
+        _13Add = Add(_10Zero, _12One);
+        _14At = At(_9SetValues, _13Add);
+        _15One = One();
+        _16Add = Add(_13Add, _15One);
+        _17At = At(_9SetValues, _16Add);
+        _18Vector3 = Vector3(_11At, _14At, _17At);
+        _18Vector3;
+        });
+    _3Constant = per-vertex data channel ;
+    _4Zero = Zero();
+    _5ToString = ToString(_4Zero);
+    _6ConcatenateStrings = ConcatenateStrings(_3Constant, _5ToString);
+    _7IsChannelAvailable = IsChannelAvailable(mesh, _6ConcatenateStrings);
+    _8AndAlso = AndAlso(_7IsChannelAvailable, soft selection);
+    _15Combine3 = Combine3(_0MeshVertices, _2Combine, if (_8AndAlso)
+      {
+        Int32 _9Zero;// 7:SoftSelection->2:Zero 110449
+        IArray[Single] _10PerVertexData;// 7:SoftSelection->3:PerVertexData 110448
+        _9Zero = Zero();
+        _10PerVertexData = PerVertexData(mesh, _9Zero);
+        _10PerVertexData;
+        }else
+      {
+        Single _11FloatOne;// 8:FloatOne 110456
+        IArray[Vector3] _12MeshVertices;// 3:ArrayPerVertex-ext->1:MeshVertices 110454
+        Int32 _13Count;// 3:ArrayPerVertex-ext->2:Count 110453
+        IArray[Single] _14ArrayOf;// 3:ArrayPerVertex-ext->3:ArrayOf 110452
+        _11FloatOne = FloatOne();
+        _12MeshVertices = MeshVertices(mesh);
+        _13Count = Count(_12MeshVertices);
+        _14ArrayOf = ArrayOf(_11FloatOne, _13Count);
+        _14ArrayOf;
+        }, (Vector3 x0, Vector3 x1, Single x2) => 
+      {
+        Vector3 _0Lerp;// 4:Lerp 110457
+        _0Lerp = Lerp(x0, x1, x2);
+        _0Lerp;
+        });
+    _16SetMeshVertices = SetMeshVertices(mesh, _15Combine3);
+    _16SetMeshVertices;
+    }

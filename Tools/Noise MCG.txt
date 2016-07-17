@@ -1,0 +1,2015 @@
+(InstanceState state, TriMesh mesh, Boolean useGizmoXform, INode gizmo, Matrix modifierTransform, Int32 numIterations, Single roughness, Int32 phase, Single frequency, Single scale, Single strengthX, Single strengthY, Single strengthZ, Int32 seed) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 0:NoiseMesh-ext->15:MeshVertices 102038
+    Int32 _1Constant;// 72:NoiseDeformerNoiseInit-ext->0:Constant 102480
+    Int32 _2One;// 126:PlusOne->1:One 102478
+    Int32 _3Add;// 126:PlusOne->0:Add 102477
+    IArray[Int32] _4Range;// 72:NoiseDeformerNoiseInit-ext->93:Range 102475
+    Int32 _5Constant;// 72:NoiseDeformerNoiseInit-ext->0:Constant 102502
+    IArray[Int32] _6Range;// 72:NoiseDeformerNoiseInit-ext->105:Range 102501
+    IArray[IArray[Single]] _7Map;// 72:NoiseDeformerNoiseInit-ext->94:Map 102474
+    IArray[IArray[Single]] _8Concatenate;// 72:NoiseDeformerNoiseInit-ext->70:Concatenate 102472
+    IArray[Int32] _9Indices;// 72:NoiseDeformerNoiseInit-ext->2:Indices 102526
+    Int32 _10Add;// 72:NoiseDeformerNoiseInit-ext->21:Add 102529
+    Int32 _11Two;// 72:NoiseDeformerNoiseInit-ext->24:Two 102532
+    Int32 _12Add;// 72:NoiseDeformerNoiseInit-ext->22:Add 102528
+    IArray[Int32] _13Range;// 72:NoiseDeformerNoiseInit-ext->25:Range 102527
+    Int32 _14Count;// 3:LastIndex->2:Count 102558
+    Int32 _15One;// 3:MinusOne->2:One 102557
+    Int32 _16Subtract;// 3:MinusOne->1:Subtract 102556
+    Int32 _17At;// 35:Last->0:At 102553
+    IArray[Int32] _18Map;// 72:NoiseDeformerNoiseInit-ext->20:Map 102544
+    IArray[Int32] _19Aggregate;// 72:NoiseDeformerNoiseInit-ext->1:Aggregate 102524
+    Int32 _20Two;// 72:NoiseDeformerNoiseInit-ext->67:Two 102572
+    Int32 _21Add;// 72:NoiseDeformerNoiseInit-ext->66:Add 102570
+    IArray[Int32] _22Range;// 72:NoiseDeformerNoiseInit-ext->69:Range 102569
+    IArray[Int32] _23Map;// 72:NoiseDeformerNoiseInit-ext->82:Map 102567
+    IArray[Int32] _24Map;// 79:SelectByIndex->2:Map 102577
+    IArray[Tuple[Int32, Int32]] _25Combine;// 86:ZipToTuple->0:Combine 102565
+    IArray[Int32] _26SetValues;// 72:NoiseDeformerNoiseInit-ext->76:SetValues 102521
+    Tuple[IArray[IArray[Single]], IArray[Int32]] _27Pair;// 72:NoiseDeformerNoiseInit-ext->87:Pair 102471
+    Func[Vector3, Vector3] _28Bind2of2;// 0:NoiseMesh-ext->5:Bind2of2 102039
+    IArray[Vector3] _29ParallelMap;// 0:NoiseMesh-ext->11:ParallelMap 102037
+    TriMesh _30SetMeshVertices;// 0:NoiseMesh-ext->18:SetMeshVertices 102035
+    _0MeshVertices = MeshVertices(mesh);
+    _1Constant = 256;
+    _2One = One();
+    _3Add = Add(_1Constant, _2One);
+    _4Range = Range(_3Add);
+    _5Constant = 3;
+    _6Range = Range(_5Constant);
+    _7Map = Map(_4Range, (Int32 x0) => 
+      {
+        Func[Int32, Single] _0Bind1of2;// 72:NoiseDeformerNoiseInit-ext->116:Bind1of2 102503
+        IArray[Single] _1Map;// 72:NoiseDeformerNoiseInit-ext->108:Map 102500
+        Int32 _2Zero;// 118:ArrayToVector3->2:Zero 102495
+        Single _3At;// 118:ArrayToVector3->1:At 102494
+        Int32 _4One;// 118:ArrayToVector3->3:One 102497
+        Single _5At;// 118:ArrayToVector3->5:At 102496
+        Int32 _6Two;// 118:ArrayToVector3->4:Two 102499
+        Single _7At;// 118:ArrayToVector3->6:At 102498
+        Vector3 _8Vector3;// 118:ArrayToVector3->7:Vector3 102493
+        Vector3 _9Normalize;// 72:NoiseDeformerNoiseInit-ext->120:Normalize 102491
+        Single _10X;// 117:VectorToArray->1:X 102488
+        IArray[Single] _11Unit;// 4:Array3->2:Unit 102487
+        Single _12Y;// 117:VectorToArray->2:Y 102489
+        IArray[Single] _13Append;// 4:Array3->3:Append 102486
+        Single _14Z;// 117:VectorToArray->3:Z 102490
+        IArray[Single] _15Append;// 4:Array3->6:Append 102485
+        _0Bind1of2 = Bind1of2((Int32 x0, Int32 x1) => 
+          {
+            Int32 _0Count;// 72:NoiseDeformerNoiseInit-ext->114:Count 102516
+            Int32 _1Multiply;// 72:NoiseDeformerNoiseInit-ext->115:Multiply 102515
+            Int32 _2Add;// 72:NoiseDeformerNoiseInit-ext->113:Add 102513
+            Int32 _3RandInt;// 72:NoiseDeformerNoiseInit-ext->97:RandInt 102511
+            Single _4AsFloat;// 72:NoiseDeformerNoiseInit-ext->121:AsFloat 102510
+            Single _5Abs;// 72:NoiseDeformerNoiseInit-ext->123:Abs 102509
+            Int32 _6AsInt;// 72:NoiseDeformerNoiseInit-ext->122:AsInt 102508
+            Int32 _7Add;// 72:NoiseDeformerNoiseInit-ext->99:Add 102518
+            Int32 _8Modulo;// 72:NoiseDeformerNoiseInit-ext->98:Modulo 102507
+            Int32 _9Subtract;// 72:NoiseDeformerNoiseInit-ext->104:Subtract 102506
+            Single _10AsFloat;// 72:NoiseDeformerNoiseInit-ext->100:AsFloat 102505
+            Single _11AsFloat;// 72:NoiseDeformerNoiseInit-ext->103:AsFloat 102520
+            Single _12Divide;// 72:NoiseDeformerNoiseInit-ext->101:Divide 102504
+            _0Count = Count(_4Range);
+            _1Multiply = Multiply(_0Count, x1);
+            _2Add = Add(x0, _1Multiply);
+            _3RandInt = RandInt(seed, _2Add);
+            _4AsFloat = AsFloat(_3RandInt);
+            _5Abs = Abs(_4AsFloat);
+            _6AsInt = AsInt(_5Abs);
+            _7Add = Add(_1Constant, _1Constant);
+            _8Modulo = Modulo(_6AsInt, _7Add);
+            _9Subtract = Subtract(_8Modulo, _1Constant);
+            _10AsFloat = AsFloat(_9Subtract);
+            _11AsFloat = AsFloat(_1Constant);
+            _12Divide = Divide(_10AsFloat, _11AsFloat);
+            _12Divide;
+            }, x0);
+        _1Map = Map(_6Range, _0Bind1of2);
+        _2Zero = Zero();
+        _3At = At(_1Map, _2Zero);
+        _4One = One();
+        _5At = At(_1Map, _4One);
+        _6Two = Two();
+        _7At = At(_1Map, _6Two);
+        _8Vector3 = Vector3(_3At, _5At, _7At);
+        _9Normalize = Normalize(_8Vector3);
+        _10X = X(_9Normalize);
+        _11Unit = Unit(_10X);
+        _12Y = Y(_9Normalize);
+        _13Append = Append(_11Unit, _12Y);
+        _14Z = Z(_9Normalize);
+        _15Append = Append(_13Append, _14Z);
+        _15Append;
+        });
+    _8Concatenate = Concatenate(_7Map, _7Map);
+    _9Indices = Indices(_7Map);
+    _10Add = Add(_1Constant, _1Constant);
+    _11Two = Two();
+    _12Add = Add(_10Add, _11Two);
+    _13Range = Range(_12Add);
+    _14Count = Count(_9Indices);
+    _15One = One();
+    _16Subtract = Subtract(_14Count, _15One);
+    _17At = At(_9Indices, _16Subtract);
+    _18Map = Map(_9Indices, (Int32 x0) => 
+      {
+        Int32 _0Add;// 72:NoiseDeformerNoiseInit-ext->36:Add 102551
+        Int32 _1RandInt;// 72:NoiseDeformerNoiseInit-ext->34:RandInt 102549
+        Single _2AsFloat;// 72:NoiseDeformerNoiseInit-ext->92:AsFloat 102548
+        Single _3Abs;// 72:NoiseDeformerNoiseInit-ext->90:Abs 102547
+        Int32 _4AsInt;// 72:NoiseDeformerNoiseInit-ext->91:AsInt 102546
+        Int32 _5Modulo;// 72:NoiseDeformerNoiseInit-ext->40:Modulo 102545
+        _0Add = Add(_17At, x0);
+        _1RandInt = RandInt(seed, _0Add);
+        _2AsFloat = AsFloat(_1RandInt);
+        _3Abs = Abs(_2AsFloat);
+        _4AsInt = AsInt(_3Abs);
+        _5Modulo = Modulo(_4AsInt, _1Constant);
+        _5Modulo;
+        });
+    _19Aggregate = Aggregate(_9Indices, _13Range, (IArray[Int32] x0, Int32 x1) => 
+      {
+        Int32 _0At;// 72:NoiseDeformerNoiseInit-ext->52:At 102542
+        Int32 _1At;// 72:NoiseDeformerNoiseInit-ext->60:At 102541
+        Tuple[Int32, Int32] _2Pair;// 72:NoiseDeformerNoiseInit-ext->57:Pair 102539
+        IArray[Tuple[Int32, Int32]] _3Unit;// 59:Array2->2:Unit 102538
+        Int32 _4At;// 72:NoiseDeformerNoiseInit-ext->30:At 102562
+        Tuple[Int32, Int32] _5Pair;// 72:NoiseDeformerNoiseInit-ext->55:Pair 102561
+        IArray[Tuple[Int32, Int32]] _6Append;// 59:Array2->3:Append 102537
+        IArray[Int32] _7SetValues;// 72:NoiseDeformerNoiseInit-ext->54:SetValues 102533
+        _0At = At(_18Map, x1);
+        _1At = At(x0, _0At);
+        _2Pair = Pair(x1, _1At);
+        _3Unit = Unit(_2Pair);
+        _4At = At(x0, x1);
+        _5Pair = Pair(_0At, _4At);
+        _6Append = Append(_3Unit, _5Pair);
+        _7SetValues = SetValues(x0, _6Append);
+        _7SetValues;
+        });
+    _20Two = Two();
+    _21Add = Add(_1Constant, _20Two);
+    _22Range = Range(_21Add);
+    _23Map = Map(_22Range, (Int32 x0) => 
+      {
+        Int32 _0Add;// 72:NoiseDeformerNoiseInit-ext->83:Add 102573
+        _0Add = Add(x0, _1Constant);
+        _0Add;
+        });
+    _24Map = Map(_22Range, (Int32 x0) => 
+      {
+        Int32 _0At;// 79:SelectByIndex->3:At 102578
+        _0At = At(_19Aggregate, x0);
+        _0At;
+        });
+    _25Combine = Combine(_23Map, _24Map, (Int32 x0, Int32 x1) => 
+      {
+        Tuple[Int32, Int32] _0Pair;// 86:ZipToTuple->4:Pair 102566
+        _0Pair = Pair(x0, x1);
+        _0Pair;
+        });
+    _26SetValues = SetValues(_19Aggregate, _25Combine);
+    _27Pair = Pair(_8Concatenate, _26SetValues);
+    _28Bind2of2 = Bind2of2((Vector3 x0, Tuple[IArray[IArray[Single]], IArray[Int32]] x1) => 
+      {
+        Matrix _8Pass-through: Matrix;// 0:Pass-through: Matrix 102027
+        Matrix _9InvertMatrix;// 0:NoiseDeformer-ext->79:InvertMatrix 102054
+        Vector3 _10Transform;// 0:NoiseDeformer-ext->78:Transform 102053
+        Single _11FloatOne;// 0:NoiseDeformer-ext->40:FloatOne 102461
+        Single _12Divide;// 0:NoiseDeformer-ext->41:Divide 102460
+        Vector3 _13MultiplyByScalar;// 0:NoiseDeformer-ext->16:MultiplyByScalar 102458
+        Vector3 _14Constant;// 0:NoiseDeformer-ext->0:Constant 102462
+        Vector3 _15Add;// 0:NoiseDeformer-ext->18:Add 102457
+        Single _16Y;// 0:NoiseDeformer-ext->6:Y 102455
+        Single _17Z;// 0:NoiseDeformer-ext->7:Z 102463
+        Single _18Apply2;// 0:NoiseDeformer-ext->4:Apply2 102058
+        Single _19X;// 0:NoiseDeformer-ext->5:X 102466
+        Single _20Apply2;// 0:NoiseDeformer-ext->2:Apply2 102465
+        Single _21Apply2;// 0:NoiseDeformer-ext->15:Apply2 102468
+        Vector3 _22Vector3;// 0:NoiseDeformer-ext->14:Vector3 102056
+        Vector3 _23Vector3;// 13:Vector3 102605
+        Vector3 _24Multiply;// 0:NoiseDeformer-ext->22:Multiply 102055
+        Vector3 _25Add;// 0:NoiseDeformer-ext->25:Add 102050
+        Vector3 _26Transform;// 0:NoiseDeformer-ext->83:Transform 102049
+        _8Pass-through: Matrix = if (useGizmoXform)
+          {
+            Boolean _0IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 102585
+            _0IsValidNode = IsValidNode(gizmo);
+            if (_0IsValidNode)
+              {
+                Boolean _1IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 102591
+                Matrix _4InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 102595
+                Matrix _5Multiply;// 32:NodeToLocalTransform->18:Multiply 102588
+                _1IsValidNode = IsValidNode(gizmo);
+                _4InvertMatrix = InvertMatrix(modifierTransform);
+                _5Multiply = Multiply(if (_1IsValidNode)
+                    {
+                      Matrix _2WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 102592
+                      _2WorldTransform = WorldTransform(gizmo);
+                      _2WorldTransform;
+                      }else
+                    {
+                      Matrix _3MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 102593
+                      _3MatrixIdentity = MatrixIdentity();
+                      _3MatrixIdentity;
+                      }, _4InvertMatrix);
+                _5Multiply;
+                }else
+              {
+                Matrix _6MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 102596
+                _6MatrixIdentity = MatrixIdentity();
+                _6MatrixIdentity;
+                };
+            }else
+          {
+            Matrix _7MatrixIdentity;// 12:MatrixIdentity 102599
+            _7MatrixIdentity = MatrixIdentity();
+            _7MatrixIdentity;
+            };
+        _9InvertMatrix = InvertMatrix(_8Pass-through: Matrix);
+        _10Transform = Transform(x0, _9InvertMatrix);
+        _11FloatOne = FloatOne();
+        _12Divide = Divide(_11FloatOne, scale);
+        _13MultiplyByScalar = MultiplyByScalar(_10Transform, _12Divide);
+        _14Constant = new Microsoft.Xna.Framework.Vector3(0.5, 0.5, 0.5);
+        _15Add = Add(_13MultiplyByScalar, _14Constant);
+        _16Y = Y(_15Add);
+        _17Z = Z(_15Add);
+        _18Apply2 = Apply2((Single x0, Single x1) => 
+          {
+            Single _0FloatZero;// 27:NoiseDeformerfBm1-ext->33:FloatZero 102079
+            IArray[Single] _1Unit;// 37:Array2->2:Unit 102078
+            Single _2FloatZero;// 27:NoiseDeformerfBm1-ext->38:FloatZero 102080
+            IArray[Single] _3Append;// 37:Array2->3:Append 102077
+            Single _4AsFloat;// 0:NoiseDeformer-ext->13:AsFloat 102440
+            Int32 _5AsInt;// 27:NoiseDeformerfBm1-ext->21:AsInt 102081
+            Single _6FloatOne;// 27:NoiseDeformerfBm1-ext->5:FloatOne 102095
+            Int32 _7AsInt;// 27:NoiseDeformerfBm1-ext->8:AsInt 102096
+            Single _8Constant;// 0:NoiseDeformer-ext->0:Constant 102441
+            IArray[Single] _9GenerateN;// 27:NoiseDeformerfBm1-ext->7:GenerateN 102094
+            Single _10FloatOne;// 0:NoiseDeformer-ext->46:FloatOne 102443
+            Single _11Subtract;// 0:NoiseDeformer-ext->3:Subtract 102442
+            Single _12NegativeFloat;// 27:NoiseDeformerfBm1-ext->16:NegativeFloat 102103
+            IArray[Single] _13Map;// 27:NoiseDeformerfBm1-ext->14:Map 102093
+            Single _14AsFloat;// 0:NoiseDeformer-ext->43:AsFloat 102448
+            Single _15Constant;// 0:NoiseDeformer-ext->0:Constant 102451
+            Single _16Multiply;// 0:NoiseDeformer-ext->30:Multiply 102450
+            Single _17Constant;// 0:NoiseDeformer-ext->0:Constant 102453
+            Single _18Constant;// 0:NoiseDeformer-ext->0:Constant 102454
+            Single _19Divide;// 0:NoiseDeformer-ext->31:Divide 102452
+            Single _20Multiply;// 0:NoiseDeformer-ext->39:Multiply 102449
+            Single _21Multiply;// 0:NoiseDeformer-ext->38:Multiply 102447
+            Vector3 _22Vector3;// 0:NoiseDeformer-ext->0:Vector3 102444
+            IArray[Vector3] _23GenerateN;// 27:NoiseDeformerfBm1-ext->30:GenerateN 102428
+            IArray[IArray[Single]] _24PairItem1;// 27:NoiseDeformerfBm1-ext->72:PairItem1 102432
+            Single _25FloatOne;// 27:NoiseDeformerfBm1-ext->53:FloatOne 102439
+            IArray[IArray[Single]] _26GenerateN;// 27:NoiseDeformerfBm1-ext->35:GenerateN 102074
+            Int32 _27Count;// 3:LastIndex->2:Count 102073
+            Int32 _28One;// 3:MinusOne->2:One 102072
+            Int32 _29Subtract;// 3:MinusOne->1:Subtract 102071
+            IArray[Single] _30At;// 68:Last->0:At 102068
+            Int32 _31Zero;// 69:First->2:Zero 102066
+            Single _32At;// 69:First->0:At 102065
+            _0FloatZero = FloatZero();
+            _1Unit = Unit(_0FloatZero);
+            _2FloatZero = FloatZero();
+            _3Append = Append(_1Unit, _2FloatZero);
+            _4AsFloat = AsFloat(numIterations);
+            _5AsInt = AsInt(_4AsFloat);
+            _6FloatOne = FloatOne();
+            _7AsInt = AsInt(_4AsFloat);
+            _8Constant = 2;
+            _9GenerateN = GenerateN(_6FloatOne, _7AsInt, (Single x0) => 
+              {
+                Single _0Multiply;// 27:NoiseDeformerfBm1-ext->9:Multiply 102098
+                _0Multiply = Multiply(_8Constant, x0);
+                _0Multiply;
+                });
+            _10FloatOne = FloatOne();
+            _11Subtract = Subtract(_10FloatOne, roughness);
+            _12NegativeFloat = NegativeFloat(_11Subtract);
+            _13Map = Map(_9GenerateN, (Single x0) => 
+              {
+                Single _0Pow;// 27:NoiseDeformerfBm1-ext->15:Pow 102101
+                _0Pow = Pow(x0, _12NegativeFloat);
+                _0Pow;
+                });
+            _14AsFloat = AsFloat(phase);
+            _15Constant = 0.005;
+            _16Multiply = Multiply(frequency, _15Constant);
+            _17Constant = 1200;
+            _18Constant = 4800;
+            _19Divide = Divide(_17Constant, _18Constant);
+            _20Multiply = Multiply(_16Multiply, _19Divide);
+            _21Multiply = Multiply(_14AsFloat, _20Multiply);
+            _22Vector3 = Vector3(x0, x1, _21Multiply);
+            _23GenerateN = GenerateN(_22Vector3, _5AsInt, (Vector3 x0) => 
+              {
+                Vector3 _0MultiplyByScalar;// 27:NoiseDeformerfBm1-ext->22:MultiplyByScalar 102430
+                _0MultiplyByScalar = MultiplyByScalar(x0, _8Constant);
+                _0MultiplyByScalar;
+                });
+            _24PairItem1 = PairItem1(x1);
+            _25FloatOne = FloatOne();
+            _26GenerateN = GenerateN(_3Append, _5AsInt, (IArray[Single] x0) => 
+              {
+                Int32 _0One;// 49:Second->2:One 102108
+                Single _1At;// 49:Second->0:At 102107
+                Int32 _2AsInt;// 27:NoiseDeformerfBm1-ext->55:AsInt 102105
+                Single _3At;// 27:NoiseDeformerfBm1-ext->60:At 102091
+                Single _4Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102146
+                Vector3 _5At;// 27:NoiseDeformerfBm1-ext->54:At 102426
+                Single _6X;// 2:VectorAsArray->1:X 102157
+                IArray[Single] _7Unit;// 4:Array3->2:Unit 102156
+                Single _8Y;// 2:VectorAsArray->2:Y 102158
+                IArray[Single] _9Append;// 4:Array3->3:Append 102155
+                Single _10Z;// 2:VectorAsArray->3:Z 102159
+                IArray[Single] _11Append;// 4:Array3->6:Append 102154
+                Int32 _12Zero;// 77:NoiseDeformerNoise3-ext->3:Zero 102172
+                Single _13At;// 1:VectorComponent-ext->3:At 102149
+                Single _14Add;// 25:NoiseDeformerNoiseVarSetup-ext->5:Add 102145
+                Int32 _15Floor;// 25:NoiseDeformerNoiseVarSetup-ext->7:Floor 102144
+                Int32 _16Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102160
+                Int32 _17And;// 25:NoiseDeformerNoiseVarSetup-ext->8:And 102143
+                Int32 _18One;// 13:PlusOne->1:One 102164
+                Int32 _19Add;// 13:PlusOne->0:Add 102163
+                Int32 _20And;// 25:NoiseDeformerNoiseVarSetup-ext->14:And 102161
+                Tuple[Int32, Int32] _21Pair;// 25:NoiseDeformerNoiseVarSetup-ext->3:Pair 102142
+                Int32 _22Floor;// 25:NoiseDeformerNoiseVarSetup-ext->22:Floor 102169
+                Single _23AsFloat;// 25:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102168
+                Single _24Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102166
+                Single _25FloatOne;// 25:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102171
+                Single _26Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102170
+                Tuple[Single, Single] _27Pair;// 25:NoiseDeformerNoiseVarSetup-ext->25:Pair 102165
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _28Pair;// 25:NoiseDeformerNoiseVarSetup-ext->26:Pair 102141
+                Tuple[Single, Single] _29PairItem2;// 77:NoiseDeformerNoise3-ext->10:PairItem2 102138
+                Single _30PairItem1;// 77:NoiseDeformerNoise3-ext->12:PairItem1 102137
+                IArray[Int32] _31PairItem2;// 27:NoiseDeformerfBm1-ext->73:PairItem2 102433
+                Tuple[Int32, Int32] _32PairItem1;// 77:NoiseDeformerNoise3-ext->8:PairItem1 102183
+                Int32 _33PairItem1;// 77:NoiseDeformerNoise3-ext->9:PairItem1 102182
+                Int32 _34At;// 77:NoiseDeformerNoise3-ext->31:At 102181
+                Single _35Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102193
+                Single _36X;// 2:VectorAsArray->1:X 102204
+                IArray[Single] _37Unit;// 4:Array3->2:Unit 102203
+                Single _38Y;// 2:VectorAsArray->2:Y 102205
+                IArray[Single] _39Append;// 4:Array3->3:Append 102202
+                Single _40Z;// 2:VectorAsArray->3:Z 102206
+                IArray[Single] _41Append;// 4:Array3->6:Append 102201
+                Int32 _42One;// 77:NoiseDeformerNoise3-ext->4:One 102219
+                Single _43At;// 1:VectorComponent-ext->3:At 102196
+                Single _44Add;// 6:NoiseDeformerNoiseVarSetup-ext->5:Add 102192
+                Int32 _45Floor;// 6:NoiseDeformerNoiseVarSetup-ext->7:Floor 102191
+                Int32 _46Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102207
+                Int32 _47And;// 6:NoiseDeformerNoiseVarSetup-ext->8:And 102190
+                Int32 _48One;// 13:PlusOne->1:One 102211
+                Int32 _49Add;// 13:PlusOne->0:Add 102210
+                Int32 _50And;// 6:NoiseDeformerNoiseVarSetup-ext->14:And 102208
+                Tuple[Int32, Int32] _51Pair;// 6:NoiseDeformerNoiseVarSetup-ext->3:Pair 102189
+                Int32 _52Floor;// 6:NoiseDeformerNoiseVarSetup-ext->22:Floor 102216
+                Single _53AsFloat;// 6:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102215
+                Single _54Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102213
+                Single _55FloatOne;// 6:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102218
+                Single _56Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102217
+                Tuple[Single, Single] _57Pair;// 6:NoiseDeformerNoiseVarSetup-ext->25:Pair 102212
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _58Pair;// 6:NoiseDeformerNoiseVarSetup-ext->26:Pair 102188
+                Tuple[Int32, Int32] _59PairItem1;// 77:NoiseDeformerNoise3-ext->20:PairItem1 102185
+                Int32 _60PairItem1;// 77:NoiseDeformerNoise3-ext->19:PairItem1 102184
+                Int32 _61Add;// 77:NoiseDeformerNoise3-ext->33:Add 102179
+                Int32 _62At;// 77:NoiseDeformerNoise3-ext->107:At 102177
+                Single _63Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102229
+                Single _64X;// 2:VectorAsArray->1:X 102240
+                IArray[Single] _65Unit;// 4:Array3->2:Unit 102239
+                Single _66Y;// 2:VectorAsArray->2:Y 102241
+                IArray[Single] _67Append;// 4:Array3->3:Append 102238
+                Single _68Z;// 2:VectorAsArray->3:Z 102242
+                IArray[Single] _69Append;// 4:Array3->6:Append 102237
+                Int32 _70Two;// 77:NoiseDeformerNoise3-ext->5:Two 102255
+                Single _71At;// 1:VectorComponent-ext->3:At 102232
+                Single _72Add;// 7:NoiseDeformerNoiseVarSetup-ext->5:Add 102228
+                Int32 _73Floor;// 7:NoiseDeformerNoiseVarSetup-ext->7:Floor 102227
+                Int32 _74Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102243
+                Int32 _75And;// 7:NoiseDeformerNoiseVarSetup-ext->8:And 102226
+                Int32 _76One;// 13:PlusOne->1:One 102247
+                Int32 _77Add;// 13:PlusOne->0:Add 102246
+                Int32 _78And;// 7:NoiseDeformerNoiseVarSetup-ext->14:And 102244
+                Tuple[Int32, Int32] _79Pair;// 7:NoiseDeformerNoiseVarSetup-ext->3:Pair 102225
+                Int32 _80Floor;// 7:NoiseDeformerNoiseVarSetup-ext->22:Floor 102252
+                Single _81AsFloat;// 7:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102251
+                Single _82Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102249
+                Single _83FloatOne;// 7:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102254
+                Single _84Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102253
+                Tuple[Single, Single] _85Pair;// 7:NoiseDeformerNoiseVarSetup-ext->25:Pair 102248
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _86Pair;// 7:NoiseDeformerNoiseVarSetup-ext->26:Pair 102224
+                Tuple[Int32, Int32] _87PairItem1;// 77:NoiseDeformerNoise3-ext->51:PairItem1 102221
+                Int32 _88PairItem1;// 77:NoiseDeformerNoise3-ext->53:PairItem1 102220
+                Int32 _89Add;// 77:NoiseDeformerNoise3-ext->61:Add 102175
+                IArray[Single] _90At;// 77:NoiseDeformerNoise3-ext->60:At 102173
+                Int32 _91Zero;// 62:NoiseDeformerAt3-ext->5:Zero 102130
+                Single _92At;// 62:NoiseDeformerAt3-ext->4:At 102129
+                Single _93Multiply;// 62:NoiseDeformerAt3-ext->11:Multiply 102128
+                Tuple[Single, Single] _94PairItem2;// 77:NoiseDeformerNoise3-ext->23:PairItem2 102257
+                Single _95PairItem1;// 77:NoiseDeformerNoise3-ext->18:PairItem1 102256
+                Int32 _96One;// 62:NoiseDeformerAt3-ext->8:One 102133
+                Single _97At;// 62:NoiseDeformerAt3-ext->7:At 102132
+                Single _98Multiply;// 62:NoiseDeformerAt3-ext->12:Multiply 102131
+                Single _99Add;// 62:NoiseDeformerAt3-ext->6:Add 102127
+                Tuple[Single, Single] _100PairItem2;// 77:NoiseDeformerNoise3-ext->48:PairItem2 102259
+                Single _101PairItem1;// 77:NoiseDeformerNoise3-ext->52:PairItem1 102258
+                Int32 _102Two;// 62:NoiseDeformerAt3-ext->9:Two 102136
+                Single _103At;// 62:NoiseDeformerAt3-ext->10:At 102135
+                Single _104Multiply;// 62:NoiseDeformerAt3-ext->13:Multiply 102134
+                Single _105Add;// 62:NoiseDeformerAt3-ext->14:Add 102126
+                Single _106PairItem2;// 77:NoiseDeformerNoise3-ext->13:PairItem2 102275
+                Int32 _107PairItem2;// 77:NoiseDeformerNoise3-ext->11:PairItem2 102283
+                Int32 _108At;// 77:NoiseDeformerNoise3-ext->32:At 102282
+                Int32 _109Add;// 77:NoiseDeformerNoise3-ext->34:Add 102280
+                Int32 _110At;// 77:NoiseDeformerNoise3-ext->113:At 102279
+                Int32 _111Add;// 77:NoiseDeformerNoise3-ext->65:Add 102277
+                IArray[Single] _112At;// 77:NoiseDeformerNoise3-ext->64:At 102276
+                Int32 _113Zero;// 66:NoiseDeformerAt3-ext->5:Zero 102268
+                Single _114At;// 66:NoiseDeformerAt3-ext->4:At 102267
+                Single _115Multiply;// 66:NoiseDeformerAt3-ext->11:Multiply 102266
+                Int32 _116One;// 66:NoiseDeformerAt3-ext->8:One 102271
+                Single _117At;// 66:NoiseDeformerAt3-ext->7:At 102270
+                Single _118Multiply;// 66:NoiseDeformerAt3-ext->12:Multiply 102269
+                Single _119Add;// 66:NoiseDeformerAt3-ext->6:Add 102265
+                Int32 _120Two;// 66:NoiseDeformerAt3-ext->9:Two 102274
+                Single _121At;// 66:NoiseDeformerAt3-ext->10:At 102273
+                Single _122Multiply;// 66:NoiseDeformerAt3-ext->13:Multiply 102272
+                Single _123Add;// 66:NoiseDeformerAt3-ext->14:Add 102264
+                Single _124Constant;// 42:NoiseDeformerSCurve->0:Constant 102287
+                Single _125Constant;// 42:NoiseDeformerSCurve->0:Constant 102289
+                Single _126Multiply;// 42:NoiseDeformerSCurve->41:Multiply 102288
+                Single _127Subtract;// 42:NoiseDeformerSCurve->39:Subtract 102286
+                Single _128Multiply;// 42:NoiseDeformerSCurve->35:Multiply 102291
+                Single _129Multiply;// 42:NoiseDeformerSCurve->37:Multiply 102285
+                Single _130FloatLerp;// 77:NoiseDeformerNoise3-ext->68:FloatLerp 102121
+                Int32 _131PairItem2;// 77:NoiseDeformerNoise3-ext->22:PairItem2 102313
+                Int32 _132Add;// 77:NoiseDeformerNoise3-ext->38:Add 102312
+                Int32 _133At;// 77:NoiseDeformerNoise3-ext->114:At 102311
+                Int32 _134Add;// 77:NoiseDeformerNoise3-ext->71:Add 102309
+                IArray[Single] _135At;// 77:NoiseDeformerNoise3-ext->70:At 102308
+                Int32 _136Zero;// 72:NoiseDeformerAt3-ext->5:Zero 102301
+                Single _137At;// 72:NoiseDeformerAt3-ext->4:At 102300
+                Single _138Multiply;// 72:NoiseDeformerAt3-ext->11:Multiply 102299
+                Single _139PairItem2;// 77:NoiseDeformerNoise3-ext->21:PairItem2 102314
+                Int32 _140One;// 72:NoiseDeformerAt3-ext->8:One 102304
+                Single _141At;// 72:NoiseDeformerAt3-ext->7:At 102303
+                Single _142Multiply;// 72:NoiseDeformerAt3-ext->12:Multiply 102302
+                Single _143Add;// 72:NoiseDeformerAt3-ext->6:Add 102298
+                Int32 _144Two;// 72:NoiseDeformerAt3-ext->9:Two 102307
+                Single _145At;// 72:NoiseDeformerAt3-ext->10:At 102306
+                Single _146Multiply;// 72:NoiseDeformerAt3-ext->13:Multiply 102305
+                Single _147Add;// 72:NoiseDeformerAt3-ext->14:Add 102297
+                Int32 _148Add;// 77:NoiseDeformerNoise3-ext->39:Add 102334
+                Int32 _149At;// 77:NoiseDeformerNoise3-ext->115:At 102333
+                Int32 _150Add;// 77:NoiseDeformerNoise3-ext->74:Add 102331
+                IArray[Single] _151At;// 77:NoiseDeformerNoise3-ext->76:At 102330
+                Int32 _152Zero;// 75:NoiseDeformerAt3-ext->5:Zero 102323
+                Single _153At;// 75:NoiseDeformerAt3-ext->4:At 102322
+                Single _154Multiply;// 75:NoiseDeformerAt3-ext->11:Multiply 102321
+                Int32 _155One;// 75:NoiseDeformerAt3-ext->8:One 102326
+                Single _156At;// 75:NoiseDeformerAt3-ext->7:At 102325
+                Single _157Multiply;// 75:NoiseDeformerAt3-ext->12:Multiply 102324
+                Single _158Add;// 75:NoiseDeformerAt3-ext->6:Add 102320
+                Int32 _159Two;// 75:NoiseDeformerAt3-ext->9:Two 102329
+                Single _160At;// 75:NoiseDeformerAt3-ext->10:At 102328
+                Single _161Multiply;// 75:NoiseDeformerAt3-ext->13:Multiply 102327
+                Single _162Add;// 75:NoiseDeformerAt3-ext->14:Add 102319
+                Single _163FloatLerp;// 77:NoiseDeformerNoise3-ext->78:FloatLerp 102292
+                Single _164Constant;// 56:NoiseDeformerSCurve->0:Constant 102338
+                Single _165Constant;// 56:NoiseDeformerSCurve->0:Constant 102340
+                Single _166Multiply;// 56:NoiseDeformerSCurve->41:Multiply 102339
+                Single _167Subtract;// 56:NoiseDeformerSCurve->39:Subtract 102337
+                Single _168Multiply;// 56:NoiseDeformerSCurve->35:Multiply 102342
+                Single _169Multiply;// 56:NoiseDeformerSCurve->37:Multiply 102336
+                Single _170FloatLerp;// 77:NoiseDeformerNoise3-ext->80:FloatLerp 102120
+                Int32 _171PairItem2;// 77:NoiseDeformerNoise3-ext->49:PairItem2 102362
+                Int32 _172Add;// 77:NoiseDeformerNoise3-ext->84:Add 102361
+                IArray[Single] _173At;// 77:NoiseDeformerNoise3-ext->83:At 102360
+                Int32 _174Zero;// 82:NoiseDeformerAt3-ext->5:Zero 102353
+                Single _175At;// 82:NoiseDeformerAt3-ext->4:At 102352
+                Single _176Multiply;// 82:NoiseDeformerAt3-ext->11:Multiply 102351
+                Int32 _177One;// 82:NoiseDeformerAt3-ext->8:One 102356
+                Single _178At;// 82:NoiseDeformerAt3-ext->7:At 102355
+                Single _179Multiply;// 82:NoiseDeformerAt3-ext->12:Multiply 102354
+                Single _180Add;// 82:NoiseDeformerAt3-ext->6:Add 102350
+                Single _181PairItem2;// 77:NoiseDeformerNoise3-ext->50:PairItem2 102363
+                Int32 _182Two;// 82:NoiseDeformerAt3-ext->9:Two 102359
+                Single _183At;// 82:NoiseDeformerAt3-ext->10:At 102358
+                Single _184Multiply;// 82:NoiseDeformerAt3-ext->13:Multiply 102357
+                Single _185Add;// 82:NoiseDeformerAt3-ext->14:Add 102349
+                Int32 _186Add;// 77:NoiseDeformerNoise3-ext->88:Add 102380
+                IArray[Single] _187At;// 77:NoiseDeformerNoise3-ext->87:At 102379
+                Int32 _188Zero;// 86:NoiseDeformerAt3-ext->5:Zero 102372
+                Single _189At;// 86:NoiseDeformerAt3-ext->4:At 102371
+                Single _190Multiply;// 86:NoiseDeformerAt3-ext->11:Multiply 102370
+                Int32 _191One;// 86:NoiseDeformerAt3-ext->8:One 102375
+                Single _192At;// 86:NoiseDeformerAt3-ext->7:At 102374
+                Single _193Multiply;// 86:NoiseDeformerAt3-ext->12:Multiply 102373
+                Single _194Add;// 86:NoiseDeformerAt3-ext->6:Add 102369
+                Int32 _195Two;// 86:NoiseDeformerAt3-ext->9:Two 102378
+                Single _196At;// 86:NoiseDeformerAt3-ext->10:At 102377
+                Single _197Multiply;// 86:NoiseDeformerAt3-ext->13:Multiply 102376
+                Single _198Add;// 86:NoiseDeformerAt3-ext->14:Add 102368
+                Single _199FloatLerp;// 77:NoiseDeformerNoise3-ext->90:FloatLerp 102344
+                Int32 _200Add;// 77:NoiseDeformerNoise3-ext->94:Add 102398
+                IArray[Single] _201At;// 77:NoiseDeformerNoise3-ext->93:At 102397
+                Int32 _202Zero;// 92:NoiseDeformerAt3-ext->5:Zero 102390
+                Single _203At;// 92:NoiseDeformerAt3-ext->4:At 102389
+                Single _204Multiply;// 92:NoiseDeformerAt3-ext->11:Multiply 102388
+                Int32 _205One;// 92:NoiseDeformerAt3-ext->8:One 102393
+                Single _206At;// 92:NoiseDeformerAt3-ext->7:At 102392
+                Single _207Multiply;// 92:NoiseDeformerAt3-ext->12:Multiply 102391
+                Single _208Add;// 92:NoiseDeformerAt3-ext->6:Add 102387
+                Int32 _209Two;// 92:NoiseDeformerAt3-ext->9:Two 102396
+                Single _210At;// 92:NoiseDeformerAt3-ext->10:At 102395
+                Single _211Multiply;// 92:NoiseDeformerAt3-ext->13:Multiply 102394
+                Single _212Add;// 92:NoiseDeformerAt3-ext->14:Add 102386
+                Int32 _213Add;// 77:NoiseDeformerNoise3-ext->97:Add 102415
+                IArray[Single] _214At;// 77:NoiseDeformerNoise3-ext->98:At 102414
+                Int32 _215Zero;// 96:NoiseDeformerAt3-ext->5:Zero 102407
+                Single _216At;// 96:NoiseDeformerAt3-ext->4:At 102406
+                Single _217Multiply;// 96:NoiseDeformerAt3-ext->11:Multiply 102405
+                Int32 _218One;// 96:NoiseDeformerAt3-ext->8:One 102410
+                Single _219At;// 96:NoiseDeformerAt3-ext->7:At 102409
+                Single _220Multiply;// 96:NoiseDeformerAt3-ext->12:Multiply 102408
+                Single _221Add;// 96:NoiseDeformerAt3-ext->6:Add 102404
+                Int32 _222Two;// 96:NoiseDeformerAt3-ext->9:Two 102413
+                Single _223At;// 96:NoiseDeformerAt3-ext->10:At 102412
+                Single _224Multiply;// 96:NoiseDeformerAt3-ext->13:Multiply 102411
+                Single _225Add;// 96:NoiseDeformerAt3-ext->14:Add 102403
+                Single _226FloatLerp;// 77:NoiseDeformerNoise3-ext->100:FloatLerp 102381
+                Single _227FloatLerp;// 77:NoiseDeformerNoise3-ext->102:FloatLerp 102343
+                Single _228Constant;// 58:NoiseDeformerSCurve->0:Constant 102419
+                Single _229Constant;// 58:NoiseDeformerSCurve->0:Constant 102421
+                Single _230Multiply;// 58:NoiseDeformerSCurve->41:Multiply 102420
+                Single _231Subtract;// 58:NoiseDeformerSCurve->39:Subtract 102418
+                Single _232Multiply;// 58:NoiseDeformerSCurve->35:Multiply 102423
+                Single _233Multiply;// 58:NoiseDeformerSCurve->37:Multiply 102417
+                Single _234FloatLerp;// 77:NoiseDeformerNoise3-ext->104:FloatLerp 102119
+                Single _235NaN;// 118:FloatIsNaN->1:NaN 102117
+                Int32 _236Compare;// 118:FloatIsNaN->2:Compare 102116
+                Int32 _237Zero;// 118:FloatIsNaN->4:Zero 102118
+                Boolean _238Equal;// 118:FloatIsNaN->3:Equal 102115
+                Single _240Multiply;// 27:NoiseDeformerfBm1-ext->64:Multiply 102089
+                Int32 _241Zero;// 48:First->2:Zero 102436
+                Single _242At;// 48:First->0:At 102435
+                Single _243Add;// 27:NoiseDeformerfBm1-ext->59:Add 102088
+                IArray[Single] _244Unit;// 43:Array2->2:Unit 102086
+                Single _245Add;// 27:NoiseDeformerfBm1-ext->52:Add 102438
+                IArray[Single] _246Append;// 43:Array2->3:Append 102085
+                _0One = One();
+                _1At = At(x0, _0One);
+                _2AsInt = AsInt(_1At);
+                _3At = At(_13Map, _2AsInt);
+                _4Constant = 4096;
+                _5At = At(_23GenerateN, _2AsInt);
+                _6X = X(_5At);
+                _7Unit = Unit(_6X);
+                _8Y = Y(_5At);
+                _9Append = Append(_7Unit, _8Y);
+                _10Z = Z(_5At);
+                _11Append = Append(_9Append, _10Z);
+                _12Zero = Zero();
+                _13At = At(_11Append, _12Zero);
+                _14Add = Add(_4Constant, _13At);
+                _15Floor = Floor(_14Add);
+                _16Constant = 255;
+                _17And = And(_15Floor, _16Constant);
+                _18One = One();
+                _19Add = Add(_17And, _18One);
+                _20And = And(_19Add, _16Constant);
+                _21Pair = Pair(_17And, _20And);
+                _22Floor = Floor(_14Add);
+                _23AsFloat = AsFloat(_22Floor);
+                _24Subtract = Subtract(_14Add, _23AsFloat);
+                _25FloatOne = FloatOne();
+                _26Subtract = Subtract(_24Subtract, _25FloatOne);
+                _27Pair = Pair(_24Subtract, _26Subtract);
+                _28Pair = Pair(_21Pair, _27Pair);
+                _29PairItem2 = PairItem2(_28Pair);
+                _30PairItem1 = PairItem1(_29PairItem2);
+                _31PairItem2 = PairItem2(x1);
+                _32PairItem1 = PairItem1(_28Pair);
+                _33PairItem1 = PairItem1(_32PairItem1);
+                _34At = At(_31PairItem2, _33PairItem1);
+                _35Constant = 4096;
+                _36X = X(_5At);
+                _37Unit = Unit(_36X);
+                _38Y = Y(_5At);
+                _39Append = Append(_37Unit, _38Y);
+                _40Z = Z(_5At);
+                _41Append = Append(_39Append, _40Z);
+                _42One = One();
+                _43At = At(_41Append, _42One);
+                _44Add = Add(_35Constant, _43At);
+                _45Floor = Floor(_44Add);
+                _46Constant = 255;
+                _47And = And(_45Floor, _46Constant);
+                _48One = One();
+                _49Add = Add(_47And, _48One);
+                _50And = And(_49Add, _46Constant);
+                _51Pair = Pair(_47And, _50And);
+                _52Floor = Floor(_44Add);
+                _53AsFloat = AsFloat(_52Floor);
+                _54Subtract = Subtract(_44Add, _53AsFloat);
+                _55FloatOne = FloatOne();
+                _56Subtract = Subtract(_54Subtract, _55FloatOne);
+                _57Pair = Pair(_54Subtract, _56Subtract);
+                _58Pair = Pair(_51Pair, _57Pair);
+                _59PairItem1 = PairItem1(_58Pair);
+                _60PairItem1 = PairItem1(_59PairItem1);
+                _61Add = Add(_34At, _60PairItem1);
+                _62At = At(_31PairItem2, _61Add);
+                _63Constant = 4096;
+                _64X = X(_5At);
+                _65Unit = Unit(_64X);
+                _66Y = Y(_5At);
+                _67Append = Append(_65Unit, _66Y);
+                _68Z = Z(_5At);
+                _69Append = Append(_67Append, _68Z);
+                _70Two = Two();
+                _71At = At(_69Append, _70Two);
+                _72Add = Add(_63Constant, _71At);
+                _73Floor = Floor(_72Add);
+                _74Constant = 255;
+                _75And = And(_73Floor, _74Constant);
+                _76One = One();
+                _77Add = Add(_75And, _76One);
+                _78And = And(_77Add, _74Constant);
+                _79Pair = Pair(_75And, _78And);
+                _80Floor = Floor(_72Add);
+                _81AsFloat = AsFloat(_80Floor);
+                _82Subtract = Subtract(_72Add, _81AsFloat);
+                _83FloatOne = FloatOne();
+                _84Subtract = Subtract(_82Subtract, _83FloatOne);
+                _85Pair = Pair(_82Subtract, _84Subtract);
+                _86Pair = Pair(_79Pair, _85Pair);
+                _87PairItem1 = PairItem1(_86Pair);
+                _88PairItem1 = PairItem1(_87PairItem1);
+                _89Add = Add(_62At, _88PairItem1);
+                _90At = At(_24PairItem1, _89Add);
+                _91Zero = Zero();
+                _92At = At(_90At, _91Zero);
+                _93Multiply = Multiply(_30PairItem1, _92At);
+                _94PairItem2 = PairItem2(_58Pair);
+                _95PairItem1 = PairItem1(_94PairItem2);
+                _96One = One();
+                _97At = At(_90At, _96One);
+                _98Multiply = Multiply(_95PairItem1, _97At);
+                _99Add = Add(_93Multiply, _98Multiply);
+                _100PairItem2 = PairItem2(_86Pair);
+                _101PairItem1 = PairItem1(_100PairItem2);
+                _102Two = Two();
+                _103At = At(_90At, _102Two);
+                _104Multiply = Multiply(_101PairItem1, _103At);
+                _105Add = Add(_99Add, _104Multiply);
+                _106PairItem2 = PairItem2(_29PairItem2);
+                _107PairItem2 = PairItem2(_32PairItem1);
+                _108At = At(_31PairItem2, _107PairItem2);
+                _109Add = Add(_108At, _60PairItem1);
+                _110At = At(_31PairItem2, _109Add);
+                _111Add = Add(_110At, _88PairItem1);
+                _112At = At(_24PairItem1, _111Add);
+                _113Zero = Zero();
+                _114At = At(_112At, _113Zero);
+                _115Multiply = Multiply(_106PairItem2, _114At);
+                _116One = One();
+                _117At = At(_112At, _116One);
+                _118Multiply = Multiply(_95PairItem1, _117At);
+                _119Add = Add(_115Multiply, _118Multiply);
+                _120Two = Two();
+                _121At = At(_112At, _120Two);
+                _122Multiply = Multiply(_101PairItem1, _121At);
+                _123Add = Add(_119Add, _122Multiply);
+                _124Constant = 3;
+                _125Constant = 2;
+                _126Multiply = Multiply(_125Constant, _30PairItem1);
+                _127Subtract = Subtract(_124Constant, _126Multiply);
+                _128Multiply = Multiply(_30PairItem1, _30PairItem1);
+                _129Multiply = Multiply(_127Subtract, _128Multiply);
+                _130FloatLerp = FloatLerp(_105Add, _123Add, _129Multiply);
+                _131PairItem2 = PairItem2(_59PairItem1);
+                _132Add = Add(_34At, _131PairItem2);
+                _133At = At(_31PairItem2, _132Add);
+                _134Add = Add(_133At, _88PairItem1);
+                _135At = At(_24PairItem1, _134Add);
+                _136Zero = Zero();
+                _137At = At(_135At, _136Zero);
+                _138Multiply = Multiply(_30PairItem1, _137At);
+                _139PairItem2 = PairItem2(_94PairItem2);
+                _140One = One();
+                _141At = At(_135At, _140One);
+                _142Multiply = Multiply(_139PairItem2, _141At);
+                _143Add = Add(_138Multiply, _142Multiply);
+                _144Two = Two();
+                _145At = At(_135At, _144Two);
+                _146Multiply = Multiply(_101PairItem1, _145At);
+                _147Add = Add(_143Add, _146Multiply);
+                _148Add = Add(_108At, _131PairItem2);
+                _149At = At(_31PairItem2, _148Add);
+                _150Add = Add(_149At, _88PairItem1);
+                _151At = At(_24PairItem1, _150Add);
+                _152Zero = Zero();
+                _153At = At(_151At, _152Zero);
+                _154Multiply = Multiply(_106PairItem2, _153At);
+                _155One = One();
+                _156At = At(_151At, _155One);
+                _157Multiply = Multiply(_139PairItem2, _156At);
+                _158Add = Add(_154Multiply, _157Multiply);
+                _159Two = Two();
+                _160At = At(_151At, _159Two);
+                _161Multiply = Multiply(_101PairItem1, _160At);
+                _162Add = Add(_158Add, _161Multiply);
+                _163FloatLerp = FloatLerp(_147Add, _162Add, _129Multiply);
+                _164Constant = 3;
+                _165Constant = 2;
+                _166Multiply = Multiply(_165Constant, _95PairItem1);
+                _167Subtract = Subtract(_164Constant, _166Multiply);
+                _168Multiply = Multiply(_95PairItem1, _95PairItem1);
+                _169Multiply = Multiply(_167Subtract, _168Multiply);
+                _170FloatLerp = FloatLerp(_130FloatLerp, _163FloatLerp, _169Multiply);
+                _171PairItem2 = PairItem2(_87PairItem1);
+                _172Add = Add(_62At, _171PairItem2);
+                _173At = At(_24PairItem1, _172Add);
+                _174Zero = Zero();
+                _175At = At(_173At, _174Zero);
+                _176Multiply = Multiply(_30PairItem1, _175At);
+                _177One = One();
+                _178At = At(_173At, _177One);
+                _179Multiply = Multiply(_95PairItem1, _178At);
+                _180Add = Add(_176Multiply, _179Multiply);
+                _181PairItem2 = PairItem2(_100PairItem2);
+                _182Two = Two();
+                _183At = At(_173At, _182Two);
+                _184Multiply = Multiply(_181PairItem2, _183At);
+                _185Add = Add(_180Add, _184Multiply);
+                _186Add = Add(_110At, _171PairItem2);
+                _187At = At(_24PairItem1, _186Add);
+                _188Zero = Zero();
+                _189At = At(_187At, _188Zero);
+                _190Multiply = Multiply(_106PairItem2, _189At);
+                _191One = One();
+                _192At = At(_187At, _191One);
+                _193Multiply = Multiply(_95PairItem1, _192At);
+                _194Add = Add(_190Multiply, _193Multiply);
+                _195Two = Two();
+                _196At = At(_187At, _195Two);
+                _197Multiply = Multiply(_181PairItem2, _196At);
+                _198Add = Add(_194Add, _197Multiply);
+                _199FloatLerp = FloatLerp(_185Add, _198Add, _129Multiply);
+                _200Add = Add(_133At, _171PairItem2);
+                _201At = At(_24PairItem1, _200Add);
+                _202Zero = Zero();
+                _203At = At(_201At, _202Zero);
+                _204Multiply = Multiply(_30PairItem1, _203At);
+                _205One = One();
+                _206At = At(_201At, _205One);
+                _207Multiply = Multiply(_139PairItem2, _206At);
+                _208Add = Add(_204Multiply, _207Multiply);
+                _209Two = Two();
+                _210At = At(_201At, _209Two);
+                _211Multiply = Multiply(_181PairItem2, _210At);
+                _212Add = Add(_208Add, _211Multiply);
+                _213Add = Add(_149At, _171PairItem2);
+                _214At = At(_24PairItem1, _213Add);
+                _215Zero = Zero();
+                _216At = At(_214At, _215Zero);
+                _217Multiply = Multiply(_106PairItem2, _216At);
+                _218One = One();
+                _219At = At(_214At, _218One);
+                _220Multiply = Multiply(_139PairItem2, _219At);
+                _221Add = Add(_217Multiply, _220Multiply);
+                _222Two = Two();
+                _223At = At(_214At, _222Two);
+                _224Multiply = Multiply(_181PairItem2, _223At);
+                _225Add = Add(_221Add, _224Multiply);
+                _226FloatLerp = FloatLerp(_212Add, _225Add, _129Multiply);
+                _227FloatLerp = FloatLerp(_199FloatLerp, _226FloatLerp, _169Multiply);
+                _228Constant = 3;
+                _229Constant = 2;
+                _230Multiply = Multiply(_229Constant, _101PairItem1);
+                _231Subtract = Subtract(_228Constant, _230Multiply);
+                _232Multiply = Multiply(_101PairItem1, _101PairItem1);
+                _233Multiply = Multiply(_231Subtract, _232Multiply);
+                _234FloatLerp = FloatLerp(_170FloatLerp, _227FloatLerp, _233Multiply);
+                _235NaN = NaN();
+                _236Compare = Compare(_234FloatLerp, _235NaN);
+                _237Zero = Zero();
+                _238Equal = Equal(_236Compare, _237Zero);
+                _240Multiply = Multiply(_3At, if (_238Equal)
+                    {
+                      Single _239FloatZero;// 77:NoiseDeformerNoise3-ext->117:FloatZero 102424
+                      _239FloatZero = FloatZero();
+                      _239FloatZero;
+                      }else
+                    {
+                      _234FloatLerp;
+                      });
+                _241Zero = Zero();
+                _242At = At(x0, _241Zero);
+                _243Add = Add(_240Multiply, _242At);
+                _244Unit = Unit(_243Add);
+                _245Add = Add(_1At, _25FloatOne);
+                _246Append = Append(_244Unit, _245Add);
+                _246Append;
+                });
+            _27Count = Count(_26GenerateN);
+            _28One = One();
+            _29Subtract = Subtract(_27Count, _28One);
+            _30At = At(_26GenerateN, _29Subtract);
+            _31Zero = Zero();
+            _32At = At(_30At, _31Zero);
+            _32At;
+            }, _16Y, _17Z);
+        _19X = X(_15Add);
+        _20Apply2 = Apply2((Single x0, Single x1) => 
+          {
+            Single _0FloatZero;// 27:NoiseDeformerfBm1-ext->33:FloatZero 102079
+            IArray[Single] _1Unit;// 37:Array2->2:Unit 102078
+            Single _2FloatZero;// 27:NoiseDeformerfBm1-ext->38:FloatZero 102080
+            IArray[Single] _3Append;// 37:Array2->3:Append 102077
+            Single _4AsFloat;// 0:NoiseDeformer-ext->13:AsFloat 102440
+            Int32 _5AsInt;// 27:NoiseDeformerfBm1-ext->21:AsInt 102081
+            Single _6FloatOne;// 27:NoiseDeformerfBm1-ext->5:FloatOne 102095
+            Int32 _7AsInt;// 27:NoiseDeformerfBm1-ext->8:AsInt 102096
+            Single _8Constant;// 0:NoiseDeformer-ext->0:Constant 102441
+            IArray[Single] _9GenerateN;// 27:NoiseDeformerfBm1-ext->7:GenerateN 102094
+            Single _10FloatOne;// 0:NoiseDeformer-ext->46:FloatOne 102443
+            Single _11Subtract;// 0:NoiseDeformer-ext->3:Subtract 102442
+            Single _12NegativeFloat;// 27:NoiseDeformerfBm1-ext->16:NegativeFloat 102103
+            IArray[Single] _13Map;// 27:NoiseDeformerfBm1-ext->14:Map 102093
+            Single _14AsFloat;// 0:NoiseDeformer-ext->43:AsFloat 102448
+            Single _15Constant;// 0:NoiseDeformer-ext->0:Constant 102451
+            Single _16Multiply;// 0:NoiseDeformer-ext->30:Multiply 102450
+            Single _17Constant;// 0:NoiseDeformer-ext->0:Constant 102453
+            Single _18Constant;// 0:NoiseDeformer-ext->0:Constant 102454
+            Single _19Divide;// 0:NoiseDeformer-ext->31:Divide 102452
+            Single _20Multiply;// 0:NoiseDeformer-ext->39:Multiply 102449
+            Single _21Multiply;// 0:NoiseDeformer-ext->38:Multiply 102447
+            Vector3 _22Vector3;// 0:NoiseDeformer-ext->0:Vector3 102444
+            IArray[Vector3] _23GenerateN;// 27:NoiseDeformerfBm1-ext->30:GenerateN 102428
+            IArray[IArray[Single]] _24PairItem1;// 27:NoiseDeformerfBm1-ext->72:PairItem1 102432
+            Single _25FloatOne;// 27:NoiseDeformerfBm1-ext->53:FloatOne 102439
+            IArray[IArray[Single]] _26GenerateN;// 27:NoiseDeformerfBm1-ext->35:GenerateN 102074
+            Int32 _27Count;// 3:LastIndex->2:Count 102073
+            Int32 _28One;// 3:MinusOne->2:One 102072
+            Int32 _29Subtract;// 3:MinusOne->1:Subtract 102071
+            IArray[Single] _30At;// 68:Last->0:At 102068
+            Int32 _31Zero;// 69:First->2:Zero 102066
+            Single _32At;// 69:First->0:At 102065
+            _0FloatZero = FloatZero();
+            _1Unit = Unit(_0FloatZero);
+            _2FloatZero = FloatZero();
+            _3Append = Append(_1Unit, _2FloatZero);
+            _4AsFloat = AsFloat(numIterations);
+            _5AsInt = AsInt(_4AsFloat);
+            _6FloatOne = FloatOne();
+            _7AsInt = AsInt(_4AsFloat);
+            _8Constant = 2;
+            _9GenerateN = GenerateN(_6FloatOne, _7AsInt, (Single x0) => 
+              {
+                Single _0Multiply;// 27:NoiseDeformerfBm1-ext->9:Multiply 102098
+                _0Multiply = Multiply(_8Constant, x0);
+                _0Multiply;
+                });
+            _10FloatOne = FloatOne();
+            _11Subtract = Subtract(_10FloatOne, roughness);
+            _12NegativeFloat = NegativeFloat(_11Subtract);
+            _13Map = Map(_9GenerateN, (Single x0) => 
+              {
+                Single _0Pow;// 27:NoiseDeformerfBm1-ext->15:Pow 102101
+                _0Pow = Pow(x0, _12NegativeFloat);
+                _0Pow;
+                });
+            _14AsFloat = AsFloat(phase);
+            _15Constant = 0.005;
+            _16Multiply = Multiply(frequency, _15Constant);
+            _17Constant = 1200;
+            _18Constant = 4800;
+            _19Divide = Divide(_17Constant, _18Constant);
+            _20Multiply = Multiply(_16Multiply, _19Divide);
+            _21Multiply = Multiply(_14AsFloat, _20Multiply);
+            _22Vector3 = Vector3(x0, x1, _21Multiply);
+            _23GenerateN = GenerateN(_22Vector3, _5AsInt, (Vector3 x0) => 
+              {
+                Vector3 _0MultiplyByScalar;// 27:NoiseDeformerfBm1-ext->22:MultiplyByScalar 102430
+                _0MultiplyByScalar = MultiplyByScalar(x0, _8Constant);
+                _0MultiplyByScalar;
+                });
+            _24PairItem1 = PairItem1(x1);
+            _25FloatOne = FloatOne();
+            _26GenerateN = GenerateN(_3Append, _5AsInt, (IArray[Single] x0) => 
+              {
+                Int32 _0One;// 49:Second->2:One 102108
+                Single _1At;// 49:Second->0:At 102107
+                Int32 _2AsInt;// 27:NoiseDeformerfBm1-ext->55:AsInt 102105
+                Single _3At;// 27:NoiseDeformerfBm1-ext->60:At 102091
+                Single _4Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102146
+                Vector3 _5At;// 27:NoiseDeformerfBm1-ext->54:At 102426
+                Single _6X;// 2:VectorAsArray->1:X 102157
+                IArray[Single] _7Unit;// 4:Array3->2:Unit 102156
+                Single _8Y;// 2:VectorAsArray->2:Y 102158
+                IArray[Single] _9Append;// 4:Array3->3:Append 102155
+                Single _10Z;// 2:VectorAsArray->3:Z 102159
+                IArray[Single] _11Append;// 4:Array3->6:Append 102154
+                Int32 _12Zero;// 77:NoiseDeformerNoise3-ext->3:Zero 102172
+                Single _13At;// 1:VectorComponent-ext->3:At 102149
+                Single _14Add;// 25:NoiseDeformerNoiseVarSetup-ext->5:Add 102145
+                Int32 _15Floor;// 25:NoiseDeformerNoiseVarSetup-ext->7:Floor 102144
+                Int32 _16Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102160
+                Int32 _17And;// 25:NoiseDeformerNoiseVarSetup-ext->8:And 102143
+                Int32 _18One;// 13:PlusOne->1:One 102164
+                Int32 _19Add;// 13:PlusOne->0:Add 102163
+                Int32 _20And;// 25:NoiseDeformerNoiseVarSetup-ext->14:And 102161
+                Tuple[Int32, Int32] _21Pair;// 25:NoiseDeformerNoiseVarSetup-ext->3:Pair 102142
+                Int32 _22Floor;// 25:NoiseDeformerNoiseVarSetup-ext->22:Floor 102169
+                Single _23AsFloat;// 25:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102168
+                Single _24Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102166
+                Single _25FloatOne;// 25:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102171
+                Single _26Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102170
+                Tuple[Single, Single] _27Pair;// 25:NoiseDeformerNoiseVarSetup-ext->25:Pair 102165
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _28Pair;// 25:NoiseDeformerNoiseVarSetup-ext->26:Pair 102141
+                Tuple[Single, Single] _29PairItem2;// 77:NoiseDeformerNoise3-ext->10:PairItem2 102138
+                Single _30PairItem1;// 77:NoiseDeformerNoise3-ext->12:PairItem1 102137
+                IArray[Int32] _31PairItem2;// 27:NoiseDeformerfBm1-ext->73:PairItem2 102433
+                Tuple[Int32, Int32] _32PairItem1;// 77:NoiseDeformerNoise3-ext->8:PairItem1 102183
+                Int32 _33PairItem1;// 77:NoiseDeformerNoise3-ext->9:PairItem1 102182
+                Int32 _34At;// 77:NoiseDeformerNoise3-ext->31:At 102181
+                Single _35Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102193
+                Single _36X;// 2:VectorAsArray->1:X 102204
+                IArray[Single] _37Unit;// 4:Array3->2:Unit 102203
+                Single _38Y;// 2:VectorAsArray->2:Y 102205
+                IArray[Single] _39Append;// 4:Array3->3:Append 102202
+                Single _40Z;// 2:VectorAsArray->3:Z 102206
+                IArray[Single] _41Append;// 4:Array3->6:Append 102201
+                Int32 _42One;// 77:NoiseDeformerNoise3-ext->4:One 102219
+                Single _43At;// 1:VectorComponent-ext->3:At 102196
+                Single _44Add;// 6:NoiseDeformerNoiseVarSetup-ext->5:Add 102192
+                Int32 _45Floor;// 6:NoiseDeformerNoiseVarSetup-ext->7:Floor 102191
+                Int32 _46Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102207
+                Int32 _47And;// 6:NoiseDeformerNoiseVarSetup-ext->8:And 102190
+                Int32 _48One;// 13:PlusOne->1:One 102211
+                Int32 _49Add;// 13:PlusOne->0:Add 102210
+                Int32 _50And;// 6:NoiseDeformerNoiseVarSetup-ext->14:And 102208
+                Tuple[Int32, Int32] _51Pair;// 6:NoiseDeformerNoiseVarSetup-ext->3:Pair 102189
+                Int32 _52Floor;// 6:NoiseDeformerNoiseVarSetup-ext->22:Floor 102216
+                Single _53AsFloat;// 6:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102215
+                Single _54Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102213
+                Single _55FloatOne;// 6:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102218
+                Single _56Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102217
+                Tuple[Single, Single] _57Pair;// 6:NoiseDeformerNoiseVarSetup-ext->25:Pair 102212
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _58Pair;// 6:NoiseDeformerNoiseVarSetup-ext->26:Pair 102188
+                Tuple[Int32, Int32] _59PairItem1;// 77:NoiseDeformerNoise3-ext->20:PairItem1 102185
+                Int32 _60PairItem1;// 77:NoiseDeformerNoise3-ext->19:PairItem1 102184
+                Int32 _61Add;// 77:NoiseDeformerNoise3-ext->33:Add 102179
+                Int32 _62At;// 77:NoiseDeformerNoise3-ext->107:At 102177
+                Single _63Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102229
+                Single _64X;// 2:VectorAsArray->1:X 102240
+                IArray[Single] _65Unit;// 4:Array3->2:Unit 102239
+                Single _66Y;// 2:VectorAsArray->2:Y 102241
+                IArray[Single] _67Append;// 4:Array3->3:Append 102238
+                Single _68Z;// 2:VectorAsArray->3:Z 102242
+                IArray[Single] _69Append;// 4:Array3->6:Append 102237
+                Int32 _70Two;// 77:NoiseDeformerNoise3-ext->5:Two 102255
+                Single _71At;// 1:VectorComponent-ext->3:At 102232
+                Single _72Add;// 7:NoiseDeformerNoiseVarSetup-ext->5:Add 102228
+                Int32 _73Floor;// 7:NoiseDeformerNoiseVarSetup-ext->7:Floor 102227
+                Int32 _74Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102243
+                Int32 _75And;// 7:NoiseDeformerNoiseVarSetup-ext->8:And 102226
+                Int32 _76One;// 13:PlusOne->1:One 102247
+                Int32 _77Add;// 13:PlusOne->0:Add 102246
+                Int32 _78And;// 7:NoiseDeformerNoiseVarSetup-ext->14:And 102244
+                Tuple[Int32, Int32] _79Pair;// 7:NoiseDeformerNoiseVarSetup-ext->3:Pair 102225
+                Int32 _80Floor;// 7:NoiseDeformerNoiseVarSetup-ext->22:Floor 102252
+                Single _81AsFloat;// 7:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102251
+                Single _82Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102249
+                Single _83FloatOne;// 7:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102254
+                Single _84Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102253
+                Tuple[Single, Single] _85Pair;// 7:NoiseDeformerNoiseVarSetup-ext->25:Pair 102248
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _86Pair;// 7:NoiseDeformerNoiseVarSetup-ext->26:Pair 102224
+                Tuple[Int32, Int32] _87PairItem1;// 77:NoiseDeformerNoise3-ext->51:PairItem1 102221
+                Int32 _88PairItem1;// 77:NoiseDeformerNoise3-ext->53:PairItem1 102220
+                Int32 _89Add;// 77:NoiseDeformerNoise3-ext->61:Add 102175
+                IArray[Single] _90At;// 77:NoiseDeformerNoise3-ext->60:At 102173
+                Int32 _91Zero;// 62:NoiseDeformerAt3-ext->5:Zero 102130
+                Single _92At;// 62:NoiseDeformerAt3-ext->4:At 102129
+                Single _93Multiply;// 62:NoiseDeformerAt3-ext->11:Multiply 102128
+                Tuple[Single, Single] _94PairItem2;// 77:NoiseDeformerNoise3-ext->23:PairItem2 102257
+                Single _95PairItem1;// 77:NoiseDeformerNoise3-ext->18:PairItem1 102256
+                Int32 _96One;// 62:NoiseDeformerAt3-ext->8:One 102133
+                Single _97At;// 62:NoiseDeformerAt3-ext->7:At 102132
+                Single _98Multiply;// 62:NoiseDeformerAt3-ext->12:Multiply 102131
+                Single _99Add;// 62:NoiseDeformerAt3-ext->6:Add 102127
+                Tuple[Single, Single] _100PairItem2;// 77:NoiseDeformerNoise3-ext->48:PairItem2 102259
+                Single _101PairItem1;// 77:NoiseDeformerNoise3-ext->52:PairItem1 102258
+                Int32 _102Two;// 62:NoiseDeformerAt3-ext->9:Two 102136
+                Single _103At;// 62:NoiseDeformerAt3-ext->10:At 102135
+                Single _104Multiply;// 62:NoiseDeformerAt3-ext->13:Multiply 102134
+                Single _105Add;// 62:NoiseDeformerAt3-ext->14:Add 102126
+                Single _106PairItem2;// 77:NoiseDeformerNoise3-ext->13:PairItem2 102275
+                Int32 _107PairItem2;// 77:NoiseDeformerNoise3-ext->11:PairItem2 102283
+                Int32 _108At;// 77:NoiseDeformerNoise3-ext->32:At 102282
+                Int32 _109Add;// 77:NoiseDeformerNoise3-ext->34:Add 102280
+                Int32 _110At;// 77:NoiseDeformerNoise3-ext->113:At 102279
+                Int32 _111Add;// 77:NoiseDeformerNoise3-ext->65:Add 102277
+                IArray[Single] _112At;// 77:NoiseDeformerNoise3-ext->64:At 102276
+                Int32 _113Zero;// 66:NoiseDeformerAt3-ext->5:Zero 102268
+                Single _114At;// 66:NoiseDeformerAt3-ext->4:At 102267
+                Single _115Multiply;// 66:NoiseDeformerAt3-ext->11:Multiply 102266
+                Int32 _116One;// 66:NoiseDeformerAt3-ext->8:One 102271
+                Single _117At;// 66:NoiseDeformerAt3-ext->7:At 102270
+                Single _118Multiply;// 66:NoiseDeformerAt3-ext->12:Multiply 102269
+                Single _119Add;// 66:NoiseDeformerAt3-ext->6:Add 102265
+                Int32 _120Two;// 66:NoiseDeformerAt3-ext->9:Two 102274
+                Single _121At;// 66:NoiseDeformerAt3-ext->10:At 102273
+                Single _122Multiply;// 66:NoiseDeformerAt3-ext->13:Multiply 102272
+                Single _123Add;// 66:NoiseDeformerAt3-ext->14:Add 102264
+                Single _124Constant;// 42:NoiseDeformerSCurve->0:Constant 102287
+                Single _125Constant;// 42:NoiseDeformerSCurve->0:Constant 102289
+                Single _126Multiply;// 42:NoiseDeformerSCurve->41:Multiply 102288
+                Single _127Subtract;// 42:NoiseDeformerSCurve->39:Subtract 102286
+                Single _128Multiply;// 42:NoiseDeformerSCurve->35:Multiply 102291
+                Single _129Multiply;// 42:NoiseDeformerSCurve->37:Multiply 102285
+                Single _130FloatLerp;// 77:NoiseDeformerNoise3-ext->68:FloatLerp 102121
+                Int32 _131PairItem2;// 77:NoiseDeformerNoise3-ext->22:PairItem2 102313
+                Int32 _132Add;// 77:NoiseDeformerNoise3-ext->38:Add 102312
+                Int32 _133At;// 77:NoiseDeformerNoise3-ext->114:At 102311
+                Int32 _134Add;// 77:NoiseDeformerNoise3-ext->71:Add 102309
+                IArray[Single] _135At;// 77:NoiseDeformerNoise3-ext->70:At 102308
+                Int32 _136Zero;// 72:NoiseDeformerAt3-ext->5:Zero 102301
+                Single _137At;// 72:NoiseDeformerAt3-ext->4:At 102300
+                Single _138Multiply;// 72:NoiseDeformerAt3-ext->11:Multiply 102299
+                Single _139PairItem2;// 77:NoiseDeformerNoise3-ext->21:PairItem2 102314
+                Int32 _140One;// 72:NoiseDeformerAt3-ext->8:One 102304
+                Single _141At;// 72:NoiseDeformerAt3-ext->7:At 102303
+                Single _142Multiply;// 72:NoiseDeformerAt3-ext->12:Multiply 102302
+                Single _143Add;// 72:NoiseDeformerAt3-ext->6:Add 102298
+                Int32 _144Two;// 72:NoiseDeformerAt3-ext->9:Two 102307
+                Single _145At;// 72:NoiseDeformerAt3-ext->10:At 102306
+                Single _146Multiply;// 72:NoiseDeformerAt3-ext->13:Multiply 102305
+                Single _147Add;// 72:NoiseDeformerAt3-ext->14:Add 102297
+                Int32 _148Add;// 77:NoiseDeformerNoise3-ext->39:Add 102334
+                Int32 _149At;// 77:NoiseDeformerNoise3-ext->115:At 102333
+                Int32 _150Add;// 77:NoiseDeformerNoise3-ext->74:Add 102331
+                IArray[Single] _151At;// 77:NoiseDeformerNoise3-ext->76:At 102330
+                Int32 _152Zero;// 75:NoiseDeformerAt3-ext->5:Zero 102323
+                Single _153At;// 75:NoiseDeformerAt3-ext->4:At 102322
+                Single _154Multiply;// 75:NoiseDeformerAt3-ext->11:Multiply 102321
+                Int32 _155One;// 75:NoiseDeformerAt3-ext->8:One 102326
+                Single _156At;// 75:NoiseDeformerAt3-ext->7:At 102325
+                Single _157Multiply;// 75:NoiseDeformerAt3-ext->12:Multiply 102324
+                Single _158Add;// 75:NoiseDeformerAt3-ext->6:Add 102320
+                Int32 _159Two;// 75:NoiseDeformerAt3-ext->9:Two 102329
+                Single _160At;// 75:NoiseDeformerAt3-ext->10:At 102328
+                Single _161Multiply;// 75:NoiseDeformerAt3-ext->13:Multiply 102327
+                Single _162Add;// 75:NoiseDeformerAt3-ext->14:Add 102319
+                Single _163FloatLerp;// 77:NoiseDeformerNoise3-ext->78:FloatLerp 102292
+                Single _164Constant;// 56:NoiseDeformerSCurve->0:Constant 102338
+                Single _165Constant;// 56:NoiseDeformerSCurve->0:Constant 102340
+                Single _166Multiply;// 56:NoiseDeformerSCurve->41:Multiply 102339
+                Single _167Subtract;// 56:NoiseDeformerSCurve->39:Subtract 102337
+                Single _168Multiply;// 56:NoiseDeformerSCurve->35:Multiply 102342
+                Single _169Multiply;// 56:NoiseDeformerSCurve->37:Multiply 102336
+                Single _170FloatLerp;// 77:NoiseDeformerNoise3-ext->80:FloatLerp 102120
+                Int32 _171PairItem2;// 77:NoiseDeformerNoise3-ext->49:PairItem2 102362
+                Int32 _172Add;// 77:NoiseDeformerNoise3-ext->84:Add 102361
+                IArray[Single] _173At;// 77:NoiseDeformerNoise3-ext->83:At 102360
+                Int32 _174Zero;// 82:NoiseDeformerAt3-ext->5:Zero 102353
+                Single _175At;// 82:NoiseDeformerAt3-ext->4:At 102352
+                Single _176Multiply;// 82:NoiseDeformerAt3-ext->11:Multiply 102351
+                Int32 _177One;// 82:NoiseDeformerAt3-ext->8:One 102356
+                Single _178At;// 82:NoiseDeformerAt3-ext->7:At 102355
+                Single _179Multiply;// 82:NoiseDeformerAt3-ext->12:Multiply 102354
+                Single _180Add;// 82:NoiseDeformerAt3-ext->6:Add 102350
+                Single _181PairItem2;// 77:NoiseDeformerNoise3-ext->50:PairItem2 102363
+                Int32 _182Two;// 82:NoiseDeformerAt3-ext->9:Two 102359
+                Single _183At;// 82:NoiseDeformerAt3-ext->10:At 102358
+                Single _184Multiply;// 82:NoiseDeformerAt3-ext->13:Multiply 102357
+                Single _185Add;// 82:NoiseDeformerAt3-ext->14:Add 102349
+                Int32 _186Add;// 77:NoiseDeformerNoise3-ext->88:Add 102380
+                IArray[Single] _187At;// 77:NoiseDeformerNoise3-ext->87:At 102379
+                Int32 _188Zero;// 86:NoiseDeformerAt3-ext->5:Zero 102372
+                Single _189At;// 86:NoiseDeformerAt3-ext->4:At 102371
+                Single _190Multiply;// 86:NoiseDeformerAt3-ext->11:Multiply 102370
+                Int32 _191One;// 86:NoiseDeformerAt3-ext->8:One 102375
+                Single _192At;// 86:NoiseDeformerAt3-ext->7:At 102374
+                Single _193Multiply;// 86:NoiseDeformerAt3-ext->12:Multiply 102373
+                Single _194Add;// 86:NoiseDeformerAt3-ext->6:Add 102369
+                Int32 _195Two;// 86:NoiseDeformerAt3-ext->9:Two 102378
+                Single _196At;// 86:NoiseDeformerAt3-ext->10:At 102377
+                Single _197Multiply;// 86:NoiseDeformerAt3-ext->13:Multiply 102376
+                Single _198Add;// 86:NoiseDeformerAt3-ext->14:Add 102368
+                Single _199FloatLerp;// 77:NoiseDeformerNoise3-ext->90:FloatLerp 102344
+                Int32 _200Add;// 77:NoiseDeformerNoise3-ext->94:Add 102398
+                IArray[Single] _201At;// 77:NoiseDeformerNoise3-ext->93:At 102397
+                Int32 _202Zero;// 92:NoiseDeformerAt3-ext->5:Zero 102390
+                Single _203At;// 92:NoiseDeformerAt3-ext->4:At 102389
+                Single _204Multiply;// 92:NoiseDeformerAt3-ext->11:Multiply 102388
+                Int32 _205One;// 92:NoiseDeformerAt3-ext->8:One 102393
+                Single _206At;// 92:NoiseDeformerAt3-ext->7:At 102392
+                Single _207Multiply;// 92:NoiseDeformerAt3-ext->12:Multiply 102391
+                Single _208Add;// 92:NoiseDeformerAt3-ext->6:Add 102387
+                Int32 _209Two;// 92:NoiseDeformerAt3-ext->9:Two 102396
+                Single _210At;// 92:NoiseDeformerAt3-ext->10:At 102395
+                Single _211Multiply;// 92:NoiseDeformerAt3-ext->13:Multiply 102394
+                Single _212Add;// 92:NoiseDeformerAt3-ext->14:Add 102386
+                Int32 _213Add;// 77:NoiseDeformerNoise3-ext->97:Add 102415
+                IArray[Single] _214At;// 77:NoiseDeformerNoise3-ext->98:At 102414
+                Int32 _215Zero;// 96:NoiseDeformerAt3-ext->5:Zero 102407
+                Single _216At;// 96:NoiseDeformerAt3-ext->4:At 102406
+                Single _217Multiply;// 96:NoiseDeformerAt3-ext->11:Multiply 102405
+                Int32 _218One;// 96:NoiseDeformerAt3-ext->8:One 102410
+                Single _219At;// 96:NoiseDeformerAt3-ext->7:At 102409
+                Single _220Multiply;// 96:NoiseDeformerAt3-ext->12:Multiply 102408
+                Single _221Add;// 96:NoiseDeformerAt3-ext->6:Add 102404
+                Int32 _222Two;// 96:NoiseDeformerAt3-ext->9:Two 102413
+                Single _223At;// 96:NoiseDeformerAt3-ext->10:At 102412
+                Single _224Multiply;// 96:NoiseDeformerAt3-ext->13:Multiply 102411
+                Single _225Add;// 96:NoiseDeformerAt3-ext->14:Add 102403
+                Single _226FloatLerp;// 77:NoiseDeformerNoise3-ext->100:FloatLerp 102381
+                Single _227FloatLerp;// 77:NoiseDeformerNoise3-ext->102:FloatLerp 102343
+                Single _228Constant;// 58:NoiseDeformerSCurve->0:Constant 102419
+                Single _229Constant;// 58:NoiseDeformerSCurve->0:Constant 102421
+                Single _230Multiply;// 58:NoiseDeformerSCurve->41:Multiply 102420
+                Single _231Subtract;// 58:NoiseDeformerSCurve->39:Subtract 102418
+                Single _232Multiply;// 58:NoiseDeformerSCurve->35:Multiply 102423
+                Single _233Multiply;// 58:NoiseDeformerSCurve->37:Multiply 102417
+                Single _234FloatLerp;// 77:NoiseDeformerNoise3-ext->104:FloatLerp 102119
+                Single _235NaN;// 118:FloatIsNaN->1:NaN 102117
+                Int32 _236Compare;// 118:FloatIsNaN->2:Compare 102116
+                Int32 _237Zero;// 118:FloatIsNaN->4:Zero 102118
+                Boolean _238Equal;// 118:FloatIsNaN->3:Equal 102115
+                Single _240Multiply;// 27:NoiseDeformerfBm1-ext->64:Multiply 102089
+                Int32 _241Zero;// 48:First->2:Zero 102436
+                Single _242At;// 48:First->0:At 102435
+                Single _243Add;// 27:NoiseDeformerfBm1-ext->59:Add 102088
+                IArray[Single] _244Unit;// 43:Array2->2:Unit 102086
+                Single _245Add;// 27:NoiseDeformerfBm1-ext->52:Add 102438
+                IArray[Single] _246Append;// 43:Array2->3:Append 102085
+                _0One = One();
+                _1At = At(x0, _0One);
+                _2AsInt = AsInt(_1At);
+                _3At = At(_13Map, _2AsInt);
+                _4Constant = 4096;
+                _5At = At(_23GenerateN, _2AsInt);
+                _6X = X(_5At);
+                _7Unit = Unit(_6X);
+                _8Y = Y(_5At);
+                _9Append = Append(_7Unit, _8Y);
+                _10Z = Z(_5At);
+                _11Append = Append(_9Append, _10Z);
+                _12Zero = Zero();
+                _13At = At(_11Append, _12Zero);
+                _14Add = Add(_4Constant, _13At);
+                _15Floor = Floor(_14Add);
+                _16Constant = 255;
+                _17And = And(_15Floor, _16Constant);
+                _18One = One();
+                _19Add = Add(_17And, _18One);
+                _20And = And(_19Add, _16Constant);
+                _21Pair = Pair(_17And, _20And);
+                _22Floor = Floor(_14Add);
+                _23AsFloat = AsFloat(_22Floor);
+                _24Subtract = Subtract(_14Add, _23AsFloat);
+                _25FloatOne = FloatOne();
+                _26Subtract = Subtract(_24Subtract, _25FloatOne);
+                _27Pair = Pair(_24Subtract, _26Subtract);
+                _28Pair = Pair(_21Pair, _27Pair);
+                _29PairItem2 = PairItem2(_28Pair);
+                _30PairItem1 = PairItem1(_29PairItem2);
+                _31PairItem2 = PairItem2(x1);
+                _32PairItem1 = PairItem1(_28Pair);
+                _33PairItem1 = PairItem1(_32PairItem1);
+                _34At = At(_31PairItem2, _33PairItem1);
+                _35Constant = 4096;
+                _36X = X(_5At);
+                _37Unit = Unit(_36X);
+                _38Y = Y(_5At);
+                _39Append = Append(_37Unit, _38Y);
+                _40Z = Z(_5At);
+                _41Append = Append(_39Append, _40Z);
+                _42One = One();
+                _43At = At(_41Append, _42One);
+                _44Add = Add(_35Constant, _43At);
+                _45Floor = Floor(_44Add);
+                _46Constant = 255;
+                _47And = And(_45Floor, _46Constant);
+                _48One = One();
+                _49Add = Add(_47And, _48One);
+                _50And = And(_49Add, _46Constant);
+                _51Pair = Pair(_47And, _50And);
+                _52Floor = Floor(_44Add);
+                _53AsFloat = AsFloat(_52Floor);
+                _54Subtract = Subtract(_44Add, _53AsFloat);
+                _55FloatOne = FloatOne();
+                _56Subtract = Subtract(_54Subtract, _55FloatOne);
+                _57Pair = Pair(_54Subtract, _56Subtract);
+                _58Pair = Pair(_51Pair, _57Pair);
+                _59PairItem1 = PairItem1(_58Pair);
+                _60PairItem1 = PairItem1(_59PairItem1);
+                _61Add = Add(_34At, _60PairItem1);
+                _62At = At(_31PairItem2, _61Add);
+                _63Constant = 4096;
+                _64X = X(_5At);
+                _65Unit = Unit(_64X);
+                _66Y = Y(_5At);
+                _67Append = Append(_65Unit, _66Y);
+                _68Z = Z(_5At);
+                _69Append = Append(_67Append, _68Z);
+                _70Two = Two();
+                _71At = At(_69Append, _70Two);
+                _72Add = Add(_63Constant, _71At);
+                _73Floor = Floor(_72Add);
+                _74Constant = 255;
+                _75And = And(_73Floor, _74Constant);
+                _76One = One();
+                _77Add = Add(_75And, _76One);
+                _78And = And(_77Add, _74Constant);
+                _79Pair = Pair(_75And, _78And);
+                _80Floor = Floor(_72Add);
+                _81AsFloat = AsFloat(_80Floor);
+                _82Subtract = Subtract(_72Add, _81AsFloat);
+                _83FloatOne = FloatOne();
+                _84Subtract = Subtract(_82Subtract, _83FloatOne);
+                _85Pair = Pair(_82Subtract, _84Subtract);
+                _86Pair = Pair(_79Pair, _85Pair);
+                _87PairItem1 = PairItem1(_86Pair);
+                _88PairItem1 = PairItem1(_87PairItem1);
+                _89Add = Add(_62At, _88PairItem1);
+                _90At = At(_24PairItem1, _89Add);
+                _91Zero = Zero();
+                _92At = At(_90At, _91Zero);
+                _93Multiply = Multiply(_30PairItem1, _92At);
+                _94PairItem2 = PairItem2(_58Pair);
+                _95PairItem1 = PairItem1(_94PairItem2);
+                _96One = One();
+                _97At = At(_90At, _96One);
+                _98Multiply = Multiply(_95PairItem1, _97At);
+                _99Add = Add(_93Multiply, _98Multiply);
+                _100PairItem2 = PairItem2(_86Pair);
+                _101PairItem1 = PairItem1(_100PairItem2);
+                _102Two = Two();
+                _103At = At(_90At, _102Two);
+                _104Multiply = Multiply(_101PairItem1, _103At);
+                _105Add = Add(_99Add, _104Multiply);
+                _106PairItem2 = PairItem2(_29PairItem2);
+                _107PairItem2 = PairItem2(_32PairItem1);
+                _108At = At(_31PairItem2, _107PairItem2);
+                _109Add = Add(_108At, _60PairItem1);
+                _110At = At(_31PairItem2, _109Add);
+                _111Add = Add(_110At, _88PairItem1);
+                _112At = At(_24PairItem1, _111Add);
+                _113Zero = Zero();
+                _114At = At(_112At, _113Zero);
+                _115Multiply = Multiply(_106PairItem2, _114At);
+                _116One = One();
+                _117At = At(_112At, _116One);
+                _118Multiply = Multiply(_95PairItem1, _117At);
+                _119Add = Add(_115Multiply, _118Multiply);
+                _120Two = Two();
+                _121At = At(_112At, _120Two);
+                _122Multiply = Multiply(_101PairItem1, _121At);
+                _123Add = Add(_119Add, _122Multiply);
+                _124Constant = 3;
+                _125Constant = 2;
+                _126Multiply = Multiply(_125Constant, _30PairItem1);
+                _127Subtract = Subtract(_124Constant, _126Multiply);
+                _128Multiply = Multiply(_30PairItem1, _30PairItem1);
+                _129Multiply = Multiply(_127Subtract, _128Multiply);
+                _130FloatLerp = FloatLerp(_105Add, _123Add, _129Multiply);
+                _131PairItem2 = PairItem2(_59PairItem1);
+                _132Add = Add(_34At, _131PairItem2);
+                _133At = At(_31PairItem2, _132Add);
+                _134Add = Add(_133At, _88PairItem1);
+                _135At = At(_24PairItem1, _134Add);
+                _136Zero = Zero();
+                _137At = At(_135At, _136Zero);
+                _138Multiply = Multiply(_30PairItem1, _137At);
+                _139PairItem2 = PairItem2(_94PairItem2);
+                _140One = One();
+                _141At = At(_135At, _140One);
+                _142Multiply = Multiply(_139PairItem2, _141At);
+                _143Add = Add(_138Multiply, _142Multiply);
+                _144Two = Two();
+                _145At = At(_135At, _144Two);
+                _146Multiply = Multiply(_101PairItem1, _145At);
+                _147Add = Add(_143Add, _146Multiply);
+                _148Add = Add(_108At, _131PairItem2);
+                _149At = At(_31PairItem2, _148Add);
+                _150Add = Add(_149At, _88PairItem1);
+                _151At = At(_24PairItem1, _150Add);
+                _152Zero = Zero();
+                _153At = At(_151At, _152Zero);
+                _154Multiply = Multiply(_106PairItem2, _153At);
+                _155One = One();
+                _156At = At(_151At, _155One);
+                _157Multiply = Multiply(_139PairItem2, _156At);
+                _158Add = Add(_154Multiply, _157Multiply);
+                _159Two = Two();
+                _160At = At(_151At, _159Two);
+                _161Multiply = Multiply(_101PairItem1, _160At);
+                _162Add = Add(_158Add, _161Multiply);
+                _163FloatLerp = FloatLerp(_147Add, _162Add, _129Multiply);
+                _164Constant = 3;
+                _165Constant = 2;
+                _166Multiply = Multiply(_165Constant, _95PairItem1);
+                _167Subtract = Subtract(_164Constant, _166Multiply);
+                _168Multiply = Multiply(_95PairItem1, _95PairItem1);
+                _169Multiply = Multiply(_167Subtract, _168Multiply);
+                _170FloatLerp = FloatLerp(_130FloatLerp, _163FloatLerp, _169Multiply);
+                _171PairItem2 = PairItem2(_87PairItem1);
+                _172Add = Add(_62At, _171PairItem2);
+                _173At = At(_24PairItem1, _172Add);
+                _174Zero = Zero();
+                _175At = At(_173At, _174Zero);
+                _176Multiply = Multiply(_30PairItem1, _175At);
+                _177One = One();
+                _178At = At(_173At, _177One);
+                _179Multiply = Multiply(_95PairItem1, _178At);
+                _180Add = Add(_176Multiply, _179Multiply);
+                _181PairItem2 = PairItem2(_100PairItem2);
+                _182Two = Two();
+                _183At = At(_173At, _182Two);
+                _184Multiply = Multiply(_181PairItem2, _183At);
+                _185Add = Add(_180Add, _184Multiply);
+                _186Add = Add(_110At, _171PairItem2);
+                _187At = At(_24PairItem1, _186Add);
+                _188Zero = Zero();
+                _189At = At(_187At, _188Zero);
+                _190Multiply = Multiply(_106PairItem2, _189At);
+                _191One = One();
+                _192At = At(_187At, _191One);
+                _193Multiply = Multiply(_95PairItem1, _192At);
+                _194Add = Add(_190Multiply, _193Multiply);
+                _195Two = Two();
+                _196At = At(_187At, _195Two);
+                _197Multiply = Multiply(_181PairItem2, _196At);
+                _198Add = Add(_194Add, _197Multiply);
+                _199FloatLerp = FloatLerp(_185Add, _198Add, _129Multiply);
+                _200Add = Add(_133At, _171PairItem2);
+                _201At = At(_24PairItem1, _200Add);
+                _202Zero = Zero();
+                _203At = At(_201At, _202Zero);
+                _204Multiply = Multiply(_30PairItem1, _203At);
+                _205One = One();
+                _206At = At(_201At, _205One);
+                _207Multiply = Multiply(_139PairItem2, _206At);
+                _208Add = Add(_204Multiply, _207Multiply);
+                _209Two = Two();
+                _210At = At(_201At, _209Two);
+                _211Multiply = Multiply(_181PairItem2, _210At);
+                _212Add = Add(_208Add, _211Multiply);
+                _213Add = Add(_149At, _171PairItem2);
+                _214At = At(_24PairItem1, _213Add);
+                _215Zero = Zero();
+                _216At = At(_214At, _215Zero);
+                _217Multiply = Multiply(_106PairItem2, _216At);
+                _218One = One();
+                _219At = At(_214At, _218One);
+                _220Multiply = Multiply(_139PairItem2, _219At);
+                _221Add = Add(_217Multiply, _220Multiply);
+                _222Two = Two();
+                _223At = At(_214At, _222Two);
+                _224Multiply = Multiply(_181PairItem2, _223At);
+                _225Add = Add(_221Add, _224Multiply);
+                _226FloatLerp = FloatLerp(_212Add, _225Add, _129Multiply);
+                _227FloatLerp = FloatLerp(_199FloatLerp, _226FloatLerp, _169Multiply);
+                _228Constant = 3;
+                _229Constant = 2;
+                _230Multiply = Multiply(_229Constant, _101PairItem1);
+                _231Subtract = Subtract(_228Constant, _230Multiply);
+                _232Multiply = Multiply(_101PairItem1, _101PairItem1);
+                _233Multiply = Multiply(_231Subtract, _232Multiply);
+                _234FloatLerp = FloatLerp(_170FloatLerp, _227FloatLerp, _233Multiply);
+                _235NaN = NaN();
+                _236Compare = Compare(_234FloatLerp, _235NaN);
+                _237Zero = Zero();
+                _238Equal = Equal(_236Compare, _237Zero);
+                _240Multiply = Multiply(_3At, if (_238Equal)
+                    {
+                      Single _239FloatZero;// 77:NoiseDeformerNoise3-ext->117:FloatZero 102424
+                      _239FloatZero = FloatZero();
+                      _239FloatZero;
+                      }else
+                    {
+                      _234FloatLerp;
+                      });
+                _241Zero = Zero();
+                _242At = At(x0, _241Zero);
+                _243Add = Add(_240Multiply, _242At);
+                _244Unit = Unit(_243Add);
+                _245Add = Add(_1At, _25FloatOne);
+                _246Append = Append(_244Unit, _245Add);
+                _246Append;
+                });
+            _27Count = Count(_26GenerateN);
+            _28One = One();
+            _29Subtract = Subtract(_27Count, _28One);
+            _30At = At(_26GenerateN, _29Subtract);
+            _31Zero = Zero();
+            _32At = At(_30At, _31Zero);
+            _32At;
+            }, _19X, _17Z);
+        _21Apply2 = Apply2((Single x0, Single x1) => 
+          {
+            Single _0FloatZero;// 27:NoiseDeformerfBm1-ext->33:FloatZero 102079
+            IArray[Single] _1Unit;// 37:Array2->2:Unit 102078
+            Single _2FloatZero;// 27:NoiseDeformerfBm1-ext->38:FloatZero 102080
+            IArray[Single] _3Append;// 37:Array2->3:Append 102077
+            Single _4AsFloat;// 0:NoiseDeformer-ext->13:AsFloat 102440
+            Int32 _5AsInt;// 27:NoiseDeformerfBm1-ext->21:AsInt 102081
+            Single _6FloatOne;// 27:NoiseDeformerfBm1-ext->5:FloatOne 102095
+            Int32 _7AsInt;// 27:NoiseDeformerfBm1-ext->8:AsInt 102096
+            Single _8Constant;// 0:NoiseDeformer-ext->0:Constant 102441
+            IArray[Single] _9GenerateN;// 27:NoiseDeformerfBm1-ext->7:GenerateN 102094
+            Single _10FloatOne;// 0:NoiseDeformer-ext->46:FloatOne 102443
+            Single _11Subtract;// 0:NoiseDeformer-ext->3:Subtract 102442
+            Single _12NegativeFloat;// 27:NoiseDeformerfBm1-ext->16:NegativeFloat 102103
+            IArray[Single] _13Map;// 27:NoiseDeformerfBm1-ext->14:Map 102093
+            Single _14AsFloat;// 0:NoiseDeformer-ext->43:AsFloat 102448
+            Single _15Constant;// 0:NoiseDeformer-ext->0:Constant 102451
+            Single _16Multiply;// 0:NoiseDeformer-ext->30:Multiply 102450
+            Single _17Constant;// 0:NoiseDeformer-ext->0:Constant 102453
+            Single _18Constant;// 0:NoiseDeformer-ext->0:Constant 102454
+            Single _19Divide;// 0:NoiseDeformer-ext->31:Divide 102452
+            Single _20Multiply;// 0:NoiseDeformer-ext->39:Multiply 102449
+            Single _21Multiply;// 0:NoiseDeformer-ext->38:Multiply 102447
+            Vector3 _22Vector3;// 0:NoiseDeformer-ext->0:Vector3 102444
+            IArray[Vector3] _23GenerateN;// 27:NoiseDeformerfBm1-ext->30:GenerateN 102428
+            IArray[IArray[Single]] _24PairItem1;// 27:NoiseDeformerfBm1-ext->72:PairItem1 102432
+            Single _25FloatOne;// 27:NoiseDeformerfBm1-ext->53:FloatOne 102439
+            IArray[IArray[Single]] _26GenerateN;// 27:NoiseDeformerfBm1-ext->35:GenerateN 102074
+            Int32 _27Count;// 3:LastIndex->2:Count 102073
+            Int32 _28One;// 3:MinusOne->2:One 102072
+            Int32 _29Subtract;// 3:MinusOne->1:Subtract 102071
+            IArray[Single] _30At;// 68:Last->0:At 102068
+            Int32 _31Zero;// 69:First->2:Zero 102066
+            Single _32At;// 69:First->0:At 102065
+            _0FloatZero = FloatZero();
+            _1Unit = Unit(_0FloatZero);
+            _2FloatZero = FloatZero();
+            _3Append = Append(_1Unit, _2FloatZero);
+            _4AsFloat = AsFloat(numIterations);
+            _5AsInt = AsInt(_4AsFloat);
+            _6FloatOne = FloatOne();
+            _7AsInt = AsInt(_4AsFloat);
+            _8Constant = 2;
+            _9GenerateN = GenerateN(_6FloatOne, _7AsInt, (Single x0) => 
+              {
+                Single _0Multiply;// 27:NoiseDeformerfBm1-ext->9:Multiply 102098
+                _0Multiply = Multiply(_8Constant, x0);
+                _0Multiply;
+                });
+            _10FloatOne = FloatOne();
+            _11Subtract = Subtract(_10FloatOne, roughness);
+            _12NegativeFloat = NegativeFloat(_11Subtract);
+            _13Map = Map(_9GenerateN, (Single x0) => 
+              {
+                Single _0Pow;// 27:NoiseDeformerfBm1-ext->15:Pow 102101
+                _0Pow = Pow(x0, _12NegativeFloat);
+                _0Pow;
+                });
+            _14AsFloat = AsFloat(phase);
+            _15Constant = 0.005;
+            _16Multiply = Multiply(frequency, _15Constant);
+            _17Constant = 1200;
+            _18Constant = 4800;
+            _19Divide = Divide(_17Constant, _18Constant);
+            _20Multiply = Multiply(_16Multiply, _19Divide);
+            _21Multiply = Multiply(_14AsFloat, _20Multiply);
+            _22Vector3 = Vector3(x0, x1, _21Multiply);
+            _23GenerateN = GenerateN(_22Vector3, _5AsInt, (Vector3 x0) => 
+              {
+                Vector3 _0MultiplyByScalar;// 27:NoiseDeformerfBm1-ext->22:MultiplyByScalar 102430
+                _0MultiplyByScalar = MultiplyByScalar(x0, _8Constant);
+                _0MultiplyByScalar;
+                });
+            _24PairItem1 = PairItem1(x1);
+            _25FloatOne = FloatOne();
+            _26GenerateN = GenerateN(_3Append, _5AsInt, (IArray[Single] x0) => 
+              {
+                Int32 _0One;// 49:Second->2:One 102108
+                Single _1At;// 49:Second->0:At 102107
+                Int32 _2AsInt;// 27:NoiseDeformerfBm1-ext->55:AsInt 102105
+                Single _3At;// 27:NoiseDeformerfBm1-ext->60:At 102091
+                Single _4Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102146
+                Vector3 _5At;// 27:NoiseDeformerfBm1-ext->54:At 102426
+                Single _6X;// 2:VectorAsArray->1:X 102157
+                IArray[Single] _7Unit;// 4:Array3->2:Unit 102156
+                Single _8Y;// 2:VectorAsArray->2:Y 102158
+                IArray[Single] _9Append;// 4:Array3->3:Append 102155
+                Single _10Z;// 2:VectorAsArray->3:Z 102159
+                IArray[Single] _11Append;// 4:Array3->6:Append 102154
+                Int32 _12Zero;// 77:NoiseDeformerNoise3-ext->3:Zero 102172
+                Single _13At;// 1:VectorComponent-ext->3:At 102149
+                Single _14Add;// 25:NoiseDeformerNoiseVarSetup-ext->5:Add 102145
+                Int32 _15Floor;// 25:NoiseDeformerNoiseVarSetup-ext->7:Floor 102144
+                Int32 _16Constant;// 25:NoiseDeformerNoiseVarSetup-ext->0:Constant 102160
+                Int32 _17And;// 25:NoiseDeformerNoiseVarSetup-ext->8:And 102143
+                Int32 _18One;// 13:PlusOne->1:One 102164
+                Int32 _19Add;// 13:PlusOne->0:Add 102163
+                Int32 _20And;// 25:NoiseDeformerNoiseVarSetup-ext->14:And 102161
+                Tuple[Int32, Int32] _21Pair;// 25:NoiseDeformerNoiseVarSetup-ext->3:Pair 102142
+                Int32 _22Floor;// 25:NoiseDeformerNoiseVarSetup-ext->22:Floor 102169
+                Single _23AsFloat;// 25:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102168
+                Single _24Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102166
+                Single _25FloatOne;// 25:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102171
+                Single _26Subtract;// 25:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102170
+                Tuple[Single, Single] _27Pair;// 25:NoiseDeformerNoiseVarSetup-ext->25:Pair 102165
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _28Pair;// 25:NoiseDeformerNoiseVarSetup-ext->26:Pair 102141
+                Tuple[Single, Single] _29PairItem2;// 77:NoiseDeformerNoise3-ext->10:PairItem2 102138
+                Single _30PairItem1;// 77:NoiseDeformerNoise3-ext->12:PairItem1 102137
+                IArray[Int32] _31PairItem2;// 27:NoiseDeformerfBm1-ext->73:PairItem2 102433
+                Tuple[Int32, Int32] _32PairItem1;// 77:NoiseDeformerNoise3-ext->8:PairItem1 102183
+                Int32 _33PairItem1;// 77:NoiseDeformerNoise3-ext->9:PairItem1 102182
+                Int32 _34At;// 77:NoiseDeformerNoise3-ext->31:At 102181
+                Single _35Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102193
+                Single _36X;// 2:VectorAsArray->1:X 102204
+                IArray[Single] _37Unit;// 4:Array3->2:Unit 102203
+                Single _38Y;// 2:VectorAsArray->2:Y 102205
+                IArray[Single] _39Append;// 4:Array3->3:Append 102202
+                Single _40Z;// 2:VectorAsArray->3:Z 102206
+                IArray[Single] _41Append;// 4:Array3->6:Append 102201
+                Int32 _42One;// 77:NoiseDeformerNoise3-ext->4:One 102219
+                Single _43At;// 1:VectorComponent-ext->3:At 102196
+                Single _44Add;// 6:NoiseDeformerNoiseVarSetup-ext->5:Add 102192
+                Int32 _45Floor;// 6:NoiseDeformerNoiseVarSetup-ext->7:Floor 102191
+                Int32 _46Constant;// 6:NoiseDeformerNoiseVarSetup-ext->0:Constant 102207
+                Int32 _47And;// 6:NoiseDeformerNoiseVarSetup-ext->8:And 102190
+                Int32 _48One;// 13:PlusOne->1:One 102211
+                Int32 _49Add;// 13:PlusOne->0:Add 102210
+                Int32 _50And;// 6:NoiseDeformerNoiseVarSetup-ext->14:And 102208
+                Tuple[Int32, Int32] _51Pair;// 6:NoiseDeformerNoiseVarSetup-ext->3:Pair 102189
+                Int32 _52Floor;// 6:NoiseDeformerNoiseVarSetup-ext->22:Floor 102216
+                Single _53AsFloat;// 6:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102215
+                Single _54Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102213
+                Single _55FloatOne;// 6:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102218
+                Single _56Subtract;// 6:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102217
+                Tuple[Single, Single] _57Pair;// 6:NoiseDeformerNoiseVarSetup-ext->25:Pair 102212
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _58Pair;// 6:NoiseDeformerNoiseVarSetup-ext->26:Pair 102188
+                Tuple[Int32, Int32] _59PairItem1;// 77:NoiseDeformerNoise3-ext->20:PairItem1 102185
+                Int32 _60PairItem1;// 77:NoiseDeformerNoise3-ext->19:PairItem1 102184
+                Int32 _61Add;// 77:NoiseDeformerNoise3-ext->33:Add 102179
+                Int32 _62At;// 77:NoiseDeformerNoise3-ext->107:At 102177
+                Single _63Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102229
+                Single _64X;// 2:VectorAsArray->1:X 102240
+                IArray[Single] _65Unit;// 4:Array3->2:Unit 102239
+                Single _66Y;// 2:VectorAsArray->2:Y 102241
+                IArray[Single] _67Append;// 4:Array3->3:Append 102238
+                Single _68Z;// 2:VectorAsArray->3:Z 102242
+                IArray[Single] _69Append;// 4:Array3->6:Append 102237
+                Int32 _70Two;// 77:NoiseDeformerNoise3-ext->5:Two 102255
+                Single _71At;// 1:VectorComponent-ext->3:At 102232
+                Single _72Add;// 7:NoiseDeformerNoiseVarSetup-ext->5:Add 102228
+                Int32 _73Floor;// 7:NoiseDeformerNoiseVarSetup-ext->7:Floor 102227
+                Int32 _74Constant;// 7:NoiseDeformerNoiseVarSetup-ext->0:Constant 102243
+                Int32 _75And;// 7:NoiseDeformerNoiseVarSetup-ext->8:And 102226
+                Int32 _76One;// 13:PlusOne->1:One 102247
+                Int32 _77Add;// 13:PlusOne->0:Add 102246
+                Int32 _78And;// 7:NoiseDeformerNoiseVarSetup-ext->14:And 102244
+                Tuple[Int32, Int32] _79Pair;// 7:NoiseDeformerNoiseVarSetup-ext->3:Pair 102225
+                Int32 _80Floor;// 7:NoiseDeformerNoiseVarSetup-ext->22:Floor 102252
+                Single _81AsFloat;// 7:NoiseDeformerNoiseVarSetup-ext->17:AsFloat 102251
+                Single _82Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->16:Subtract 102249
+                Single _83FloatOne;// 7:NoiseDeformerNoiseVarSetup-ext->20:FloatOne 102254
+                Single _84Subtract;// 7:NoiseDeformerNoiseVarSetup-ext->19:Subtract 102253
+                Tuple[Single, Single] _85Pair;// 7:NoiseDeformerNoiseVarSetup-ext->25:Pair 102248
+                Tuple[Tuple[Int32, Int32], Tuple[Single, Single]] _86Pair;// 7:NoiseDeformerNoiseVarSetup-ext->26:Pair 102224
+                Tuple[Int32, Int32] _87PairItem1;// 77:NoiseDeformerNoise3-ext->51:PairItem1 102221
+                Int32 _88PairItem1;// 77:NoiseDeformerNoise3-ext->53:PairItem1 102220
+                Int32 _89Add;// 77:NoiseDeformerNoise3-ext->61:Add 102175
+                IArray[Single] _90At;// 77:NoiseDeformerNoise3-ext->60:At 102173
+                Int32 _91Zero;// 62:NoiseDeformerAt3-ext->5:Zero 102130
+                Single _92At;// 62:NoiseDeformerAt3-ext->4:At 102129
+                Single _93Multiply;// 62:NoiseDeformerAt3-ext->11:Multiply 102128
+                Tuple[Single, Single] _94PairItem2;// 77:NoiseDeformerNoise3-ext->23:PairItem2 102257
+                Single _95PairItem1;// 77:NoiseDeformerNoise3-ext->18:PairItem1 102256
+                Int32 _96One;// 62:NoiseDeformerAt3-ext->8:One 102133
+                Single _97At;// 62:NoiseDeformerAt3-ext->7:At 102132
+                Single _98Multiply;// 62:NoiseDeformerAt3-ext->12:Multiply 102131
+                Single _99Add;// 62:NoiseDeformerAt3-ext->6:Add 102127
+                Tuple[Single, Single] _100PairItem2;// 77:NoiseDeformerNoise3-ext->48:PairItem2 102259
+                Single _101PairItem1;// 77:NoiseDeformerNoise3-ext->52:PairItem1 102258
+                Int32 _102Two;// 62:NoiseDeformerAt3-ext->9:Two 102136
+                Single _103At;// 62:NoiseDeformerAt3-ext->10:At 102135
+                Single _104Multiply;// 62:NoiseDeformerAt3-ext->13:Multiply 102134
+                Single _105Add;// 62:NoiseDeformerAt3-ext->14:Add 102126
+                Single _106PairItem2;// 77:NoiseDeformerNoise3-ext->13:PairItem2 102275
+                Int32 _107PairItem2;// 77:NoiseDeformerNoise3-ext->11:PairItem2 102283
+                Int32 _108At;// 77:NoiseDeformerNoise3-ext->32:At 102282
+                Int32 _109Add;// 77:NoiseDeformerNoise3-ext->34:Add 102280
+                Int32 _110At;// 77:NoiseDeformerNoise3-ext->113:At 102279
+                Int32 _111Add;// 77:NoiseDeformerNoise3-ext->65:Add 102277
+                IArray[Single] _112At;// 77:NoiseDeformerNoise3-ext->64:At 102276
+                Int32 _113Zero;// 66:NoiseDeformerAt3-ext->5:Zero 102268
+                Single _114At;// 66:NoiseDeformerAt3-ext->4:At 102267
+                Single _115Multiply;// 66:NoiseDeformerAt3-ext->11:Multiply 102266
+                Int32 _116One;// 66:NoiseDeformerAt3-ext->8:One 102271
+                Single _117At;// 66:NoiseDeformerAt3-ext->7:At 102270
+                Single _118Multiply;// 66:NoiseDeformerAt3-ext->12:Multiply 102269
+                Single _119Add;// 66:NoiseDeformerAt3-ext->6:Add 102265
+                Int32 _120Two;// 66:NoiseDeformerAt3-ext->9:Two 102274
+                Single _121At;// 66:NoiseDeformerAt3-ext->10:At 102273
+                Single _122Multiply;// 66:NoiseDeformerAt3-ext->13:Multiply 102272
+                Single _123Add;// 66:NoiseDeformerAt3-ext->14:Add 102264
+                Single _124Constant;// 42:NoiseDeformerSCurve->0:Constant 102287
+                Single _125Constant;// 42:NoiseDeformerSCurve->0:Constant 102289
+                Single _126Multiply;// 42:NoiseDeformerSCurve->41:Multiply 102288
+                Single _127Subtract;// 42:NoiseDeformerSCurve->39:Subtract 102286
+                Single _128Multiply;// 42:NoiseDeformerSCurve->35:Multiply 102291
+                Single _129Multiply;// 42:NoiseDeformerSCurve->37:Multiply 102285
+                Single _130FloatLerp;// 77:NoiseDeformerNoise3-ext->68:FloatLerp 102121
+                Int32 _131PairItem2;// 77:NoiseDeformerNoise3-ext->22:PairItem2 102313
+                Int32 _132Add;// 77:NoiseDeformerNoise3-ext->38:Add 102312
+                Int32 _133At;// 77:NoiseDeformerNoise3-ext->114:At 102311
+                Int32 _134Add;// 77:NoiseDeformerNoise3-ext->71:Add 102309
+                IArray[Single] _135At;// 77:NoiseDeformerNoise3-ext->70:At 102308
+                Int32 _136Zero;// 72:NoiseDeformerAt3-ext->5:Zero 102301
+                Single _137At;// 72:NoiseDeformerAt3-ext->4:At 102300
+                Single _138Multiply;// 72:NoiseDeformerAt3-ext->11:Multiply 102299
+                Single _139PairItem2;// 77:NoiseDeformerNoise3-ext->21:PairItem2 102314
+                Int32 _140One;// 72:NoiseDeformerAt3-ext->8:One 102304
+                Single _141At;// 72:NoiseDeformerAt3-ext->7:At 102303
+                Single _142Multiply;// 72:NoiseDeformerAt3-ext->12:Multiply 102302
+                Single _143Add;// 72:NoiseDeformerAt3-ext->6:Add 102298
+                Int32 _144Two;// 72:NoiseDeformerAt3-ext->9:Two 102307
+                Single _145At;// 72:NoiseDeformerAt3-ext->10:At 102306
+                Single _146Multiply;// 72:NoiseDeformerAt3-ext->13:Multiply 102305
+                Single _147Add;// 72:NoiseDeformerAt3-ext->14:Add 102297
+                Int32 _148Add;// 77:NoiseDeformerNoise3-ext->39:Add 102334
+                Int32 _149At;// 77:NoiseDeformerNoise3-ext->115:At 102333
+                Int32 _150Add;// 77:NoiseDeformerNoise3-ext->74:Add 102331
+                IArray[Single] _151At;// 77:NoiseDeformerNoise3-ext->76:At 102330
+                Int32 _152Zero;// 75:NoiseDeformerAt3-ext->5:Zero 102323
+                Single _153At;// 75:NoiseDeformerAt3-ext->4:At 102322
+                Single _154Multiply;// 75:NoiseDeformerAt3-ext->11:Multiply 102321
+                Int32 _155One;// 75:NoiseDeformerAt3-ext->8:One 102326
+                Single _156At;// 75:NoiseDeformerAt3-ext->7:At 102325
+                Single _157Multiply;// 75:NoiseDeformerAt3-ext->12:Multiply 102324
+                Single _158Add;// 75:NoiseDeformerAt3-ext->6:Add 102320
+                Int32 _159Two;// 75:NoiseDeformerAt3-ext->9:Two 102329
+                Single _160At;// 75:NoiseDeformerAt3-ext->10:At 102328
+                Single _161Multiply;// 75:NoiseDeformerAt3-ext->13:Multiply 102327
+                Single _162Add;// 75:NoiseDeformerAt3-ext->14:Add 102319
+                Single _163FloatLerp;// 77:NoiseDeformerNoise3-ext->78:FloatLerp 102292
+                Single _164Constant;// 56:NoiseDeformerSCurve->0:Constant 102338
+                Single _165Constant;// 56:NoiseDeformerSCurve->0:Constant 102340
+                Single _166Multiply;// 56:NoiseDeformerSCurve->41:Multiply 102339
+                Single _167Subtract;// 56:NoiseDeformerSCurve->39:Subtract 102337
+                Single _168Multiply;// 56:NoiseDeformerSCurve->35:Multiply 102342
+                Single _169Multiply;// 56:NoiseDeformerSCurve->37:Multiply 102336
+                Single _170FloatLerp;// 77:NoiseDeformerNoise3-ext->80:FloatLerp 102120
+                Int32 _171PairItem2;// 77:NoiseDeformerNoise3-ext->49:PairItem2 102362
+                Int32 _172Add;// 77:NoiseDeformerNoise3-ext->84:Add 102361
+                IArray[Single] _173At;// 77:NoiseDeformerNoise3-ext->83:At 102360
+                Int32 _174Zero;// 82:NoiseDeformerAt3-ext->5:Zero 102353
+                Single _175At;// 82:NoiseDeformerAt3-ext->4:At 102352
+                Single _176Multiply;// 82:NoiseDeformerAt3-ext->11:Multiply 102351
+                Int32 _177One;// 82:NoiseDeformerAt3-ext->8:One 102356
+                Single _178At;// 82:NoiseDeformerAt3-ext->7:At 102355
+                Single _179Multiply;// 82:NoiseDeformerAt3-ext->12:Multiply 102354
+                Single _180Add;// 82:NoiseDeformerAt3-ext->6:Add 102350
+                Single _181PairItem2;// 77:NoiseDeformerNoise3-ext->50:PairItem2 102363
+                Int32 _182Two;// 82:NoiseDeformerAt3-ext->9:Two 102359
+                Single _183At;// 82:NoiseDeformerAt3-ext->10:At 102358
+                Single _184Multiply;// 82:NoiseDeformerAt3-ext->13:Multiply 102357
+                Single _185Add;// 82:NoiseDeformerAt3-ext->14:Add 102349
+                Int32 _186Add;// 77:NoiseDeformerNoise3-ext->88:Add 102380
+                IArray[Single] _187At;// 77:NoiseDeformerNoise3-ext->87:At 102379
+                Int32 _188Zero;// 86:NoiseDeformerAt3-ext->5:Zero 102372
+                Single _189At;// 86:NoiseDeformerAt3-ext->4:At 102371
+                Single _190Multiply;// 86:NoiseDeformerAt3-ext->11:Multiply 102370
+                Int32 _191One;// 86:NoiseDeformerAt3-ext->8:One 102375
+                Single _192At;// 86:NoiseDeformerAt3-ext->7:At 102374
+                Single _193Multiply;// 86:NoiseDeformerAt3-ext->12:Multiply 102373
+                Single _194Add;// 86:NoiseDeformerAt3-ext->6:Add 102369
+                Int32 _195Two;// 86:NoiseDeformerAt3-ext->9:Two 102378
+                Single _196At;// 86:NoiseDeformerAt3-ext->10:At 102377
+                Single _197Multiply;// 86:NoiseDeformerAt3-ext->13:Multiply 102376
+                Single _198Add;// 86:NoiseDeformerAt3-ext->14:Add 102368
+                Single _199FloatLerp;// 77:NoiseDeformerNoise3-ext->90:FloatLerp 102344
+                Int32 _200Add;// 77:NoiseDeformerNoise3-ext->94:Add 102398
+                IArray[Single] _201At;// 77:NoiseDeformerNoise3-ext->93:At 102397
+                Int32 _202Zero;// 92:NoiseDeformerAt3-ext->5:Zero 102390
+                Single _203At;// 92:NoiseDeformerAt3-ext->4:At 102389
+                Single _204Multiply;// 92:NoiseDeformerAt3-ext->11:Multiply 102388
+                Int32 _205One;// 92:NoiseDeformerAt3-ext->8:One 102393
+                Single _206At;// 92:NoiseDeformerAt3-ext->7:At 102392
+                Single _207Multiply;// 92:NoiseDeformerAt3-ext->12:Multiply 102391
+                Single _208Add;// 92:NoiseDeformerAt3-ext->6:Add 102387
+                Int32 _209Two;// 92:NoiseDeformerAt3-ext->9:Two 102396
+                Single _210At;// 92:NoiseDeformerAt3-ext->10:At 102395
+                Single _211Multiply;// 92:NoiseDeformerAt3-ext->13:Multiply 102394
+                Single _212Add;// 92:NoiseDeformerAt3-ext->14:Add 102386
+                Int32 _213Add;// 77:NoiseDeformerNoise3-ext->97:Add 102415
+                IArray[Single] _214At;// 77:NoiseDeformerNoise3-ext->98:At 102414
+                Int32 _215Zero;// 96:NoiseDeformerAt3-ext->5:Zero 102407
+                Single _216At;// 96:NoiseDeformerAt3-ext->4:At 102406
+                Single _217Multiply;// 96:NoiseDeformerAt3-ext->11:Multiply 102405
+                Int32 _218One;// 96:NoiseDeformerAt3-ext->8:One 102410
+                Single _219At;// 96:NoiseDeformerAt3-ext->7:At 102409
+                Single _220Multiply;// 96:NoiseDeformerAt3-ext->12:Multiply 102408
+                Single _221Add;// 96:NoiseDeformerAt3-ext->6:Add 102404
+                Int32 _222Two;// 96:NoiseDeformerAt3-ext->9:Two 102413
+                Single _223At;// 96:NoiseDeformerAt3-ext->10:At 102412
+                Single _224Multiply;// 96:NoiseDeformerAt3-ext->13:Multiply 102411
+                Single _225Add;// 96:NoiseDeformerAt3-ext->14:Add 102403
+                Single _226FloatLerp;// 77:NoiseDeformerNoise3-ext->100:FloatLerp 102381
+                Single _227FloatLerp;// 77:NoiseDeformerNoise3-ext->102:FloatLerp 102343
+                Single _228Constant;// 58:NoiseDeformerSCurve->0:Constant 102419
+                Single _229Constant;// 58:NoiseDeformerSCurve->0:Constant 102421
+                Single _230Multiply;// 58:NoiseDeformerSCurve->41:Multiply 102420
+                Single _231Subtract;// 58:NoiseDeformerSCurve->39:Subtract 102418
+                Single _232Multiply;// 58:NoiseDeformerSCurve->35:Multiply 102423
+                Single _233Multiply;// 58:NoiseDeformerSCurve->37:Multiply 102417
+                Single _234FloatLerp;// 77:NoiseDeformerNoise3-ext->104:FloatLerp 102119
+                Single _235NaN;// 118:FloatIsNaN->1:NaN 102117
+                Int32 _236Compare;// 118:FloatIsNaN->2:Compare 102116
+                Int32 _237Zero;// 118:FloatIsNaN->4:Zero 102118
+                Boolean _238Equal;// 118:FloatIsNaN->3:Equal 102115
+                Single _240Multiply;// 27:NoiseDeformerfBm1-ext->64:Multiply 102089
+                Int32 _241Zero;// 48:First->2:Zero 102436
+                Single _242At;// 48:First->0:At 102435
+                Single _243Add;// 27:NoiseDeformerfBm1-ext->59:Add 102088
+                IArray[Single] _244Unit;// 43:Array2->2:Unit 102086
+                Single _245Add;// 27:NoiseDeformerfBm1-ext->52:Add 102438
+                IArray[Single] _246Append;// 43:Array2->3:Append 102085
+                _0One = One();
+                _1At = At(x0, _0One);
+                _2AsInt = AsInt(_1At);
+                _3At = At(_13Map, _2AsInt);
+                _4Constant = 4096;
+                _5At = At(_23GenerateN, _2AsInt);
+                _6X = X(_5At);
+                _7Unit = Unit(_6X);
+                _8Y = Y(_5At);
+                _9Append = Append(_7Unit, _8Y);
+                _10Z = Z(_5At);
+                _11Append = Append(_9Append, _10Z);
+                _12Zero = Zero();
+                _13At = At(_11Append, _12Zero);
+                _14Add = Add(_4Constant, _13At);
+                _15Floor = Floor(_14Add);
+                _16Constant = 255;
+                _17And = And(_15Floor, _16Constant);
+                _18One = One();
+                _19Add = Add(_17And, _18One);
+                _20And = And(_19Add, _16Constant);
+                _21Pair = Pair(_17And, _20And);
+                _22Floor = Floor(_14Add);
+                _23AsFloat = AsFloat(_22Floor);
+                _24Subtract = Subtract(_14Add, _23AsFloat);
+                _25FloatOne = FloatOne();
+                _26Subtract = Subtract(_24Subtract, _25FloatOne);
+                _27Pair = Pair(_24Subtract, _26Subtract);
+                _28Pair = Pair(_21Pair, _27Pair);
+                _29PairItem2 = PairItem2(_28Pair);
+                _30PairItem1 = PairItem1(_29PairItem2);
+                _31PairItem2 = PairItem2(x1);
+                _32PairItem1 = PairItem1(_28Pair);
+                _33PairItem1 = PairItem1(_32PairItem1);
+                _34At = At(_31PairItem2, _33PairItem1);
+                _35Constant = 4096;
+                _36X = X(_5At);
+                _37Unit = Unit(_36X);
+                _38Y = Y(_5At);
+                _39Append = Append(_37Unit, _38Y);
+                _40Z = Z(_5At);
+                _41Append = Append(_39Append, _40Z);
+                _42One = One();
+                _43At = At(_41Append, _42One);
+                _44Add = Add(_35Constant, _43At);
+                _45Floor = Floor(_44Add);
+                _46Constant = 255;
+                _47And = And(_45Floor, _46Constant);
+                _48One = One();
+                _49Add = Add(_47And, _48One);
+                _50And = And(_49Add, _46Constant);
+                _51Pair = Pair(_47And, _50And);
+                _52Floor = Floor(_44Add);
+                _53AsFloat = AsFloat(_52Floor);
+                _54Subtract = Subtract(_44Add, _53AsFloat);
+                _55FloatOne = FloatOne();
+                _56Subtract = Subtract(_54Subtract, _55FloatOne);
+                _57Pair = Pair(_54Subtract, _56Subtract);
+                _58Pair = Pair(_51Pair, _57Pair);
+                _59PairItem1 = PairItem1(_58Pair);
+                _60PairItem1 = PairItem1(_59PairItem1);
+                _61Add = Add(_34At, _60PairItem1);
+                _62At = At(_31PairItem2, _61Add);
+                _63Constant = 4096;
+                _64X = X(_5At);
+                _65Unit = Unit(_64X);
+                _66Y = Y(_5At);
+                _67Append = Append(_65Unit, _66Y);
+                _68Z = Z(_5At);
+                _69Append = Append(_67Append, _68Z);
+                _70Two = Two();
+                _71At = At(_69Append, _70Two);
+                _72Add = Add(_63Constant, _71At);
+                _73Floor = Floor(_72Add);
+                _74Constant = 255;
+                _75And = And(_73Floor, _74Constant);
+                _76One = One();
+                _77Add = Add(_75And, _76One);
+                _78And = And(_77Add, _74Constant);
+                _79Pair = Pair(_75And, _78And);
+                _80Floor = Floor(_72Add);
+                _81AsFloat = AsFloat(_80Floor);
+                _82Subtract = Subtract(_72Add, _81AsFloat);
+                _83FloatOne = FloatOne();
+                _84Subtract = Subtract(_82Subtract, _83FloatOne);
+                _85Pair = Pair(_82Subtract, _84Subtract);
+                _86Pair = Pair(_79Pair, _85Pair);
+                _87PairItem1 = PairItem1(_86Pair);
+                _88PairItem1 = PairItem1(_87PairItem1);
+                _89Add = Add(_62At, _88PairItem1);
+                _90At = At(_24PairItem1, _89Add);
+                _91Zero = Zero();
+                _92At = At(_90At, _91Zero);
+                _93Multiply = Multiply(_30PairItem1, _92At);
+                _94PairItem2 = PairItem2(_58Pair);
+                _95PairItem1 = PairItem1(_94PairItem2);
+                _96One = One();
+                _97At = At(_90At, _96One);
+                _98Multiply = Multiply(_95PairItem1, _97At);
+                _99Add = Add(_93Multiply, _98Multiply);
+                _100PairItem2 = PairItem2(_86Pair);
+                _101PairItem1 = PairItem1(_100PairItem2);
+                _102Two = Two();
+                _103At = At(_90At, _102Two);
+                _104Multiply = Multiply(_101PairItem1, _103At);
+                _105Add = Add(_99Add, _104Multiply);
+                _106PairItem2 = PairItem2(_29PairItem2);
+                _107PairItem2 = PairItem2(_32PairItem1);
+                _108At = At(_31PairItem2, _107PairItem2);
+                _109Add = Add(_108At, _60PairItem1);
+                _110At = At(_31PairItem2, _109Add);
+                _111Add = Add(_110At, _88PairItem1);
+                _112At = At(_24PairItem1, _111Add);
+                _113Zero = Zero();
+                _114At = At(_112At, _113Zero);
+                _115Multiply = Multiply(_106PairItem2, _114At);
+                _116One = One();
+                _117At = At(_112At, _116One);
+                _118Multiply = Multiply(_95PairItem1, _117At);
+                _119Add = Add(_115Multiply, _118Multiply);
+                _120Two = Two();
+                _121At = At(_112At, _120Two);
+                _122Multiply = Multiply(_101PairItem1, _121At);
+                _123Add = Add(_119Add, _122Multiply);
+                _124Constant = 3;
+                _125Constant = 2;
+                _126Multiply = Multiply(_125Constant, _30PairItem1);
+                _127Subtract = Subtract(_124Constant, _126Multiply);
+                _128Multiply = Multiply(_30PairItem1, _30PairItem1);
+                _129Multiply = Multiply(_127Subtract, _128Multiply);
+                _130FloatLerp = FloatLerp(_105Add, _123Add, _129Multiply);
+                _131PairItem2 = PairItem2(_59PairItem1);
+                _132Add = Add(_34At, _131PairItem2);
+                _133At = At(_31PairItem2, _132Add);
+                _134Add = Add(_133At, _88PairItem1);
+                _135At = At(_24PairItem1, _134Add);
+                _136Zero = Zero();
+                _137At = At(_135At, _136Zero);
+                _138Multiply = Multiply(_30PairItem1, _137At);
+                _139PairItem2 = PairItem2(_94PairItem2);
+                _140One = One();
+                _141At = At(_135At, _140One);
+                _142Multiply = Multiply(_139PairItem2, _141At);
+                _143Add = Add(_138Multiply, _142Multiply);
+                _144Two = Two();
+                _145At = At(_135At, _144Two);
+                _146Multiply = Multiply(_101PairItem1, _145At);
+                _147Add = Add(_143Add, _146Multiply);
+                _148Add = Add(_108At, _131PairItem2);
+                _149At = At(_31PairItem2, _148Add);
+                _150Add = Add(_149At, _88PairItem1);
+                _151At = At(_24PairItem1, _150Add);
+                _152Zero = Zero();
+                _153At = At(_151At, _152Zero);
+                _154Multiply = Multiply(_106PairItem2, _153At);
+                _155One = One();
+                _156At = At(_151At, _155One);
+                _157Multiply = Multiply(_139PairItem2, _156At);
+                _158Add = Add(_154Multiply, _157Multiply);
+                _159Two = Two();
+                _160At = At(_151At, _159Two);
+                _161Multiply = Multiply(_101PairItem1, _160At);
+                _162Add = Add(_158Add, _161Multiply);
+                _163FloatLerp = FloatLerp(_147Add, _162Add, _129Multiply);
+                _164Constant = 3;
+                _165Constant = 2;
+                _166Multiply = Multiply(_165Constant, _95PairItem1);
+                _167Subtract = Subtract(_164Constant, _166Multiply);
+                _168Multiply = Multiply(_95PairItem1, _95PairItem1);
+                _169Multiply = Multiply(_167Subtract, _168Multiply);
+                _170FloatLerp = FloatLerp(_130FloatLerp, _163FloatLerp, _169Multiply);
+                _171PairItem2 = PairItem2(_87PairItem1);
+                _172Add = Add(_62At, _171PairItem2);
+                _173At = At(_24PairItem1, _172Add);
+                _174Zero = Zero();
+                _175At = At(_173At, _174Zero);
+                _176Multiply = Multiply(_30PairItem1, _175At);
+                _177One = One();
+                _178At = At(_173At, _177One);
+                _179Multiply = Multiply(_95PairItem1, _178At);
+                _180Add = Add(_176Multiply, _179Multiply);
+                _181PairItem2 = PairItem2(_100PairItem2);
+                _182Two = Two();
+                _183At = At(_173At, _182Two);
+                _184Multiply = Multiply(_181PairItem2, _183At);
+                _185Add = Add(_180Add, _184Multiply);
+                _186Add = Add(_110At, _171PairItem2);
+                _187At = At(_24PairItem1, _186Add);
+                _188Zero = Zero();
+                _189At = At(_187At, _188Zero);
+                _190Multiply = Multiply(_106PairItem2, _189At);
+                _191One = One();
+                _192At = At(_187At, _191One);
+                _193Multiply = Multiply(_95PairItem1, _192At);
+                _194Add = Add(_190Multiply, _193Multiply);
+                _195Two = Two();
+                _196At = At(_187At, _195Two);
+                _197Multiply = Multiply(_181PairItem2, _196At);
+                _198Add = Add(_194Add, _197Multiply);
+                _199FloatLerp = FloatLerp(_185Add, _198Add, _129Multiply);
+                _200Add = Add(_133At, _171PairItem2);
+                _201At = At(_24PairItem1, _200Add);
+                _202Zero = Zero();
+                _203At = At(_201At, _202Zero);
+                _204Multiply = Multiply(_30PairItem1, _203At);
+                _205One = One();
+                _206At = At(_201At, _205One);
+                _207Multiply = Multiply(_139PairItem2, _206At);
+                _208Add = Add(_204Multiply, _207Multiply);
+                _209Two = Two();
+                _210At = At(_201At, _209Two);
+                _211Multiply = Multiply(_181PairItem2, _210At);
+                _212Add = Add(_208Add, _211Multiply);
+                _213Add = Add(_149At, _171PairItem2);
+                _214At = At(_24PairItem1, _213Add);
+                _215Zero = Zero();
+                _216At = At(_214At, _215Zero);
+                _217Multiply = Multiply(_106PairItem2, _216At);
+                _218One = One();
+                _219At = At(_214At, _218One);
+                _220Multiply = Multiply(_139PairItem2, _219At);
+                _221Add = Add(_217Multiply, _220Multiply);
+                _222Two = Two();
+                _223At = At(_214At, _222Two);
+                _224Multiply = Multiply(_181PairItem2, _223At);
+                _225Add = Add(_221Add, _224Multiply);
+                _226FloatLerp = FloatLerp(_212Add, _225Add, _129Multiply);
+                _227FloatLerp = FloatLerp(_199FloatLerp, _226FloatLerp, _169Multiply);
+                _228Constant = 3;
+                _229Constant = 2;
+                _230Multiply = Multiply(_229Constant, _101PairItem1);
+                _231Subtract = Subtract(_228Constant, _230Multiply);
+                _232Multiply = Multiply(_101PairItem1, _101PairItem1);
+                _233Multiply = Multiply(_231Subtract, _232Multiply);
+                _234FloatLerp = FloatLerp(_170FloatLerp, _227FloatLerp, _233Multiply);
+                _235NaN = NaN();
+                _236Compare = Compare(_234FloatLerp, _235NaN);
+                _237Zero = Zero();
+                _238Equal = Equal(_236Compare, _237Zero);
+                _240Multiply = Multiply(_3At, if (_238Equal)
+                    {
+                      Single _239FloatZero;// 77:NoiseDeformerNoise3-ext->117:FloatZero 102424
+                      _239FloatZero = FloatZero();
+                      _239FloatZero;
+                      }else
+                    {
+                      _234FloatLerp;
+                      });
+                _241Zero = Zero();
+                _242At = At(x0, _241Zero);
+                _243Add = Add(_240Multiply, _242At);
+                _244Unit = Unit(_243Add);
+                _245Add = Add(_1At, _25FloatOne);
+                _246Append = Append(_244Unit, _245Add);
+                _246Append;
+                });
+            _27Count = Count(_26GenerateN);
+            _28One = One();
+            _29Subtract = Subtract(_27Count, _28One);
+            _30At = At(_26GenerateN, _29Subtract);
+            _31Zero = Zero();
+            _32At = At(_30At, _31Zero);
+            _32At;
+            }, _19X, _16Y);
+        _22Vector3 = Vector3(_18Apply2, _20Apply2, _21Apply2);
+        _23Vector3 = Vector3(strengthX, strengthY, strengthZ);
+        _24Multiply = Multiply(_22Vector3, _23Vector3);
+        _25Add = Add(_10Transform, _24Multiply);
+        _26Transform = Transform(_25Add, _8Pass-through: Matrix);
+        _26Transform;
+        }, _27Pair);
+    _29ParallelMap = ParallelMap(_0MeshVertices, _28Bind2of2);
+    _30SetMeshVertices = SetMeshVertices(mesh, _29ParallelMap);
+    _30SetMeshVertices;
+    }

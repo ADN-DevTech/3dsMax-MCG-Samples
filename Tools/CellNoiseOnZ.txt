@@ -1,0 +1,125 @@
+(InstanceState state, TriMesh mesh, Int32 seed, Int32 feature points, Int32 distance metric, Single strength) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 5:MeshVertices 90436
+    MapChannel _1UVChannel;// 22:UVChannel 90460
+    IArray[Vector3] _2MapChannelVertexBuffer;// 27:MapChannelVertexBuffer 90459
+    Func[Random, Vector3] _3Pass-through: function1;// 0:Pass-through: function1 90462
+    Random _4RandomNumberGenerator;// 3:RandomNumberGenerator 90470
+    Func[Vector3] _5Bind;// 17:RandomArray-ext->4:Bind 90466
+    IArray[Vector3] _6ArrayOfFunction;// 17:RandomArray-ext->5:ArrayOfFunction 90465
+    Single _7FloatZero;// 25:FloatZero 90478
+    IArray[Vector3] _8Map;// 4:Map 90461
+    Func[Vector3, Vector3, Single] _9Pass-through: any;// 0:Pass-through: any 90480
+    IArray[Func[Vector3, Vector3, Single]] _10Unit;// 19:Array3-ext->2:Unit 90485
+    Func[Vector3, Vector3, Single] _11Pass-through: any;// 0:Pass-through: any 90481
+    IArray[Func[Vector3, Vector3, Single]] _12Append;// 19:Array3-ext->3:Append 90484
+    Func[Vector3, Vector3, Single] _13Pass-through: any;// 0:Pass-through: any 90482
+    IArray[Func[Vector3, Vector3, Single]] _14Append;// 19:Array3-ext->6:Append 90483
+    Func[Vector3, Vector3, Single] _15At;// 20:At 90479
+    IArray[Single] _16Map;// 1:NoiseWorley-ext->11:Map 90440
+    IArray[Vector3] _17Combine;// 12:Combine 90435
+    TriMesh _18SetMeshVertices;// 8:SetMeshVertices 90433
+    _0MeshVertices = MeshVertices(mesh);
+    _1UVChannel = UVChannel(mesh);
+    _2MapChannelVertexBuffer = MapChannelVertexBuffer(_1UVChannel);
+    _3Pass-through: function1 = (Random x0) => 
+      {
+        Vector3 _0Vector3;// 23:PseudoRandomVector->1:Vector3 90468
+        _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
+        _0Vector3;
+        };
+    _4RandomNumberGenerator = RandomNumberGenerator(seed);
+    _5Bind = Bind(_3Pass-through: function1, _4RandomNumberGenerator);
+    _6ArrayOfFunction = ArrayOfFunction(_5Bind, feature points);
+    _7FloatZero = FloatZero();
+    _8Map = Map(_6ArrayOfFunction, (Vector3 x0) => 
+      {
+        Single _0X;// 24:SetZ->4:X 90476
+        Single _1Y;// 24:SetZ->5:Y 90477
+        Vector3 _2Vector3;// 24:SetZ->2:Vector3 90475
+        _0X = X(x0);
+        _1Y = Y(x0);
+        _2Vector3 = Vector3(_0X, _1Y, _7FloatZero);
+        _2Vector3;
+        });
+    _9Pass-through: any = (Vector3 x0, Vector3 x1) => 
+      {
+        Single _0Distance;// 14:Distance 90486
+        _0Distance = Distance(x0, x1);
+        _0Distance;
+        };
+    _10Unit = Unit(_9Pass-through: any);
+    _11Pass-through: any = (Vector3 x0, Vector3 x1) => 
+      {
+        Single _0DistanceSquared;// 7:DistanceSquared 90487
+        _0DistanceSquared = DistanceSquared(x0, x1);
+        _0DistanceSquared;
+        };
+    _12Append = Append(_10Unit, _11Pass-through: any);
+    _13Pass-through: any = (Vector3 x0, Vector3 x1) => 
+      {
+        Vector3 _0Subtract;// 18:ManhattanDistance-ext->2:Subtract 90499
+        Single _1X;// 3:VectorComponentSum-ext->0:X 90496
+        Single _2Y;// 3:VectorComponentSum-ext->2:Y 90497
+        Single _3Add;// 4:Add3-ext->5:Add 90495
+        Single _4Z;// 3:VectorComponentSum-ext->3:Z 90498
+        Single _5Add;// 4:Add3-ext->7:Add 90494
+        _0Subtract = Subtract(x0, x1);
+        _1X = X(_0Subtract);
+        _2Y = Y(_0Subtract);
+        _3Add = Add(_1X, _2Y);
+        _4Z = Z(_0Subtract);
+        _5Add = Add(_3Add, _4Z);
+        _5Add;
+        };
+    _14Append = Append(_12Append, _13Pass-through: any);
+    _15At = At(_14Append, distance metric);
+    _16Map = Map(_2MapChannelVertexBuffer, (Vector3 x0) => 
+      {
+        IArray[Single] _0Map;// 3:ClosestDistance-ext->2:Map 90457
+        IArray[Int32] _1Indices;// 3:IndexOfMinimum->1:Indices 90448
+        Int32 _2Zero;// 3:IndexOfMinimum->3:Zero 90449
+        Int32 _3Aggregate;// 3:IndexOfMinimum->2:Aggregate 90447
+        Single _4At;// 5:MinimumElement->0:At 90445
+        _0Map = Map(_8Map, (Vector3 x0) => 
+          {
+            Single _0Apply2;// 3:ClosestDistance-ext->4:Apply2 90458
+            _0Apply2 = Apply2(_15At, x0, x0);
+            _0Apply2;
+            });
+        _1Indices = Indices(_0Map);
+        _2Zero = Zero();
+        _3Aggregate = Aggregate(_1Indices, _2Zero, (Int32 x0, Int32 x1) => 
+          {
+            Single _0At;// 4:IndexOfLesserElement->4:At 90455
+            Single _1At;// 4:IndexOfLesserElement->5:At 90456
+            Boolean _2LessThanOrEqual;// 4:IndexOfLesserElement->2:LessThanOrEqual 90454
+            _0At = At(_0Map, x0);
+            _1At = At(_0Map, x1);
+            _2LessThanOrEqual = LessThanOrEqual(_0At, _1At);
+            if (_2LessThanOrEqual)
+              {
+                x0;
+                }else
+              {
+                x1;
+                };
+            });
+        _4At = At(_0Map, _3Aggregate);
+        _4At;
+        });
+    _17Combine = Combine(_0MeshVertices, _16Map, (Vector3 x0, Single x1) => 
+      {
+        Single _0X;// 13:SetZ->4:X 90504
+        Single _1Y;// 13:SetZ->5:Y 90505
+        Single _2Multiply;// 15:Multiply 90506
+        Vector3 _3Vector3;// 13:SetZ->2:Vector3 90503
+        _0X = X(x0);
+        _1Y = Y(x0);
+        _2Multiply = Multiply(x1, strength);
+        _3Vector3 = Vector3(_0X, _1Y, _2Multiply);
+        _3Vector3;
+        });
+    _18SetMeshVertices = SetMeshVertices(mesh, _17Combine);
+    _18SetMeshVertices;
+    }

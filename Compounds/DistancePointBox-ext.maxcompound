@@ -1,0 +1,21 @@
+<graph version="0.50" uuid="3c78435d-5552-4b5e-adae-ad6876949431">
+    <meta_info>
+        <graph_version guid="0fd0e1ed-9d3e-4103-814e-005d809b03b9" number="0.0.2" />
+        <category>Distance</category>
+        <description>Returns the distance between a bounding box and a point. If the point is in the box, the distance is 0.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="point" position="100:160" size="140:112" />
+        <node operator="Input: BoundingBox" id="1" name="box" position="100:300" size="140:112" />
+        <node operator="BoxClamp-ext" id="3" position="340:260" size="140:133" />
+        <node operator="Distance" id="2" position="540:180" size="140:133" />
+        <node operator="Output: compound" id="4" position="760:220" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

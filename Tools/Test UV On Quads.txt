@@ -1,0 +1,99 @@
+(InstanceState state, TriMesh mesh, Int32 uv channel) => 
+  {
+    Int32 _0Zero;// 7:EvenItems->3:Zero 109334
+    Int32 _1FaceCount;// 1:UtopiaPlanarMapQuads->2:FaceCount 109342
+    IArray[Int32] _2Range;// 1:UtopiaPlanarMapQuads->10:Range 109341
+    Int32 _3Count;// 7:EvenItems->2:Count 109338
+    Int32 _4Two;// 4:DivideByTwo->2:Two 109337
+    Int32 _5Divide;// 4:DivideByTwo->1:Divide 109336
+    Int32 _6Two;// 7:EvenItems->7:Two 109340
+    IArray[Int32] _7GenerateN;// 7:EvenItems->5:GenerateN 109333
+    IArray[Int32] _8Map;// 8:SelectByIndex->2:Map 109331
+    Int32 _9One;// 6:OddItems->3:One 109349
+    Int32 _10Count;// 6:OddItems->2:Count 109353
+    Int32 _11Two;// 4:DivideByTwo->2:Two 109352
+    Int32 _12Divide;// 4:DivideByTwo->1:Divide 109351
+    Int32 _13Two;// 6:OddItems->7:Two 109355
+    IArray[Int32] _14GenerateN;// 6:OddItems->5:GenerateN 109348
+    IArray[Int32] _15Map;// 8:SelectByIndex->2:Map 109346
+    Single _16FloatZero;// 1:UtopiaPlanarMapQuads->4:FloatZero 109368
+    Single _17FloatOne;// 1:UtopiaPlanarMapQuads->21:FloatOne 109369
+    Vector3 _18Vector3;// 1:UtopiaPlanarMapQuads->17:Vector3 109367
+    IArray[IArray[Vector3]] _19ParallelCombine;// 1:UtopiaPlanarMapQuads->8:ParallelCombine 109327
+    IArray[Vector3] _20Flatten;// 1:UtopiaPlanarMapQuads->15:Flatten 109326
+    TriMesh _21SetMapChannelWithoutIndices;// 1:UtopiaPlanarMapQuads->16:SetMapChannelWithoutIndices 109325
+    _0Zero = Zero();
+    _1FaceCount = FaceCount(mesh);
+    _2Range = Range(_1FaceCount);
+    _3Count = Count(_2Range);
+    _4Two = Two();
+    _5Divide = Divide(_3Count, _4Two);
+    _6Two = Two();
+    _7GenerateN = GenerateN(_0Zero, _5Divide, (Int32 x0) => 
+      {
+        Int32 _0Add;// 7:EvenItems->6:Add 109339
+        _0Add = Add(x0, _6Two);
+        _0Add;
+        });
+    _8Map = Map(_7GenerateN, (Int32 x0) => 
+      {
+        Int32 _0At;// 8:SelectByIndex->3:At 109332
+        _0At = At(_2Range, x0);
+        _0At;
+        });
+    _9One = One();
+    _10Count = Count(_2Range);
+    _11Two = Two();
+    _12Divide = Divide(_10Count, _11Two);
+    _13Two = Two();
+    _14GenerateN = GenerateN(_9One, _12Divide, (Int32 x0) => 
+      {
+        Int32 _0Add;// 6:OddItems->6:Add 109354
+        _0Add = Add(x0, _13Two);
+        _0Add;
+        });
+    _15Map = Map(_14GenerateN, (Int32 x0) => 
+      {
+        Int32 _0At;// 8:SelectByIndex->3:At 109347
+        _0At = At(_2Range, x0);
+        _0At;
+        });
+    _16FloatZero = FloatZero();
+    _17FloatOne = FloatOne();
+    _18Vector3 = Vector3(_16FloatZero, _17FloatOne, _16FloatZero);
+    _19ParallelCombine = ParallelCombine(_8Map, _15Map, (Int32 x0, Int32 x1) => 
+      {
+        IArray[Vector3] _0Unit;// 18:Array3->2:Unit 109366
+        Vector3 _1Vector3;// 1:UtopiaPlanarMapQuads->20:Vector3 109370
+        IArray[Vector3] _2Append;// 18:Array3->3:Append 109365
+        Vector3 _3Vector3;// 1:UtopiaPlanarMapQuads->23:Vector3 109371
+        IArray[Vector3] _4Append;// 18:Array3->6:Append 109364
+        IArray[Vector3] _5IgnoreFirst;// 1:UtopiaPlanarMapQuads->11:IgnoreFirst 109359
+        IArray[IArray[Vector3]] _6Unit;// 1:UtopiaPlanarMapQuads->30:Unit 109358
+        IArray[Vector3] _7Unit;// 22:Array3->2:Unit 109379
+        IArray[Vector3] _8Append;// 22:Array3->3:Append 109378
+        Vector3 _9Vector3;// 1:UtopiaPlanarMapQuads->13:Vector3 109380
+        IArray[Vector3] _10Append;// 22:Array3->6:Append 109377
+        IArray[Vector3] _11IgnoreFirst;// 1:UtopiaPlanarMapQuads->12:IgnoreFirst 109372
+        IArray[IArray[Vector3]] _12Append;// 1:UtopiaPlanarMapQuads->33:Append 109357
+        IArray[Vector3] _13Flatten;// 1:UtopiaPlanarMapQuads->19:Flatten 109356
+        _0Unit = Unit(_18Vector3);
+        _1Vector3 = Vector3(_17FloatOne, _17FloatOne, _16FloatZero);
+        _2Append = Append(_0Unit, _1Vector3);
+        _3Vector3 = Vector3(_17FloatOne, _16FloatZero, _16FloatZero);
+        _4Append = Append(_2Append, _3Vector3);
+        _5IgnoreFirst = IgnoreFirst(x0, _4Append);
+        _6Unit = Unit(_5IgnoreFirst);
+        _7Unit = Unit(_18Vector3);
+        _8Append = Append(_7Unit, _3Vector3);
+        _9Vector3 = Vector3(_16FloatZero, _16FloatZero, _16FloatZero);
+        _10Append = Append(_8Append, _9Vector3);
+        _11IgnoreFirst = IgnoreFirst(x1, _10Append);
+        _12Append = Append(_6Unit, _11IgnoreFirst);
+        _13Flatten = Flatten(_12Append);
+        _13Flatten;
+        });
+    _20Flatten = Flatten(_19ParallelCombine);
+    _21SetMapChannelWithoutIndices = SetMapChannelWithoutIndices(mesh, uv channel, _20Flatten);
+    _21SetMapChannelWithoutIndices;
+    }

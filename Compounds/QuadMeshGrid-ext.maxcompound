@@ -1,56 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="0520f4a3-651b-4793-8033-b081187864a2">
-  <meta_info>
-    <graph_version guid="446118a0-8b2d-4ff5-8a61-9f3beee71778" number="0.0.6" />
-    <category>Geometry - QuadMesh</category>
-    <description>Creates a quad mesh that interpolates between two lines defined by four points. </description>
-  </meta_info>
-  <nodes>
-    <node operator="LineToArray" id="9" position="933:701" size="140:133" />
-    <node operator="FlatMap" id="17" position="1129:689" size="140:133" />
-    <node operator="PlusOne" id="16" position="700:705" size="140:112" />
-    <node operator="LerpLines" id="13" position="878:429" size="140:154" />
-    <node operator="Input: Int32" id="2" name="xSegments" position="507:707" size="140:112" />
-    <node operator="Output: compound" id="5" position="1560:740" size="140:70" />
-    <node operator="Input: Int32" id="3" name="ySegments" position="649:229" size="140:112" />
-    <node operator="SampleLerp" id="14" position="1078:478" size="140:133" />
-    <node operator="QuadGrid-ext" id="8" position="1320:680" size="140:133" />
-    <node operator="PlusOne" id="6" position="879:273" size="140:112" />
-    <node operator="Line" id="10" position="469:249" size="140:133" />
-    <node operator="Line" id="11" position="469:409" size="140:133" />
-    <node operator="Input: Vector3" id="12" name="bottomLeft" position="289:149" size="140:112" />
-    <node operator="Input: Vector3" id="15" name="bottomRight" position="289:269" size="140:112" />
-    <node operator="Input: Vector3" id="18" name="topRight" position="289:509" size="140:112" />
-    <node operator="Input: Vector3" id="19" name="topLeft" position="289:389" size="140:112" />
-    <node operator="IgnoreFirst" id="1" position="1500:520" size="140:133" />
-    <node groupnode="Subdivide each line into nx+1 points" id="7" position="460:660" size="818:195" bg_color="#ff646464">
-      <nodes>17,9,16,2</nodes>
-    </node>
-    <node groupnode="Create ny+1 lines" id="4" position="640:200" size="589:449" bg_color="#ff646464">
-      <nodes>13,6,14,3</nodes>
-    </node>
-    <node groupnode="Input points" id="0" position="280:120" size="338:513" bg_color="#ff646464">
-      <nodes>18,19,15,11,12,10</nodes>
-    </node>
-  </nodes>
-  <connections>
-    <connection sourcenode="16" sourceport="0" destnode="9" destport="0" />
-    <connection sourcenode="14" sourceport="0" destnode="17" destport="0" />
-    <connection sourcenode="9" sourceport="1" destnode="17" destport="1" />
-    <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
-    <connection sourcenode="10" sourceport="0" destnode="13" destport="0" />
-    <connection sourcenode="11" sourceport="0" destnode="13" destport="2" />
-    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
-    <connection sourcenode="6" sourceport="0" destnode="14" destport="0" />
-    <connection sourcenode="13" sourceport="1" destnode="14" destport="1" />
-    <connection sourcenode="17" sourceport="0" destnode="8" destport="0" />
-    <connection sourcenode="6" sourceport="0" destnode="8" destport="1" />
-    <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
-    <connection sourcenode="12" sourceport="0" destnode="10" destport="0" />
-    <connection sourcenode="15" sourceport="0" destnode="10" destport="1" />
-    <connection sourcenode="19" sourceport="0" destnode="11" destport="0" />
-    <connection sourcenode="18" sourceport="0" destnode="11" destport="1" />
-    <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
-    <connection sourcenode="8" sourceport="0" destnode="1" destport="1" />
-  </connections>
+    <meta_info>
+        <graph_version guid="f354f456-4954-46a6-99cb-9230584defcf" number="0.0.9" />
+        <category>Geometry - QuadMesh</category>
+        <description>Creates a quad mesh that interpolates between two lines defined by four points. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="2" name="xSegments" position="0:320" size="140:112" />
+        <node operator="Output: compound" id="5" position="1080:440" size="140:70" />
+        <node operator="Input: Int32" id="3" name="ySegments" position="0:0" size="140:112" />
+        <node operator="Line" id="10" position="409:289" size="140:133" />
+        <node operator="Line" id="11" position="409:449" size="140:133" />
+        <node operator="Input: Vector3" id="12" name="bottomLeft" position="229:189" size="140:112" />
+        <node operator="Input: Vector3" id="15" name="bottomRight" position="229:309" size="140:112" />
+        <node operator="Input: Vector3" id="18" name="topRight" position="229:549" size="140:112" />
+        <node operator="Input: Vector3" id="19" name="topLeft" position="229:429" size="140:112" />
+        <node operator="QuadPlaneMesh" id="20" position="640:280" size="140:175" />
+        <node operator="IgnoreFirst" id="1" position="860:320" size="140:133" />
+        <node operator="PlusOne" id="4" position="220:20" size="140:112" />
+        <node operator="PlusOne" id="6" position="220:680" size="140:112" />
+        <node groupnode="Input points" id="0" position="220:160" size="338:513" bg_color="#ff646464">
+            <nodes>15,12,19,11,18,10</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="19" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="20" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="20" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+    </connections>
 </graph>

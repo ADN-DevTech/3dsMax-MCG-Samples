@@ -28,6 +28,10 @@ plugin simpleMeshMod Channel_Copy
 		srcChannel ui:srcChannel default:1 type:#integer animatable:true
 		source ui:source type:#node useNodeOsValidity:true useNodeTmValidity:true
 		targetChannel ui:targetChannel default:0 type:#integer animatable:true
+		use_vertex_data ui:use_vertex_data default:False type:#boolean animatable:true
+		Vertex_data_x ui:Vertex_data_x default:4 type:#integer animatable:true
+		Vertex_data_y ui:Vertex_data_y default:5 type:#integer animatable:true
+		Vertex_data_z ui:Vertex_data_z default:6 type:#integer animatable:true
 		_dummy type:#boolean -- this exists to enable easy invalidation of the object
 		pluginGraph type:#filename assettype:#MaxCreationGraph readOnly:true enumAsAsset:true 
 		pluginGraphDependencies type:#filenametab assettype:#MaxCreationGraph readOnly:true enumAsAsset:true tabSize:0 tabSizeVariable:true
@@ -57,7 +61,7 @@ plugin simpleMeshMod Channel_Copy
 		_meshWrapper = meshWrapperClass._CreateWrapper undefined
 		_meshWrapper_SetValue = _meshWrapper._SetValue
 		pluginGraph = pluginDefinitionFile
-		pluginGraphDependencies = #(@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelCopy-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelAssign-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelOrGeometrySet-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelExists-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\IsNullFix2-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelOrGeometryGet-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelClear-ext.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\Origin.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\MultiplyByThree.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\Three.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\NodeMeshOrDefault-ext.maxcompound")
+		pluginGraphDependencies = #(@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelCopy-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelAssign-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelOrGeometrySet-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelExists-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\IsNullFix2-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelOrGeometryGet-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelClear-ext.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\Origin.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\MultiplyByThree.maxcompound",@"C:\Program Files\Autodesk\3ds Max 2017\MaxCreationGraph\Compounds\Three.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\NodeMeshOrDefault-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelSetFromVertexData-ext.maxcompound",@"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Compounds\MapChannelSetVertices-ext.maxcompound")
 
 		-- value wrapper local initializations
 		local sourceWrapperClass = dotNetClass "Autodesk.Max.MaxPlus.INode"
@@ -94,6 +98,10 @@ plugin simpleMeshMod Channel_Copy
 		spinner srcChannel "srcChannel" range:[-3, 100, 1] type:#integer
 		pickbutton source "source" autodisplay:true type:#node toolTip:"source"
 		spinner targetChannel "targetChannel" range:[-3, 100, 0] type:#integer
+		checkbox use_vertex_data "use vertex data" checked:False
+		spinner Vertex_data_x "Vertex data x" range:[0, 100, 4] type:#integer
+		spinner Vertex_data_y "Vertex data y" range:[0, 100, 5] type:#integer
+		spinner Vertex_data_z "Vertex data z" range:[0, 100, 6] type:#integer
 
 	)
 
@@ -104,7 +112,7 @@ plugin simpleMeshMod Channel_Copy
 	(
 
 		if (pluginInstance == undefined) then ( return undefined )
-		local args = dotnet_ValueToDotNetObject #(srcChannel, sourceWrapper, meshWrapper, targetChannel) argsType
+		local args = dotnet_ValueToDotNetObject #(srcChannel, sourceWrapper, meshWrapper, targetChannel, use_vertex_data, Vertex_data_x, Vertex_data_y, Vertex_data_z) argsType
 		pluginInstance_UpdateMesh (currentTime as integer) _meshWrapper args
 		ok
 	)

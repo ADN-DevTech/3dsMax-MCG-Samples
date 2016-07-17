@@ -1,0 +1,164 @@
+(InstanceState state, TriMesh mesh, Int32 axis, Boolean useGizmoXform, INode gizmo, Matrix modifierTransform, Single amount, Single curve) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 13:TaperMesh->15:MeshVertices 108837
+    IArray[Vector3] _1MeshVertices;// 2:MeshBoundingBox->1:MeshVertices 108917
+    BoundingBox _2BoxFromPoints;// 2:MeshBoundingBox->0:BoxFromPoints 108916
+    Matrix _11Pass-through: Matrix;// 0:Pass-through: Matrix 108831
+    IArray[Vector3] _12ParallelMap;// 13:TaperMesh->11:ParallelMap 108836
+    TriMesh _13SetMeshVertices;// 13:TaperMesh->18:SetMeshVertices 108834
+    _0MeshVertices = MeshVertices(mesh);
+    _1MeshVertices = MeshVertices(mesh);
+    _2BoxFromPoints = BoxFromPoints(_1MeshVertices);
+    _11Pass-through: Matrix = if (useGizmoXform)
+      {
+        Boolean _3IsValidNode;// 0:GizmoTransformInLocalSpace->35:IsValidNode 108925
+        _3IsValidNode = IsValidNode(gizmo);
+        if (_3IsValidNode)
+          {
+            Boolean _4IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108931
+            Matrix _7InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108935
+            Matrix _8Multiply;// 32:NodeToLocalTransform->18:Multiply 108928
+            _4IsValidNode = IsValidNode(gizmo);
+            _7InvertMatrix = InvertMatrix(modifierTransform);
+            _8Multiply = Multiply(if (_4IsValidNode)
+                {
+                  Matrix _5WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 108932
+                  _5WorldTransform = WorldTransform(gizmo);
+                  _5WorldTransform;
+                  }else
+                {
+                  Matrix _6MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 108933
+                  _6MatrixIdentity = MatrixIdentity();
+                  _6MatrixIdentity;
+                  }, _7InvertMatrix);
+            _8Multiply;
+            }else
+          {
+            Matrix _9MatrixIdentity;// 0:GizmoTransformInLocalSpace->40:MatrixIdentity 108936
+            _9MatrixIdentity = MatrixIdentity();
+            _9MatrixIdentity;
+            };
+        }else
+      {
+        Matrix _10MatrixIdentity;// 12:MatrixIdentity 108939
+        _10MatrixIdentity = MatrixIdentity();
+        _10MatrixIdentity;
+        };
+    _12ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+      {
+        Single _0FloatZero;// 0:TaperDeformer-ext->88:FloatZero 108847
+        Vector3 _1BoxMax;// 47:BoundingBoxExtent->1:BoxMax 108864
+        Vector3 _2BoxMin;// 47:BoundingBoxExtent->2:BoxMin 108865
+        Vector3 _3Subtract;// 47:BoundingBoxExtent->3:Subtract 108863
+        Single _4X;// 2:VectorAsArray->1:X 108859
+        IArray[Single] _5Unit;// 4:Array3->2:Unit 108858
+        Single _6Y;// 2:VectorAsArray->2:Y 108860
+        IArray[Single] _7Append;// 4:Array3->3:Append 108857
+        Single _8Z;// 2:VectorAsArray->3:Z 108861
+        IArray[Single] _9Append;// 4:Array3->6:Append 108856
+        Single _10At;// 48:VectorComponent-ext->3:At 108851
+        Boolean _11Equal;// 0:TaperDeformer-ext->89:Equal 108846
+        Matrix _12InvertMatrix;// 0:TaperDeformer-ext->79:InvertMatrix 108870
+        Vector3 _13Transform;// 0:TaperDeformer-ext->2:Transform 108869
+        Boolean _22IsValidNode;// 0:GizmoTransformInLocalSpace->35:IsValidNode 108925
+        Boolean _29IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108931
+        Matrix _32InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108935
+        Vector3 _63Transform;// 0:TaperDeformer-ext->1:Transform 108844
+        _0FloatZero = FloatZero();
+        _1BoxMax = BoxMax(_2BoxFromPoints);
+        _2BoxMin = BoxMin(_2BoxFromPoints);
+        _3Subtract = Subtract(_1BoxMax, _2BoxMin);
+        _4X = X(_3Subtract);
+        _5Unit = Unit(_4X);
+        _6Y = Y(_3Subtract);
+        _7Append = Append(_5Unit, _6Y);
+        _8Z = Z(_3Subtract);
+        _9Append = Append(_7Append, _8Z);
+        _10At = At(_9Append, axis);
+        _11Equal = Equal(_0FloatZero, _10At);
+        _12InvertMatrix = InvertMatrix(_11Pass-through: Matrix);
+        _13Transform = Transform(x0, _12InvertMatrix);
+        _22IsValidNode = IsValidNode(gizmo);
+        _29IsValidNode = IsValidNode(gizmo);
+        _32InvertMatrix = InvertMatrix(modifierTransform);
+        _63Transform = Transform(if (_11Equal)
+          {
+            _13Transform;
+            }else
+          {
+            Single _33HalfPi;// 0:TaperDeformer-ext->33:HalfPi 108891
+            Single _34NegativeFloat;// 0:TaperDeformer-ext->24:NegativeFloat 108890
+            Matrix _35RotationYMatrix;// 0:TaperDeformer-ext->38:RotationYMatrix 108889
+            Func[Matrix] _36Pass-through: any;// 0:Pass-through: any 108883
+            IArray[Func[Matrix]] _37Unit;// 27:Array3->2:Unit 108888
+            Matrix _38RotationXMatrix;// 0:TaperDeformer-ext->26:RotationXMatrix 108892
+            Func[Matrix] _39Pass-through: any;// 0:Pass-through: any 108884
+            IArray[Func[Matrix]] _40Append;// 27:Array3->3:Append 108887
+            Matrix _41MatrixIdentity;// 0:TaperDeformer-ext->23:MatrixIdentity 108893
+            Func[Matrix] _42Pass-through: any;// 0:Pass-through: any 108885
+            IArray[Func[Matrix]] _43Append;// 27:Array3->6:Append 108886
+            Func[Matrix] _44At;// 0:TaperDeformer-ext->8:At 108882
+            Matrix _45Apply0;// 0:TaperDeformer-ext->15:Apply0 108881
+            Vector3 _46Transform;// 0:TaperDeformer-ext->6:Transform 108878
+            Single _47X;// 0:TaperDeformer-ext->50:X 108876
+            Single _48FloatOne;// 13:TaperDeformerWeightFunc->3:FloatOne 108900
+            Single _49Z;// 0:TaperDeformer-ext->49:Z 108907
+            Single _50Divide;// 0:TaperDeformer-ext->40:Divide 108906
+            Single _51Multiply;// 13:TaperDeformerWeightFunc->4:Multiply 108902
+            Single _52Subtract;// 13:TaperDeformerWeightFunc->9:Subtract 108904
+            Single _53Multiply;// 13:TaperDeformerWeightFunc->7:Multiply 108905
+            Single _54Multiply;// 13:TaperDeformerWeightFunc->8:Multiply 108903
+            Single _55Add;// 13:TaperDeformerWeightFunc->6:Add 108901
+            Single _56Add;// 13:TaperDeformerWeightFunc->5:Add 108899
+            Single _57Multiply;// 0:TaperDeformer-ext->46:Multiply 108875
+            Single _58Y;// 0:TaperDeformer-ext->41:Y 108911
+            Single _59Multiply;// 0:TaperDeformer-ext->37:Multiply 108910
+            Vector3 _60Vector3;// 0:TaperDeformer-ext->36:Vector3 108873
+            Matrix _61InvertMatrix;// 0:TaperDeformer-ext->5:InvertMatrix 108913
+            Vector3 _62Transform;// 0:TaperDeformer-ext->7:Transform 108872
+            _33HalfPi = HalfPi();
+            _34NegativeFloat = NegativeFloat(_33HalfPi);
+            _35RotationYMatrix = RotationYMatrix(_34NegativeFloat);
+            _36Pass-through: any = () => 
+              {
+                _35RotationYMatrix;
+                };
+            _37Unit = Unit(_36Pass-through: any);
+            _38RotationXMatrix = RotationXMatrix(_33HalfPi);
+            _39Pass-through: any = () => 
+              {
+                _38RotationXMatrix;
+                };
+            _40Append = Append(_37Unit, _39Pass-through: any);
+            _41MatrixIdentity = MatrixIdentity();
+            _42Pass-through: any = () => 
+              {
+                _41MatrixIdentity;
+                };
+            _43Append = Append(_40Append, _42Pass-through: any);
+            _44At = At(_43Append, axis);
+            _45Apply0 = Apply0(_44At);
+            _46Transform = Transform(_13Transform, _45Apply0);
+            _47X = X(_46Transform);
+            _48FloatOne = FloatOne();
+            _49Z = Z(_46Transform);
+            _50Divide = Divide(_49Z, _10At);
+            _51Multiply = Multiply(amount, _50Divide);
+            _52Subtract = Subtract(_48FloatOne, _50Divide);
+            _53Multiply = Multiply(curve, _50Divide);
+            _54Multiply = Multiply(_52Subtract, _53Multiply);
+            _55Add = Add(_51Multiply, _54Multiply);
+            _56Add = Add(_48FloatOne, _55Add);
+            _57Multiply = Multiply(_47X, _56Add);
+            _58Y = Y(_46Transform);
+            _59Multiply = Multiply(_58Y, _56Add);
+            _60Vector3 = Vector3(_57Multiply, _59Multiply, _49Z);
+            _61InvertMatrix = InvertMatrix(_45Apply0);
+            _62Transform = Transform(_60Vector3, _61InvertMatrix);
+            _62Transform;
+            }, _11Pass-through: Matrix);
+        _63Transform;
+        });
+    _13SetMeshVertices = SetMeshVertices(mesh, _12ParallelMap);
+    _13SetMeshVertices;
+    }

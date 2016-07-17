@@ -1,0 +1,990 @@
+(InstanceState state, Int32 count, INode Pick Curve, Single start angle, Single end angle, TriMesh mesh, Matrix modifierTransform) => 
+  {
+    IArray[Single] _0RangeInclusiveFloat;// 4:SampleLerp->2:RangeInclusiveFloat 88461
+    Single _1ToRadians;// 9:ToRadians 88958
+    Single _2ToRadians;// 10:ToRadians 88960
+    Func[Single, Matrix] _3Pass-through: function1;// 0:Pass-through: function1 88459
+    IArray[Matrix] _4Map;// 4:SampleLerp->3:Map 88460
+    Matrix _5ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 88985
+    Matrix _6InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 88986
+    Matrix _7Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 88984
+    Vector3 _8GetMatrixTranslation;// 25:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 88981
+    IArray[TriMesh] _9Map;// 21:Map 88453
+    TriMesh _10CombineAllMeshes;// 12:CombineAllMeshes 88452
+    _0RangeInclusiveFloat = RangeInclusiveFloat(count);
+    _1ToRadians = ToRadians(start angle);
+    _2ToRadians = ToRadians(end angle);
+    _3Pass-through: function1 = (Single x0) => 
+      {
+        Vector3 _0YAxis;// 11:SplineTransformOnCurve-ext->15:YAxis 88472
+        Spline _1SplineFromNode;// 3:LerpTangentOnCurve->4:SplineFromNode 88946
+        IArray[Spline] _2SplineElements;// 3:LerpTangentOnCurve->9:SplineElements 88945
+        Int32 _3Zero;// 3:LerpTangentOnCurve->15:Zero 88947
+        Spline _4At;// 3:LerpTangentOnCurve->16:At 88944
+        Single _5Constant;// 3:SplineInterpolateTangent->0:Constant 88711
+        Single _6Add;// 3:SplineInterpolateTangent->5:Add 88710
+        Single _7IgnoreFirst;// 1:SplineInterpolate->5:IgnoreFirst 88482
+        IArray[Int32] _8SplineSegmentIndices;// 1:IsSplineClosed->1:SplineSegmentIndices 88495
+        Int32 _9Zero;// 2:First->2:Zero 88494
+        Int32 _10At;// 2:First->0:At 88493
+        Int32 _11Count;// 3:LastIndex->2:Count 88502
+        Int32 _12One;// 3:MinusOne->2:One 88501
+        Int32 _13Subtract;// 3:MinusOne->1:Subtract 88500
+        Int32 _14At;// 3:Last->0:At 88497
+        Boolean _15Equal;// 1:IsSplineClosed->4:Equal 88491
+        Boolean _16Not;// 32:SplineBranchOnBoundaryConditions->21:Not 88489
+        IArray[Int32] _17SplineSegmentTypes;// 11:SplineSegmentType->3:SplineSegmentTypes 88576
+        Single _18FloorAsFloat;// 12:ScaleFloatFromZeroToOne->2:FloorAsFloat 88697
+        Single _19Subtract;// 12:ScaleFloatFromZeroToOne->1:Subtract 88696
+        Single _20FloatZero;// 4:GreaterThanOrEqualToZero->1:FloatZero 88695
+        Boolean _21GreaterThanOrEqual;// 4:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 88694
+        Int32 _25SplineSegmentCount;// 1:SplineInterpolate->14:SplineSegmentCount 88704
+        Single _26IntAsFloat;// 1:SplineInterpolate->4:IntAsFloat 88703
+        Single _27Multiply;// 1:SplineInterpolate->3:Multiply 88687
+        Int32 _28Floor;// 1:SplineInterpolate->11:Floor 88686
+        Int32 _29Zero;// 7:ClampIntMax->1:Zero 88685
+        Int32 _30One;// 9:MinusOne->2:One 88707
+        Int32 _31Subtract;// 9:MinusOne->1:Subtract 88706
+        Int32 _32ClampInt;// 7:ClampIntMax->0:ClampInt 88684
+        Int32 _33At;// 11:SplineSegmentType->4:At 88575
+        Int32 _34Zero;// 2:SplineSegmentInterpolate->13:Zero 88577
+        Boolean _35Equal;// 2:SplineSegmentInterpolate->12:Equal 88572
+        IArray[Vector3] _36SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88586
+        IArray[Int32] _37SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88588
+        Int32 _38Two;// 7:SplineSegmentKnotA->9:Two 88590
+        Int32 _39Multiply;// 7:SplineSegmentKnotA->8:Multiply 88589
+        Int32 _40At;// 7:SplineSegmentKnotA->2:At 88587
+        Vector3 _41At;// 7:SplineSegmentKnotA->5:At 88585
+        IArray[Vector3] _42SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88594
+        IArray[Int32] _43SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88596
+        Int32 _44Two;// 0:SplineSegmentKnotB->9:Two 88599
+        Int32 _45Multiply;// 0:SplineSegmentKnotB->8:Multiply 88598
+        Int32 _46One;// 0:SplineSegmentKnotB->12:One 88600
+        Int32 _47Add;// 0:SplineSegmentKnotB->11:Add 88597
+        Int32 _48At;// 0:SplineSegmentKnotB->2:At 88595
+        Vector3 _49At;// 0:SplineSegmentKnotB->5:At 88593
+        Line _50Line;// 4:SplineSegmentKnots->9:Line 88582
+        Vector3 _51LineA;// 2:SplineSegmentInterpolate->8:LineA 88579
+        Single _55Constant;// 5:OneMinus->0:Constant 88700
+        Single _56Abs;// 12:ScaleFloatFromZeroToOne->4:Abs 88701
+        Single _57Subtract;// 5:OneMinus->2:Subtract 88699
+        Vector3 _58LineB;// 2:SplineSegmentInterpolate->7:LineB 88601
+        Single _59IntAsFloat;// 1:SplineInterpolate->8:IntAsFloat 88709
+        Single _60Subtract;// 1:SplineInterpolate->13:Subtract 88708
+        Vector3 _110Pass-through: any;// 0:Pass-through: any 88487
+        IArray[Vector3] _160SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88621
+        IArray[Int32] _161SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88623
+        Int32 _162Two;// 7:SplineSegmentKnotA->9:Two 88625
+        Int32 _163Multiply;// 7:SplineSegmentKnotA->8:Multiply 88624
+        Int32 _164At;// 7:SplineSegmentKnotA->2:At 88622
+        Vector3 _165At;// 7:SplineSegmentKnotA->5:At 88620
+        IArray[Vector3] _166SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88629
+        IArray[Int32] _167SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88631
+        Int32 _168Two;// 0:SplineSegmentKnotB->9:Two 88634
+        Int32 _169Multiply;// 0:SplineSegmentKnotB->8:Multiply 88633
+        Int32 _170One;// 0:SplineSegmentKnotB->12:One 88635
+        Int32 _171Add;// 0:SplineSegmentKnotB->11:Add 88632
+        Int32 _172At;// 0:SplineSegmentKnotB->2:At 88630
+        Vector3 _173At;// 0:SplineSegmentKnotB->5:At 88628
+        Line _174Line;// 0:SplineSegmentKnots->9:Line 88617
+        IArray[Vector3] _175SplineTangentsBuffer;// 0:SplineSegmentTangentA->4:SplineTangentsBuffer 88652
+        Int32 _176Count;// 7:IfArrayNonEmpty->3:Count 88651
+        Int32 _177Zero;// 4:GreaterThanZero->1:Zero 88650
+        Boolean _178GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88649
+        IArray[Vector3] _185SplineTangentsBuffer;// 1:SplineSegmentTangentB->18:SplineTangentsBuffer 88672
+        Int32 _186Count;// 17:IfArrayNonEmpty->3:Count 88671
+        Int32 _187Zero;// 4:GreaterThanZero->1:Zero 88670
+        Boolean _188GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88669
+        Line _197Line;// 3:SplineSegmentTangents->14:Line 88638
+        IArray[Int32] _204SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88655
+        Int32 _205Two;// 0:SplineSegmentTangentA->9:Two 88657
+        Int32 _206Multiply;// 0:SplineSegmentTangentA->8:Multiply 88656
+        Int32 _207At;// 0:SplineSegmentTangentA->2:At 88654
+        Vector3 _208At;// 0:SplineSegmentTangentA->1:At 88653
+        Vector3 _209Constant;// 0:SplineSegmentTangentA->0:Constant 88658
+        IArray[Int32] _218SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88675
+        Int32 _219Two;// 1:SplineSegmentTangentB->9:Two 88678
+        Int32 _220Multiply;// 1:SplineSegmentTangentB->8:Multiply 88677
+        Int32 _221One;// 1:SplineSegmentTangentB->7:One 88679
+        Int32 _222Add;// 1:SplineSegmentTangentB->4:Add 88676
+        Int32 _223At;// 1:SplineSegmentTangentB->2:At 88674
+        Vector3 _224At;// 1:SplineSegmentTangentB->15:At 88673
+        Vector3 _225Constant;// 1:SplineSegmentTangentB->0:Constant 88680
+        Vector3 _266IgnoreFirst;// 1:SplineInterpolate->18:IgnoreFirst 88481
+        Single _267Subtract;// 3:SplineInterpolateTangent->15:Subtract 88943
+        Single _268IgnoreFirst;// 18:SplineInterpolate->5:IgnoreFirst 88715
+        IArray[Int32] _269SplineSegmentIndices;// 1:IsSplineClosed->1:SplineSegmentIndices 88728
+        Int32 _270Zero;// 2:First->2:Zero 88727
+        Int32 _271At;// 2:First->0:At 88726
+        Int32 _272Count;// 3:LastIndex->2:Count 88735
+        Int32 _273One;// 3:MinusOne->2:One 88734
+        Int32 _274Subtract;// 3:MinusOne->1:Subtract 88733
+        Int32 _275At;// 3:Last->0:At 88730
+        Boolean _276Equal;// 1:IsSplineClosed->4:Equal 88724
+        Boolean _277Not;// 32:SplineBranchOnBoundaryConditions->21:Not 88722
+        IArray[Int32] _278SplineSegmentTypes;// 11:SplineSegmentType->3:SplineSegmentTypes 88809
+        Single _279FloorAsFloat;// 12:ScaleFloatFromZeroToOne->2:FloorAsFloat 88930
+        Single _280Subtract;// 12:ScaleFloatFromZeroToOne->1:Subtract 88929
+        Single _281FloatZero;// 4:GreaterThanOrEqualToZero->1:FloatZero 88928
+        Boolean _282GreaterThanOrEqual;// 4:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 88927
+        Int32 _286SplineSegmentCount;// 18:SplineInterpolate->14:SplineSegmentCount 88937
+        Single _287IntAsFloat;// 18:SplineInterpolate->4:IntAsFloat 88936
+        Single _288Multiply;// 18:SplineInterpolate->3:Multiply 88920
+        Int32 _289Floor;// 18:SplineInterpolate->11:Floor 88919
+        Int32 _290Zero;// 7:ClampIntMax->1:Zero 88918
+        Int32 _291One;// 9:MinusOne->2:One 88940
+        Int32 _292Subtract;// 9:MinusOne->1:Subtract 88939
+        Int32 _293ClampInt;// 7:ClampIntMax->0:ClampInt 88917
+        Int32 _294At;// 11:SplineSegmentType->4:At 88808
+        Int32 _295Zero;// 2:SplineSegmentInterpolate->13:Zero 88810
+        Boolean _296Equal;// 2:SplineSegmentInterpolate->12:Equal 88805
+        IArray[Vector3] _297SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88819
+        IArray[Int32] _298SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88821
+        Int32 _299Two;// 7:SplineSegmentKnotA->9:Two 88823
+        Int32 _300Multiply;// 7:SplineSegmentKnotA->8:Multiply 88822
+        Int32 _301At;// 7:SplineSegmentKnotA->2:At 88820
+        Vector3 _302At;// 7:SplineSegmentKnotA->5:At 88818
+        IArray[Vector3] _303SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88827
+        IArray[Int32] _304SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88829
+        Int32 _305Two;// 0:SplineSegmentKnotB->9:Two 88832
+        Int32 _306Multiply;// 0:SplineSegmentKnotB->8:Multiply 88831
+        Int32 _307One;// 0:SplineSegmentKnotB->12:One 88833
+        Int32 _308Add;// 0:SplineSegmentKnotB->11:Add 88830
+        Int32 _309At;// 0:SplineSegmentKnotB->2:At 88828
+        Vector3 _310At;// 0:SplineSegmentKnotB->5:At 88826
+        Line _311Line;// 4:SplineSegmentKnots->9:Line 88815
+        Vector3 _312LineA;// 2:SplineSegmentInterpolate->8:LineA 88812
+        Single _316Constant;// 5:OneMinus->0:Constant 88933
+        Single _317Abs;// 12:ScaleFloatFromZeroToOne->4:Abs 88934
+        Single _318Subtract;// 5:OneMinus->2:Subtract 88932
+        Vector3 _319LineB;// 2:SplineSegmentInterpolate->7:LineB 88834
+        Single _320IntAsFloat;// 18:SplineInterpolate->8:IntAsFloat 88942
+        Single _321Subtract;// 18:SplineInterpolate->13:Subtract 88941
+        Vector3 _371Pass-through: any;// 0:Pass-through: any 88720
+        IArray[Vector3] _421SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88854
+        IArray[Int32] _422SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88856
+        Int32 _423Two;// 7:SplineSegmentKnotA->9:Two 88858
+        Int32 _424Multiply;// 7:SplineSegmentKnotA->8:Multiply 88857
+        Int32 _425At;// 7:SplineSegmentKnotA->2:At 88855
+        Vector3 _426At;// 7:SplineSegmentKnotA->5:At 88853
+        IArray[Vector3] _427SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88862
+        IArray[Int32] _428SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88864
+        Int32 _429Two;// 0:SplineSegmentKnotB->9:Two 88867
+        Int32 _430Multiply;// 0:SplineSegmentKnotB->8:Multiply 88866
+        Int32 _431One;// 0:SplineSegmentKnotB->12:One 88868
+        Int32 _432Add;// 0:SplineSegmentKnotB->11:Add 88865
+        Int32 _433At;// 0:SplineSegmentKnotB->2:At 88863
+        Vector3 _434At;// 0:SplineSegmentKnotB->5:At 88861
+        Line _435Line;// 0:SplineSegmentKnots->9:Line 88850
+        IArray[Vector3] _436SplineTangentsBuffer;// 0:SplineSegmentTangentA->4:SplineTangentsBuffer 88885
+        Int32 _437Count;// 7:IfArrayNonEmpty->3:Count 88884
+        Int32 _438Zero;// 4:GreaterThanZero->1:Zero 88883
+        Boolean _439GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88882
+        IArray[Vector3] _446SplineTangentsBuffer;// 1:SplineSegmentTangentB->18:SplineTangentsBuffer 88905
+        Int32 _447Count;// 17:IfArrayNonEmpty->3:Count 88904
+        Int32 _448Zero;// 4:GreaterThanZero->1:Zero 88903
+        Boolean _449GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88902
+        Line _458Line;// 3:SplineSegmentTangents->14:Line 88871
+        IArray[Int32] _465SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88888
+        Int32 _466Two;// 0:SplineSegmentTangentA->9:Two 88890
+        Int32 _467Multiply;// 0:SplineSegmentTangentA->8:Multiply 88889
+        Int32 _468At;// 0:SplineSegmentTangentA->2:At 88887
+        Vector3 _469At;// 0:SplineSegmentTangentA->1:At 88886
+        Vector3 _470Constant;// 0:SplineSegmentTangentA->0:Constant 88891
+        IArray[Int32] _479SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88908
+        Int32 _480Two;// 1:SplineSegmentTangentB->9:Two 88911
+        Int32 _481Multiply;// 1:SplineSegmentTangentB->8:Multiply 88910
+        Int32 _482One;// 1:SplineSegmentTangentB->7:One 88912
+        Int32 _483Add;// 1:SplineSegmentTangentB->4:Add 88909
+        Int32 _484At;// 1:SplineSegmentTangentB->2:At 88907
+        Vector3 _485At;// 1:SplineSegmentTangentB->15:At 88906
+        Vector3 _486Constant;// 1:SplineSegmentTangentB->0:Constant 88913
+        Vector3 _527IgnoreFirst;// 18:SplineInterpolate->18:IgnoreFirst 88714
+        Vector3 _528Subtract;// 3:SplineInterpolateTangent->16:Subtract 88478
+        Matrix _529ObjectTransform;// 3:LerpTangentOnCurve->6:ObjectTransform 88948
+        Vector3 _530Transform;// 3:LerpTangentOnCurve->5:Transform 88475
+        Vector3 _531Cross;// 11:SplineTransformOnCurve-ext->17:Cross 88471
+        Vector3 _532Normalize;// 11:SplineTransformOnCurve-ext->18:Normalize 88470
+        Single _533AngleOfVectors;// 11:SplineTransformOnCurve-ext->16:AngleOfVectors 88949
+        Quaternion _534QuaternionFromDirectionAngle;// 11:SplineTransformOnCurve-ext->11:QuaternionFromDirectionAngle 88469
+        Matrix _535MatrixFromQuaternion;// 11:SplineTransformOnCurve-ext->22:MatrixFromQuaternion 88468
+        Vector3 _536Normalize;// 11:SplineTransformOnCurve-ext->19:Normalize 88952
+        Single _537FloatLerp;// 11:SplineTransformOnCurve-ext->14:FloatLerp 88953
+        Quaternion _538QuaternionFromDirectionAngle;// 11:SplineTransformOnCurve-ext->0:QuaternionFromDirectionAngle 88951
+        Matrix _539MatrixFromQuaternion;// 11:SplineTransformOnCurve-ext->20:MatrixFromQuaternion 88950
+        Matrix _540Multiply;// 11:SplineTransformOnCurve-ext->21:Multiply 88467
+        ShapeObject _541ShapeFromNode;// 11:SplineTransformOnCurve-ext->10:ShapeFromNode 88955
+        Vector3 _542LerpOnCurve;// 11:SplineTransformOnCurve-ext->24:LerpOnCurve 88954
+        Matrix _543SetMatrixTranslation;// 11:SplineTransformOnCurve-ext->4:SetMatrixTranslation 88466
+        _0YAxis = YAxis();
+        _1SplineFromNode = SplineFromNode(Pick Curve);
+        _2SplineElements = SplineElements(_1SplineFromNode);
+        _3Zero = Zero();
+        _4At = At(_2SplineElements, _3Zero);
+        _5Constant = 0.001;
+        _6Add = Add(x0, _5Constant);
+        _7IgnoreFirst = IgnoreFirst(_4At, _6Add);
+        _8SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _9Zero = Zero();
+        _10At = At(_8SplineSegmentIndices, _9Zero);
+        _11Count = Count(_8SplineSegmentIndices);
+        _12One = One();
+        _13Subtract = Subtract(_11Count, _12One);
+        _14At = At(_8SplineSegmentIndices, _13Subtract);
+        _15Equal = Equal(_10At, _14At);
+        _16Not = Not(_15Equal);
+        _17SplineSegmentTypes = SplineSegmentTypes(_4At);
+        _18FloorAsFloat = FloorAsFloat(_6Add);
+        _19Subtract = Subtract(_6Add, _18FloorAsFloat);
+        _20FloatZero = FloatZero();
+        _21GreaterThanOrEqual = GreaterThanOrEqual(_19Subtract, _20FloatZero);
+        _25SplineSegmentCount = SplineSegmentCount(_4At);
+        _26IntAsFloat = IntAsFloat(_25SplineSegmentCount);
+        _27Multiply = Multiply(if (_21GreaterThanOrEqual)
+            {
+              _19Subtract;
+              }else
+            {
+              Single _22Constant;// 5:OneMinus->0:Constant 88700
+              Single _23Abs;// 12:ScaleFloatFromZeroToOne->4:Abs 88701
+              Single _24Subtract;// 5:OneMinus->2:Subtract 88699
+              _22Constant = 1;
+              _23Abs = Abs(_19Subtract);
+              _24Subtract = Subtract(_22Constant, _23Abs);
+              _24Subtract;
+              }, _26IntAsFloat);
+        _28Floor = Floor(_27Multiply);
+        _29Zero = Zero();
+        _30One = One();
+        _31Subtract = Subtract(_25SplineSegmentCount, _30One);
+        _32ClampInt = ClampInt(_28Floor, _29Zero, _31Subtract);
+        _33At = At(_17SplineSegmentTypes, _32ClampInt);
+        _34Zero = Zero();
+        _35Equal = Equal(_33At, _34Zero);
+        _36SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _37SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _38Two = Two();
+        _39Multiply = Multiply(_32ClampInt, _38Two);
+        _40At = At(_37SplineSegmentIndices, _39Multiply);
+        _41At = At(_36SplineVerticesBuffer, _40At);
+        _42SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _43SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _44Two = Two();
+        _45Multiply = Multiply(_32ClampInt, _44Two);
+        _46One = One();
+        _47Add = Add(_45Multiply, _46One);
+        _48At = At(_43SplineSegmentIndices, _47Add);
+        _49At = At(_42SplineVerticesBuffer, _48At);
+        _50Line = Line(_41At, _49At);
+        _51LineA = LineA(_50Line);
+        _55Constant = 1;
+        _56Abs = Abs(_19Subtract);
+        _57Subtract = Subtract(_55Constant, _56Abs);
+        _58LineB = LineB(_50Line);
+        _59IntAsFloat = IntAsFloat(_28Floor);
+        _60Subtract = Subtract(_27Multiply, _59IntAsFloat);
+        _110Pass-through: any = if (_35Equal)
+          {
+            Vector3 _61Lerp;// 2:SplineSegmentInterpolate->0:Lerp 88578
+            _61Lerp = Lerp(_51LineA, _58LineB, _60Subtract);
+            _61Lerp;
+            }else
+          {
+            IArray[Vector3] _62SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88621
+            IArray[Int32] _63SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88623
+            Int32 _64Two;// 7:SplineSegmentKnotA->9:Two 88625
+            Int32 _65Multiply;// 7:SplineSegmentKnotA->8:Multiply 88624
+            Int32 _66At;// 7:SplineSegmentKnotA->2:At 88622
+            Vector3 _67At;// 7:SplineSegmentKnotA->5:At 88620
+            IArray[Vector3] _68SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88629
+            IArray[Int32] _69SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88631
+            Int32 _70Two;// 0:SplineSegmentKnotB->9:Two 88634
+            Int32 _71Multiply;// 0:SplineSegmentKnotB->8:Multiply 88633
+            Int32 _72One;// 0:SplineSegmentKnotB->12:One 88635
+            Int32 _73Add;// 0:SplineSegmentKnotB->11:Add 88632
+            Int32 _74At;// 0:SplineSegmentKnotB->2:At 88630
+            Vector3 _75At;// 0:SplineSegmentKnotB->5:At 88628
+            Line _76Line;// 0:SplineSegmentKnots->9:Line 88617
+            Vector3 _77LineA;// 6:AddLines->2:LineA 88610
+            IArray[Vector3] _78SplineTangentsBuffer;// 0:SplineSegmentTangentA->4:SplineTangentsBuffer 88652
+            Int32 _79Count;// 7:IfArrayNonEmpty->3:Count 88651
+            Int32 _80Zero;// 4:GreaterThanZero->1:Zero 88650
+            Boolean _81GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88649
+            IArray[Vector3] _88SplineTangentsBuffer;// 1:SplineSegmentTangentB->18:SplineTangentsBuffer 88672
+            Int32 _89Count;// 17:IfArrayNonEmpty->3:Count 88671
+            Int32 _90Zero;// 4:GreaterThanZero->1:Zero 88670
+            Boolean _91GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88669
+            Line _100Line;// 3:SplineSegmentTangents->14:Line 88638
+            Vector3 _101LineA;// 6:AddLines->3:LineA 88611
+            Vector3 _102Add;// 6:AddLines->7:Add 88609
+            Vector3 _103LineB;// 6:AddLines->4:LineB 88613
+            Vector3 _104LineB;// 6:AddLines->5:LineB 88614
+            Vector3 _105Add;// 6:AddLines->8:Add 88612
+            Line _106Line;// 6:AddLines->6:Line 88608
+            Vector3 _107LineA;// 2:SplineSegmentInterpolate->5:LineA 88603
+            Vector3 _108LineB;// 2:SplineSegmentInterpolate->6:LineB 88681
+            Vector3 _109BezierInterpolate;// 2:SplineSegmentInterpolate->9:BezierInterpolate 88602
+            _62SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+            _63SplineSegmentIndices = SplineSegmentIndices(_4At);
+            _64Two = Two();
+            _65Multiply = Multiply(_32ClampInt, _64Two);
+            _66At = At(_63SplineSegmentIndices, _65Multiply);
+            _67At = At(_62SplineVerticesBuffer, _66At);
+            _68SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+            _69SplineSegmentIndices = SplineSegmentIndices(_4At);
+            _70Two = Two();
+            _71Multiply = Multiply(_32ClampInt, _70Two);
+            _72One = One();
+            _73Add = Add(_71Multiply, _72One);
+            _74At = At(_69SplineSegmentIndices, _73Add);
+            _75At = At(_68SplineVerticesBuffer, _74At);
+            _76Line = Line(_67At, _75At);
+            _77LineA = LineA(_76Line);
+            _78SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+            _79Count = Count(_78SplineTangentsBuffer);
+            _80Zero = Zero();
+            _81GreaterThan = GreaterThan(_79Count, _80Zero);
+            _88SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+            _89Count = Count(_88SplineTangentsBuffer);
+            _90Zero = Zero();
+            _91GreaterThan = GreaterThan(_89Count, _90Zero);
+            _100Line = Line(if (_81GreaterThan)
+              {
+                IArray[Int32] _82SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88655
+                Int32 _83Two;// 0:SplineSegmentTangentA->9:Two 88657
+                Int32 _84Multiply;// 0:SplineSegmentTangentA->8:Multiply 88656
+                Int32 _85At;// 0:SplineSegmentTangentA->2:At 88654
+                Vector3 _86At;// 0:SplineSegmentTangentA->1:At 88653
+                _82SplineTangentIndices = SplineTangentIndices(_4At);
+                _83Two = Two();
+                _84Multiply = Multiply(_32ClampInt, _83Two);
+                _85At = At(_82SplineTangentIndices, _84Multiply);
+                _86At = At(_78SplineTangentsBuffer, _85At);
+                _86At;
+                }else
+              {
+                Vector3 _87Constant;// 0:SplineSegmentTangentA->0:Constant 88658
+                _87Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+                _87Constant;
+                }, if (_91GreaterThan)
+              {
+                IArray[Int32] _92SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88675
+                Int32 _93Two;// 1:SplineSegmentTangentB->9:Two 88678
+                Int32 _94Multiply;// 1:SplineSegmentTangentB->8:Multiply 88677
+                Int32 _95One;// 1:SplineSegmentTangentB->7:One 88679
+                Int32 _96Add;// 1:SplineSegmentTangentB->4:Add 88676
+                Int32 _97At;// 1:SplineSegmentTangentB->2:At 88674
+                Vector3 _98At;// 1:SplineSegmentTangentB->15:At 88673
+                _92SplineTangentIndices = SplineTangentIndices(_4At);
+                _93Two = Two();
+                _94Multiply = Multiply(_32ClampInt, _93Two);
+                _95One = One();
+                _96Add = Add(_94Multiply, _95One);
+                _97At = At(_92SplineTangentIndices, _96Add);
+                _98At = At(_88SplineTangentsBuffer, _97At);
+                _98At;
+                }else
+              {
+                Vector3 _99Constant;// 1:SplineSegmentTangentB->0:Constant 88680
+                _99Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+                _99Constant;
+                });
+            _101LineA = LineA(_100Line);
+            _102Add = Add(_77LineA, _101LineA);
+            _103LineB = LineB(_76Line);
+            _104LineB = LineB(_100Line);
+            _105Add = Add(_103LineB, _104LineB);
+            _106Line = Line(_102Add, _105Add);
+            _107LineA = LineA(_106Line);
+            _108LineB = LineB(_106Line);
+            _109BezierInterpolate = BezierInterpolate(_60Subtract, _51LineA, _107LineA, _108LineB, _58LineB);
+            _109BezierInterpolate;
+            };
+        _160SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _161SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _162Two = Two();
+        _163Multiply = Multiply(_32ClampInt, _162Two);
+        _164At = At(_161SplineSegmentIndices, _163Multiply);
+        _165At = At(_160SplineVerticesBuffer, _164At);
+        _166SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _167SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _168Two = Two();
+        _169Multiply = Multiply(_32ClampInt, _168Two);
+        _170One = One();
+        _171Add = Add(_169Multiply, _170One);
+        _172At = At(_167SplineSegmentIndices, _171Add);
+        _173At = At(_166SplineVerticesBuffer, _172At);
+        _174Line = Line(_165At, _173At);
+        _175SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+        _176Count = Count(_175SplineTangentsBuffer);
+        _177Zero = Zero();
+        _178GreaterThan = GreaterThan(_176Count, _177Zero);
+        _185SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+        _186Count = Count(_185SplineTangentsBuffer);
+        _187Zero = Zero();
+        _188GreaterThan = GreaterThan(_186Count, _187Zero);
+        _197Line = Line(if (_178GreaterThan)
+          {
+            IArray[Int32] _179SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88655
+            Int32 _180Two;// 0:SplineSegmentTangentA->9:Two 88657
+            Int32 _181Multiply;// 0:SplineSegmentTangentA->8:Multiply 88656
+            Int32 _182At;// 0:SplineSegmentTangentA->2:At 88654
+            Vector3 _183At;// 0:SplineSegmentTangentA->1:At 88653
+            _179SplineTangentIndices = SplineTangentIndices(_4At);
+            _180Two = Two();
+            _181Multiply = Multiply(_32ClampInt, _180Two);
+            _182At = At(_179SplineTangentIndices, _181Multiply);
+            _183At = At(_175SplineTangentsBuffer, _182At);
+            _183At;
+            }else
+          {
+            Vector3 _184Constant;// 0:SplineSegmentTangentA->0:Constant 88658
+            _184Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+            _184Constant;
+            }, if (_188GreaterThan)
+          {
+            IArray[Int32] _189SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88675
+            Int32 _190Two;// 1:SplineSegmentTangentB->9:Two 88678
+            Int32 _191Multiply;// 1:SplineSegmentTangentB->8:Multiply 88677
+            Int32 _192One;// 1:SplineSegmentTangentB->7:One 88679
+            Int32 _193Add;// 1:SplineSegmentTangentB->4:Add 88676
+            Int32 _194At;// 1:SplineSegmentTangentB->2:At 88674
+            Vector3 _195At;// 1:SplineSegmentTangentB->15:At 88673
+            _189SplineTangentIndices = SplineTangentIndices(_4At);
+            _190Two = Two();
+            _191Multiply = Multiply(_32ClampInt, _190Two);
+            _192One = One();
+            _193Add = Add(_191Multiply, _192One);
+            _194At = At(_189SplineTangentIndices, _193Add);
+            _195At = At(_185SplineTangentsBuffer, _194At);
+            _195At;
+            }else
+          {
+            Vector3 _196Constant;// 1:SplineSegmentTangentB->0:Constant 88680
+            _196Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+            _196Constant;
+            });
+        _204SplineTangentIndices = SplineTangentIndices(_4At);
+        _205Two = Two();
+        _206Multiply = Multiply(_32ClampInt, _205Two);
+        _207At = At(_204SplineTangentIndices, _206Multiply);
+        _208At = At(_175SplineTangentsBuffer, _207At);
+        _209Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+        _218SplineTangentIndices = SplineTangentIndices(_4At);
+        _219Two = Two();
+        _220Multiply = Multiply(_32ClampInt, _219Two);
+        _221One = One();
+        _222Add = Add(_220Multiply, _221One);
+        _223At = At(_218SplineTangentIndices, _222Add);
+        _224At = At(_185SplineTangentsBuffer, _223At);
+        _225Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+        _266IgnoreFirst = IgnoreFirst(_7IgnoreFirst, if (_16Not)
+          {
+            Single _226FloatOne;// 32:SplineBranchOnBoundaryConditions->25:FloatOne 88506
+            Boolean _227GreaterThanOrEqual;// 32:SplineBranchOnBoundaryConditions->24:GreaterThanOrEqual 88504
+            _226FloatOne = FloatOne();
+            _227GreaterThanOrEqual = GreaterThanOrEqual(_6Add, _226FloatOne);
+            if (_227GreaterThanOrEqual)
+              {
+                IArray[Vector3] _228SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88522
+                IArray[Int32] _229SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88524
+                Int32 _230SplineSegmentCount;// 1:SplineInterpolate->40:SplineSegmentCount 88543
+                Int32 _231One;// 42:MinusOne->2:One 88542
+                Int32 _232Subtract;// 42:MinusOne->1:Subtract 88541
+                Int32 _233Two;// 7:SplineSegmentKnotA->9:Two 88526
+                Int32 _234Multiply;// 7:SplineSegmentKnotA->8:Multiply 88525
+                Int32 _235At;// 7:SplineSegmentKnotA->2:At 88523
+                Vector3 _236At;// 7:SplineSegmentKnotA->5:At 88521
+                IArray[Vector3] _237SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88530
+                IArray[Int32] _238SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88532
+                Int32 _239Two;// 0:SplineSegmentKnotB->9:Two 88535
+                Int32 _240Multiply;// 0:SplineSegmentKnotB->8:Multiply 88534
+                Int32 _241One;// 0:SplineSegmentKnotB->12:One 88536
+                Int32 _242Add;// 0:SplineSegmentKnotB->11:Add 88533
+                Int32 _243At;// 0:SplineSegmentKnotB->2:At 88531
+                Vector3 _244At;// 0:SplineSegmentKnotB->5:At 88529
+                Line _245Line;// 38:SplineSegmentKnots->9:Line 88518
+                Vector3 _246LineB;// 1:SplineInterpolate->41:LineB 88515
+                _228SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                _229SplineSegmentIndices = SplineSegmentIndices(_4At);
+                _230SplineSegmentCount = SplineSegmentCount(_4At);
+                _231One = One();
+                _232Subtract = Subtract(_230SplineSegmentCount, _231One);
+                _233Two = Two();
+                _234Multiply = Multiply(_232Subtract, _233Two);
+                _235At = At(_229SplineSegmentIndices, _234Multiply);
+                _236At = At(_228SplineVerticesBuffer, _235At);
+                _237SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                _238SplineSegmentIndices = SplineSegmentIndices(_4At);
+                _239Two = Two();
+                _240Multiply = Multiply(_232Subtract, _239Two);
+                _241One = One();
+                _242Add = Add(_240Multiply, _241One);
+                _243At = At(_238SplineSegmentIndices, _242Add);
+                _244At = At(_237SplineVerticesBuffer, _243At);
+                _245Line = Line(_236At, _244At);
+                _246LineB = LineB(_245Line);
+                _246LineB;
+                }else
+              {
+                Single _247FloatZero;// 32:SplineBranchOnBoundaryConditions->43:FloatZero 88510
+                Boolean _248LessThan;// 32:SplineBranchOnBoundaryConditions->31:LessThan 88508
+                _247FloatZero = FloatZero();
+                _248LessThan = LessThan(_6Add, _247FloatZero);
+                if (_248LessThan)
+                  {
+                    IArray[Vector3] _249SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88551
+                    IArray[Int32] _250SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88553
+                    Int32 _251Zero;// 1:SplineInterpolate->48:Zero 88567
+                    Int32 _252Two;// 7:SplineSegmentKnotA->9:Two 88555
+                    Int32 _253Multiply;// 7:SplineSegmentKnotA->8:Multiply 88554
+                    Int32 _254At;// 7:SplineSegmentKnotA->2:At 88552
+                    Vector3 _255At;// 7:SplineSegmentKnotA->5:At 88550
+                    IArray[Vector3] _256SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88559
+                    IArray[Int32] _257SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88561
+                    Int32 _258Two;// 0:SplineSegmentKnotB->9:Two 88564
+                    Int32 _259Multiply;// 0:SplineSegmentKnotB->8:Multiply 88563
+                    Int32 _260One;// 0:SplineSegmentKnotB->12:One 88565
+                    Int32 _261Add;// 0:SplineSegmentKnotB->11:Add 88562
+                    Int32 _262At;// 0:SplineSegmentKnotB->2:At 88560
+                    Vector3 _263At;// 0:SplineSegmentKnotB->5:At 88558
+                    Line _264Line;// 28:SplineSegmentKnots->9:Line 88547
+                    Vector3 _265LineA;// 1:SplineInterpolate->47:LineA 88544
+                    _249SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                    _250SplineSegmentIndices = SplineSegmentIndices(_4At);
+                    _251Zero = Zero();
+                    _252Two = Two();
+                    _253Multiply = Multiply(_251Zero, _252Two);
+                    _254At = At(_250SplineSegmentIndices, _253Multiply);
+                    _255At = At(_249SplineVerticesBuffer, _254At);
+                    _256SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                    _257SplineSegmentIndices = SplineSegmentIndices(_4At);
+                    _258Two = Two();
+                    _259Multiply = Multiply(_251Zero, _258Two);
+                    _260One = One();
+                    _261Add = Add(_259Multiply, _260One);
+                    _262At = At(_257SplineSegmentIndices, _261Add);
+                    _263At = At(_256SplineVerticesBuffer, _262At);
+                    _264Line = Line(_255At, _263At);
+                    _265LineA = LineA(_264Line);
+                    _265LineA;
+                    }else
+                  {
+                    _110Pass-through: any;
+                    };
+                };
+            }else
+          {
+            _110Pass-through: any;
+            });
+        _267Subtract = Subtract(x0, _5Constant);
+        _268IgnoreFirst = IgnoreFirst(_4At, _267Subtract);
+        _269SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _270Zero = Zero();
+        _271At = At(_269SplineSegmentIndices, _270Zero);
+        _272Count = Count(_269SplineSegmentIndices);
+        _273One = One();
+        _274Subtract = Subtract(_272Count, _273One);
+        _275At = At(_269SplineSegmentIndices, _274Subtract);
+        _276Equal = Equal(_271At, _275At);
+        _277Not = Not(_276Equal);
+        _278SplineSegmentTypes = SplineSegmentTypes(_4At);
+        _279FloorAsFloat = FloorAsFloat(_267Subtract);
+        _280Subtract = Subtract(_267Subtract, _279FloorAsFloat);
+        _281FloatZero = FloatZero();
+        _282GreaterThanOrEqual = GreaterThanOrEqual(_280Subtract, _281FloatZero);
+        _286SplineSegmentCount = SplineSegmentCount(_4At);
+        _287IntAsFloat = IntAsFloat(_286SplineSegmentCount);
+        _288Multiply = Multiply(if (_282GreaterThanOrEqual)
+            {
+              _280Subtract;
+              }else
+            {
+              Single _283Constant;// 5:OneMinus->0:Constant 88933
+              Single _284Abs;// 12:ScaleFloatFromZeroToOne->4:Abs 88934
+              Single _285Subtract;// 5:OneMinus->2:Subtract 88932
+              _283Constant = 1;
+              _284Abs = Abs(_280Subtract);
+              _285Subtract = Subtract(_283Constant, _284Abs);
+              _285Subtract;
+              }, _287IntAsFloat);
+        _289Floor = Floor(_288Multiply);
+        _290Zero = Zero();
+        _291One = One();
+        _292Subtract = Subtract(_286SplineSegmentCount, _291One);
+        _293ClampInt = ClampInt(_289Floor, _290Zero, _292Subtract);
+        _294At = At(_278SplineSegmentTypes, _293ClampInt);
+        _295Zero = Zero();
+        _296Equal = Equal(_294At, _295Zero);
+        _297SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _298SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _299Two = Two();
+        _300Multiply = Multiply(_293ClampInt, _299Two);
+        _301At = At(_298SplineSegmentIndices, _300Multiply);
+        _302At = At(_297SplineVerticesBuffer, _301At);
+        _303SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _304SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _305Two = Two();
+        _306Multiply = Multiply(_293ClampInt, _305Two);
+        _307One = One();
+        _308Add = Add(_306Multiply, _307One);
+        _309At = At(_304SplineSegmentIndices, _308Add);
+        _310At = At(_303SplineVerticesBuffer, _309At);
+        _311Line = Line(_302At, _310At);
+        _312LineA = LineA(_311Line);
+        _316Constant = 1;
+        _317Abs = Abs(_280Subtract);
+        _318Subtract = Subtract(_316Constant, _317Abs);
+        _319LineB = LineB(_311Line);
+        _320IntAsFloat = IntAsFloat(_289Floor);
+        _321Subtract = Subtract(_288Multiply, _320IntAsFloat);
+        _371Pass-through: any = if (_296Equal)
+          {
+            Vector3 _322Lerp;// 2:SplineSegmentInterpolate->0:Lerp 88811
+            _322Lerp = Lerp(_312LineA, _319LineB, _321Subtract);
+            _322Lerp;
+            }else
+          {
+            IArray[Vector3] _323SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88854
+            IArray[Int32] _324SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88856
+            Int32 _325Two;// 7:SplineSegmentKnotA->9:Two 88858
+            Int32 _326Multiply;// 7:SplineSegmentKnotA->8:Multiply 88857
+            Int32 _327At;// 7:SplineSegmentKnotA->2:At 88855
+            Vector3 _328At;// 7:SplineSegmentKnotA->5:At 88853
+            IArray[Vector3] _329SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88862
+            IArray[Int32] _330SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88864
+            Int32 _331Two;// 0:SplineSegmentKnotB->9:Two 88867
+            Int32 _332Multiply;// 0:SplineSegmentKnotB->8:Multiply 88866
+            Int32 _333One;// 0:SplineSegmentKnotB->12:One 88868
+            Int32 _334Add;// 0:SplineSegmentKnotB->11:Add 88865
+            Int32 _335At;// 0:SplineSegmentKnotB->2:At 88863
+            Vector3 _336At;// 0:SplineSegmentKnotB->5:At 88861
+            Line _337Line;// 0:SplineSegmentKnots->9:Line 88850
+            Vector3 _338LineA;// 6:AddLines->2:LineA 88843
+            IArray[Vector3] _339SplineTangentsBuffer;// 0:SplineSegmentTangentA->4:SplineTangentsBuffer 88885
+            Int32 _340Count;// 7:IfArrayNonEmpty->3:Count 88884
+            Int32 _341Zero;// 4:GreaterThanZero->1:Zero 88883
+            Boolean _342GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88882
+            IArray[Vector3] _349SplineTangentsBuffer;// 1:SplineSegmentTangentB->18:SplineTangentsBuffer 88905
+            Int32 _350Count;// 17:IfArrayNonEmpty->3:Count 88904
+            Int32 _351Zero;// 4:GreaterThanZero->1:Zero 88903
+            Boolean _352GreaterThan;// 4:GreaterThanZero->3:GreaterThan 88902
+            Line _361Line;// 3:SplineSegmentTangents->14:Line 88871
+            Vector3 _362LineA;// 6:AddLines->3:LineA 88844
+            Vector3 _363Add;// 6:AddLines->7:Add 88842
+            Vector3 _364LineB;// 6:AddLines->4:LineB 88846
+            Vector3 _365LineB;// 6:AddLines->5:LineB 88847
+            Vector3 _366Add;// 6:AddLines->8:Add 88845
+            Line _367Line;// 6:AddLines->6:Line 88841
+            Vector3 _368LineA;// 2:SplineSegmentInterpolate->5:LineA 88836
+            Vector3 _369LineB;// 2:SplineSegmentInterpolate->6:LineB 88914
+            Vector3 _370BezierInterpolate;// 2:SplineSegmentInterpolate->9:BezierInterpolate 88835
+            _323SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+            _324SplineSegmentIndices = SplineSegmentIndices(_4At);
+            _325Two = Two();
+            _326Multiply = Multiply(_293ClampInt, _325Two);
+            _327At = At(_324SplineSegmentIndices, _326Multiply);
+            _328At = At(_323SplineVerticesBuffer, _327At);
+            _329SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+            _330SplineSegmentIndices = SplineSegmentIndices(_4At);
+            _331Two = Two();
+            _332Multiply = Multiply(_293ClampInt, _331Two);
+            _333One = One();
+            _334Add = Add(_332Multiply, _333One);
+            _335At = At(_330SplineSegmentIndices, _334Add);
+            _336At = At(_329SplineVerticesBuffer, _335At);
+            _337Line = Line(_328At, _336At);
+            _338LineA = LineA(_337Line);
+            _339SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+            _340Count = Count(_339SplineTangentsBuffer);
+            _341Zero = Zero();
+            _342GreaterThan = GreaterThan(_340Count, _341Zero);
+            _349SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+            _350Count = Count(_349SplineTangentsBuffer);
+            _351Zero = Zero();
+            _352GreaterThan = GreaterThan(_350Count, _351Zero);
+            _361Line = Line(if (_342GreaterThan)
+              {
+                IArray[Int32] _343SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88888
+                Int32 _344Two;// 0:SplineSegmentTangentA->9:Two 88890
+                Int32 _345Multiply;// 0:SplineSegmentTangentA->8:Multiply 88889
+                Int32 _346At;// 0:SplineSegmentTangentA->2:At 88887
+                Vector3 _347At;// 0:SplineSegmentTangentA->1:At 88886
+                _343SplineTangentIndices = SplineTangentIndices(_4At);
+                _344Two = Two();
+                _345Multiply = Multiply(_293ClampInt, _344Two);
+                _346At = At(_343SplineTangentIndices, _345Multiply);
+                _347At = At(_339SplineTangentsBuffer, _346At);
+                _347At;
+                }else
+              {
+                Vector3 _348Constant;// 0:SplineSegmentTangentA->0:Constant 88891
+                _348Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+                _348Constant;
+                }, if (_352GreaterThan)
+              {
+                IArray[Int32] _353SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88908
+                Int32 _354Two;// 1:SplineSegmentTangentB->9:Two 88911
+                Int32 _355Multiply;// 1:SplineSegmentTangentB->8:Multiply 88910
+                Int32 _356One;// 1:SplineSegmentTangentB->7:One 88912
+                Int32 _357Add;// 1:SplineSegmentTangentB->4:Add 88909
+                Int32 _358At;// 1:SplineSegmentTangentB->2:At 88907
+                Vector3 _359At;// 1:SplineSegmentTangentB->15:At 88906
+                _353SplineTangentIndices = SplineTangentIndices(_4At);
+                _354Two = Two();
+                _355Multiply = Multiply(_293ClampInt, _354Two);
+                _356One = One();
+                _357Add = Add(_355Multiply, _356One);
+                _358At = At(_353SplineTangentIndices, _357Add);
+                _359At = At(_349SplineTangentsBuffer, _358At);
+                _359At;
+                }else
+              {
+                Vector3 _360Constant;// 1:SplineSegmentTangentB->0:Constant 88913
+                _360Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+                _360Constant;
+                });
+            _362LineA = LineA(_361Line);
+            _363Add = Add(_338LineA, _362LineA);
+            _364LineB = LineB(_337Line);
+            _365LineB = LineB(_361Line);
+            _366Add = Add(_364LineB, _365LineB);
+            _367Line = Line(_363Add, _366Add);
+            _368LineA = LineA(_367Line);
+            _369LineB = LineB(_367Line);
+            _370BezierInterpolate = BezierInterpolate(_321Subtract, _312LineA, _368LineA, _369LineB, _319LineB);
+            _370BezierInterpolate;
+            };
+        _421SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _422SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _423Two = Two();
+        _424Multiply = Multiply(_293ClampInt, _423Two);
+        _425At = At(_422SplineSegmentIndices, _424Multiply);
+        _426At = At(_421SplineVerticesBuffer, _425At);
+        _427SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+        _428SplineSegmentIndices = SplineSegmentIndices(_4At);
+        _429Two = Two();
+        _430Multiply = Multiply(_293ClampInt, _429Two);
+        _431One = One();
+        _432Add = Add(_430Multiply, _431One);
+        _433At = At(_428SplineSegmentIndices, _432Add);
+        _434At = At(_427SplineVerticesBuffer, _433At);
+        _435Line = Line(_426At, _434At);
+        _436SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+        _437Count = Count(_436SplineTangentsBuffer);
+        _438Zero = Zero();
+        _439GreaterThan = GreaterThan(_437Count, _438Zero);
+        _446SplineTangentsBuffer = SplineTangentsBuffer(_4At);
+        _447Count = Count(_446SplineTangentsBuffer);
+        _448Zero = Zero();
+        _449GreaterThan = GreaterThan(_447Count, _448Zero);
+        _458Line = Line(if (_439GreaterThan)
+          {
+            IArray[Int32] _440SplineTangentIndices;// 0:SplineSegmentTangentA->5:SplineTangentIndices 88888
+            Int32 _441Two;// 0:SplineSegmentTangentA->9:Two 88890
+            Int32 _442Multiply;// 0:SplineSegmentTangentA->8:Multiply 88889
+            Int32 _443At;// 0:SplineSegmentTangentA->2:At 88887
+            Vector3 _444At;// 0:SplineSegmentTangentA->1:At 88886
+            _440SplineTangentIndices = SplineTangentIndices(_4At);
+            _441Two = Two();
+            _442Multiply = Multiply(_293ClampInt, _441Two);
+            _443At = At(_440SplineTangentIndices, _442Multiply);
+            _444At = At(_436SplineTangentsBuffer, _443At);
+            _444At;
+            }else
+          {
+            Vector3 _445Constant;// 0:SplineSegmentTangentA->0:Constant 88891
+            _445Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+            _445Constant;
+            }, if (_449GreaterThan)
+          {
+            IArray[Int32] _450SplineTangentIndices;// 1:SplineSegmentTangentB->5:SplineTangentIndices 88908
+            Int32 _451Two;// 1:SplineSegmentTangentB->9:Two 88911
+            Int32 _452Multiply;// 1:SplineSegmentTangentB->8:Multiply 88910
+            Int32 _453One;// 1:SplineSegmentTangentB->7:One 88912
+            Int32 _454Add;// 1:SplineSegmentTangentB->4:Add 88909
+            Int32 _455At;// 1:SplineSegmentTangentB->2:At 88907
+            Vector3 _456At;// 1:SplineSegmentTangentB->15:At 88906
+            _450SplineTangentIndices = SplineTangentIndices(_4At);
+            _451Two = Two();
+            _452Multiply = Multiply(_293ClampInt, _451Two);
+            _453One = One();
+            _454Add = Add(_452Multiply, _453One);
+            _455At = At(_450SplineTangentIndices, _454Add);
+            _456At = At(_446SplineTangentsBuffer, _455At);
+            _456At;
+            }else
+          {
+            Vector3 _457Constant;// 1:SplineSegmentTangentB->0:Constant 88913
+            _457Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+            _457Constant;
+            });
+        _465SplineTangentIndices = SplineTangentIndices(_4At);
+        _466Two = Two();
+        _467Multiply = Multiply(_293ClampInt, _466Two);
+        _468At = At(_465SplineTangentIndices, _467Multiply);
+        _469At = At(_436SplineTangentsBuffer, _468At);
+        _470Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+        _479SplineTangentIndices = SplineTangentIndices(_4At);
+        _480Two = Two();
+        _481Multiply = Multiply(_293ClampInt, _480Two);
+        _482One = One();
+        _483Add = Add(_481Multiply, _482One);
+        _484At = At(_479SplineTangentIndices, _483Add);
+        _485At = At(_446SplineTangentsBuffer, _484At);
+        _486Constant = new Microsoft.Xna.Framework.Vector3(0, 0, 0);
+        _527IgnoreFirst = IgnoreFirst(_268IgnoreFirst, if (_277Not)
+          {
+            Single _487FloatOne;// 32:SplineBranchOnBoundaryConditions->25:FloatOne 88739
+            Boolean _488GreaterThanOrEqual;// 32:SplineBranchOnBoundaryConditions->24:GreaterThanOrEqual 88737
+            _487FloatOne = FloatOne();
+            _488GreaterThanOrEqual = GreaterThanOrEqual(_267Subtract, _487FloatOne);
+            if (_488GreaterThanOrEqual)
+              {
+                IArray[Vector3] _489SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88755
+                IArray[Int32] _490SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88757
+                Int32 _491SplineSegmentCount;// 18:SplineInterpolate->40:SplineSegmentCount 88776
+                Int32 _492One;// 42:MinusOne->2:One 88775
+                Int32 _493Subtract;// 42:MinusOne->1:Subtract 88774
+                Int32 _494Two;// 7:SplineSegmentKnotA->9:Two 88759
+                Int32 _495Multiply;// 7:SplineSegmentKnotA->8:Multiply 88758
+                Int32 _496At;// 7:SplineSegmentKnotA->2:At 88756
+                Vector3 _497At;// 7:SplineSegmentKnotA->5:At 88754
+                IArray[Vector3] _498SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88763
+                IArray[Int32] _499SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88765
+                Int32 _500Two;// 0:SplineSegmentKnotB->9:Two 88768
+                Int32 _501Multiply;// 0:SplineSegmentKnotB->8:Multiply 88767
+                Int32 _502One;// 0:SplineSegmentKnotB->12:One 88769
+                Int32 _503Add;// 0:SplineSegmentKnotB->11:Add 88766
+                Int32 _504At;// 0:SplineSegmentKnotB->2:At 88764
+                Vector3 _505At;// 0:SplineSegmentKnotB->5:At 88762
+                Line _506Line;// 38:SplineSegmentKnots->9:Line 88751
+                Vector3 _507LineB;// 18:SplineInterpolate->41:LineB 88748
+                _489SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                _490SplineSegmentIndices = SplineSegmentIndices(_4At);
+                _491SplineSegmentCount = SplineSegmentCount(_4At);
+                _492One = One();
+                _493Subtract = Subtract(_491SplineSegmentCount, _492One);
+                _494Two = Two();
+                _495Multiply = Multiply(_493Subtract, _494Two);
+                _496At = At(_490SplineSegmentIndices, _495Multiply);
+                _497At = At(_489SplineVerticesBuffer, _496At);
+                _498SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                _499SplineSegmentIndices = SplineSegmentIndices(_4At);
+                _500Two = Two();
+                _501Multiply = Multiply(_493Subtract, _500Two);
+                _502One = One();
+                _503Add = Add(_501Multiply, _502One);
+                _504At = At(_499SplineSegmentIndices, _503Add);
+                _505At = At(_498SplineVerticesBuffer, _504At);
+                _506Line = Line(_497At, _505At);
+                _507LineB = LineB(_506Line);
+                _507LineB;
+                }else
+              {
+                Single _508FloatZero;// 32:SplineBranchOnBoundaryConditions->43:FloatZero 88743
+                Boolean _509LessThan;// 32:SplineBranchOnBoundaryConditions->31:LessThan 88741
+                _508FloatZero = FloatZero();
+                _509LessThan = LessThan(_267Subtract, _508FloatZero);
+                if (_509LessThan)
+                  {
+                    IArray[Vector3] _510SplineVerticesBuffer;// 7:SplineSegmentKnotA->4:SplineVerticesBuffer 88784
+                    IArray[Int32] _511SplineSegmentIndices;// 7:SplineSegmentKnotA->1:SplineSegmentIndices 88786
+                    Int32 _512Zero;// 18:SplineInterpolate->48:Zero 88800
+                    Int32 _513Two;// 7:SplineSegmentKnotA->9:Two 88788
+                    Int32 _514Multiply;// 7:SplineSegmentKnotA->8:Multiply 88787
+                    Int32 _515At;// 7:SplineSegmentKnotA->2:At 88785
+                    Vector3 _516At;// 7:SplineSegmentKnotA->5:At 88783
+                    IArray[Vector3] _517SplineVerticesBuffer;// 0:SplineSegmentKnotB->4:SplineVerticesBuffer 88792
+                    IArray[Int32] _518SplineSegmentIndices;// 0:SplineSegmentKnotB->1:SplineSegmentIndices 88794
+                    Int32 _519Two;// 0:SplineSegmentKnotB->9:Two 88797
+                    Int32 _520Multiply;// 0:SplineSegmentKnotB->8:Multiply 88796
+                    Int32 _521One;// 0:SplineSegmentKnotB->12:One 88798
+                    Int32 _522Add;// 0:SplineSegmentKnotB->11:Add 88795
+                    Int32 _523At;// 0:SplineSegmentKnotB->2:At 88793
+                    Vector3 _524At;// 0:SplineSegmentKnotB->5:At 88791
+                    Line _525Line;// 28:SplineSegmentKnots->9:Line 88780
+                    Vector3 _526LineA;// 18:SplineInterpolate->47:LineA 88777
+                    _510SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                    _511SplineSegmentIndices = SplineSegmentIndices(_4At);
+                    _512Zero = Zero();
+                    _513Two = Two();
+                    _514Multiply = Multiply(_512Zero, _513Two);
+                    _515At = At(_511SplineSegmentIndices, _514Multiply);
+                    _516At = At(_510SplineVerticesBuffer, _515At);
+                    _517SplineVerticesBuffer = SplineVerticesBuffer(_4At);
+                    _518SplineSegmentIndices = SplineSegmentIndices(_4At);
+                    _519Two = Two();
+                    _520Multiply = Multiply(_512Zero, _519Two);
+                    _521One = One();
+                    _522Add = Add(_520Multiply, _521One);
+                    _523At = At(_518SplineSegmentIndices, _522Add);
+                    _524At = At(_517SplineVerticesBuffer, _523At);
+                    _525Line = Line(_516At, _524At);
+                    _526LineA = LineA(_525Line);
+                    _526LineA;
+                    }else
+                  {
+                    _371Pass-through: any;
+                    };
+                };
+            }else
+          {
+            _371Pass-through: any;
+            });
+        _528Subtract = Subtract(_266IgnoreFirst, _527IgnoreFirst);
+        _529ObjectTransform = ObjectTransform(Pick Curve);
+        _530Transform = Transform(_528Subtract, _529ObjectTransform);
+        _531Cross = Cross(_0YAxis, _530Transform);
+        _532Normalize = Normalize(_531Cross);
+        _533AngleOfVectors = AngleOfVectors(_0YAxis, _530Transform);
+        _534QuaternionFromDirectionAngle = QuaternionFromDirectionAngle(_532Normalize, _533AngleOfVectors);
+        _535MatrixFromQuaternion = MatrixFromQuaternion(_534QuaternionFromDirectionAngle);
+        _536Normalize = Normalize(_530Transform);
+        _537FloatLerp = FloatLerp(_1ToRadians, _2ToRadians, x0);
+        _538QuaternionFromDirectionAngle = QuaternionFromDirectionAngle(_536Normalize, _537FloatLerp);
+        _539MatrixFromQuaternion = MatrixFromQuaternion(_538QuaternionFromDirectionAngle);
+        _540Multiply = Multiply(_535MatrixFromQuaternion, _539MatrixFromQuaternion);
+        _541ShapeFromNode = ShapeFromNode(Pick Curve);
+        _542LerpOnCurve = LerpOnCurve(_541ShapeFromNode, x0);
+        _543SetMatrixTranslation = SetMatrixTranslation(_540Multiply, _542LerpOnCurve);
+        _543SetMatrixTranslation;
+        };
+    _4Map = Map(_0RangeInclusiveFloat, _3Pass-through: function1);
+    _5ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(Pick Curve);
+    _6InvertMatrix = InvertMatrix(modifierTransform);
+    _7Multiply = Multiply(_5ObjectTransformBeforeWSM, _6InvertMatrix);
+    _8GetMatrixTranslation = GetMatrixTranslation(_7Multiply);
+    _9Map = Map(_4Map, (Matrix x0) => 
+      {
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 88976
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 88973
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 88975
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 88974
+        IArray[Vector3] _4MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 88968
+        Func[Vector3, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 88965
+        IArray[Vector3] _6Map;// 0:MeshDeformPoints-ext->1:Map 88967
+        TriMesh _7SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 88966
+        _0MeshVertices = MeshVertices(mesh);
+        _1Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 22:TransformMesh->0:Transform 88977
+            _0Transform = Transform(x0, x0);
+            _0Transform;
+            };
+        _2Map = Map(_0MeshVertices, _1Pass-through: function1);
+        _3SetMeshVertices = SetMeshVertices(mesh, _2Map);
+        _4MeshVertices = MeshVertices(_3SetMeshVertices);
+        _5Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Add;// 27:MeshOffset-ext->2:Add 88969
+            _0Add = Add(x0, _8GetMatrixTranslation);
+            _0Add;
+            };
+        _6Map = Map(_4MeshVertices, _5Pass-through: function1);
+        _7SetMeshVertices = SetMeshVertices(_3SetMeshVertices, _6Map);
+        _7SetMeshVertices;
+        });
+    _10CombineAllMeshes = CombineAllMeshes(_9Map);
+    _10CombineAllMeshes;
+    }

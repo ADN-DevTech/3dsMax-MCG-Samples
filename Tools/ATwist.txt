@@ -1,0 +1,73 @@
+(InstanceState state, TriMesh mesh, Int32 axis, Single degrees) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 1:DeformMeshPoints->0:MeshVertices 89764
+    Int32 _1Zero;// 2:AxisChoose-ext->9:Zero 89786
+    Boolean _2GreaterThanOrEqual;// 2:AxisChoose-ext->8:GreaterThanOrEqual 89785
+    Vector3 _3XAxis;// 2:AxisChoose-ext->3:XAxis 89794
+    IArray[Vector3] _4Unit;// 2:Array3->2:Unit 89793
+    Vector3 _5YAxis;// 2:AxisChoose-ext->4:YAxis 89795
+    IArray[Vector3] _6Append;// 2:Array3->3:Append 89792
+    Vector3 _7ZAxis;// 2:AxisChoose-ext->5:ZAxis 89796
+    IArray[Vector3] _8Append;// 2:Array3->6:Append 89791
+    Vector3 _15Pass-through: Vector3;// 0:Pass-through: Vector3 89758
+    IArray[Vector3] _16MeshVertices;// 3:MeshBoundingSphere->1:MeshVertices 89781
+    BoundingSphere _17SphereFromPoints;// 3:MeshBoundingSphere->0:SphereFromPoints 89780
+    Single _18SphereRadius;// 0:Twist->8:SphereRadius 89778
+    Single _19ToRadians;// 8:ToRadians 89804
+    Func[Vector3, Vector3] _20Pass-through: function1;// 0:Pass-through: function1 89761
+    IArray[Vector3] _21Map;// 1:DeformMeshPoints->1:Map 89763
+    TriMesh _22SetMeshVertices;// 1:DeformMeshPoints->4:SetMeshVertices 89762
+    _0MeshVertices = MeshVertices(mesh);
+    _1Zero = Zero();
+    _2GreaterThanOrEqual = GreaterThanOrEqual(axis, _1Zero);
+    _3XAxis = XAxis();
+    _4Unit = Unit(_3XAxis);
+    _5YAxis = YAxis();
+    _6Append = Append(_4Unit, _5YAxis);
+    _7ZAxis = ZAxis();
+    _8Append = Append(_6Append, _7ZAxis);
+    _15Pass-through: Vector3 = if (_2GreaterThanOrEqual)
+      {
+        Vector3 _9At;// 2:AxisChoose-ext->1:At 89787
+        _9At = At(_8Append, axis);
+        _9At;
+        }else
+      {
+        Int32 _10One;// 10:PlusOne->1:One 89802
+        Int32 _11Add;// 10:PlusOne->0:Add 89801
+        Int32 _12Negative;// 2:AxisChoose-ext->11:Negative 89799
+        Vector3 _13At;// 2:AxisChoose-ext->12:At 89798
+        Vector3 _14Negate;// 2:AxisChoose-ext->13:Negate 89797
+        _10One = One();
+        _11Add = Add(axis, _10One);
+        _12Negative = Negative(_11Add);
+        _13At = At(_8Append, _12Negative);
+        _14Negate = Negate(_13At);
+        _14Negate;
+        };
+    _16MeshVertices = MeshVertices(mesh);
+    _17SphereFromPoints = SphereFromPoints(_16MeshVertices);
+    _18SphereRadius = SphereRadius(_17SphereFromPoints);
+    _19ToRadians = ToRadians(degrees);
+    _20Pass-through: function1 = (Vector3 x0) => 
+      {
+        Single _0Dot;// 4:ProjectionLength->3:Dot 89776
+        Single _1Length;// 4:ProjectionLength->2:Length 89777
+        Single _2Divide;// 4:ProjectionLength->5:Divide 89775
+        Single _3Divide;// 0:Twist->9:Divide 89772
+        Single _4Multiply;// 0:Twist->10:Multiply 89771
+        Matrix _5MatrixFromAxisAngle;// 6:RotatePoint->1:MatrixFromAxisAngle 89769
+        Vector3 _6Transform;// 6:RotatePoint->2:Transform 89768
+        _0Dot = Dot(x0, _15Pass-through: Vector3);
+        _1Length = Length(_15Pass-through: Vector3);
+        _2Divide = Divide(_0Dot, _1Length);
+        _3Divide = Divide(_2Divide, _18SphereRadius);
+        _4Multiply = Multiply(_3Divide, _19ToRadians);
+        _5MatrixFromAxisAngle = MatrixFromAxisAngle(_15Pass-through: Vector3, _4Multiply);
+        _6Transform = Transform(x0, _5MatrixFromAxisAngle);
+        _6Transform;
+        };
+    _21Map = Map(_0MeshVertices, _20Pass-through: function1);
+    _22SetMeshVertices = SetMeshVertices(mesh, _21Map);
+    _22SetMeshVertices;
+    }

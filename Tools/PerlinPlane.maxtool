@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="0b6c90ba-ce5d-4b4e-a4bb-0d3642ff32ff">
+    <meta_info>
+        <graph_version guid="f9b77f7c-bcf4-4f06-9a4b-ee0fa86cc185" number="0.0.33" />
+        <category>MCG Sample Primitives</category>
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="5" name="segments" min_value="1" max_value="100000" default_value="8" position="660:0" size="140:175" />
+        <node operator="Parameter: Single" id="6" name="size" min_value="1" max_value="100000" default_value="10" system_units_value="false" position="660:200" size="140:196" />
+        <node operator="Pass-through: Vector3" id="11" position="0:120" size="140:112" />
+        <node operator="Output: geometry" id="16" position="1720:440" size="140:70" />
+        <node operator="QuadMeshSquare-ext" id="1" position="920:200" size="220:133" />
+        <node operator="QuadMeshToTriMesh-ext" id="2" position="1220:300" size="200:112" />
+        <node operator="MeshDeformVertices-ext" id="3" position="1500:400" size="140:133" />
+        <node operator="OffsetZ" id="4" position="1220:440" size="140:133" />
+        <node operator="Parameter: Single" id="14" name="amplitude" min_value="-1000000" max_value="100000" default_value="0.1" system_units_value="false" position="660:580" size="140:196" />
+        <node operator="Multiply" id="15" position="920:500" size="140:133" />
+        <node operator="Parameter: Single" id="19" name="yoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="0:680" size="140:196" />
+        <node operator="Add" id="10" position="440:460" size="140:133" />
+        <node operator="Parameter: Single" id="17" name="xoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="0:460" size="140:196" />
+        <node operator="Vector3" id="18" position="220:640" size="140:154" />
+        <node operator="NoisePerlinFromVector-ext" id="7" position="660:460" size="180:112" />
+        <node operator="Parameter: Single" id="9" name="domain" min_value="0" max_value="100" default_value="1" system_units_value="false" position="0:260" size="140:196" />
+        <node operator="Parameter: Single" id="0" name="zoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="0:900" size="140:196" />
+        <node operator="DivideByScalar" id="12" position="220:400" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="12" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="3e735889-c4f0-4783-a466-492dd4ed4656">
+    <meta_info>
+        <graph_version guid="acdbc859-c181-4f92-b95d-d325f24f25ea" number="0.0.3" />
+        <category>Geometry - Matrix</category>
+        <description>Given two transforms expressed as position, rotation, and scale vectors, interpolates  between them. This is required in some cases because a matrix (or quaternion) alone cannot represent multiple rotations around an axis. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="positionA" position="220:0" size="140:112" />
+        <node operator="Input: Vector3" id="1" name="rotationA" position="0:300" size="140:112" />
+        <node operator="Input: Vector3" id="2" name="scaleA" position="220:480" size="140:112" />
+        <node operator="Input: Vector3" id="3" name="positionB" position="220:140" size="140:112" />
+        <node operator="Input: Vector3" id="4" name="scaleB" position="220:620" size="140:112" />
+        <node operator="Input: Vector3" id="5" name="rotationB" position="0:440" size="140:112" />
+        <node operator="EulerDegreesToQuaternion-ext" id="7" position="440:300" size="140:112" />
+        <node operator="Lerp" id="8" position="440:420" size="140:154" />
+        <node operator="Lerp" id="9" position="220:300" size="140:154" />
+        <node operator="Lerp" id="10" position="440:120" size="140:154" />
+        <node operator="Input: Single" id="11" name="amount" position="0:180" size="140:112" />
+        <node operator="IgnoreFirst" id="12" position="960:260" size="140:133" />
+        <node operator="Output: compound" id="13" position="1160:320" size="140:70" />
+        <node operator="MatrixFromPRS-ext" id="14" position="660:220" size="200:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="14" destport="2" />
+    </connections>
+</graph>

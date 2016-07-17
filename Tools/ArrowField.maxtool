@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="3e7a1acb-5602-4396-ac05-50431e7b0ad4">
+    <meta_info>
+        <graph_version guid="289cfc5b-e9cf-449b-a838-00466696fa2c" number="0.0.3" />
+        <category>MCG Sample Primitives</category>
+    </meta_info>
+    <nodes>
+        <node operator="QuadMeshPlaneXY-ext" id="0" position="220:360" size="180:175" />
+        <node operator="Parameter: Int32" id="1" name="widthSegments" min_value="1" max_value="10000" default_value="4" position="0:0" size="140:175" />
+        <node operator="Parameter: Int32" id="2" name="heightSegments" min_value="1" max_value="10000" default_value="4" position="0:200" size="140:175" />
+        <node operator="Parameter: Single" id="3" name="width" min_value="0" max_value="10000" default_value="10" system_units_value="false" position="0:380" size="140:196" />
+        <node operator="Parameter: Single" id="4" name="height" min_value="0" max_value="100000" default_value="10" system_units_value="false" position="0:600" size="140:196" />
+        <node operator="QuadMeshToTriMesh-ext" id="5" position="480:480" size="200:112" />
+        <node operator="CloneMeshAtVertices-ext" id="6" position="760:560" size="180:133" />
+        <node operator="CreateArrowMeshDefaults-ext" id="7" position="480:620" size="140:112" />
+        <node operator="Parameter: Single" id="8" name="length" min_value="0" max_value="100000" default_value="2" system_units_value="false" position="220:560" size="140:196" />
+        <node operator="CombineAllMeshes" id="9" position="1020:600" size="140:112" />
+        <node operator="Output: geometry" id="10" position="1240:620" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    </connections>
+</graph>

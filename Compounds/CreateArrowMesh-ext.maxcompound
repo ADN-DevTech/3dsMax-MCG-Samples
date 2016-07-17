@@ -1,0 +1,58 @@
+<graph version="0.50" uuid="319e386a-0701-4780-9840-f04cb054b3f3">
+    <meta_info>
+        <graph_version guid="447a5944-21c1-465e-b3b8-e4b7b47ffff6" number="0.0.23" />
+        <category>Primitives</category>
+        <description>Creates a TriMesh representation of an arrow aligned along the z-axis.  </description>
+    </meta_info>
+    <nodes>
+        <node operator="Arrow" id="0" position="920:460" size="140:238" />
+        <node operator="RotateMesh" id="10" position="1420:780" size="140:133" />
+        <node operator="Input: Int32" id="2" name="radialSegments" position="480:0" size="140:112" />
+        <node operator="Input: Int32" id="3" name="tailSegments" position="700:160" size="140:112" />
+        <node operator="Input: Single" id="5" name="length" position="260:340" size="140:112" />
+        <node operator="Input: Int32" id="6" name="capSegments" position="700:600" size="140:112" />
+        <node operator="Input: Single" id="7" name="capRadiusAsLengthPercent" position="0:460" size="180:112" />
+        <node operator="Output: compound" id="9" position="1640:860" size="140:70" />
+        <node operator="MinusOne" id="14" position="700:20" size="140:112" />
+        <node operator="Input: Single" id="15" name="capPercent" position="0:580" size="140:112" />
+        <node operator="Multiply" id="18" position="480:600" size="140:133" />
+        <node operator="Subtract" id="19" position="700:440" size="140:133" />
+        <node operator="QuaternionFromDirectionAngle" id="8" position="1140:800" size="140:133" />
+        <node operator="XAxis" id="20" position="920:760" size="140:91" />
+        <node operator="HalfPi" id="12" position="920:860" size="140:91" />
+        <node operator="QuadMeshToTriMesh-ext" id="11" position="1140:660" size="200:112" />
+        <node operator="Input: Single" id="1" name="tailRadiusPercent" position="260:160" size="140:112" />
+        <node operator="DivideBy100Float" id="13" position="480:180" size="140:112" />
+        <node operator="DivideBy100Float" id="21" position="260:620" size="140:112" />
+        <node operator="Multiply" id="16" position="700:280" size="140:133" />
+        <node operator="DivideBy100Float" id="4" position="260:480" size="140:112" />
+        <node operator="Multiply" id="17" position="480:320" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="14" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="19" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="4" />
+        <connection sourcenode="17" sourceport="0" destnode="0" destport="5" />
+        <connection sourcenode="18" sourceport="0" destnode="0" destport="6" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="17" destport="1" />
+    </connections>
+</graph>

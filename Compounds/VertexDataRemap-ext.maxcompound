@@ -1,0 +1,41 @@
+<graph version="0.50" uuid="3cfa35ce-6f0e-4378-a29b-a946f4ab84df">
+    <meta_info>
+        <graph_version guid="a29b03fc-e195-402e-b4c0-a57311399f09" number="0.0.5" />
+        <category>Geometry - Vertices</category>
+        <description>Remaps vertex data. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="12" position="1100:380" size="140:70" />
+        <node operator="Aggregate" id="11" position="880:340" size="140:154" />
+        <node operator="IgnoreFirst" id="13" position="660:160" size="140:133" />
+        <node operator="Pass-through: Int32" id="2" position="0:440" size="140:112" />
+        <node operator="Range" id="5" position="220:0" size="140:112" />
+        <node operator="HasPerVertexChannel" id="1" position="220:140" size="140:133" />
+        <node operator="Input: array" id="10" name="indicesToKeep" position="220:280" size="140:112" />
+        <node operator="Input: TriMesh" id="3" name="sourceMesh" position="-20:160" size="140:112" />
+        <node operator="Filter" id="7" position="440:160" size="140:133" />
+        <node operator="SelectByIndex" id="8" position="440:480" size="140:133" />
+        <node operator="Constant" id="6" value="100" position="0:0" size="140:91" />
+        <node operator="PerVertexData" id="9" position="220:460" size="140:133" />
+        <node operator="SetPerVertexData" id="14" position="660:440" size="140:154" />
+        <node operator="Input: TriMesh" id="0" name="targetMesh" position="-20:280" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="14" sourceport="1" destnode="11" destport="2" />
+        <connection sourcenode="10" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="7" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="14" destport="2" />
+    </connections>
+</graph>

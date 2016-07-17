@@ -1,0 +1,129 @@
+<graph version="0.50" uuid="df0d19e0-00ea-499b-866f-f275ec1a219c">
+    <meta_info>
+        <graph_version guid="f7bf39e5-ba46-4299-8cce-7e191e86db42" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Pass-through: array" id="4" position="1289:229" size="140:112" />
+        <node operator="Parameter: Asset" id="17" name="CSV File" position="351:310" size="140:112" />
+        <node operator="ParseCSVData" id="20" position="527:470" size="140:196" />
+        <node operator="Pass-through: array" id="48" position="1801:625" size="140:112" />
+        <node operator="Parameter: String" id="22" name="Separator" default_value="," position="351:430" size="140:133" />
+        <node operator="Parameter: Int32" id="13" name="X Pos. Chn" min_value="0" max_value="100" default_value="2" position="840:0" size="140:175" />
+        <node operator="ExtractVectors" id="5" position="1060:240" size="140:175" />
+        <node operator="Pair" id="46" position="2044:1002" size="140:133" />
+        <node operator="Parameter: Signal" id="16" name="Force Reload" position="3109:669" size="140:112" />
+        <node operator="Pair" id="47" position="2602:430" size="140:133" />
+        <node operator="TryCatch" id="12" position="2840:780" size="140:133" />
+        <node operator="Pass-through: tuple2" id="60" position="3349:849" size="140:112" />
+        <node operator="PointOctree" id="45" position="1880:1077" size="140:112" />
+        <node operator="Pass-through: Int32" id="36" position="1781:429" size="140:112" />
+        <node operator="Count" id="33" position="2181:329" size="140:112" />
+        <node operator="SetPerVertexData" id="35" position="2181:429" size="140:154" />
+        <node operator="Repeat" id="31" position="2421:269" size="140:154" />
+        <node operator="PointOctree" id="38" position="2433:635" size="140:112" />
+        <node operator="Pass-through: array" id="2" position="1781:309" size="140:112" />
+        <node operator="Parameter: Int32" id="15" name="Z Pos. Chn" min_value="0" max_value="100" default_value="4" position="840:380" size="140:175" />
+        <node operator="Pass-through: array" id="0" position="840:580" size="140:112" />
+        <node operator="Parameter: Int32" id="14" name="Y Pos. Chn" min_value="0" max_value="100" default_value="3" position="840:200" size="140:175" />
+        <node operator="IgnoreFirst" id="27" position="1875:937" size="140:133" />
+        <node operator="IgnoreFirst" id="23" position="2196:931" size="140:133" />
+        <node operator="At" id="34" position="1981:529" size="140:133" />
+        <node operator="Constant" id="28" value='&quot;Import CFD: Please select a valid CSV file.&quot;' position="1554:888" size="140:91" />
+        <node operator="EmptyMesh" id="19" position="1708:987" size="140:91" />
+        <node operator="Int32EmptyArray" id="9" position="1770:198" size="140:91" />
+        <node operator="Vector3EmptyArray" id="44" position="1695:1092" size="140:91" />
+        <node operator="Parameter: Single" id="21" name="Default Value" min_value="-999999999" max_value="999999999" default_value="0" system_units_value="false" position="351:570" size="140:196" />
+        <node operator="CreateMesh" id="6" position="1933:86" size="140:133" />
+        <node operator="Parameter: Int32" id="26" name="NbBottomLines" min_value="0" max_value="999999999" default_value="8" position="191:570" size="140:175" />
+        <node operator="Parameter: Int32" id="18" name="NbHeaderLines" min_value="0" max_value="999999999" default_value="1" position="31:570" size="140:175" />
+        <node operator="Print" id="25" position="1719:871" size="140:112" />
+        <node operator="CacheValueResettable-ext" id="3" position="3089:829" size="220:133" />
+        <node operator="FilterCFDMeshVertices" id="29" position="4089:1009" size="180:154" />
+        <node operator="PairItem2" id="40" position="3678:1018" size="140:112" />
+        <node operator="PairItem1" id="10" position="3669:829" size="140:112" />
+        <node operator="Equal" id="50" position="4209:729" size="140:133" />
+        <node operator="Pass-through: TriMesh" id="54" position="3849:849" size="140:112" />
+        <node operator="Output: geometry" id="30" position="4640:940" size="140:70" />
+        <node operator="Parameter: Single" id="32" name="Weld Dst" min_value="0" max_value="10000" default_value="0.001" system_units_value="true" position="3669:609" size="140:196" />
+        <node operator="If" id="52" position="4389:849" size="140:154" />
+        <node operator="Pass-through: Single" id="53" position="3849:729" size="140:112" />
+        <node operator="FloatZero" id="51" position="4029:689" size="140:91" />
+        <node groupnode="pointOctree" id="56" position="3669:989" size="158:160" bg_color="#ff646464">
+            <nodes>40</nodes>
+        </node>
+        <node groupnode="Create a mesh with no faces" id="1" position="1761:49" size="321:251" bg_color="#ff646464">
+            <nodes>9,6</nodes>
+        </node>
+        <node groupnode="Ignore the exception and return an empty mesh" id="24" position="1520:780" size="825:431" bg_color="#ff646464">
+            <nodes>46,45,27,23,28,19,44,25</nodes>
+        </node>
+        <node groupnode="CSV parsing" id="11" position="0:260" size="758:532" bg_color="#ff646464">
+            <nodes>17,20,22,21,26,18</nodes>
+        </node>
+        <node groupnode="Points" id="8" position="1280:200" size="158:155" bg_color="#ff646464">
+            <nodes>4</nodes>
+        </node>
+        <node groupnode="Create the mesh" id="37" position="1520:20" size="1233:741" bg_color="#ff646464">
+            <nodes>48,47,36,33,35,31,38,2,34,1</nodes>
+        </node>
+        <node groupnode="Cache value" id="7" position="3080:640" size="418:331" bg_color="#ff646464">
+            <nodes>3,16,60</nodes>
+        </node>
+        <node groupnode="Weld overlapping points" id="39" position="3660:580" size="878:592" bg_color="#ff646464">
+            <nodes>29,10,50,54,56,32,52,53,51</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="20" destport="2" />
+        <connection sourcenode="26" sourceport="0" destnode="20" destport="3" />
+        <connection sourcenode="21" sourceport="0" destnode="20" destport="4" />
+        <connection sourcenode="4" sourceport="0" destnode="48" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="15" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="27" sourceport="0" destnode="46" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="46" destport="1" />
+        <connection sourcenode="31" sourceport="0" destnode="47" destport="0" />
+        <connection sourcenode="38" sourceport="0" destnode="47" destport="1" />
+        <connection sourcenode="47" sourceport="1" destnode="12" destport="0" />
+        <connection sourcenode="23" sourceport="1" destnode="12" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="60" destport="0" />
+        <connection sourcenode="44" sourceport="0" destnode="45" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="33" destport="0" />
+        <connection sourcenode="36" sourceport="0" destnode="35" destport="1" />
+        <connection sourcenode="34" sourceport="0" destnode="35" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="31" destport="0" />
+        <connection sourcenode="33" sourceport="0" destnode="31" destport="1" />
+        <connection sourcenode="35" sourceport="1" destnode="31" destport="2" />
+        <connection sourcenode="48" sourceport="0" destnode="38" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="25" sourceport="0" destnode="27" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="27" destport="1" />
+        <connection sourcenode="46" sourceport="0" destnode="23" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="36" sourceport="0" destnode="34" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="28" sourceport="0" destnode="25" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="54" sourceport="0" destnode="29" destport="0" />
+        <connection sourcenode="40" sourceport="0" destnode="29" destport="1" />
+        <connection sourcenode="53" sourceport="0" destnode="29" destport="2" />
+        <connection sourcenode="60" sourceport="0" destnode="40" destport="0" />
+        <connection sourcenode="60" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="51" sourceport="0" destnode="50" destport="0" />
+        <connection sourcenode="53" sourceport="0" destnode="50" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="54" destport="0" />
+        <connection sourcenode="52" sourceport="0" destnode="30" destport="0" />
+        <connection sourcenode="50" sourceport="0" destnode="52" destport="0" />
+        <connection sourcenode="54" sourceport="0" destnode="52" destport="1" />
+        <connection sourcenode="29" sourceport="0" destnode="52" destport="2" />
+        <connection sourcenode="32" sourceport="0" destnode="53" destport="0" />
+    </connections>
+</graph>

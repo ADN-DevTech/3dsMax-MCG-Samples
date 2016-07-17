@@ -1,0 +1,108 @@
+(InstanceState state, TriMesh mesh) => 
+  {
+    MapChannel _0VertexColorChannel;// 2:VertexColorsSetAverageAcrossFaces-ext->1:VertexColorChannel 108088
+    IArray[Vector3] _1MapChannelVertices;// 2:VertexColorsSetAverageAcrossFaces-ext->7:MapChannelVertices 108087
+    Int32 _2Count;// 4:Slices->2:Count 108084
+    Int32 _3Constant;// 6:Three->0:Constant 108089
+    Int32 _4Divide;// 4:Slices->3:Divide 108083
+    IArray[Int32] _5Range;// 4:Slices->4:Range 108082
+    IArray[IArray[Vector3]] _6Map;// 4:Slices->5:Map 108081
+    IArray[Vector3] _7Map;// 2:VertexColorsSetAverageAcrossFaces-ext->5:Map 108078
+    Int32 _8Constant;// 3:SetFaceVertexColors->0:Constant 108077
+    Func[Vector3, IArray[Vector3]] _9Pass-through: function1;// 0:Pass-through: function1 108072
+    IArray[IArray[Vector3]] _10Map;// 2:FlatMap->4:Map 108074
+    IArray[Vector3] _11Flatten;// 2:FlatMap->3:Flatten 108073
+    TriMesh _12SetVertexColorMapChannel;// 3:SetFaceVertexColors->6:SetVertexColorMapChannel 108070
+    IArray[Int32] _13MeshIndices;// 6:MeshVertexDataToFaceVertices-ext->3:MeshIndices 108046
+    IArray[Vector3] _14MeshVertices;// 3:VertexColorsSetWeightedAverageVertexColors-ext->3:MeshVertices 108049
+    IArray[Int32] _15Indices;// 3:VertexColorsSetWeightedAverageVertexColors-ext->4:Indices 108048
+    IArray[Vector3] _16Map;// 3:VertexColorsSetWeightedAverageVertexColors-ext->2:Map 108047
+    IArray[Vector3] _17Map;// 2:SelectByIndex->2:Map 108044
+    TriMesh _18SetVertexColorMapChannel;// 3:VertexColorsSetWeightedAverageVertexColors-ext->5:SetVertexColorMapChannel 108039
+    _0VertexColorChannel = VertexColorChannel(mesh);
+    _1MapChannelVertices = MapChannelVertices(_0VertexColorChannel);
+    _2Count = Count(_1MapChannelVertices);
+    _3Constant = 3;
+    _4Divide = Divide(_2Count, _3Constant);
+    _5Range = Range(_4Divide);
+    _6Map = Map(_5Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 4:Slices->6:Multiply 108086
+        IArray[Vector3] _1Slice;// 4:Slices->0:Slice 108085
+        _0Multiply = Multiply(_3Constant, x0);
+        _1Slice = Slice(_1MapChannelVertices, _0Multiply, _3Constant);
+        _1Slice;
+        });
+    _7Map = Map(_6Map, (IArray[Vector3] x0) => 
+      {
+        Vector3 _0DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 108094
+        Vector3 _1Aggregate;// 2:Sum->0:Aggregate 108093
+        Int32 _2Count;// 8:AverageVector->3:Count 108097
+        Single _3IntAsFloat;// 8:AverageVector->1:IntAsFloat 108096
+        Vector3 _4DivideByScalar;// 8:AverageVector->5:DivideByScalar 108091
+        _0DefaultValueOfElement = DefaultValueOfElement(x0);
+        _1Aggregate = Aggregate(x0, _0DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Add;// 2:Sum->2:Add 108095
+            _0Add = Add(x0, x1);
+            _0Add;
+            });
+        _2Count = Count(x0);
+        _3IntAsFloat = IntAsFloat(_2Count);
+        _4DivideByScalar = DivideByScalar(_1Aggregate, _3IntAsFloat);
+        _4DivideByScalar;
+        });
+    _8Constant = 3;
+    _9Pass-through: function1 = (Vector3 x0) => 
+      {
+        IArray[Vector3] _0ArrayOf;// 3:SetFaceVertexColors->3:ArrayOf 108075
+        _0ArrayOf = ArrayOf(x0, _8Constant);
+        _0ArrayOf;
+        };
+    _10Map = Map(_7Map, _9Pass-through: function1);
+    _11Flatten = Flatten(_10Map);
+    _12SetVertexColorMapChannel = SetVertexColorMapChannel(mesh, _11Flatten);
+    _13MeshIndices = MeshIndices(_12SetVertexColorMapChannel);
+    _14MeshVertices = MeshVertices(_12SetVertexColorMapChannel);
+    _15Indices = Indices(_14MeshVertices);
+    _16Map = Map(_15Indices, (Int32 x0) => 
+      {
+        IArray[Int32] _0VertexIndexLookup;// 1:AverageAdjacentVertexColors-ext->13:VertexIndexLookup 108064
+        MapChannel _1VertexColorChannel;// 1:AverageAdjacentVertexColors-ext->4:VertexColorChannel 108066
+        IArray[Vector3] _2MapChannelVertexBuffer;// 1:AverageAdjacentVertexColors-ext->2:MapChannelVertexBuffer 108065
+        IArray[Vector3] _3Map;// 11:SelectByIndex->2:Map 108062
+        Vector3 _4DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 108056
+        Vector3 _5Aggregate;// 2:Sum->0:Aggregate 108055
+        Int32 _6Count;// 6:AverageVector->3:Count 108059
+        Single _7IntAsFloat;// 6:AverageVector->1:IntAsFloat 108058
+        Vector3 _8DivideByScalar;// 6:AverageVector->5:DivideByScalar 108053
+        _0VertexIndexLookup = VertexIndexLookup(_12SetVertexColorMapChannel, x0);
+        _1VertexColorChannel = VertexColorChannel(_12SetVertexColorMapChannel);
+        _2MapChannelVertexBuffer = MapChannelVertexBuffer(_1VertexColorChannel);
+        _3Map = Map(_0VertexIndexLookup, (Int32 x0) => 
+          {
+            Vector3 _0At;// 11:SelectByIndex->3:At 108063
+            _0At = At(_2MapChannelVertexBuffer, x0);
+            _0At;
+            });
+        _4DefaultValueOfElement = DefaultValueOfElement(_3Map);
+        _5Aggregate = Aggregate(_3Map, _4DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Add;// 2:Sum->2:Add 108057
+            _0Add = Add(x0, x1);
+            _0Add;
+            });
+        _6Count = Count(_3Map);
+        _7IntAsFloat = IntAsFloat(_6Count);
+        _8DivideByScalar = DivideByScalar(_5Aggregate, _7IntAsFloat);
+        _8DivideByScalar;
+        });
+    _17Map = Map(_13MeshIndices, (Int32 x0) => 
+      {
+        Vector3 _0At;// 2:SelectByIndex->3:At 108045
+        _0At = At(_16Map, x0);
+        _0At;
+        });
+    _18SetVertexColorMapChannel = SetVertexColorMapChannel(_12SetVertexColorMapChannel, _17Map);
+    _18SetVertexColorMapChannel;
+    }

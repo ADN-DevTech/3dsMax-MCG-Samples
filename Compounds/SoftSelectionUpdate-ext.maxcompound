@@ -1,0 +1,38 @@
+<graph version="0.50" uuid="3a93bc70-d970-4806-99df-35297e4fa1fc">
+    <meta_info>
+        <graph_version guid="3bdaf9d5-bce3-4808-add1-dfeda9bb7edd" number="0.0.2" />
+        <category>Selection</category>
+        <description>Either sets or updates the soft-selection by adding the new soft-selection to the previous. If &quot;invert&quot; is true, then the new selection is inverted before being considered.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:112" />
+        <node operator="SetSoftSelection" id="1" position="1100:220" size="140:133" />
+        <node operator="Input: array" id="2" name="selection" position="0:260" size="140:112" />
+        <node operator="SoftSelectionOrZeros-ext" id="3" position="220:80" size="140:112" />
+        <node operator="ArrayAdd-ext" id="7" position="440:140" size="140:133" />
+        <node operator="If" id="9" position="660:100" size="140:154" />
+        <node operator="Input: Boolean" id="4" name="additive" position="440:0" size="140:112" />
+        <node operator="Input: Boolean" id="5" name="invert" position="0:140" size="140:112" />
+        <node operator="MapConditional-ext" id="8" position="220:200" size="140:154" />
+        <node operator="OneMinus" id="6" position="0:400" size="140:112" />
+        <node operator="ClampFloatToOne" id="10" position="660:280" size="140:112" />
+        <node operator="Map" id="11" position="880:220" size="140:133" />
+        <node operator="Output: compound" id="12" position="1320:300" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="6" sourceport="1" destnode="8" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="1" destnode="11" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>

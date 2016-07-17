@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="ec9a1ef2-748e-40aa-abf8-d5c5d2d81edb">
+    <meta_info>
+        <graph_version guid="791bc7c4-dc36-4613-88ad-61e98907ae62" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="980:40" size="140:91" />
+        <node operator="Parameter: INode" id="1" name="node" position="0:0" size="140:112" />
+        <node operator="CheckNodeValidity" id="2" position="220:20" size="140:112" />
+        <node operator="BoundingBoxFromNode" id="3" position="440:40" size="180:112" />
+        <node operator="Modifier: BoundingBox" id="4" position="440:180" size="200:91" />
+        <node operator="BoxRelativeScaling-ext" id="5" position="720:100" size="180:133" />
+        <node operator="MeshTransform-ext" id="6" position="1260:100" size="180:133" />
+        <node operator="MatrixFromScalingVector-ext" id="7" position="980:160" size="200:112" />
+        <node operator="Output: modifier" id="8" position="1520:140" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

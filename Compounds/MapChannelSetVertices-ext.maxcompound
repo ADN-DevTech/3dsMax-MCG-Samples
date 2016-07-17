@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="2802d9be-c87e-4374-98e4-488c24ee2f7c">
+    <meta_info>
+        <graph_version guid="3cb7fada-2b6a-4500-9cae-50ba400038d7" number="0.0.2" />
+        <category>Geometry - MapChannel</category>
+        <description>Sets the vertex buffer a map channel, using the mesh index buffer as the map channel index buffer. This is the same as associating a distinct value with each vertex. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="8" position="660:160" size="140:70" />
+        <node operator="MeshIndices" id="4" position="220:260" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="0:100" size="140:112" />
+        <node operator="Input: array" id="2" name="values" position="220:140" size="140:112" />
+        <node operator="Input: Int32" id="3" name="mapChannelId" position="220:0" size="140:112" />
+        <node operator="SetMapChannel" id="9" position="440:80" size="140:175" />
+    </nodes>
+    <connections>
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="3" />
+    </connections>
+</graph>

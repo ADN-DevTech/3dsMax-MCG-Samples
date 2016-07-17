@@ -1,0 +1,356 @@
+(InstanceState state, Int32 uvw channel, TriMesh mesh, Single Blend, Single Scale, Vector3 Center Point) => 
+  {
+    Int32 _0Constant;// 10:MapChannelOrGeometrySet-ext->0:Constant 109143
+    Boolean _1Equal;// 10:MapChannelOrGeometrySet-ext->6:Equal 109142
+    Single _2Constant;// 5:Origin->0:Constant 109149
+    Vector3 _3Vector3;// 5:Origin->1:Vector3 109148
+    IArray[Vector3] _4Unit;// 4:MapChannelClear-ext->4:Unit 109147
+    Int32 _5Zero;// 4:MapChannelClear-ext->9:Zero 109151
+    Int32 _6FaceCount;// 4:MapChannelClear-ext->6:FaceCount 109155
+    Int32 _7Constant;// 1:Three->0:Constant 109154
+    Int32 _8Multiply;// 7:MultiplyByThree->2:Multiply 109153
+    IArray[Int32] _9ArrayOf;// 4:MapChannelClear-ext->8:ArrayOf 109150
+    IArray[Face3] _13MeshFaces;// 2:MeshFaces 109162
+    Func[Face3, IArray[Vector3]] _14Pass-through: function1;// 0:Pass-through: function1 109159
+    IArray[IArray[Vector3]] _15Map;// 7:FlatMap->4:Map 109161
+    IArray[Vector3] _16Flatten;// 7:FlatMap->3:Flatten 109160
+    TriMesh _17SetMapChannelWithoutIndices;// 6:SetMapChannelWithoutIndices 109134
+    _0Constant = -3;
+    _1Equal = Equal(_0Constant, uvw channel);
+    _2Constant = 0;
+    _3Vector3 = Vector3(_2Constant, _2Constant, _2Constant);
+    _4Unit = Unit(_3Vector3);
+    _5Zero = Zero();
+    _6FaceCount = FaceCount(mesh);
+    _7Constant = 3;
+    _8Multiply = Multiply(_6FaceCount, _7Constant);
+    _9ArrayOf = ArrayOf(_5Zero, _8Multiply);
+    _13MeshFaces = MeshFaces(mesh);
+    _14Pass-through: function1 = (Face3 x0) => 
+      {
+        IArray[Vector3] _0FaceVertices;// 0:UVTriPlanarMapFace->9:FaceVertices 109168
+        Vector3 _1FaceNormal;// 0:UVTriPlanarMapFace->8:FaceNormal 109311
+        IArray[Vector3] _2Map;// 0:UVTriPlanarMapFace->1:Map 109167
+        _0FaceVertices = FaceVertices(x0);
+        _1FaceNormal = FaceNormal(x0);
+        _2Map = Map(_0FaceVertices, (Vector3 x0) => 
+          {
+            Int32 _0Constant;// 12:Three->0:Constant 109182
+            IArray[Int32] _1Range;// 0:UVTriPlanarAverage->11:Range 109181
+            IArray[Tuple[Vector3, Single]] _2Map;// 0:UVTriPlanarAverage->10:Map 109180
+            IArray[Vector3] _3Map;// 0:UVTriPlanarAverage->38:Map 109179
+            Vector3 _4DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 109177
+            Vector3 _5Aggregate;// 2:Sum->0:Aggregate 109176
+            Single _6Constant;// 0:UVTriPlanarAverage->0:Constant 109310
+            Vector3 _7DivideByScalar;// 0:UVTriPlanarAverage->15:DivideByScalar 109174
+            _0Constant = 3;
+            _1Range = Range(_0Constant);
+            _2Map = Map(_1Range, (Int32 x0) => 
+              {
+                Int32 _0Zero;// 0:UVTriPlanarCoords->6:Zero 109194
+                Boolean _1Equal;// 0:UVTriPlanarCoords->5:Equal 109193
+                Single _2Y;// 0:UVTriPlanarCoords->10:Y 109200
+                Single _3X;// 2:VectorAsArray->1:X 109241
+                IArray[Single] _4Unit;// 4:Array3->2:Unit 109240
+                Single _5Y;// 2:VectorAsArray->2:Y 109242
+                IArray[Single] _6Append;// 4:Array3->3:Append 109239
+                Single _7Z;// 2:VectorAsArray->3:Z 109243
+                IArray[Single] _8Append;// 4:Array3->6:Append 109238
+                IArray[Single] _9Map;// 1:DetermineAxisWeight->5:Map 109233
+                Int32 _10One;// 16:PlusOne->1:One 109250
+                Int32 _11Add;// 16:PlusOne->0:Add 109249
+                Int32 _12Constant;// 2:Three->0:Constant 109247
+                Int32 _13Modulo;// 14:ModuloThree->1:Modulo 109246
+                Single _14At;// 1:DetermineAxisWeight->19:At 109232
+                Single _15At;// 1:DetermineAxisWeight->32:At 109251
+                Boolean _16LessThan;// 1:DetermineAxisWeight->18:LessThan 109231
+                Int32 _17Two;// 1:DetermineAxisWeight->13:Two 109258
+                Int32 _18Add;// 1:DetermineAxisWeight->10:Add 109257
+                Int32 _19Constant;// 2:Three->0:Constant 109256
+                Int32 _20Modulo;// 15:ModuloThree->1:Modulo 109255
+                Single _21At;// 1:DetermineAxisWeight->27:At 109253
+                Boolean _22LessThan;// 1:DetermineAxisWeight->28:LessThan 109252
+                Boolean _23AndAlso;// 1:DetermineAxisWeight->26:AndAlso 109230
+                Single _54Pass-through: any;// 0:Pass-through: any 109225
+                IArray[Single] _55Unit;// 49:Array2->2:Unit 109228
+                Single _56At;// 1:DetermineAxisWeight->3:At 109305
+                Int32 _57Sign;// 1:DetermineAxisWeight->6:Sign 109304
+                Single _58AsFloat;// 1:DetermineAxisWeight->4:AsFloat 109303
+                IArray[Single] _59Append;// 49:Array2->3:Append 109227
+                Int32 _60One;// 4:Second->2:One 109221
+                Single _61At;// 4:Second->0:At 109220
+                Single _93FloatOne;// 1:DetermineAxisWeight->21:FloatOne 109265
+                Single _94Add;// 1:DetermineAxisWeight->20:Add 109264
+                Single _95Multiply;// 1:DetermineAxisWeight->23:Multiply 109263
+                Boolean _96LessThan;// 1:DetermineAxisWeight->38:LessThan 109262
+                Boolean _97LessThan;// 1:DetermineAxisWeight->37:LessThan 109266
+                Boolean _98AndAlso;// 1:DetermineAxisWeight->36:AndAlso 109261
+                IArray[Single] _123Unit;// 40:Array2->2:Unit 109300
+                IArray[Single] _124Append;// 40:Array2->3:Append 109299
+                IArray[Int32] _125Indices;// 3:IndexOfMaximum->1:Indices 109288
+                Int32 _126Zero;// 3:IndexOfMaximum->3:Zero 109289
+                Int32 _127Aggregate;// 3:IndexOfMaximum->2:Aggregate 109287
+                Single _128At;// 39:MaximumElement->0:At 109285
+                Single _129Divide;// 1:DetermineAxisWeight->42:Divide 109283
+                Single _130FloatOne;// 1:DetermineAxisWeight->44:FloatOne 109301
+                Single _131Subtract;// 1:DetermineAxisWeight->43:Subtract 109282
+                Single _132Divide;// 1:DetermineAxisWeight->45:Divide 109281
+                Single _133Sqrt;// 1:DetermineAxisWeight->46:Sqrt 109280
+                Single _134Constant;// 47:SmoothSqr->0:Constant 109270
+                Boolean _135LessThan;// 47:SmoothSqr->1:LessThan 109269
+                Single _146Z;// 0:UVTriPlanarCoords->13:Z 109201
+                Vector3 _194MultiplyByScalar;// 0:UVTriPlanarCoords->22:MultiplyByScalar 109191
+                Vector3 _195Subtract;// 0:UVTriPlanarCoords->24:Subtract 109190
+                Int32 _196Zero;// 3:First->2:Zero 109308
+                Single _197At;// 3:First->0:At 109307
+                Vector3 _198MultiplyByScalar;// 0:UVTriPlanarAverage->20:MultiplyByScalar 109184
+                Tuple[Vector3, Single] _199Pair;// 0:UVTriPlanarAverage->14:Pair 109183
+                _0Zero = Zero();
+                _1Equal = Equal(x0, _0Zero);
+                _2Y = Y(x0);
+                _3X = X(_1FaceNormal);
+                _4Unit = Unit(_3X);
+                _5Y = Y(_1FaceNormal);
+                _6Append = Append(_4Unit, _5Y);
+                _7Z = Z(_1FaceNormal);
+                _8Append = Append(_6Append, _7Z);
+                _9Map = Map(_8Append, (Single x0) => 
+                  {
+                    Single _0Abs;// 1:DetermineAxisWeight->7:Abs 109244
+                    _0Abs = Abs(x0);
+                    _0Abs;
+                    });
+                _10One = One();
+                _11Add = Add(x0, _10One);
+                _12Constant = 3;
+                _13Modulo = Modulo(_11Add, _12Constant);
+                _14At = At(_9Map, _13Modulo);
+                _15At = At(_9Map, x0);
+                _16LessThan = LessThan(_14At, _15At);
+                _17Two = Two();
+                _18Add = Add(x0, _17Two);
+                _19Constant = 3;
+                _20Modulo = Modulo(_18Add, _19Constant);
+                _21At = At(_9Map, _20Modulo);
+                _22LessThan = LessThan(_21At, _15At);
+                _23AndAlso = AndAlso(_16LessThan, _22LessThan);
+                _54Pass-through: any = if (_23AndAlso)
+                  {
+                    Single _24FloatOne;// 1:DetermineAxisWeight->31:FloatOne 109259
+                    _24FloatOne = FloatOne();
+                    _24FloatOne;
+                    }else
+                  {
+                    Single _25FloatOne;// 1:DetermineAxisWeight->21:FloatOne 109265
+                    Single _26Add;// 1:DetermineAxisWeight->20:Add 109264
+                    Single _27Multiply;// 1:DetermineAxisWeight->23:Multiply 109263
+                    Boolean _28LessThan;// 1:DetermineAxisWeight->38:LessThan 109262
+                    Boolean _29LessThan;// 1:DetermineAxisWeight->37:LessThan 109266
+                    Boolean _30AndAlso;// 1:DetermineAxisWeight->36:AndAlso 109261
+                    _25FloatOne = FloatOne();
+                    _26Add = Add(Blend, _25FloatOne);
+                    _27Multiply = Multiply(_26Add, _15At);
+                    _28LessThan = LessThan(_14At, _27Multiply);
+                    _29LessThan = LessThan(_21At, _27Multiply);
+                    _30AndAlso = AndAlso(_28LessThan, _29LessThan);
+                    if (_30AndAlso)
+                      {
+                        IArray[Single] _31Unit;// 40:Array2->2:Unit 109300
+                        IArray[Single] _32Append;// 40:Array2->3:Append 109299
+                        IArray[Int32] _33Indices;// 3:IndexOfMaximum->1:Indices 109288
+                        Int32 _34Zero;// 3:IndexOfMaximum->3:Zero 109289
+                        Int32 _35Aggregate;// 3:IndexOfMaximum->2:Aggregate 109287
+                        Single _36At;// 39:MaximumElement->0:At 109285
+                        Single _37Divide;// 1:DetermineAxisWeight->42:Divide 109283
+                        Single _38FloatOne;// 1:DetermineAxisWeight->44:FloatOne 109301
+                        Single _39Subtract;// 1:DetermineAxisWeight->43:Subtract 109282
+                        Single _40Divide;// 1:DetermineAxisWeight->45:Divide 109281
+                        Single _41Sqrt;// 1:DetermineAxisWeight->46:Sqrt 109280
+                        Single _42Constant;// 47:SmoothSqr->0:Constant 109270
+                        Boolean _43LessThan;// 47:SmoothSqr->1:LessThan 109269
+                        Single _44Constant;// 47:SmoothSqr->0:Constant 109274
+                        _31Unit = Unit(_14At);
+                        _32Append = Append(_31Unit, _21At);
+                        _33Indices = Indices(_32Append);
+                        _34Zero = Zero();
+                        _35Aggregate = Aggregate(_33Indices, _34Zero, (Int32 x0, Int32 x1) => 
+                          {
+                            Single _0At;// 4:IndexOfGreaterElement->4:At 109295
+                            Single _1At;// 4:IndexOfGreaterElement->5:At 109296
+                            Boolean _2GreaterThanOrEqual;// 4:IndexOfGreaterElement->2:GreaterThanOrEqual 109294
+                            _0At = At(_32Append, x0);
+                            _1At = At(_32Append, x1);
+                            _2GreaterThanOrEqual = GreaterThanOrEqual(_0At, _1At);
+                            if (_2GreaterThanOrEqual)
+                              {
+                                x0;
+                                }else
+                              {
+                                x1;
+                                };
+                            });
+                        _36At = At(_32Append, _35Aggregate);
+                        _37Divide = Divide(_36At, _15At);
+                        _38FloatOne = FloatOne();
+                        _39Subtract = Subtract(_37Divide, _38FloatOne);
+                        _40Divide = Divide(_39Subtract, Blend);
+                        _41Sqrt = Sqrt(_40Divide);
+                        _42Constant = 0.25;
+                        _43LessThan = LessThan(_41Sqrt, _42Constant);
+                        _44Constant = 2;
+                        if (_43LessThan)
+                          {
+                            Single _45FloatOne;// 47:SmoothSqr->4:FloatOne 109272
+                            Single _46Multiply;// 47:SmoothSqr->6:Multiply 109273
+                            Single _47Subtract;// 47:SmoothSqr->5:Subtract 109271
+                            _45FloatOne = FloatOne();
+                            _46Multiply = Multiply(_41Sqrt, _44Constant);
+                            _47Subtract = Subtract(_45FloatOne, _46Multiply);
+                            _47Subtract;
+                            }else
+                          {
+                            Single _48FloatOne;// 47:SmoothSqr->12:FloatOne 109278
+                            Single _49Sqrt;// 47:SmoothSqr->10:Sqrt 109279
+                            Single _50Subtract;// 47:SmoothSqr->11:Subtract 109277
+                            Single _51Sqrt;// 47:SmoothSqr->8:Sqrt 109276
+                            Single _52Multiply;// 47:SmoothSqr->9:Multiply 109275
+                            _48FloatOne = FloatOne();
+                            _49Sqrt = Sqrt(_41Sqrt);
+                            _50Subtract = Subtract(_48FloatOne, _49Sqrt);
+                            _51Sqrt = Sqrt(_50Subtract);
+                            _52Multiply = Multiply(_51Sqrt, _44Constant);
+                            _52Multiply;
+                            };
+                        }else
+                      {
+                        Single _53FloatZero;// 1:DetermineAxisWeight->48:FloatZero 109302
+                        _53FloatZero = FloatZero();
+                        _53FloatZero;
+                        };
+                    };
+                _55Unit = Unit(_54Pass-through: any);
+                _56At = At(_8Append, x0);
+                _57Sign = Sign(_56At);
+                _58AsFloat = AsFloat(_57Sign);
+                _59Append = Append(_55Unit, _58AsFloat);
+                _60One = One();
+                _61At = At(_59Append, _60One);
+                _93FloatOne = FloatOne();
+                _94Add = Add(Blend, _93FloatOne);
+                _95Multiply = Multiply(_94Add, _15At);
+                _96LessThan = LessThan(_14At, _95Multiply);
+                _97LessThan = LessThan(_21At, _95Multiply);
+                _98AndAlso = AndAlso(_96LessThan, _97LessThan);
+                _123Unit = Unit(_14At);
+                _124Append = Append(_123Unit, _21At);
+                _125Indices = Indices(_124Append);
+                _126Zero = Zero();
+                _127Aggregate = Aggregate(_125Indices, _126Zero, (Int32 x0, Int32 x1) => 
+                  {
+                    Single _0At;// 4:IndexOfGreaterElement->4:At 109295
+                    Single _1At;// 4:IndexOfGreaterElement->5:At 109296
+                    Boolean _2GreaterThanOrEqual;// 4:IndexOfGreaterElement->2:GreaterThanOrEqual 109294
+                    _0At = At(_124Append, x0);
+                    _1At = At(_124Append, x1);
+                    _2GreaterThanOrEqual = GreaterThanOrEqual(_0At, _1At);
+                    if (_2GreaterThanOrEqual)
+                      {
+                        x0;
+                        }else
+                      {
+                        x1;
+                        };
+                    });
+                _128At = At(_124Append, _127Aggregate);
+                _129Divide = Divide(_128At, _15At);
+                _130FloatOne = FloatOne();
+                _131Subtract = Subtract(_129Divide, _130FloatOne);
+                _132Divide = Divide(_131Subtract, Blend);
+                _133Sqrt = Sqrt(_132Divide);
+                _134Constant = 0.25;
+                _135LessThan = LessThan(_133Sqrt, _134Constant);
+                _146Z = Z(x0);
+                _194MultiplyByScalar = MultiplyByScalar(if (_1Equal)
+                  {
+                    Single _147Multiply;// 0:UVTriPlanarCoords->12:Multiply 109199
+                    Single _148Constant;// 11:Vector3FromXY->0:Constant 109198
+                    Vector3 _149Vector3;// 11:Vector3FromXY->0:Vector3 109197
+                    _147Multiply = Multiply(_2Y, _61At);
+                    _148Constant = 0;
+                    _149Vector3 = Vector3(_147Multiply, _146Z, _148Constant);
+                    _149Vector3;
+                    }else
+                  {
+                    Int32 _150One;// 0:UVTriPlanarCoords->4:One 109204
+                    Boolean _151Equal;// 0:UVTriPlanarCoords->3:Equal 109203
+                    Single _152X;// 0:UVTriPlanarCoords->15:X 109211
+                    _150One = One();
+                    _151Equal = Equal(x0, _150One);
+                    _152X = X(x0);
+                    if (_151Equal)
+                      {
+                        Single _186Constant;// 0:UVTriPlanarCoords->0:Constant 109212
+                        Single _187Multiply;// 0:UVTriPlanarCoords->19:Multiply 109210
+                        Single _188Multiply;// 0:UVTriPlanarCoords->18:Multiply 109209
+                        Single _189Constant;// 17:Vector3FromXY->0:Constant 109208
+                        Vector3 _190Vector3;// 17:Vector3FromXY->0:Vector3 109207
+                        _186Constant = -1;
+                        _187Multiply = Multiply(_152X, _186Constant);
+                        _188Multiply = Multiply(_187Multiply, _61At);
+                        _189Constant = 0;
+                        _190Vector3 = Vector3(_188Multiply, _146Z, _189Constant);
+                        _190Vector3;
+                        }else
+                      {
+                        Single _191Multiply;// 0:UVTriPlanarCoords->14:Multiply 109217
+                        Single _192Constant;// 9:Vector3FromXY->0:Constant 109216
+                        Vector3 _193Vector3;// 9:Vector3FromXY->0:Vector3 109215
+                        _191Multiply = Multiply(_152X, _61At);
+                        _192Constant = 0;
+                        _193Vector3 = Vector3(_191Multiply, _2Y, _192Constant);
+                        _193Vector3;
+                        };
+                    }, Scale);
+                _195Subtract = Subtract(_194MultiplyByScalar, Center Point);
+                _196Zero = Zero();
+                _197At = At(_59Append, _196Zero);
+                _198MultiplyByScalar = MultiplyByScalar(_195Subtract, _197At);
+                _199Pair = Pair(_198MultiplyByScalar, _197At);
+                _199Pair;
+                });
+            _3Map = Map(_2Map, (Tuple[Vector3, Single] x0) => 
+              {
+                Vector3 _0PairItem1;// 0:UVTriPlanarAverage->39:PairItem1 109309
+                _0PairItem1 = PairItem1(x0);
+                _0PairItem1;
+                });
+            _4DefaultValueOfElement = DefaultValueOfElement(_3Map);
+            _5Aggregate = Aggregate(_3Map, _4DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
+              {
+                Vector3 _0Add;// 2:Sum->2:Add 109178
+                _0Add = Add(x0, x1);
+                _0Add;
+                });
+            _6Constant = 3;
+            _7DivideByScalar = DivideByScalar(_5Aggregate, _6Constant);
+            _7DivideByScalar;
+            });
+        _2Map;
+        };
+    _15Map = Map(_13MeshFaces, _14Pass-through: function1);
+    _16Flatten = Flatten(_15Map);
+    _17SetMapChannelWithoutIndices = SetMapChannelWithoutIndices(if (_1Equal)
+      {
+        MeshData _10MeshData;// 10:MapChannelOrGeometrySet-ext->9:MeshData 109145
+        TriMesh _11CreateMeshWithMeshData;// 10:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 109144
+        _10MeshData = MeshData(mesh);
+        _11CreateMeshWithMeshData = CreateMeshWithMeshData(_4Unit, _9ArrayOf, _10MeshData);
+        _11CreateMeshWithMeshData;
+        }else
+      {
+        TriMesh _12SetMapChannel;// 10:MapChannelOrGeometrySet-ext->0:SetMapChannel 109146
+        _12SetMapChannel = SetMapChannel(mesh, uvw channel, _4Unit, _9ArrayOf);
+        _12SetMapChannel;
+        }, uvw channel, _16Flatten);
+    _17SetMapChannelWithoutIndices;
+    }

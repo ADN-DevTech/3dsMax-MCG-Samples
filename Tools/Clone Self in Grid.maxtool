@@ -1,0 +1,40 @@
+<graph version="0.50" uuid="0426fa64-77de-4b43-8ad9-b4d9a7afa852">
+    <meta_info>
+        <graph_version guid="8c4dac5a-6b28-48e2-a996-a0355549b047" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="1020:840" size="140:91" />
+        <node operator="Modifier: BoundingBox" id="1" position="220:0" size="140:91" />
+        <node operator="BoxSubdivideAsMatrices-ext" id="2" position="700:520" size="240:175" />
+        <node operator="Parameter: Int32" id="3" name="nx" min_value="1" max_value="100" default_value="4" position="460:240" size="140:175" />
+        <node operator="Parameter: Int32" id="4" name="ny" min_value="1" max_value="100" default_value="4" position="460:440" size="140:175" />
+        <node operator="Parameter: Int32" id="5" name="nz" min_value="1" max_value="100" default_value="4" position="460:640" size="140:175" />
+        <node operator="CloneMeshAtTransforms-ext" id="6" position="1240:780" size="200:133" />
+        <node operator="CombineAllMeshes" id="7" position="1520:820" size="140:112" />
+        <node operator="Output: modifier" id="8" position="1740:840" size="140:70" />
+        <node operator="Map" id="9" position="1020:700" size="140:133" />
+        <node operator="Parameter: Single" id="14" name="scale total" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="220:120" size="140:196" />
+        <node operator="Parameter: Single" id="16" name="scale" min_value="0" max_value="100000" default_value="1" system_units_value="false" position="0:700" size="140:196" />
+        <node operator="ScalarToVector-ext" id="15" position="220:820" size="160:112" />
+        <node operator="VectorScaleMatrix" id="17" position="460:840" size="160:112" />
+        <node operator="Multiply" id="18" position="700:720" size="140:133" />
+        <node operator="BoxScaleBy-ext" id="19" position="460:100" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="19" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="9" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="19" destport="1" />
+    </connections>
+</graph>

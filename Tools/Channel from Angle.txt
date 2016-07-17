@@ -1,0 +1,47 @@
+(InstanceState state, Int32 target channel, TriMesh mesh) => 
+  {
+    Int32 _0Constant;// 0:MapChannelOrGeometrySet-ext->0:Constant 91380
+    Boolean _1Equal;// 0:MapChannelOrGeometrySet-ext->6:Equal 91379
+    IArray[Int32] _2MeshIndices;// 5:MapChannelFromFaceVertex-ext->3:MeshIndices 91388
+    IArray[Int32] _3Indices;// 4:MapIndices-ext->4:Indices 91387
+    Func[Int32, Vector3] _4Pass-through: function1;// 0:Pass-through: function1 91373
+    IArray[Vector3] _5Map;// 4:MapIndices-ext->2:Map 91386
+    IArray[Int32] _6Indices;// 5:MapChannelFromFaceVertex-ext->5:Indices 91389
+    _0Constant = -3;
+    _1Equal = Equal(_0Constant, target channel);
+    _2MeshIndices = MeshIndices(mesh);
+    _3Indices = Indices(_2MeshIndices);
+    _4Pass-through: function1 = (Int32 x0) => 
+      {
+        Int32 _0Constant;// 2:Three->0:Constant 91402
+        Int32 _1Divide;// 3:DivideByThree->1:Divide 91401
+        Face3 _2MeshFace;// 2:FaceVertexAngle->2:MeshFace 91399
+        Int32 _3Constant;// 2:Three->0:Constant 91405
+        Int32 _4Modulo;// 5:ModuloThree->1:Modulo 91404
+        Single _5FaceCornerAngle;// 2:FaceVertexAngle->4:FaceCornerAngle 91398
+        Vector3 _6Vector3;// 3:ScalarToVector-ext->1:Vector3 91393
+        _0Constant = 3;
+        _1Divide = Divide(x0, _0Constant);
+        _2MeshFace = MeshFace(mesh, _1Divide);
+        _3Constant = 3;
+        _4Modulo = Modulo(x0, _3Constant);
+        _5FaceCornerAngle = FaceCornerAngle(_2MeshFace, _4Modulo);
+        _6Vector3 = Vector3(_5FaceCornerAngle, _5FaceCornerAngle, _5FaceCornerAngle);
+        _6Vector3;
+        };
+    _5Map = Map(_3Indices, _4Pass-through: function1);
+    _6Indices = Indices(_5Map);
+    if (_1Equal)
+      {
+        MeshData _7MeshData;// 0:MapChannelOrGeometrySet-ext->9:MeshData 91382
+        TriMesh _8CreateMeshWithMeshData;// 0:MapChannelOrGeometrySet-ext->8:CreateMeshWithMeshData 91381
+        _7MeshData = MeshData(mesh);
+        _8CreateMeshWithMeshData = CreateMeshWithMeshData(_5Map, _6Indices, _7MeshData);
+        _8CreateMeshWithMeshData;
+        }else
+      {
+        TriMesh _9SetMapChannel;// 0:MapChannelOrGeometrySet-ext->0:SetMapChannel 91383
+        _9SetMapChannel = SetMapChannel(mesh, target channel, _5Map, _6Indices);
+        _9SetMapChannel;
+        };
+    }

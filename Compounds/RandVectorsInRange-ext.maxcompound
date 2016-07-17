@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="f8a415b0-ce94-45ea-8735-0328230d592b">
+    <meta_info>
+        <graph_version guid="379d2c55-6330-47d1-84ec-f56756d5995e" number="0.0.1" />
+        <category>Random</category>
+        <description>Creates an array of random vectors in the range of [0,0,0] [rangeX,rangeY,rangeZ] as specified by the range vector.</description>
+    </meta_info>
+    <nodes>
+        <node operator="RandVectors-ext" id="0" position="700:440" size="140:133" />
+        <node operator="Input: Int32" id="1" name="count" position="460:380" size="140:112" />
+        <node operator="Input: Int32" id="2" name="seed" position="460:520" size="140:112" />
+        <node operator="ArrayMultiplyScalar-ext" id="3" position="900:560" size="140:133" />
+        <node operator="Input: Vector3" id="4" name="range" position="700:600" size="140:112" />
+        <node operator="Output: compound" id="5" position="1100:620" size="180:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

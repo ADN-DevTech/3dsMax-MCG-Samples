@@ -1,0 +1,26 @@
+<graph version="0.50" uuid="e4499b6e-edd4-4283-92d4-3f27c542566d">
+    <meta_info>
+        <graph_version guid="8e3fd8a4-6485-4b9f-bea4-bbf4663886e6" number="0.0.1" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="560:140" size="140:91" />
+        <node operator="Modifier: BoundingBox" id="1" position="280:0" size="140:91" />
+        <node operator="BoxSubdivideAsMatrices-ext" id="2" position="500:260" size="240:175" />
+        <node operator="Parameter: Int32" id="3" name="nx" min_value="1" max_value="100" default_value="4" position="280:100" size="140:175" />
+        <node operator="Parameter: Int32" id="4" name="ny" min_value="1" max_value="100" default_value="4" position="280:300" size="140:175" />
+        <node operator="Parameter: Int32" id="5" name="nz" min_value="1" max_value="100" default_value="4" position="280:500" size="140:175" />
+        <node operator="CloneMeshAtTransforms-ext" id="6" position="800:260" size="200:133" />
+        <node operator="CombineAllMeshes" id="7" position="1040:320" size="140:112" />
+        <node operator="Output: modifier" id="8" position="1220:340" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    </connections>
+</graph>

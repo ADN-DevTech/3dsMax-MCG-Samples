@@ -1,0 +1,37 @@
+<graph version="0.50" uuid="2d140a95-0d0e-4b83-a2ab-da80368920ae">
+    <meta_info>
+        <graph_version guid="bb26f91a-ab23-49da-b706-9c226389ecff" number="0.0.3" />
+        <category>Selection</category>
+        <description>Sets the soft-selection channel according to the point distances from a bounding box.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="220:0" size="140:112" />
+        <node operator="MeshVertices" id="5" position="440:120" size="140:112" />
+        <node operator="Map" id="6" position="660:280" size="140:133" />
+        <node operator="SoftSelectionUpdate-ext" id="7" position="880:100" size="200:175" />
+        <node operator="Input: Boolean" id="8" name="additive" position="660:20" size="140:112" />
+        <node operator="Input: Boolean" id="9" name="invert" position="660:160" size="140:112" />
+        <node operator="AffectRegion" id="1" position="440:260" size="140:175" />
+        <node operator="DistancePointBox-ext" id="2" position="220:140" size="140:133" />
+        <node operator="Input: BoundingBox" id="3" name="box" position="0:140" size="140:112" />
+        <node operator="Input: Single" id="4" name="falloff" position="220:280" size="140:112" />
+        <node operator="Input: Single" id="10" name="bubble" position="220:420" size="140:112" />
+        <node operator="Input: Single" id="11" name="pinch" position="220:540" size="140:112" />
+        <node operator="Output: compound" id="12" position="1140:220" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="1" destnode="6" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="12" destport="0" />
+    </connections>
+</graph>
