@@ -1,0 +1,356 @@
+(InstanceState state, Boolean circleOrPolygon, Int32 points, Single base, Single height, Boolean bipyramid) => 
+  {
+    IArray[Vector3] _25Pass-through: array;// 0:Pass-through: array 87285
+    Single _26Constant;// 4:Origin->0:Constant 87290
+    Vector3 _27Vector3;// 4:Origin->1:Vector3 87289
+    IArray[Vector3] _28Map;// 10:VectorsScale-ext->1:Map 87287
+    Vector3 _29DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 87272
+    Vector3 _30Aggregate;// 2:Sum->0:Aggregate 87271
+    Int32 _31Count;// 1:AverageVector->3:Count 87275
+    Single _32IntAsFloat;// 1:AverageVector->1:IntAsFloat 87274
+    Vector3 _33DivideByScalar;// 1:AverageVector->5:DivideByScalar 87269
+    Single _34X;// 2:OffsetZ->7:X 87264
+    Single _35Y;// 2:OffsetZ->6:Y 87265
+    Single _36Z;// 2:OffsetZ->5:Z 87267
+    Single _37Add;// 2:OffsetZ->3:Add 87266
+    Vector3 _38Vector3;// 2:OffsetZ->1:Vector3 87263
+    IArray[Vector3] _39Append;// 8:CreateTriMeshBiFan-ext->3:Append 87176
+    Boolean _67False;// 1:PointsAroundAxi-ext->1:False 87320
+    Single _68Constant;// 1:PointsAroundAxi-ext->0:Constant 87321
+    Boolean _75False;// 1:PointsAroundAxi-ext->1:False 87362
+    Single _76Constant;// 1:PointsAroundAxi-ext->0:Constant 87363
+    Vector3 _83XAxis;// 1:Circle-ext->2:XAxis 87364
+    Vector3 _84ZAxis;// 1:Circle-ext->3:ZAxis 87365
+    IArray[Vector3] _85Map;// 0:PointsInArc-ext->6:Map 87344
+    Vector3 _98Pass-through: Vector3;// 0:Pass-through: Vector3 87173
+    IArray[Vector3] _99Append;// 8:CreateTriMeshBiFan-ext->7:Append 87175
+    Boolean _100True;// 8:CreateTriMeshBiFan-ext->13:True 87216
+    IArray[Int32] _101Indices;// 8:CreateTriMeshBiFan-ext->8:Indices 87217
+    Int32 _102Count;// 20:MeshTriFanIndices-ext->17:Count 87193
+    Int32 _103One;// 16:MinusOne->2:One 87192
+    Int32 _104Subtract;// 16:MinusOne->1:Subtract 87191
+    IArray[Int32] _105Range;// 20:MeshTriFanIndices-ext->6:Range 87189
+    Int32 _106Zero;// 20:MeshTriFanIndices-ext->12:Zero 87203
+    IArray[IArray[Int32]] _107Map;// 20:MeshTriFanIndices-ext->7:Map 87188
+    IArray[Int32] _140Flatten;// 20:MeshTriFanIndices-ext->11:Flatten 87185
+    Int32 _141Count;// 8:CreateTriMeshBiFan-ext->10:Count 87218
+    IArray[Int32] _142Prepend;// 20:MeshTriFanIndices-ext->4:Prepend 87215
+    IArray[Int32] _143Map;// 20:SelectByIndex->2:Map 87183
+    IArray[Int32] _144Reverse;// 8:CreateTriMeshBiFan-ext->9:Reverse 87257
+    Int32 _145Count;// 6:MeshTriFanIndices-ext->17:Count 87234
+    Int32 _146One;// 16:MinusOne->2:One 87233
+    Int32 _147Subtract;// 16:MinusOne->1:Subtract 87232
+    IArray[Int32] _148Range;// 6:MeshTriFanIndices-ext->6:Range 87230
+    Int32 _149Zero;// 6:MeshTriFanIndices-ext->12:Zero 87244
+    IArray[IArray[Int32]] _150Map;// 6:MeshTriFanIndices-ext->7:Map 87229
+    IArray[Int32] _183Flatten;// 6:MeshTriFanIndices-ext->11:Flatten 87226
+    Int32 _184One;// 11:PlusOne->1:One 87260
+    Int32 _185Add;// 11:PlusOne->0:Add 87259
+    IArray[Int32] _186Prepend;// 6:MeshTriFanIndices-ext->4:Prepend 87256
+    IArray[Int32] _187Map;// 20:SelectByIndex->2:Map 87224
+    IArray[Int32] _188Concatenate;// 8:CreateTriMeshBiFan-ext->14:Concatenate 87177
+    TriMesh _189CreateMesh;// 8:CreateTriMeshBiFan-ext->1:CreateMesh 87174
+    _25Pass-through: array = if (circleOrPolygon)
+      {
+        Boolean _0False;// 1:PointsAroundAxi-ext->1:False 87320
+        Single _1Constant;// 1:PointsAroundAxi-ext->0:Constant 87321
+        Single _2ToRadians;// 0:PointsInArc-ext->5:ToRadians 87309
+        Vector3 _7XAxis;// 3:Circle-ext->2:XAxis 87322
+        Vector3 _8ZAxis;// 3:Circle-ext->3:ZAxis 87323
+        IArray[Vector3] _9Map;// 0:PointsInArc-ext->6:Map 87302
+        _0False = False();
+        _1Constant = 360;
+        _2ToRadians = ToRadians(_1Constant);
+        _7XAxis = XAxis();
+        _8ZAxis = ZAxis();
+        _9Map = Map(if (_0False)
+          {
+            IArray[Single] _3RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 87307
+            IArray[Single] _4Map;// 0:RangeInclusiveFloatTo->2:Map 87306
+            _3RangeInclusiveFloat = RangeInclusiveFloat(points);
+            _4Map = Map(_3RangeInclusiveFloat, (Single x0) => 
+              {
+                Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 87308
+                _0Multiply = Multiply(x0, _2ToRadians);
+                _0Multiply;
+                });
+            _4Map;
+            }else
+          {
+            IArray[Single] _5RangeExclusiveFloat;// 10:RangeExclusiveFloatTo->0:RangeExclusiveFloat 87313
+            IArray[Single] _6Map;// 10:RangeExclusiveFloatTo->2:Map 87312
+            _5RangeExclusiveFloat = RangeExclusiveFloat(points);
+            _6Map = Map(_5RangeExclusiveFloat, (Single x0) => 
+              {
+                Single _0Multiply;// 10:RangeExclusiveFloatTo->1:Multiply 87314
+                _0Multiply = Multiply(x0, _2ToRadians);
+                _0Multiply;
+                });
+            _6Map;
+            }, (Single x0) => 
+          {
+            Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 87319
+            Vector3 _1Transform;// 3:RotatePoint->2:Transform 87318
+            _0MatrixFromAxisAngle = MatrixFromAxisAngle(_8ZAxis, x0);
+            _1Transform = Transform(_7XAxis, _0MatrixFromAxisAngle);
+            _1Transform;
+            });
+        _9Map;
+        }else
+      {
+        Boolean _10False;// 1:PointsAroundAxi-ext->1:False 87362
+        Single _11Constant;// 1:PointsAroundAxi-ext->0:Constant 87363
+        Single _12ToRadians;// 0:PointsInArc-ext->5:ToRadians 87351
+        Vector3 _17XAxis;// 1:Circle-ext->2:XAxis 87364
+        Vector3 _18ZAxis;// 1:Circle-ext->3:ZAxis 87365
+        IArray[Vector3] _19Map;// 0:PointsInArc-ext->6:Map 87344
+        Vector3 _20ZAxis;// 9:Polygon-ext->4:ZAxis 87366
+        Single _21Pi;// 9:Polygon-ext->8:Pi 87368
+        Single _22IntAsFloat;// 9:Polygon-ext->7:IntAsFloat 87369
+        Single _23Divide;// 9:Polygon-ext->6:Divide 87367
+        IArray[Vector3] _24Map;// 3:RotatePoints->2:Map 87329
+        _10False = False();
+        _11Constant = 360;
+        _12ToRadians = ToRadians(_11Constant);
+        _17XAxis = XAxis();
+        _18ZAxis = ZAxis();
+        _19Map = Map(if (_10False)
+          {
+            IArray[Single] _13RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 87349
+            IArray[Single] _14Map;// 0:RangeInclusiveFloatTo->2:Map 87348
+            _13RangeInclusiveFloat = RangeInclusiveFloat(points);
+            _14Map = Map(_13RangeInclusiveFloat, (Single x0) => 
+              {
+                Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 87350
+                _0Multiply = Multiply(x0, _12ToRadians);
+                _0Multiply;
+                });
+            _14Map;
+            }else
+          {
+            IArray[Single] _15RangeExclusiveFloat;// 10:RangeExclusiveFloatTo->0:RangeExclusiveFloat 87355
+            IArray[Single] _16Map;// 10:RangeExclusiveFloatTo->2:Map 87354
+            _15RangeExclusiveFloat = RangeExclusiveFloat(points);
+            _16Map = Map(_15RangeExclusiveFloat, (Single x0) => 
+              {
+                Single _0Multiply;// 10:RangeExclusiveFloatTo->1:Multiply 87356
+                _0Multiply = Multiply(x0, _12ToRadians);
+                _0Multiply;
+                });
+            _16Map;
+            }, (Single x0) => 
+          {
+            Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 87361
+            Vector3 _1Transform;// 3:RotatePoint->2:Transform 87360
+            _0MatrixFromAxisAngle = MatrixFromAxisAngle(_18ZAxis, x0);
+            _1Transform = Transform(_17XAxis, _0MatrixFromAxisAngle);
+            _1Transform;
+            });
+        _20ZAxis = ZAxis();
+        _21Pi = Pi();
+        _22IntAsFloat = IntAsFloat(points);
+        _23Divide = Divide(_21Pi, _22IntAsFloat);
+        _24Map = Map(_19Map, (Vector3 x0) => 
+          {
+            Matrix _0MatrixFromAxisAngle;// 0:RotatePoint->1:MatrixFromAxisAngle 87334
+            Vector3 _1Transform;// 0:RotatePoint->2:Transform 87333
+            _0MatrixFromAxisAngle = MatrixFromAxisAngle(_20ZAxis, _23Divide);
+            _1Transform = Transform(x0, _0MatrixFromAxisAngle);
+            _1Transform;
+            });
+        _24Map;
+        };
+    _26Constant = 0;
+    _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
+    _28Map = Map(_25Pass-through: array, (Vector3 x0) => 
+      {
+        Vector3 _0Lerp;// 10:VectorsScale-ext->3:Lerp 87288
+        _0Lerp = Lerp(_27Vector3, x0, base);
+        _0Lerp;
+        });
+    _29DefaultValueOfElement = DefaultValueOfElement(_28Map);
+    _30Aggregate = Aggregate(_28Map, _29DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
+      {
+        Vector3 _0Add;// 2:Sum->2:Add 87273
+        _0Add = Add(x0, x1);
+        _0Add;
+        });
+    _31Count = Count(_28Map);
+    _32IntAsFloat = IntAsFloat(_31Count);
+    _33DivideByScalar = DivideByScalar(_30Aggregate, _32IntAsFloat);
+    _34X = X(_33DivideByScalar);
+    _35Y = Y(_33DivideByScalar);
+    _36Z = Z(_33DivideByScalar);
+    _37Add = Add(_36Z, height);
+    _38Vector3 = Vector3(_34X, _35Y, _37Add);
+    _39Append = Append(_28Map, _38Vector3);
+    _67False = False();
+    _68Constant = 360;
+    _75False = False();
+    _76Constant = 360;
+    _83XAxis = XAxis();
+    _84ZAxis = ZAxis();
+    _85Map = Map(if (_75False)
+      {
+        IArray[Single] _77RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 87349
+        Single _78ToRadians;// 0:PointsInArc-ext->5:ToRadians 87351
+        IArray[Single] _79Map;// 0:RangeInclusiveFloatTo->2:Map 87348
+        _77RangeInclusiveFloat = RangeInclusiveFloat(points);
+        _78ToRadians = ToRadians(_76Constant);
+        _79Map = Map(_77RangeInclusiveFloat, (Single x0) => 
+          {
+            Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 87350
+            _0Multiply = Multiply(x0, _78ToRadians);
+            _0Multiply;
+            });
+        _79Map;
+        }else
+      {
+        IArray[Single] _80RangeExclusiveFloat;// 10:RangeExclusiveFloatTo->0:RangeExclusiveFloat 87355
+        Single _81ToRadians;// 0:PointsInArc-ext->5:ToRadians 87351
+        IArray[Single] _82Map;// 10:RangeExclusiveFloatTo->2:Map 87354
+        _80RangeExclusiveFloat = RangeExclusiveFloat(points);
+        _81ToRadians = ToRadians(_76Constant);
+        _82Map = Map(_80RangeExclusiveFloat, (Single x0) => 
+          {
+            Single _0Multiply;// 10:RangeExclusiveFloatTo->1:Multiply 87356
+            _0Multiply = Multiply(x0, _81ToRadians);
+            _0Multiply;
+            });
+        _82Map;
+        }, (Single x0) => 
+      {
+        Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 87361
+        Vector3 _1Transform;// 3:RotatePoint->2:Transform 87360
+        _0MatrixFromAxisAngle = MatrixFromAxisAngle(_84ZAxis, x0);
+        _1Transform = Transform(_83XAxis, _0MatrixFromAxisAngle);
+        _1Transform;
+        });
+    _98Pass-through: Vector3 = if (bipyramid)
+      {
+        Single _92X;// 4:OffsetZ->7:X 87280
+        Single _93Y;// 4:OffsetZ->6:Y 87281
+        Single _94Z;// 4:OffsetZ->5:Z 87283
+        Single _95NegativeFloat;// 5:CreateTriMeshPyramid-ext->5:NegativeFloat 87284
+        Single _96Add;// 4:OffsetZ->3:Add 87282
+        Vector3 _97Vector3;// 4:OffsetZ->1:Vector3 87279
+        _92X = X(_33DivideByScalar);
+        _93Y = Y(_33DivideByScalar);
+        _94Z = Z(_33DivideByScalar);
+        _95NegativeFloat = NegativeFloat(height);
+        _96Add = Add(_94Z, _95NegativeFloat);
+        _97Vector3 = Vector3(_92X, _93Y, _96Add);
+        _97Vector3;
+        }else
+      {
+        _33DivideByScalar;
+        };
+    _99Append = Append(_39Append, _98Pass-through: Vector3);
+    _100True = True();
+    _101Indices = Indices(_28Map);
+    _102Count = Count(_101Indices);
+    _103One = One();
+    _104Subtract = Subtract(_102Count, _103One);
+    _105Range = Range(_104Subtract);
+    _106Zero = Zero();
+    _107Map = Map(_105Range, (Int32 x0) => 
+      {
+        Int32 _0One;// 13:PlusOne->1:One 87202
+        Int32 _1Add;// 13:PlusOne->0:Add 87201
+        IArray[Int32] _2Unit;// 3:Array3->2:Unit 87199
+        IArray[Int32] _3Append;// 3:Array3->3:Append 87198
+        Int32 _4One;// 10:PlusOne->1:One 87206
+        Int32 _5Add;// 10:PlusOne->0:Add 87205
+        IArray[Int32] _6Append;// 3:Array3->6:Append 87197
+        _0One = One();
+        _1Add = Add(x0, _0One);
+        _2Unit = Unit(_1Add);
+        _3Append = Append(_2Unit, _106Zero);
+        _4One = One();
+        _5Add = Add(_1Add, _4One);
+        _6Append = Append(_3Append, _5Add);
+        _6Append;
+        });
+    _140Flatten = Flatten(if (_100True)
+      {
+        IArray[Int32] _134Unit;// 18:Array3->2:Unit 87212
+        Int32 _135Zero;// 20:MeshTriFanIndices-ext->15:Zero 87213
+        IArray[Int32] _136Append;// 18:Array3->3:Append 87211
+        Int32 _137One;// 20:MeshTriFanIndices-ext->19:One 87214
+        IArray[Int32] _138Append;// 18:Array3->6:Append 87210
+        IArray[IArray[Int32]] _139Append;// 20:MeshTriFanIndices-ext->9:Append 87187
+        _134Unit = Unit(_102Count);
+        _135Zero = Zero();
+        _136Append = Append(_134Unit, _135Zero);
+        _137One = One();
+        _138Append = Append(_136Append, _137One);
+        _139Append = Append(_107Map, _138Append);
+        _139Append;
+        }else
+      {
+        _107Map;
+        });
+    _141Count = Count(_28Map);
+    _142Prepend = Prepend(_101Indices, _141Count);
+    _143Map = Map(_140Flatten, (Int32 x0) => 
+      {
+        Int32 _0At;// 20:SelectByIndex->3:At 87184
+        _0At = At(_142Prepend, x0);
+        _0At;
+        });
+    _144Reverse = Reverse(_101Indices);
+    _145Count = Count(_144Reverse);
+    _146One = One();
+    _147Subtract = Subtract(_145Count, _146One);
+    _148Range = Range(_147Subtract);
+    _149Zero = Zero();
+    _150Map = Map(_148Range, (Int32 x0) => 
+      {
+        Int32 _0One;// 13:PlusOne->1:One 87243
+        Int32 _1Add;// 13:PlusOne->0:Add 87242
+        IArray[Int32] _2Unit;// 3:Array3->2:Unit 87240
+        IArray[Int32] _3Append;// 3:Array3->3:Append 87239
+        Int32 _4One;// 10:PlusOne->1:One 87247
+        Int32 _5Add;// 10:PlusOne->0:Add 87246
+        IArray[Int32] _6Append;// 3:Array3->6:Append 87238
+        _0One = One();
+        _1Add = Add(x0, _0One);
+        _2Unit = Unit(_1Add);
+        _3Append = Append(_2Unit, _149Zero);
+        _4One = One();
+        _5Add = Add(_1Add, _4One);
+        _6Append = Append(_3Append, _5Add);
+        _6Append;
+        });
+    _183Flatten = Flatten(if (_100True)
+      {
+        IArray[Int32] _177Unit;// 18:Array3->2:Unit 87253
+        Int32 _178Zero;// 6:MeshTriFanIndices-ext->15:Zero 87254
+        IArray[Int32] _179Append;// 18:Array3->3:Append 87252
+        Int32 _180One;// 6:MeshTriFanIndices-ext->19:One 87255
+        IArray[Int32] _181Append;// 18:Array3->6:Append 87251
+        IArray[IArray[Int32]] _182Append;// 6:MeshTriFanIndices-ext->9:Append 87228
+        _177Unit = Unit(_145Count);
+        _178Zero = Zero();
+        _179Append = Append(_177Unit, _178Zero);
+        _180One = One();
+        _181Append = Append(_179Append, _180One);
+        _182Append = Append(_150Map, _181Append);
+        _182Append;
+        }else
+      {
+        _150Map;
+        });
+    _184One = One();
+    _185Add = Add(_141Count, _184One);
+    _186Prepend = Prepend(_144Reverse, _185Add);
+    _187Map = Map(_183Flatten, (Int32 x0) => 
+      {
+        Int32 _0At;// 20:SelectByIndex->3:At 87225
+        _0At = At(_186Prepend, x0);
+        _0At;
+        });
+    _188Concatenate = Concatenate(_143Map, _187Map);
+    _189CreateMesh = CreateMesh(_99Append, _188Concatenate);
+    _189CreateMesh;
+    }

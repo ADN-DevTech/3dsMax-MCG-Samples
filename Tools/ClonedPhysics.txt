@@ -1,77 +1,77 @@
 (InstanceState state, TriMesh mesh, Int32 count, Single frame, Boolean clearCache, Single spawnRadius, Int32 seed, Matrix modifierTransform, IArray[INode] obstacles, Single gravity speed) => 
   {
-    IArray[TriMesh] _0ArrayOf;// 14:ArrayOf 93286
-    Int32 _1FramesToTicks;// 36:FramesToTicks 93336
-    Cache[World] _2IfThen;// 4:CacheValueResettable->7:IfThen 93321
-    Int32 _3Zero;// 4:ExtractCurrentValueFromCache->3:Zero 93320
-    World _4CachedValue;// 4:ExtractCurrentValueFromCache->1:CachedValue 93319
-    Int32 _5GetSimulationTime;// 3:RunSimulationUntil->6:GetSimulationTime 93312
-    Boolean _6LessThan;// 3:RunSimulationUntil->1:LessThan 93311
-    World _7IfThen;// 3:RunSimulationUntil->5:IfThen 93310
-    Int32 _8GetSimulationTime;// 3:RunSimulationUntil->25:GetSimulationTime 93315
-    Int32 _9Subtract;// 3:RunSimulationUntil->27:Subtract 93314
-    World _10StepSimulation;// 3:RunSimulationUntil->23:StepSimulation 93309
-    Int32 _11GetNumberOfRigidBodies;// 8:RigidBodySimulationTransforms->2:GetNumberOfRigidBodies 93304
-    IArray[Int32] _12Range;// 3:MapRange->2:Range 93303
-    Func[Int32, Matrix] _13Pass-through: function1;// 0:Pass-through: function1 93301
-    IArray[Matrix] _14Map;// 3:MapRange->3:Map 93302
-    Matrix _15InvertMatrix;// 7:RigidBodySimulation->20:InvertMatrix 93334
-    IArray[Matrix] _16Map;// 7:RigidBodySimulation->6:Map 93298
-    Random _17RandomNumberGenerator;// 11:RandomNumberGenerator 93396
-    Func[Vector3] _18Bind;// 13:RandomPointsInBoundingBox->4:Bind 93351
-    IArray[Vector3] _19ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 93350
-    IArray[Matrix] _20Map;// 9:RandomRigidBodies->0:Map 93346
-    Single _21FloatOne;// 9:RandomRigidBodies->10:FloatOne 93388
-    IArray[RigidBody] _22Map;// 9:RandomRigidBodies->6:Map 93345
-    Int32 _23Count;// 7:RigidBodySimulation->24:Count 93335
-    IArray[Matrix] _24Take;// 7:RigidBodySimulation->23:Take 93297
-    IArray[TriMesh] _25Combine;// 15:Combine 93285
-    TriMesh _26CombineAllMeshes;// 6:CombineAllMeshes 93284
+    IArray[TriMesh] _0ArrayOf;// 14:ArrayOf 95001
+    Int32 _1FramesToTicks;// 36:FramesToTicks 95051
+    Cache[World] _2IfThen;// 4:CacheValueResettable->7:IfThen 95036
+    Int32 _3Zero;// 4:ExtractCurrentValueFromCache->3:Zero 95035
+    World _4CachedValue;// 4:ExtractCurrentValueFromCache->1:CachedValue 95034
+    Int32 _5GetSimulationTime;// 3:RunSimulationUntil->6:GetSimulationTime 95027
+    Boolean _6LessThan;// 3:RunSimulationUntil->1:LessThan 95026
+    World _7IfThen;// 3:RunSimulationUntil->5:IfThen 95025
+    Int32 _8GetSimulationTime;// 3:RunSimulationUntil->25:GetSimulationTime 95030
+    Int32 _9Subtract;// 3:RunSimulationUntil->27:Subtract 95029
+    World _10StepSimulation;// 3:RunSimulationUntil->23:StepSimulation 95024
+    Int32 _11GetNumberOfRigidBodies;// 8:RigidBodySimulationTransforms->2:GetNumberOfRigidBodies 95019
+    IArray[Int32] _12Range;// 3:MapRange->2:Range 95018
+    Func[Int32, Matrix] _13Pass-through: function1;// 0:Pass-through: function1 95016
+    IArray[Matrix] _14Map;// 3:MapRange->3:Map 95017
+    Matrix _15InvertMatrix;// 7:RigidBodySimulation->20:InvertMatrix 95049
+    IArray[Matrix] _16Map;// 7:RigidBodySimulation->6:Map 95013
+    Random _17RandomNumberGenerator;// 11:RandomNumberGenerator 95111
+    Func[Vector3] _18Bind;// 13:RandomPointsInBoundingBox->4:Bind 95066
+    IArray[Vector3] _19ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 95065
+    IArray[Matrix] _20Map;// 9:RandomRigidBodies->0:Map 95061
+    Single _21FloatOne;// 9:RandomRigidBodies->10:FloatOne 95103
+    IArray[RigidBody] _22Map;// 9:RandomRigidBodies->6:Map 95060
+    Int32 _23Count;// 7:RigidBodySimulation->24:Count 95050
+    IArray[Matrix] _24Take;// 7:RigidBodySimulation->23:Take 95012
+    IArray[TriMesh] _25Combine;// 15:Combine 95000
+    TriMesh _26CombineAllMeshes;// 6:CombineAllMeshes 94999
     _0ArrayOf = ArrayOf(mesh, count);
     _1FramesToTicks = FramesToTicks(frame);
     _2IfThen = IfThen(clearCache, () => 
       {
-        Cache[World] _0CreateStaticCache;// 4:CacheValueResettable->1:CreateStaticCache 93323
-        Cache[World] _1ForceUpdateCache;// 4:CacheValueResettable->6:ForceUpdateCache 93322
+        Cache[World] _0CreateStaticCache;// 4:CacheValueResettable->1:CreateStaticCache 95038
+        Cache[World] _1ForceUpdateCache;// 4:CacheValueResettable->6:ForceUpdateCache 95037
         _0CreateStaticCache = CreateStaticCache(() => 
           {
-            IArray[Constraint] _0ConstraintEmptyArray;// 24:ConstraintEmptyArray 93339
-            Random _1RandomNumberGenerator;// 11:RandomNumberGenerator 93396
-            Func[Vector3] _2Bind;// 13:RandomPointsInBoundingBox->4:Bind 93351
-            IArray[Vector3] _3ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 93350
-            IArray[Matrix] _4Map;// 9:RandomRigidBodies->0:Map 93346
-            Single _5FloatOne;// 9:RandomRigidBodies->10:FloatOne 93388
-            IArray[RigidBody] _6Map;// 9:RandomRigidBodies->6:Map 93345
-            Single _7FloatZero;// 13:RigidBodyObstaclesFromNodes->3:FloatZero 93427
-            IArray[RigidBody] _8Map;// 13:RigidBodyObstaclesFromNodes->1:Map 93400
-            IArray[RigidBody] _9Concatenate;// 7:RigidBodySimulation->22:Concatenate 93328
-            Int32 _10Zero;// 20:Zero 93429
-            World _11CreateWorld;// 7:RigidBodySimulation->13:CreateWorld 93330
-            Single _12Constant;// 0:Origin->0:Constant 93438
-            Vector3 _13Vector3;// 0:Origin->1:Vector3 93437
-            Single _14X;// 1:SetZ->4:X 93435
-            Single _15Y;// 1:SetZ->5:Y 93436
-            Single _16Constant;// 23:GravityVector->0:Constant 93439
-            Vector3 _17Vector3;// 1:SetZ->2:Vector3 93434
-            Vector3 _18MultiplyByScalar;// 27:MultiplyByScalar 93430
-            World _19SetGravity;// 7:RigidBodySimulation->33:SetGravity 93329
-            World _20Aggregate;// 7:RigidBodySimulation->103:Aggregate 93327
-            World _21Aggregate;// 7:RigidBodySimulation->18:Aggregate 93325
+            IArray[Constraint] _0ConstraintEmptyArray;// 24:ConstraintEmptyArray 95054
+            Random _1RandomNumberGenerator;// 11:RandomNumberGenerator 95111
+            Func[Vector3] _2Bind;// 13:RandomPointsInBoundingBox->4:Bind 95066
+            IArray[Vector3] _3ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 95065
+            IArray[Matrix] _4Map;// 9:RandomRigidBodies->0:Map 95061
+            Single _5FloatOne;// 9:RandomRigidBodies->10:FloatOne 95103
+            IArray[RigidBody] _6Map;// 9:RandomRigidBodies->6:Map 95060
+            Single _7FloatZero;// 13:RigidBodyObstaclesFromNodes->3:FloatZero 95142
+            IArray[RigidBody] _8Map;// 13:RigidBodyObstaclesFromNodes->1:Map 95115
+            IArray[RigidBody] _9Concatenate;// 7:RigidBodySimulation->22:Concatenate 95043
+            Int32 _10Zero;// 20:Zero 95144
+            World _11CreateWorld;// 7:RigidBodySimulation->13:CreateWorld 95045
+            Single _12Constant;// 0:Origin->0:Constant 95153
+            Vector3 _13Vector3;// 0:Origin->1:Vector3 95152
+            Single _14X;// 1:SetZ->4:X 95150
+            Single _15Y;// 1:SetZ->5:Y 95151
+            Single _16Constant;// 23:GravityVector->0:Constant 95154
+            Vector3 _17Vector3;// 1:SetZ->2:Vector3 95149
+            Vector3 _18MultiplyByScalar;// 27:MultiplyByScalar 95145
+            World _19SetGravity;// 7:RigidBodySimulation->33:SetGravity 95044
+            World _20Aggregate;// 7:RigidBodySimulation->103:Aggregate 95042
+            World _21Aggregate;// 7:RigidBodySimulation->18:Aggregate 95040
             _0ConstraintEmptyArray = GetValue();
             _1RandomNumberGenerator = RandomNumberGenerator(seed);
             _2Bind = Bind((Random x0) => 
               {
-                Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 93357
-                Single _1Constant;// 18:Origin-ext->0:Constant 93394
-                Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 93393
-                BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 93392
-                BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 93391
-                Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 93361
-                Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 93362
-                Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 93360
-                Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 93355
-                Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 93363
-                Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 93354
+                Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 95072
+                Single _1Constant;// 18:Origin-ext->0:Constant 95109
+                Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 95108
+                BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 95107
+                BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 95106
+                Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 95076
+                Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 95077
+                Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 95075
+                Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 95070
+                Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 95078
+                Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 95069
                 _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
                 _1Constant = 0;
                 _2Vector3 = Vector3(_1Constant, _1Constant, _1Constant);
@@ -88,8 +88,8 @@
             _3ArrayOfFunction = ArrayOfFunction(_2Bind, count);
             _4Map = Map(_3ArrayOfFunction, (Vector3 x0) => 
               {
-                Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 93365
-                Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 93364
+                Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 95080
+                Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 95079
                 _0TranslationMatrix = TranslationMatrix(x0);
                 _1Multiply = Multiply(modifierTransform, _0TranslationMatrix);
                 _1Multiply;
@@ -97,25 +97,25 @@
             _5FloatOne = FloatOne();
             _6Map = Map(_4Map, (Matrix x0) => 
               {
-                IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 93381
-                Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 93377
-                Vector3 _2Aggregate;// 2:Sum->0:Aggregate 93376
-                Int32 _3Count;// 28:AverageVector->3:Count 93380
-                Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 93379
-                Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 93374
-                Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 93372
-                Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 93371
-                Single _8Constant;// 110:Origin->0:Constant 93384
-                Vector3 _9Vector3;// 110:Origin->1:Vector3 93383
-                Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 93386
-                RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 93385
-                Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 93387
-                RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 93369
+                IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 95096
+                Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 95092
+                Vector3 _2Aggregate;// 2:Sum->0:Aggregate 95091
+                Int32 _3Count;// 28:AverageVector->3:Count 95095
+                Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 95094
+                Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 95089
+                Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 95087
+                Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 95086
+                Single _8Constant;// 110:Origin->0:Constant 95099
+                Vector3 _9Vector3;// 110:Origin->1:Vector3 95098
+                Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 95101
+                RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 95100
+                Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 95102
+                RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 95084
                 _0MeshVertices = MeshVertices(mesh);
                 _1DefaultValueOfElement = DefaultValueOfElement(_0MeshVertices);
                 _2Aggregate = Aggregate(_0MeshVertices, _1DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                   {
-                    Vector3 _0Add;// 2:Sum->2:Add 93378
+                    Vector3 _0Add;// 2:Sum->2:Add 95093
                     _0Add = Add(x0, x1);
                     _0Add;
                     });
@@ -135,29 +135,29 @@
             _7FloatZero = FloatZero();
             _8Map = Map(obstacles, (INode x0) => 
               {
-                Matrix _0WorldTransform;// 2:RigidBodyFromNode->2:WorldTransform 93425
-                TriMesh _1MeshFromNode;// 2:RigidBodyFromNode->3:MeshFromNode 93426
-                IArray[Vector3] _2MeshVertices;// 0:RigidBodyFromMeshWithMass->27:MeshVertices 93418
-                Vector3 _3DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 93414
-                Vector3 _4Aggregate;// 2:Sum->0:Aggregate 93413
-                Int32 _5Count;// 28:AverageVector->3:Count 93417
-                Single _6IntAsFloat;// 28:AverageVector->1:IntAsFloat 93416
-                Vector3 _7DivideByScalar;// 28:AverageVector->5:DivideByScalar 93411
-                Matrix _8TranslationMatrix;// 0:RigidBodyFromMeshWithMass->40:TranslationMatrix 93409
-                Matrix _9Multiply;// 0:RigidBodyFromMeshWithMass->42:Multiply 93408
-                Single _10Constant;// 110:Origin->0:Constant 93421
-                Vector3 _11Vector3;// 110:Origin->1:Vector3 93420
-                Single _12FloatZero;// 0:RigidBodyFromMeshWithMass->112:FloatZero 93423
-                RigidBodyDynamics _13CreateRigidBodyDynamics;// 0:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 93422
-                Boolean _14False;// 0:RigidBodyFromMeshWithMass->122:False 93424
-                RigidBody _15CreateRigidBody;// 0:RigidBodyFromMeshWithMass->107:CreateRigidBody 93406
+                Matrix _0WorldTransform;// 2:RigidBodyFromNode->2:WorldTransform 95140
+                TriMesh _1MeshFromNode;// 2:RigidBodyFromNode->3:MeshFromNode 95141
+                IArray[Vector3] _2MeshVertices;// 0:RigidBodyFromMeshWithMass->27:MeshVertices 95133
+                Vector3 _3DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 95129
+                Vector3 _4Aggregate;// 2:Sum->0:Aggregate 95128
+                Int32 _5Count;// 28:AverageVector->3:Count 95132
+                Single _6IntAsFloat;// 28:AverageVector->1:IntAsFloat 95131
+                Vector3 _7DivideByScalar;// 28:AverageVector->5:DivideByScalar 95126
+                Matrix _8TranslationMatrix;// 0:RigidBodyFromMeshWithMass->40:TranslationMatrix 95124
+                Matrix _9Multiply;// 0:RigidBodyFromMeshWithMass->42:Multiply 95123
+                Single _10Constant;// 110:Origin->0:Constant 95136
+                Vector3 _11Vector3;// 110:Origin->1:Vector3 95135
+                Single _12FloatZero;// 0:RigidBodyFromMeshWithMass->112:FloatZero 95138
+                RigidBodyDynamics _13CreateRigidBodyDynamics;// 0:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 95137
+                Boolean _14False;// 0:RigidBodyFromMeshWithMass->122:False 95139
+                RigidBody _15CreateRigidBody;// 0:RigidBodyFromMeshWithMass->107:CreateRigidBody 95121
                 _0WorldTransform = WorldTransform(x0);
                 _1MeshFromNode = MeshFromNode(x0);
                 _2MeshVertices = MeshVertices(_1MeshFromNode);
                 _3DefaultValueOfElement = DefaultValueOfElement(_2MeshVertices);
                 _4Aggregate = Aggregate(_2MeshVertices, _3DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                   {
-                    Vector3 _0Add;// 2:Sum->2:Add 93415
+                    Vector3 _0Add;// 2:Sum->2:Add 95130
                     _0Add = Add(x0, x1);
                     _0Add;
                     });
@@ -187,13 +187,13 @@
             _19SetGravity = SetGravity(_11CreateWorld, _18MultiplyByScalar);
             _20Aggregate = Aggregate(_9Concatenate, _19SetGravity, (World x0, RigidBody x1) => 
               {
-                World _0AddRigidBody;// 7:RigidBodySimulation->11:AddRigidBody 93331
+                World _0AddRigidBody;// 7:RigidBodySimulation->11:AddRigidBody 95046
                 _0AddRigidBody = AddRigidBody(x0, x1);
                 _0AddRigidBody;
                 });
             _21Aggregate = Aggregate(_0ConstraintEmptyArray, _20Aggregate, (World x0, Constraint x1) => 
               {
-                World _0AddConstraint;// 7:RigidBodySimulation->46:AddConstraint 93332
+                World _0AddConstraint;// 7:RigidBodySimulation->46:AddConstraint 95047
                 _0AddConstraint = AddConstraint(x0, x1);
                 _0AddConstraint;
                 });
@@ -203,46 +203,46 @@
         _1ForceUpdateCache;
         }, () => 
       {
-        Cache[World] _0CreateStaticCache;// 4:CacheValueResettable->1:CreateStaticCache 93323
+        Cache[World] _0CreateStaticCache;// 4:CacheValueResettable->1:CreateStaticCache 95038
         _0CreateStaticCache = CreateStaticCache(() => 
           {
-            IArray[Constraint] _0ConstraintEmptyArray;// 24:ConstraintEmptyArray 93339
-            Random _1RandomNumberGenerator;// 11:RandomNumberGenerator 93396
-            Func[Vector3] _2Bind;// 13:RandomPointsInBoundingBox->4:Bind 93351
-            IArray[Vector3] _3ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 93350
-            IArray[Matrix] _4Map;// 9:RandomRigidBodies->0:Map 93346
-            Single _5FloatOne;// 9:RandomRigidBodies->10:FloatOne 93388
-            IArray[RigidBody] _6Map;// 9:RandomRigidBodies->6:Map 93345
-            Single _7FloatZero;// 13:RigidBodyObstaclesFromNodes->3:FloatZero 93427
-            IArray[RigidBody] _8Map;// 13:RigidBodyObstaclesFromNodes->1:Map 93400
-            IArray[RigidBody] _9Concatenate;// 7:RigidBodySimulation->22:Concatenate 93328
-            Int32 _10Zero;// 20:Zero 93429
-            World _11CreateWorld;// 7:RigidBodySimulation->13:CreateWorld 93330
-            Single _12Constant;// 0:Origin->0:Constant 93438
-            Vector3 _13Vector3;// 0:Origin->1:Vector3 93437
-            Single _14X;// 1:SetZ->4:X 93435
-            Single _15Y;// 1:SetZ->5:Y 93436
-            Single _16Constant;// 23:GravityVector->0:Constant 93439
-            Vector3 _17Vector3;// 1:SetZ->2:Vector3 93434
-            Vector3 _18MultiplyByScalar;// 27:MultiplyByScalar 93430
-            World _19SetGravity;// 7:RigidBodySimulation->33:SetGravity 93329
-            World _20Aggregate;// 7:RigidBodySimulation->103:Aggregate 93327
-            World _21Aggregate;// 7:RigidBodySimulation->18:Aggregate 93325
+            IArray[Constraint] _0ConstraintEmptyArray;// 24:ConstraintEmptyArray 95054
+            Random _1RandomNumberGenerator;// 11:RandomNumberGenerator 95111
+            Func[Vector3] _2Bind;// 13:RandomPointsInBoundingBox->4:Bind 95066
+            IArray[Vector3] _3ArrayOfFunction;// 13:RandomPointsInBoundingBox->1:ArrayOfFunction 95065
+            IArray[Matrix] _4Map;// 9:RandomRigidBodies->0:Map 95061
+            Single _5FloatOne;// 9:RandomRigidBodies->10:FloatOne 95103
+            IArray[RigidBody] _6Map;// 9:RandomRigidBodies->6:Map 95060
+            Single _7FloatZero;// 13:RigidBodyObstaclesFromNodes->3:FloatZero 95142
+            IArray[RigidBody] _8Map;// 13:RigidBodyObstaclesFromNodes->1:Map 95115
+            IArray[RigidBody] _9Concatenate;// 7:RigidBodySimulation->22:Concatenate 95043
+            Int32 _10Zero;// 20:Zero 95144
+            World _11CreateWorld;// 7:RigidBodySimulation->13:CreateWorld 95045
+            Single _12Constant;// 0:Origin->0:Constant 95153
+            Vector3 _13Vector3;// 0:Origin->1:Vector3 95152
+            Single _14X;// 1:SetZ->4:X 95150
+            Single _15Y;// 1:SetZ->5:Y 95151
+            Single _16Constant;// 23:GravityVector->0:Constant 95154
+            Vector3 _17Vector3;// 1:SetZ->2:Vector3 95149
+            Vector3 _18MultiplyByScalar;// 27:MultiplyByScalar 95145
+            World _19SetGravity;// 7:RigidBodySimulation->33:SetGravity 95044
+            World _20Aggregate;// 7:RigidBodySimulation->103:Aggregate 95042
+            World _21Aggregate;// 7:RigidBodySimulation->18:Aggregate 95040
             _0ConstraintEmptyArray = GetValue();
             _1RandomNumberGenerator = RandomNumberGenerator(seed);
             _2Bind = Bind((Random x0) => 
               {
-                Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 93357
-                Single _1Constant;// 18:Origin-ext->0:Constant 93394
-                Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 93393
-                BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 93392
-                BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 93391
-                Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 93361
-                Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 93362
-                Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 93360
-                Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 93355
-                Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 93363
-                Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 93354
+                Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 95072
+                Single _1Constant;// 18:Origin-ext->0:Constant 95109
+                Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 95108
+                BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 95107
+                BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 95106
+                Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 95076
+                Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 95077
+                Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 95075
+                Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 95070
+                Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 95078
+                Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 95069
                 _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
                 _1Constant = 0;
                 _2Vector3 = Vector3(_1Constant, _1Constant, _1Constant);
@@ -259,8 +259,8 @@
             _3ArrayOfFunction = ArrayOfFunction(_2Bind, count);
             _4Map = Map(_3ArrayOfFunction, (Vector3 x0) => 
               {
-                Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 93365
-                Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 93364
+                Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 95080
+                Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 95079
                 _0TranslationMatrix = TranslationMatrix(x0);
                 _1Multiply = Multiply(modifierTransform, _0TranslationMatrix);
                 _1Multiply;
@@ -268,25 +268,25 @@
             _5FloatOne = FloatOne();
             _6Map = Map(_4Map, (Matrix x0) => 
               {
-                IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 93381
-                Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 93377
-                Vector3 _2Aggregate;// 2:Sum->0:Aggregate 93376
-                Int32 _3Count;// 28:AverageVector->3:Count 93380
-                Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 93379
-                Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 93374
-                Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 93372
-                Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 93371
-                Single _8Constant;// 110:Origin->0:Constant 93384
-                Vector3 _9Vector3;// 110:Origin->1:Vector3 93383
-                Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 93386
-                RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 93385
-                Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 93387
-                RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 93369
+                IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 95096
+                Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 95092
+                Vector3 _2Aggregate;// 2:Sum->0:Aggregate 95091
+                Int32 _3Count;// 28:AverageVector->3:Count 95095
+                Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 95094
+                Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 95089
+                Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 95087
+                Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 95086
+                Single _8Constant;// 110:Origin->0:Constant 95099
+                Vector3 _9Vector3;// 110:Origin->1:Vector3 95098
+                Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 95101
+                RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 95100
+                Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 95102
+                RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 95084
                 _0MeshVertices = MeshVertices(mesh);
                 _1DefaultValueOfElement = DefaultValueOfElement(_0MeshVertices);
                 _2Aggregate = Aggregate(_0MeshVertices, _1DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                   {
-                    Vector3 _0Add;// 2:Sum->2:Add 93378
+                    Vector3 _0Add;// 2:Sum->2:Add 95093
                     _0Add = Add(x0, x1);
                     _0Add;
                     });
@@ -306,29 +306,29 @@
             _7FloatZero = FloatZero();
             _8Map = Map(obstacles, (INode x0) => 
               {
-                Matrix _0WorldTransform;// 2:RigidBodyFromNode->2:WorldTransform 93425
-                TriMesh _1MeshFromNode;// 2:RigidBodyFromNode->3:MeshFromNode 93426
-                IArray[Vector3] _2MeshVertices;// 0:RigidBodyFromMeshWithMass->27:MeshVertices 93418
-                Vector3 _3DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 93414
-                Vector3 _4Aggregate;// 2:Sum->0:Aggregate 93413
-                Int32 _5Count;// 28:AverageVector->3:Count 93417
-                Single _6IntAsFloat;// 28:AverageVector->1:IntAsFloat 93416
-                Vector3 _7DivideByScalar;// 28:AverageVector->5:DivideByScalar 93411
-                Matrix _8TranslationMatrix;// 0:RigidBodyFromMeshWithMass->40:TranslationMatrix 93409
-                Matrix _9Multiply;// 0:RigidBodyFromMeshWithMass->42:Multiply 93408
-                Single _10Constant;// 110:Origin->0:Constant 93421
-                Vector3 _11Vector3;// 110:Origin->1:Vector3 93420
-                Single _12FloatZero;// 0:RigidBodyFromMeshWithMass->112:FloatZero 93423
-                RigidBodyDynamics _13CreateRigidBodyDynamics;// 0:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 93422
-                Boolean _14False;// 0:RigidBodyFromMeshWithMass->122:False 93424
-                RigidBody _15CreateRigidBody;// 0:RigidBodyFromMeshWithMass->107:CreateRigidBody 93406
+                Matrix _0WorldTransform;// 2:RigidBodyFromNode->2:WorldTransform 95140
+                TriMesh _1MeshFromNode;// 2:RigidBodyFromNode->3:MeshFromNode 95141
+                IArray[Vector3] _2MeshVertices;// 0:RigidBodyFromMeshWithMass->27:MeshVertices 95133
+                Vector3 _3DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 95129
+                Vector3 _4Aggregate;// 2:Sum->0:Aggregate 95128
+                Int32 _5Count;// 28:AverageVector->3:Count 95132
+                Single _6IntAsFloat;// 28:AverageVector->1:IntAsFloat 95131
+                Vector3 _7DivideByScalar;// 28:AverageVector->5:DivideByScalar 95126
+                Matrix _8TranslationMatrix;// 0:RigidBodyFromMeshWithMass->40:TranslationMatrix 95124
+                Matrix _9Multiply;// 0:RigidBodyFromMeshWithMass->42:Multiply 95123
+                Single _10Constant;// 110:Origin->0:Constant 95136
+                Vector3 _11Vector3;// 110:Origin->1:Vector3 95135
+                Single _12FloatZero;// 0:RigidBodyFromMeshWithMass->112:FloatZero 95138
+                RigidBodyDynamics _13CreateRigidBodyDynamics;// 0:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 95137
+                Boolean _14False;// 0:RigidBodyFromMeshWithMass->122:False 95139
+                RigidBody _15CreateRigidBody;// 0:RigidBodyFromMeshWithMass->107:CreateRigidBody 95121
                 _0WorldTransform = WorldTransform(x0);
                 _1MeshFromNode = MeshFromNode(x0);
                 _2MeshVertices = MeshVertices(_1MeshFromNode);
                 _3DefaultValueOfElement = DefaultValueOfElement(_2MeshVertices);
                 _4Aggregate = Aggregate(_2MeshVertices, _3DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                   {
-                    Vector3 _0Add;// 2:Sum->2:Add 93415
+                    Vector3 _0Add;// 2:Sum->2:Add 95130
                     _0Add = Add(x0, x1);
                     _0Add;
                     });
@@ -358,13 +358,13 @@
             _19SetGravity = SetGravity(_11CreateWorld, _18MultiplyByScalar);
             _20Aggregate = Aggregate(_9Concatenate, _19SetGravity, (World x0, RigidBody x1) => 
               {
-                World _0AddRigidBody;// 7:RigidBodySimulation->11:AddRigidBody 93331
+                World _0AddRigidBody;// 7:RigidBodySimulation->11:AddRigidBody 95046
                 _0AddRigidBody = AddRigidBody(x0, x1);
                 _0AddRigidBody;
                 });
             _21Aggregate = Aggregate(_0ConstraintEmptyArray, _20Aggregate, (World x0, Constraint x1) => 
               {
-                World _0AddConstraint;// 7:RigidBodySimulation->46:AddConstraint 93332
+                World _0AddConstraint;// 7:RigidBodySimulation->46:AddConstraint 95047
                 _0AddConstraint = AddConstraint(x0, x1);
                 _0AddConstraint;
                 });
@@ -378,7 +378,7 @@
     _6LessThan = LessThan(_1FramesToTicks, _5GetSimulationTime);
     _7IfThen = IfThen(_6LessThan, () => 
       {
-        World _0ResetWorld;// 3:RunSimulationUntil->2:ResetWorld 93313
+        World _0ResetWorld;// 3:RunSimulationUntil->2:ResetWorld 95028
         _0ResetWorld = ResetWorld(_4CachedValue);
         _0ResetWorld;
         }, () => 
@@ -392,8 +392,8 @@
     _12Range = Range(_11GetNumberOfRigidBodies);
     _13Pass-through: function1 = (Int32 x0) => 
       {
-        RigidBody _0GetRigidBodyByIndex;// 8:RigidBodySimulationTransforms->4:GetRigidBodyByIndex 93306
-        Matrix _1GetRigidBodyWorldTransform;// 8:RigidBodySimulationTransforms->1:GetRigidBodyWorldTransform 93305
+        RigidBody _0GetRigidBodyByIndex;// 8:RigidBodySimulationTransforms->4:GetRigidBodyByIndex 95021
+        Matrix _1GetRigidBodyWorldTransform;// 8:RigidBodySimulationTransforms->1:GetRigidBodyWorldTransform 95020
         _0GetRigidBodyByIndex = GetRigidBodyByIndex(_10StepSimulation, x0);
         _1GetRigidBodyWorldTransform = GetRigidBodyWorldTransform(_10StepSimulation, _0GetRigidBodyByIndex);
         _1GetRigidBodyWorldTransform;
@@ -402,24 +402,24 @@
     _15InvertMatrix = InvertMatrix(modifierTransform);
     _16Map = Map(_14Map, (Matrix x0) => 
       {
-        Matrix _0Multiply;// 7:RigidBodySimulation->21:Multiply 93333
+        Matrix _0Multiply;// 7:RigidBodySimulation->21:Multiply 95048
         _0Multiply = Multiply(x0, _15InvertMatrix);
         _0Multiply;
         });
     _17RandomNumberGenerator = RandomNumberGenerator(seed);
     _18Bind = Bind((Random x0) => 
       {
-        Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 93357
-        Single _1Constant;// 18:Origin-ext->0:Constant 93394
-        Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 93393
-        BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 93392
-        BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 93391
-        Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 93361
-        Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 93362
-        Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 93360
-        Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 93355
-        Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 93363
-        Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 93354
+        Vector3 _0Vector3;// 6:PseudoRandomVector->1:Vector3 95072
+        Single _1Constant;// 18:Origin-ext->0:Constant 95109
+        Vector3 _2Vector3;// 18:Origin-ext->1:Vector3 95108
+        BoundingSphere _3Sphere;// 5:BoxFromPointAndRadius->3:Sphere 95107
+        BoundingBox _4BoxFromSphere;// 5:BoxFromPointAndRadius->0:BoxFromSphere 95106
+        Vector3 _5BoxMax;// 2:BoundingBoxExtent->1:BoxMax 95076
+        Vector3 _6BoxMin;// 2:BoundingBoxExtent->2:BoxMin 95077
+        Vector3 _7Subtract;// 2:BoundingBoxExtent->3:Subtract 95075
+        Vector3 _8Multiply;// 5:PseudoRandomPointInBox->3:Multiply 95070
+        Vector3 _9BoxMin;// 5:PseudoRandomPointInBox->4:BoxMin 95078
+        Vector3 _10Add;// 5:PseudoRandomPointInBox->5:Add 95069
         _0Vector3 = Vector3(PseudoRandomFloat(x0), PseudoRandomFloat(x0), PseudoRandomFloat(x0));
         _1Constant = 0;
         _2Vector3 = Vector3(_1Constant, _1Constant, _1Constant);
@@ -436,8 +436,8 @@
     _19ArrayOfFunction = ArrayOfFunction(_18Bind, count);
     _20Map = Map(_19ArrayOfFunction, (Vector3 x0) => 
       {
-        Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 93365
-        Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 93364
+        Matrix _0TranslationMatrix;// 9:RandomRigidBodies->5:TranslationMatrix 95080
+        Matrix _1Multiply;// 9:RandomRigidBodies->12:Multiply 95079
         _0TranslationMatrix = TranslationMatrix(x0);
         _1Multiply = Multiply(modifierTransform, _0TranslationMatrix);
         _1Multiply;
@@ -445,25 +445,25 @@
     _21FloatOne = FloatOne();
     _22Map = Map(_20Map, (Matrix x0) => 
       {
-        IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 93381
-        Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 93377
-        Vector3 _2Aggregate;// 2:Sum->0:Aggregate 93376
-        Int32 _3Count;// 28:AverageVector->3:Count 93380
-        Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 93379
-        Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 93374
-        Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 93372
-        Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 93371
-        Single _8Constant;// 110:Origin->0:Constant 93384
-        Vector3 _9Vector3;// 110:Origin->1:Vector3 93383
-        Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 93386
-        RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 93385
-        Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 93387
-        RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 93369
+        IArray[Vector3] _0MeshVertices;// 7:RigidBodyFromMeshWithMass->27:MeshVertices 95096
+        Vector3 _1DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 95092
+        Vector3 _2Aggregate;// 2:Sum->0:Aggregate 95091
+        Int32 _3Count;// 28:AverageVector->3:Count 95095
+        Single _4IntAsFloat;// 28:AverageVector->1:IntAsFloat 95094
+        Vector3 _5DivideByScalar;// 28:AverageVector->5:DivideByScalar 95089
+        Matrix _6TranslationMatrix;// 7:RigidBodyFromMeshWithMass->40:TranslationMatrix 95087
+        Matrix _7Multiply;// 7:RigidBodyFromMeshWithMass->42:Multiply 95086
+        Single _8Constant;// 110:Origin->0:Constant 95099
+        Vector3 _9Vector3;// 110:Origin->1:Vector3 95098
+        Single _10FloatZero;// 7:RigidBodyFromMeshWithMass->112:FloatZero 95101
+        RigidBodyDynamics _11CreateRigidBodyDynamics;// 7:RigidBodyFromMeshWithMass->111:CreateRigidBodyDynamics 95100
+        Boolean _12False;// 7:RigidBodyFromMeshWithMass->122:False 95102
+        RigidBody _13CreateRigidBody;// 7:RigidBodyFromMeshWithMass->107:CreateRigidBody 95084
         _0MeshVertices = MeshVertices(mesh);
         _1DefaultValueOfElement = DefaultValueOfElement(_0MeshVertices);
         _2Aggregate = Aggregate(_0MeshVertices, _1DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
           {
-            Vector3 _0Add;// 2:Sum->2:Add 93378
+            Vector3 _0Add;// 2:Sum->2:Add 95093
             _0Add = Add(x0, x1);
             _0Add;
             });
@@ -484,14 +484,14 @@
     _24Take = Take(_16Map, _23Count);
     _25Combine = Combine(_0ArrayOf, _24Take, (TriMesh x0, Matrix x1) => 
       {
-        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 93447
-        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 93444
-        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 93446
-        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 93445
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 95162
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 95159
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 95161
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 95160
         _0MeshVertices = MeshVertices(x0);
         _1Pass-through: function1 = (Vector3 x0) => 
           {
-            Vector3 _0Transform;// 17:TransformMesh->0:Transform 93448
+            Vector3 _0Transform;// 17:TransformMesh->0:Transform 95163
             _0Transform = Transform(x0, x1);
             _0Transform;
             };

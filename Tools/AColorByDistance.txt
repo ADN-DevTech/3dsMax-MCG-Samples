@@ -1,19 +1,19 @@
 (InstanceState state, TriMesh mesh, INode node, Matrix modifierTransform, Single falloff, Single bubble, Single pinch) => 
   {
-    IArray[Int32] _0MeshIndices;// 1:MeshFaceVertices->1:MeshIndices 89021
-    IArray[Vector3] _1MeshVertices;// 1:MeshFaceVertices->2:MeshVertices 89022
-    IArray[Vector3] _2Map;// 3:SelectByIndex->2:Map 89019
-    Boolean _3IsValidNode;// 2:CheckNodeValidity->0:IsValidNode 89038
-    Boolean _4Not;// 2:CheckNodeValidity->1:Not 89037
-    INode _5ExitIf;// 2:CheckNodeValidity->2:ExitIf 89036
-    Func[Vector3, Vector3] _6Pass-through: function1;// 0:Pass-through: function1 89013
-    IArray[Vector3] _7Map;// 5:ColorVertices->3:Map 89015
-    TriMesh _8SetVertexColorMapChannel;// 5:ColorVertices->6:SetVertexColorMapChannel 89014
+    IArray[Int32] _0MeshIndices;// 1:MeshFaceVertices->1:MeshIndices 90695
+    IArray[Vector3] _1MeshVertices;// 1:MeshFaceVertices->2:MeshVertices 90696
+    IArray[Vector3] _2Map;// 3:SelectByIndex->2:Map 90693
+    Boolean _3IsValidNode;// 2:CheckNodeValidity->0:IsValidNode 90712
+    Boolean _4Not;// 2:CheckNodeValidity->1:Not 90711
+    INode _5ExitIf;// 2:CheckNodeValidity->2:ExitIf 90710
+    Func[Vector3, Vector3] _6Pass-through: function1;// 0:Pass-through: function1 90687
+    IArray[Vector3] _7Map;// 5:ColorVertices->3:Map 90689
+    TriMesh _8SetVertexColorMapChannel;// 5:ColorVertices->6:SetVertexColorMapChannel 90688
     _0MeshIndices = MeshIndices(mesh);
     _1MeshVertices = MeshVertices(mesh);
     _2Map = Map(_0MeshIndices, (Int32 x0) => 
       {
-        Vector3 _0At;// 3:SelectByIndex->3:At 89020
+        Vector3 _0At;// 3:SelectByIndex->3:At 90694
         _0At = At(_1MeshVertices, x0);
         _0At;
         });
@@ -22,13 +22,13 @@
     _5ExitIf = ExitIf(node, _4Not);
     _6Pass-through: function1 = (Vector3 x0) => 
       {
-        Vector3 _0XAxis;// 2:Red->1:XAxis 89026
-        Vector3 _1ZAxis;// 3:Blue->1:ZAxis 89027
-        Vector3 _2NodePosition;// 4:MeshVertexToNodeDistance->10:NodePosition 89033
-        Vector3 _3Transform;// 4:MeshVertexToNodeDistance->13:Transform 89034
-        Single _4Distance;// 4:MeshVertexToNodeDistance->4:Distance 89032
-        Single _5AffectRegion;// 10:AffectRegion 89028
-        Vector3 _6Lerp;// 0:BlendRedBlue->1:Lerp 89025
+        Vector3 _0XAxis;// 2:Red->1:XAxis 90700
+        Vector3 _1ZAxis;// 3:Blue->1:ZAxis 90701
+        Vector3 _2NodePosition;// 4:MeshVertexToNodeDistance->10:NodePosition 90707
+        Vector3 _3Transform;// 4:MeshVertexToNodeDistance->13:Transform 90708
+        Single _4Distance;// 4:MeshVertexToNodeDistance->4:Distance 90706
+        Single _5AffectRegion;// 10:AffectRegion 90702
+        Vector3 _6Lerp;// 0:BlendRedBlue->1:Lerp 90699
         _0XAxis = XAxis();
         _1ZAxis = ZAxis();
         _2NodePosition = NodePosition(_5ExitIf);

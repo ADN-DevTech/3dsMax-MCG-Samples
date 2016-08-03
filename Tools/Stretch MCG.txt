@@ -1,79 +1,79 @@
 (InstanceState state, TriMesh mesh, Int32 axis, Single stretch, Boolean useGizmoXform, INode gizmo, Matrix modifierTransform, Single amplify) => 
   {
-    IArray[Vector3] _0MeshVertices;// 2:StretchMesh-ext->15:MeshVertices 108633
-    IArray[Vector3] _1MeshVertices;// 2:MeshBoundingBox->1:MeshVertices 108780
-    BoundingBox _2BoxFromPoints;// 2:MeshBoundingBox->0:BoxFromPoints 108779
-    Matrix _11Pass-through: Matrix;// 0:Pass-through: Matrix 108628
-    IArray[Vector3] _12ParallelMap;// 2:StretchMesh-ext->11:ParallelMap 108632
-    TriMesh _13SetMeshVertices;// 2:StretchMesh-ext->18:SetMeshVertices 108630
+    IArray[Vector3] _0MeshVertices;// 2:StretchMesh-ext->15:MeshVertices 111153
+    IArray[Vector3] _1MeshVertices;// 2:MeshBoundingBox->1:MeshVertices 111300
+    BoundingBox _2BoxFromPoints;// 2:MeshBoundingBox->0:BoxFromPoints 111299
+    Matrix _11Pass-through: Matrix;// 0:Pass-through: Matrix 111148
+    IArray[Vector3] _12ParallelMap;// 2:StretchMesh-ext->11:ParallelMap 111152
+    TriMesh _13SetMeshVertices;// 2:StretchMesh-ext->18:SetMeshVertices 111150
     _0MeshVertices = MeshVertices(mesh);
     _1MeshVertices = MeshVertices(mesh);
     _2BoxFromPoints = BoxFromPoints(_1MeshVertices);
     _11Pass-through: Matrix = if (useGizmoXform)
       {
-        Boolean _3IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 108789
+        Boolean _3IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 111309
         _3IsValidNode = IsValidNode(gizmo);
         if (_3IsValidNode)
           {
-            Boolean _4IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108795
-            Matrix _7InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108799
-            Matrix _8Multiply;// 32:NodeToLocalTransform->18:Multiply 108792
+            Boolean _4IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 111315
+            Matrix _7InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 111319
+            Matrix _8Multiply;// 32:NodeToLocalTransform->18:Multiply 111312
             _4IsValidNode = IsValidNode(gizmo);
             _7InvertMatrix = InvertMatrix(modifierTransform);
             _8Multiply = Multiply(if (_4IsValidNode)
                 {
-                  Matrix _5WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 108796
+                  Matrix _5WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 111316
                   _5WorldTransform = WorldTransform(gizmo);
                   _5WorldTransform;
                   }else
                 {
-                  Matrix _6MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 108797
+                  Matrix _6MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 111317
                   _6MatrixIdentity = MatrixIdentity();
                   _6MatrixIdentity;
                   }, _7InvertMatrix);
             _8Multiply;
             }else
           {
-            Matrix _9MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 108800
+            Matrix _9MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 111320
             _9MatrixIdentity = MatrixIdentity();
             _9MatrixIdentity;
             };
         }else
       {
-        Matrix _10MatrixIdentity;// 12:MatrixIdentity 108803
+        Matrix _10MatrixIdentity;// 12:MatrixIdentity 111323
         _10MatrixIdentity = MatrixIdentity();
         _10MatrixIdentity;
         };
     _12ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
       {
-        Single _0FloatZero;// 1:StretchDeformer-ext->67:FloatZero 108645
-        Vector3 _1BoxMax;// 1:StretchDeformer-ext->13:BoxMax 108661
-        Single _2X;// 2:VectorAsArray->1:X 108658
-        IArray[Single] _3Unit;// 4:Array3->2:Unit 108657
-        Single _4Y;// 2:VectorAsArray->2:Y 108659
-        IArray[Single] _5Append;// 4:Array3->3:Append 108656
-        Single _6Z;// 2:VectorAsArray->3:Z 108660
-        IArray[Single] _7Append;// 4:Array3->6:Append 108655
-        Single _8At;// 16:VectorComponent-ext->3:At 108650
-        Vector3 _9BoxMin;// 1:StretchDeformer-ext->9:BoxMin 108676
-        Single _10X;// 2:VectorAsArray->1:X 108673
-        IArray[Single] _11Unit;// 4:Array3->2:Unit 108672
-        Single _12Y;// 2:VectorAsArray->2:Y 108674
-        IArray[Single] _13Append;// 4:Array3->3:Append 108671
-        Single _14Z;// 2:VectorAsArray->3:Z 108675
-        IArray[Single] _15Append;// 4:Array3->6:Append 108670
-        Single _16At;// 15:VectorComponent-ext->3:At 108665
-        Single _17Subtract;// 1:StretchDeformer-ext->65:Subtract 108647
-        Boolean _18Equal;// 1:StretchDeformer-ext->66:Equal 108644
-        Single _19FloatZero;// 1:StretchDeformer-ext->71:FloatZero 108678
-        Boolean _20Equal;// 1:StretchDeformer-ext->70:Equal 108677
-        Boolean _21OrElse;// 1:StretchDeformer-ext->69:OrElse 108643
-        Matrix _22InvertMatrix;// 1:StretchDeformer-ext->79:InvertMatrix 108684
-        Vector3 _23Transform;// 1:StretchDeformer-ext->78:Transform 108683
-        Boolean _32IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 108789
-        Boolean _39IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108795
-        Matrix _42InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108799
-        Vector3 _115Transform;// 1:StretchDeformer-ext->83:Transform 108640
+        Single _0FloatZero;// 1:StretchDeformer-ext->67:FloatZero 111165
+        Vector3 _1BoxMax;// 1:StretchDeformer-ext->13:BoxMax 111181
+        Single _2X;// 2:VectorAsArray->1:X 111178
+        IArray[Single] _3Unit;// 4:Array3->2:Unit 111177
+        Single _4Y;// 2:VectorAsArray->2:Y 111179
+        IArray[Single] _5Append;// 4:Array3->3:Append 111176
+        Single _6Z;// 2:VectorAsArray->3:Z 111180
+        IArray[Single] _7Append;// 4:Array3->6:Append 111175
+        Single _8At;// 16:VectorComponent-ext->3:At 111170
+        Vector3 _9BoxMin;// 1:StretchDeformer-ext->9:BoxMin 111196
+        Single _10X;// 2:VectorAsArray->1:X 111193
+        IArray[Single] _11Unit;// 4:Array3->2:Unit 111192
+        Single _12Y;// 2:VectorAsArray->2:Y 111194
+        IArray[Single] _13Append;// 4:Array3->3:Append 111191
+        Single _14Z;// 2:VectorAsArray->3:Z 111195
+        IArray[Single] _15Append;// 4:Array3->6:Append 111190
+        Single _16At;// 15:VectorComponent-ext->3:At 111185
+        Single _17Subtract;// 1:StretchDeformer-ext->65:Subtract 111167
+        Boolean _18Equal;// 1:StretchDeformer-ext->66:Equal 111164
+        Single _19FloatZero;// 1:StretchDeformer-ext->71:FloatZero 111198
+        Boolean _20Equal;// 1:StretchDeformer-ext->70:Equal 111197
+        Boolean _21OrElse;// 1:StretchDeformer-ext->69:OrElse 111163
+        Matrix _22InvertMatrix;// 1:StretchDeformer-ext->79:InvertMatrix 111204
+        Vector3 _23Transform;// 1:StretchDeformer-ext->78:Transform 111203
+        Boolean _32IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 111309
+        Boolean _39IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 111315
+        Matrix _42InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 111319
+        Vector3 _115Transform;// 1:StretchDeformer-ext->83:Transform 111160
         _0FloatZero = FloatZero();
         _1BoxMax = BoxMax(_2BoxFromPoints);
         _2X = X(_1BoxMax);
@@ -106,48 +106,48 @@
             _23Transform;
             }else
           {
-            Single _43HalfPi;// 1:StretchDeformer-ext->3:HalfPi 108704
-            Single _44NegativeFloat;// 1:StretchDeformer-ext->4:NegativeFloat 108703
-            Matrix _45RotationYMatrix;// 1:StretchDeformer-ext->1:RotationYMatrix 108702
-            Func[Matrix] _46Pass-through: any;// 0:Pass-through: any 108696
-            IArray[Func[Matrix]] _47Unit;// 7:Array3->2:Unit 108701
-            Matrix _48RotationXMatrix;// 1:StretchDeformer-ext->6:RotationXMatrix 108705
-            Func[Matrix] _49Pass-through: any;// 0:Pass-through: any 108697
-            IArray[Func[Matrix]] _50Append;// 7:Array3->3:Append 108700
-            Matrix _51MatrixIdentity;// 1:StretchDeformer-ext->5:MatrixIdentity 108706
-            Func[Matrix] _52Pass-through: any;// 0:Pass-through: any 108698
-            IArray[Func[Matrix]] _53Append;// 7:Array3->6:Append 108699
-            Func[Matrix] _54At;// 1:StretchDeformer-ext->8:At 108695
-            Matrix _55Apply0;// 1:StretchDeformer-ext->74:Apply0 108694
-            Vector3 _56Transform;// 1:StretchDeformer-ext->18:Transform 108691
-            Single _57X;// 1:StretchDeformer-ext->40:X 108689
-            Single _58Constant;// 1:StretchDeformer-ext->0:Constant 108715
-            Single _59FloatOne;// 1:StretchDeformer-ext->144:FloatOne 108717
-            Single _60FloatZero;// 1:StretchDeformer-ext->105:FloatZero 108721
-            Boolean _61LessThan;// 1:StretchDeformer-ext->82:LessThan 108719
-            Single _62FloatZero;// 1:StretchDeformer-ext->37:FloatZero 108731
-            Boolean _63GreaterThanOrEqual;// 1:StretchDeformer-ext->35:GreaterThanOrEqual 108729
-            Single _71Pass-through: Single;// 1:StretchDeformer-ext->29:Pass-through: Single 108727
-            Single _88Subtract;// 1:StretchDeformer-ext->145:Subtract 108716
-            Single _89Multiply;// 1:StretchDeformer-ext->146:Multiply 108714
-            Single _90Z;// 1:StretchDeformer-ext->38:Z 108752
-            Single _91Subtract;// 1:StretchDeformer-ext->93:Subtract 108751
-            Single _92Divide;// 1:StretchDeformer-ext->87:Divide 108750
-            Single _93Multiply;// 1:StretchDeformer-ext->138:Multiply 108713
-            Single _94NegativeFloat;// 1:StretchDeformer-ext->148:NegativeFloat 108756
-            Single _95Multiply;// 1:StretchDeformer-ext->147:Multiply 108755
-            Single _96Add;// 1:StretchDeformer-ext->152:Add 108712
-            Single _97Multiply;// 1:StretchDeformer-ext->153:Multiply 108711
-            Single _98FloatOne;// 1:StretchDeformer-ext->143:FloatOne 108758
-            Single _99Add;// 1:StretchDeformer-ext->154:Add 108710
-            Single _100Multiply;// 1:StretchDeformer-ext->150:Multiply 108688
-            Single _101Y;// 1:StretchDeformer-ext->41:Y 108761
-            Single _102Multiply;// 1:StretchDeformer-ext->155:Multiply 108760
-            Single _110Pass-through: Single;// 1:StretchDeformer-ext->160:Pass-through: Single 108764
-            Single _111Multiply;// 1:StretchDeformer-ext->156:Multiply 108763
-            Vector3 _112Vector3;// 1:StretchDeformer-ext->36:Vector3 108686
-            Matrix _113InvertMatrix;// 1:StretchDeformer-ext->14:InvertMatrix 108776
-            Vector3 _114Transform;// 1:StretchDeformer-ext->19:Transform 108685
+            Single _43HalfPi;// 1:StretchDeformer-ext->3:HalfPi 111224
+            Single _44NegativeFloat;// 1:StretchDeformer-ext->4:NegativeFloat 111223
+            Matrix _45RotationYMatrix;// 1:StretchDeformer-ext->1:RotationYMatrix 111222
+            Func[Matrix] _46Pass-through: any;// 0:Pass-through: any 111216
+            IArray[Func[Matrix]] _47Unit;// 7:Array3->2:Unit 111221
+            Matrix _48RotationXMatrix;// 1:StretchDeformer-ext->6:RotationXMatrix 111225
+            Func[Matrix] _49Pass-through: any;// 0:Pass-through: any 111217
+            IArray[Func[Matrix]] _50Append;// 7:Array3->3:Append 111220
+            Matrix _51MatrixIdentity;// 1:StretchDeformer-ext->5:MatrixIdentity 111226
+            Func[Matrix] _52Pass-through: any;// 0:Pass-through: any 111218
+            IArray[Func[Matrix]] _53Append;// 7:Array3->6:Append 111219
+            Func[Matrix] _54At;// 1:StretchDeformer-ext->8:At 111215
+            Matrix _55Apply0;// 1:StretchDeformer-ext->74:Apply0 111214
+            Vector3 _56Transform;// 1:StretchDeformer-ext->18:Transform 111211
+            Single _57X;// 1:StretchDeformer-ext->40:X 111209
+            Single _58Constant;// 1:StretchDeformer-ext->0:Constant 111235
+            Single _59FloatOne;// 1:StretchDeformer-ext->144:FloatOne 111237
+            Single _60FloatZero;// 1:StretchDeformer-ext->105:FloatZero 111241
+            Boolean _61LessThan;// 1:StretchDeformer-ext->82:LessThan 111239
+            Single _62FloatZero;// 1:StretchDeformer-ext->37:FloatZero 111251
+            Boolean _63GreaterThanOrEqual;// 1:StretchDeformer-ext->35:GreaterThanOrEqual 111249
+            Single _71Pass-through: Single;// 1:StretchDeformer-ext->29:Pass-through: Single 111247
+            Single _88Subtract;// 1:StretchDeformer-ext->145:Subtract 111236
+            Single _89Multiply;// 1:StretchDeformer-ext->146:Multiply 111234
+            Single _90Z;// 1:StretchDeformer-ext->38:Z 111272
+            Single _91Subtract;// 1:StretchDeformer-ext->93:Subtract 111271
+            Single _92Divide;// 1:StretchDeformer-ext->87:Divide 111270
+            Single _93Multiply;// 1:StretchDeformer-ext->138:Multiply 111233
+            Single _94NegativeFloat;// 1:StretchDeformer-ext->148:NegativeFloat 111276
+            Single _95Multiply;// 1:StretchDeformer-ext->147:Multiply 111275
+            Single _96Add;// 1:StretchDeformer-ext->152:Add 111232
+            Single _97Multiply;// 1:StretchDeformer-ext->153:Multiply 111231
+            Single _98FloatOne;// 1:StretchDeformer-ext->143:FloatOne 111278
+            Single _99Add;// 1:StretchDeformer-ext->154:Add 111230
+            Single _100Multiply;// 1:StretchDeformer-ext->150:Multiply 111208
+            Single _101Y;// 1:StretchDeformer-ext->41:Y 111281
+            Single _102Multiply;// 1:StretchDeformer-ext->155:Multiply 111280
+            Single _110Pass-through: Single;// 1:StretchDeformer-ext->160:Pass-through: Single 111284
+            Single _111Multiply;// 1:StretchDeformer-ext->156:Multiply 111283
+            Vector3 _112Vector3;// 1:StretchDeformer-ext->36:Vector3 111206
+            Matrix _113InvertMatrix;// 1:StretchDeformer-ext->14:InvertMatrix 111296
+            Vector3 _114Transform;// 1:StretchDeformer-ext->19:Transform 111205
             _43HalfPi = HalfPi();
             _44NegativeFloat = NegativeFloat(_43HalfPi);
             _45RotationYMatrix = RotationYMatrix(_44NegativeFloat);
@@ -180,18 +180,18 @@
             _63GreaterThanOrEqual = GreaterThanOrEqual(amplify, _62FloatZero);
             _71Pass-through: Single = if (_63GreaterThanOrEqual)
               {
-                Single _64FloatOne;// 1:StretchDeformer-ext->46:FloatOne 108734
-                Single _65Add;// 1:StretchDeformer-ext->39:Add 108732
+                Single _64FloatOne;// 1:StretchDeformer-ext->46:FloatOne 111254
+                Single _65Add;// 1:StretchDeformer-ext->39:Add 111252
                 _64FloatOne = FloatOne();
                 _65Add = Add(amplify, _64FloatOne);
                 _65Add;
                 }else
               {
-                Single _66FloatOne;// 1:StretchDeformer-ext->49:FloatOne 108736
-                Single _67NegativeFloat;// 1:StretchDeformer-ext->51:NegativeFloat 108738
-                Single _68FloatOne;// 1:StretchDeformer-ext->56:FloatOne 108739
-                Single _69Add;// 1:StretchDeformer-ext->55:Add 108737
-                Single _70Divide;// 1:StretchDeformer-ext->50:Divide 108735
+                Single _66FloatOne;// 1:StretchDeformer-ext->49:FloatOne 111256
+                Single _67NegativeFloat;// 1:StretchDeformer-ext->51:NegativeFloat 111258
+                Single _68FloatOne;// 1:StretchDeformer-ext->56:FloatOne 111259
+                Single _69Add;// 1:StretchDeformer-ext->55:Add 111257
+                Single _70Divide;// 1:StretchDeformer-ext->50:Divide 111255
                 _66FloatOne = FloatOne();
                 _67NegativeFloat = NegativeFloat(amplify);
                 _68FloatOne = FloatOne();
@@ -201,10 +201,10 @@
                 };
             _88Subtract = Subtract(_59FloatOne, if (_61LessThan)
                 {
-                  Single _79FloatOne;// 1:StretchDeformer-ext->98:FloatOne 108723
-                  Single _80NegativeFloat;// 1:StretchDeformer-ext->99:NegativeFloat 108740
-                  Single _81Multiply;// 1:StretchDeformer-ext->100:Multiply 108724
-                  Single _82Add;// 1:StretchDeformer-ext->97:Add 108722
+                  Single _79FloatOne;// 1:StretchDeformer-ext->98:FloatOne 111243
+                  Single _80NegativeFloat;// 1:StretchDeformer-ext->99:NegativeFloat 111260
+                  Single _81Multiply;// 1:StretchDeformer-ext->100:Multiply 111244
+                  Single _82Add;// 1:StretchDeformer-ext->97:Add 111242
                   _79FloatOne = FloatOne();
                   _80NegativeFloat = NegativeFloat(stretch);
                   _81Multiply = Multiply(_71Pass-through: Single, _80NegativeFloat);
@@ -212,11 +212,11 @@
                   _82Add;
                   }else
                 {
-                  Single _83FloatOne;// 1:StretchDeformer-ext->113:FloatOne 108743
-                  Single _84Multiply;// 1:StretchDeformer-ext->114:Multiply 108745
-                  Single _85FloatOne;// 1:StretchDeformer-ext->120:FloatOne 108748
-                  Single _86Add;// 1:StretchDeformer-ext->119:Add 108744
-                  Single _87Divide;// 1:StretchDeformer-ext->112:Divide 108742
+                  Single _83FloatOne;// 1:StretchDeformer-ext->113:FloatOne 111263
+                  Single _84Multiply;// 1:StretchDeformer-ext->114:Multiply 111265
+                  Single _85FloatOne;// 1:StretchDeformer-ext->120:FloatOne 111268
+                  Single _86Add;// 1:StretchDeformer-ext->119:Add 111264
+                  Single _87Divide;// 1:StretchDeformer-ext->112:Divide 111262
                   _83FloatOne = FloatOne();
                   _84Multiply = Multiply(_71Pass-through: Single, stretch);
                   _85FloatOne = FloatOne();
@@ -240,11 +240,11 @@
             _102Multiply = Multiply(_101Y, _99Add);
             _110Pass-through: Single = if (_61LessThan)
               {
-                Single _103FloatOne;// 1:StretchDeformer-ext->126:FloatOne 108768
-                Single _104NegativeFloat;// 1:StretchDeformer-ext->125:NegativeFloat 108767
-                Single _105FloatOne;// 1:StretchDeformer-ext->130:FloatOne 108772
-                Single _106Subtract;// 1:StretchDeformer-ext->127:Subtract 108769
-                Single _107Divide;// 1:StretchDeformer-ext->124:Divide 108766
+                Single _103FloatOne;// 1:StretchDeformer-ext->126:FloatOne 111288
+                Single _104NegativeFloat;// 1:StretchDeformer-ext->125:NegativeFloat 111287
+                Single _105FloatOne;// 1:StretchDeformer-ext->130:FloatOne 111292
+                Single _106Subtract;// 1:StretchDeformer-ext->127:Subtract 111289
+                Single _107Divide;// 1:StretchDeformer-ext->124:Divide 111286
                 _103FloatOne = FloatOne();
                 _104NegativeFloat = NegativeFloat(_103FloatOne);
                 _105FloatOne = FloatOne();
@@ -253,8 +253,8 @@
                 _107Divide;
                 }else
               {
-                Single _108FloatOne;// 1:StretchDeformer-ext->133:FloatOne 108774
-                Single _109Add;// 1:StretchDeformer-ext->132:Add 108773
+                Single _108FloatOne;// 1:StretchDeformer-ext->133:FloatOne 111294
+                Single _109Add;// 1:StretchDeformer-ext->132:Add 111293
                 _108FloatOne = FloatOne();
                 _109Add = Add(_108FloatOne, stretch);
                 _109Add;

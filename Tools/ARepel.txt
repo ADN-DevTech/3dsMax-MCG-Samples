@@ -1,22 +1,22 @@
 (InstanceState state, TriMesh mesh, INode helper, Matrix modifierTransform, BoundingBox boundingBox, Single  influence) => 
   {
-    IArray[Vector3] _0MeshVertices;// 5:MeshDeformPoints-ext->0:MeshVertices 89239
-    Boolean _1IsValidNode;// 8:NodePositionOrBoxCenter-ext->40:IsValidNode 89251
-    Vector3 _8Pass-through: Vector3;// 60:Pass-through: Vector3 89246
-    Single _9Constant;// 0:Constant 89268
-    Single _10Constant;// 0:Constant 89272
-    Single _11Multiply;// 28:Multiply 89270
-    Func[Vector3, Vector3] _12Pass-through: function1;// 0:Pass-through: function1 89236
-    IArray[Vector3] _13Map;// 5:MeshDeformPoints-ext->1:Map 89238
-    TriMesh _14SetMeshVertices;// 5:MeshDeformPoints-ext->4:SetMeshVertices 89237
+    IArray[Vector3] _0MeshVertices;// 5:MeshDeformPoints-ext->0:MeshVertices 90913
+    Boolean _1IsValidNode;// 8:NodePositionOrBoxCenter-ext->40:IsValidNode 90925
+    Vector3 _8Pass-through: Vector3;// 60:Pass-through: Vector3 90920
+    Single _9Constant;// 0:Constant 90942
+    Single _10Constant;// 0:Constant 90946
+    Single _11Multiply;// 28:Multiply 90944
+    Func[Vector3, Vector3] _12Pass-through: function1;// 0:Pass-through: function1 90910
+    IArray[Vector3] _13Map;// 5:MeshDeformPoints-ext->1:Map 90912
+    TriMesh _14SetMeshVertices;// 5:MeshDeformPoints-ext->4:SetMeshVertices 90911
     _0MeshVertices = MeshVertices(mesh);
     _1IsValidNode = IsValidNode(helper);
     _8Pass-through: Vector3 = if (_1IsValidNode)
       {
-        Matrix _2ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 89258
-        Matrix _3InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 89259
-        Matrix _4Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 89257
-        Vector3 _5GetMatrixTranslation;// 3:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 89254
+        Matrix _2ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 90932
+        Matrix _3InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 90933
+        Matrix _4Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 90931
+        Vector3 _5GetMatrixTranslation;// 3:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 90928
         _2ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(helper);
         _3InvertMatrix = InvertMatrix(modifierTransform);
         _4Multiply = Multiply(_2ObjectTransformBeforeWSM, _3InvertMatrix);
@@ -24,8 +24,8 @@
         _5GetMatrixTranslation;
         }else
       {
-        BoundingSphere _6SphereFromBox;// 6:BoundingBoxCenter->2:SphereFromBox 89262
-        Vector3 _7SphereCenter;// 6:BoundingBoxCenter->3:SphereCenter 89261
+        BoundingSphere _6SphereFromBox;// 6:BoundingBoxCenter->2:SphereFromBox 90936
+        Vector3 _7SphereCenter;// 6:BoundingBoxCenter->3:SphereCenter 90935
         _6SphereFromBox = SphereFromBox(boundingBox);
         _7SphereCenter = SphereCenter(_6SphereFromBox);
         _7SphereCenter;
@@ -35,13 +35,13 @@
     _11Multiply = Multiply( influence, _10Constant);
     _12Pass-through: function1 = (Vector3 x0) => 
       {
-        Vector3 _0Subtract;// 59:Subtract 89245
-        Vector3 _1Normalize;// 12:Normalize 89244
-        Single _2Distance;// 56:Distance 89269
-        Single _3Divide;// 54:Divide 89267
-        Single _4Multiply;// 58:Multiply 89266
-        Vector3 _5MultiplyByScalar;// 57:MultiplyByScalar 89243
-        Vector3 _6Add;// 3:Add 89241
+        Vector3 _0Subtract;// 59:Subtract 90919
+        Vector3 _1Normalize;// 12:Normalize 90918
+        Single _2Distance;// 56:Distance 90943
+        Single _3Divide;// 54:Divide 90941
+        Single _4Multiply;// 58:Multiply 90940
+        Vector3 _5MultiplyByScalar;// 57:MultiplyByScalar 90917
+        Vector3 _6Add;// 3:Add 90915
         _0Subtract = Subtract(x0, _8Pass-through: Vector3);
         _1Normalize = Normalize(_0Subtract);
         _2Distance = Distance(_8Pass-through: Vector3, x0);

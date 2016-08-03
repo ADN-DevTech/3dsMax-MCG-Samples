@@ -1,0 +1,39 @@
+<graph version="0.50" uuid="05277af2-0bcf-4de3-9f04-cd1c998739ce">
+    <meta_info>
+        <graph_version guid="4cc72477-efbc-49fd-84ca-1ce7279a61c3" number="0.0.5" />
+        <category>Geometry - QuadMesh</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="us" position="220:40" size="140:112" />
+        <node operator="Input: array" id="1" name="vs" position="440:0" size="140:112" />
+        <node operator="Input: Boolean" id="2" name="uwrap" position="660:620" size="140:112" />
+        <node operator="Input: Boolean" id="3" name="vwrap" position="660:760" size="140:112" />
+        <node operator="Input: function2" id="4" name="uvToVector3" position="220:180" size="140:112" />
+        <node operator="QuadMeshStrip" id="5" position="880:540" size="140:175" />
+        <node operator="CartesianProduct" id="6" position="660:320" size="140:154" />
+        <node operator="Output: compound" id="8" position="1100:620" size="180:70" />
+        <node operator="Apply2" id="9" position="440:260" size="140:154" />
+        <node operator="IgnoreFirst" id="10" position="220:320" size="140:133" />
+        <node operator="Pass-through: Single" id="11" position="0:420" size="140:112" />
+        <node operator="Pass-through: Single" id="12" position="0:280" size="140:112" />
+        <node operator="Reverse" id="13" position="440:140" size="140:112" />
+        <node operator="Count" id="14" position="660:480" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="3" />
+        <connection sourcenode="13" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="9" sourceport="1" destnode="6" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+    </connections>
+</graph>

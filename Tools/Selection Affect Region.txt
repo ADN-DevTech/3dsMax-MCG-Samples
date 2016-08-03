@@ -1,14 +1,14 @@
 (InstanceState state, TriMesh mesh, INode node, Matrix modifierTransform, Single falloff, Single bubble, Single pinch) => 
   {
-    Int32 _0Zero;// 15:Zero 107030
-    IArray[Vector3] _1MeshVertices;// 5:MeshVertexCount-ext->1:MeshVertices 107028
-    Int32 _2Count;// 5:MeshVertexCount-ext->2:Count 107027
-    IArray[Vector3] _3MeshVertices;// 1:MeshVertices 107032
-    Boolean _4IsValidNode;// 7:NodePositionInLocalSpaceOrTarget-ext->2:IsValidNode 107041
-    IArray[Single] _11Map;// 10:Map 107031
-    Int32 _12Count;// 4:SetCount-ext->5:Count 107019
-    Boolean _13GreaterThan;// 4:SetCount-ext->4:GreaterThan 107018
-    TriMesh _20SetPerVertexData;// 11:VertexDataResize-ext->0:SetPerVertexData 107014
+    Int32 _0Zero;// 15:Zero 109166
+    IArray[Vector3] _1MeshVertices;// 5:MeshVertexCount-ext->1:MeshVertices 109164
+    Int32 _2Count;// 5:MeshVertexCount-ext->2:Count 109163
+    IArray[Vector3] _3MeshVertices;// 1:MeshVertices 109168
+    Boolean _4IsValidNode;// 7:NodePositionInLocalSpaceOrTarget-ext->2:IsValidNode 109177
+    IArray[Single] _11Map;// 10:Map 109167
+    Int32 _12Count;// 4:SetCount-ext->5:Count 109155
+    Boolean _13GreaterThan;// 4:SetCount-ext->4:GreaterThan 109154
+    TriMesh _20SetPerVertexData;// 11:VertexDataResize-ext->0:SetPerVertexData 109150
     _0Zero = Zero();
     _1MeshVertices = MeshVertices(mesh);
     _2Count = Count(_1MeshVertices);
@@ -16,14 +16,14 @@
     _4IsValidNode = IsValidNode(node);
     _11Map = Map(_3MeshVertices, (Vector3 x0) => 
       {
-        Single _6Distance;// 8:Distance 107034
-        Single _7AffectRegion;// 6:AffectRegion 107033
+        Single _6Distance;// 8:Distance 109170
+        Single _7AffectRegion;// 6:AffectRegion 109169
         _6Distance = Distance(x0, if (_4IsValidNode)
           {
-            Matrix _0ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 107048
-            Matrix _1InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 107049
-            Matrix _2Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 107047
-            Vector3 _3GetMatrixTranslation;// 1:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 107044
+            Matrix _0ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 109184
+            Matrix _1InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 109185
+            Matrix _2Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 109183
+            Vector3 _3GetMatrixTranslation;// 1:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 109180
             _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(node);
             _1InvertMatrix = InvertMatrix(modifierTransform);
             _2Multiply = Multiply(_0ObjectTransformBeforeWSM, _1InvertMatrix);
@@ -31,8 +31,8 @@
             _3GetMatrixTranslation;
             }else
           {
-            Single _4Constant;// 4:Origin->0:Constant 107051
-            Vector3 _5Vector3;// 4:Origin->1:Vector3 107050
+            Single _4Constant;// 4:Origin->0:Constant 109187
+            Vector3 _5Vector3;// 4:Origin->1:Vector3 109186
             _4Constant = 0;
             _5Vector3 = Vector3(_4Constant, _4Constant, _4Constant);
             _5Vector3;
@@ -44,10 +44,10 @@
     _13GreaterThan = GreaterThan(_2Count, _12Count);
     _20SetPerVertexData = SetPerVertexData(mesh, _0Zero, if (_13GreaterThan)
       {
-        Single _14DefaultValueOfElement;// 4:SetCount-ext->2:DefaultValueOfElement 107022
-        Int32 _15Subtract;// 4:SetCount-ext->9:Subtract 107023
-        IArray[Single] _16ArrayOf;// 4:SetCount-ext->8:ArrayOf 107021
-        IArray[Single] _17Concatenate;// 4:SetCount-ext->10:Concatenate 107020
+        Single _14DefaultValueOfElement;// 4:SetCount-ext->2:DefaultValueOfElement 109158
+        Int32 _15Subtract;// 4:SetCount-ext->9:Subtract 109159
+        IArray[Single] _16ArrayOf;// 4:SetCount-ext->8:ArrayOf 109157
+        IArray[Single] _17Concatenate;// 4:SetCount-ext->10:Concatenate 109156
         _14DefaultValueOfElement = DefaultValueOfElement(_11Map);
         _15Subtract = Subtract(_2Count, _12Count);
         _16ArrayOf = ArrayOf(_14DefaultValueOfElement, _15Subtract);
@@ -55,8 +55,8 @@
         _17Concatenate;
         }else
       {
-        Int32 _18Zero;// 4:SetCount-ext->7:Zero 107025
-        IArray[Single] _19Slice;// 4:SetCount-ext->6:Slice 107024
+        Int32 _18Zero;// 4:SetCount-ext->7:Zero 109161
+        IArray[Single] _19Slice;// 4:SetCount-ext->6:Slice 109160
         _18Zero = Zero();
         _19Slice = Slice(_11Map, _18Zero, _2Count);
         _19Slice;

@@ -1,30 +1,30 @@
 (InstanceState state, TriMesh mesh, Int32 flux channel, Boolean include original, Boolean closed, Single spacing) => 
   {
-    MapChannel _0GetMapChannel;// 5:MatricesFromMapChannel-ext->9:GetMapChannel 98008
-    IArray[Vector3] _1MapChannelVertexBuffer;// 5:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 98007
-    Int32 _2Count;// 2:Slices->2:Count 98004
-    Int32 _3Constant;// 5:MatricesFromMapChannel-ext->0:Constant 98009
-    Int32 _4Divide;// 2:Slices->3:Divide 98003
-    IArray[Int32] _5Range;// 2:Slices->4:Range 98002
-    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 98001
-    IArray[Matrix] _7Map;// 5:MatricesFromMapChannel-ext->5:Map 97998
-    IArray[Matrix] _11Pass-through: array;// 0:Pass-through: array 97914
-    Int32 _12Count;// 3:LastIndex->2:Count 97932
-    Int32 _13One;// 3:MinusOne->2:One 97931
-    Int32 _14Subtract;// 3:MinusOne->1:Subtract 97930
-    IArray[Matrix] _15Take;// 1:DropLast->2:Take 97927
-    Int32 _16One;// 2:SkipOne->2:One 97935
-    IArray[Matrix] _17Skip;// 2:SkipOne->3:Skip 97934
-    Func[Matrix, Matrix, IArray[Matrix]] _18Pass-through: function2;// 0:Pass-through: function2 97918
-    IArray[IArray[Matrix]] _19Combine;// 1:CombinePairwiseElements-ext->3:Combine 97925
-    Int32 _23Zero;// 2:First->2:Zero 97994
-    Matrix _24At;// 2:First->0:At 97993
-    IArray[Matrix] _33Pass-through: array;// 0:Pass-through: array 97896
-    Func[Matrix, IArray[Vector3]] _34Pass-through: function1;// 0:Pass-through: function1 97899
-    IArray[IArray[Vector3]] _35Map;// 5:FlatMap->4:Map 97901
-    IArray[Vector3] _36Flatten;// 5:FlatMap->3:Flatten 97900
-    IArray[Int32] _37MeshIndices;// 3:MapChannelStoreMatrices-ext->0:MeshIndices 97910
-    TriMesh _38SetMapChannel;// 3:MapChannelStoreMatrices-ext->7:SetMapChannel 97897
+    MapChannel _0GetMapChannel;// 5:MatricesFromMapChannel-ext->9:GetMapChannel 100144
+    IArray[Vector3] _1MapChannelVertexBuffer;// 5:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 100143
+    Int32 _2Count;// 2:Slices->2:Count 100140
+    Int32 _3Constant;// 5:MatricesFromMapChannel-ext->0:Constant 100145
+    Int32 _4Divide;// 2:Slices->3:Divide 100139
+    IArray[Int32] _5Range;// 2:Slices->4:Range 100138
+    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 100137
+    IArray[Matrix] _7Map;// 5:MatricesFromMapChannel-ext->5:Map 100134
+    IArray[Matrix] _11Pass-through: array;// 0:Pass-through: array 100050
+    Int32 _12Count;// 3:LastIndex->2:Count 100068
+    Int32 _13One;// 3:MinusOne->2:One 100067
+    Int32 _14Subtract;// 3:MinusOne->1:Subtract 100066
+    IArray[Matrix] _15Take;// 1:DropLast->2:Take 100063
+    Int32 _16One;// 2:SkipOne->2:One 100071
+    IArray[Matrix] _17Skip;// 2:SkipOne->3:Skip 100070
+    Func[Matrix, Matrix, IArray[Matrix]] _18Pass-through: function2;// 0:Pass-through: function2 100054
+    IArray[IArray[Matrix]] _19Combine;// 1:CombinePairwiseElements-ext->3:Combine 100061
+    Int32 _23Zero;// 2:First->2:Zero 100130
+    Matrix _24At;// 2:First->0:At 100129
+    IArray[Matrix] _33Pass-through: array;// 0:Pass-through: array 100032
+    Func[Matrix, IArray[Vector3]] _34Pass-through: function1;// 0:Pass-through: function1 100035
+    IArray[IArray[Vector3]] _35Map;// 5:FlatMap->4:Map 100037
+    IArray[Vector3] _36Flatten;// 5:FlatMap->3:Flatten 100036
+    IArray[Int32] _37MeshIndices;// 3:MapChannelStoreMatrices-ext->0:MeshIndices 100046
+    TriMesh _38SetMapChannel;// 3:MapChannelStoreMatrices-ext->7:SetMapChannel 100033
     _0GetMapChannel = GetMapChannel(mesh, flux channel);
     _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
     _2Count = Count(_1MapChannelVertexBuffer);
@@ -33,33 +33,33 @@
     _5Range = Range(_4Divide);
     _6Map = Map(_5Range, (Int32 x0) => 
       {
-        Int32 _0Multiply;// 2:Slices->6:Multiply 98006
-        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 98005
+        Int32 _0Multiply;// 2:Slices->6:Multiply 100142
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 100141
         _0Multiply = Multiply(_3Constant, x0);
         _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
         _1Slice;
         });
     _7Map = Map(_6Map, (IArray[Vector3] x0) => 
       {
-        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 98018
-        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 98019
-        Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 98023
-        Vector3 _3At;// 6:MatrixFromRows-ext->3:At 98022
-        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 98017
-        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 98020
-        Int32 _6One;// 8:PlusOne->1:One 98027
-        Int32 _7Add;// 8:PlusOne->0:Add 98026
-        Vector3 _8At;// 6:MatrixFromRows-ext->4:At 98024
-        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 98016
-        Int32 _10Constant;// 25:Three->0:Constant 98021
-        Int32 _11One;// 9:PlusOne->1:One 98031
-        Int32 _12Add;// 9:PlusOne->0:Add 98030
-        Vector3 _13At;// 6:MatrixFromRows-ext->5:At 98028
-        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 98015
-        Int32 _15One;// 10:PlusOne->1:One 98035
-        Int32 _16Add;// 10:PlusOne->0:Add 98034
-        Vector3 _17At;// 6:MatrixFromRows-ext->6:At 98032
-        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 98011
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 100154
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 100155
+        Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 100159
+        Vector3 _3At;// 6:MatrixFromRows-ext->3:At 100158
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 100153
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 100156
+        Int32 _6One;// 8:PlusOne->1:One 100163
+        Int32 _7Add;// 8:PlusOne->0:Add 100162
+        Vector3 _8At;// 6:MatrixFromRows-ext->4:At 100160
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 100152
+        Int32 _10Constant;// 25:Three->0:Constant 100157
+        Int32 _11One;// 9:PlusOne->1:One 100167
+        Int32 _12Add;// 9:PlusOne->0:Add 100166
+        Vector3 _13At;// 6:MatrixFromRows-ext->5:At 100164
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 100151
+        Int32 _15One;// 10:PlusOne->1:One 100171
+        Int32 _16Add;// 10:PlusOne->0:Add 100170
+        Vector3 _17At;// 6:MatrixFromRows-ext->6:At 100168
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 100147
         _0MatrixIdentity = MatrixIdentity();
         _1One = One();
         _2Zero = Zero();
@@ -83,9 +83,9 @@
         });
     _11Pass-through: array = if (closed)
       {
-        Int32 _8Zero;// 2:First->2:Zero 97994
-        Matrix _9At;// 2:First->0:At 97993
-        IArray[Matrix] _10Append;// 0:AppendIf->1:Append 97991
+        Int32 _8Zero;// 2:First->2:Zero 100130
+        Matrix _9At;// 2:First->0:At 100129
+        IArray[Matrix] _10Append;// 0:AppendIf->1:Append 100127
         _8Zero = Zero();
         _9At = At(_7Map, _8Zero);
         _10Append = Append(_7Map, _9At);
@@ -102,18 +102,18 @@
     _17Skip = Skip(_11Pass-through: array, _16One);
     _18Pass-through: function2 = (Matrix x0, Matrix x1) => 
       {
-        Vector3 _0GetMatrixTranslation;// 6:MatrixDistance-ext->0:GetMatrixTranslation 97964
-        Vector3 _1GetMatrixTranslation;// 6:MatrixDistance-ext->1:GetMatrixTranslation 97965
-        Single _2Distance;// 6:MatrixDistance-ext->2:Distance 97963
-        Single _3Divide;// 4:MatrixInterpolateWithSpacing-ext->7:Divide 97960
-        Int32 _4Floor;// 4:MatrixInterpolateWithSpacing-ext->8:Floor 97959
-        Int32 _5One;// 2:PlusOne->1:One 97958
-        Int32 _6Add;// 2:PlusOne->0:Add 97957
-        IArray[Single] _7RangeExclusiveFloat;// 7:FloatRandeBetween-ext->5:RangeExclusiveFloat 97955
-        Int32 _8One;// 6:SkipOne->2:One 97954
-        IArray[Single] _9Skip;// 6:SkipOne->3:Skip 97953
-        Func[Single, Matrix] _10Pass-through: function1;// 0:Pass-through: function1 97949
-        IArray[Matrix] _11Map;// 2:SampleBetween-ext->3:Map 97950
+        Vector3 _0GetMatrixTranslation;// 6:MatrixDistance-ext->0:GetMatrixTranslation 100100
+        Vector3 _1GetMatrixTranslation;// 6:MatrixDistance-ext->1:GetMatrixTranslation 100101
+        Single _2Distance;// 6:MatrixDistance-ext->2:Distance 100099
+        Single _3Divide;// 4:MatrixInterpolateWithSpacing-ext->7:Divide 100096
+        Int32 _4Floor;// 4:MatrixInterpolateWithSpacing-ext->8:Floor 100095
+        Int32 _5One;// 2:PlusOne->1:One 100094
+        Int32 _6Add;// 2:PlusOne->0:Add 100093
+        IArray[Single] _7RangeExclusiveFloat;// 7:FloatRandeBetween-ext->5:RangeExclusiveFloat 100091
+        Int32 _8One;// 6:SkipOne->2:One 100090
+        IArray[Single] _9Skip;// 6:SkipOne->3:Skip 100089
+        Func[Single, Matrix] _10Pass-through: function1;// 0:Pass-through: function1 100085
+        IArray[Matrix] _11Map;// 2:SampleBetween-ext->3:Map 100086
         _0GetMatrixTranslation = GetMatrixTranslation(x0);
         _1GetMatrixTranslation = GetMatrixTranslation(x1);
         _2Distance = Distance(_0GetMatrixTranslation, _1GetMatrixTranslation);
@@ -126,16 +126,16 @@
         _9Skip = Skip(_7RangeExclusiveFloat, _8One);
         _10Pass-through: function1 = (Single x0) => 
           {
-            Vector3 _0GetMatrixScaling;// 12:MatrixComponentsLerp-ext->6:GetMatrixScaling 97976
-            Vector3 _1GetMatrixScaling;// 12:MatrixComponentsLerp-ext->7:GetMatrixScaling 97977
-            Vector3 _2Lerp;// 12:MatrixComponentsLerp-ext->11:Lerp 97975
-            Quaternion _3GetMatrixRotation;// 12:MatrixComponentsLerp-ext->4:GetMatrixRotation 97979
-            Quaternion _4GetMatrixRotation;// 12:MatrixComponentsLerp-ext->5:GetMatrixRotation 97980
-            Quaternion _5QuaternionLerp;// 12:MatrixComponentsLerp-ext->9:QuaternionLerp 97978
-            Vector3 _6GetMatrixTranslation;// 12:MatrixComponentsLerp-ext->2:GetMatrixTranslation 97982
-            Vector3 _7GetMatrixTranslation;// 12:MatrixComponentsLerp-ext->3:GetMatrixTranslation 97983
-            Vector3 _8Lerp;// 12:MatrixComponentsLerp-ext->10:Lerp 97981
-            Matrix _9ScalingRotationTranslationMatrix;// 12:MatrixComponentsLerp-ext->14:ScalingRotationTranslationMatrix 97974
+            Vector3 _0GetMatrixScaling;// 12:MatrixComponentsLerp-ext->6:GetMatrixScaling 100112
+            Vector3 _1GetMatrixScaling;// 12:MatrixComponentsLerp-ext->7:GetMatrixScaling 100113
+            Vector3 _2Lerp;// 12:MatrixComponentsLerp-ext->11:Lerp 100111
+            Quaternion _3GetMatrixRotation;// 12:MatrixComponentsLerp-ext->4:GetMatrixRotation 100115
+            Quaternion _4GetMatrixRotation;// 12:MatrixComponentsLerp-ext->5:GetMatrixRotation 100116
+            Quaternion _5QuaternionLerp;// 12:MatrixComponentsLerp-ext->9:QuaternionLerp 100114
+            Vector3 _6GetMatrixTranslation;// 12:MatrixComponentsLerp-ext->2:GetMatrixTranslation 100118
+            Vector3 _7GetMatrixTranslation;// 12:MatrixComponentsLerp-ext->3:GetMatrixTranslation 100119
+            Vector3 _8Lerp;// 12:MatrixComponentsLerp-ext->10:Lerp 100117
+            Matrix _9ScalingRotationTranslationMatrix;// 12:MatrixComponentsLerp-ext->14:ScalingRotationTranslationMatrix 100110
             _0GetMatrixScaling = GetMatrixScaling(x0);
             _1GetMatrixScaling = GetMatrixScaling(x1);
             _2Lerp = Lerp(_0GetMatrixScaling, _1GetMatrixScaling, x0);
@@ -156,16 +156,16 @@
     _24At = At(_7Map, _23Zero);
     _33Pass-through: array = if (include original)
       {
-        IArray[IArray[Matrix]] _25Combine;// 10:ArrayInterpolate-ext->4:Combine 97922
-        IArray[Matrix] _26Flatten;// 10:ArrayInterpolate-ext->7:Flatten 97921
-        Int32 _27Count;// 3:LastIndex->2:Count 97943
-        Int32 _28One;// 3:MinusOne->2:One 97942
-        Int32 _29Subtract;// 3:MinusOne->1:Subtract 97941
-        Matrix _30At;// 5:Last->0:At 97938
-        IArray[Matrix] _31Append;// 10:ArrayInterpolate-ext->9:Append 97920
+        IArray[IArray[Matrix]] _25Combine;// 10:ArrayInterpolate-ext->4:Combine 100058
+        IArray[Matrix] _26Flatten;// 10:ArrayInterpolate-ext->7:Flatten 100057
+        Int32 _27Count;// 3:LastIndex->2:Count 100079
+        Int32 _28One;// 3:MinusOne->2:One 100078
+        Int32 _29Subtract;// 3:MinusOne->1:Subtract 100077
+        Matrix _30At;// 5:Last->0:At 100074
+        IArray[Matrix] _31Append;// 10:ArrayInterpolate-ext->9:Append 100056
         _25Combine = Combine(_19Combine, _11Pass-through: array, (IArray[Matrix] x0, Matrix x1) => 
           {
-            IArray[Matrix] _0Prepend;// 10:ArrayInterpolate-ext->6:Prepend 97936
+            IArray[Matrix] _0Prepend;// 10:ArrayInterpolate-ext->6:Prepend 100072
             _0Prepend = Prepend(x0, x1);
             _0Prepend;
             });
@@ -178,22 +178,22 @@
         _31Append;
         }else
       {
-        IArray[Matrix] _32Flatten;// 10:ArrayInterpolate-ext->11:Flatten 97944
+        IArray[Matrix] _32Flatten;// 10:ArrayInterpolate-ext->11:Flatten 100080
         _32Flatten = Flatten(_19Combine);
         _32Flatten;
         };
     _34Pass-through: function1 = (Matrix x0) => 
       {
-        Int32 _0Constant;// 3:MatrixRows-ext->0:Constant 97905
-        IArray[Int32] _1Range;// 3:MatrixRows-ext->1:Range 97904
-        IArray[Vector3] _2Map;// 3:MatrixRows-ext->3:Map 97903
+        Int32 _0Constant;// 3:MatrixRows-ext->0:Constant 100041
+        IArray[Int32] _1Range;// 3:MatrixRows-ext->1:Range 100040
+        IArray[Vector3] _2Map;// 3:MatrixRows-ext->3:Map 100039
         _0Constant = 4;
         _1Range = Range(_0Constant);
         _2Map = Map(_1Range, (Int32 x0) => 
           {
-            Int32 _0One;// 5:PlusOne->1:One 97909
-            Int32 _1Add;// 5:PlusOne->0:Add 97908
-            Vector3 _2MatrixRow;// 3:MatrixRows-ext->4:MatrixRow 97906
+            Int32 _0One;// 5:PlusOne->1:One 100045
+            Int32 _1Add;// 5:PlusOne->0:Add 100044
+            Vector3 _2MatrixRow;// 3:MatrixRows-ext->4:MatrixRow 100042
             _0One = One();
             _1Add = Add(x0, _0One);
             _2MatrixRow = MatrixRow(_1Add, x0);

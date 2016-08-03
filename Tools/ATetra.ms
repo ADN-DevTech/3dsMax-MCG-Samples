@@ -24,7 +24,7 @@ plugin simpleObject ATetra
 
 	parameters main rollout:params
 	(
-		radius ui:radius default:20 type:#float animatable:true
+		radius ui:radius default:10 type:#float animatable:true
 		_dummy type:#boolean -- this exists to enable easy invalidation of the object
 		pluginGraph type:#filename assettype:#MaxCreationGraph readOnly:true enumAsAsset:true 
 		pluginGraphDependencies type:#filenametab assettype:#MaxCreationGraph readOnly:true enumAsAsset:true tabSize:0 tabSizeVariable:true
@@ -96,7 +96,7 @@ plugin simpleObject ATetra
 
 	rollout params "Parameters"
 	(
-		spinner radius "radius" range:[0.001, 1000, 20] type:#float
+		spinner radius "radius" range:[0.001, 1000, 10] type:#float
 
 	)
 

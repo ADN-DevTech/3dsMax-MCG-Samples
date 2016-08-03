@@ -1,20 +1,25 @@
 <graph version="0.50" uuid="28515a76-bfea-401b-8abd-250c4ff6864c">
     <meta_info>
-        <graph_version guid="be9b81a1-cf9a-4348-9312-02ca4bb26a30" number="0.0.13" />
+        <graph_version guid="71d90227-6658-4810-873b-bd05e84b40a4" number="0.0.17" />
         <category>Geometry - Deformers</category>
     </meta_info>
     <nodes>
-        <node operator="Input: TriMesh" id="8" name="mesh" position="440:0" size="140:112" />
-        <node operator="Input: Single" id="20" name="angle" position="220:60" size="140:112" />
-        <node operator="Input: Int32" id="21" name="axis" position="0:280" size="140:112" />
-        <node operator="Input: Matrix" id="4" name="deformationMatrix" position="440:500" size="140:112" />
-        <node operator="Input: Single" id="22" name="direction" position="220:240" size="140:112" />
-        <node operator="BendDeformer-ext" id="1" position="440:140" size="180:196" />
-        <node operator="Output: compound" id="3" position="1000:400" size="200:70" />
-        <node operator="MeshDeformVerticesWithAmounts-ext" id="5" position="700:300" size="260:175" />
-        <node operator="ProjectionAmount-ext" id="6" position="20:440" size="180:133" />
-        <node operator="AxisChoose-ext" id="7" position="220:360" size="140:112" />
-        <node operator="MultiplyThreeFloat-ext" id="0" position="140:496" size="140:112" />
+        <node operator="Input: TriMesh" id="8" name="mesh" position="740:20" size="140:112" />
+        <node operator="Input: Single" id="20" name="angle" position="520:0" size="140:112" />
+        <node operator="Input: Int32" id="21" name="axis" position="0:460" size="140:112" />
+        <node operator="Input: Matrix" id="4" name="deformationMatrix" position="740:540" size="140:112" />
+        <node operator="Input: Single" id="22" name="direction" position="520:180" size="140:112" />
+        <node operator="BendDeformer-ext" id="1" position="740:160" size="180:196" />
+        <node operator="Output: compound" id="3" position="1340:380" size="200:70" />
+        <node operator="MeshDeformVerticesWithAmounts-ext" id="5" position="1000:260" size="260:175" />
+        <node operator="FloatRescaleToLimit-ext" id="0" position="500:420" size="140:175" />
+        <node operator="Input: Single" id="2" name="upperLimit" position="220:520" size="140:112" />
+        <node operator="Input: Single" id="9" name="lowerLimit" position="220:380" size="140:112" />
+        <node operator="PointProjectionAmountBoxAxis-ext" id="10" position="200:660" size="280:154" />
+        <node operator="If" id="11" position="740:360" size="140:154" />
+        <node operator="Input: Boolean" id="12" name="useLimits" position="520:300" size="140:112" />
+        <node operator="Input: BoundingBox" id="13" name="box" position="0:680" size="140:112" />
+        <node operator="True" id="14" position="220:280" size="140:91" />
     </nodes>
     <connections>
         <connection sourcenode="20" sourceport="0" destnode="1" destport="1" />
@@ -23,10 +28,16 @@
         <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
         <connection sourcenode="8" sourceport="0" destnode="5" destport="0" />
         <connection sourcenode="1" sourceport="1" destnode="5" destport="1" />
-        <connection sourcenode="0" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="11" sourceport="1" destnode="5" destport="2" />
         <connection sourcenode="4" sourceport="0" destnode="5" destport="3" />
-        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="21" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="6" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="3" />
+        <connection sourcenode="21" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="2" />
     </connections>
 </graph>

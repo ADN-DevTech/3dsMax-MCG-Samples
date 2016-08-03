@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="cb758485-ec7a-448e-9858-00c2b3f93d30">
+    <meta_info>
+        <graph_version guid="954b7ce7-4f3a-43bd-8274-186fcea44d32" number="0.0.6" />
+        <category>Geometry - Bounding box</category>
+        <description>Computes the amount from 0..1 that a point occurs along one of the bounding box&apos;s axis.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: BoundingBox" id="2" name="box" position="0:180" size="140:112" />
+        <node operator="Input: Vector3" id="3" name="point" position="220:140" size="140:112" />
+        <node operator="Input: Int32" id="0" name="axis" position="660:260" size="140:112" />
+        <node operator="Output: compound" id="7" position="1200:200" size="140:70" />
+        <node operator="Subtract" id="4" position="440:20" size="140:133" />
+        <node operator="BoxMin" id="5" position="220:0" size="140:112" />
+        <node operator="DivideVectorSafely-ext" id="8" position="660:100" size="140:133" />
+        <node operator="BoundingBoxExtent-ext" id="9" position="440:160" size="140:112" />
+        <node operator="VectorElement-ext" id="10" position="880:160" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="1" />
+    </connections>
+</graph>

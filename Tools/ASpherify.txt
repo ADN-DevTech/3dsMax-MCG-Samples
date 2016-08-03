@@ -1,14 +1,14 @@
 (InstanceState state, TriMesh mesh, Boolean ignore X, Boolean ignore Y, Boolean ignore Z, INode helper, Matrix modifierTransform, BoundingBox boundingBox, Single radius, Single spherify) => 
   {
-    IArray[Vector3] _0MeshVertices;// 2:MeshDeformPoints-ext->0:MeshVertices 89559
-    IArray[Boolean] _1Unit;// 40:Array3-ext->2:Unit 89613
-    IArray[Boolean] _2Append;// 40:Array3-ext->3:Append 89612
-    IArray[Boolean] _3Append;// 40:Array3-ext->6:Append 89611
-    Boolean _4IsValidNode;// 61:NodePositionOrBoxCenter-ext->40:IsValidNode 89623
-    Vector3 _11Pass-through: Vector3;// 60:Pass-through: Vector3 89618
-    Func[Vector3, Vector3] _12Pass-through: function1;// 0:Pass-through: function1 89556
-    IArray[Vector3] _13Map;// 2:MeshDeformPoints-ext->1:Map 89558
-    TriMesh _14SetMeshVertices;// 2:MeshDeformPoints-ext->4:SetMeshVertices 89557
+    IArray[Vector3] _0MeshVertices;// 2:MeshDeformPoints-ext->0:MeshVertices 91233
+    IArray[Boolean] _1Unit;// 40:Array3-ext->2:Unit 91287
+    IArray[Boolean] _2Append;// 40:Array3-ext->3:Append 91286
+    IArray[Boolean] _3Append;// 40:Array3-ext->6:Append 91285
+    Boolean _4IsValidNode;// 61:NodePositionOrBoxCenter-ext->40:IsValidNode 91297
+    Vector3 _11Pass-through: Vector3;// 60:Pass-through: Vector3 91292
+    Func[Vector3, Vector3] _12Pass-through: function1;// 0:Pass-through: function1 91230
+    IArray[Vector3] _13Map;// 2:MeshDeformPoints-ext->1:Map 91232
+    TriMesh _14SetMeshVertices;// 2:MeshDeformPoints-ext->4:SetMeshVertices 91231
     _0MeshVertices = MeshVertices(mesh);
     _1Unit = Unit(ignore X);
     _2Append = Append(_1Unit, ignore Y);
@@ -16,10 +16,10 @@
     _4IsValidNode = IsValidNode(helper);
     _11Pass-through: Vector3 = if (_4IsValidNode)
       {
-        Matrix _5ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 89630
-        Matrix _6InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 89631
-        Matrix _7Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 89629
-        Vector3 _8GetMatrixTranslation;// 3:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 89626
+        Matrix _5ObjectTransformBeforeWSM;// 1:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 91304
+        Matrix _6InvertMatrix;// 1:NodeTMInLocalSpace-ext->2:InvertMatrix 91305
+        Matrix _7Multiply;// 1:NodeTMInLocalSpace-ext->4:Multiply 91303
+        Vector3 _8GetMatrixTranslation;// 3:NodePositionInLocalSpace-ext->3:GetMatrixTranslation 91300
         _5ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(helper);
         _6InvertMatrix = InvertMatrix(modifierTransform);
         _7Multiply = Multiply(_5ObjectTransformBeforeWSM, _6InvertMatrix);
@@ -27,38 +27,38 @@
         _8GetMatrixTranslation;
         }else
       {
-        BoundingSphere _9SphereFromBox;// 6:BoundingBoxCenter->2:SphereFromBox 89634
-        Vector3 _10SphereCenter;// 6:BoundingBoxCenter->3:SphereCenter 89633
+        BoundingSphere _9SphereFromBox;// 6:BoundingBoxCenter->2:SphereFromBox 91308
+        Vector3 _10SphereCenter;// 6:BoundingBoxCenter->3:SphereCenter 91307
         _9SphereFromBox = SphereFromBox(boundingBox);
         _10SphereCenter = SphereCenter(_9SphereFromBox);
         _10SphereCenter;
         };
     _12Pass-through: function1 = (Vector3 x0) => 
       {
-        Single _0X;// 3:VectorAsArray->1:X 89595
-        IArray[Single] _1Unit;// 4:Array3->2:Unit 89594
-        Single _2Y;// 3:VectorAsArray->2:Y 89596
-        IArray[Single] _3Append;// 4:Array3->3:Append 89593
-        Single _4Z;// 3:VectorAsArray->3:Z 89597
-        IArray[Single] _5Append;// 4:Array3->6:Append 89592
-        Vector3 _6Subtract;// 59:Subtract 89642
-        Vector3 _7Normalize;// 11:SetVectorLength-ext->1:Normalize 89641
-        BoundingSphere _8SphereFromBox;// 10:BoundingBoxRadius->1:SphereFromBox 89646
-        Single _9SphereRadius;// 10:BoundingBoxRadius->2:SphereRadius 89645
-        Single _10Multiply;// 47:Multiply 89643
-        Vector3 _11MultiplyByScalar;// 11:SetVectorLength-ext->3:MultiplyByScalar 89640
-        Vector3 _12Add;// 3:Add 89617
-        Single _13X;// 4:VectorAsArray->1:X 89605
-        IArray[Single] _14Unit;// 4:Array3->2:Unit 89604
-        Single _15Y;// 4:VectorAsArray->2:Y 89606
-        IArray[Single] _16Append;// 4:Array3->3:Append 89603
-        Single _17Z;// 4:VectorAsArray->3:Z 89607
-        IArray[Single] _18Append;// 4:Array3->6:Append 89602
-        IArray[Single] _19Combine3;// 6:ArrayChooseBetweenTwo-ext->0:Combine3 89583
-        Int32 _20Count;// 7:VectorFromArray->11:Count 89569
-        Int32 _21Constant;// 7:VectorFromArray->0:Constant 89570
-        Boolean _22GreaterThanOrEqual;// 7:VectorFromArray->12:GreaterThanOrEqual 89568
-        Vector3 _32Lerp;// 62:Lerp 89561
+        Single _0X;// 3:VectorAsArray->1:X 91269
+        IArray[Single] _1Unit;// 4:Array3->2:Unit 91268
+        Single _2Y;// 3:VectorAsArray->2:Y 91270
+        IArray[Single] _3Append;// 4:Array3->3:Append 91267
+        Single _4Z;// 3:VectorAsArray->3:Z 91271
+        IArray[Single] _5Append;// 4:Array3->6:Append 91266
+        Vector3 _6Subtract;// 59:Subtract 91316
+        Vector3 _7Normalize;// 11:SetVectorLength-ext->1:Normalize 91315
+        BoundingSphere _8SphereFromBox;// 10:BoundingBoxRadius->1:SphereFromBox 91320
+        Single _9SphereRadius;// 10:BoundingBoxRadius->2:SphereRadius 91319
+        Single _10Multiply;// 47:Multiply 91317
+        Vector3 _11MultiplyByScalar;// 11:SetVectorLength-ext->3:MultiplyByScalar 91314
+        Vector3 _12Add;// 3:Add 91291
+        Single _13X;// 4:VectorAsArray->1:X 91279
+        IArray[Single] _14Unit;// 4:Array3->2:Unit 91278
+        Single _15Y;// 4:VectorAsArray->2:Y 91280
+        IArray[Single] _16Append;// 4:Array3->3:Append 91277
+        Single _17Z;// 4:VectorAsArray->3:Z 91281
+        IArray[Single] _18Append;// 4:Array3->6:Append 91276
+        IArray[Single] _19Combine3;// 6:ArrayChooseBetweenTwo-ext->0:Combine3 91257
+        Int32 _20Count;// 7:VectorFromArray->11:Count 91243
+        Int32 _21Constant;// 7:VectorFromArray->0:Constant 91244
+        Boolean _22GreaterThanOrEqual;// 7:VectorFromArray->12:GreaterThanOrEqual 91242
+        Vector3 _32Lerp;// 62:Lerp 91235
         _0X = X(x0);
         _1Unit = Unit(_0X);
         _2Y = Y(x0);
@@ -80,7 +80,7 @@
         _18Append = Append(_16Append, _17Z);
         _19Combine3 = Combine3(_3Append, _5Append, _18Append, (Boolean x0, Single x1, Single x2) => 
           {
-            Single _0IfThen;// 4:ChooseValue->4:IfThen 89587
+            Single _0IfThen;// 4:ChooseValue->4:IfThen 91261
             _0IfThen = IfThen(x0, () => 
               {
                 x1;
@@ -95,13 +95,13 @@
         _22GreaterThanOrEqual = GreaterThanOrEqual(_20Count, _21Constant);
         _32Lerp = Lerp(x0, if (_22GreaterThanOrEqual)
           {
-            Int32 _23Zero;// 7:VectorFromArray->2:Zero 89573
-            Single _24At;// 7:VectorFromArray->1:At 89572
-            Int32 _25One;// 7:VectorFromArray->9:One 89575
-            Single _26At;// 7:VectorFromArray->3:At 89574
-            Int32 _27Two;// 7:VectorFromArray->10:Two 89577
-            Single _28At;// 7:VectorFromArray->4:At 89576
-            Vector3 _29Vector3;// 7:VectorFromArray->7:Vector3 89571
+            Int32 _23Zero;// 7:VectorFromArray->2:Zero 91247
+            Single _24At;// 7:VectorFromArray->1:At 91246
+            Int32 _25One;// 7:VectorFromArray->9:One 91249
+            Single _26At;// 7:VectorFromArray->3:At 91248
+            Int32 _27Two;// 7:VectorFromArray->10:Two 91251
+            Single _28At;// 7:VectorFromArray->4:At 91250
+            Vector3 _29Vector3;// 7:VectorFromArray->7:Vector3 91245
             _23Zero = Zero();
             _24At = At(_19Combine3, _23Zero);
             _25One = One();
@@ -112,8 +112,8 @@
             _29Vector3;
             }else
           {
-            Single _30Constant;// 6:Origin->0:Constant 89579
-            Vector3 _31Vector3;// 6:Origin->1:Vector3 89578
+            Single _30Constant;// 6:Origin->0:Constant 91253
+            Vector3 _31Vector3;// 6:Origin->1:Vector3 91252
             _30Constant = 0;
             _31Vector3 = Vector3(_30Constant, _30Constant, _30Constant);
             _31Vector3;

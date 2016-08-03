@@ -1,33 +1,33 @@
 (InstanceState state, TriMesh mesh, Int32 flux channel, Boolean keep original, Single x, Single y, Single z, Int32 axis) => 
   {
-    MapChannel _0GetMapChannel;// 18:MatricesFromMapChannel-ext->9:GetMapChannel 98864
-    IArray[Vector3] _1MapChannelVertexBuffer;// 18:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 98863
-    Int32 _2Count;// 2:Slices->2:Count 98860
-    Int32 _3Constant;// 18:MatricesFromMapChannel-ext->0:Constant 98865
-    Int32 _4Divide;// 2:Slices->3:Divide 98859
-    IArray[Int32] _5Range;// 2:Slices->4:Range 98858
-    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 98857
-    IArray[Matrix] _7Map;// 18:MatricesFromMapChannel-ext->5:Map 98854
-    Vector3 _8Vector3;// 4:Vector3 98898
-    Int32 _9Zero;// 10:AxisChoose-ext->9:Zero 98905
-    Boolean _10GreaterThanOrEqual;// 10:AxisChoose-ext->8:GreaterThanOrEqual 98904
-    Vector3 _11XAxis;// 10:AxisChoose-ext->3:XAxis 98913
-    IArray[Vector3] _12Unit;// 2:Array3->2:Unit 98912
-    Vector3 _13YAxis;// 10:AxisChoose-ext->4:YAxis 98914
-    IArray[Vector3] _14Append;// 2:Array3->3:Append 98911
-    Vector3 _15ZAxis;// 10:AxisChoose-ext->5:ZAxis 98915
-    IArray[Vector3] _16Append;// 2:Array3->6:Append 98910
-    Vector3 _23Pass-through: Vector3;// 0:Pass-through: Vector3 98894
-    Ray _24Ray;// 21:MatrixReflectionFromPositionDirection-ext->14:Ray 98897
-    Plane _25Plane;// 21:MatrixReflectionFromPositionDirection-ext->16:Plane 98896
-    Matrix _26ReflectionMatrix;// 21:MatrixReflectionFromPositionDirection-ext->2:ReflectionMatrix 98895
-    IArray[Matrix] _27Map;// 2:Map 98851
-    IArray[Matrix] _29Pass-through: array;// 0:Pass-through: array 98828
-    Func[Matrix, IArray[Vector3]] _30Pass-through: function1;// 0:Pass-through: function1 98831
-    IArray[IArray[Vector3]] _31Map;// 5:FlatMap->4:Map 98833
-    IArray[Vector3] _32Flatten;// 5:FlatMap->3:Flatten 98832
-    IArray[Int32] _33MeshIndices;// 16:MapChannelStoreMatrices-ext->0:MeshIndices 98842
-    TriMesh _34SetMapChannel;// 16:MapChannelStoreMatrices-ext->7:SetMapChannel 98829
+    MapChannel _0GetMapChannel;// 18:MatricesFromMapChannel-ext->9:GetMapChannel 101000
+    IArray[Vector3] _1MapChannelVertexBuffer;// 18:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 100999
+    Int32 _2Count;// 2:Slices->2:Count 100996
+    Int32 _3Constant;// 18:MatricesFromMapChannel-ext->0:Constant 101001
+    Int32 _4Divide;// 2:Slices->3:Divide 100995
+    IArray[Int32] _5Range;// 2:Slices->4:Range 100994
+    IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 100993
+    IArray[Matrix] _7Map;// 18:MatricesFromMapChannel-ext->5:Map 100990
+    Vector3 _8Vector3;// 4:Vector3 101034
+    Int32 _9Zero;// 10:AxisChoose-ext->9:Zero 101041
+    Boolean _10GreaterThanOrEqual;// 10:AxisChoose-ext->8:GreaterThanOrEqual 101040
+    Vector3 _11XAxis;// 10:AxisChoose-ext->3:XAxis 101049
+    IArray[Vector3] _12Unit;// 2:Array3->2:Unit 101048
+    Vector3 _13YAxis;// 10:AxisChoose-ext->4:YAxis 101050
+    IArray[Vector3] _14Append;// 2:Array3->3:Append 101047
+    Vector3 _15ZAxis;// 10:AxisChoose-ext->5:ZAxis 101051
+    IArray[Vector3] _16Append;// 2:Array3->6:Append 101046
+    Vector3 _23Pass-through: Vector3;// 0:Pass-through: Vector3 101030
+    Ray _24Ray;// 21:MatrixReflectionFromPositionDirection-ext->14:Ray 101033
+    Plane _25Plane;// 21:MatrixReflectionFromPositionDirection-ext->16:Plane 101032
+    Matrix _26ReflectionMatrix;// 21:MatrixReflectionFromPositionDirection-ext->2:ReflectionMatrix 101031
+    IArray[Matrix] _27Map;// 2:Map 100987
+    IArray[Matrix] _29Pass-through: array;// 0:Pass-through: array 100964
+    Func[Matrix, IArray[Vector3]] _30Pass-through: function1;// 0:Pass-through: function1 100967
+    IArray[IArray[Vector3]] _31Map;// 5:FlatMap->4:Map 100969
+    IArray[Vector3] _32Flatten;// 5:FlatMap->3:Flatten 100968
+    IArray[Int32] _33MeshIndices;// 16:MapChannelStoreMatrices-ext->0:MeshIndices 100978
+    TriMesh _34SetMapChannel;// 16:MapChannelStoreMatrices-ext->7:SetMapChannel 100965
     _0GetMapChannel = GetMapChannel(mesh, flux channel);
     _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
     _2Count = Count(_1MapChannelVertexBuffer);
@@ -36,33 +36,33 @@
     _5Range = Range(_4Divide);
     _6Map = Map(_5Range, (Int32 x0) => 
       {
-        Int32 _0Multiply;// 2:Slices->6:Multiply 98862
-        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 98861
+        Int32 _0Multiply;// 2:Slices->6:Multiply 100998
+        IArray[Vector3] _1Slice;// 2:Slices->0:Slice 100997
         _0Multiply = Multiply(_3Constant, x0);
         _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
         _1Slice;
         });
     _7Map = Map(_6Map, (IArray[Vector3] x0) => 
       {
-        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 98874
-        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 98875
-        Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 98879
-        Vector3 _3At;// 6:MatrixFromRows-ext->3:At 98878
-        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 98873
-        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 98876
-        Int32 _6One;// 8:PlusOne->1:One 98883
-        Int32 _7Add;// 8:PlusOne->0:Add 98882
-        Vector3 _8At;// 6:MatrixFromRows-ext->4:At 98880
-        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 98872
-        Int32 _10Constant;// 25:Three->0:Constant 98877
-        Int32 _11One;// 9:PlusOne->1:One 98887
-        Int32 _12Add;// 9:PlusOne->0:Add 98886
-        Vector3 _13At;// 6:MatrixFromRows-ext->5:At 98884
-        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 98871
-        Int32 _15One;// 10:PlusOne->1:One 98891
-        Int32 _16Add;// 10:PlusOne->0:Add 98890
-        Vector3 _17At;// 6:MatrixFromRows-ext->6:At 98888
-        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 98867
+        Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 101010
+        Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 101011
+        Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 101015
+        Vector3 _3At;// 6:MatrixFromRows-ext->3:At 101014
+        Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 101009
+        Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 101012
+        Int32 _6One;// 8:PlusOne->1:One 101019
+        Int32 _7Add;// 8:PlusOne->0:Add 101018
+        Vector3 _8At;// 6:MatrixFromRows-ext->4:At 101016
+        Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 101008
+        Int32 _10Constant;// 25:Three->0:Constant 101013
+        Int32 _11One;// 9:PlusOne->1:One 101023
+        Int32 _12Add;// 9:PlusOne->0:Add 101022
+        Vector3 _13At;// 6:MatrixFromRows-ext->5:At 101020
+        Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 101007
+        Int32 _15One;// 10:PlusOne->1:One 101027
+        Int32 _16Add;// 10:PlusOne->0:Add 101026
+        Vector3 _17At;// 6:MatrixFromRows-ext->6:At 101024
+        Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 101003
         _0MatrixIdentity = MatrixIdentity();
         _1One = One();
         _2Zero = Zero();
@@ -95,16 +95,16 @@
     _16Append = Append(_14Append, _15ZAxis);
     _23Pass-through: Vector3 = if (_10GreaterThanOrEqual)
       {
-        Vector3 _17At;// 10:AxisChoose-ext->1:At 98906
+        Vector3 _17At;// 10:AxisChoose-ext->1:At 101042
         _17At = At(_16Append, axis);
         _17At;
         }else
       {
-        Int32 _18One;// 10:PlusOne->1:One 98921
-        Int32 _19Add;// 10:PlusOne->0:Add 98920
-        Int32 _20Negative;// 10:AxisChoose-ext->11:Negative 98918
-        Vector3 _21At;// 10:AxisChoose-ext->12:At 98917
-        Vector3 _22Negate;// 10:AxisChoose-ext->13:Negate 98916
+        Int32 _18One;// 10:PlusOne->1:One 101057
+        Int32 _19Add;// 10:PlusOne->0:Add 101056
+        Int32 _20Negative;// 10:AxisChoose-ext->11:Negative 101054
+        Vector3 _21At;// 10:AxisChoose-ext->12:At 101053
+        Vector3 _22Negate;// 10:AxisChoose-ext->13:Negate 101052
         _18One = One();
         _19Add = Add(axis, _18One);
         _20Negative = Negative(_19Add);
@@ -117,13 +117,13 @@
     _26ReflectionMatrix = ReflectionMatrix(_25Plane);
     _27Map = Map(_7Map, (Matrix x0) => 
       {
-        Matrix _0Multiply;// 3:Multiply 98892
+        Matrix _0Multiply;// 3:Multiply 101028
         _0Multiply = Multiply(x0, _26ReflectionMatrix);
         _0Multiply;
         });
     _29Pass-through: array = if (keep original)
       {
-        IArray[Matrix] _28Concatenate;// 11:ConcatenateIf-ext->1:Concatenate 98849
+        IArray[Matrix] _28Concatenate;// 11:ConcatenateIf-ext->1:Concatenate 100985
         _28Concatenate = Concatenate(_27Map, _7Map);
         _28Concatenate;
         }else
@@ -132,16 +132,16 @@
         };
     _30Pass-through: function1 = (Matrix x0) => 
       {
-        Int32 _0Constant;// 3:MatrixRows-ext->0:Constant 98837
-        IArray[Int32] _1Range;// 3:MatrixRows-ext->1:Range 98836
-        IArray[Vector3] _2Map;// 3:MatrixRows-ext->3:Map 98835
+        Int32 _0Constant;// 3:MatrixRows-ext->0:Constant 100973
+        IArray[Int32] _1Range;// 3:MatrixRows-ext->1:Range 100972
+        IArray[Vector3] _2Map;// 3:MatrixRows-ext->3:Map 100971
         _0Constant = 4;
         _1Range = Range(_0Constant);
         _2Map = Map(_1Range, (Int32 x0) => 
           {
-            Int32 _0One;// 5:PlusOne->1:One 98841
-            Int32 _1Add;// 5:PlusOne->0:Add 98840
-            Vector3 _2MatrixRow;// 3:MatrixRows-ext->4:MatrixRow 98838
+            Int32 _0One;// 5:PlusOne->1:One 100977
+            Int32 _1Add;// 5:PlusOne->0:Add 100976
+            Vector3 _2MatrixRow;// 3:MatrixRows-ext->4:MatrixRow 100974
             _0One = One();
             _1Add = Add(x0, _0One);
             _2MatrixRow = MatrixRow(_1Add, x0);

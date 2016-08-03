@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="f4c4e221-007c-4326-b3ee-f0baf2c7f270">
+    <meta_info>
+        <graph_version guid="9e84c190-48fe-4319-9967-885b00349f0d" number="0.0.10" />
+        <category>Geometry - Bounding box</category>
+        <description>Computes the amount that a point occurs along a bounding box axis. Provides limits (usually from 0..1) to allow a rescaling of the amount. </description>
+    </meta_info>
+    <nodes>
+        <node operator="PointProjectionAmountBoxAxis-ext" id="0" position="220:380" size="220:154" />
+        <node operator="Input: Single" id="1" name="lowerLimit" position="220:240" size="140:112" />
+        <node operator="Input: Vector3" id="2" name="point" position="0:180" size="140:112" />
+        <node operator="Input: Int32" id="3" name="axis" position="0:320" size="140:112" />
+        <node operator="Input: BoundingBox" id="4" name="box" position="0:460" size="140:112" />
+        <node operator="Input: Single" id="5" name="upperLimit" position="220:120" size="140:112" />
+        <node operator="FloatRescaleToLimit-ext" id="7" position="520:180" size="200:175" />
+        <node operator="True" id="8" position="220:0" size="140:91" />
+        <node operator="Output: compound" id="6" position="1020:260" size="140:70" />
+        <node operator="Input: Boolean" id="9" name="applyLimits" position="520:40" size="140:112" />
+        <node operator="If" id="10" position="800:220" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="3" />
+        <connection sourcenode="10" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="2" />
+    </connections>
+</graph>

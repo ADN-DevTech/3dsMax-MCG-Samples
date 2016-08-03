@@ -1,44 +1,44 @@
 (InstanceState state, TriMesh mesh, Boolean useGizmoXform, INode gizmo, Matrix modifierTransform, Single amplitude1, Single amplitude2, Single waveLength, Single phase, Single decay) => 
   {
-    IArray[Vector3] _0MeshVertices;// 11:SineWaveMesh->15:MeshVertices 105792
-    Matrix _9Pass-through: Matrix;// 0:Pass-through: Matrix 105783
-    Single _10Constant;// 0:Constant 105899
-    Single _11Divide;// 7:Divide 105897
-    IArray[Vector3] _12ParallelMap;// 11:SineWaveMesh->11:ParallelMap 105791
-    TriMesh _13SetMeshVertices;// 11:SineWaveMesh->18:SetMeshVertices 105789
+    IArray[Vector3] _0MeshVertices;// 11:SineWaveMesh->15:MeshVertices 107928
+    Matrix _9Pass-through: Matrix;// 0:Pass-through: Matrix 107919
+    Single _10Constant;// 0:Constant 108035
+    Single _11Divide;// 7:Divide 108033
+    IArray[Vector3] _12ParallelMap;// 11:SineWaveMesh->11:ParallelMap 107927
+    TriMesh _13SetMeshVertices;// 11:SineWaveMesh->18:SetMeshVertices 107925
     _0MeshVertices = MeshVertices(mesh);
     _9Pass-through: Matrix = if (useGizmoXform)
       {
-        Boolean _1IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 105878
+        Boolean _1IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 108014
         _1IsValidNode = IsValidNode(gizmo);
         if (_1IsValidNode)
           {
-            Boolean _2IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 105884
-            Matrix _5InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 105888
-            Matrix _6Multiply;// 32:NodeToLocalTransform->18:Multiply 105881
+            Boolean _2IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108020
+            Matrix _5InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108024
+            Matrix _6Multiply;// 32:NodeToLocalTransform->18:Multiply 108017
             _2IsValidNode = IsValidNode(gizmo);
             _5InvertMatrix = InvertMatrix(modifierTransform);
             _6Multiply = Multiply(if (_2IsValidNode)
                 {
-                  Matrix _3WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 105885
+                  Matrix _3WorldTransform;// 3:NodeValidateAndGetWorldTransform-ext->1:WorldTransform 108021
                   _3WorldTransform = WorldTransform(gizmo);
                   _3WorldTransform;
                   }else
                 {
-                  Matrix _4MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 105886
+                  Matrix _4MatrixIdentity;// 3:NodeValidateAndGetWorldTransform-ext->4:MatrixIdentity 108022
                   _4MatrixIdentity = MatrixIdentity();
                   _4MatrixIdentity;
                   }, _5InvertMatrix);
             _6Multiply;
             }else
           {
-            Matrix _7MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 105889
+            Matrix _7MatrixIdentity;// 1:GizmoTransformInLocalSpace->40:MatrixIdentity 108025
             _7MatrixIdentity = MatrixIdentity();
             _7MatrixIdentity;
             };
         }else
       {
-        Matrix _8MatrixIdentity;// 12:MatrixIdentity 105892
+        Matrix _8MatrixIdentity;// 12:MatrixIdentity 108028
         _8MatrixIdentity = MatrixIdentity();
         _8MatrixIdentity;
         };
@@ -46,32 +46,32 @@
     _11Divide = Divide(decay, _10Constant);
     _12ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
       {
-        Matrix _0InvertMatrix;// 1:SineWaveDeformer->46:InvertMatrix 105807
-        Vector3 _1Transform;// 1:SineWaveDeformer->37:Transform 105806
-        Single _2X;// 1:SineWaveDeformer->40:X 105804
-        Single _3Y;// 1:SineWaveDeformer->41:Y 105809
-        Boolean _4NotEqual;// 14:SineWaveDeformerWeightedAmplitude->0:NotEqual 105836
-        Single _46Pass-through: Single;// 0:Pass-through: Single 105812
-        Single _47TwoPi;// 7:WaveDeformerWaveFunc->10:TwoPi 105821
-        Single _48Constant;// 0:Vector3FromXY->0:Constant 105869
-        Vector3 _49Vector3;// 0:Vector3FromXY->0:Vector3 105868
-        Single _50Length;// 1:SineWaveDeformer->6:Length 105865
-        Single _51FloatZero;// 7:WaveDeformerWaveFunc->2:FloatZero 105826
-        Boolean _52Equal;// 7:WaveDeformerWaveFunc->1:Equal 105825
-        Single _54Divide;// 7:WaveDeformerWaveFunc->13:Divide 105823
-        Single _55Add;// 7:WaveDeformerWaveFunc->14:Add 105822
-        Single _56Multiply;// 7:WaveDeformerWaveFunc->20:Multiply 105820
-        Single _57Sin;// 7:WaveDeformerWaveFunc->21:Sin 105819
-        Single _58Abs;// 7:WaveDeformerWaveFunc->18:Abs 105830
-        Single _59NegativeFloat;// 7:WaveDeformerWaveFunc->16:NegativeFloat 105831
-        Single _60Multiply;// 7:WaveDeformerWaveFunc->17:Multiply 105829
-        Single _61Exp;// 7:WaveDeformerWaveFunc->15:Exp 105828
-        Single _62Multiply;// 7:WaveDeformerWaveFunc->19:Multiply 105818
-        Single _63Multiply;// 7:WaveDeformerWaveFunc->11:Multiply 105817
-        Single _64Z;// 1:SineWaveDeformer->38:Z 105870
-        Single _65Add;// 1:SineWaveDeformer->8:Add 105811
-        Vector3 _66Vector3;// 1:SineWaveDeformer->36:Vector3 105802
-        Vector3 _67Transform;// 1:SineWaveDeformer->9:Transform 105800
+        Matrix _0InvertMatrix;// 1:SineWaveDeformer->46:InvertMatrix 107943
+        Vector3 _1Transform;// 1:SineWaveDeformer->37:Transform 107942
+        Single _2X;// 1:SineWaveDeformer->40:X 107940
+        Single _3Y;// 1:SineWaveDeformer->41:Y 107945
+        Boolean _4NotEqual;// 14:SineWaveDeformerWeightedAmplitude->0:NotEqual 107972
+        Single _46Pass-through: Single;// 0:Pass-through: Single 107948
+        Single _47TwoPi;// 7:WaveDeformerWaveFunc->10:TwoPi 107957
+        Single _48Constant;// 0:Vector3FromXY->0:Constant 108005
+        Vector3 _49Vector3;// 0:Vector3FromXY->0:Vector3 108004
+        Single _50Length;// 1:SineWaveDeformer->6:Length 108001
+        Single _51FloatZero;// 7:WaveDeformerWaveFunc->2:FloatZero 107962
+        Boolean _52Equal;// 7:WaveDeformerWaveFunc->1:Equal 107961
+        Single _54Divide;// 7:WaveDeformerWaveFunc->13:Divide 107959
+        Single _55Add;// 7:WaveDeformerWaveFunc->14:Add 107958
+        Single _56Multiply;// 7:WaveDeformerWaveFunc->20:Multiply 107956
+        Single _57Sin;// 7:WaveDeformerWaveFunc->21:Sin 107955
+        Single _58Abs;// 7:WaveDeformerWaveFunc->18:Abs 107966
+        Single _59NegativeFloat;// 7:WaveDeformerWaveFunc->16:NegativeFloat 107967
+        Single _60Multiply;// 7:WaveDeformerWaveFunc->17:Multiply 107965
+        Single _61Exp;// 7:WaveDeformerWaveFunc->15:Exp 107964
+        Single _62Multiply;// 7:WaveDeformerWaveFunc->19:Multiply 107954
+        Single _63Multiply;// 7:WaveDeformerWaveFunc->11:Multiply 107953
+        Single _64Z;// 1:SineWaveDeformer->38:Z 108006
+        Single _65Add;// 1:SineWaveDeformer->8:Add 107947
+        Vector3 _66Vector3;// 1:SineWaveDeformer->36:Vector3 107938
+        Vector3 _67Transform;// 1:SineWaveDeformer->9:Transform 107936
         _0InvertMatrix = InvertMatrix(_9Pass-through: Matrix);
         _1Transform = Transform(x0, _0InvertMatrix);
         _2X = X(_1Transform);
@@ -79,9 +79,9 @@
         _4NotEqual = NotEqual(amplitude1, amplitude2);
         _46Pass-through: Single = if (_4NotEqual)
           {
-            Single _5Length;// 14:SineWaveDeformerWeightedAmplitude->10:Length 105839
-            Single _6FloatZero;// 14:SineWaveDeformerWeightedAmplitude->12:FloatZero 105841
-            Boolean _7Equal;// 14:SineWaveDeformerWeightedAmplitude->11:Equal 105838
+            Single _5Length;// 14:SineWaveDeformerWeightedAmplitude->10:Length 107975
+            Single _6FloatZero;// 14:SineWaveDeformerWeightedAmplitude->12:FloatZero 107977
+            Boolean _7Equal;// 14:SineWaveDeformerWeightedAmplitude->11:Equal 107974
             _5Length = Length(_1Transform);
             _6FloatZero = FloatZero();
             _7Equal = Equal(_5Length, _6FloatZero);
@@ -90,26 +90,26 @@
                 amplitude1;
                 }else
               {
-                Single _8FloatOne;// 14:SineWaveDeformerWeightedAmplitude->31:FloatOne 105846
-                Single _9FloatZero;// 14:SineWaveDeformerWeightedAmplitude->30:FloatZero 105848
-                Single _10FloatOne;// 14:SineWaveDeformerWeightedAmplitude->29:FloatOne 105849
-                Single _11X;// 14:SineWaveDeformerWeightedAmplitude->17:X 105856
-                Single _12Divide;// 14:SineWaveDeformerWeightedAmplitude->18:Divide 105855
-                Single _13Acos;// 14:SineWaveDeformerWeightedAmplitude->16:Acos 105854
-                Single _14Pi;// 14:SineWaveDeformerWeightedAmplitude->20:Pi 105857
-                Single _15Divide;// 14:SineWaveDeformerWeightedAmplitude->19:Divide 105853
-                Single _16Constant;// 14:SineWaveDeformerWeightedAmplitude->0:Constant 105858
-                Boolean _17GreaterThan;// 14:SineWaveDeformerWeightedAmplitude->22:GreaterThan 105852
-                Boolean _26IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 105878
-                Boolean _33IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 105884
-                Matrix _36InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 105888
-                Single _39Constant;// 14:SineWaveDeformerWeightedAmplitude->0:Constant 105861
-                Single _40Multiply;// 14:SineWaveDeformerWeightedAmplitude->26:Multiply 105850
-                Single _41SmoothStepFloat;// 14:SineWaveDeformerWeightedAmplitude->28:SmoothStepFloat 105847
-                Single _42Subtract;// 14:SineWaveDeformerWeightedAmplitude->32:Subtract 105845
-                Single _43Multiply;// 14:SineWaveDeformerWeightedAmplitude->37:Multiply 105844
-                Single _44Multiply;// 14:SineWaveDeformerWeightedAmplitude->39:Multiply 105863
-                Single _45Add;// 14:SineWaveDeformerWeightedAmplitude->40:Add 105843
+                Single _8FloatOne;// 14:SineWaveDeformerWeightedAmplitude->31:FloatOne 107982
+                Single _9FloatZero;// 14:SineWaveDeformerWeightedAmplitude->30:FloatZero 107984
+                Single _10FloatOne;// 14:SineWaveDeformerWeightedAmplitude->29:FloatOne 107985
+                Single _11X;// 14:SineWaveDeformerWeightedAmplitude->17:X 107992
+                Single _12Divide;// 14:SineWaveDeformerWeightedAmplitude->18:Divide 107991
+                Single _13Acos;// 14:SineWaveDeformerWeightedAmplitude->16:Acos 107990
+                Single _14Pi;// 14:SineWaveDeformerWeightedAmplitude->20:Pi 107993
+                Single _15Divide;// 14:SineWaveDeformerWeightedAmplitude->19:Divide 107989
+                Single _16Constant;// 14:SineWaveDeformerWeightedAmplitude->0:Constant 107994
+                Boolean _17GreaterThan;// 14:SineWaveDeformerWeightedAmplitude->22:GreaterThan 107988
+                Boolean _26IsValidNode;// 1:GizmoTransformInLocalSpace->35:IsValidNode 108014
+                Boolean _33IsValidNode;// 3:NodeValidateAndGetWorldTransform-ext->2:IsValidNode 108020
+                Matrix _36InvertMatrix;// 37:MatrixParameterWorldToLocalTransform-ext->2:InvertMatrix 108024
+                Single _39Constant;// 14:SineWaveDeformerWeightedAmplitude->0:Constant 107997
+                Single _40Multiply;// 14:SineWaveDeformerWeightedAmplitude->26:Multiply 107986
+                Single _41SmoothStepFloat;// 14:SineWaveDeformerWeightedAmplitude->28:SmoothStepFloat 107983
+                Single _42Subtract;// 14:SineWaveDeformerWeightedAmplitude->32:Subtract 107981
+                Single _43Multiply;// 14:SineWaveDeformerWeightedAmplitude->37:Multiply 107980
+                Single _44Multiply;// 14:SineWaveDeformerWeightedAmplitude->39:Multiply 107999
+                Single _45Add;// 14:SineWaveDeformerWeightedAmplitude->40:Add 107979
                 _8FloatOne = FloatOne();
                 _9FloatZero = FloatZero();
                 _10FloatOne = FloatOne();
@@ -126,8 +126,8 @@
                 _39Constant = 2;
                 _40Multiply = Multiply(if (_17GreaterThan)
                     {
-                      Single _37FloatOne;// 14:SineWaveDeformerWeightedAmplitude->24:FloatOne 105860
-                      Single _38Subtract;// 14:SineWaveDeformerWeightedAmplitude->25:Subtract 105859
+                      Single _37FloatOne;// 14:SineWaveDeformerWeightedAmplitude->24:FloatOne 107996
+                      Single _38Subtract;// 14:SineWaveDeformerWeightedAmplitude->25:Subtract 107995
                       _37FloatOne = FloatOne();
                       _38Subtract = Subtract(_37FloatOne, _15Divide);
                       _38Subtract;
@@ -154,7 +154,7 @@
         _52Equal = Equal(_51FloatZero, waveLength);
         _54Divide = Divide(_50Length, if (_52Equal)
             {
-              Single _53Constant;// 7:WaveDeformerWaveFunc->0:Constant 105827
+              Single _53Constant;// 7:WaveDeformerWaveFunc->0:Constant 107963
               _53Constant = 1E-07;
               _53Constant;
               }else

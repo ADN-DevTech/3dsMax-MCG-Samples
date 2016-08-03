@@ -1,23 +1,23 @@
 (InstanceState state, TriMesh mesh, Int32 channel id, Single sea level) => 
   {
-    IArray[Vector3] _0MeshVertices;// 1:MeshVertices 110497
-    Single _1FloatZero;// 9:FloatZero 110504
-    IArray[Single] _2Map;// 2:Map 110496
-    TriMesh _3SetPerVertexData;// 11:SetPerVertexData 110493
-    IArray[Single] _4PerVertexData;// 15:PerVertexData 110506
-    IArray[Vector3] _5Combine;// 14:Combine 110505
-    TriMesh _6SetMeshVertices;// 10:SetMeshVertices 110492
+    IArray[Vector3] _0MeshVertices;// 1:MeshVertices 113524
+    Single _1FloatZero;// 9:FloatZero 113531
+    IArray[Single] _2Map;// 2:Map 113523
+    TriMesh _3SetPerVertexData;// 11:SetPerVertexData 113520
+    IArray[Single] _4PerVertexData;// 15:PerVertexData 113533
+    IArray[Vector3] _5Combine;// 14:Combine 113532
+    TriMesh _6SetMeshVertices;// 10:SetMeshVertices 113519
     _0MeshVertices = MeshVertices(mesh);
     _1FloatZero = FloatZero();
     _2Map = Map(_0MeshVertices, (Vector3 x0) => 
       {
-        Single _0Z;// 5:Z 110500
-        Boolean _1LessThan;// 6:LessThan 110499
+        Single _0Z;// 5:Z 113527
+        Boolean _1LessThan;// 6:LessThan 113526
         _0Z = Z(x0);
         _1LessThan = LessThan(_0Z, sea level);
         if (_1LessThan)
           {
-            Single _2Subtract;// 8:Subtract 110503
+            Single _2Subtract;// 8:Subtract 113530
             _2Subtract = Subtract(sea level, _0Z);
             _2Subtract;
             }else
@@ -29,11 +29,11 @@
     _4PerVertexData = PerVertexData(_3SetPerVertexData, channel id);
     _5Combine = Combine(_0MeshVertices, _4PerVertexData, (Vector3 x0, Single x1) => 
       {
-        Single _0X;// 16:OffsetZ->7:X 110510
-        Single _1Y;// 16:OffsetZ->6:Y 110511
-        Single _2Z;// 16:OffsetZ->5:Z 110513
-        Single _3Add;// 16:OffsetZ->3:Add 110512
-        Vector3 _4Vector3;// 16:OffsetZ->1:Vector3 110509
+        Single _0X;// 16:OffsetZ->7:X 113537
+        Single _1Y;// 16:OffsetZ->6:Y 113538
+        Single _2Z;// 16:OffsetZ->5:Z 113540
+        Single _3Add;// 16:OffsetZ->3:Add 113539
+        Vector3 _4Vector3;// 16:OffsetZ->1:Vector3 113536
         _0X = X(x0);
         _1Y = Y(x0);
         _2Z = Z(x0);

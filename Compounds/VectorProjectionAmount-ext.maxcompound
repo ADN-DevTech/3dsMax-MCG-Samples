@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="bb176ecf-ff27-4d2d-a1fa-2ef0dd9ed826">
+    <meta_info>
+        <graph_version guid="1adc886f-60d1-4313-85c9-f03b20b0c497" number="0.0.5" />
+        <category>Geometry - Vectors</category>
+        <description>Returns the amount that one vector projects onto another as a decimal value.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="1" position="620:520" size="140:70" />
+        <node operator="Input: Vector3" id="2" name="a" position="40:300" size="140:112" />
+        <node operator="Input: Vector3" id="3" name="b" position="40:440" size="140:112" />
+        <node operator="Divide" id="4" position="440:480" size="140:133" />
+        <node operator="Length" id="5" position="260:560" size="140:112" />
+        <node operator="VectorProjectionLength-ext" id="6" position="220:400" size="200:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,85 @@
+<graph version="0.50" uuid="d03138da-3f86-4f11-932c-6056f8057d51">
+    <meta_info>
+        <graph_version guid="2bdb3743-5098-46a1-ad49-98e25f7b57ba" number="0.0.3" />
+        <category>Points</category>
+        <description>Defines a parameter point on a torus, where u and v are values in the range of [0..1].&#x0A;https://en.wikipedia.org/wiki/Torus</description>
+    </meta_info>
+    <nodes>
+        <node operator="TwoPi" id="5" position="160:340" size="140:91" />
+        <node operator="Multiply" id="16" position="1260:500" size="140:133" />
+        <node operator="Multiply" id="7" position="820:160" size="140:133" />
+        <node operator="Cos" id="17" position="1049:9" size="140:112" />
+        <node operator="Multiply" id="19" position="1260:340" size="140:133" />
+        <node operator="Vector3" id="9" position="1480:360" size="140:154" />
+        <node operator="Input: Single" id="0" name="majorRadius" position="829:-11" size="140:112" />
+        <node operator="Output: compound" id="10" position="1700:440" size="140:70" />
+        <node operator="Multiply" id="6" position="820:340" size="140:133" />
+        <node operator="Input: Single" id="1" name="minorRadius" position="789:589" size="140:112" />
+        <node operator="Sin" id="18" position="1040:360" size="140:112" />
+        <node operator="Multiply" id="20" position="1269:169" size="140:133" />
+        <node operator="Cos" id="3" position="600:313" size="140:112" />
+        <node operator="Multiply" id="4" position="389:389" size="140:133" />
+        <node operator="TwoPi" id="8" position="600:180" size="140:91" />
+        <node operator="Input: Single" id="11" name="u" position="160:460" size="140:112" />
+        <node operator="Input: Single" id="12" name="v" position="600:40" size="140:112" />
+        <node operator="Add" id="2" position="1049:169" size="140:133" />
+        <node operator="Sin" id="13" position="1029:529" size="140:112" />
+        <node groupnode="cos(theta)" id="21" position="591:271" size="158:163" bg_color="#ff646464">
+            <nodes>3</nodes>
+        </node>
+        <node groupnode="cos (phi)" id="28" position="1040:-20" size="158:150" bg_color="#ff646464">
+            <nodes>17</nodes>
+        </node>
+        <node groupnode="theta" id="23" position="380:360" size="158:171" bg_color="#ff646464">
+            <nodes>4</nodes>
+        </node>
+        <node groupnode="r" id="26" position="780:560" size="158:150" bg_color="#ff646464">
+            <nodes>1</nodes>
+        </node>
+        <node groupnode="sin (phi)" id="29" position="1031:331" size="158:150" bg_color="#ff646464">
+            <nodes>18</nodes>
+        </node>
+        <node groupnode="sin (theta)" id="14" position="1020:500" size="158:150" bg_color="#ff646464">
+            <nodes>13</nodes>
+        </node>
+        <node groupnode="R" id="25" position="820:-40" size="158:150" bg_color="#ff646464">
+            <nodes>0</nodes>
+        </node>
+        <node groupnode="r sin(theta)" id="15" position="1251:471" size="158:171" bg_color="#ff646464">
+            <nodes>16</nodes>
+        </node>
+        <node groupnode="r cos(theta)" id="22" position="811:311" size="158:171" bg_color="#ff646464">
+            <nodes>6</nodes>
+        </node>
+        <node groupnode="R + r cos(theta)" id="27" position="1040:140" size="158:171" bg_color="#ff646464">
+            <nodes>2</nodes>
+        </node>
+        <node groupnode="phi" id="24" position="811:131" size="158:171" bg_color="#ff646464">
+            <nodes>7</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="13" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="20" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="9" destport="2" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="17" sourceport="0" destnode="20" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="13" destport="0" />
+    </connections>
+</graph>

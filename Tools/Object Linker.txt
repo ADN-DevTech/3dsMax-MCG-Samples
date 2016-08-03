@@ -1,22 +1,22 @@
 (InstanceState state, INode Parent, TriMesh mesh, Boolean InvertX, Matrix modifierTransform, Boolean InvertY, Boolean InvertZ) => 
   {
-    Boolean _0IsValidNode;// 18:IsValidNode 103315
+    Boolean _0IsValidNode;// 18:IsValidNode 105451
     _0IsValidNode = IsValidNode(Parent);
     if (_0IsValidNode)
       {
-        IArray[Vector3] _1MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 103323
-        Matrix _2ObjectTransformBeforeWSM;// 29:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 103336
-        Matrix _3InvertMatrix;// 29:NodeTMInLocalSpace-ext->2:InvertMatrix 103337
-        Matrix _4Multiply;// 29:NodeTMInLocalSpace-ext->4:Multiply 103335
-        Vector3 _5GetMatrixTranslation;// 4:GetMatrixTranslation 103332
-        Single _6X;// 9:X 103331
-        Single _8Y;// 10:Y 103342
-        Single _10Z;// 11:Z 103346
-        Vector3 _12Vector3;// 12:Vector3 103327
-        Matrix _13TranslationMatrix;// 5:TranslationMatrix 103326
-        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 103320
-        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 103322
-        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 103321
+        IArray[Vector3] _1MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 105459
+        Matrix _2ObjectTransformBeforeWSM;// 29:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 105472
+        Matrix _3InvertMatrix;// 29:NodeTMInLocalSpace-ext->2:InvertMatrix 105473
+        Matrix _4Multiply;// 29:NodeTMInLocalSpace-ext->4:Multiply 105471
+        Vector3 _5GetMatrixTranslation;// 4:GetMatrixTranslation 105468
+        Single _6X;// 9:X 105467
+        Single _8Y;// 10:Y 105478
+        Single _10Z;// 11:Z 105482
+        Vector3 _12Vector3;// 12:Vector3 105463
+        Matrix _13TranslationMatrix;// 5:TranslationMatrix 105462
+        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 105456
+        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 105458
+        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 105457
         _1MeshVertices = MeshVertices(mesh);
         _2ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(Parent);
         _3InvertMatrix = InvertMatrix(modifierTransform);
@@ -27,7 +27,7 @@
         _10Z = Z(_5GetMatrixTranslation);
         _12Vector3 = Vector3(if (InvertX)
           {
-            Single _7NegativeFloat;// 8:NegativeFloat 103330
+            Single _7NegativeFloat;// 8:NegativeFloat 105466
             _7NegativeFloat = NegativeFloat(_6X);
             _7NegativeFloat;
             }else
@@ -35,7 +35,7 @@
             _6X;
             }, if (InvertY)
           {
-            Single _9NegativeFloat;// 3:NegativeFloat 103341
+            Single _9NegativeFloat;// 3:NegativeFloat 105477
             _9NegativeFloat = NegativeFloat(_8Y);
             _9NegativeFloat;
             }else
@@ -43,7 +43,7 @@
             _8Y;
             }, if (InvertZ)
           {
-            Single _11NegativeFloat;// 16:NegativeFloat 103345
+            Single _11NegativeFloat;// 16:NegativeFloat 105481
             _11NegativeFloat = NegativeFloat(_10Z);
             _11NegativeFloat;
             }else
@@ -53,7 +53,7 @@
         _13TranslationMatrix = TranslationMatrix(_12Vector3);
         _14Pass-through: function1 = (Vector3 x0) => 
           {
-            Vector3 _0Transform;// 2:TransformMesh->0:Transform 103324
+            Vector3 _0Transform;// 2:TransformMesh->0:Transform 105460
             _0Transform = Transform(x0, _13TranslationMatrix);
             _0Transform;
             };
