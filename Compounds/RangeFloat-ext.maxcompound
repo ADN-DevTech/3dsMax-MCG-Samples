@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="622248d9-1045-488a-8e74-f1f3a0cb1ee4">
+    <meta_info>
+        <graph_version guid="51714eb0-06de-47ad-9e08-ee7bbfbd8dd2" number="0.0.2" />
+        <category>Array</category>
+        <description>Generates a sequence of n equidistant values in the range of either [0..1] or [0..1).</description>
+    </meta_info>
+    <nodes>
+        <node operator="RangeExclusiveFloat" id="0" position="220:260" size="140:112" />
+        <node operator="RangeInclusiveFloat" id="1" position="220:140" size="140:112" />
+        <node operator="Input: Int32" id="2" name="n" position="0:180" size="140:112" />
+        <node operator="If" id="3" position="440:140" size="140:154" />
+        <node operator="Input: Boolean" id="4" name="inclusiveOrExclusive" position="220:0" size="140:112" />
+        <node operator="Output: compound" id="5" position="660:200" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="a3764f06-5410-4a8f-bb11-f19447341b31">
+    <meta_info>
+        <graph_version guid="72f874ab-f944-4912-a1cc-792071887000" number="0.0.20" />
+        <category>MCG Sample Primitives</category>
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Int32" id="0" name="segments" min_value="0" max_value="1000" default_value="8" position="0:0" size="140:175" />
+        <node operator="Output: geometry" id="3" position="880:300" size="140:70" />
+        <node operator="MeshScale-ext" id="4" position="660:240" size="140:133" />
+        <node operator="ScalarToVector-ext" id="5" position="440:300" size="180:112" />
+        <node operator="Parameter: Single" id="6" name="radius" min_value="0" max_value="100" default_value="10" system_units_value="false" position="220:240" size="140:196" />
+        <node operator="QuadToTriMesh-ext" id="2" position="440:180" size="180:112" />
+        <node operator="CreateSphere-ext" id="1" position="220:100" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    </connections>
+</graph>

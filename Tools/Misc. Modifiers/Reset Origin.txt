@@ -1,0 +1,43 @@
+(InstanceState state, TriMesh mesh, Single x, Single y, Single z) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 0:MeshDeformPoints-ext->0:MeshVertices 93195
+    IArray[Vector3] _1MeshVertices;// 1:MeshBoundingBox-ext->1:MeshVertices 93202
+    BoundingBox _2BoxFromPoints;// 1:MeshBoundingBox-ext->0:BoxFromPoints 93201
+    Vector3 _3BoxMin;// 0:MeshResetOrigin-ext->5:BoxMin 93199
+    Vector3 _4Negate;// 0:MeshResetOrigin-ext->6:Negate 93198
+    Vector3 _5BoxMax;// 3:BoundingBoxExtent->1:BoxMax 93207
+    Vector3 _6BoxMin;// 3:BoundingBoxExtent->2:BoxMin 93208
+    Vector3 _7Subtract;// 3:BoundingBoxExtent->3:Subtract 93206
+    Vector3 _8Vector3;// 2:Vector3 93211
+    Single _9Constant;// 0:Constant 93215
+    Vector3 _10DivideByScalar;// 3:DivideByScalar 93210
+    Vector3 _11Multiply;// 0:MeshResetOrigin-ext->4:Multiply 93204
+    Vector3 _12Negate;// 0:MeshResetOrigin-ext->11:Negate 93203
+    Vector3 _13Add;// 0:MeshResetOrigin-ext->7:Add 93197
+    Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 93192
+    IArray[Vector3] _15Map;// 0:MeshDeformPoints-ext->1:Map 93194
+    TriMesh _16SetMeshVertices;// 0:MeshDeformPoints-ext->4:SetMeshVertices 93193
+    _0MeshVertices = MeshVertices(mesh);
+    _1MeshVertices = MeshVertices(mesh);
+    _2BoxFromPoints = BoxFromPoints(_1MeshVertices);
+    _3BoxMin = BoxMin(_2BoxFromPoints);
+    _4Negate = Negate(_3BoxMin);
+    _5BoxMax = BoxMax(_2BoxFromPoints);
+    _6BoxMin = BoxMin(_2BoxFromPoints);
+    _7Subtract = Subtract(_5BoxMax, _6BoxMin);
+    _8Vector3 = Vector3(x, y, z);
+    _9Constant = 100;
+    _10DivideByScalar = DivideByScalar(_8Vector3, _9Constant);
+    _11Multiply = Multiply(_7Subtract, _10DivideByScalar);
+    _12Negate = Negate(_11Multiply);
+    _13Add = Add(_4Negate, _12Negate);
+    _14Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Add;// 8:MeshOffset-ext->2:Add 93196
+        _0Add = Add(x0, _13Add);
+        _0Add;
+        };
+    _15Map = Map(_0MeshVertices, _14Pass-through: function1);
+    _16SetMeshVertices = SetMeshVertices(mesh, _15Map);
+    _16SetMeshVertices;
+    }

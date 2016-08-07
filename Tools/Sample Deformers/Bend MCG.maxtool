@@ -1,0 +1,64 @@
+<graph version="0.50" uuid="a8d60567-b621-4f4c-b03b-0aad33878666">
+    <meta_info>
+        <graph_version guid="c4c617d7-65ef-496e-927b-1a88fd31d69e" number="0.0.53" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="3" position="1067:587" size="140:91" />
+        <node operator="Parameter: Int32" id="4" name="axis" min_value="0" max_value="2" default_value="2" position="852:309" size="140:175" />
+        <node operator="Output: modifier" id="21" position="1520:700" size="140:70" />
+        <node operator="Parameter: Single" id="14" name="direction" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="847:501" size="140:196" />
+        <node operator="Parameter: Single" id="17" name="angle" min_value="-10000" max_value="10000" default_value="15" system_units_value="false" position="1072:349" size="140:196" />
+        <node operator="Modifier: BoundingBox" id="2" position="597:402" size="140:91" />
+        <node operator="Parameter: Boolean" id="5" name="limit" default_value="false" position="429:368" size="140:133" />
+        <node operator="Parameter: Single" id="6" name="lower limit" min_value="-10000" max_value="10000" default_value="0" system_units_value="false" position="429:569" size="140:196" />
+        <node operator="Parameter: Single" id="8" name="upper limit" min_value="-10000" max_value="10000" default_value="100" system_units_value="false" position="596:569" size="140:196" />
+        <node operator="Parameter: Boolean" id="10" name="use node transform" default_value="false" position="1129:869" size="140:133" />
+        <node operator="Parameter: INode" id="11" name="gizmo node" position="889:929" size="140:112" />
+        <node operator="If" id="12" position="1369:1029" size="140:154" />
+        <node operator="GizmoTransformInLocalSpace" id="18" position="1089:1029" size="200:133" />
+        <node operator="Modifier: Matrix" id="29" position="909:1089" size="140:91" />
+        <node operator="Add" id="44" position="341:952" size="140:133" />
+        <node operator="Parameter: Vector3" id="30" name="gizmo rotation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="-11:1049" size="140:175" />
+        <node operator="Parameter: Vector3" id="31" name="gizmo translation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="-11:869" size="140:175" />
+        <node operator="MatrixFromPositionRotationScale-ext" id="32" position="492:1043" size="240:154" />
+        <node operator="Parameter: Vector3" id="33" name="gizmo scale" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="146:892" size="140:175" />
+        <node operator="EulerDegreesToQuaternion-ext" id="34" position="149:1109" size="140:112" />
+        <node operator="OnesVector-ext" id="45" position="316:1134" size="140:91" />
+        <node operator="Bend-ext" id="35" position="1300:480" size="140:280" />
+        <node groupnode="Explicit deformation space" id="9" position="-20:840" size="793:405" bg_color="#ff646464">
+            <nodes>44,30,31,32,33,34,45</nodes>
+        </node>
+        <node groupnode="Deformation space" id="0" position="880:840" size="638:352" bg_color="#ff646464">
+            <nodes>10,11,12,29,18</nodes>
+        </node>
+        <node groupnode="Basic parameters" id="7" position="820:280" size="401:494" bg_color="#ff646464">
+            <nodes>3,17,4,14</nodes>
+        </node>
+        <node groupnode="Limit and Bounding box" id="1" position="420:338" size="328:435" bg_color="#ff646464">
+            <nodes>6,8,5,2</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="35" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="32" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="29" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="33" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="44" destport="1" />
+        <connection sourcenode="31" sourceport="0" destnode="32" destport="0" />
+        <connection sourcenode="34" sourceport="0" destnode="32" destport="1" />
+        <connection sourcenode="44" sourceport="0" destnode="32" destport="2" />
+        <connection sourcenode="30" sourceport="0" destnode="34" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="35" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="35" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="35" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="35" destport="3" />
+        <connection sourcenode="8" sourceport="0" destnode="35" destport="4" />
+        <connection sourcenode="4" sourceport="0" destnode="35" destport="5" />
+        <connection sourcenode="17" sourceport="0" destnode="35" destport="6" />
+        <connection sourcenode="14" sourceport="0" destnode="35" destport="7" />
+        <connection sourcenode="12" sourceport="0" destnode="35" destport="8" />
+    </connections>
+</graph>

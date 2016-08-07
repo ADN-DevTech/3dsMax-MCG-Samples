@@ -1,25 +1,27 @@
 <graph version="0.50" uuid="658185f8-41a7-4b9b-a417-7b31e30a9707">
     <meta_info>
-        <graph_version guid="e2ba44f4-2525-4a13-b61b-0825f3ab851a" number="0.0.9" />
+        <graph_version guid="74c62ad8-a5cd-4117-9466-f5da80b8cb4e" number="0.0.13" />
     </meta_info>
     <nodes>
-        <node operator="QuadMeshFromUVs-ext" id="1" position="460:220" size="180:196" />
-        <node operator="Input: Single" id="2" name="majorRadius" position="0:340" size="140:112" />
-        <node operator="Input: Single" id="3" name="minorRadius" position="0:200" size="160:112" />
-        <node operator="Input: Int32" id="5" name="ringSegments" position="240:140" size="140:112" />
-        <node operator="Input: Int32" id="8" name="sectionSegments" position="240:0" size="140:112" />
-        <node operator="Output: compound" id="7" position="720:280" size="140:70" />
-        <node operator="PointTorus-ext" id="10" position="240:260" size="140:175" />
-        <node operator="True" id="13" position="240:460" size="140:91" />
+        <node operator="QuadMeshFromUVs-ext" id="1" position="680:200" size="180:196" />
+        <node operator="Input: Single" id="2" name="majorRadius" position="0:220" size="140:112" />
+        <node operator="Input: Single" id="3" name="minorRadius" position="0:100" size="160:112" />
+        <node operator="Input: Int32" id="5" name="ringSegments" position="460:140" size="140:112" />
+        <node operator="Input: Int32" id="8" name="sectionSegments" position="460:0" size="140:112" />
+        <node operator="Output: compound" id="7" position="940:280" size="140:70" />
+        <node operator="PointTorus-ext" id="10" position="240:160" size="140:175" />
+        <node operator="True" id="13" position="460:440" size="140:91" />
+        <node operator="FunctionSwapArgs-ext" id="9" position="460:260" size="140:154" />
     </nodes>
     <connections>
-        <connection sourcenode="8" sourceport="0" destnode="1" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="1" destport="1" />
-        <connection sourcenode="10" sourceport="1" destnode="1" destport="2" />
-        <connection sourcenode="13" sourceport="0" destnode="1" destport="3" />
-        <connection sourcenode="13" sourceport="0" destnode="1" destport="4" />
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="2" />
+        <connection sourcenode="5" sourceport="0" destnode="1" destport="3" />
+        <connection sourcenode="9" sourceport="1" destnode="1" destport="4" />
         <connection sourcenode="1" sourceport="0" destnode="7" destport="0" />
         <connection sourcenode="3" sourceport="0" destnode="10" destport="0" />
         <connection sourcenode="2" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="10" sourceport="1" destnode="9" destport="0" />
     </connections>
 </graph>
