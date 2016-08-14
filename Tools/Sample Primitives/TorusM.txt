@@ -1,0 +1,133 @@
+(InstanceState state, Int32  segments, Int32 sides, Single major radius, Single minor radius) => 
+  {
+    Boolean _0True;// 0:Torus-ext->13:True 1444530
+    Boolean _1Not;// 1:QuadMeshFromUVs-ext->4:Not 1444523
+    IArray[Single] _4Pass-through: array;// 0:Pass-through: array 1444497
+    IArray[Single] _5Reverse;// 0:QuadMeshFromUVPoints-ext->13:Reverse 1444512
+    Boolean _6Not;// 1:QuadMeshFromUVs-ext->10:Not 1444529
+    IArray[Single] _9Pass-through: array;// 0:Pass-through: array 1444498
+    Func[Single, Single, Vector3] _10Pass-through: function2;// 0:Pass-through: function2 1444496
+    Func[Single, Single, Vector3] _11Pass-through: function2;// 0:Pass-through: function2 1444505
+    Func[Single, IArray[Vector3]] _12Pass-through: function1;// 0:Pass-through: function1 1444507
+    IArray[IArray[Vector3]] _13Map;// 4:FlatMap->4:Map 1444509
+    IArray[Vector3] _14Flatten;// 4:FlatMap->3:Flatten 1444508
+    Int32 _15Count;// 0:QuadMeshFromUVPoints-ext->14:Count 1444517
+    QuadMesh _16QuadMeshStrip;// 0:QuadMeshFromUVPoints-ext->5:QuadMeshStrip 1444502
+    TriMesh _17Triangulate;// 5:QuadToTriMesh-ext->4:Triangulate 1444476
+    IArray[Int32] _18MeshIndices;// 5:QuadToTriMesh-ext->3:MeshIndices 1444479
+    IArray[Int32] _19Indices;// 5:QuadToTriMesh-ext->8:Indices 1444478
+    Int32 _20Constant;// 5:QuadToTriMesh-ext->0:Constant 1444484
+    Int32 _21Constant;// 5:QuadToTriMesh-ext->0:Constant 1444485
+    Int32 _22Constant;// 5:QuadToTriMesh-ext->0:Constant 1444487
+    IArray[Boolean] _23Map;// 5:QuadToTriMesh-ext->5:Map 1444477
+    TriMesh _24SetVisibleEdges;// 5:QuadToTriMesh-ext->9:SetVisibleEdges 1444475
+    _0True = True();
+    _1Not = Not(_0True);
+    _4Pass-through: array = if (_1Not)
+      {
+        IArray[Single] _2RangeInclusiveFloat;// 1:RangeFloat-ext->1:RangeInclusiveFloat 1444521
+        _2RangeInclusiveFloat = RangeInclusiveFloat( segments);
+        _2RangeInclusiveFloat;
+        }else
+      {
+        IArray[Single] _3RangeExclusiveFloat;// 1:RangeFloat-ext->0:RangeExclusiveFloat 1444522
+        _3RangeExclusiveFloat = RangeExclusiveFloat( segments);
+        _3RangeExclusiveFloat;
+        };
+    _5Reverse = Reverse(_4Pass-through: array);
+    _6Not = Not(_0True);
+    _9Pass-through: array = if (_6Not)
+      {
+        IArray[Single] _7RangeInclusiveFloat;// 9:RangeFloat-ext->1:RangeInclusiveFloat 1444527
+        _7RangeInclusiveFloat = RangeInclusiveFloat(sides);
+        _7RangeInclusiveFloat;
+        }else
+      {
+        IArray[Single] _8RangeExclusiveFloat;// 9:RangeFloat-ext->0:RangeExclusiveFloat 1444528
+        _8RangeExclusiveFloat = RangeExclusiveFloat(sides);
+        _8RangeExclusiveFloat;
+        };
+    _10Pass-through: function2 = (Single x0, Single x1) => 
+      {
+        Func[Single, Single, Vector3] _0Pass-through: function2;// 0:Pass-through: function2 1444531
+        Single _1IgnoreFirst;// 9:FunctionSwapArgs-ext->7:IgnoreFirst 1444535
+        Vector3 _2Apply2;// 9:FunctionSwapArgs-ext->6:Apply2 1444534
+        _0Pass-through: function2 = (Single x0, Single x1) => 
+          {
+            Single _0TwoPi;// 10:PointTorus-ext->5:TwoPi 1444546
+            Single _1Multiply;// 10:PointTorus-ext->4:Multiply 1444545
+            Single _2Cos;// 10:PointTorus-ext->3:Cos 1444544
+            Single _3Multiply;// 10:PointTorus-ext->6:Multiply 1444543
+            Single _4Add;// 10:PointTorus-ext->2:Add 1444542
+            Single _5TwoPi;// 10:PointTorus-ext->8:TwoPi 1444549
+            Single _6Multiply;// 10:PointTorus-ext->7:Multiply 1444548
+            Single _7Cos;// 10:PointTorus-ext->17:Cos 1444547
+            Single _8Multiply;// 10:PointTorus-ext->20:Multiply 1444541
+            Single _9Sin;// 10:PointTorus-ext->18:Sin 1444551
+            Single _10Multiply;// 10:PointTorus-ext->19:Multiply 1444550
+            Single _11Sin;// 10:PointTorus-ext->13:Sin 1444553
+            Single _12Multiply;// 10:PointTorus-ext->16:Multiply 1444552
+            Vector3 _13Vector3;// 10:PointTorus-ext->9:Vector3 1444540
+            _0TwoPi = TwoPi();
+            _1Multiply = Multiply(x0, _0TwoPi);
+            _2Cos = Cos(_1Multiply);
+            _3Multiply = Multiply(_2Cos, minor radius);
+            _4Add = Add(major radius, _3Multiply);
+            _5TwoPi = TwoPi();
+            _6Multiply = Multiply(x1, _5TwoPi);
+            _7Cos = Cos(_6Multiply);
+            _8Multiply = Multiply(_4Add, _7Cos);
+            _9Sin = Sin(_6Multiply);
+            _10Multiply = Multiply(_4Add, _9Sin);
+            _11Sin = Sin(_1Multiply);
+            _12Multiply = Multiply(_11Sin, minor radius);
+            _13Vector3 = Vector3(_8Multiply, _10Multiply, _12Multiply);
+            _13Vector3;
+            };
+        _1IgnoreFirst = IgnoreFirst(x0, x1);
+        _2Apply2 = Apply2(_0Pass-through: function2, _1IgnoreFirst, x0);
+        _2Apply2;
+        };
+    _11Pass-through: function2 = (Single x0, Single x1) => 
+      {
+        Single _0IgnoreFirst;// 0:QuadMeshFromUVPoints-ext->10:IgnoreFirst 1444514
+        Vector3 _1Apply2;// 0:QuadMeshFromUVPoints-ext->9:Apply2 1444513
+        _0IgnoreFirst = IgnoreFirst(x0, x1);
+        _1Apply2 = Apply2(_10Pass-through: function2, _0IgnoreFirst, x0);
+        _1Apply2;
+        };
+    _12Pass-through: function1 = (Single x0) => 
+      {
+        Func[Single, Vector3] _0Bind1of2;// 6:CartesianProduct->5:Bind1of2 1444511
+        IArray[Vector3] _1Map;// 6:CartesianProduct->1:Map 1444510
+        _0Bind1of2 = Bind1of2(_11Pass-through: function2, x0);
+        _1Map = Map(_9Pass-through: array, _0Bind1of2);
+        _1Map;
+        };
+    _13Map = Map(_5Reverse, _12Pass-through: function1);
+    _14Flatten = Flatten(_13Map);
+    _15Count = Count(_4Pass-through: array);
+    _16QuadMeshStrip = QuadMeshStrip(_14Flatten, _15Count, _0True, _0True);
+    _17Triangulate = Triangulate(_16QuadMeshStrip);
+    _18MeshIndices = MeshIndices(_17Triangulate);
+    _19Indices = Indices(_18MeshIndices);
+    _20Constant = 6;
+    _21Constant = 2;
+    _22Constant = 3;
+    _23Map = Map(_19Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 5:QuadToTriMesh-ext->14:Modulo 1444483
+        Boolean _1Equal;// 5:QuadToTriMesh-ext->7:Equal 1444482
+        Boolean _2Equal;// 5:QuadToTriMesh-ext->13:Equal 1444486
+        Boolean _3OrElse;// 5:QuadToTriMesh-ext->12:OrElse 1444481
+        Boolean _4Not;// 5:QuadToTriMesh-ext->10:Not 1444480
+        _0Modulo = Modulo(x0, _20Constant);
+        _1Equal = Equal(_0Modulo, _21Constant);
+        _2Equal = Equal(_0Modulo, _22Constant);
+        _3OrElse = OrElse(_1Equal, _2Equal);
+        _4Not = Not(_3OrElse);
+        _4Not;
+        });
+    _24SetVisibleEdges = SetVisibleEdges(_17Triangulate, _23Map);
+    _24SetVisibleEdges;
+    }

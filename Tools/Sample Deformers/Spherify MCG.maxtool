@@ -1,0 +1,56 @@
+<graph version="0.50" uuid="32678b57-de05-4af1-9bdc-0b3481594cb8">
+    <meta_info>
+        <graph_version guid="05bb11c7-db16-4324-8da9-3d158544ded3" number="0.0.3" />
+    </meta_info>
+    <nodes>
+        <node operator="Output: modifier" id="0" position="1704:100" size="140:70" />
+        <node operator="Modifier: TriMesh" id="1" position="1401:-20" size="140:91" />
+        <node operator="Parameter: Single" id="54" name="weight" min_value="-1000" max_value="1000" default_value="0.5" system_units_value="false" position="889:49" size="140:196" />
+        <node operator="Modifier: BoundingBox" id="5" position="1069:169" size="180:91" />
+        <node operator="MeshConformToBoundingBoxOrSphere-ext" id="8" position="1401:100" size="280:196" />
+        <node operator="Parameter: Boolean" id="4" name="box or sphere" default_value="false" position="1069:29" size="140:133" />
+        <node operator="OnesVector-ext" id="45" position="836:614" size="140:91" />
+        <node operator="GizmoTransformInLocalSpace" id="9" position="1543:524" size="200:133" />
+        <node operator="Parameter: Boolean" id="10" name="use node transform" default_value="false" position="1589:389" size="140:133" />
+        <node operator="Modifier: Matrix" id="11" position="1369:609" size="140:91" />
+        <node operator="If" id="12" position="1829:549" size="140:154" />
+        <node operator="Add" id="44" position="861:432" size="140:133" />
+        <node operator="Parameter: INode" id="13" name="gizmo node" position="1349:449" size="140:112" />
+        <node operator="Parameter: Vector3" id="14" name="deformer translation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="509:349" size="140:175" />
+        <node operator="Parameter: Vector3" id="15" name="deformer rotation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="509:529" size="140:175" />
+        <node operator="Parameter: Vector3" id="16" name="deformer scale" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="666:372" size="140:175" />
+        <node operator="MatrixFromPositionRotationScale-ext" id="17" position="1026:484" size="240:154" />
+        <node operator="EulerDegreesToQuaternion-ext" id="18" position="669:589" size="140:112" />
+        <node groupnode="Explicit deformation space" id="7" position="500:320" size="793:405" bg_color="#ff646464">
+            <nodes>45,44,14,15,16,17,18</nodes>
+        </node>
+        <node groupnode="Deformation space specified or from gizmo node" id="6" position="1340:360" size="638:352" bg_color="#ff646464">
+            <nodes>9,10,11,12,13</nodes>
+        </node>
+        <node groupnode="Perform deformation" id="3" position="1360:-60" size="493:365" bg_color="#ff646464">
+            <nodes>8,0,1</nodes>
+        </node>
+        <node groupnode="Basic parameters" id="2" position="880:0" size="378:269" bg_color="#ff646464">
+            <nodes>54,5,4</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="5" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="54" sourceport="0" destnode="8" destport="3" />
+        <connection sourcenode="12" sourceport="0" destnode="8" destport="4" />
+        <connection sourcenode="13" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="16" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="44" destport="1" />
+        <connection sourcenode="14" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="18" sourceport="0" destnode="17" destport="1" />
+        <connection sourcenode="44" sourceport="0" destnode="17" destport="2" />
+        <connection sourcenode="15" sourceport="0" destnode="18" destport="0" />
+    </connections>
+</graph>

@@ -1,19 +1,42 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="56ab203b-4eb2-4c56-b44b-569c350420a9">
-  <meta_info>
-    <graph_version guid="346e69da-9b9b-476c-9070-08cb54d97d8b" number="0.0.3" />
-  </meta_info>
-  <nodes>
-    <node operator="Modifier: TriMesh" id="0" position="260:160" size="140:91" />
-    <node operator="MeshRelaxIterative-ext" id="2" position="480:340" size="140:154" />
-    <node operator="Parameter: Int32" id="1" name="iterations" min_value="0" max_value="100" default_value="1" position="260:260" size="140:175" />
-    <node operator="Parameter: Single" id="3" name="amount" min_value="0" max_value="100" default_value="0.5" system_units_value="false" position="260:460" size="140:196" />
-    <node operator="Output: modifier" id="4" position="660:420" size="140:70" />
-  </nodes>
-  <connections>
-    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
-    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
-    <connection sourcenode="3" sourceport="0" destnode="2" destport="2" />
-    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
-  </connections>
+    <meta_info>
+        <graph_version guid="ee2087d2-0f6c-447c-b6a4-e6dfd26f5633" number="0.0.7" />
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="829:169" size="140:91" />
+        <node operator="MeshRelaxIterative-ext" id="2" position="829:309" size="200:196" />
+        <node operator="Parameter: Int32" id="1" name="iterations" min_value="0" max_value="100" default_value="1" position="449:29" size="140:175" />
+        <node operator="Parameter: Single" id="3" name="amount" min_value="0" max_value="100" default_value="0.5" system_units_value="false" position="609:29" size="140:196" />
+        <node operator="Output: modifier" id="4" position="1057:293" size="140:70" />
+        <node operator="Parameter: INode" id="5" name="original mesh" position="189:370" size="140:112" />
+        <node operator="NodeMeshOrDefault-ext" id="6" position="430:428" size="140:133" />
+        <node operator="EmptyMesh" id="7" position="189:490" size="140:91" />
+        <node operator="FaceCount" id="8" position="418:570" size="140:112" />
+        <node operator="FaceCount" id="9" position="429:310" size="140:112" />
+        <node operator="Equal" id="10" position="625:445" size="140:133" />
+        <node operator="Parameter: Boolean" id="12" name="maintain edge lengths" default_value="false" position="249:29" size="180:133" />
+        <node groupnode="Parameters" id="13" position="240:0" size="518:234" bg_color="#ff646464">
+            <nodes>3,1,12</nodes>
+        </node>
+        <node groupnode="Check that the node mesh has the same topology (mesh is optional)" id="11" position="180:260" size="598:431" bg_color="#ff646464">
+            <nodes>9,8,5,6,10,7</nodes>
+        </node>
+        <node groupnode="Perform relaxation" id="14" position="820:140" size="438:374" bg_color="#ff646464">
+            <nodes>2,4,0</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="12" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="3" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="4" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="10" destport="1" />
+    </connections>
 </graph>

@@ -1,0 +1,31 @@
+<graph version="0.50" uuid="8257340b-71e5-4782-8a28-a4138cd1cedc">
+    <meta_info>
+        <graph_version guid="5c8413a9-9442-4e57-8706-5e880d3b28c8" number="0.0.2" />
+        <category>Uncategorized</category>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Vector3" id="0" name="vector" position="220:300" size="140:112" />
+        <node operator="Input: Vector3" id="1" name="center" position="220:420" size="140:112" />
+        <node operator="Input: Single" id="2" name="radius" position="220:560" size="140:112" />
+        <node operator="Subtract" id="3" position="480:360" size="140:133" />
+        <node operator="Sqr-ext" id="4" position="600:520" size="140:112" />
+        <node operator="MultiplyByScalar" id="5" position="780:380" size="140:133" />
+        <node operator="LengthSquared" id="6" position="800:540" size="140:112" />
+        <node operator="DivideByScalar" id="7" position="1020:440" size="140:133" />
+        <node operator="Add" id="8" position="1260:520" size="140:133" />
+        <node operator="Output: compound" id="9" position="1460:560" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+    </connections>
+</graph>

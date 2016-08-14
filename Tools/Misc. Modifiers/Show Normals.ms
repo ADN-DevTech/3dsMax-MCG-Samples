@@ -45,7 +45,7 @@ plugin simpleMeshMod Show_Normals
 
 	fn initialize = 
 	(
-		pluginDefinitionFile = @"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\dev\Show Normals.maxtool"
+		pluginDefinitionFile = @"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Tools\Misc. Modifiers\Show Normals.maxtool"
 		local c = dotNetClass "Viper3dsMaxBridge.ModifierPluginInstance"
 		local cid = this.classId
 		local refMakerWrapperClass = dotnetclass "Autodesk.Max.MaxPlus.ReferenceMaker"

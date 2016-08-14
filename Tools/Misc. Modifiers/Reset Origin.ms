@@ -1,6 +1,6 @@
 plugin simpleMeshMod Reset_Origin
 	name:"Reset_Origin"
-	classID:#(0x187B4B91, 0x67B724C3)
+	classID:#(0x5DE67297, 0x3B1359A3)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

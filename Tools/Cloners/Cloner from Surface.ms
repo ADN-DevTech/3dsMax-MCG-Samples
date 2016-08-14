@@ -1,6 +1,6 @@
 plugin simpleMeshMod Cloner_from_Surface
 	name:"Cloner_from_Surface"
-	classID:#(0x6C17007C, 0x683F69CF)
+	classID:#(0x5C857B75, 0x6C264CF9)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

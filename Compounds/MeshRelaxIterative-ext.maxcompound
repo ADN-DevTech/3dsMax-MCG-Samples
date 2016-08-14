@@ -1,23 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="9f062b9e-2893-4213-b920-49772c0a60db">
-  <meta_info>
-    <graph_version guid="e862e037-ef5c-4902-a73e-161fa2c3c1d7" number="0.0.6" />
-    <category>Geometry - Deformers</category>
-    <description>Applies a relax operation to a mesh N times. </description>
-  </meta_info>
-  <nodes>
-    <node operator="Input: Int32" id="13" name="iterations" position="220:140" size="140:112" />
-    <node operator="Input: Single" id="12" name="amount" position="0:260" size="140:112" />
-    <node operator="Input: TriMesh" id="1" name="mesh" position="220:0" size="140:112" />
-    <node operator="Output: compound" id="2" position="740:200" size="140:70" />
-    <node operator="MeshRelax-ext" id="3" position="220:260" size="140:133" />
-    <node operator="Iterate-ext" id="4" position="480:120" size="140:154" />
-  </nodes>
-  <connections>
-    <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
-    <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
-    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
-    <connection sourcenode="13" sourceport="0" destnode="4" destport="1" />
-    <connection sourcenode="3" sourceport="1" destnode="4" destport="2" />
-  </connections>
+    <meta_info>
+        <graph_version guid="2974b6dd-0363-423f-8cae-084f65723fe1" number="0.0.8" />
+        <category>Geometry - Deformers</category>
+        <description>Applies a relax operation to a mesh N times. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Int32" id="13" name="iterations" position="220:300" size="140:112" />
+        <node operator="Input: Single" id="12" name="amount" position="0:220" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="mesh" position="220:180" size="140:112" />
+        <node operator="Output: compound" id="2" position="880:320" size="140:70" />
+        <node operator="MeshRelax-ext" id="3" position="220:440" size="140:133" />
+        <node operator="Iterate-ext" id="4" position="440:360" size="140:154" />
+        <node operator="MeshRelaxTowardsOriginal-ext" id="0" position="220:0" size="140:154" />
+        <node operator="Input: TriMesh" id="6" name="originalMesh" position="0:0" size="140:112" />
+        <node operator="Input: Boolean" id="7" name="maintainEdgeLengths" position="440:60" size="140:112" />
+        <node operator="If" id="8" position="660:240" size="140:154" />
+        <node operator="Iterate-ext" id="10" position="440:180" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="8" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="4" destport="2" />
+        <connection sourcenode="6" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="12" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="8" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="0" sourceport="1" destnode="10" destport="2" />
+    </connections>
 </graph>

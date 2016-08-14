@@ -1,0 +1,24 @@
+<graph version="0.50" uuid="bd2f9535-1c41-4200-8009-b629387d5a46">
+    <meta_info>
+        <graph_version guid="2739ad5e-64c8-414a-b1b7-9e81955610b6" number="0.0.2" />
+        <category>Geometry - TriMesh</category>
+        <description>Moves a mesh so that it&apos;s origin is centered at the new specifed location in world space. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="480:0" size="140:112" />
+        <node operator="Input: Matrix" id="1" name="worldSpaceTransform" position="0:160" size="180:112" />
+        <node operator="Input: Vector3" id="2" name="worldSpacePosition" position="260:60" size="140:112" />
+        <node operator="OffsetMesh" id="3" position="700:80" size="140:133" />
+        <node operator="InvertMatrix" id="4" position="260:180" size="140:112" />
+        <node operator="Transform" id="5" position="480:140" size="140:133" />
+        <node operator="Output: compound" id="7" position="920:220" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

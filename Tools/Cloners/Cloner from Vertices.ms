@@ -1,6 +1,6 @@
 plugin simpleMeshMod Cloner_from_Vertices
 	name:"Cloner_from_Vertices"
-	classID:#(0x431AEB74, 0x6B75A1E8)
+	classID:#(0x1C57121A, 0x422D5B4D)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

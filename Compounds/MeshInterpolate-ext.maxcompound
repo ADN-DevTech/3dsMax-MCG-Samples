@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="52d9b0ac-a160-4ac3-b85d-27e8435a37cb">
+    <meta_info>
+        <graph_version guid="e9da1bea-a5fc-46d1-aad8-cfdc01fcb971" number="0.0.7" />
+        <category>Deformers</category>
+        <description>Perform a linear interpolateion (lerp) between two meshes. Moving each vertex to a weighted average between the corresponding points on the two meshes. The two meshes must have the same topology. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="meshA" position="0:0" size="140:112" />
+        <node operator="Input: TriMesh" id="1" name="meshB" position="0:160" size="140:112" />
+        <node operator="Input: Single" id="2" name="amount" position="0:320" size="140:112" />
+        <node operator="MeshVertices" id="4" position="220:180" size="140:112" />
+        <node operator="MeshSetVertices-ext" id="6" position="740:180" size="160:133" />
+        <node operator="MeshVertices" id="7" position="220:40" size="140:112" />
+        <node operator="Output: compound" id="10" position="980:240" size="140:70" />
+        <node operator="ArrayCombineKeepLength-ext" id="5" position="440:160" size="220:154" />
+        <node operator="Lerp" id="3" position="220:300" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="3" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="2" />
+    </connections>
+</graph>

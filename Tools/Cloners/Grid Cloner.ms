@@ -1,6 +1,6 @@
 plugin simpleObject Grid_Cloner
 	name:"Grid_Cloner"
-	classID:#(0x38155EB4, 0x67A13277)
+	classID:#(0x40BE2AC, 0x761E3A1B)
 	category:"MCG Cloners"
 	usePBValidity:true
 (

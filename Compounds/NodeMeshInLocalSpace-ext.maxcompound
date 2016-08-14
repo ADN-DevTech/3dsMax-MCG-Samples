@@ -1,26 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="d2d4a5f2-b133-4693-ade5-faddf7030b9e">
-  <meta_info>
-    <graph_version guid="34875788-a627-470e-9d8a-c79055a508f0" number="0.0.9" />
-    <category>3ds Max Nodes</category>
-    <description>If possible retrieves a node mesh and converts it into a new coordinate sysem using the matrix. If the node is invalid or has no mesh, returns an empty mesh.</description>
-  </meta_info>
-  <nodes>
-    <node operator="Input: Matrix" id="1" name="transform" position="40:160" size="140:112" />
-    <node operator="NodeMeshInLocalSpace" id="2" position="240:120" size="180:133" />
-    <node operator="Input: INode" id="3" name="node" position="40:40" size="140:112" />
-    <node operator="If" id="0" position="540:120" size="140:154" />
-    <node operator="EmptyMesh" id="5" position="240:260" size="140:91" />
-    <node operator="Output: compound" id="6" position="760:180" size="140:70" />
-    <node operator="NodeCanGetMesh-ext" id="4" position="240:0" size="180:112" />
-  </nodes>
-  <connections>
-    <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
-    <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
-    <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
-    <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
-    <connection sourcenode="5" sourceport="0" destnode="0" destport="2" />
-    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
-    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
-  </connections>
+    <meta_info>
+        <graph_version guid="a82a800a-e4d4-4b16-a3e9-a6557832657e" number="0.0.10" />
+        <category>3ds Max Nodes</category>
+        <description>If possible retrieves a node mesh and converts it into a new coordinate sysem using the matrix. If the node is invalid or has no mesh, returns an empty mesh.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: Matrix" id="1" name="transform" position="40:160" size="140:112" />
+        <node operator="NodeMeshInLocalSpace" id="2" position="240:120" size="180:133" />
+        <node operator="Input: INode" id="3" name="node" position="40:40" size="140:112" />
+        <node operator="If" id="0" position="540:120" size="140:154" />
+        <node operator="Output: compound" id="6" position="760:180" size="140:70" />
+        <node operator="NodeCanGetMesh-ext" id="4" position="240:0" size="180:112" />
+        <node operator="Input: TriMesh" id="7" name="default" position="40:280" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    </connections>
 </graph>

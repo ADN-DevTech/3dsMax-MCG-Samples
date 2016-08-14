@@ -1,6 +1,6 @@
 plugin simpleMeshMod Stacker
 	name:"Stacker"
-	classID:#(0x4C7D96EE, 0x7DF80541)
+	classID:#(0x675CE439, 0x206D92FA)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (
@@ -49,7 +49,7 @@ plugin simpleMeshMod Stacker
 
 	fn initialize = 
 	(
-		pluginDefinitionFile = @"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Tools\Misc. Modifiers\Stacker.maxtool"
+		pluginDefinitionFile = @"C:\Users\digginc\Autodesk\3ds Max 2017\Max Creation Graph\Tools\3dsMax-MCG-Samples\Tools\Cloners\Stacker.maxtool"
 		local c = dotNetClass "Viper3dsMaxBridge.ModifierPluginInstance"
 		local cid = this.classId
 		local refMakerWrapperClass = dotnetclass "Autodesk.Max.MaxPlus.ReferenceMaker"

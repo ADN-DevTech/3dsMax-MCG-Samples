@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="33b100c7-4d41-4046-b70d-1ce3a0bb6022">
+    <meta_info>
+        <graph_version guid="852f2afd-d48f-4533-8b1c-123e6a1768a1" number="0.0.3" />
+        <category>Array</category>
+        <description>Combines the elements of two arrays using a combine function. If the second array is shorter than the first, concatenates the tail of the first array with the results, so that the resulting array always has the same length as the first array.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Combine" id="0" position="220:140" size="140:154" />
+        <node operator="Input: function2" id="1" name="combineFunction" position="0:260" size="140:112" />
+        <node operator="Input: array" id="2" name="array1" position="0:0" size="140:112" />
+        <node operator="Input: array" id="3" name="array2" position="0:140" size="140:112" />
+        <node operator="ArrayConcatenateTail-ext" id="4" position="440:180" size="180:133" />
+        <node operator="Output: compound" id="5" position="660:280" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

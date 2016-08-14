@@ -1,6 +1,6 @@
 plugin simpleMeshMod Transform_Mesh
 	name:"Transform_Mesh"
-	classID:#(0x7218783B, 0x7D630DD2)
+	classID:#(0x91AF353, 0x4918752B)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

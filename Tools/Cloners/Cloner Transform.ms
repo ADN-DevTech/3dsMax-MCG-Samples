@@ -1,6 +1,6 @@
 plugin simpleMeshMod Cloner_Transform
 	name:"Cloner_Transform"
-	classID:#(0x48E9AC95, 0x466371D1)
+	classID:#(0x6FD622C, 0x5C3B7052)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

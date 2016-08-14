@@ -1,6 +1,6 @@
 plugin simpleMeshMod Clone
 	name:"Clone"
-	classID:#(0x622AADFC, 0x1B675EE)
+	classID:#(0x394210E6, 0x6FC18E2B)
 	category:"MCG Clone Tools"
 	usePBValidity:true
 (

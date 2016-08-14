@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="67740436-6d8f-4c1a-982f-f8fe6b045dad">
+    <meta_info>
+        <graph_version guid="f3ebd661-5b98-46c6-93ec-3bc5a2d3afa3" number="0.0.5" />
+        <category>Array</category>
+        <description>Returns the index of an element in the array given a function that compares two elements. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="array" position="0:160" size="140:112" />
+        <node operator="Output: compound" id="6" position="1160:200" size="160:70" />
+        <node operator="Indices" id="1" position="500:80" size="140:112" />
+        <node operator="Zero" id="3" position="500:220" size="140:91" />
+        <node operator="Aggregate" id="2" position="720:240" size="140:154" />
+        <node operator="IfThen" id="7" position="940:140" size="140:154" />
+        <node operator="ArrayEmpty-ext" id="8" position="720:0" size="140:112" />
+        <node operator="NegativeOne" id="9" position="720:140" size="140:91" />
+        <node operator="ArrayIndexOfLesser-ext" id="10" position="220:220" size="200:175" />
+        <node operator="Input: function2" id="5" name="compare" position="0:300" size="140:112" />
+        <node operator="ArrayIndexOfGreater-ext" id="4" position="220:400" size="200:175" />
+        <node operator="If" id="11" position="500:320" size="140:154" />
+        <node operator="Input: Boolean" id="12" name="lesserOrGreater" position="220:80" size="140:112" />
+        <node operator="Pass-through: Int32" id="13" position="0:440" size="140:112" />
+        <node operator="Pass-through: Int32" id="14" position="0:540" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="11" sourceport="1" destnode="2" destport="2" />
+        <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="9" sourceport="1" destnode="7" destport="1" />
+        <connection sourcenode="2" sourceport="1" destnode="7" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="10" destport="3" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="4" destport="3" />
+        <connection sourcenode="12" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="11" destport="2" />
+    </connections>
+</graph>

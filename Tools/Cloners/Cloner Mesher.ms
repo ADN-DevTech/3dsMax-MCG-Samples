@@ -1,6 +1,6 @@
 plugin simpleMeshMod Cloner_Mesher
 	name:"Cloner_Mesher"
-	classID:#(0x25721FC3, 0x75AB127)
+	classID:#(0x3D3760E7, 0x7CDBBF79)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

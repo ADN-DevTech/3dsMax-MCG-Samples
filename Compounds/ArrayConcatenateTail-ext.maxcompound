@@ -1,0 +1,23 @@
+<graph version="0.50" uuid="18c7e90b-c6dd-48a9-b804-47886e806e9e">
+    <meta_info>
+        <graph_version guid="0db84a84-d056-45ee-b383-49b68186f8e3" number="0.0.3" />
+        <category>Array</category>
+        <description>Returns an array that consists of the elements of the new array concatenated with the tail elements in the old list if necessary to make the new array at least as long as the new array. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="arrayNew" position="0:20" size="140:112" />
+        <node operator="Input: array" id="1" name="arrayOld" position="220:0" size="140:112" />
+        <node operator="Count" id="2" position="220:140" size="140:112" />
+        <node operator="Skip" id="3" position="440:60" size="140:133" />
+        <node operator="Concatenate" id="4" position="660:60" size="140:133" />
+        <node operator="Output: compound" id="5" position="880:120" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    </connections>
+</graph>

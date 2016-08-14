@@ -1,6 +1,6 @@
 plugin simpleMeshMod Smart_Scale
 	name:"Smart_Scale"
-	classID:#(0x6202C036, 0x251B5D40)
+	classID:#(0xF724364, 0x5DC77B6B)
 	category:"Max Creation Graph"
 	usePBValidity:true
 (

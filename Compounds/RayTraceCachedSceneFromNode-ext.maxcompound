@@ -1,0 +1,42 @@
+<graph version="0.50" uuid="3d7b0785-b513-4264-8870-d48fa9ef7f25">
+    <meta_info>
+        <graph_version guid="892160a1-ad55-4a72-83d0-4d1c92fb572a" number="0.0.2" />
+        <category>Raytracer</category>
+        <description>Creates a ray-traced scene from a node. The mesh stored in the ray trace scene is converted to local space using the provided matrix.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Multiply" id="18" position="900:340" size="140:133" />
+        <node operator="RayTraceSceneCached-ext" id="22" position="1180:200" size="200:154" />
+        <node operator="Input: Boolean" id="1" name="updateCache" position="900:60" size="140:112" />
+        <node operator="Input: INode" id="3" name="node" position="0:120" size="140:112" />
+        <node operator="NodeTransformOrIdentity-ext" id="6" position="220:300" size="200:112" />
+        <node operator="Tetrahedron" id="8" position="449:29" size="140:112" />
+        <node operator="OffsetMesh" id="11" position="669:109" size="140:133" />
+        <node operator="ScalarToVector-ext" id="15" position="449:169" size="140:112" />
+        <node operator="Constant" id="17" value="-10000000.0" position="229:169" size="140:91" />
+        <node operator="FloatZero" id="9" position="229:29" size="140:91" />
+        <node operator="Input: Matrix" id="16" name="worldSpaceTransform" position="0:420" size="140:112" />
+        <node operator="NodeMeshOrDefault-ext" id="13" position="900:180" size="200:133" />
+        <node operator="InvertMatrix" id="19" position="220:440" size="140:112" />
+        <node operator="Output: compound" id="0" position="1460:280" size="140:70" />
+        <node groupnode="Create a non-empty default mesh" id="2" position="220:0" size="598:290" bg_color="#ff646464">
+            <nodes>8,11,15,17,9</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="6" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="18" sourceport="0" destnode="22" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="16" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="0" destport="0" />
+    </connections>
+</graph>

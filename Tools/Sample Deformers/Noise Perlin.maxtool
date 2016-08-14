@@ -1,0 +1,68 @@
+<graph version="0.50" uuid="a76697b0-0ca1-47e7-a088-f178b9d98a42">
+    <meta_info>
+        <graph_version guid="c73b5456-03a2-4537-bd06-51034330e56c" number="0.0.5" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="17" name="xoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-306:112" size="140:196" />
+        <node operator="Parameter: Single" id="0" name="zoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-306:552" size="140:196" />
+        <node operator="Vector3" id="18" position="-86:172" size="140:154" />
+        <node operator="MeshNoisePerlin-ext" id="13" position="429:329" size="220:196" />
+        <node operator="Parameter: Single" id="9" name="domain" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="-80:560" size="140:196" />
+        <node operator="Parameter: Single" id="19" name="yoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-306:332" size="140:196" />
+        <node operator="Modifier: TriMesh" id="3" position="229:189" size="140:91" />
+        <node operator="Output: modifier" id="1" position="729:429" size="140:70" />
+        <node operator="Parameter: Single" id="2" name="z strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-720:520" size="140:196" />
+        <node operator="Parameter: Single" id="4" name="y strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-720:300" size="140:196" />
+        <node operator="Parameter: Single" id="6" name="x strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-720:80" size="140:196" />
+        <node operator="Vector3" id="5" position="-500:380" size="140:154" />
+        <node operator="If" id="12" position="649:1089" size="140:154" />
+        <node operator="Parameter: Vector3" id="15" name="deformer rotation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="-711:1069" size="140:175" />
+        <node operator="MatrixFromPositionRotationScale-ext" id="10" position="-194:1024" size="240:154" />
+        <node operator="Parameter: Boolean" id="11" name="use node transform" default_value="false" position="409:929" size="140:133" />
+        <node operator="Parameter: INode" id="14" name="gizmo node" position="169:989" size="140:112" />
+        <node operator="GizmoTransformInLocalSpace" id="16" position="363:1064" size="200:133" />
+        <node operator="Parameter: Vector3" id="20" name="deformer translation" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="-711:889" size="140:175" />
+        <node operator="Parameter: Vector3" id="21" name="deformer scale" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="-554:912" size="140:175" />
+        <node operator="OnesVector-ext" id="45" position="-384:1154" size="140:91" />
+        <node operator="EulerDegreesToQuaternion-ext" id="22" position="-551:1129" size="140:112" />
+        <node operator="Modifier: Matrix" id="23" position="189:1149" size="140:91" />
+        <node operator="Add" id="44" position="-359:972" size="140:133" />
+        <node groupnode="Deformation space specified or from gizmo node" id="7" position="160:900" size="638:352" bg_color="#ff646464">
+            <nodes>12,11,14,16,23</nodes>
+        </node>
+        <node groupnode="Noise parameters" id="25" position="-729:46" size="801:737" bg_color="#ff646464">
+            <nodes>2,4,5,6,9</nodes>
+        </node>
+        <node groupnode="Explicit deformation space" id="24" position="-720:860" size="793:405" bg_color="#ff646464">
+            <nodes>15,10,20,21,45,22,44</nodes>
+        </node>
+        <node groupnode="Apply noise" id="8" position="220:160" size="658:374" bg_color="#ff646464">
+            <nodes>1,13,3</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="13" destport="3" />
+        <connection sourcenode="12" sourceport="0" destnode="13" destport="4" />
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="12" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="12" destport="2" />
+        <connection sourcenode="20" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="44" sourceport="0" destnode="10" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="23" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="15" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="44" destport="0" />
+        <connection sourcenode="45" sourceport="0" destnode="44" destport="1" />
+    </connections>
+</graph>

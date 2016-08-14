@@ -1,0 +1,33 @@
+<graph version="0.50" uuid="46657955-9c86-4144-9d65-5734e832c8d7">
+    <meta_info>
+        <graph_version guid="9e0656c0-72ec-47b1-b1ba-a74143877014" number="0.0.2" />
+        <category>Geometry - Points</category>
+        <description>Interpolates a point between its current position relative to the center of a bounding box and a position on the bounding box. Points at the origin do not move. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Output: compound" id="8" position="1320:240" size="140:70" />
+        <node operator="Input: Single" id="6" name="weight" position="880:280" size="140:112" />
+        <node operator="BoxClamp-ext" id="3" position="880:140" size="140:133" />
+        <node operator="BoundingBoxCenter" id="10" position="220:140" size="140:112" />
+        <node operator="BoundingBoxRadius" id="4" position="440:200" size="140:112" />
+        <node operator="SetVectorLength" id="5" position="660:100" size="140:133" />
+        <node operator="Input: Vector3" id="7" name="point" position="220:0" size="140:112" />
+        <node operator="Lerp" id="2" position="1100:180" size="140:154" />
+        <node operator="Subtract" id="1" position="440:40" size="140:133" />
+        <node operator="Input: BoundingBox" id="9" name="box" position="0:220" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="2" destport="2" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="10" sourceport="0" destnode="1" destport="1" />
+    </connections>
+</graph>
