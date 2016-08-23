@@ -1,0 +1,191 @@
+(InstanceState state, TriMesh mesh, Single x, Single y, Single z, Single radius, Boolean use gizmo node, INode gizmo node, Matrix modifierTransform) => 
+  {
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 54582
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 54584
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 54583
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 54581
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 54580
+    TriMesh _5IfThen;// 3:MeshSetVertices-ext->10:IfThen 54576
+    _0Constant = per-vertex data channel ;
+    _1Zero = Zero();
+    _2ToString = ToString(_1Zero);
+    _3ConcatenateStrings = ConcatenateStrings(_0Constant, _2ToString);
+    _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
+    _5IfThen = IfThen(_4IsChannelAvailable, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 3:MeshSetVertices-ext->0:MeshVertices 54591
+        IArray[Vector3] _1MeshVertices;// 5:MeshDeformVertices-ext->4:MeshVertices 54597
+        Vector3 _2Vector3;// 10:Vector3 54615
+        IArray[Vector3] _3MeshVertices;// 14:MeshBoundingSphere->1:MeshVertices 54622
+        BoundingSphere _4SphereFromPoints;// 14:MeshBoundingSphere->0:SphereFromPoints 54621
+        Vector3 _5SphereCenter;// 8:SphereCenter 54619
+        Vector3 _6Add;// 9:Add 54614
+        Single _7SphereRadius;// 2:SphereRadius 54624
+        Single _8Constant;// 5:DivideBy100-ext->0:Constant 54627
+        Single _9Divide;// 5:DivideBy100-ext->2:Divide 54626
+        Single _10Multiply;// 4:Multiply 54623
+        Func[Vector3, Vector3] _11Pass-through: function1;// 0:Pass-through: function1 54572
+        Matrix _18Pass-through: Matrix;// 0:Pass-through: Matrix 54570
+        Matrix _19InvertMatrix;// 5:MeshDeformVertices-ext->7:InvertMatrix 54602
+        IArray[Vector3] _20ParallelMap;// 5:MeshDeformVertices-ext->5:ParallelMap 54596
+        Int32 _21Zero;// 7:SoftSelection->2:Zero 54594
+        IArray[Single] _22PerVertexData;// 7:SoftSelection->3:PerVertexData 54593
+        IArray[Vector3] _23Combine3;// 1:LerpVectors-ext->10:Combine3 54589
+        TriMesh _24SetMeshVertices;// 3:MeshSetVertices-ext->6:SetMeshVertices 54585
+        _0MeshVertices = MeshVertices(mesh);
+        _1MeshVertices = MeshVertices(mesh);
+        _2Vector3 = Vector3(x, y, z);
+        _3MeshVertices = MeshVertices(mesh);
+        _4SphereFromPoints = SphereFromPoints(_3MeshVertices);
+        _5SphereCenter = SphereCenter(_4SphereFromPoints);
+        _6Add = Add(_2Vector3, _5SphereCenter);
+        _7SphereRadius = SphereRadius(_4SphereFromPoints);
+        _8Constant = 100;
+        _9Divide = Divide(radius, _8Constant);
+        _10Multiply = Multiply(_7SphereRadius, _9Divide);
+        _11Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Subtract;// 8:InvertPoint-ext->3:Subtract 54609
+            Single _1Multiply;// 4:Sqr-ext->0:Multiply 54611
+            Vector3 _2MultiplyByScalar;// 8:InvertPoint-ext->5:MultiplyByScalar 54608
+            Single _3LengthSquared;// 8:InvertPoint-ext->6:LengthSquared 54612
+            Vector3 _4DivideByScalar;// 8:InvertPoint-ext->7:DivideByScalar 54607
+            Vector3 _5Add;// 8:InvertPoint-ext->8:Add 54606
+            _0Subtract = Subtract(x0, _6Add);
+            _1Multiply = Multiply(_10Multiply, _10Multiply);
+            _2MultiplyByScalar = MultiplyByScalar(_0Subtract, _1Multiply);
+            _3LengthSquared = LengthSquared(_0Subtract);
+            _4DivideByScalar = DivideByScalar(_2MultiplyByScalar, _3LengthSquared);
+            _5Add = Add(_4DivideByScalar, _6Add);
+            _5Add;
+            };
+        _18Pass-through: Matrix = if (use gizmo node)
+          {
+            Boolean _12IsValidNode;// 4:NodeTransformInLocalSpaceOrIdentity-ext->3:IsValidNode 54636
+            _12IsValidNode = IsValidNode(gizmo node);
+            if (_12IsValidNode)
+              {
+                Matrix _13ObjectTransformBeforeWSM;// 2:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 54640
+                Matrix _14InvertMatrix;// 2:NodeTMInLocalSpace-ext->2:InvertMatrix 54641
+                Matrix _15Multiply;// 2:NodeTMInLocalSpace-ext->4:Multiply 54639
+                _13ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(gizmo node);
+                _14InvertMatrix = InvertMatrix(modifierTransform);
+                _15Multiply = Multiply(_13ObjectTransformBeforeWSM, _14InvertMatrix);
+                _15Multiply;
+                }else
+              {
+                Matrix _16MatrixIdentity;// 4:NodeTransformInLocalSpaceOrIdentity-ext->5:MatrixIdentity 54642
+                _16MatrixIdentity = MatrixIdentity();
+                _16MatrixIdentity;
+                };
+            }else
+          {
+            Matrix _17MatrixIdentity;// 16:NodeTransformInLocalSpaceConditionally-ext->5:MatrixIdentity 54643
+            _17MatrixIdentity = MatrixIdentity();
+            _17MatrixIdentity;
+            };
+        _19InvertMatrix = InvertMatrix(_18Pass-through: Matrix);
+        _20ParallelMap = ParallelMap(_1MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 5:MeshDeformVertices-ext->11:Transform 54600
+            Vector3 _1Apply1;// 5:MeshDeformVertices-ext->8:Apply1 54599
+            Vector3 _2Transform;// 5:MeshDeformVertices-ext->9:Transform 54598
+            _0Transform = Transform(x0, _19InvertMatrix);
+            _1Apply1 = Apply1(_11Pass-through: function1, _0Transform);
+            _2Transform = Transform(_1Apply1, _18Pass-through: Matrix);
+            _2Transform;
+            });
+        _21Zero = Zero();
+        _22PerVertexData = PerVertexData(mesh, _21Zero);
+        _23Combine3 = Combine3(_0MeshVertices, _20ParallelMap, _22PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+          {
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 54590
+            _0Lerp = Lerp(x0, x1, x2);
+            _0Lerp;
+            });
+        _24SetMeshVertices = SetMeshVertices(mesh, _23Combine3);
+        _24SetMeshVertices;
+        }, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 5:MeshDeformVertices-ext->4:MeshVertices 54597
+        Vector3 _1Vector3;// 10:Vector3 54615
+        IArray[Vector3] _2MeshVertices;// 14:MeshBoundingSphere->1:MeshVertices 54622
+        BoundingSphere _3SphereFromPoints;// 14:MeshBoundingSphere->0:SphereFromPoints 54621
+        Vector3 _4SphereCenter;// 8:SphereCenter 54619
+        Vector3 _5Add;// 9:Add 54614
+        Single _6SphereRadius;// 2:SphereRadius 54624
+        Single _7Constant;// 5:DivideBy100-ext->0:Constant 54627
+        Single _8Divide;// 5:DivideBy100-ext->2:Divide 54626
+        Single _9Multiply;// 4:Multiply 54623
+        Func[Vector3, Vector3] _10Pass-through: function1;// 0:Pass-through: function1 54572
+        Matrix _17Pass-through: Matrix;// 0:Pass-through: Matrix 54570
+        Matrix _18InvertMatrix;// 5:MeshDeformVertices-ext->7:InvertMatrix 54602
+        IArray[Vector3] _19ParallelMap;// 5:MeshDeformVertices-ext->5:ParallelMap 54596
+        TriMesh _20SetMeshVertices;// 3:MeshSetVertices-ext->8:SetMeshVertices 54595
+        _0MeshVertices = MeshVertices(mesh);
+        _1Vector3 = Vector3(x, y, z);
+        _2MeshVertices = MeshVertices(mesh);
+        _3SphereFromPoints = SphereFromPoints(_2MeshVertices);
+        _4SphereCenter = SphereCenter(_3SphereFromPoints);
+        _5Add = Add(_1Vector3, _4SphereCenter);
+        _6SphereRadius = SphereRadius(_3SphereFromPoints);
+        _7Constant = 100;
+        _8Divide = Divide(radius, _7Constant);
+        _9Multiply = Multiply(_6SphereRadius, _8Divide);
+        _10Pass-through: function1 = (Vector3 x0) => 
+          {
+            Vector3 _0Subtract;// 8:InvertPoint-ext->3:Subtract 54609
+            Single _1Multiply;// 4:Sqr-ext->0:Multiply 54611
+            Vector3 _2MultiplyByScalar;// 8:InvertPoint-ext->5:MultiplyByScalar 54608
+            Single _3LengthSquared;// 8:InvertPoint-ext->6:LengthSquared 54612
+            Vector3 _4DivideByScalar;// 8:InvertPoint-ext->7:DivideByScalar 54607
+            Vector3 _5Add;// 8:InvertPoint-ext->8:Add 54606
+            _0Subtract = Subtract(x0, _5Add);
+            _1Multiply = Multiply(_9Multiply, _9Multiply);
+            _2MultiplyByScalar = MultiplyByScalar(_0Subtract, _1Multiply);
+            _3LengthSquared = LengthSquared(_0Subtract);
+            _4DivideByScalar = DivideByScalar(_2MultiplyByScalar, _3LengthSquared);
+            _5Add = Add(_4DivideByScalar, _5Add);
+            _5Add;
+            };
+        _17Pass-through: Matrix = if (use gizmo node)
+          {
+            Boolean _11IsValidNode;// 4:NodeTransformInLocalSpaceOrIdentity-ext->3:IsValidNode 54636
+            _11IsValidNode = IsValidNode(gizmo node);
+            if (_11IsValidNode)
+              {
+                Matrix _12ObjectTransformBeforeWSM;// 2:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 54640
+                Matrix _13InvertMatrix;// 2:NodeTMInLocalSpace-ext->2:InvertMatrix 54641
+                Matrix _14Multiply;// 2:NodeTMInLocalSpace-ext->4:Multiply 54639
+                _12ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(gizmo node);
+                _13InvertMatrix = InvertMatrix(modifierTransform);
+                _14Multiply = Multiply(_12ObjectTransformBeforeWSM, _13InvertMatrix);
+                _14Multiply;
+                }else
+              {
+                Matrix _15MatrixIdentity;// 4:NodeTransformInLocalSpaceOrIdentity-ext->5:MatrixIdentity 54642
+                _15MatrixIdentity = MatrixIdentity();
+                _15MatrixIdentity;
+                };
+            }else
+          {
+            Matrix _16MatrixIdentity;// 16:NodeTransformInLocalSpaceConditionally-ext->5:MatrixIdentity 54643
+            _16MatrixIdentity = MatrixIdentity();
+            _16MatrixIdentity;
+            };
+        _18InvertMatrix = InvertMatrix(_17Pass-through: Matrix);
+        _19ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 5:MeshDeformVertices-ext->11:Transform 54600
+            Vector3 _1Apply1;// 5:MeshDeformVertices-ext->8:Apply1 54599
+            Vector3 _2Transform;// 5:MeshDeformVertices-ext->9:Transform 54598
+            _0Transform = Transform(x0, _18InvertMatrix);
+            _1Apply1 = Apply1(_10Pass-through: function1, _0Transform);
+            _2Transform = Transform(_1Apply1, _17Pass-through: Matrix);
+            _2Transform;
+            });
+        _20SetMeshVertices = SetMeshVertices(mesh, _19ParallelMap);
+        _20SetMeshVertices;
+        });
+    _5IfThen;
+    }

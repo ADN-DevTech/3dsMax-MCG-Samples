@@ -1,0 +1,49 @@
+<graph version="0.50" uuid="a76697b0-0ca1-47e7-a088-f178b9d98a42">
+    <meta_info>
+        <graph_version guid="91b821de-c814-4f51-a26b-d0bb3f645ab6" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Parameter: Single" id="17" name="xoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-240:120" size="160:196" />
+        <node operator="Parameter: Single" id="0" name="zoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-238:535" size="160:196" />
+        <node operator="Vector3" id="18" position="-34:514" size="140:154" />
+        <node operator="MeshNoisePerlin-ext" id="13" position="380:127" size="220:196" />
+        <node operator="Parameter: Single" id="9" name="domain" min_value="-10000" max_value="10000" default_value="1" system_units_value="false" position="-30:285" size="140:196" />
+        <node operator="Parameter: Single" id="19" name="yoffset" min_value="-100000" max_value="100000" default_value="0" system_units_value="false" position="-240:340" size="160:196" />
+        <node operator="Modifier: TriMesh" id="3" position="169:89" size="140:91" />
+        <node operator="Output: modifier" id="1" position="649:254" size="140:70" />
+        <node operator="Parameter: Single" id="2" name="z strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-446:534" size="160:196" />
+        <node operator="Parameter: Single" id="4" name="y strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-447:329" size="160:196" />
+        <node operator="Parameter: Single" id="6" name="x strength" min_value="-100000" max_value="100000" default_value="0.1" system_units_value="false" position="-456:115" size="160:196" />
+        <node operator="Vector3" id="5" position="-47:108" size="140:154" />
+        <node operator="Parameter: INode" id="7" name="gizmo node" position="212:545" size="140:112" />
+        <node operator="Modifier: Matrix" id="10" position="209:656" size="140:91" />
+        <node operator="Parameter: Boolean" id="11" name="use gizmo node" default_value="false" position="220:409" size="140:133" />
+        <node operator="NodeTransformInLocalSpaceConditionally-ext" id="16" position="410:506" size="280:154" />
+        <node groupnode="Apply noise" id="8" position="160:60" size="658:273" bg_color="#ff646464">
+            <nodes>3,1,13</nodes>
+        </node>
+        <node groupnode="Noise parameters" id="25" position="-465:79" size="584:661" bg_color="#ff646464">
+            <nodes>4,6,9,17,18,0,19,5,2</nodes>
+        </node>
+        <node groupnode="Deformation space from gizmo node or identity" id="12" position="180:380" size="519:387" bg_color="#ff646464">
+            <nodes>7,10,11,16</nodes>
+        </node>
+    </nodes>
+    <connections>
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="13" destport="2" />
+        <connection sourcenode="18" sourceport="0" destnode="13" destport="3" />
+        <connection sourcenode="16" sourceport="0" destnode="13" destport="4" />
+        <connection sourcenode="13" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="16" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="16" destport="2" />
+    </connections>
+</graph>

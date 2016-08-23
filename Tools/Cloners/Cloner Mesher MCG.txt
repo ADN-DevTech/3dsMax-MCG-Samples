@@ -1,0 +1,721 @@
+(InstanceState state, TriMesh mesh, Boolean keep custom channels, Boolean include original, Boolean create nodes, Boolean use children, Boolean randomize children, INode clone target, Int32 channel id, Int32 randomize seed) => 
+  {
+    IArray[TriMesh] _0IfThen;// 12:ClonerTransformChildMeshes-ext->21:IfThen 52432
+    TriMesh _2CombineAllMeshes;// 29:ClonerClone-ext->45:CombineAllMeshes 52420
+    TriMesh _10IgnoreFirst;// 29:ClonerClone-ext->9:IgnoreFirst 52367
+    _0IfThen = IfThen(create nodes, () => 
+      {
+        MapChannel _0GetMapChannel;// 34:MatricesFromMapChannel-ext->9:GetMapChannel 52540
+        IArray[Vector3] _1MapChannelVertexBuffer;// 34:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 52539
+        Int32 _2Count;// 2:Slices->2:Count 52536
+        Int32 _3Constant;// 34:MatricesFromMapChannel-ext->0:Constant 52541
+        Int32 _4Divide;// 2:Slices->3:Divide 52535
+        IArray[Int32] _5Range;// 2:Slices->4:Range 52534
+        IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 52533
+        IArray[Matrix] _7Map;// 34:MatricesFromMapChannel-ext->5:Map 52530
+        Int32 _8Count;// 17:ClonerChildNodes-ext->9:Count 52484
+        IArray[INode] _23Map;// 12:ClonerTransformChildMeshes-ext->10:Map 52436
+        IArray[INode] _24Combine;// 12:ClonerTransformChildMeshes-ext->8:Combine 52435
+        Single _25Constant;// 1:Origin->0:Constant 52513
+        Vector3 _26Vector3;// 1:Origin->1:Vector3 52512
+        Single _27FloatOne;// 12:ClonerTransformChildMeshes-ext->19:FloatOne 52517
+        Single _28Constant;// 3:DivideByTwoFloat->0:Constant 52516
+        Single _29Divide;// 3:DivideByTwoFloat->2:Divide 52515
+        BoundingSphere _30Sphere;// 0:BoxFromPointAndRadius->3:Sphere 52511
+        BoundingBox _31BoxFromSphere;// 0:BoxFromPointAndRadius->0:BoxFromSphere 52510
+        QuadMesh _32BoxQuadMesh;// 18:CreateCubeMesh-ext->5:BoxQuadMesh 52506
+        TriMesh _33Triangulate;// 7:QuadToTriMesh-ext->4:Triangulate 52494
+        IArray[Int32] _34MeshIndices;// 7:QuadToTriMesh-ext->3:MeshIndices 52497
+        IArray[Int32] _35Indices;// 7:QuadToTriMesh-ext->8:Indices 52496
+        Int32 _36Constant;// 7:QuadToTriMesh-ext->0:Constant 52502
+        Int32 _37Constant;// 7:QuadToTriMesh-ext->0:Constant 52503
+        Int32 _38Constant;// 7:QuadToTriMesh-ext->0:Constant 52505
+        IArray[Boolean] _39Map;// 7:QuadToTriMesh-ext->5:Map 52495
+        TriMesh _40SetVisibleEdges;// 7:QuadToTriMesh-ext->9:SetVisibleEdges 52493
+        INode _41CreateEditableMesh;// 12:ClonerTransformChildMeshes-ext->16:CreateEditableMesh 52490
+        Func[INode, INode] _42Bind2of2;// 12:ClonerTransformChildMeshes-ext->20:Bind2of2 52488
+        IArray[INode] _43Map;// 12:ClonerTransformChildMeshes-ext->22:Map 52434
+        IArray[TriMesh] _62Combine;// 12:ClonerTransformChildMeshes-ext->12:Combine 52518
+        IArray[TriMesh] _63IgnoreFirst;// 12:ClonerTransformChildMeshes-ext->3:IgnoreFirst 52433
+        _0GetMapChannel = GetMapChannel(mesh, channel id);
+        _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
+        _2Count = Count(_1MapChannelVertexBuffer);
+        _3Constant = 4;
+        _4Divide = Divide(_2Count, _3Constant);
+        _5Range = Range(_4Divide);
+        _6Map = Map(_5Range, (Int32 x0) => 
+          {
+            Int32 _0Multiply;// 2:Slices->6:Multiply 52538
+            IArray[Vector3] _1Slice;// 2:Slices->0:Slice 52537
+            _0Multiply = Multiply(_3Constant, x0);
+            _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
+            _1Slice;
+            });
+        _7Map = Map(_6Map, (IArray[Vector3] x0) => 
+          {
+            Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 52550
+            Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 52551
+            Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 52555
+            Vector3 _3At;// 6:MatrixFromRows-ext->3:At 52554
+            Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 52549
+            Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 52552
+            Int32 _6One;// 8:PlusOne->1:One 52559
+            Int32 _7Add;// 8:PlusOne->0:Add 52558
+            Vector3 _8At;// 6:MatrixFromRows-ext->4:At 52556
+            Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 52548
+            Int32 _10Constant;// 25:Three->0:Constant 52553
+            Int32 _11One;// 9:PlusOne->1:One 52563
+            Int32 _12Add;// 9:PlusOne->0:Add 52562
+            Vector3 _13At;// 6:MatrixFromRows-ext->5:At 52560
+            Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 52547
+            Int32 _15One;// 10:PlusOne->1:One 52567
+            Int32 _16Add;// 10:PlusOne->0:Add 52566
+            Vector3 _17At;// 6:MatrixFromRows-ext->6:At 52564
+            Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 52543
+            _0MatrixIdentity = MatrixIdentity();
+            _1One = One();
+            _2Zero = Zero();
+            _3At = At(x0, _2Zero);
+            _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+            _5Two = Two();
+            _6One = One();
+            _7Add = Add(_2Zero, _6One);
+            _8At = At(x0, _7Add);
+            _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+            _10Constant = 3;
+            _11One = One();
+            _12Add = Add(_7Add, _11One);
+            _13At = At(x0, _12Add);
+            _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+            _15One = One();
+            _16Add = Add(_12Add, _15One);
+            _17At = At(x0, _16Add);
+            _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+            _18SetMatrixTranslation;
+            });
+        _8Count = Count(_7Map);
+        _23Map = Map(if (use children)
+          {
+            IArray[INode] _9ChildNodes;// 17:ClonerChildNodes-ext->17:ChildNodes 52449
+            IArray[Int32] _10Range;// 2:MapRange->2:Range 52473
+            Func[Int32, INode] _11Pass-through: function1;// 0:Pass-through: function1 52471
+            IArray[INode] _12Map;// 2:MapRange->3:Map 52472
+            _9ChildNodes = ChildNodes(clone target);
+            _10Range = Range(_8Count);
+            _11Pass-through: function1 = (Int32 x0) => 
+              {
+                Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                INode _5At;// 7:AtModulo-ext->3:At 52476
+                _0Count = Count(_9ChildNodes);
+                _1Modulo = Modulo(x0, _0Count);
+                _2Zero = Zero();
+                _3LessThan = LessThan(_1Modulo, _2Zero);
+                _5At = At(_9ChildNodes, if (_3LessThan)
+                  {
+                    Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                    _4Add = Add(_1Modulo, _0Count);
+                    _4Add;
+                    }else
+                  {
+                    _1Modulo;
+                    });
+                _5At;
+                };
+            _12Map = Map(_10Range, _11Pass-through: function1);
+            if (randomize children)
+              {
+                Int32 _13Count;// 17:ClonerChildNodes-ext->5:Count 52448
+                Int32 _14Zero;// 11:GreaterThanZero->1:Zero 52447
+                Boolean _15GreaterThan;// 11:GreaterThanZero->3:GreaterThan 52446
+                _13Count = Count(_9ChildNodes);
+                _14Zero = Zero();
+                _15GreaterThan = GreaterThan(_13Count, _14Zero);
+                if (_15GreaterThan)
+                  {
+                    Func[Random, Int32] _16Pass-through: function1;// 0:Pass-through: function1 52459
+                    Random _17RandomNumberGenerator;// 10:RandomizeArray-ext->2:RandomNumberGenerator 52466
+                    Func[Int32] _18Bind;// 0:RandomArray-ext->4:Bind 52463
+                    Int32 _19Count;// 10:RandomizeArray-ext->4:Count 52467
+                    IArray[Int32] _20ArrayOfFunction;// 0:RandomArray-ext->5:ArrayOfFunction 52462
+                    IArray[INode] _21Map;// 5:SelectByIndex->2:Map 52454
+                    _16Pass-through: function1 = (Random x0) => 
+                      {
+                        Int32 _0Count;// 1:ArrayRandomIndices-ext->4:Count 52465
+                        _0Count = Count(_12Map);
+                        PseudoRandomInt(x0, _0Count);
+                        };
+                    _17RandomNumberGenerator = RandomNumberGenerator(randomize seed);
+                    _18Bind = Bind(_16Pass-through: function1, _17RandomNumberGenerator);
+                    _19Count = Count(_12Map);
+                    _20ArrayOfFunction = ArrayOfFunction(_18Bind, _19Count);
+                    _21Map = Map(_20ArrayOfFunction, (Int32 x0) => 
+                      {
+                        INode _0At;// 5:SelectByIndex->3:At 52455
+                        _0At = At(_12Map, x0);
+                        _0At;
+                        });
+                    _21Map;
+                    }else
+                  {
+                    _9ChildNodes;
+                    };
+                }else
+              {
+                _12Map;
+                };
+            }else
+          {
+            IArray[INode] _22ArrayOf;// 17:ClonerChildNodes-ext->3:ArrayOf 52485
+            _22ArrayOf = ArrayOf(clone target, _8Count);
+            _22ArrayOf;
+            }, (INode x0) => 
+          {
+            INode _0CloneAsInstance;// 12:ClonerTransformChildMeshes-ext->14:CloneAsInstance 52486
+            _0CloneAsInstance = CloneAsInstance(x0);
+            _0CloneAsInstance;
+            });
+        _24Combine = Combine(_23Map, _7Map, (INode x0, Matrix x1) => 
+          {
+            INode _0SetNodeTransform;// 12:ClonerTransformChildMeshes-ext->5:SetNodeTransform 52487
+            _0SetNodeTransform = SetNodeTransform(x0, x1);
+            _0SetNodeTransform;
+            });
+        _25Constant = 0;
+        _26Vector3 = Vector3(_25Constant, _25Constant, _25Constant);
+        _27FloatOne = FloatOne();
+        _28Constant = 2;
+        _29Divide = Divide(_27FloatOne, _28Constant);
+        _30Sphere = Sphere(_26Vector3, _29Divide);
+        _31BoxFromSphere = BoxFromSphere(_30Sphere);
+        _32BoxQuadMesh = BoxQuadMesh(_31BoxFromSphere);
+        _33Triangulate = Triangulate(_32BoxQuadMesh);
+        _34MeshIndices = MeshIndices(_33Triangulate);
+        _35Indices = Indices(_34MeshIndices);
+        _36Constant = 6;
+        _37Constant = 2;
+        _38Constant = 3;
+        _39Map = Map(_35Indices, (Int32 x0) => 
+          {
+            Int32 _0Modulo;// 7:QuadToTriMesh-ext->14:Modulo 52501
+            Boolean _1Equal;// 7:QuadToTriMesh-ext->7:Equal 52500
+            Boolean _2Equal;// 7:QuadToTriMesh-ext->13:Equal 52504
+            Boolean _3OrElse;// 7:QuadToTriMesh-ext->12:OrElse 52499
+            Boolean _4Not;// 7:QuadToTriMesh-ext->10:Not 52498
+            _0Modulo = Modulo(x0, _36Constant);
+            _1Equal = Equal(_0Modulo, _37Constant);
+            _2Equal = Equal(_0Modulo, _38Constant);
+            _3OrElse = OrElse(_1Equal, _2Equal);
+            _4Not = Not(_3OrElse);
+            _4Not;
+            });
+        _40SetVisibleEdges = SetVisibleEdges(_33Triangulate, _39Map);
+        _41CreateEditableMesh = CreateEditableMesh(_40SetVisibleEdges);
+        _42Bind2of2 = Bind2of2((INode x0, INode x1) => 
+          {
+            INode _0SetParent;// 12:ClonerTransformChildMeshes-ext->9:SetParent 52489
+            _0SetParent = SetParent(x0, x1);
+            _0SetParent;
+            }, _41CreateEditableMesh);
+        _43Map = Map(_24Combine, _42Bind2of2);
+        _62Combine = Combine(if (use children)
+          {
+            if (randomize children)
+              {
+                IArray[INode] _44ChildNodes;// 17:ClonerChildNodes-ext->17:ChildNodes 52449
+                Int32 _45Count;// 17:ClonerChildNodes-ext->5:Count 52448
+                Int32 _46Zero;// 11:GreaterThanZero->1:Zero 52447
+                Boolean _47GreaterThan;// 11:GreaterThanZero->3:GreaterThan 52446
+                _44ChildNodes = ChildNodes(clone target);
+                _45Count = Count(_44ChildNodes);
+                _46Zero = Zero();
+                _47GreaterThan = GreaterThan(_45Count, _46Zero);
+                if (_47GreaterThan)
+                  {
+                    Func[Random, Int32] _48Pass-through: function1;// 0:Pass-through: function1 52459
+                    Random _49RandomNumberGenerator;// 10:RandomizeArray-ext->2:RandomNumberGenerator 52466
+                    Func[Int32] _50Bind;// 0:RandomArray-ext->4:Bind 52463
+                    IArray[Int32] _51Range;// 2:MapRange->2:Range 52473
+                    Func[Int32, INode] _52Pass-through: function1;// 0:Pass-through: function1 52471
+                    IArray[INode] _53Map;// 2:MapRange->3:Map 52472
+                    Int32 _54Count;// 10:RandomizeArray-ext->4:Count 52467
+                    IArray[Int32] _55ArrayOfFunction;// 0:RandomArray-ext->5:ArrayOfFunction 52462
+                    IArray[INode] _56Map;// 5:SelectByIndex->2:Map 52454
+                    _48Pass-through: function1 = (Random x0) => 
+                      {
+                        IArray[Int32] _0Range;// 2:MapRange->2:Range 52473
+                        Func[Int32, INode] _1Pass-through: function1;// 0:Pass-through: function1 52471
+                        IArray[INode] _2Map;// 2:MapRange->3:Map 52472
+                        Int32 _3Count;// 1:ArrayRandomIndices-ext->4:Count 52465
+                        _0Range = Range(_8Count);
+                        _1Pass-through: function1 = (Int32 x0) => 
+                          {
+                            Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                            Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                            Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                            Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                            INode _5At;// 7:AtModulo-ext->3:At 52476
+                            _0Count = Count(_44ChildNodes);
+                            _1Modulo = Modulo(x0, _0Count);
+                            _2Zero = Zero();
+                            _3LessThan = LessThan(_1Modulo, _2Zero);
+                            _5At = At(_44ChildNodes, if (_3LessThan)
+                              {
+                                Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                                _4Add = Add(_1Modulo, _0Count);
+                                _4Add;
+                                }else
+                              {
+                                _1Modulo;
+                                });
+                            _5At;
+                            };
+                        _2Map = Map(_0Range, _1Pass-through: function1);
+                        _3Count = Count(_2Map);
+                        PseudoRandomInt(x0, _3Count);
+                        };
+                    _49RandomNumberGenerator = RandomNumberGenerator(randomize seed);
+                    _50Bind = Bind(_48Pass-through: function1, _49RandomNumberGenerator);
+                    _51Range = Range(_8Count);
+                    _52Pass-through: function1 = (Int32 x0) => 
+                      {
+                        Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                        Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                        Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                        Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                        INode _5At;// 7:AtModulo-ext->3:At 52476
+                        _0Count = Count(_44ChildNodes);
+                        _1Modulo = Modulo(x0, _0Count);
+                        _2Zero = Zero();
+                        _3LessThan = LessThan(_1Modulo, _2Zero);
+                        _5At = At(_44ChildNodes, if (_3LessThan)
+                          {
+                            Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                            _4Add = Add(_1Modulo, _0Count);
+                            _4Add;
+                            }else
+                          {
+                            _1Modulo;
+                            });
+                        _5At;
+                        };
+                    _53Map = Map(_51Range, _52Pass-through: function1);
+                    _54Count = Count(_53Map);
+                    _55ArrayOfFunction = ArrayOfFunction(_50Bind, _54Count);
+                    _56Map = Map(_55ArrayOfFunction, (Int32 x0) => 
+                      {
+                        INode _0At;// 5:SelectByIndex->3:At 52455
+                        _0At = At(_53Map, x0);
+                        _0At;
+                        });
+                    _56Map;
+                    }else
+                  {
+                    _44ChildNodes;
+                    };
+                }else
+              {
+                IArray[Int32] _57Range;// 2:MapRange->2:Range 52473
+                IArray[INode] _58ChildNodes;// 17:ClonerChildNodes-ext->17:ChildNodes 52449
+                Func[Int32, INode] _59Pass-through: function1;// 0:Pass-through: function1 52471
+                IArray[INode] _60Map;// 2:MapRange->3:Map 52472
+                _57Range = Range(_8Count);
+                _58ChildNodes = ChildNodes(clone target);
+                _59Pass-through: function1 = (Int32 x0) => 
+                  {
+                    Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                    Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                    Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                    Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                    INode _5At;// 7:AtModulo-ext->3:At 52476
+                    _0Count = Count(_58ChildNodes);
+                    _1Modulo = Modulo(x0, _0Count);
+                    _2Zero = Zero();
+                    _3LessThan = LessThan(_1Modulo, _2Zero);
+                    _5At = At(_58ChildNodes, if (_3LessThan)
+                      {
+                        Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                        _4Add = Add(_1Modulo, _0Count);
+                        _4Add;
+                        }else
+                      {
+                        _1Modulo;
+                        });
+                    _5At;
+                    };
+                _60Map = Map(_57Range, _59Pass-through: function1);
+                _60Map;
+                };
+            }else
+          {
+            IArray[INode] _61ArrayOf;// 17:ClonerChildNodes-ext->3:ArrayOf 52485
+            _61ArrayOf = ArrayOf(clone target, _8Count);
+            _61ArrayOf;
+            }, _7Map, (INode x0, Matrix x1) => 
+          {
+            TriMesh _0MeshFromNode;// 12:ClonerTransformChildMeshes-ext->0:MeshFromNode 52527
+            IArray[Vector3] _1MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 52525
+            Func[Vector3, Vector3] _2Pass-through: function1;// 0:Pass-through: function1 52522
+            IArray[Vector3] _3Map;// 2:DeformMeshPoints->1:Map 52524
+            TriMesh _4SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 52523
+            _0MeshFromNode = MeshFromNode(x0);
+            _1MeshVertices = MeshVertices(_0MeshFromNode);
+            _2Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 13:TransformMesh->0:Transform 52526
+                _0Transform = Transform(x0, x1);
+                _0Transform;
+                };
+            _3Map = Map(_1MeshVertices, _2Pass-through: function1);
+            _4SetMeshVertices = SetMeshVertices(_0MeshFromNode, _3Map);
+            _4SetMeshVertices;
+            });
+        _63IgnoreFirst = IgnoreFirst(_43Map, _62Combine);
+        _63IgnoreFirst;
+        }, () => 
+      {
+        MapChannel _0GetMapChannel;// 34:MatricesFromMapChannel-ext->9:GetMapChannel 52540
+        IArray[Vector3] _1MapChannelVertexBuffer;// 34:MatricesFromMapChannel-ext->8:MapChannelVertexBuffer 52539
+        Int32 _2Count;// 2:Slices->2:Count 52536
+        Int32 _3Constant;// 34:MatricesFromMapChannel-ext->0:Constant 52541
+        Int32 _4Divide;// 2:Slices->3:Divide 52535
+        IArray[Int32] _5Range;// 2:Slices->4:Range 52534
+        IArray[IArray[Vector3]] _6Map;// 2:Slices->5:Map 52533
+        IArray[Matrix] _7Map;// 34:MatricesFromMapChannel-ext->5:Map 52530
+        IArray[TriMesh] _28Combine;// 12:ClonerTransformChildMeshes-ext->12:Combine 52518
+        _0GetMapChannel = GetMapChannel(mesh, channel id);
+        _1MapChannelVertexBuffer = MapChannelVertexBuffer(_0GetMapChannel);
+        _2Count = Count(_1MapChannelVertexBuffer);
+        _3Constant = 4;
+        _4Divide = Divide(_2Count, _3Constant);
+        _5Range = Range(_4Divide);
+        _6Map = Map(_5Range, (Int32 x0) => 
+          {
+            Int32 _0Multiply;// 2:Slices->6:Multiply 52538
+            IArray[Vector3] _1Slice;// 2:Slices->0:Slice 52537
+            _0Multiply = Multiply(_3Constant, x0);
+            _1Slice = Slice(_1MapChannelVertexBuffer, _0Multiply, _3Constant);
+            _1Slice;
+            });
+        _7Map = Map(_6Map, (IArray[Vector3] x0) => 
+          {
+            Matrix _0MatrixIdentity;// 0:SetMatrixFrom3Rows->23:MatrixIdentity 52550
+            Int32 _1One;// 0:SetMatrixFrom3Rows->24:One 52551
+            Int32 _2Zero;// 6:MatrixFromRows-ext->7:Zero 52555
+            Vector3 _3At;// 6:MatrixFromRows-ext->3:At 52554
+            Matrix _4SetMatrixRow;// 0:SetMatrixFrom3Rows->22:SetMatrixRow 52549
+            Int32 _5Two;// 0:SetMatrixFrom3Rows->26:Two 52552
+            Int32 _6One;// 8:PlusOne->1:One 52559
+            Int32 _7Add;// 8:PlusOne->0:Add 52558
+            Vector3 _8At;// 6:MatrixFromRows-ext->4:At 52556
+            Matrix _9SetMatrixRow;// 0:SetMatrixFrom3Rows->27:SetMatrixRow 52548
+            Int32 _10Constant;// 25:Three->0:Constant 52553
+            Int32 _11One;// 9:PlusOne->1:One 52563
+            Int32 _12Add;// 9:PlusOne->0:Add 52562
+            Vector3 _13At;// 6:MatrixFromRows-ext->5:At 52560
+            Matrix _14SetMatrixRow;// 0:SetMatrixFrom3Rows->28:SetMatrixRow 52547
+            Int32 _15One;// 10:PlusOne->1:One 52567
+            Int32 _16Add;// 10:PlusOne->0:Add 52566
+            Vector3 _17At;// 6:MatrixFromRows-ext->6:At 52564
+            Matrix _18SetMatrixTranslation;// 6:MatrixFromRows-ext->2:SetMatrixTranslation 52543
+            _0MatrixIdentity = MatrixIdentity();
+            _1One = One();
+            _2Zero = Zero();
+            _3At = At(x0, _2Zero);
+            _4SetMatrixRow = SetMatrixRow(_0MatrixIdentity, _1One, _3At);
+            _5Two = Two();
+            _6One = One();
+            _7Add = Add(_2Zero, _6One);
+            _8At = At(x0, _7Add);
+            _9SetMatrixRow = SetMatrixRow(_4SetMatrixRow, _5Two, _8At);
+            _10Constant = 3;
+            _11One = One();
+            _12Add = Add(_7Add, _11One);
+            _13At = At(x0, _12Add);
+            _14SetMatrixRow = SetMatrixRow(_9SetMatrixRow, _10Constant, _13At);
+            _15One = One();
+            _16Add = Add(_12Add, _15One);
+            _17At = At(x0, _16Add);
+            _18SetMatrixTranslation = SetMatrixTranslation(_14SetMatrixRow, _17At);
+            _18SetMatrixTranslation;
+            });
+        _28Combine = Combine(if (use children)
+          {
+            Int32 _8Count;// 17:ClonerChildNodes-ext->9:Count 52484
+            _8Count = Count(_7Map);
+            if (randomize children)
+              {
+                IArray[INode] _9ChildNodes;// 17:ClonerChildNodes-ext->17:ChildNodes 52449
+                Int32 _10Count;// 17:ClonerChildNodes-ext->5:Count 52448
+                Int32 _11Zero;// 11:GreaterThanZero->1:Zero 52447
+                Boolean _12GreaterThan;// 11:GreaterThanZero->3:GreaterThan 52446
+                _9ChildNodes = ChildNodes(clone target);
+                _10Count = Count(_9ChildNodes);
+                _11Zero = Zero();
+                _12GreaterThan = GreaterThan(_10Count, _11Zero);
+                if (_12GreaterThan)
+                  {
+                    Func[Random, Int32] _13Pass-through: function1;// 0:Pass-through: function1 52459
+                    Random _14RandomNumberGenerator;// 10:RandomizeArray-ext->2:RandomNumberGenerator 52466
+                    Func[Int32] _15Bind;// 0:RandomArray-ext->4:Bind 52463
+                    IArray[Int32] _16Range;// 2:MapRange->2:Range 52473
+                    Func[Int32, INode] _17Pass-through: function1;// 0:Pass-through: function1 52471
+                    IArray[INode] _18Map;// 2:MapRange->3:Map 52472
+                    Int32 _19Count;// 10:RandomizeArray-ext->4:Count 52467
+                    IArray[Int32] _20ArrayOfFunction;// 0:RandomArray-ext->5:ArrayOfFunction 52462
+                    IArray[INode] _21Map;// 5:SelectByIndex->2:Map 52454
+                    _13Pass-through: function1 = (Random x0) => 
+                      {
+                        IArray[Int32] _0Range;// 2:MapRange->2:Range 52473
+                        Func[Int32, INode] _1Pass-through: function1;// 0:Pass-through: function1 52471
+                        IArray[INode] _2Map;// 2:MapRange->3:Map 52472
+                        Int32 _3Count;// 1:ArrayRandomIndices-ext->4:Count 52465
+                        _0Range = Range(_8Count);
+                        _1Pass-through: function1 = (Int32 x0) => 
+                          {
+                            Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                            Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                            Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                            Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                            INode _5At;// 7:AtModulo-ext->3:At 52476
+                            _0Count = Count(_9ChildNodes);
+                            _1Modulo = Modulo(x0, _0Count);
+                            _2Zero = Zero();
+                            _3LessThan = LessThan(_1Modulo, _2Zero);
+                            _5At = At(_9ChildNodes, if (_3LessThan)
+                              {
+                                Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                                _4Add = Add(_1Modulo, _0Count);
+                                _4Add;
+                                }else
+                              {
+                                _1Modulo;
+                                });
+                            _5At;
+                            };
+                        _2Map = Map(_0Range, _1Pass-through: function1);
+                        _3Count = Count(_2Map);
+                        PseudoRandomInt(x0, _3Count);
+                        };
+                    _14RandomNumberGenerator = RandomNumberGenerator(randomize seed);
+                    _15Bind = Bind(_13Pass-through: function1, _14RandomNumberGenerator);
+                    _16Range = Range(_8Count);
+                    _17Pass-through: function1 = (Int32 x0) => 
+                      {
+                        Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                        Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                        Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                        Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                        INode _5At;// 7:AtModulo-ext->3:At 52476
+                        _0Count = Count(_9ChildNodes);
+                        _1Modulo = Modulo(x0, _0Count);
+                        _2Zero = Zero();
+                        _3LessThan = LessThan(_1Modulo, _2Zero);
+                        _5At = At(_9ChildNodes, if (_3LessThan)
+                          {
+                            Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                            _4Add = Add(_1Modulo, _0Count);
+                            _4Add;
+                            }else
+                          {
+                            _1Modulo;
+                            });
+                        _5At;
+                        };
+                    _18Map = Map(_16Range, _17Pass-through: function1);
+                    _19Count = Count(_18Map);
+                    _20ArrayOfFunction = ArrayOfFunction(_15Bind, _19Count);
+                    _21Map = Map(_20ArrayOfFunction, (Int32 x0) => 
+                      {
+                        INode _0At;// 5:SelectByIndex->3:At 52455
+                        _0At = At(_18Map, x0);
+                        _0At;
+                        });
+                    _21Map;
+                    }else
+                  {
+                    _9ChildNodes;
+                    };
+                }else
+              {
+                IArray[Int32] _22Range;// 2:MapRange->2:Range 52473
+                IArray[INode] _23ChildNodes;// 17:ClonerChildNodes-ext->17:ChildNodes 52449
+                Func[Int32, INode] _24Pass-through: function1;// 0:Pass-through: function1 52471
+                IArray[INode] _25Map;// 2:MapRange->3:Map 52472
+                _22Range = Range(_8Count);
+                _23ChildNodes = ChildNodes(clone target);
+                _24Pass-through: function1 = (Int32 x0) => 
+                  {
+                    Int32 _0Count;// 7:AtModulo-ext->6:Count 52482
+                    Int32 _1Modulo;// 7:AtModulo-ext->5:Modulo 52481
+                    Int32 _2Zero;// 7:LessThanZero-ext->2:Zero 52480
+                    Boolean _3LessThan;// 7:LessThanZero-ext->1:LessThan 52479
+                    INode _5At;// 7:AtModulo-ext->3:At 52476
+                    _0Count = Count(_23ChildNodes);
+                    _1Modulo = Modulo(x0, _0Count);
+                    _2Zero = Zero();
+                    _3LessThan = LessThan(_1Modulo, _2Zero);
+                    _5At = At(_23ChildNodes, if (_3LessThan)
+                      {
+                        Int32 _4Add;// 7:AtModulo-ext->8:Add 52483
+                        _4Add = Add(_1Modulo, _0Count);
+                        _4Add;
+                        }else
+                      {
+                        _1Modulo;
+                        });
+                    _5At;
+                    };
+                _25Map = Map(_22Range, _24Pass-through: function1);
+                _25Map;
+                };
+            }else
+          {
+            Int32 _26Count;// 17:ClonerChildNodes-ext->9:Count 52484
+            IArray[INode] _27ArrayOf;// 17:ClonerChildNodes-ext->3:ArrayOf 52485
+            _26Count = Count(_7Map);
+            _27ArrayOf = ArrayOf(clone target, _26Count);
+            _27ArrayOf;
+            }, _7Map, (INode x0, Matrix x1) => 
+          {
+            TriMesh _0MeshFromNode;// 12:ClonerTransformChildMeshes-ext->0:MeshFromNode 52527
+            IArray[Vector3] _1MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 52525
+            Func[Vector3, Vector3] _2Pass-through: function1;// 0:Pass-through: function1 52522
+            IArray[Vector3] _3Map;// 2:DeformMeshPoints->1:Map 52524
+            TriMesh _4SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 52523
+            _0MeshFromNode = MeshFromNode(x0);
+            _1MeshVertices = MeshVertices(_0MeshFromNode);
+            _2Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 13:TransformMesh->0:Transform 52526
+                _0Transform = Transform(x0, x1);
+                _0Transform;
+                };
+            _3Map = Map(_1MeshVertices, _2Pass-through: function1);
+            _4SetMeshVertices = SetMeshVertices(_0MeshFromNode, _3Map);
+            _4SetMeshVertices;
+            });
+        _28Combine;
+        });
+    _2CombineAllMeshes = CombineAllMeshes(if (include original)
+      {
+        IArray[TriMesh] _1Append;// 39:AppendIf->1:Append 52425
+        _1Append = Append(_0IfThen, mesh);
+        _1Append;
+        }else
+      {
+        _0IfThen;
+        });
+    _10IgnoreFirst = IgnoreFirst(mesh, if (keep custom channels)
+      {
+        Int32 _4Constant;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->0:Constant 52375
+        IArray[Int32] _5Range;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->1:Range 52374
+        Int32 _6Two;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->4:Two 52376
+        IArray[Int32] _7Skip;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->3:Skip 52373
+        IArray[Int32] _8Filter;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->13:Filter 52372
+        TriMesh _9Aggregate;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->6:Aggregate 52371
+        _4Constant = 100;
+        _5Range = Range(_4Constant);
+        _6Two = Two();
+        _7Skip = Skip(_5Range, _6Two);
+        _8Filter = Filter(_7Skip, (Int32 x0) => 
+          {
+            Int32 _0Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 52389
+            Boolean _1Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 52388
+            MapChannel _4Pass-through: any;// 0:Pass-through: any 52380
+            Object _5Null;// 6:IsNullFix2-ext->3:Null 52384
+            Object _6As;// 6:IsNullFix2-ext->23:As 52382
+            Boolean _7Equal;// 6:IsNullFix2-ext->1:Equal 52381
+            Boolean _8Not;// 12:MapChannelExists-ext->4:Not 52379
+            _0Constant = -3;
+            _1Equal = Equal(x0, _0Constant);
+            _4Pass-through: any = if (_1Equal)
+              {
+                MapChannel _2TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 52390
+                _2TopologyChannel = TopologyChannel(mesh);
+                _2TopologyChannel;
+                }else
+              {
+                MapChannel _3GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 52391
+                _3GetMapChannel = GetMapChannel(mesh, x0);
+                _3GetMapChannel;
+                };
+            _5Null = Null();
+            _6As = As(_4Pass-through: any, (Object x0) => 
+              {
+                Object _0IgnoreFirst;// 6:IsNullFix2-ext->5:IgnoreFirst 52383
+                _0IgnoreFirst = IgnoreFirst(x0, _5Null);
+                _0IgnoreFirst;
+                });
+            _7Equal = Equal(_6As, _5Null);
+            _8Not = Not(_7Equal);
+            _8Not;
+            });
+        _9Aggregate = Aggregate(_8Filter, _2CombineAllMeshes, (TriMesh x0, Int32 x1) => 
+          {
+            TriMesh _0TryCatch;// 10:MapChannelCopyVertexBuffer-ext->10:TryCatch 52395
+            _0TryCatch = TryCatch(() => 
+              {
+                Int32 _0IgnoreFirst;// 41:MeshCopyCustomMapChannelVertexBuffers-ext->7:IgnoreFirst 52417
+                Int32 _1Constant;// 5:MapChannelOrGeometryGet-ext->0:Constant 52409
+                Boolean _2Equal;// 5:MapChannelOrGeometryGet-ext->4:Equal 52408
+                MapChannel _5Pass-through: any;// 0:Pass-through: any 52400
+                Object _6Null;// 6:IsNullFix2-ext->3:Null 52404
+                Object _7As;// 6:IsNullFix2-ext->23:As 52402
+                Boolean _8Equal;// 6:IsNullFix2-ext->1:Equal 52401
+                Boolean _9Not;// 5:MapChannelExists-ext->4:Not 52399
+                _0IgnoreFirst = IgnoreFirst(x0, x1);
+                _1Constant = -3;
+                _2Equal = Equal(_0IgnoreFirst, _1Constant);
+                _5Pass-through: any = if (_2Equal)
+                  {
+                    MapChannel _3TopologyChannel;// 5:MapChannelOrGeometryGet-ext->6:TopologyChannel 52410
+                    _3TopologyChannel = TopologyChannel(mesh);
+                    _3TopologyChannel;
+                    }else
+                  {
+                    MapChannel _4GetMapChannel;// 5:MapChannelOrGeometryGet-ext->3:GetMapChannel 52411
+                    _4GetMapChannel = GetMapChannel(mesh, _0IgnoreFirst);
+                    _4GetMapChannel;
+                    };
+                _6Null = Null();
+                _7As = As(_5Pass-through: any, (Object x0) => 
+                  {
+                    Object _0IgnoreFirst;// 6:IsNullFix2-ext->5:IgnoreFirst 52403
+                    _0IgnoreFirst = IgnoreFirst(x0, _6Null);
+                    _0IgnoreFirst;
+                    });
+                _8Equal = Equal(_7As, _6Null);
+                _9Not = Not(_8Equal);
+                if (_9Not)
+                  {
+                    MapChannel _10GetMapChannel;// 10:MapChannelCopyVertexBuffer-ext->1:GetMapChannel 52414
+                    IArray[Vector3] _11MapChannelVertexBuffer;// 10:MapChannelCopyVertexBuffer-ext->8:MapChannelVertexBuffer 52413
+                    IArray[Int32] _12MeshIndices;// 10:MapChannelCopyVertexBuffer-ext->0:MeshIndices 52415
+                    TriMesh _13SetMapChannel;// 10:MapChannelCopyVertexBuffer-ext->7:SetMapChannel 52412
+                    _10GetMapChannel = GetMapChannel(mesh, _0IgnoreFirst);
+                    _11MapChannelVertexBuffer = MapChannelVertexBuffer(_10GetMapChannel);
+                    _12MeshIndices = MeshIndices(x0);
+                    _13SetMapChannel = SetMapChannel(x0, _0IgnoreFirst, _11MapChannelVertexBuffer, _12MeshIndices);
+                    _13SetMapChannel;
+                    }else
+                  {
+                    x0;
+                    };
+                }, (Exception x0) => 
+              {
+                TriMesh _0IgnoreFirst;// 10:MapChannelCopyVertexBuffer-ext->11:IgnoreFirst 52416
+                _0IgnoreFirst = IgnoreFirst(x0, x0);
+                _0IgnoreFirst;
+                });
+            _0TryCatch;
+            });
+        _9Aggregate;
+        }else
+      {
+        _2CombineAllMeshes;
+        });
+    _10IgnoreFirst;
+    }

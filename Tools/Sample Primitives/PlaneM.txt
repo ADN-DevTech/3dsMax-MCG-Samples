@@ -1,0 +1,182 @@
+(InstanceState state, Int32 widthSegments, Int32 heightSegments, Single width, Single height) => 
+  {
+    Int32 _0One;// 4:PlusOne->1:One 43939
+    Int32 _1Add;// 4:PlusOne->0:Add 43938
+    IArray[Single] _2RangeInclusiveFloat;// 8:SampleLerp->2:RangeInclusiveFloat 43913
+    Single _3Constant;// 7:Vector3FromXY->0:Constant 43961
+    Vector3 _4Vector3;// 7:Vector3FromXY->0:Vector3 43960
+    Vector3 _5Negate;// 0:QuadMeshPlaneXY-ext->5:Negate 43957
+    Single _6X;// 4:QuadMeshPlane-ext->2:X 43949
+    Single _7Y;// 4:QuadMeshPlane-ext->3:Y 43950
+    Single _8Constant;// 4:Vector3FromXY->0:Constant 43948
+    Vector3 _9Vector3;// 4:Vector3FromXY->0:Vector3 43947
+    Line _10Line;// 5:QuadMeshGrid-ext->10:Line 43940
+    Single _11X;// 4:QuadMeshPlane-ext->6:X 43955
+    Single _12Y;// 4:QuadMeshPlane-ext->8:Y 43956
+    Single _13Constant;// 7:Vector3FromXY->0:Constant 43954
+    Vector3 _14Vector3;// 7:Vector3FromXY->0:Vector3 43953
+    Line _15Line;// 5:QuadMeshGrid-ext->11:Line 43941
+    Func[Single, Line] _16Pass-through: function1;// 0:Pass-through: function1 43911
+    IArray[Line] _17Map;// 8:SampleLerp->3:Map 43912
+    Int32 _18One;// 6:PlusOne->1:One 43944
+    Int32 _19Add;// 6:PlusOne->0:Add 43943
+    Func[Line, IArray[Vector3]] _20Pass-through: function1;// 0:Pass-through: function1 43907
+    IArray[IArray[Vector3]] _21Map;// 9:FlatMap->4:Map 43909
+    IArray[Vector3] _22Flatten;// 9:FlatMap->3:Flatten 43908
+    Boolean _23False;// 20:QuadPlaneMesh->5:False 43936
+    QuadMesh _24QuadMeshStrip;// 20:QuadPlaneMesh->0:QuadMeshStrip 43905
+    QuadMesh _25IgnoreFirst;// 5:QuadMeshGrid-ext->1:IgnoreFirst 43900
+    IArray[Vector3] _26QuadMeshVertices;// 5:QuadMeshToTriMesh-ext->14:QuadMeshVertices 43850
+    IArray[Int32] _27QuadMeshIndices;// 5:QuadMeshToTriMesh-ext->2:QuadMeshIndices 43863
+    Int32 _28Count;// 3:Slices->2:Count 43860
+    Int32 _29Constant;// 5:QuadMeshToTriMesh-ext->0:Constant 43864
+    Int32 _30Divide;// 3:Slices->3:Divide 43859
+    IArray[Int32] _31Range;// 3:Slices->4:Range 43858
+    IArray[IArray[Int32]] _32Map;// 3:Slices->5:Map 43857
+    Int32 _33Constant;// 5:QuadMeshToTriMesh-ext->0:Constant 43879
+    IArray[Int32] _34Range;// 5:QuadMeshToTriMesh-ext->6:Range 43878
+    Int32 _35Constant;// 5:QuadMeshToTriMesh-ext->0:Constant 43880
+    IArray[Int32] _36Append;// 5:QuadMeshToTriMesh-ext->11:Append 43877
+    Int32 _37Constant;// 5:QuadMeshToTriMesh-ext->0:Constant 43881
+    IArray[Int32] _38Append;// 5:QuadMeshToTriMesh-ext->12:Append 43876
+    Int32 _39Constant;// 5:QuadMeshToTriMesh-ext->0:Constant 43882
+    IArray[Int32] _40Append;// 5:QuadMeshToTriMesh-ext->17:Append 43875
+    IArray[Int32] _41Map;// 23:IntArrayCheck-ext->1:Map 43873
+    Func[IArray[Int32], IArray[Int32]] _42Pass-through: function1;// 0:Pass-through: function1 43852
+    IArray[IArray[Int32]] _43Map;// 1:FlatMap->4:Map 43854
+    IArray[Int32] _44Flatten;// 1:FlatMap->3:Flatten 43853
+    TriMesh _45CreateMesh;// 5:QuadMeshToTriMesh-ext->13:CreateMesh 43849
+    IArray[Int32] _46MeshIndices;// 16:HideEveryThirdEdge->2:MeshIndices 43840
+    IArray[Int32] _47Indices;// 16:HideEveryThirdEdge->8:Indices 43839
+    Int32 _48Constant;// 16:HideEveryThirdEdge->0:Constant 43847
+    Int32 _49Constant;// 16:HideEveryThirdEdge->0:Constant 43848
+    IArray[Boolean] _50Map;// 16:HideEveryThirdEdge->5:Map 43838
+    TriMesh _51SetVisibleEdges;// 16:HideEveryThirdEdge->9:SetVisibleEdges 43837
+    _0One = One();
+    _1Add = Add(heightSegments, _0One);
+    _2RangeInclusiveFloat = RangeInclusiveFloat(_1Add);
+    _3Constant = 0;
+    _4Vector3 = Vector3(width, height, _3Constant);
+    _5Negate = Negate(_4Vector3);
+    _6X = X(_4Vector3);
+    _7Y = Y(_5Negate);
+    _8Constant = 0;
+    _9Vector3 = Vector3(_6X, _7Y, _8Constant);
+    _10Line = Line(_5Negate, _9Vector3);
+    _11X = X(_5Negate);
+    _12Y = Y(_4Vector3);
+    _13Constant = 0;
+    _14Vector3 = Vector3(_11X, _12Y, _13Constant);
+    _15Line = Line(_14Vector3, _4Vector3);
+    _16Pass-through: function1 = (Single x0) => 
+      {
+        Vector3 _0LineA;// 10:LerpLines->2:LineA 43919
+        Vector3 _1LineB;// 10:LerpLines->3:LineB 43920
+        Vector3 _2Lerp;// 10:LerpLines->4:Lerp 43918
+        Vector3 _3LineA;// 10:LerpLines->7:LineA 43922
+        Vector3 _4LineB;// 10:LerpLines->8:LineB 43923
+        Vector3 _5Lerp;// 10:LerpLines->9:Lerp 43921
+        Line _6Line;// 10:LerpLines->10:Line 43917
+        _0LineA = LineA(_10Line);
+        _1LineB = LineB(_10Line);
+        _2Lerp = Lerp(_0LineA, _1LineB, x0);
+        _3LineA = LineA(_15Line);
+        _4LineB = LineB(_15Line);
+        _5Lerp = Lerp(_3LineA, _4LineB, x0);
+        _6Line = Line(_2Lerp, _5Lerp);
+        _6Line;
+        };
+    _17Map = Map(_2RangeInclusiveFloat, _16Pass-through: function1);
+    _18One = One();
+    _19Add = Add(widthSegments, _18One);
+    _20Pass-through: function1 = (Line x0) => 
+      {
+        IArray[Single] _0RangeInclusiveFloat;// 5:SampleLerp->2:RangeInclusiveFloat 43932
+        Vector3 _1LineA;// 7:LineToArray->3:LineA 43934
+        Vector3 _2LineB;// 7:LineToArray->4:LineB 43935
+        Func[Single, Vector3] _3Pass-through: function1;// 0:Pass-through: function1 43930
+        IArray[Vector3] _4Map;// 5:SampleLerp->3:Map 43931
+        _0RangeInclusiveFloat = RangeInclusiveFloat(_19Add);
+        _1LineA = LineA(x0);
+        _2LineB = LineB(x0);
+        _3Pass-through: function1 = (Single x0) => 
+          {
+            Vector3 _0Lerp;// 2:ArrayOfLerpedVectors->3:Lerp 43933
+            _0Lerp = Lerp(_1LineA, _2LineB, x0);
+            _0Lerp;
+            };
+        _4Map = Map(_0RangeInclusiveFloat, _3Pass-through: function1);
+        _4Map;
+        };
+    _21Map = Map(_17Map, _20Pass-through: function1);
+    _22Flatten = Flatten(_21Map);
+    _23False = False();
+    _24QuadMeshStrip = QuadMeshStrip(_22Flatten, _1Add, _23False, _23False);
+    _25IgnoreFirst = IgnoreFirst(widthSegments, _24QuadMeshStrip);
+    _26QuadMeshVertices = QuadMeshVertices(_25IgnoreFirst);
+    _27QuadMeshIndices = QuadMeshIndices(_25IgnoreFirst);
+    _28Count = Count(_27QuadMeshIndices);
+    _29Constant = 4;
+    _30Divide = Divide(_28Count, _29Constant);
+    _31Range = Range(_30Divide);
+    _32Map = Map(_31Range, (Int32 x0) => 
+      {
+        Int32 _0Multiply;// 3:Slices->6:Multiply 43862
+        IArray[Int32] _1Slice;// 3:Slices->0:Slice 43861
+        _0Multiply = Multiply(_29Constant, x0);
+        _1Slice = Slice(_27QuadMeshIndices, _0Multiply, _29Constant);
+        _1Slice;
+        });
+    _33Constant = 3;
+    _34Range = Range(_33Constant);
+    _35Constant = 2;
+    _36Append = Append(_34Range, _35Constant);
+    _37Constant = 3;
+    _38Append = Append(_36Append, _37Constant);
+    _39Constant = 0;
+    _40Append = Append(_38Append, _39Constant);
+    _41Map = Map(_40Append, (Int32 x0) => 
+      {
+        x0;
+        });
+    _42Pass-through: function1 = (IArray[Int32] x0) => 
+      {
+        IArray[Int32] _0Map;// 5:IntArrayCheck-ext->1:Map 43869
+        IArray[Int32] _1Map;// 5:IntArrayCheck-ext->1:Map 43884
+        IArray[Int32] _2Map;// 22:ArraySelectByIndex2-ext->2:Map 43867
+        _0Map = Map(_41Map, (Int32 x0) => 
+          {
+            x0;
+            });
+        _1Map = Map(x0, (Int32 x0) => 
+          {
+            x0;
+            });
+        _2Map = Map(_0Map, (Int32 x0) => 
+          {
+            Int32 _0At;// 22:ArraySelectByIndex2-ext->3:At 43871
+            _0At = At(_1Map, x0);
+            _0At;
+            });
+        _2Map;
+        };
+    _43Map = Map(_32Map, _42Pass-through: function1);
+    _44Flatten = Flatten(_43Map);
+    _45CreateMesh = CreateMesh(_26QuadMeshVertices, _44Flatten);
+    _46MeshIndices = MeshIndices(_45CreateMesh);
+    _47Indices = Indices(_46MeshIndices);
+    _48Constant = 3;
+    _49Constant = 2;
+    _50Map = Map(_47Indices, (Int32 x0) => 
+      {
+        Int32 _0Modulo;// 6:ModuloEquals->3:Modulo 43846
+        Boolean _1Equal;// 6:ModuloEquals->4:Equal 43845
+        Boolean _2Not;// 16:HideEveryThirdEdge->7:Not 43841
+        _0Modulo = Modulo(x0, _48Constant);
+        _1Equal = Equal(_0Modulo, _49Constant);
+        _2Not = Not(_1Equal);
+        _2Not;
+        });
+    _51SetVisibleEdges = SetVisibleEdges(_45CreateMesh, _50Map);
+    _51SetVisibleEdges;
+    }

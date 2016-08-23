@@ -1,0 +1,561 @@
+(InstanceState state, TriMesh mesh, Boolean absolute or relative, INode target, Matrix modifierTransform, Single weight) => 
+  {
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 54422
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 54424
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 54423
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 54421
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 54420
+    TriMesh _5IfThen;// 6:MeshSetVertices-ext->10:IfThen 54416
+    _0Constant = per-vertex data channel ;
+    _1Zero = Zero();
+    _2ToString = ToString(_1Zero);
+    _3ConcatenateStrings = ConcatenateStrings(_0Constant, _2ToString);
+    _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
+    _5IfThen = IfThen(_4IsChannelAvailable, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 6:MeshSetVertices-ext->0:MeshVertices 54431
+        IArray[Vector3] _1MeshVertices;// 5:MeshInterpolate-ext->7:MeshVertices 54445
+        String _2Constant;// 0:HasPerVertexChannel->0:Constant 54459
+        Int32 _3Zero;// 4:HasSoftSelection->3:Zero 54461
+        String _4ToString;// 0:HasPerVertexChannel->7:ToString 54460
+        String _5ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 54458
+        Boolean _6IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 54457
+        TriMesh _7IfThen;// 3:MeshSetVertices-ext->10:IfThen 54453
+        IArray[Vector3] _8MeshVertices;// 5:MeshInterpolate-ext->4:MeshVertices 54446
+        Single _9Constant;// 10:DivideBy100-ext->0:Constant 54529
+        Single _10Divide;// 10:DivideBy100-ext->2:Divide 54528
+        Func[Vector3, Vector3, Vector3] _11Pass-through: function2;// 0:Pass-through: function2 54438
+        IArray[Vector3] _12Combine;// 5:ArrayCombineKeepLength-ext->0:Combine 54444
+        Int32 _13Count;// 4:ArrayConcatenateTail-ext->2:Count 54443
+        IArray[Vector3] _14Skip;// 4:ArrayConcatenateTail-ext->3:Skip 54442
+        IArray[Vector3] _15Concatenate;// 4:ArrayConcatenateTail-ext->4:Concatenate 54441
+        Int32 _16Zero;// 7:SoftSelection->2:Zero 54434
+        IArray[Single] _17PerVertexData;// 7:SoftSelection->3:PerVertexData 54433
+        IArray[Vector3] _18Combine3;// 1:LerpVectors-ext->10:Combine3 54429
+        TriMesh _19SetMeshVertices;// 6:MeshSetVertices-ext->6:SetMeshVertices 54425
+        _0MeshVertices = MeshVertices(mesh);
+        _1MeshVertices = MeshVertices(mesh);
+        _2Constant = per-vertex data channel ;
+        _3Zero = Zero();
+        _4ToString = ToString(_3Zero);
+        _5ConcatenateStrings = ConcatenateStrings(_2Constant, _4ToString);
+        _6IsChannelAvailable = IsChannelAvailable(mesh, _5ConcatenateStrings);
+        _7IfThen = IfThen(_6IsChannelAvailable, () => 
+          {
+            IArray[Vector3] _0MeshVertices;// 3:MeshSetVertices-ext->0:MeshVertices 54468
+            IArray[Vector3] _1MeshVertices;// 2:MeshDeformVertices-ext->4:MeshVertices 54474
+            TriMesh _19Pass-through: TriMesh;// 0:Pass-through: TriMesh 54409
+            Func[Vector3, Vector3] _20Pass-through: function1;// 0:Pass-through: function1 54449
+            Matrix _21MatrixIdentity;// 0:MeshConform-ext->4:MatrixIdentity 54481
+            Matrix _22InvertMatrix;// 2:MeshDeformVertices-ext->7:InvertMatrix 54479
+            IArray[Vector3] _23ParallelMap;// 2:MeshDeformVertices-ext->5:ParallelMap 54473
+            Int32 _24Zero;// 7:SoftSelection->2:Zero 54471
+            IArray[Single] _25PerVertexData;// 7:SoftSelection->3:PerVertexData 54470
+            IArray[Vector3] _26Combine3;// 1:LerpVectors-ext->10:Combine3 54466
+            TriMesh _27SetMeshVertices;// 3:MeshSetVertices-ext->6:SetMeshVertices 54462
+            _0MeshVertices = MeshVertices(mesh);
+            _1MeshVertices = MeshVertices(mesh);
+            _19Pass-through: TriMesh = if (absolute or relative)
+              {
+                Boolean _2IsNull;// 4:NodeCanGetMesh-ext->7:IsNull 54491
+                Boolean _3False;// 4:NodeCanGetMesh-ext->6:False 54492
+                _2IsNull = IsNull(target);
+                _3False = False();
+                if (if (_2IsNull)
+                  {
+                    _3False;
+                    }else
+                  {
+                    Boolean _4IsValidNode;// 4:NodeCanGetMesh-ext->0:IsValidNode 54494
+                    _4IsValidNode = IsValidNode(target);
+                    if (_4IsValidNode)
+                      {
+                        Boolean _5CanGetMeshFromNode;// 4:NodeCanGetMesh-ext->1:CanGetMeshFromNode 54495
+                        _5CanGetMeshFromNode = CanGetMeshFromNode(target);
+                        _5CanGetMeshFromNode;
+                        }else
+                      {
+                        _3False;
+                        };
+                    })
+                  {
+                    TriMesh _6MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 54518
+                    IArray[Vector3] _7MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54516
+                    Matrix _8ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 54519
+                    Func[Vector3, Vector3] _9Pass-through: function1;// 0:Pass-through: function1 54513
+                    IArray[Vector3] _10Map;// 2:DeformMeshPoints->1:Map 54515
+                    TriMesh _11SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54514
+                    IArray[Vector3] _12MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54506
+                    Matrix _13InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 54508
+                    Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 54503
+                    IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 54505
+                    TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54504
+                    _6MeshFromNode = MeshFromNode(target);
+                    _7MeshVertices = MeshVertices(_6MeshFromNode);
+                    _8ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(target);
+                    _9Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54517
+                        _0Transform = Transform(x0, _8ObjectTransformBeforeWSM);
+                        _0Transform;
+                        };
+                    _10Map = Map(_7MeshVertices, _9Pass-through: function1);
+                    _11SetMeshVertices = SetMeshVertices(_6MeshFromNode, _10Map);
+                    _12MeshVertices = MeshVertices(_11SetMeshVertices);
+                    _13InvertMatrix = InvertMatrix(modifierTransform);
+                    _14Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54507
+                        _0Transform = Transform(x0, _13InvertMatrix);
+                        _0Transform;
+                        };
+                    _15Map = Map(_12MeshVertices, _14Pass-through: function1);
+                    _16SetMeshVertices = SetMeshVertices(_11SetMeshVertices, _15Map);
+                    _16SetMeshVertices;
+                    }else
+                  {
+                    mesh;
+                    };
+                }else
+              {
+                Boolean _17IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 54525
+                _17IsValidNode = IsValidNode(target);
+                if (_17IsValidNode)
+                  {
+                    TriMesh _18MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 54526
+                    _18MeshFromNode = MeshFromNode(target);
+                    _18MeshFromNode;
+                    }else
+                  {
+                    mesh;
+                    };
+                };
+            _20Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0ClosestPointOnSurface;// 0:MeshConform-ext->0:ClosestPointOnSurface 54480
+                _0ClosestPointOnSurface = ClosestPointOnSurface(_19Pass-through: TriMesh, x0);
+                _0ClosestPointOnSurface;
+                };
+            _21MatrixIdentity = MatrixIdentity();
+            _22InvertMatrix = InvertMatrix(_21MatrixIdentity);
+            _23ParallelMap = ParallelMap(_1MeshVertices, (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 2:MeshDeformVertices-ext->11:Transform 54477
+                Vector3 _1Apply1;// 2:MeshDeformVertices-ext->8:Apply1 54476
+                Vector3 _2Transform;// 2:MeshDeformVertices-ext->9:Transform 54475
+                _0Transform = Transform(x0, _22InvertMatrix);
+                _1Apply1 = Apply1(_20Pass-through: function1, _0Transform);
+                _2Transform = Transform(_1Apply1, _21MatrixIdentity);
+                _2Transform;
+                });
+            _24Zero = Zero();
+            _25PerVertexData = PerVertexData(mesh, _24Zero);
+            _26Combine3 = Combine3(_0MeshVertices, _23ParallelMap, _25PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+              {
+                Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 54467
+                _0Lerp = Lerp(x0, x1, x2);
+                _0Lerp;
+                });
+            _27SetMeshVertices = SetMeshVertices(mesh, _26Combine3);
+            _27SetMeshVertices;
+            }, () => 
+          {
+            IArray[Vector3] _0MeshVertices;// 2:MeshDeformVertices-ext->4:MeshVertices 54474
+            TriMesh _19Pass-through: TriMesh;// 0:Pass-through: TriMesh 54409
+            Func[Vector3, Vector3] _20Pass-through: function1;// 0:Pass-through: function1 54449
+            Matrix _21MatrixIdentity;// 0:MeshConform-ext->4:MatrixIdentity 54481
+            Matrix _22InvertMatrix;// 2:MeshDeformVertices-ext->7:InvertMatrix 54479
+            IArray[Vector3] _23ParallelMap;// 2:MeshDeformVertices-ext->5:ParallelMap 54473
+            TriMesh _24SetMeshVertices;// 3:MeshSetVertices-ext->8:SetMeshVertices 54472
+            _0MeshVertices = MeshVertices(mesh);
+            _19Pass-through: TriMesh = if (absolute or relative)
+              {
+                Boolean _1IsNull;// 4:NodeCanGetMesh-ext->7:IsNull 54491
+                _1IsNull = IsNull(target);
+                if (if (_1IsNull)
+                  {
+                    Boolean _2False;// 4:NodeCanGetMesh-ext->6:False 54492
+                    _2False = False();
+                    _2False;
+                    }else
+                  {
+                    Boolean _3IsValidNode;// 4:NodeCanGetMesh-ext->0:IsValidNode 54494
+                    _3IsValidNode = IsValidNode(target);
+                    if (_3IsValidNode)
+                      {
+                        Boolean _4CanGetMeshFromNode;// 4:NodeCanGetMesh-ext->1:CanGetMeshFromNode 54495
+                        _4CanGetMeshFromNode = CanGetMeshFromNode(target);
+                        _4CanGetMeshFromNode;
+                        }else
+                      {
+                        Boolean _5False;// 4:NodeCanGetMesh-ext->6:False 54492
+                        _5False = False();
+                        _5False;
+                        };
+                    })
+                  {
+                    TriMesh _6MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 54518
+                    IArray[Vector3] _7MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54516
+                    Matrix _8ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 54519
+                    Func[Vector3, Vector3] _9Pass-through: function1;// 0:Pass-through: function1 54513
+                    IArray[Vector3] _10Map;// 2:DeformMeshPoints->1:Map 54515
+                    TriMesh _11SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54514
+                    IArray[Vector3] _12MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54506
+                    Matrix _13InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 54508
+                    Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 54503
+                    IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 54505
+                    TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54504
+                    _6MeshFromNode = MeshFromNode(target);
+                    _7MeshVertices = MeshVertices(_6MeshFromNode);
+                    _8ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(target);
+                    _9Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54517
+                        _0Transform = Transform(x0, _8ObjectTransformBeforeWSM);
+                        _0Transform;
+                        };
+                    _10Map = Map(_7MeshVertices, _9Pass-through: function1);
+                    _11SetMeshVertices = SetMeshVertices(_6MeshFromNode, _10Map);
+                    _12MeshVertices = MeshVertices(_11SetMeshVertices);
+                    _13InvertMatrix = InvertMatrix(modifierTransform);
+                    _14Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54507
+                        _0Transform = Transform(x0, _13InvertMatrix);
+                        _0Transform;
+                        };
+                    _15Map = Map(_12MeshVertices, _14Pass-through: function1);
+                    _16SetMeshVertices = SetMeshVertices(_11SetMeshVertices, _15Map);
+                    _16SetMeshVertices;
+                    }else
+                  {
+                    mesh;
+                    };
+                }else
+              {
+                Boolean _17IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 54525
+                _17IsValidNode = IsValidNode(target);
+                if (_17IsValidNode)
+                  {
+                    TriMesh _18MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 54526
+                    _18MeshFromNode = MeshFromNode(target);
+                    _18MeshFromNode;
+                    }else
+                  {
+                    mesh;
+                    };
+                };
+            _20Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0ClosestPointOnSurface;// 0:MeshConform-ext->0:ClosestPointOnSurface 54480
+                _0ClosestPointOnSurface = ClosestPointOnSurface(_19Pass-through: TriMesh, x0);
+                _0ClosestPointOnSurface;
+                };
+            _21MatrixIdentity = MatrixIdentity();
+            _22InvertMatrix = InvertMatrix(_21MatrixIdentity);
+            _23ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 2:MeshDeformVertices-ext->11:Transform 54477
+                Vector3 _1Apply1;// 2:MeshDeformVertices-ext->8:Apply1 54476
+                Vector3 _2Transform;// 2:MeshDeformVertices-ext->9:Transform 54475
+                _0Transform = Transform(x0, _22InvertMatrix);
+                _1Apply1 = Apply1(_20Pass-through: function1, _0Transform);
+                _2Transform = Transform(_1Apply1, _21MatrixIdentity);
+                _2Transform;
+                });
+            _24SetMeshVertices = SetMeshVertices(mesh, _23ParallelMap);
+            _24SetMeshVertices;
+            });
+        _8MeshVertices = MeshVertices(_7IfThen);
+        _9Constant = 100;
+        _10Divide = Divide(weight, _9Constant);
+        _11Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Lerp;// 5:MeshInterpolate-ext->3:Lerp 54447
+            _0Lerp = Lerp(x0, x1, _10Divide);
+            _0Lerp;
+            };
+        _12Combine = Combine(_1MeshVertices, _8MeshVertices, _11Pass-through: function2);
+        _13Count = Count(_12Combine);
+        _14Skip = Skip(_1MeshVertices, _13Count);
+        _15Concatenate = Concatenate(_12Combine, _14Skip);
+        _16Zero = Zero();
+        _17PerVertexData = PerVertexData(mesh, _16Zero);
+        _18Combine3 = Combine3(_0MeshVertices, _15Concatenate, _17PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+          {
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 54430
+            _0Lerp = Lerp(x0, x1, x2);
+            _0Lerp;
+            });
+        _19SetMeshVertices = SetMeshVertices(mesh, _18Combine3);
+        _19SetMeshVertices;
+        }, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 5:MeshInterpolate-ext->7:MeshVertices 54445
+        String _1Constant;// 0:HasPerVertexChannel->0:Constant 54459
+        Int32 _2Zero;// 4:HasSoftSelection->3:Zero 54461
+        String _3ToString;// 0:HasPerVertexChannel->7:ToString 54460
+        String _4ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 54458
+        Boolean _5IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 54457
+        TriMesh _6IfThen;// 3:MeshSetVertices-ext->10:IfThen 54453
+        IArray[Vector3] _7MeshVertices;// 5:MeshInterpolate-ext->4:MeshVertices 54446
+        Single _8Constant;// 10:DivideBy100-ext->0:Constant 54529
+        Single _9Divide;// 10:DivideBy100-ext->2:Divide 54528
+        Func[Vector3, Vector3, Vector3] _10Pass-through: function2;// 0:Pass-through: function2 54438
+        IArray[Vector3] _11Combine;// 5:ArrayCombineKeepLength-ext->0:Combine 54444
+        Int32 _12Count;// 4:ArrayConcatenateTail-ext->2:Count 54443
+        IArray[Vector3] _13Skip;// 4:ArrayConcatenateTail-ext->3:Skip 54442
+        IArray[Vector3] _14Concatenate;// 4:ArrayConcatenateTail-ext->4:Concatenate 54441
+        TriMesh _15SetMeshVertices;// 6:MeshSetVertices-ext->8:SetMeshVertices 54435
+        _0MeshVertices = MeshVertices(mesh);
+        _1Constant = per-vertex data channel ;
+        _2Zero = Zero();
+        _3ToString = ToString(_2Zero);
+        _4ConcatenateStrings = ConcatenateStrings(_1Constant, _3ToString);
+        _5IsChannelAvailable = IsChannelAvailable(mesh, _4ConcatenateStrings);
+        _6IfThen = IfThen(_5IsChannelAvailable, () => 
+          {
+            IArray[Vector3] _0MeshVertices;// 3:MeshSetVertices-ext->0:MeshVertices 54468
+            IArray[Vector3] _1MeshVertices;// 2:MeshDeformVertices-ext->4:MeshVertices 54474
+            TriMesh _20Pass-through: TriMesh;// 0:Pass-through: TriMesh 54409
+            Func[Vector3, Vector3] _21Pass-through: function1;// 0:Pass-through: function1 54449
+            Matrix _22MatrixIdentity;// 0:MeshConform-ext->4:MatrixIdentity 54481
+            Matrix _23InvertMatrix;// 2:MeshDeformVertices-ext->7:InvertMatrix 54479
+            IArray[Vector3] _24ParallelMap;// 2:MeshDeformVertices-ext->5:ParallelMap 54473
+            Int32 _25Zero;// 7:SoftSelection->2:Zero 54471
+            IArray[Single] _26PerVertexData;// 7:SoftSelection->3:PerVertexData 54470
+            IArray[Vector3] _27Combine3;// 1:LerpVectors-ext->10:Combine3 54466
+            TriMesh _28SetMeshVertices;// 3:MeshSetVertices-ext->6:SetMeshVertices 54462
+            _0MeshVertices = MeshVertices(mesh);
+            _1MeshVertices = MeshVertices(mesh);
+            _20Pass-through: TriMesh = if (absolute or relative)
+              {
+                Boolean _2IsNull;// 4:NodeCanGetMesh-ext->7:IsNull 54491
+                _2IsNull = IsNull(target);
+                if (if (_2IsNull)
+                  {
+                    Boolean _3False;// 4:NodeCanGetMesh-ext->6:False 54492
+                    _3False = False();
+                    _3False;
+                    }else
+                  {
+                    Boolean _4IsValidNode;// 4:NodeCanGetMesh-ext->0:IsValidNode 54494
+                    _4IsValidNode = IsValidNode(target);
+                    if (_4IsValidNode)
+                      {
+                        Boolean _5CanGetMeshFromNode;// 4:NodeCanGetMesh-ext->1:CanGetMeshFromNode 54495
+                        _5CanGetMeshFromNode = CanGetMeshFromNode(target);
+                        _5CanGetMeshFromNode;
+                        }else
+                      {
+                        Boolean _6False;// 4:NodeCanGetMesh-ext->6:False 54492
+                        _6False = False();
+                        _6False;
+                        };
+                    })
+                  {
+                    TriMesh _7MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 54518
+                    IArray[Vector3] _8MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54516
+                    Matrix _9ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 54519
+                    Func[Vector3, Vector3] _10Pass-through: function1;// 0:Pass-through: function1 54513
+                    IArray[Vector3] _11Map;// 2:DeformMeshPoints->1:Map 54515
+                    TriMesh _12SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54514
+                    IArray[Vector3] _13MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54506
+                    Matrix _14InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 54508
+                    Func[Vector3, Vector3] _15Pass-through: function1;// 0:Pass-through: function1 54503
+                    IArray[Vector3] _16Map;// 2:DeformMeshPoints->1:Map 54505
+                    TriMesh _17SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54504
+                    _7MeshFromNode = MeshFromNode(target);
+                    _8MeshVertices = MeshVertices(_7MeshFromNode);
+                    _9ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(target);
+                    _10Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54517
+                        _0Transform = Transform(x0, _9ObjectTransformBeforeWSM);
+                        _0Transform;
+                        };
+                    _11Map = Map(_8MeshVertices, _10Pass-through: function1);
+                    _12SetMeshVertices = SetMeshVertices(_7MeshFromNode, _11Map);
+                    _13MeshVertices = MeshVertices(_12SetMeshVertices);
+                    _14InvertMatrix = InvertMatrix(modifierTransform);
+                    _15Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54507
+                        _0Transform = Transform(x0, _14InvertMatrix);
+                        _0Transform;
+                        };
+                    _16Map = Map(_13MeshVertices, _15Pass-through: function1);
+                    _17SetMeshVertices = SetMeshVertices(_12SetMeshVertices, _16Map);
+                    _17SetMeshVertices;
+                    }else
+                  {
+                    mesh;
+                    };
+                }else
+              {
+                Boolean _18IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 54525
+                _18IsValidNode = IsValidNode(target);
+                if (_18IsValidNode)
+                  {
+                    TriMesh _19MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 54526
+                    _19MeshFromNode = MeshFromNode(target);
+                    _19MeshFromNode;
+                    }else
+                  {
+                    mesh;
+                    };
+                };
+            _21Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0ClosestPointOnSurface;// 0:MeshConform-ext->0:ClosestPointOnSurface 54480
+                _0ClosestPointOnSurface = ClosestPointOnSurface(_20Pass-through: TriMesh, x0);
+                _0ClosestPointOnSurface;
+                };
+            _22MatrixIdentity = MatrixIdentity();
+            _23InvertMatrix = InvertMatrix(_22MatrixIdentity);
+            _24ParallelMap = ParallelMap(_1MeshVertices, (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 2:MeshDeformVertices-ext->11:Transform 54477
+                Vector3 _1Apply1;// 2:MeshDeformVertices-ext->8:Apply1 54476
+                Vector3 _2Transform;// 2:MeshDeformVertices-ext->9:Transform 54475
+                _0Transform = Transform(x0, _23InvertMatrix);
+                _1Apply1 = Apply1(_21Pass-through: function1, _0Transform);
+                _2Transform = Transform(_1Apply1, _22MatrixIdentity);
+                _2Transform;
+                });
+            _25Zero = Zero();
+            _26PerVertexData = PerVertexData(mesh, _25Zero);
+            _27Combine3 = Combine3(_0MeshVertices, _24ParallelMap, _26PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+              {
+                Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 54467
+                _0Lerp = Lerp(x0, x1, x2);
+                _0Lerp;
+                });
+            _28SetMeshVertices = SetMeshVertices(mesh, _27Combine3);
+            _28SetMeshVertices;
+            }, () => 
+          {
+            IArray[Vector3] _0MeshVertices;// 2:MeshDeformVertices-ext->4:MeshVertices 54474
+            TriMesh _19Pass-through: TriMesh;// 0:Pass-through: TriMesh 54409
+            Func[Vector3, Vector3] _20Pass-through: function1;// 0:Pass-through: function1 54449
+            Matrix _21MatrixIdentity;// 0:MeshConform-ext->4:MatrixIdentity 54481
+            Matrix _22InvertMatrix;// 2:MeshDeformVertices-ext->7:InvertMatrix 54479
+            IArray[Vector3] _23ParallelMap;// 2:MeshDeformVertices-ext->5:ParallelMap 54473
+            TriMesh _24SetMeshVertices;// 3:MeshSetVertices-ext->8:SetMeshVertices 54472
+            _0MeshVertices = MeshVertices(mesh);
+            _19Pass-through: TriMesh = if (absolute or relative)
+              {
+                Boolean _1IsNull;// 4:NodeCanGetMesh-ext->7:IsNull 54491
+                _1IsNull = IsNull(target);
+                if (if (_1IsNull)
+                  {
+                    Boolean _2False;// 4:NodeCanGetMesh-ext->6:False 54492
+                    _2False = False();
+                    _2False;
+                    }else
+                  {
+                    Boolean _3IsValidNode;// 4:NodeCanGetMesh-ext->0:IsValidNode 54494
+                    _3IsValidNode = IsValidNode(target);
+                    if (_3IsValidNode)
+                      {
+                        Boolean _4CanGetMeshFromNode;// 4:NodeCanGetMesh-ext->1:CanGetMeshFromNode 54495
+                        _4CanGetMeshFromNode = CanGetMeshFromNode(target);
+                        _4CanGetMeshFromNode;
+                        }else
+                      {
+                        Boolean _5False;// 4:NodeCanGetMesh-ext->6:False 54492
+                        _5False = False();
+                        _5False;
+                        };
+                    })
+                  {
+                    TriMesh _6MeshFromNode;// 7:NodeMeshInWorldSpace->2:MeshFromNode 54518
+                    IArray[Vector3] _7MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54516
+                    Matrix _8ObjectTransformBeforeWSM;// 7:NodeMeshInWorldSpace->0:ObjectTransformBeforeWSM 54519
+                    Func[Vector3, Vector3] _9Pass-through: function1;// 0:Pass-through: function1 54513
+                    IArray[Vector3] _10Map;// 2:DeformMeshPoints->1:Map 54515
+                    TriMesh _11SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54514
+                    IArray[Vector3] _12MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54506
+                    Matrix _13InvertMatrix;// 2:MeshInLocalSpace->1:InvertMatrix 54508
+                    Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 54503
+                    IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 54505
+                    TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54504
+                    _6MeshFromNode = MeshFromNode(target);
+                    _7MeshVertices = MeshVertices(_6MeshFromNode);
+                    _8ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(target);
+                    _9Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54517
+                        _0Transform = Transform(x0, _8ObjectTransformBeforeWSM);
+                        _0Transform;
+                        };
+                    _10Map = Map(_7MeshVertices, _9Pass-through: function1);
+                    _11SetMeshVertices = SetMeshVertices(_6MeshFromNode, _10Map);
+                    _12MeshVertices = MeshVertices(_11SetMeshVertices);
+                    _13InvertMatrix = InvertMatrix(modifierTransform);
+                    _14Pass-through: function1 = (Vector3 x0) => 
+                      {
+                        Vector3 _0Transform;// 3:TransformMesh->0:Transform 54507
+                        _0Transform = Transform(x0, _13InvertMatrix);
+                        _0Transform;
+                        };
+                    _15Map = Map(_12MeshVertices, _14Pass-through: function1);
+                    _16SetMeshVertices = SetMeshVertices(_11SetMeshVertices, _15Map);
+                    _16SetMeshVertices;
+                    }else
+                  {
+                    mesh;
+                    };
+                }else
+              {
+                Boolean _17IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 54525
+                _17IsValidNode = IsValidNode(target);
+                if (_17IsValidNode)
+                  {
+                    TriMesh _18MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 54526
+                    _18MeshFromNode = MeshFromNode(target);
+                    _18MeshFromNode;
+                    }else
+                  {
+                    mesh;
+                    };
+                };
+            _20Pass-through: function1 = (Vector3 x0) => 
+              {
+                Vector3 _0ClosestPointOnSurface;// 0:MeshConform-ext->0:ClosestPointOnSurface 54480
+                _0ClosestPointOnSurface = ClosestPointOnSurface(_19Pass-through: TriMesh, x0);
+                _0ClosestPointOnSurface;
+                };
+            _21MatrixIdentity = MatrixIdentity();
+            _22InvertMatrix = InvertMatrix(_21MatrixIdentity);
+            _23ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+              {
+                Vector3 _0Transform;// 2:MeshDeformVertices-ext->11:Transform 54477
+                Vector3 _1Apply1;// 2:MeshDeformVertices-ext->8:Apply1 54476
+                Vector3 _2Transform;// 2:MeshDeformVertices-ext->9:Transform 54475
+                _0Transform = Transform(x0, _22InvertMatrix);
+                _1Apply1 = Apply1(_20Pass-through: function1, _0Transform);
+                _2Transform = Transform(_1Apply1, _21MatrixIdentity);
+                _2Transform;
+                });
+            _24SetMeshVertices = SetMeshVertices(mesh, _23ParallelMap);
+            _24SetMeshVertices;
+            });
+        _7MeshVertices = MeshVertices(_6IfThen);
+        _8Constant = 100;
+        _9Divide = Divide(weight, _8Constant);
+        _10Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
+          {
+            Vector3 _0Lerp;// 5:MeshInterpolate-ext->3:Lerp 54447
+            _0Lerp = Lerp(x0, x1, _9Divide);
+            _0Lerp;
+            };
+        _11Combine = Combine(_0MeshVertices, _7MeshVertices, _10Pass-through: function2);
+        _12Count = Count(_11Combine);
+        _13Skip = Skip(_0MeshVertices, _12Count);
+        _14Concatenate = Concatenate(_11Combine, _13Skip);
+        _15SetMeshVertices = SetMeshVertices(mesh, _14Concatenate);
+        _15SetMeshVertices;
+        });
+    _5IfThen;
+    }

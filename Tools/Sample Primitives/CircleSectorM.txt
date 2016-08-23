@@ -1,0 +1,87 @@
+(InstanceState state, Int32 segments, Single degrees, Single radius, Boolean cap) => 
+  {
+    IArray[Single] _0RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 43309
+    Single _1ToRadians;// 0:CircularArcOfPoints->5:ToRadians 43311
+    IArray[Single] _2Map;// 0:RangeInclusiveFloatTo->2:Map 43308
+    Single _3Constant;// 0:CircularArcOfPoints->0:Constant 43318
+    Vector3 _4Vector3;// 0:CircularArcOfPoints->1:Vector3 43317
+    Vector3 _5ZAxis;// 0:CircularArcOfPoints->4:ZAxis 43319
+    IArray[Vector3] _6Map;// 0:CircularArcOfPoints->6:Map 43305
+    Single _7Constant;// 3:Origin->0:Constant 43321
+    Vector3 _8Vector3;// 3:Origin->1:Vector3 43320
+    IArray[Vector3] _9Prepend;// 2:TriMeshFan->4:Prepend 43271
+    Int32 _10Count;// 2:TriMeshFan->17:Count 43280
+    Int32 _11One;// 16:MinusOne->2:One 43279
+    Int32 _12Subtract;// 16:MinusOne->1:Subtract 43278
+    IArray[Int32] _13Range;// 2:TriMeshFan->6:Range 43276
+    Int32 _14Zero;// 2:TriMeshFan->12:Zero 43290
+    IArray[IArray[Int32]] _15Map;// 2:TriMeshFan->7:Map 43275
+    IArray[Int32] _22Flatten;// 2:TriMeshFan->11:Flatten 43272
+    TriMesh _23CreateMesh;// 2:TriMeshFan->8:CreateMesh 43270
+    _0RangeInclusiveFloat = RangeInclusiveFloat(segments);
+    _1ToRadians = ToRadians(degrees);
+    _2Map = Map(_0RangeInclusiveFloat, (Single x0) => 
+      {
+        Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 43310
+        _0Multiply = Multiply(x0, _1ToRadians);
+        _0Multiply;
+        });
+    _3Constant = 0;
+    _4Vector3 = Vector3(radius, _3Constant, _3Constant);
+    _5ZAxis = ZAxis();
+    _6Map = Map(_2Map, (Single x0) => 
+      {
+        Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 43316
+        Vector3 _1Transform;// 3:RotatePoint->2:Transform 43315
+        _0MatrixFromAxisAngle = MatrixFromAxisAngle(_5ZAxis, x0);
+        _1Transform = Transform(_4Vector3, _0MatrixFromAxisAngle);
+        _1Transform;
+        });
+    _7Constant = 0;
+    _8Vector3 = Vector3(_7Constant, _7Constant, _7Constant);
+    _9Prepend = Prepend(_6Map, _8Vector3);
+    _10Count = Count(_6Map);
+    _11One = One();
+    _12Subtract = Subtract(_10Count, _11One);
+    _13Range = Range(_12Subtract);
+    _14Zero = Zero();
+    _15Map = Map(_13Range, (Int32 x0) => 
+      {
+        Int32 _0One;// 13:PlusOne->1:One 43289
+        Int32 _1Add;// 13:PlusOne->0:Add 43288
+        IArray[Int32] _2Unit;// 3:Array3->2:Unit 43286
+        IArray[Int32] _3Append;// 3:Array3->3:Append 43285
+        Int32 _4One;// 10:PlusOne->1:One 43293
+        Int32 _5Add;// 10:PlusOne->0:Add 43292
+        IArray[Int32] _6Append;// 3:Array3->6:Append 43284
+        _0One = One();
+        _1Add = Add(x0, _0One);
+        _2Unit = Unit(_1Add);
+        _3Append = Append(_2Unit, _14Zero);
+        _4One = One();
+        _5Add = Add(_1Add, _4One);
+        _6Append = Append(_3Append, _5Add);
+        _6Append;
+        });
+    _22Flatten = Flatten(if (cap)
+      {
+        IArray[Int32] _16Unit;// 18:Array3->2:Unit 43299
+        Int32 _17Zero;// 2:TriMeshFan->15:Zero 43300
+        IArray[Int32] _18Append;// 18:Array3->3:Append 43298
+        Int32 _19One;// 2:TriMeshFan->19:One 43301
+        IArray[Int32] _20Append;// 18:Array3->6:Append 43297
+        IArray[IArray[Int32]] _21Append;// 2:TriMeshFan->9:Append 43274
+        _16Unit = Unit(_10Count);
+        _17Zero = Zero();
+        _18Append = Append(_16Unit, _17Zero);
+        _19One = One();
+        _20Append = Append(_18Append, _19One);
+        _21Append = Append(_15Map, _20Append);
+        _21Append;
+        }else
+      {
+        _15Map;
+        });
+    _23CreateMesh = CreateMesh(_9Prepend, _22Flatten);
+    _23CreateMesh;
+    }

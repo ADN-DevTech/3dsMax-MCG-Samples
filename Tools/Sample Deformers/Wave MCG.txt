@@ -1,0 +1,311 @@
+(InstanceState state, TriMesh mesh, Single waveLength, Single amplitude1, Single amplitude2, Single phase, Single decay, Boolean use gizmo node, INode gizmo node, Matrix modifierTransform) => 
+  {
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 55391
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 55393
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 55392
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 55390
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 55389
+    TriMesh _5IfThen;// 3:MeshSetVertices-ext->10:IfThen 55385
+    _0Constant = per-vertex data channel ;
+    _1Zero = Zero();
+    _2ToString = ToString(_1Zero);
+    _3ConcatenateStrings = ConcatenateStrings(_0Constant, _2ToString);
+    _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
+    _5IfThen = IfThen(_4IsChannelAvailable, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 3:MeshSetVertices-ext->0:MeshVertices 55400
+        IArray[Vector3] _1MeshVertices;// 4:MeshDeformVertices-ext->4:MeshVertices 55406
+        Single _2Constant;// 0:Constant 55475
+        Single _3Divide;// 7:Divide 55473
+        Func[Vector3, Vector3] _4Pass-through: function1;// 0:Pass-through: function1 55381
+        Matrix _11Pass-through: Matrix;// 0:Pass-through: Matrix 55379
+        Matrix _12InvertMatrix;// 4:MeshDeformVertices-ext->7:InvertMatrix 55411
+        IArray[Vector3] _13ParallelMap;// 4:MeshDeformVertices-ext->5:ParallelMap 55405
+        Int32 _14Zero;// 7:SoftSelection->2:Zero 55403
+        IArray[Single] _15PerVertexData;// 7:SoftSelection->3:PerVertexData 55402
+        IArray[Vector3] _16Combine3;// 1:LerpVectors-ext->10:Combine3 55398
+        TriMesh _17SetMeshVertices;// 3:MeshSetVertices-ext->6:SetMeshVertices 55394
+        _0MeshVertices = MeshVertices(mesh);
+        _1MeshVertices = MeshVertices(mesh);
+        _2Constant = 1000;
+        _3Divide = Divide(decay, _2Constant);
+        _4Pass-through: function1 = (Vector3 x0) => 
+          {
+            Single _0X;// 1:PointDeformLinearWave-ext->40:X 55421
+            Single _1Y;// 1:PointDeformLinearWave-ext->41:Y 55424
+            Single _2FloatOne;// 1:PointDeformLinearWave-ext->31:FloatOne 55450
+            Single _3Constant;// 1:PointDeformLinearWave-ext->0:Constant 55455
+            Single _4FloatZero;// 1:PointDeformLinearWave-ext->27:FloatZero 55459
+            Single _5Constant;// 1:PointDeformLinearWave-ext->0:Constant 55462
+            Single _6Divide;// 1:PointDeformLinearWave-ext->18:Divide 55461
+            Single _7Constant;// 1:PointDeformLinearWave-ext->0:Constant 55464
+            Single _8Constant;// 1:PointDeformLinearWave-ext->0:Constant 55465
+            Single _9Multiply;// 1:PointDeformLinearWave-ext->17:Multiply 55463
+            Single _10Multiply;// 1:PointDeformLinearWave-ext->22:Multiply 55460
+            Boolean _11Equal;// 1:PointDeformLinearWave-ext->26:Equal 55458
+            Single _13Divide;// 1:PointDeformLinearWave-ext->0:Divide 55456
+            Single _14Multiply;// 1:PointDeformLinearWave-ext->25:Multiply 55454
+            Single _15Abs;// 1:PointDeformLinearWave-ext->6:Abs 55453
+            Single _16Multiply;// 1:PointDeformLinearWave-ext->30:Multiply 55452
+            Single _17Subtract;// 1:PointDeformLinearWave-ext->32:Subtract 55449
+            Single _18Multiply;// 1:PointDeformLinearWave-ext->48:Multiply 55448
+            Single _19Add;// 1:PointDeformLinearWave-ext->50:Add 55447
+            Single _20TwoPi;// 7:WaveDeformerWaveFunc->10:TwoPi 55436
+            Single _21FloatZero;// 7:WaveDeformerWaveFunc->2:FloatZero 55441
+            Boolean _22Equal;// 7:WaveDeformerWaveFunc->1:Equal 55440
+            Single _24Divide;// 7:WaveDeformerWaveFunc->13:Divide 55438
+            Single _25Add;// 7:WaveDeformerWaveFunc->14:Add 55437
+            Single _26Multiply;// 7:WaveDeformerWaveFunc->20:Multiply 55435
+            Single _27Sin;// 7:WaveDeformerWaveFunc->21:Sin 55434
+            Single _28Abs;// 7:WaveDeformerWaveFunc->18:Abs 55445
+            Single _29NegativeFloat;// 7:WaveDeformerWaveFunc->16:NegativeFloat 55446
+            Single _30Multiply;// 7:WaveDeformerWaveFunc->17:Multiply 55444
+            Single _31Exp;// 7:WaveDeformerWaveFunc->15:Exp 55443
+            Single _32Multiply;// 7:WaveDeformerWaveFunc->19:Multiply 55433
+            Single _33Multiply;// 7:WaveDeformerWaveFunc->11:Multiply 55432
+            Single _34Z;// 1:PointDeformLinearWave-ext->38:Z 55467
+            Single _35Add;// 1:PointDeformLinearWave-ext->8:Add 55426
+            Vector3 _36Vector3;// 1:PointDeformLinearWave-ext->36:Vector3 55419
+            _0X = X(x0);
+            _1Y = Y(x0);
+            _2FloatOne = FloatOne();
+            _3Constant = 2;
+            _4FloatZero = FloatZero();
+            _5Constant = 10;
+            _6Divide = Divide(waveLength, _5Constant);
+            _7Constant = 4;
+            _8Constant = 4;
+            _9Multiply = Multiply(_7Constant, _8Constant);
+            _10Multiply = Multiply(_6Divide, _9Multiply);
+            _11Equal = Equal(_4FloatZero, _10Multiply);
+            _13Divide = Divide(_0X, if (_11Equal)
+                {
+                  Single _12FloatOne;// 1:PointDeformLinearWave-ext->24:FloatOne 55466
+                  _12FloatOne = FloatOne();
+                  _12FloatOne;
+                  }else
+                {
+                  _10Multiply;
+                  });
+            _14Multiply = Multiply(_3Constant, _13Divide);
+            _15Abs = Abs(_14Multiply);
+            _16Multiply = Multiply(_15Abs, _15Abs);
+            _17Subtract = Subtract(_2FloatOne, _16Multiply);
+            _18Multiply = Multiply(_17Subtract, amplitude1);
+            _19Add = Add(_18Multiply, amplitude2);
+            _20TwoPi = TwoPi();
+            _21FloatZero = FloatZero();
+            _22Equal = Equal(_21FloatZero, waveLength);
+            _24Divide = Divide(_1Y, if (_22Equal)
+                {
+                  Single _23Constant;// 7:WaveDeformerWaveFunc->0:Constant 55442
+                  _23Constant = 1E-07;
+                  _23Constant;
+                  }else
+                {
+                  waveLength;
+                  });
+            _25Add = Add(_24Divide, phase);
+            _26Multiply = Multiply(_20TwoPi, _25Add);
+            _27Sin = Sin(_26Multiply);
+            _28Abs = Abs(_1Y);
+            _29NegativeFloat = NegativeFloat(_3Divide);
+            _30Multiply = Multiply(_28Abs, _29NegativeFloat);
+            _31Exp = Exp(_30Multiply);
+            _32Multiply = Multiply(_27Sin, _31Exp);
+            _33Multiply = Multiply(_19Add, _32Multiply);
+            _34Z = Z(x0);
+            _35Add = Add(_33Multiply, _34Z);
+            _36Vector3 = Vector3(_0X, _1Y, _35Add);
+            _36Vector3;
+            };
+        _11Pass-through: Matrix = if (use gizmo node)
+          {
+            Boolean _5IsValidNode;// 4:NodeTransformInLocalSpaceOrIdentity-ext->3:IsValidNode 55483
+            _5IsValidNode = IsValidNode(gizmo node);
+            if (_5IsValidNode)
+              {
+                Matrix _6ObjectTransformBeforeWSM;// 2:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 55487
+                Matrix _7InvertMatrix;// 2:NodeTMInLocalSpace-ext->2:InvertMatrix 55488
+                Matrix _8Multiply;// 2:NodeTMInLocalSpace-ext->4:Multiply 55486
+                _6ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(gizmo node);
+                _7InvertMatrix = InvertMatrix(modifierTransform);
+                _8Multiply = Multiply(_6ObjectTransformBeforeWSM, _7InvertMatrix);
+                _8Multiply;
+                }else
+              {
+                Matrix _9MatrixIdentity;// 4:NodeTransformInLocalSpaceOrIdentity-ext->5:MatrixIdentity 55489
+                _9MatrixIdentity = MatrixIdentity();
+                _9MatrixIdentity;
+                };
+            }else
+          {
+            Matrix _10MatrixIdentity;// 16:NodeTransformInLocalSpaceConditionally-ext->5:MatrixIdentity 55490
+            _10MatrixIdentity = MatrixIdentity();
+            _10MatrixIdentity;
+            };
+        _12InvertMatrix = InvertMatrix(_11Pass-through: Matrix);
+        _13ParallelMap = ParallelMap(_1MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 4:MeshDeformVertices-ext->11:Transform 55409
+            Vector3 _1Apply1;// 4:MeshDeformVertices-ext->8:Apply1 55408
+            Vector3 _2Transform;// 4:MeshDeformVertices-ext->9:Transform 55407
+            _0Transform = Transform(x0, _12InvertMatrix);
+            _1Apply1 = Apply1(_4Pass-through: function1, _0Transform);
+            _2Transform = Transform(_1Apply1, _11Pass-through: Matrix);
+            _2Transform;
+            });
+        _14Zero = Zero();
+        _15PerVertexData = PerVertexData(mesh, _14Zero);
+        _16Combine3 = Combine3(_0MeshVertices, _13ParallelMap, _15PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
+          {
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 55399
+            _0Lerp = Lerp(x0, x1, x2);
+            _0Lerp;
+            });
+        _17SetMeshVertices = SetMeshVertices(mesh, _16Combine3);
+        _17SetMeshVertices;
+        }, () => 
+      {
+        IArray[Vector3] _0MeshVertices;// 4:MeshDeformVertices-ext->4:MeshVertices 55406
+        Single _1Constant;// 0:Constant 55475
+        Single _2Divide;// 7:Divide 55473
+        Func[Vector3, Vector3] _3Pass-through: function1;// 0:Pass-through: function1 55381
+        Matrix _10Pass-through: Matrix;// 0:Pass-through: Matrix 55379
+        Matrix _11InvertMatrix;// 4:MeshDeformVertices-ext->7:InvertMatrix 55411
+        IArray[Vector3] _12ParallelMap;// 4:MeshDeformVertices-ext->5:ParallelMap 55405
+        TriMesh _13SetMeshVertices;// 3:MeshSetVertices-ext->8:SetMeshVertices 55404
+        _0MeshVertices = MeshVertices(mesh);
+        _1Constant = 1000;
+        _2Divide = Divide(decay, _1Constant);
+        _3Pass-through: function1 = (Vector3 x0) => 
+          {
+            Single _0X;// 1:PointDeformLinearWave-ext->40:X 55421
+            Single _1Y;// 1:PointDeformLinearWave-ext->41:Y 55424
+            Single _2FloatOne;// 1:PointDeformLinearWave-ext->31:FloatOne 55450
+            Single _3Constant;// 1:PointDeformLinearWave-ext->0:Constant 55455
+            Single _4FloatZero;// 1:PointDeformLinearWave-ext->27:FloatZero 55459
+            Single _5Constant;// 1:PointDeformLinearWave-ext->0:Constant 55462
+            Single _6Divide;// 1:PointDeformLinearWave-ext->18:Divide 55461
+            Single _7Constant;// 1:PointDeformLinearWave-ext->0:Constant 55464
+            Single _8Constant;// 1:PointDeformLinearWave-ext->0:Constant 55465
+            Single _9Multiply;// 1:PointDeformLinearWave-ext->17:Multiply 55463
+            Single _10Multiply;// 1:PointDeformLinearWave-ext->22:Multiply 55460
+            Boolean _11Equal;// 1:PointDeformLinearWave-ext->26:Equal 55458
+            Single _13Divide;// 1:PointDeformLinearWave-ext->0:Divide 55456
+            Single _14Multiply;// 1:PointDeformLinearWave-ext->25:Multiply 55454
+            Single _15Abs;// 1:PointDeformLinearWave-ext->6:Abs 55453
+            Single _16Multiply;// 1:PointDeformLinearWave-ext->30:Multiply 55452
+            Single _17Subtract;// 1:PointDeformLinearWave-ext->32:Subtract 55449
+            Single _18Multiply;// 1:PointDeformLinearWave-ext->48:Multiply 55448
+            Single _19Add;// 1:PointDeformLinearWave-ext->50:Add 55447
+            Single _20TwoPi;// 7:WaveDeformerWaveFunc->10:TwoPi 55436
+            Single _21FloatZero;// 7:WaveDeformerWaveFunc->2:FloatZero 55441
+            Boolean _22Equal;// 7:WaveDeformerWaveFunc->1:Equal 55440
+            Single _24Divide;// 7:WaveDeformerWaveFunc->13:Divide 55438
+            Single _25Add;// 7:WaveDeformerWaveFunc->14:Add 55437
+            Single _26Multiply;// 7:WaveDeformerWaveFunc->20:Multiply 55435
+            Single _27Sin;// 7:WaveDeformerWaveFunc->21:Sin 55434
+            Single _28Abs;// 7:WaveDeformerWaveFunc->18:Abs 55445
+            Single _29NegativeFloat;// 7:WaveDeformerWaveFunc->16:NegativeFloat 55446
+            Single _30Multiply;// 7:WaveDeformerWaveFunc->17:Multiply 55444
+            Single _31Exp;// 7:WaveDeformerWaveFunc->15:Exp 55443
+            Single _32Multiply;// 7:WaveDeformerWaveFunc->19:Multiply 55433
+            Single _33Multiply;// 7:WaveDeformerWaveFunc->11:Multiply 55432
+            Single _34Z;// 1:PointDeformLinearWave-ext->38:Z 55467
+            Single _35Add;// 1:PointDeformLinearWave-ext->8:Add 55426
+            Vector3 _36Vector3;// 1:PointDeformLinearWave-ext->36:Vector3 55419
+            _0X = X(x0);
+            _1Y = Y(x0);
+            _2FloatOne = FloatOne();
+            _3Constant = 2;
+            _4FloatZero = FloatZero();
+            _5Constant = 10;
+            _6Divide = Divide(waveLength, _5Constant);
+            _7Constant = 4;
+            _8Constant = 4;
+            _9Multiply = Multiply(_7Constant, _8Constant);
+            _10Multiply = Multiply(_6Divide, _9Multiply);
+            _11Equal = Equal(_4FloatZero, _10Multiply);
+            _13Divide = Divide(_0X, if (_11Equal)
+                {
+                  Single _12FloatOne;// 1:PointDeformLinearWave-ext->24:FloatOne 55466
+                  _12FloatOne = FloatOne();
+                  _12FloatOne;
+                  }else
+                {
+                  _10Multiply;
+                  });
+            _14Multiply = Multiply(_3Constant, _13Divide);
+            _15Abs = Abs(_14Multiply);
+            _16Multiply = Multiply(_15Abs, _15Abs);
+            _17Subtract = Subtract(_2FloatOne, _16Multiply);
+            _18Multiply = Multiply(_17Subtract, amplitude1);
+            _19Add = Add(_18Multiply, amplitude2);
+            _20TwoPi = TwoPi();
+            _21FloatZero = FloatZero();
+            _22Equal = Equal(_21FloatZero, waveLength);
+            _24Divide = Divide(_1Y, if (_22Equal)
+                {
+                  Single _23Constant;// 7:WaveDeformerWaveFunc->0:Constant 55442
+                  _23Constant = 1E-07;
+                  _23Constant;
+                  }else
+                {
+                  waveLength;
+                  });
+            _25Add = Add(_24Divide, phase);
+            _26Multiply = Multiply(_20TwoPi, _25Add);
+            _27Sin = Sin(_26Multiply);
+            _28Abs = Abs(_1Y);
+            _29NegativeFloat = NegativeFloat(_2Divide);
+            _30Multiply = Multiply(_28Abs, _29NegativeFloat);
+            _31Exp = Exp(_30Multiply);
+            _32Multiply = Multiply(_27Sin, _31Exp);
+            _33Multiply = Multiply(_19Add, _32Multiply);
+            _34Z = Z(x0);
+            _35Add = Add(_33Multiply, _34Z);
+            _36Vector3 = Vector3(_0X, _1Y, _35Add);
+            _36Vector3;
+            };
+        _10Pass-through: Matrix = if (use gizmo node)
+          {
+            Boolean _4IsValidNode;// 4:NodeTransformInLocalSpaceOrIdentity-ext->3:IsValidNode 55483
+            _4IsValidNode = IsValidNode(gizmo node);
+            if (_4IsValidNode)
+              {
+                Matrix _5ObjectTransformBeforeWSM;// 2:NodeTMInLocalSpace-ext->3:ObjectTransformBeforeWSM 55487
+                Matrix _6InvertMatrix;// 2:NodeTMInLocalSpace-ext->2:InvertMatrix 55488
+                Matrix _7Multiply;// 2:NodeTMInLocalSpace-ext->4:Multiply 55486
+                _5ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(gizmo node);
+                _6InvertMatrix = InvertMatrix(modifierTransform);
+                _7Multiply = Multiply(_5ObjectTransformBeforeWSM, _6InvertMatrix);
+                _7Multiply;
+                }else
+              {
+                Matrix _8MatrixIdentity;// 4:NodeTransformInLocalSpaceOrIdentity-ext->5:MatrixIdentity 55489
+                _8MatrixIdentity = MatrixIdentity();
+                _8MatrixIdentity;
+                };
+            }else
+          {
+            Matrix _9MatrixIdentity;// 16:NodeTransformInLocalSpaceConditionally-ext->5:MatrixIdentity 55490
+            _9MatrixIdentity = MatrixIdentity();
+            _9MatrixIdentity;
+            };
+        _11InvertMatrix = InvertMatrix(_10Pass-through: Matrix);
+        _12ParallelMap = ParallelMap(_0MeshVertices, (Vector3 x0) => 
+          {
+            Vector3 _0Transform;// 4:MeshDeformVertices-ext->11:Transform 55409
+            Vector3 _1Apply1;// 4:MeshDeformVertices-ext->8:Apply1 55408
+            Vector3 _2Transform;// 4:MeshDeformVertices-ext->9:Transform 55407
+            _0Transform = Transform(x0, _11InvertMatrix);
+            _1Apply1 = Apply1(_3Pass-through: function1, _0Transform);
+            _2Transform = Transform(_1Apply1, _10Pass-through: Matrix);
+            _2Transform;
+            });
+        _13SetMeshVertices = SetMeshVertices(mesh, _12ParallelMap);
+        _13SetMeshVertices;
+        });
+    _5IfThen;
+    }

@@ -1,0 +1,105 @@
+(InstanceState state, Boolean Keep Original, TriMesh mesh, Boolean flip, BoundingBox boundingBox, Single Offset X, Single OffsetY, Single Offset Z, Int32 axis) => 
+  {
+    IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 54146
+    Vector3 _3Vector3;// 19:Vector3 54157
+    Vector3 _4Add;// 20:Add 54151
+    Int32 _5Zero;// 14:AxisChoose-ext->9:Zero 54166
+    Boolean _6GreaterThanOrEqual;// 14:AxisChoose-ext->8:GreaterThanOrEqual 54165
+    Vector3 _7XAxis;// 14:AxisChoose-ext->3:XAxis 54174
+    IArray[Vector3] _8Unit;// 2:Array3->2:Unit 54173
+    Vector3 _9YAxis;// 14:AxisChoose-ext->4:YAxis 54175
+    IArray[Vector3] _10Append;// 2:Array3->3:Append 54172
+    Vector3 _11ZAxis;// 14:AxisChoose-ext->5:ZAxis 54176
+    IArray[Vector3] _12Append;// 2:Array3->6:Append 54171
+    Ray _32Ray;// 17:Ray 54150
+    Plane _33Plane;// 16:Plane 54149
+    Matrix _34ReflectionMatrix;// 11:ReflectionMatrix 54148
+    Func[Vector3, Vector3] _35Pass-through: function1;// 0:Pass-through: function1 54143
+    IArray[Vector3] _36Map;// 2:DeformMeshPoints->1:Map 54145
+    TriMesh _37SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 54144
+    _0MeshVertices = MeshVertices(mesh);
+    _3Vector3 = Vector3(Offset X, OffsetY, Offset Z);
+    _4Add = Add(if (flip)
+        {
+          Vector3 _1BoxMin;// 6:BoxMin 54154
+          _1BoxMin = BoxMin(boundingBox);
+          _1BoxMin;
+          }else
+        {
+          Vector3 _2BoxMax;// 8:BoxMax 54156
+          _2BoxMax = BoxMax(boundingBox);
+          _2BoxMax;
+          }, _3Vector3);
+    _5Zero = Zero();
+    _6GreaterThanOrEqual = GreaterThanOrEqual(axis, _5Zero);
+    _7XAxis = XAxis();
+    _8Unit = Unit(_7XAxis);
+    _9YAxis = YAxis();
+    _10Append = Append(_8Unit, _9YAxis);
+    _11ZAxis = ZAxis();
+    _12Append = Append(_10Append, _11ZAxis);
+    _32Ray = Ray(_4Add, if (flip)
+      {
+        Vector3 _25Negate;// 9:Negate 54162
+        _25Negate = Negate(if (_6GreaterThanOrEqual)
+          {
+            Vector3 _19At;// 14:AxisChoose-ext->1:At 54167
+            _19At = At(_12Append, axis);
+            _19At;
+            }else
+          {
+            Int32 _20One;// 10:PlusOne->1:One 54182
+            Int32 _21Add;// 10:PlusOne->0:Add 54181
+            Int32 _22Negative;// 14:AxisChoose-ext->11:Negative 54179
+            Vector3 _23At;// 14:AxisChoose-ext->12:At 54178
+            Vector3 _24Negate;// 14:AxisChoose-ext->13:Negate 54177
+            _20One = One();
+            _21Add = Add(axis, _20One);
+            _22Negative = Negative(_21Add);
+            _23At = At(_12Append, _22Negative);
+            _24Negate = Negate(_23At);
+            _24Negate;
+            });
+        _25Negate;
+        }else
+      {
+        if (_6GreaterThanOrEqual)
+          {
+            Vector3 _26At;// 14:AxisChoose-ext->1:At 54167
+            _26At = At(_12Append, axis);
+            _26At;
+            }else
+          {
+            Int32 _27One;// 10:PlusOne->1:One 54182
+            Int32 _28Add;// 10:PlusOne->0:Add 54181
+            Int32 _29Negative;// 14:AxisChoose-ext->11:Negative 54179
+            Vector3 _30At;// 14:AxisChoose-ext->12:At 54178
+            Vector3 _31Negate;// 14:AxisChoose-ext->13:Negate 54177
+            _27One = One();
+            _28Add = Add(axis, _27One);
+            _29Negative = Negative(_28Add);
+            _30At = At(_12Append, _29Negative);
+            _31Negate = Negate(_30At);
+            _31Negate;
+            };
+        });
+    _33Plane = Plane(_32Ray);
+    _34ReflectionMatrix = ReflectionMatrix(_33Plane);
+    _35Pass-through: function1 = (Vector3 x0) => 
+      {
+        Vector3 _0Transform;// 10:TransformMesh->0:Transform 54147
+        _0Transform = Transform(x0, _34ReflectionMatrix);
+        _0Transform;
+        };
+    _36Map = Map(_0MeshVertices, _35Pass-through: function1);
+    _37SetMeshVertices = SetMeshVertices(mesh, _36Map);
+    if (Keep Original)
+      {
+        TriMesh _38CombineMeshes;// 2:CombineMeshes 54138
+        _38CombineMeshes = CombineMeshes(mesh, _37SetMeshVertices);
+        _38CombineMeshes;
+        }else
+      {
+        _37SetMeshVertices;
+        };
+    }
