@@ -1,11 +1,11 @@
 (InstanceState state, TriMesh mesh, INode target, Single weight) => 
   {
-    String _0Constant;// 0:HasPerVertexChannel->0:Constant 54672
-    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 54674
-    String _2ToString;// 0:HasPerVertexChannel->7:ToString 54673
-    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 54671
-    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 54670
-    TriMesh _5IfThen;// 6:MeshSetVertices-ext->10:IfThen 54666
+    String _0Constant;// 0:HasPerVertexChannel->0:Constant 56781
+    Int32 _1Zero;// 4:HasSoftSelection->3:Zero 56783
+    String _2ToString;// 0:HasPerVertexChannel->7:ToString 56782
+    String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 56780
+    Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 56779
+    TriMesh _5IfThen;// 6:MeshSetVertices-ext->10:IfThen 56775
     _0Constant = per-vertex data channel ;
     _1Zero = Zero();
     _2ToString = ToString(_1Zero);
@@ -13,28 +13,28 @@
     _4IsChannelAvailable = IsChannelAvailable(mesh, _3ConcatenateStrings);
     _5IfThen = IfThen(_4IsChannelAvailable, () => 
       {
-        IArray[Vector3] _0MeshVertices;// 6:MeshSetVertices-ext->0:MeshVertices 54681
-        IArray[Vector3] _1MeshVertices;// 4:MeshInterpolate-ext->7:MeshVertices 54695
-        Boolean _2IsValidNode;// 3:NodeMeshOrDefault-ext->1:IsValidNode 54702
-        TriMesh _4Pass-through: TriMesh;// 0:Pass-through: TriMesh 54662
-        IArray[Vector3] _5MeshVertices;// 4:MeshInterpolate-ext->4:MeshVertices 54696
-        Single _6Constant;// 5:DivideBy100-ext->0:Constant 54707
-        Single _7Divide;// 5:DivideBy100-ext->2:Divide 54706
-        Func[Vector3, Vector3, Vector3] _8Pass-through: function2;// 0:Pass-through: function2 54688
-        IArray[Vector3] _9Combine;// 5:ArrayCombineKeepLength-ext->0:Combine 54694
-        Int32 _10Count;// 4:ArrayConcatenateTail-ext->2:Count 54693
-        IArray[Vector3] _11Skip;// 4:ArrayConcatenateTail-ext->3:Skip 54692
-        IArray[Vector3] _12Concatenate;// 4:ArrayConcatenateTail-ext->4:Concatenate 54691
-        Int32 _13Zero;// 7:SoftSelection->2:Zero 54684
-        IArray[Single] _14PerVertexData;// 7:SoftSelection->3:PerVertexData 54683
-        IArray[Vector3] _15Combine3;// 1:LerpVectors-ext->10:Combine3 54679
-        TriMesh _16SetMeshVertices;// 6:MeshSetVertices-ext->6:SetMeshVertices 54675
+        IArray[Vector3] _0MeshVertices;// 6:MeshSetVertices-ext->0:MeshVertices 56790
+        IArray[Vector3] _1MeshVertices;// 4:MeshInterpolate-ext->7:MeshVertices 56804
+        Boolean _2IsValidNode;// 3:NodeMeshOrDefault-ext->1:IsValidNode 56811
+        TriMesh _4Pass-through: TriMesh;// 0:Pass-through: TriMesh 56771
+        IArray[Vector3] _5MeshVertices;// 4:MeshInterpolate-ext->4:MeshVertices 56805
+        Single _6Constant;// 5:DivideBy100-ext->0:Constant 56816
+        Single _7Divide;// 5:DivideBy100-ext->2:Divide 56815
+        Func[Vector3, Vector3, Vector3] _8Pass-through: function2;// 0:Pass-through: function2 56797
+        IArray[Vector3] _9Combine;// 5:CombineKeepLength-ext->0:Combine 56803
+        Int32 _10Count;// 4:ConcatenateTail-ext->2:Count 56802
+        IArray[Vector3] _11Skip;// 4:ConcatenateTail-ext->3:Skip 56801
+        IArray[Vector3] _12Concatenate;// 4:ConcatenateTail-ext->4:Concatenate 56800
+        Int32 _13Zero;// 7:SoftSelection->2:Zero 56793
+        IArray[Single] _14PerVertexData;// 7:SoftSelection->3:PerVertexData 56792
+        IArray[Vector3] _15Combine3;// 1:LerpVectors-ext->10:Combine3 56788
+        TriMesh _16SetMeshVertices;// 6:MeshSetVertices-ext->6:SetMeshVertices 56784
         _0MeshVertices = MeshVertices(mesh);
         _1MeshVertices = MeshVertices(mesh);
         _2IsValidNode = IsValidNode(target);
         _4Pass-through: TriMesh = if (_2IsValidNode)
           {
-            TriMesh _3MeshFromNode;// 3:NodeMeshOrDefault-ext->2:MeshFromNode 54703
+            TriMesh _3MeshFromNode;// 3:NodeMeshOrDefault-ext->2:MeshFromNode 56812
             _3MeshFromNode = MeshFromNode(target);
             _3MeshFromNode;
             }else
@@ -46,7 +46,7 @@
         _7Divide = Divide(weight, _6Constant);
         _8Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
           {
-            Vector3 _0Lerp;// 4:MeshInterpolate-ext->3:Lerp 54697
+            Vector3 _0Lerp;// 4:MeshInterpolate-ext->3:Lerp 56806
             _0Lerp = Lerp(x0, x1, _7Divide);
             _0Lerp;
             };
@@ -58,7 +58,7 @@
         _14PerVertexData = PerVertexData(mesh, _13Zero);
         _15Combine3 = Combine3(_0MeshVertices, _12Concatenate, _14PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
           {
-            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 54680
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 56789
             _0Lerp = Lerp(x0, x1, x2);
             _0Lerp;
             });
@@ -66,23 +66,23 @@
         _16SetMeshVertices;
         }, () => 
       {
-        IArray[Vector3] _0MeshVertices;// 4:MeshInterpolate-ext->7:MeshVertices 54695
-        Boolean _1IsValidNode;// 3:NodeMeshOrDefault-ext->1:IsValidNode 54702
-        TriMesh _3Pass-through: TriMesh;// 0:Pass-through: TriMesh 54662
-        IArray[Vector3] _4MeshVertices;// 4:MeshInterpolate-ext->4:MeshVertices 54696
-        Single _5Constant;// 5:DivideBy100-ext->0:Constant 54707
-        Single _6Divide;// 5:DivideBy100-ext->2:Divide 54706
-        Func[Vector3, Vector3, Vector3] _7Pass-through: function2;// 0:Pass-through: function2 54688
-        IArray[Vector3] _8Combine;// 5:ArrayCombineKeepLength-ext->0:Combine 54694
-        Int32 _9Count;// 4:ArrayConcatenateTail-ext->2:Count 54693
-        IArray[Vector3] _10Skip;// 4:ArrayConcatenateTail-ext->3:Skip 54692
-        IArray[Vector3] _11Concatenate;// 4:ArrayConcatenateTail-ext->4:Concatenate 54691
-        TriMesh _12SetMeshVertices;// 6:MeshSetVertices-ext->8:SetMeshVertices 54685
+        IArray[Vector3] _0MeshVertices;// 4:MeshInterpolate-ext->7:MeshVertices 56804
+        Boolean _1IsValidNode;// 3:NodeMeshOrDefault-ext->1:IsValidNode 56811
+        TriMesh _3Pass-through: TriMesh;// 0:Pass-through: TriMesh 56771
+        IArray[Vector3] _4MeshVertices;// 4:MeshInterpolate-ext->4:MeshVertices 56805
+        Single _5Constant;// 5:DivideBy100-ext->0:Constant 56816
+        Single _6Divide;// 5:DivideBy100-ext->2:Divide 56815
+        Func[Vector3, Vector3, Vector3] _7Pass-through: function2;// 0:Pass-through: function2 56797
+        IArray[Vector3] _8Combine;// 5:CombineKeepLength-ext->0:Combine 56803
+        Int32 _9Count;// 4:ConcatenateTail-ext->2:Count 56802
+        IArray[Vector3] _10Skip;// 4:ConcatenateTail-ext->3:Skip 56801
+        IArray[Vector3] _11Concatenate;// 4:ConcatenateTail-ext->4:Concatenate 56800
+        TriMesh _12SetMeshVertices;// 6:MeshSetVertices-ext->8:SetMeshVertices 56794
         _0MeshVertices = MeshVertices(mesh);
         _1IsValidNode = IsValidNode(target);
         _3Pass-through: TriMesh = if (_1IsValidNode)
           {
-            TriMesh _2MeshFromNode;// 3:NodeMeshOrDefault-ext->2:MeshFromNode 54703
+            TriMesh _2MeshFromNode;// 3:NodeMeshOrDefault-ext->2:MeshFromNode 56812
             _2MeshFromNode = MeshFromNode(target);
             _2MeshFromNode;
             }else
@@ -94,7 +94,7 @@
         _6Divide = Divide(weight, _5Constant);
         _7Pass-through: function2 = (Vector3 x0, Vector3 x1) => 
           {
-            Vector3 _0Lerp;// 4:MeshInterpolate-ext->3:Lerp 54697
+            Vector3 _0Lerp;// 4:MeshInterpolate-ext->3:Lerp 56806
             _0Lerp = Lerp(x0, x1, _6Divide);
             _0Lerp;
             };

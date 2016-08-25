@@ -2,83 +2,83 @@
   {
     if (maintain edge lengths)
       {
-        TriMesh _0Repeat;// 10:Iterate-ext->7:Repeat 48503
+        TriMesh _0Repeat;// 10:Iterate-ext->7:Repeat 56848
         _0Repeat = Repeat(mesh, iterations, (TriMesh x0, Int32 x1) => 
           {
-            Boolean _0IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 48766
-            TriMesh _3Pass-through: TriMesh;// 0:Pass-through: TriMesh 48497
-            Func[TriMesh, TriMesh] _4Pass-through: function1;// 0:Pass-through: function1 48502
-            TriMesh _5Apply1;// 10:Iterate-ext->1:Apply1 48505
-            TriMesh _6IgnoreSecond;// 10:Iterate-ext->9:IgnoreSecond 48504
+            Boolean _0IsValidNode;// 6:NodeMeshOrDefault-ext->1:IsValidNode 57111
+            TriMesh _3Pass-through: TriMesh;// 0:Pass-through: TriMesh 56842
+            Func[TriMesh, TriMesh] _4Pass-through: function1;// 0:Pass-through: function1 56847
+            TriMesh _5Apply1;// 10:Iterate-ext->1:Apply1 56850
+            TriMesh _6IgnoreSecond;// 10:Iterate-ext->9:IgnoreSecond 56849
             _0IsValidNode = IsValidNode(original mesh);
             _3Pass-through: TriMesh = if (_0IsValidNode)
               {
-                TriMesh _1MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 48767
+                TriMesh _1MeshFromNode;// 6:NodeMeshOrDefault-ext->2:MeshFromNode 57112
                 _1MeshFromNode = MeshFromNode(original mesh);
                 _1MeshFromNode;
                 }else
               {
-                TriMesh _2EmptyMesh;// 7:EmptyMesh 48769
+                TriMesh _2EmptyMesh;// 7:EmptyMesh 57114
                 _2EmptyMesh = EmptyMesh();
                 _2EmptyMesh;
                 };
             _4Pass-through: function1 = (TriMesh x0) => 
               {
-                IArray[Vector3] _0MeshVertices;// 10:MeshMoveVerticesToward-ext->2:MeshVertices 48514
-                IArray[Vector3] _1MeshVertices;// 0:MeshRelaxTowardsOriginal-ext->6:MeshVertices 48520
-                IArray[Int32] _2Indices;// 7:MapIndices-ext->4:Indices 48519
-                Func[Int32, Vector3] _3Pass-through: function1;// 0:Pass-through: function1 48517
-                IArray[Vector3] _4Map;// 7:MapIndices-ext->2:Map 48518
-                IArray[Vector3] _5Combine;// 10:MeshMoveVerticesToward-ext->5:Combine 48513
-                TriMesh _6SetMeshVertices;// 10:MeshMoveVerticesToward-ext->3:SetMeshVertices 48512
+                IArray[Vector3] _0MeshVertices;// 10:MeshMoveVerticesToward-ext->2:MeshVertices 56859
+                IArray[Vector3] _1MeshVertices;// 0:RelaxTowardsOriginal-ext->6:MeshVertices 56865
+                IArray[Int32] _2Indices;// 7:MapIndices-ext->4:Indices 56864
+                Func[Int32, Vector3] _3Pass-through: function1;// 0:Pass-through: function1 56862
+                IArray[Vector3] _4Map;// 7:MapIndices-ext->2:Map 56863
+                IArray[Vector3] _5Combine;// 10:MeshMoveVerticesToward-ext->5:Combine 56858
+                TriMesh _6SetMeshVertices;// 10:MeshMoveVerticesToward-ext->3:SetMeshVertices 56857
                 _0MeshVertices = MeshVertices(x0);
                 _1MeshVertices = MeshVertices(_3Pass-through: TriMesh);
                 _2Indices = Indices(_1MeshVertices);
                 _3Pass-through: function1 = (Int32 x0) => 
                   {
-                    IArray[Int32] _0VertexFaceLookup;// 2:AdjacentVertexIndices->2:VertexFaceLookup 48570
-                    Func[Int32, IArray[Int32]] _1Pass-through: function1;// 0:Pass-through: function1 48567
-                    IArray[IArray[Int32]] _2Map;// 3:FlatMap->4:Map 48569
-                    IArray[Int32] _3Flatten;// 3:FlatMap->3:Flatten 48568
-                    IArray[Int32] _4Sort;// 6:RemoveDuplicates->7:Sort 48551
-                    IArray[Int32] _5Indices;// 6:RemoveDuplicates->0:Indices 48550
-                    IArray[Int32] _6Filter;// 6:RemoveDuplicates->3:Filter 48549
-                    IArray[Int32] _7Map;// 5:SelectByIndex->2:Map 48547
-                    IArray[Vector3] _8MeshVertices;// 7:VertexNeighbours-ext->3:MeshVertices 48593
-                    IArray[Vector3] _9Map;// 4:SelectByIndex->2:Map 48540
-                    IArray[Vector3] _10MeshVertices;// 2:Vertex-ext->3:MeshVertices 48598
-                    Vector3 _11At;// 2:Vertex-ext->5:At 48597
-                    IArray[Vector3] _12Map;// 5:VertexNeighbourDeltas-ext->6:Map 48535
-                    IArray[Int32] _13VertexFaceLookup;// 2:AdjacentVertexIndices->2:VertexFaceLookup 48634
-                    Func[Int32, IArray[Int32]] _14Pass-through: function1;// 0:Pass-through: function1 48631
-                    IArray[IArray[Int32]] _15Map;// 3:FlatMap->4:Map 48633
-                    IArray[Int32] _16Flatten;// 3:FlatMap->3:Flatten 48632
-                    IArray[Int32] _17Sort;// 6:RemoveDuplicates->7:Sort 48615
-                    IArray[Int32] _18Indices;// 6:RemoveDuplicates->0:Indices 48614
-                    IArray[Int32] _19Filter;// 6:RemoveDuplicates->3:Filter 48613
-                    IArray[Int32] _20Map;// 5:SelectByIndex->2:Map 48611
-                    IArray[Vector3] _21MeshVertices;// 4:VertexNeighbours-ext->3:MeshVertices 48657
-                    IArray[Vector3] _22Map;// 4:SelectByIndex->2:Map 48604
-                    IArray[Vector3] _23Combine;// 2:ArrayAdd-ext->2:Combine 48531
-                    Vector3 _24DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 48525
-                    Vector3 _25Aggregate;// 2:Sum->0:Aggregate 48524
-                    Int32 _26Count;// 8:AverageVector->3:Count 48528
-                    Single _27IntAsFloat;// 8:AverageVector->1:IntAsFloat 48527
-                    Vector3 _28DivideByScalar;// 8:AverageVector->5:DivideByScalar 48522
+                    IArray[Int32] _0VertexFaceLookup;// 2:AdjacentVertexIndices->2:VertexFaceLookup 56915
+                    Func[Int32, IArray[Int32]] _1Pass-through: function1;// 0:Pass-through: function1 56912
+                    IArray[IArray[Int32]] _2Map;// 3:FlatMap->4:Map 56914
+                    IArray[Int32] _3Flatten;// 3:FlatMap->3:Flatten 56913
+                    IArray[Int32] _4Sort;// 6:RemoveDuplicates->7:Sort 56896
+                    IArray[Int32] _5Indices;// 6:RemoveDuplicates->0:Indices 56895
+                    IArray[Int32] _6Filter;// 6:RemoveDuplicates->3:Filter 56894
+                    IArray[Int32] _7Map;// 5:SelectByIndex->2:Map 56892
+                    IArray[Vector3] _8MeshVertices;// 7:VertexNeighbours-ext->3:MeshVertices 56938
+                    IArray[Vector3] _9Map;// 4:SelectByIndex->2:Map 56885
+                    IArray[Vector3] _10MeshVertices;// 2:Vertex-ext->3:MeshVertices 56943
+                    Vector3 _11At;// 2:Vertex-ext->5:At 56942
+                    IArray[Vector3] _12Map;// 5:VertexNeighbourDeltas-ext->6:Map 56880
+                    IArray[Int32] _13VertexFaceLookup;// 2:AdjacentVertexIndices->2:VertexFaceLookup 56979
+                    Func[Int32, IArray[Int32]] _14Pass-through: function1;// 0:Pass-through: function1 56976
+                    IArray[IArray[Int32]] _15Map;// 3:FlatMap->4:Map 56978
+                    IArray[Int32] _16Flatten;// 3:FlatMap->3:Flatten 56977
+                    IArray[Int32] _17Sort;// 6:RemoveDuplicates->7:Sort 56960
+                    IArray[Int32] _18Indices;// 6:RemoveDuplicates->0:Indices 56959
+                    IArray[Int32] _19Filter;// 6:RemoveDuplicates->3:Filter 56958
+                    IArray[Int32] _20Map;// 5:SelectByIndex->2:Map 56956
+                    IArray[Vector3] _21MeshVertices;// 4:VertexNeighbours-ext->3:MeshVertices 57002
+                    IArray[Vector3] _22Map;// 4:SelectByIndex->2:Map 56949
+                    IArray[Vector3] _23Combine;// 2:ArrayAdd-ext->2:Combine 56876
+                    Vector3 _24DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 56870
+                    Vector3 _25Aggregate;// 2:Sum->0:Aggregate 56869
+                    Int32 _26Count;// 8:AverageVector->3:Count 56873
+                    Single _27IntAsFloat;// 8:AverageVector->1:IntAsFloat 56872
+                    Vector3 _28DivideByScalar;// 8:AverageVector->5:DivideByScalar 56867
                     _0VertexFaceLookup = VertexFaceLookup(_3Pass-through: TriMesh, x0);
                     _1Pass-through: function1 = (Int32 x0) => 
                       {
-                        Int32 _0Constant;// 1:Three->0:Constant 48585
-                        Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 48584
-                        IArray[Int32] _2Unit;// 0:Array3->2:Unit 48582
-                        Int32 _3One;// 3:PlusOne->1:One 48588
-                        Int32 _4Add;// 3:PlusOne->0:Add 48587
-                        IArray[Int32] _5Append;// 0:Array3->3:Append 48581
-                        Int32 _6One;// 4:PlusOne->1:One 48591
-                        Int32 _7Add;// 4:PlusOne->0:Add 48590
-                        IArray[Int32] _8Append;// 0:Array3->6:Append 48580
-                        IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 48592
-                        IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 48575
+                        Int32 _0Constant;// 1:Three->0:Constant 56930
+                        Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 56929
+                        IArray[Int32] _2Unit;// 0:Array3->2:Unit 56927
+                        Int32 _3One;// 3:PlusOne->1:One 56933
+                        Int32 _4Add;// 3:PlusOne->0:Add 56932
+                        IArray[Int32] _5Append;// 0:Array3->3:Append 56926
+                        Int32 _6One;// 4:PlusOne->1:One 56936
+                        Int32 _7Add;// 4:PlusOne->0:Add 56935
+                        IArray[Int32] _8Append;// 0:Array3->6:Append 56925
+                        IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 56937
+                        IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 56920
                         _0Constant = 3;
                         _1Multiply = Multiply(x0, _0Constant);
                         _2Unit = Unit(_1Multiply);
@@ -91,7 +91,7 @@
                         _9MeshIndices = MeshIndices(_3Pass-through: TriMesh);
                         _10Map = Map(_8Append, (Int32 x0) => 
                           {
-                            Int32 _0At;// 8:SelectByIndex->3:At 48576
+                            Int32 _0At;// 8:SelectByIndex->3:At 56921
                             _0At = At(_9MeshIndices, x0);
                             _0At;
                             });
@@ -103,18 +103,18 @@
                     _5Indices = Indices(_4Sort);
                     _6Filter = Filter(_5Indices, (Int32 x0) => 
                       {
-                        Int32 _0Zero;// 2:GreaterThanZero->1:Zero 48558
-                        Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 48557
-                        Boolean _8Not;// 6:RemoveDuplicates->4:Not 48552
+                        Int32 _0Zero;// 2:GreaterThanZero->1:Zero 56903
+                        Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 56902
+                        Boolean _8Not;// 6:RemoveDuplicates->4:Not 56897
                         _0Zero = Zero();
                         _1GreaterThan = GreaterThan(x0, _0Zero);
                         _8Not = Not(if (_1GreaterThan)
                           {
-                            Int32 _2At;// 2:SameAsPreviousElement->6:At 48560
-                            Int32 _3One;// 5:MinusOne->2:One 48564
-                            Int32 _4Subtract;// 5:MinusOne->1:Subtract 48563
-                            Int32 _5At;// 2:SameAsPreviousElement->7:At 48561
-                            Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 48559
+                            Int32 _2At;// 2:SameAsPreviousElement->6:At 56905
+                            Int32 _3One;// 5:MinusOne->2:One 56909
+                            Int32 _4Subtract;// 5:MinusOne->1:Subtract 56908
+                            Int32 _5At;// 2:SameAsPreviousElement->7:At 56906
+                            Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 56904
                             _2At = At(_4Sort, x0);
                             _3One = One();
                             _4Subtract = Subtract(x0, _3One);
@@ -123,7 +123,7 @@
                             _6Equal;
                             }else
                           {
-                            Boolean _7False;// 2:SameAsPreviousElement->8:False 48565
+                            Boolean _7False;// 2:SameAsPreviousElement->8:False 56910
                             _7False = False();
                             _7False;
                             });
@@ -131,14 +131,14 @@
                         });
                     _7Map = Map(_6Filter, (Int32 x0) => 
                       {
-                        Int32 _0At;// 5:SelectByIndex->3:At 48548
+                        Int32 _0At;// 5:SelectByIndex->3:At 56893
                         _0At = At(_4Sort, x0);
                         _0At;
                         });
                     _8MeshVertices = MeshVertices(_3Pass-through: TriMesh);
                     _9Map = Map(_7Map, (Int32 x0) => 
                       {
-                        Vector3 _0At;// 4:SelectByIndex->3:At 48541
+                        Vector3 _0At;// 4:SelectByIndex->3:At 56886
                         _0At = At(_8MeshVertices, x0);
                         _0At;
                         });
@@ -146,24 +146,24 @@
                     _11At = At(_10MeshVertices, x0);
                     _12Map = Map(_9Map, (Vector3 x0) => 
                       {
-                        Vector3 _0Subtract;// 5:VertexNeighbourDeltas-ext->9:Subtract 48594
+                        Vector3 _0Subtract;// 5:VertexNeighbourDeltas-ext->9:Subtract 56939
                         _0Subtract = Subtract(_11At, x0);
                         _0Subtract;
                         });
                     _13VertexFaceLookup = VertexFaceLookup(x0, x0);
                     _14Pass-through: function1 = (Int32 x0) => 
                       {
-                        Int32 _0Constant;// 1:Three->0:Constant 48649
-                        Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 48648
-                        IArray[Int32] _2Unit;// 0:Array3->2:Unit 48646
-                        Int32 _3One;// 3:PlusOne->1:One 48652
-                        Int32 _4Add;// 3:PlusOne->0:Add 48651
-                        IArray[Int32] _5Append;// 0:Array3->3:Append 48645
-                        Int32 _6One;// 4:PlusOne->1:One 48655
-                        Int32 _7Add;// 4:PlusOne->0:Add 48654
-                        IArray[Int32] _8Append;// 0:Array3->6:Append 48644
-                        IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 48656
-                        IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 48639
+                        Int32 _0Constant;// 1:Three->0:Constant 56994
+                        Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 56993
+                        IArray[Int32] _2Unit;// 0:Array3->2:Unit 56991
+                        Int32 _3One;// 3:PlusOne->1:One 56997
+                        Int32 _4Add;// 3:PlusOne->0:Add 56996
+                        IArray[Int32] _5Append;// 0:Array3->3:Append 56990
+                        Int32 _6One;// 4:PlusOne->1:One 57000
+                        Int32 _7Add;// 4:PlusOne->0:Add 56999
+                        IArray[Int32] _8Append;// 0:Array3->6:Append 56989
+                        IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 57001
+                        IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 56984
                         _0Constant = 3;
                         _1Multiply = Multiply(x0, _0Constant);
                         _2Unit = Unit(_1Multiply);
@@ -176,7 +176,7 @@
                         _9MeshIndices = MeshIndices(x0);
                         _10Map = Map(_8Append, (Int32 x0) => 
                           {
-                            Int32 _0At;// 8:SelectByIndex->3:At 48640
+                            Int32 _0At;// 8:SelectByIndex->3:At 56985
                             _0At = At(_9MeshIndices, x0);
                             _0At;
                             });
@@ -188,18 +188,18 @@
                     _18Indices = Indices(_17Sort);
                     _19Filter = Filter(_18Indices, (Int32 x0) => 
                       {
-                        Int32 _0Zero;// 2:GreaterThanZero->1:Zero 48622
-                        Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 48621
-                        Boolean _8Not;// 6:RemoveDuplicates->4:Not 48616
+                        Int32 _0Zero;// 2:GreaterThanZero->1:Zero 56967
+                        Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 56966
+                        Boolean _8Not;// 6:RemoveDuplicates->4:Not 56961
                         _0Zero = Zero();
                         _1GreaterThan = GreaterThan(x0, _0Zero);
                         _8Not = Not(if (_1GreaterThan)
                           {
-                            Int32 _2At;// 2:SameAsPreviousElement->6:At 48624
-                            Int32 _3One;// 5:MinusOne->2:One 48628
-                            Int32 _4Subtract;// 5:MinusOne->1:Subtract 48627
-                            Int32 _5At;// 2:SameAsPreviousElement->7:At 48625
-                            Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 48623
+                            Int32 _2At;// 2:SameAsPreviousElement->6:At 56969
+                            Int32 _3One;// 5:MinusOne->2:One 56973
+                            Int32 _4Subtract;// 5:MinusOne->1:Subtract 56972
+                            Int32 _5At;// 2:SameAsPreviousElement->7:At 56970
+                            Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 56968
                             _2At = At(_17Sort, x0);
                             _3One = One();
                             _4Subtract = Subtract(x0, _3One);
@@ -208,7 +208,7 @@
                             _6Equal;
                             }else
                           {
-                            Boolean _7False;// 2:SameAsPreviousElement->8:False 48629
+                            Boolean _7False;// 2:SameAsPreviousElement->8:False 56974
                             _7False = False();
                             _7False;
                             });
@@ -216,27 +216,27 @@
                         });
                     _20Map = Map(_19Filter, (Int32 x0) => 
                       {
-                        Int32 _0At;// 5:SelectByIndex->3:At 48612
+                        Int32 _0At;// 5:SelectByIndex->3:At 56957
                         _0At = At(_17Sort, x0);
                         _0At;
                         });
                     _21MeshVertices = MeshVertices(x0);
                     _22Map = Map(_20Map, (Int32 x0) => 
                       {
-                        Vector3 _0At;// 4:SelectByIndex->3:At 48605
+                        Vector3 _0At;// 4:SelectByIndex->3:At 56950
                         _0At = At(_21MeshVertices, x0);
                         _0At;
                         });
                     _23Combine = Combine(_12Map, _22Map, (Vector3 x0, Vector3 x1) => 
                       {
-                        Vector3 _0Add;// 2:ArrayAdd-ext->5:Add 48532
+                        Vector3 _0Add;// 2:ArrayAdd-ext->5:Add 56877
                         _0Add = Add(x0, x1);
                         _0Add;
                         });
                     _24DefaultValueOfElement = DefaultValueOfElement(_23Combine);
                     _25Aggregate = Aggregate(_23Combine, _24DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                       {
-                        Vector3 _0Add;// 2:Sum->2:Add 48526
+                        Vector3 _0Add;// 2:Sum->2:Add 56871
                         _0Add = Add(x0, x1);
                         _0Add;
                         });
@@ -248,7 +248,7 @@
                 _4Map = Map(_2Indices, _3Pass-through: function1);
                 _5Combine = Combine(_0MeshVertices, _4Map, (Vector3 x0, Vector3 x1) => 
                   {
-                    Vector3 _0Lerp;// 10:MeshMoveVerticesToward-ext->8:Lerp 48515
+                    Vector3 _0Lerp;// 10:MeshMoveVerticesToward-ext->8:Lerp 56860
                     _0Lerp = Lerp(x0, x1, amount);
                     _0Lerp;
                     });
@@ -262,20 +262,20 @@
         _0Repeat;
         }else
       {
-        TriMesh _1Repeat;// 4:Iterate-ext->7:Repeat 48661
+        TriMesh _1Repeat;// 4:Iterate-ext->7:Repeat 57006
         _1Repeat = Repeat(mesh, iterations, (TriMesh x0, Int32 x1) => 
           {
-            Func[TriMesh, TriMesh] _0Pass-through: function1;// 0:Pass-through: function1 48660
-            TriMesh _1Apply1;// 4:Iterate-ext->1:Apply1 48663
-            TriMesh _2IgnoreSecond;// 4:Iterate-ext->9:IgnoreSecond 48662
+            Func[TriMesh, TriMesh] _0Pass-through: function1;// 0:Pass-through: function1 57005
+            TriMesh _1Apply1;// 4:Iterate-ext->1:Apply1 57008
+            TriMesh _2IgnoreSecond;// 4:Iterate-ext->9:IgnoreSecond 57007
             _0Pass-through: function1 = (TriMesh x0) => 
               {
-                String _0Constant;// 0:HasPerVertexChannel->0:Constant 48674
-                Int32 _1Zero;// 4:HasSoftSelection->3:Zero 48676
-                String _2ToString;// 0:HasPerVertexChannel->7:ToString 48675
-                String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 48673
-                Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 48672
-                TriMesh _5IfThen;// 11:MeshSetVertices-ext->10:IfThen 48668
+                String _0Constant;// 0:HasPerVertexChannel->0:Constant 57019
+                Int32 _1Zero;// 4:HasSoftSelection->3:Zero 57021
+                String _2ToString;// 0:HasPerVertexChannel->7:ToString 57020
+                String _3ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 57018
+                Boolean _4IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 57017
+                TriMesh _5IfThen;// 11:MeshSetVertices-ext->10:IfThen 57013
                 _0Constant = per-vertex data channel ;
                 _1Zero = Zero();
                 _2ToString = ToString(_1Zero);
@@ -283,51 +283,51 @@
                 _4IsChannelAvailable = IsChannelAvailable(x0, _3ConcatenateStrings);
                 _5IfThen = IfThen(_4IsChannelAvailable, () => 
                   {
-                    IArray[Vector3] _0MeshVertices;// 11:MeshSetVertices-ext->0:MeshVertices 48683
-                    IArray[Vector3] _1MeshVertices;// 3:MeshRelax-ext->2:MeshVertices 48690
-                    IArray[Int32] _2Indices;// 3:MeshRelax-ext->5:Indices 48689
-                    IArray[Vector3] _3Map;// 3:MeshRelax-ext->9:Map 48688
-                    Int32 _4Zero;// 7:SoftSelection->2:Zero 48686
-                    IArray[Single] _5PerVertexData;// 7:SoftSelection->3:PerVertexData 48685
-                    IArray[Vector3] _6Combine3;// 1:LerpVectors-ext->10:Combine3 48681
-                    TriMesh _7SetMeshVertices;// 11:MeshSetVertices-ext->6:SetMeshVertices 48677
+                    IArray[Vector3] _0MeshVertices;// 11:MeshSetVertices-ext->0:MeshVertices 57028
+                    IArray[Vector3] _1MeshVertices;// 3:Relax-ext->2:MeshVertices 57035
+                    IArray[Int32] _2Indices;// 3:Relax-ext->5:Indices 57034
+                    IArray[Vector3] _3Map;// 3:Relax-ext->9:Map 57033
+                    Int32 _4Zero;// 7:SoftSelection->2:Zero 57031
+                    IArray[Single] _5PerVertexData;// 7:SoftSelection->3:PerVertexData 57030
+                    IArray[Vector3] _6Combine3;// 1:LerpVectors-ext->10:Combine3 57026
+                    TriMesh _7SetMeshVertices;// 11:MeshSetVertices-ext->6:SetMeshVertices 57022
                     _0MeshVertices = MeshVertices(x0);
                     _1MeshVertices = MeshVertices(x0);
                     _2Indices = Indices(_1MeshVertices);
                     _3Map = Map(_2Indices, (Int32 x0) => 
                       {
-                        Vector3 _0At;// 3:MeshRelax-ext->8:At 48692
-                        IArray[Int32] _1VertexFaceLookup;// 3:AdjacentVertexIndices->2:VertexFaceLookup 48737
-                        Func[Int32, IArray[Int32]] _2Pass-through: function1;// 0:Pass-through: function1 48734
-                        IArray[IArray[Int32]] _3Map;// 3:FlatMap->4:Map 48736
-                        IArray[Int32] _4Flatten;// 3:FlatMap->3:Flatten 48735
-                        IArray[Int32] _5Sort;// 6:RemoveDuplicates->7:Sort 48718
-                        IArray[Int32] _6Indices;// 6:RemoveDuplicates->0:Indices 48717
-                        IArray[Int32] _7Filter;// 6:RemoveDuplicates->3:Filter 48716
-                        IArray[Int32] _8Map;// 5:SelectByIndex->2:Map 48714
-                        IArray[Vector3] _9MeshVertices;// 4:SelectVertices->3:MeshVertices 48708
-                        IArray[Vector3] _10Map;// 2:SelectByIndex->2:Map 48706
-                        Vector3 _11DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 48698
-                        Vector3 _12Aggregate;// 2:Sum->0:Aggregate 48697
-                        Int32 _13Count;// 7:AverageVector->3:Count 48701
-                        Single _14IntAsFloat;// 7:AverageVector->1:IntAsFloat 48700
-                        Vector3 _15DivideByScalar;// 7:AverageVector->5:DivideByScalar 48695
-                        Vector3 _16Lerp;// 3:MeshRelax-ext->12:Lerp 48691
+                        Vector3 _0At;// 3:Relax-ext->8:At 57037
+                        IArray[Int32] _1VertexFaceLookup;// 3:AdjacentVertexIndices->2:VertexFaceLookup 57082
+                        Func[Int32, IArray[Int32]] _2Pass-through: function1;// 0:Pass-through: function1 57079
+                        IArray[IArray[Int32]] _3Map;// 3:FlatMap->4:Map 57081
+                        IArray[Int32] _4Flatten;// 3:FlatMap->3:Flatten 57080
+                        IArray[Int32] _5Sort;// 6:RemoveDuplicates->7:Sort 57063
+                        IArray[Int32] _6Indices;// 6:RemoveDuplicates->0:Indices 57062
+                        IArray[Int32] _7Filter;// 6:RemoveDuplicates->3:Filter 57061
+                        IArray[Int32] _8Map;// 5:SelectByIndex->2:Map 57059
+                        IArray[Vector3] _9MeshVertices;// 4:SelectVertices->3:MeshVertices 57053
+                        IArray[Vector3] _10Map;// 2:SelectByIndex->2:Map 57051
+                        Vector3 _11DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 57043
+                        Vector3 _12Aggregate;// 2:Sum->0:Aggregate 57042
+                        Int32 _13Count;// 7:AverageVector->3:Count 57046
+                        Single _14IntAsFloat;// 7:AverageVector->1:IntAsFloat 57045
+                        Vector3 _15DivideByScalar;// 7:AverageVector->5:DivideByScalar 57040
+                        Vector3 _16Lerp;// 3:Relax-ext->12:Lerp 57036
                         _0At = At(_1MeshVertices, x0);
                         _1VertexFaceLookup = VertexFaceLookup(x0, x0);
                         _2Pass-through: function1 = (Int32 x0) => 
                           {
-                            Int32 _0Constant;// 1:Three->0:Constant 48752
-                            Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 48751
-                            IArray[Int32] _2Unit;// 0:Array3->2:Unit 48749
-                            Int32 _3One;// 3:PlusOne->1:One 48755
-                            Int32 _4Add;// 3:PlusOne->0:Add 48754
-                            IArray[Int32] _5Append;// 0:Array3->3:Append 48748
-                            Int32 _6One;// 4:PlusOne->1:One 48758
-                            Int32 _7Add;// 4:PlusOne->0:Add 48757
-                            IArray[Int32] _8Append;// 0:Array3->6:Append 48747
-                            IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 48759
-                            IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 48742
+                            Int32 _0Constant;// 1:Three->0:Constant 57097
+                            Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 57096
+                            IArray[Int32] _2Unit;// 0:Array3->2:Unit 57094
+                            Int32 _3One;// 3:PlusOne->1:One 57100
+                            Int32 _4Add;// 3:PlusOne->0:Add 57099
+                            IArray[Int32] _5Append;// 0:Array3->3:Append 57093
+                            Int32 _6One;// 4:PlusOne->1:One 57103
+                            Int32 _7Add;// 4:PlusOne->0:Add 57102
+                            IArray[Int32] _8Append;// 0:Array3->6:Append 57092
+                            IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 57104
+                            IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 57087
                             _0Constant = 3;
                             _1Multiply = Multiply(x0, _0Constant);
                             _2Unit = Unit(_1Multiply);
@@ -340,7 +340,7 @@
                             _9MeshIndices = MeshIndices(x0);
                             _10Map = Map(_8Append, (Int32 x0) => 
                               {
-                                Int32 _0At;// 8:SelectByIndex->3:At 48743
+                                Int32 _0At;// 8:SelectByIndex->3:At 57088
                                 _0At = At(_9MeshIndices, x0);
                                 _0At;
                                 });
@@ -352,18 +352,18 @@
                         _6Indices = Indices(_5Sort);
                         _7Filter = Filter(_6Indices, (Int32 x0) => 
                           {
-                            Int32 _0Zero;// 2:GreaterThanZero->1:Zero 48725
-                            Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 48724
-                            Boolean _8Not;// 6:RemoveDuplicates->4:Not 48719
+                            Int32 _0Zero;// 2:GreaterThanZero->1:Zero 57070
+                            Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 57069
+                            Boolean _8Not;// 6:RemoveDuplicates->4:Not 57064
                             _0Zero = Zero();
                             _1GreaterThan = GreaterThan(x0, _0Zero);
                             _8Not = Not(if (_1GreaterThan)
                               {
-                                Int32 _2At;// 2:SameAsPreviousElement->6:At 48727
-                                Int32 _3One;// 5:MinusOne->2:One 48731
-                                Int32 _4Subtract;// 5:MinusOne->1:Subtract 48730
-                                Int32 _5At;// 2:SameAsPreviousElement->7:At 48728
-                                Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 48726
+                                Int32 _2At;// 2:SameAsPreviousElement->6:At 57072
+                                Int32 _3One;// 5:MinusOne->2:One 57076
+                                Int32 _4Subtract;// 5:MinusOne->1:Subtract 57075
+                                Int32 _5At;// 2:SameAsPreviousElement->7:At 57073
+                                Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 57071
                                 _2At = At(_5Sort, x0);
                                 _3One = One();
                                 _4Subtract = Subtract(x0, _3One);
@@ -372,7 +372,7 @@
                                 _6Equal;
                                 }else
                               {
-                                Boolean _7False;// 2:SameAsPreviousElement->8:False 48732
+                                Boolean _7False;// 2:SameAsPreviousElement->8:False 57077
                                 _7False = False();
                                 _7False;
                                 });
@@ -380,21 +380,21 @@
                             });
                         _8Map = Map(_7Filter, (Int32 x0) => 
                           {
-                            Int32 _0At;// 5:SelectByIndex->3:At 48715
+                            Int32 _0At;// 5:SelectByIndex->3:At 57060
                             _0At = At(_5Sort, x0);
                             _0At;
                             });
                         _9MeshVertices = MeshVertices(x0);
                         _10Map = Map(_8Map, (Int32 x0) => 
                           {
-                            Vector3 _0At;// 2:SelectByIndex->3:At 48707
+                            Vector3 _0At;// 2:SelectByIndex->3:At 57052
                             _0At = At(_9MeshVertices, x0);
                             _0At;
                             });
                         _11DefaultValueOfElement = DefaultValueOfElement(_10Map);
                         _12Aggregate = Aggregate(_10Map, _11DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                           {
-                            Vector3 _0Add;// 2:Sum->2:Add 48699
+                            Vector3 _0Add;// 2:Sum->2:Add 57044
                             _0Add = Add(x0, x1);
                             _0Add;
                             });
@@ -408,7 +408,7 @@
                     _5PerVertexData = PerVertexData(x0, _4Zero);
                     _6Combine3 = Combine3(_0MeshVertices, _3Map, _5PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
                       {
-                        Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 48682
+                        Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 57027
                         _0Lerp = Lerp(x0, x1, x2);
                         _0Lerp;
                         });
@@ -416,46 +416,46 @@
                     _7SetMeshVertices;
                     }, () => 
                   {
-                    IArray[Vector3] _0MeshVertices;// 3:MeshRelax-ext->2:MeshVertices 48690
-                    IArray[Int32] _1Indices;// 3:MeshRelax-ext->5:Indices 48689
-                    IArray[Vector3] _2Map;// 3:MeshRelax-ext->9:Map 48688
-                    TriMesh _3SetMeshVertices;// 11:MeshSetVertices-ext->8:SetMeshVertices 48687
+                    IArray[Vector3] _0MeshVertices;// 3:Relax-ext->2:MeshVertices 57035
+                    IArray[Int32] _1Indices;// 3:Relax-ext->5:Indices 57034
+                    IArray[Vector3] _2Map;// 3:Relax-ext->9:Map 57033
+                    TriMesh _3SetMeshVertices;// 11:MeshSetVertices-ext->8:SetMeshVertices 57032
                     _0MeshVertices = MeshVertices(x0);
                     _1Indices = Indices(_0MeshVertices);
                     _2Map = Map(_1Indices, (Int32 x0) => 
                       {
-                        Vector3 _0At;// 3:MeshRelax-ext->8:At 48692
-                        IArray[Int32] _1VertexFaceLookup;// 3:AdjacentVertexIndices->2:VertexFaceLookup 48737
-                        Func[Int32, IArray[Int32]] _2Pass-through: function1;// 0:Pass-through: function1 48734
-                        IArray[IArray[Int32]] _3Map;// 3:FlatMap->4:Map 48736
-                        IArray[Int32] _4Flatten;// 3:FlatMap->3:Flatten 48735
-                        IArray[Int32] _5Sort;// 6:RemoveDuplicates->7:Sort 48718
-                        IArray[Int32] _6Indices;// 6:RemoveDuplicates->0:Indices 48717
-                        IArray[Int32] _7Filter;// 6:RemoveDuplicates->3:Filter 48716
-                        IArray[Int32] _8Map;// 5:SelectByIndex->2:Map 48714
-                        IArray[Vector3] _9MeshVertices;// 4:SelectVertices->3:MeshVertices 48708
-                        IArray[Vector3] _10Map;// 2:SelectByIndex->2:Map 48706
-                        Vector3 _11DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 48698
-                        Vector3 _12Aggregate;// 2:Sum->0:Aggregate 48697
-                        Int32 _13Count;// 7:AverageVector->3:Count 48701
-                        Single _14IntAsFloat;// 7:AverageVector->1:IntAsFloat 48700
-                        Vector3 _15DivideByScalar;// 7:AverageVector->5:DivideByScalar 48695
-                        Vector3 _16Lerp;// 3:MeshRelax-ext->12:Lerp 48691
+                        Vector3 _0At;// 3:Relax-ext->8:At 57037
+                        IArray[Int32] _1VertexFaceLookup;// 3:AdjacentVertexIndices->2:VertexFaceLookup 57082
+                        Func[Int32, IArray[Int32]] _2Pass-through: function1;// 0:Pass-through: function1 57079
+                        IArray[IArray[Int32]] _3Map;// 3:FlatMap->4:Map 57081
+                        IArray[Int32] _4Flatten;// 3:FlatMap->3:Flatten 57080
+                        IArray[Int32] _5Sort;// 6:RemoveDuplicates->7:Sort 57063
+                        IArray[Int32] _6Indices;// 6:RemoveDuplicates->0:Indices 57062
+                        IArray[Int32] _7Filter;// 6:RemoveDuplicates->3:Filter 57061
+                        IArray[Int32] _8Map;// 5:SelectByIndex->2:Map 57059
+                        IArray[Vector3] _9MeshVertices;// 4:SelectVertices->3:MeshVertices 57053
+                        IArray[Vector3] _10Map;// 2:SelectByIndex->2:Map 57051
+                        Vector3 _11DefaultValueOfElement;// 2:Sum->4:DefaultValueOfElement 57043
+                        Vector3 _12Aggregate;// 2:Sum->0:Aggregate 57042
+                        Int32 _13Count;// 7:AverageVector->3:Count 57046
+                        Single _14IntAsFloat;// 7:AverageVector->1:IntAsFloat 57045
+                        Vector3 _15DivideByScalar;// 7:AverageVector->5:DivideByScalar 57040
+                        Vector3 _16Lerp;// 3:Relax-ext->12:Lerp 57036
                         _0At = At(_0MeshVertices, x0);
                         _1VertexFaceLookup = VertexFaceLookup(x0, x0);
                         _2Pass-through: function1 = (Int32 x0) => 
                           {
-                            Int32 _0Constant;// 1:Three->0:Constant 48752
-                            Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 48751
-                            IArray[Int32] _2Unit;// 0:Array3->2:Unit 48749
-                            Int32 _3One;// 3:PlusOne->1:One 48755
-                            Int32 _4Add;// 3:PlusOne->0:Add 48754
-                            IArray[Int32] _5Append;// 0:Array3->3:Append 48748
-                            Int32 _6One;// 4:PlusOne->1:One 48758
-                            Int32 _7Add;// 4:PlusOne->0:Add 48757
-                            IArray[Int32] _8Append;// 0:Array3->6:Append 48747
-                            IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 48759
-                            IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 48742
+                            Int32 _0Constant;// 1:Three->0:Constant 57097
+                            Int32 _1Multiply;// 2:MultiplyByThree->2:Multiply 57096
+                            IArray[Int32] _2Unit;// 0:Array3->2:Unit 57094
+                            Int32 _3One;// 3:PlusOne->1:One 57100
+                            Int32 _4Add;// 3:PlusOne->0:Add 57099
+                            IArray[Int32] _5Append;// 0:Array3->3:Append 57093
+                            Int32 _6One;// 4:PlusOne->1:One 57103
+                            Int32 _7Add;// 4:PlusOne->0:Add 57102
+                            IArray[Int32] _8Append;// 0:Array3->6:Append 57092
+                            IArray[Int32] _9MeshIndices;// 4:FaceToVertexIndices->7:MeshIndices 57104
+                            IArray[Int32] _10Map;// 8:SelectByIndex->2:Map 57087
                             _0Constant = 3;
                             _1Multiply = Multiply(x0, _0Constant);
                             _2Unit = Unit(_1Multiply);
@@ -468,7 +468,7 @@
                             _9MeshIndices = MeshIndices(x0);
                             _10Map = Map(_8Append, (Int32 x0) => 
                               {
-                                Int32 _0At;// 8:SelectByIndex->3:At 48743
+                                Int32 _0At;// 8:SelectByIndex->3:At 57088
                                 _0At = At(_9MeshIndices, x0);
                                 _0At;
                                 });
@@ -480,18 +480,18 @@
                         _6Indices = Indices(_5Sort);
                         _7Filter = Filter(_6Indices, (Int32 x0) => 
                           {
-                            Int32 _0Zero;// 2:GreaterThanZero->1:Zero 48725
-                            Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 48724
-                            Boolean _8Not;// 6:RemoveDuplicates->4:Not 48719
+                            Int32 _0Zero;// 2:GreaterThanZero->1:Zero 57070
+                            Boolean _1GreaterThan;// 2:GreaterThanZero->3:GreaterThan 57069
+                            Boolean _8Not;// 6:RemoveDuplicates->4:Not 57064
                             _0Zero = Zero();
                             _1GreaterThan = GreaterThan(x0, _0Zero);
                             _8Not = Not(if (_1GreaterThan)
                               {
-                                Int32 _2At;// 2:SameAsPreviousElement->6:At 48727
-                                Int32 _3One;// 5:MinusOne->2:One 48731
-                                Int32 _4Subtract;// 5:MinusOne->1:Subtract 48730
-                                Int32 _5At;// 2:SameAsPreviousElement->7:At 48728
-                                Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 48726
+                                Int32 _2At;// 2:SameAsPreviousElement->6:At 57072
+                                Int32 _3One;// 5:MinusOne->2:One 57076
+                                Int32 _4Subtract;// 5:MinusOne->1:Subtract 57075
+                                Int32 _5At;// 2:SameAsPreviousElement->7:At 57073
+                                Boolean _6Equal;// 2:SameAsPreviousElement->3:Equal 57071
                                 _2At = At(_5Sort, x0);
                                 _3One = One();
                                 _4Subtract = Subtract(x0, _3One);
@@ -500,7 +500,7 @@
                                 _6Equal;
                                 }else
                               {
-                                Boolean _7False;// 2:SameAsPreviousElement->8:False 48732
+                                Boolean _7False;// 2:SameAsPreviousElement->8:False 57077
                                 _7False = False();
                                 _7False;
                                 });
@@ -508,21 +508,21 @@
                             });
                         _8Map = Map(_7Filter, (Int32 x0) => 
                           {
-                            Int32 _0At;// 5:SelectByIndex->3:At 48715
+                            Int32 _0At;// 5:SelectByIndex->3:At 57060
                             _0At = At(_5Sort, x0);
                             _0At;
                             });
                         _9MeshVertices = MeshVertices(x0);
                         _10Map = Map(_8Map, (Int32 x0) => 
                           {
-                            Vector3 _0At;// 2:SelectByIndex->3:At 48707
+                            Vector3 _0At;// 2:SelectByIndex->3:At 57052
                             _0At = At(_9MeshVertices, x0);
                             _0At;
                             });
                         _11DefaultValueOfElement = DefaultValueOfElement(_10Map);
                         _12Aggregate = Aggregate(_10Map, _11DefaultValueOfElement, (Vector3 x0, Vector3 x1) => 
                           {
-                            Vector3 _0Add;// 2:Sum->2:Add 48699
+                            Vector3 _0Add;// 2:Sum->2:Add 57044
                             _0Add = Add(x0, x1);
                             _0Add;
                             });
