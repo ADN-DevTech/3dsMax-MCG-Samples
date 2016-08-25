@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="3cb76a0c-ed8b-4805-8766-ca3be3aa27a8">
+  <meta_info>
+    <graph_version guid="886b20bd-20f2-4bb2-a407-2ea974543317" number="0.0.3" />
+    <category>Geometry - Deformers</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="220:0" size="140:112" />
+    <node operator="Input: Vector3" id="3" name="center" position="0:80" size="140:112" />
+    <node operator="Input: Single" id="4" name="radius" position="0:200" size="140:112" />
+    <node operator="Output: compound" id="6" position="660:220" size="140:70" />
+    <node operator="DeformVertices-ext" id="5" position="440:160" size="140:154" />
+    <node operator="InvertPoint-ext" id="8" position="220:140" size="140:154" />
+    <node operator="Input: Matrix" id="1" name="deformationSpace" position="220:300" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="8" sourceport="1" destnode="5" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="8" destport="2" />
+  </connections>
+</graph>

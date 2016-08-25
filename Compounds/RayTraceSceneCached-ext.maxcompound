@@ -1,76 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="f1629218-2cd1-4e01-b0af-20c538488f9b">
-    <meta_info>
-        <graph_version guid="b8b8e9f1-fcc9-4339-8a6f-e7e46c76aee2" number="0.0.23" />
-        <category>Ray tracer</category>
-        <description>Creates or updates a ray traced scene from the given mesh. The cached geometry is not updated unless the updateCache input is true or one of the matrices changes. The meshTransform is a matrix that can convert the input mesh to worldspace, usually retrieved using GetObjectTMbeforeWSM. The worldSpaceTransform is the matrix that a geometry or modifier uses to convert meshes into world space. </description>
-    </meta_info>
-    <nodes>
-        <node operator="Input: TriMesh" id="0" name="mesh" position="0:164" size="140:112" />
-        <node operator="Input: Boolean" id="5" name="updateCache" position="1609:129" size="140:112" />
-        <node operator="ExtractCurrentValueFromCache" id="7" position="2080:320" size="220:112" />
-        <node operator="Output: compound" id="8" position="3480:500" size="140:70" />
-        <node operator="RayTraceScene-ext" id="11" position="880:260" size="180:112" />
-        <node operator="CreateStaticCache" id="13" position="1349:289" size="180:112" />
-        <node operator="IfThen" id="14" position="1849:269" size="140:154" />
-        <node operator="ForceUpdateCache" id="15" position="1609:249" size="160:112" />
-        <node operator="Input: Matrix" id="2" name="transform" position="2389:550" size="180:112" />
-        <node operator="Pair" id="6" position="1140:220" size="140:133" />
-        <node operator="PairItem1" id="16" position="3260:480" size="140:112" />
-        <node operator="Zero" id="21" position="2649:450" size="140:91" />
-        <node operator="RayTraceUpdateGeometry" id="24" position="2969:450" size="200:154" />
-        <node operator="PairItem1" id="26" position="2389:410" size="140:112" />
-        <node operator="PairItem2" id="28" position="2649:330" size="140:112" />
-        <node operator="Constant" id="17" value="-10000000.0" position="0:404" size="140:91" />
-        <node operator="OffsetMesh" id="4" position="440:224" size="140:133" />
-        <node operator="Tetrahedron" id="9" position="220:244" size="140:112" />
-        <node operator="FloatZero" id="10" position="0:304" size="140:91" />
-        <node operator="ScalarToVector-ext" id="12" position="220:384" size="140:112" />
-        <node operator="If" id="18" position="660:184" size="140:154" />
-        <node operator="FaceCount" id="19" position="220:4" size="140:112" />
-        <node operator="Equal" id="20" position="440:84" size="140:133" />
-        <node operator="Zero" id="22" position="220:144" size="140:91" />
-        <node operator="TransformMesh" id="30" position="2655:561" size="140:133" />
-        <node groupnode="If the transform changes then the mesh can be safely updated in the scene." id="3" position="2380:280" size="798:423" bg_color="#ff646464">
-            <nodes>2,28,30,21,24,26</nodes>
-        </node>
-        <node groupnode="Recreates the geometry/scene cache, necessary when topology changes " id="29" position="1340:100" size="658:332" bg_color="#ff646464">
-            <nodes>5,13,14,15</nodes>
-        </node>
-        <node groupnode="Pair the mesh with the scene" id="25" position="871:191" size="418:190" bg_color="#ff646464">
-            <nodes>11,6</nodes>
-        </node>
-        <node groupnode="Meshes with no faces cannot be added to a ray-trace scene: an exception will be thrown" id="23" position="-9:-25" size="818:532" bg_color="#ff646464">
-            <nodes>0,20,22,17,4,9,10,12,18,19</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
-        <connection sourcenode="16" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="11" destport="0" />
-        <connection sourcenode="6" sourceport="1" destnode="13" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="15" sourceport="1" destnode="14" destport="1" />
-        <connection sourcenode="13" sourceport="1" destnode="14" destport="2" />
-        <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="18" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="11" sourceport="0" destnode="6" destport="1" />
-        <connection sourcenode="24" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="28" sourceport="0" destnode="24" destport="0" />
-        <connection sourcenode="21" sourceport="0" destnode="24" destport="1" />
-        <connection sourcenode="30" sourceport="0" destnode="24" destport="2" />
-        <connection sourcenode="7" sourceport="0" destnode="26" destport="0" />
-        <connection sourcenode="7" sourceport="0" destnode="28" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="12" destport="0" />
-        <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
-        <connection sourcenode="4" sourceport="0" destnode="18" destport="1" />
-        <connection sourcenode="0" sourceport="0" destnode="18" destport="2" />
-        <connection sourcenode="0" sourceport="0" destnode="19" destport="0" />
-        <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
-        <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
-        <connection sourcenode="26" sourceport="0" destnode="30" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="30" destport="1" />
-    </connections>
+  <meta_info>
+    <graph_version guid="b8b8e9f1-fcc9-4339-8a6f-e7e46c76aee2" number="0.0.23" />
+    <category>Geometry - Ray</category>
+    <description>Creates or updates a ray traced scene from the given mesh. The cached geometry is not updated unless the updateCache input is true or one of the matrices changes. The meshTransform is a matrix that can convert the input mesh to worldspace, usually retrieved using GetObjectTMbeforeWSM. The worldSpaceTransform is the matrix that a geometry or modifier uses to convert meshes into world space. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="0:164" size="140:112" />
+    <node operator="Input: Boolean" id="5" name="updateCache" position="1609:129" size="140:112" />
+    <node operator="ExtractCurrentValueFromCache" id="7" position="2080:320" size="220:112" />
+    <node operator="Output: compound" id="8" position="3480:500" size="140:70" />
+    <node operator="RayTraceScene-ext" id="11" position="880:260" size="180:112" />
+    <node operator="CreateStaticCache" id="13" position="1349:289" size="180:112" />
+    <node operator="IfThen" id="14" position="1849:269" size="140:154" />
+    <node operator="ForceUpdateCache" id="15" position="1609:249" size="160:112" />
+    <node operator="Input: Matrix" id="2" name="transform" position="2389:550" size="180:112" />
+    <node operator="Pair" id="6" position="1140:220" size="140:133" />
+    <node operator="PairItem1" id="16" position="3260:480" size="140:112" />
+    <node operator="Zero" id="21" position="2649:450" size="140:91" />
+    <node operator="RayTraceUpdateGeometry" id="24" position="2969:450" size="200:154" />
+    <node operator="PairItem1" id="26" position="2389:410" size="140:112" />
+    <node operator="PairItem2" id="28" position="2649:330" size="140:112" />
+    <node operator="Constant" id="17" value="-10000000.0" position="0:404" size="140:91" />
+    <node operator="OffsetMesh" id="4" position="440:224" size="140:133" />
+    <node operator="Tetrahedron" id="9" position="220:244" size="140:112" />
+    <node operator="FloatZero" id="10" position="0:304" size="140:91" />
+    <node operator="ScalarToVector-ext" id="12" position="220:384" size="140:112" />
+    <node operator="If" id="18" position="660:184" size="140:154" />
+    <node operator="FaceCount" id="19" position="220:4" size="140:112" />
+    <node operator="Equal" id="20" position="440:84" size="140:133" />
+    <node operator="Zero" id="22" position="220:144" size="140:91" />
+    <node operator="TransformMesh" id="30" position="2655:561" size="140:133" />
+    <node groupnode="If the transform changes then the mesh can be safely updated in the scene." id="3" position="2380:280" size="798:423" bg_color="#ff646464">
+      <nodes>2,28,30,21,24,26</nodes>
+    </node>
+    <node groupnode="Recreates the geometry/scene cache, necessary when topology changes " id="29" position="1340:100" size="658:332" bg_color="#ff646464">
+      <nodes>5,13,14,15</nodes>
+    </node>
+    <node groupnode="Pair the mesh with the scene" id="25" position="871:191" size="418:190" bg_color="#ff646464">
+      <nodes>11,6</nodes>
+    </node>
+    <node groupnode="Meshes with no faces cannot be added to a ray-trace scene: an exception will be thrown" id="23" position="-9:-25" size="818:532" bg_color="#ff646464">
+      <nodes>0,20,22,17,4,9,10,12,18,19</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="6" sourceport="1" destnode="13" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="15" sourceport="1" destnode="14" destport="1" />
+    <connection sourcenode="13" sourceport="1" destnode="14" destport="2" />
+    <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="24" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="28" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="24" destport="1" />
+    <connection sourcenode="30" sourceport="0" destnode="24" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="26" sourceport="0" destnode="30" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="30" destport="1" />
+  </connections>
 </graph>

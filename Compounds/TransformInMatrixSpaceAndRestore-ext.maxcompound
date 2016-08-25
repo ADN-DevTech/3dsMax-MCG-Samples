@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="64a59b5b-40ec-4184-8b67-7d2d43e45e02">
+  <meta_info>
+    <graph_version guid="4c780cdc-bfc7-42e0-91d2-4486c8cac75b" number="0.0.2" />
+    <category>Geometry - Deformers</category>
+    <description>Transforms a point in a new basis (defined by a matrix) and then restores the transformed point to the original space by transforming by the invert of the matrix. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: function1" id="0" name="deform" position="0:140" size="140:112" />
+    <node operator="Input: Vector3" id="1" name="point" position="0:0" size="140:112" />
+    <node operator="Input: Matrix" id="2" name="matrix" position="0:260" size="140:112" />
+    <node operator="InvertMatrix" id="3" position="220:300" size="140:112" />
+    <node operator="Transform" id="4" position="660:40" size="140:133" />
+    <node operator="Transform" id="5" position="440:240" size="140:133" />
+    <node operator="Apply1" id="6" position="220:160" size="140:133" />
+    <node operator="Output: compound" id="7" position="660:260" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+  </connections>
+</graph>

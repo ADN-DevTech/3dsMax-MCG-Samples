@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="cfceb40b-13e9-4742-beb5-d9157e389932">
+  <meta_info>
+    <graph_version guid="fcfa24a1-310d-4344-a912-264951fe40e7" number="0.0.13" />
+    <category>Geometry - Deformers</category>
+    <description>A generalized tool for creating position/rotation/scale based deformers. For example: Skew, Bend, Twist, Taper. </description>
+  </meta_info>
+  <nodes>
+    <node operator="DeformVertices-ext" id="0" position="920:340" size="200:154" />
+    <node operator="Input: TriMesh" id="2" name="mesh" position="700:200" size="140:112" />
+    <node operator="Input: Matrix" id="3" name="deformationSpace" position="700:480" size="140:112" />
+    <node operator="Transform" id="4" position="700:320" size="140:133" />
+    <node operator="Output: compound" id="7" position="1200:400" size="140:70" />
+    <node operator="MatrixFromPRSLerp-ext" id="10" position="440:320" size="180:238" />
+    <node operator="Origin" id="15" position="220:240" size="140:91" />
+    <node operator="Origin" id="16" position="220:480" size="140:91" />
+    <node operator="OnesVector-ext" id="17" position="220:740" size="140:91" />
+    <node operator="Input: Vector3" id="18" name="position" position="220:360" size="140:112" />
+    <node operator="Input: Vector3" id="19" name="rotation" position="220:600" size="140:112" />
+    <node operator="Input: Vector3" id="20" name="scale" position="220:840" size="140:112" />
+    <node operator="Input: function1" id="1" name="transformAmountFunc" position="0:140" size="140:112" />
+    <node operator="Apply1" id="5" position="220:100" size="140:133" />
+    <node operator="Pass-through: Vector3" id="6" position="0:0" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="4" sourceport="1" destnode="0" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="6" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="10" destport="2" />
+    <connection sourcenode="16" sourceport="0" destnode="10" destport="3" />
+    <connection sourcenode="19" sourceport="0" destnode="10" destport="4" />
+    <connection sourcenode="17" sourceport="0" destnode="10" destport="5" />
+    <connection sourcenode="20" sourceport="0" destnode="10" destport="6" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+  </connections>
+</graph>

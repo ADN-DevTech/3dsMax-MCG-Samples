@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="c5b64945-055a-43da-ba5a-470d94c94311">
+  <meta_info>
+    <graph_version guid="4c97e7b6-619b-4ab0-852f-40747fff5f47" number="0.0.5" />
+    <category>Geometry - Deformers</category>
+    <description>Used by the bend deformer to defrorm a point once it has been converted into an appropriate space for performing a bend. The "r" argument is the bounding box length divided by the angle. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Cos" id="50" position="1129:69" size="140:112" />
+    <node operator="Vector3" id="36" position="2400:200" size="140:154" />
+    <node operator="Pass-through: Single" id="34" position="449:269" size="140:112" />
+    <node operator="Divide" id="46" position="696:260" size="140:133" />
+    <node operator="Z" id="38" position="440:100" size="140:112" />
+    <node operator="Pi" id="37" position="693:169" size="140:91" />
+    <node operator="Subtract" id="51" position="888:169" size="140:133" />
+    <node operator="Pass-through: Single" id="59" position="1129:369" size="140:112" />
+    <node operator="Multiply" id="61" position="1798:118" size="140:133" />
+    <node operator="X" id="40" position="1120:220" size="140:112" />
+    <node operator="Y" id="41" position="1780:280" size="140:112" />
+    <node operator="Subtract" id="66" position="2180:490" size="140:133" />
+    <node operator="Multiply" id="65" position="1798:478" size="140:133" />
+    <node operator="Pass-through: Vector3" id="45" position="220:200" size="140:112" />
+    <node operator="Sin" id="55" position="1129:589" size="140:112" />
+    <node operator="Subtract" id="60" position="2158:118" size="140:133" />
+    <node operator="Multiply" id="57" position="1369:169" size="140:133" />
+    <node operator="Pass-through: Single" id="72" position="1369:369" size="140:112" />
+    <node operator="Add" id="58" position="1549:109" size="140:133" />
+    <node operator="Multiply" id="63" position="1369:609" size="140:133" />
+    <node operator="Input: Vector3" id="0" name="v" position="0:100" size="140:112" />
+    <node operator="Input: Single" id="1" name="r" position="220:80" size="140:112" />
+    <node operator="Output: compound" id="2" position="2840:180" size="140:70" />
+    <node operator="FloatAlmostZero-ext" id="4" position="2400:0" size="140:112" />
+    <node operator="If" id="5" position="2620:120" size="140:154" />
+    <node groupnode="p.x = r*c + r - x*c" id="62" position="1780:60" size="527:209" bg_color="#ffc0c0c0">
+      <nodes>69,60</nodes>
+    </node>
+    <node groupnode="r" id="35" position="440:240" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>34</nodes>
+    </node>
+    <node groupnode="x*c" id="69" position="1789:89" size="158:171" bg_color="#ffc0c0c0">
+      <nodes>61</nodes>
+    </node>
+    <node groupnode="r*s" id="71" position="1360:580" size="158:171" bg_color="#ffc0c0c0">
+      <nodes>63</nodes>
+    </node>
+    <node groupnode="r*c + r" id="70" position="1360:80" size="338:231" bg_color="#ffc0c0c0">
+      <nodes>57,58</nodes>
+    </node>
+    <node groupnode="p.z = r*s - x*s" id="67" position="1780:420" size="549:212" bg_color="#ffc0c0c0">
+      <nodes>68,66</nodes>
+    </node>
+    <node groupnode="Pi-yr" id="49" position="680:140" size="361:262" bg_color="#ffc0c0c0">
+      <nodes>46,37,51</nodes>
+    </node>
+    <node groupnode="s" id="56" position="1120:560" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>55</nodes>
+    </node>
+    <node groupnode="c" id="54" position="1120:40" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>50</nodes>
+    </node>
+    <node groupnode="x*s" id="68" position="1789:449" size="158:171" bg_color="#ffc0c0c0">
+      <nodes>65</nodes>
+    </node>
+    <node groupnode="r" id="64" position="1120:340" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>59</nodes>
+    </node>
+    <node groupnode="x" id="73" position="1360:340" size="158:150" bg_color="#ffc0c0c0">
+      <nodes>72</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="51" sourceport="0" destnode="50" destport="0" />
+    <connection sourcenode="60" sourceport="0" destnode="36" destport="0" />
+    <connection sourcenode="41" sourceport="0" destnode="36" destport="1" />
+    <connection sourcenode="66" sourceport="0" destnode="36" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="38" sourceport="0" destnode="46" destport="0" />
+    <connection sourcenode="34" sourceport="0" destnode="46" destport="1" />
+    <connection sourcenode="45" sourceport="0" destnode="38" destport="0" />
+    <connection sourcenode="37" sourceport="0" destnode="51" destport="0" />
+    <connection sourcenode="46" sourceport="0" destnode="51" destport="1" />
+    <connection sourcenode="34" sourceport="0" destnode="59" destport="0" />
+    <connection sourcenode="72" sourceport="0" destnode="61" destport="0" />
+    <connection sourcenode="50" sourceport="0" destnode="61" destport="1" />
+    <connection sourcenode="45" sourceport="0" destnode="40" destport="0" />
+    <connection sourcenode="45" sourceport="0" destnode="41" destport="0" />
+    <connection sourcenode="63" sourceport="0" destnode="66" destport="0" />
+    <connection sourcenode="65" sourceport="0" destnode="66" destport="1" />
+    <connection sourcenode="72" sourceport="0" destnode="65" destport="0" />
+    <connection sourcenode="55" sourceport="0" destnode="65" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="45" destport="0" />
+    <connection sourcenode="51" sourceport="0" destnode="55" destport="0" />
+    <connection sourcenode="58" sourceport="0" destnode="60" destport="0" />
+    <connection sourcenode="61" sourceport="0" destnode="60" destport="1" />
+    <connection sourcenode="59" sourceport="0" destnode="57" destport="0" />
+    <connection sourcenode="50" sourceport="0" destnode="57" destport="1" />
+    <connection sourcenode="40" sourceport="0" destnode="72" destport="0" />
+    <connection sourcenode="59" sourceport="0" destnode="58" destport="0" />
+    <connection sourcenode="57" sourceport="0" destnode="58" destport="1" />
+    <connection sourcenode="59" sourceport="0" destnode="63" destport="0" />
+    <connection sourcenode="55" sourceport="0" destnode="63" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="36" sourceport="0" destnode="5" destport="2" />
+  </connections>
+</graph>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2b9355a2-efcf-4b4d-8d70-a72669f4b86c">
+  <meta_info>
+    <graph_version guid="39b9473f-1252-493c-b106-7dfc128d8a1d" number="0.0.21" />
+    <category>Geometry - Deformers</category>
+  </meta_info>
+  <nodes>
+    <node operator="FloatApplyCurvature-ext" id="23" position="820:320" size="200:133" />
+    <node operator="PointProjectionAmountBoxAxisLimited-ext" id="48" position="200:160" size="280:217" />
+    <node operator="TransformVertices-ext" id="0" position="1120:500" size="260:217" />
+    <node operator="Output: compound" id="1" position="1460:640" size="180:70" />
+    <node operator="Input: TriMesh" id="2" name="mesh" position="840:180" size="140:112" />
+    <node operator="Input: Vector3" id="3" name="position" position="840:480" size="140:112" />
+    <node operator="Input: Vector3" id="4" name="rotation" position="840:600" size="140:112" />
+    <node operator="Input: Vector3" id="5" name="scale" position="840:740" size="140:112" />
+    <node operator="Input: Matrix" id="6" name="deformationSpace" position="840:860" size="140:112" />
+    <node operator="Input: Boolean" id="7" name="applyLimits" position="0:0" size="140:112" />
+    <node operator="Input: BoundingBox" id="9" name="box" position="0:140" size="140:112" />
+    <node operator="Input: Int32" id="10" name="axis" position="0:260" size="140:112" />
+    <node operator="Input: Single" id="11" name="lowerLimit" position="0:400" size="140:112" />
+    <node operator="Input: Single" id="12" name="upperLimit" position="0:520" size="140:112" />
+    <node operator="Input: Single" id="8" name="curve" position="580:380" size="140:112" />
+    <node operator="FloatApplyBias-ext" id="13" position="580:220" size="180:133" />
+    <node operator="Input: Single" id="14" name="bias" position="360:380" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="13" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="23" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="48" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="48" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="48" destport="3" />
+    <connection sourcenode="11" sourceport="0" destnode="48" destport="4" />
+    <connection sourcenode="12" sourceport="0" destnode="48" destport="5" />
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="23" sourceport="1" destnode="0" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="3" />
+    <connection sourcenode="5" sourceport="0" destnode="0" destport="4" />
+    <connection sourcenode="6" sourceport="0" destnode="0" destport="5" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="48" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="13" destport="1" />
+  </connections>
+</graph>

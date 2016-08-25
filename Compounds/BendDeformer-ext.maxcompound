@@ -1,44 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="45c03fb8-1a17-46d6-8398-b63b57e1b2ca">
-    <meta_info>
-        <graph_version guid="beeb946b-edf7-4f57-bde5-5e107e80a2c5" number="0.0.36" />
-        <category>Geometry - Deformers</category>
-    </meta_info>
-    <nodes>
-        <node operator="Input: Int32" id="2" name="fixedAxis" position="-2131:1449" size="140:112" />
-        <node operator="Input: Single" id="13" name="angle" position="-2196:1713" size="140:112" />
-        <node operator="Input: Vector3" id="10" name="point" position="-1480:1690" size="140:112" />
-        <node operator="Output: compound" id="77" position="-700:1800" size="140:70" />
-        <node operator="MatrixRotationFromDirectionAndAxis-ext" id="15" position="-1494:1405" size="280:133" />
-        <node operator="Input: Single" id="9" name="direction" position="-1694:1462" size="120:112" />
-        <node operator="DivideDefaultToZero-ext" id="24" position="-1799:1747" size="180:133" />
-        <node operator="BoundingBoxExtentAlongAxis-ext" id="3" position="-2005:1818" size="140:133" />
-        <node operator="Input: BoundingBox" id="25" name="box" position="-2196:1863" size="140:112" />
-        <node operator="BendDeformPointImplementation-ext" id="4" position="-1440:1860" size="260:133" />
-        <node operator="PointTransformInMatrixSpaceAndRestore-ext" id="23" position="-1160:1680" size="320:154" />
-        <node groupnode="Fixed axis" id="30" position="-2140:1420" size="158:153" bg_color="#ff57f2d3">
-            <nodes>2</nodes>
-        </node>
-        <node groupnode="Input point" id="11" position="-1500:1640" size="173:183" bg_color="#ff646464">
-            <nodes>10</nodes>
-        </node>
-        <node groupnode="Compute amount of bend" id="0" position="-2320:1660" size="749:324" bg_color="#ff646464">
-            <nodes>13,25,24,3</nodes>
-        </node>
-        <node groupnode="Get the rotation matrix to transform the point into a fixed XYZ bending coordinate system" id="20" position="-1920:1300" size="933:308" bg_color="#ff646464">
-            <nodes>15,9</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="23" sourceport="0" destnode="77" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="15" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="24" destport="0" />
-        <connection sourcenode="13" sourceport="0" destnode="24" destport="1" />
-        <connection sourcenode="25" sourceport="0" destnode="3" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
-        <connection sourcenode="24" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="4" sourceport="1" destnode="23" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="23" destport="1" />
-        <connection sourcenode="15" sourceport="0" destnode="23" destport="2" />
-    </connections>
+  <meta_info>
+    <graph_version guid="beeb946b-edf7-4f57-bde5-5e107e80a2c5" number="0.0.36" />
+    <category>Geometry - Deformers</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Int32" id="2" name="fixedAxis" position="-2131:1449" size="140:112" />
+    <node operator="Input: Single" id="13" name="angle" position="-2196:1713" size="140:112" />
+    <node operator="Input: Vector3" id="10" name="point" position="-1480:1690" size="140:112" />
+    <node operator="Output: compound" id="77" position="-700:1800" size="140:70" />
+    <node operator="MatrixRotationFromDirectionAndAxis-ext" id="15" position="-1494:1405" size="280:133" />
+    <node operator="Input: Single" id="9" name="direction" position="-1694:1462" size="120:112" />
+    <node operator="DivideDefaultToZero-ext" id="24" position="-1799:1747" size="180:133" />
+    <node operator="BoxExtentAlongAxis-ext" id="3" position="-2005:1818" size="140:133" />
+    <node operator="Input: BoundingBox" id="25" name="box" position="-2196:1863" size="140:112" />
+    <node operator="BendDeformPoint-ext" id="4" position="-1440:1860" size="260:133" />
+    <node operator="TransformInMatrixSpaceAndRestore-ext" id="23" position="-1160:1680" size="320:154" />
+    <node groupnode="Fixed axis" id="30" position="-2140:1420" size="158:153" bg_color="#ff57f2d3">
+      <nodes>2</nodes>
+    </node>
+    <node groupnode="Input point" id="11" position="-1500:1640" size="173:183" bg_color="#ff646464">
+      <nodes>10</nodes>
+    </node>
+    <node groupnode="Compute amount of bend" id="0" position="-2320:1660" size="749:324" bg_color="#ff646464">
+      <nodes>13,25,24,3</nodes>
+    </node>
+    <node groupnode="Get the rotation matrix to transform the point into a fixed XYZ bending coordinate system" id="20" position="-1920:1300" size="933:308" bg_color="#ff646464">
+      <nodes>15,9</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="23" sourceport="0" destnode="77" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="24" destport="1" />
+    <connection sourcenode="25" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="24" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="4" sourceport="1" destnode="23" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="23" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="23" destport="2" />
+  </connections>
 </graph>

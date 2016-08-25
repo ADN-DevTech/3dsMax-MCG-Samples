@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="b0255320-1989-4891-b08e-edfd87003b31">
+  <meta_info>
+    <graph_version guid="d0c0f6c6-bcf6-4e63-80cd-2dc365bff963" number="0.0.5" />
+    <category>Points</category>
+    <description>Returns a point on a sphere for U and V in the range [0..1].</description>
+  </meta_info>
+  <nodes>
+    <node operator="Multiply" id="6" position="549:29" size="140:133" />
+    <node operator="TwoPi" id="7" position="389:89" size="140:91" />
+    <node operator="Multiply" id="8" position="441:268" size="140:133" />
+    <node operator="Pi" id="9" position="237:393" size="140:91" />
+    <node operator="Subtract" id="10" position="651:336" size="140:133" />
+    <node operator="Vector3" id="12" position="1340:320" size="140:154" />
+    <node operator="Cos" id="13" position="900:160" size="140:112" />
+    <node operator="Cos" id="14" position="900:20" size="140:112" />
+    <node operator="Multiply" id="18" position="1120:140" size="140:133" />
+    <node operator="Sin" id="15" position="900:280" size="140:112" />
+    <node operator="Multiply" id="19" position="1120:300" size="140:133" />
+    <node operator="Sin" id="20" position="1120:460" size="140:112" />
+    <node operator="Output: compound" id="0" position="1560:380" size="140:70" />
+    <node operator="Input: Single" id="1" name="u" position="240:40" size="140:112" />
+    <node operator="Input: Single" id="2" name="v" position="240:260" size="140:112" />
+    <node operator="HalfPi" id="3" position="440:420" size="140:91" />
+    <node groupnode="v" id="17" position="220:220" size="592:351" bg_color="#ff646464">
+      <nodes>10,2,3,9,8</nodes>
+    </node>
+    <node groupnode="u" id="16" position="220:0" size="478:191" bg_color="#ff646464">
+      <nodes>1,7,6</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="19" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="0" destport="0" />
+  </connections>
+</graph>

@@ -1,58 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <graph version="0.50" uuid="6c58056b-77d2-42c8-abaa-0560ba785f5a">
-    <meta_info>
-        <graph_version guid="b0978d72-73bf-4b3a-92fb-dd1eb72b43a5" number="0.0.10" />
-    </meta_info>
-    <nodes>
-        <node operator="MeshInvertGeometry-ext" id="0" position="869:209" size="140:175" />
-        <node operator="Modifier: TriMesh" id="1" position="198:90" size="140:91" />
-        <node operator="Parameter: Single" id="3" name="radius" min_value="-1000" max_value="1000" default_value="100" system_units_value="false" position="418:271" size="140:196" />
-        <node operator="SphereCenter" id="8" position="469:926" size="140:112" />
-        <node operator="SphereRadius" id="2" position="419:132" size="140:112" />
-        <node operator="Multiply" id="4" position="629:118" size="140:133" />
-        <node operator="DivideBy100-ext" id="5" position="599:276" size="140:112" />
-        <node operator="Output: modifier" id="6" position="1089:289" size="140:70" />
-        <node operator="Add" id="9" position="674:709" size="140:133" />
-        <node operator="Vector3" id="10" position="464:764" size="140:154" />
-        <node operator="Parameter: Single" id="11" name="x" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="454:549" size="140:196" />
-        <node operator="Parameter: Single" id="12" name="y" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="249:646" size="140:196" />
-        <node operator="Parameter: Single" id="13" name="z" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="249:866" size="140:196" />
-        <node operator="MeshBoundingSphere" id="14" position="189:198" size="140:112" />
-        <node operator="Parameter: INode" id="17" name="gizmo node" position="912:605" size="140:112" />
-        <node operator="Modifier: Matrix" id="18" position="909:716" size="140:91" />
-        <node operator="NodeTransformInLocalSpaceConditionally-ext" id="16" position="1110:566" size="280:154" />
-        <node operator="Parameter: Boolean" id="19" name="use gizmo node" default_value="false" position="920:469" size="140:133" />
-        <node groupnode="Compute radius of inversion as percentage" id="21" position="180:60" size="598:416" bg_color="#ff646464">
-            <nodes>3,1,4,2,5,14</nodes>
-        </node>
-        <node groupnode="Perform deforrmation" id="23" position="860:180" size="378:213" bg_color="#ff646464">
-            <nodes>0,6</nodes>
-        </node>
-        <node groupnode="Deformation space from gizmo node or identity" id="7" position="880:440" size="519:387" bg_color="#ff646464">
-            <nodes>17,18,16,19</nodes>
-        </node>
-        <node groupnode="Center of inversion" id="22" position="240:520" size="598:554" bg_color="#ff646464">
-            <nodes>9,8,10,11,12,13</nodes>
-        </node>
-    </nodes>
-    <connections>
-        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
-        <connection sourcenode="9" sourceport="0" destnode="0" destport="1" />
-        <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
-        <connection sourcenode="16" sourceport="0" destnode="0" destport="3" />
-        <connection sourcenode="14" sourceport="0" destnode="8" destport="0" />
-        <connection sourcenode="14" sourceport="0" destnode="2" destport="0" />
-        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
-        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
-        <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
-        <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
-        <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
-        <connection sourcenode="8" sourceport="0" destnode="9" destport="1" />
-        <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
-        <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
-        <connection sourcenode="13" sourceport="0" destnode="10" destport="2" />
-        <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
-        <connection sourcenode="19" sourceport="0" destnode="16" destport="0" />
-        <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
-        <connection sourcenode="18" sourceport="0" destnode="16" destport="2" />
-    </connections>
+  <meta_info>
+    <graph_version guid="b0978d72-73bf-4b3a-92fb-dd1eb72b43a5" number="0.0.10" />
+  </meta_info>
+  <nodes>
+    <node operator="InvertGeometry-ext" id="0" position="869:209" size="140:175" />
+    <node operator="Modifier: TriMesh" id="1" position="198:90" size="140:91" />
+    <node operator="Parameter: Single" id="3" name="radius" min_value="-1000" max_value="1000" default_value="100" system_units_value="false" position="418:271" size="140:196" />
+    <node operator="SphereCenter" id="8" position="469:926" size="140:112" />
+    <node operator="SphereRadius" id="2" position="419:132" size="140:112" />
+    <node operator="Multiply" id="4" position="629:118" size="140:133" />
+    <node operator="DivideBy100-ext" id="5" position="599:276" size="140:112" />
+    <node operator="Output: modifier" id="6" position="1089:289" size="140:70" />
+    <node operator="Add" id="9" position="674:709" size="140:133" />
+    <node operator="Vector3" id="10" position="464:764" size="140:154" />
+    <node operator="Parameter: Single" id="11" name="x" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="454:549" size="140:196" />
+    <node operator="Parameter: Single" id="12" name="y" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="249:646" size="140:196" />
+    <node operator="Parameter: Single" id="13" name="z" min_value="-1000" max_value="1000" default_value="0" system_units_value="false" position="249:866" size="140:196" />
+    <node operator="MeshBoundingSphere" id="14" position="189:198" size="140:112" />
+    <node operator="Parameter: INode" id="17" name="gizmo node" position="912:605" size="140:112" />
+    <node operator="Modifier: Matrix" id="18" position="909:716" size="140:91" />
+    <node operator="NodeTransformInLocalSpaceConditionally-ext" id="16" position="1110:566" size="280:154" />
+    <node operator="Parameter: Boolean" id="19" name="use gizmo node" default_value="false" position="920:469" size="140:133" />
+    <node groupnode="Compute radius of inversion as percentage" id="21" position="180:60" size="598:416" bg_color="#ff646464">
+      <nodes>3,1,4,2,5,14</nodes>
+    </node>
+    <node groupnode="Perform deforrmation" id="23" position="860:180" size="378:213" bg_color="#ff646464">
+      <nodes>0,6</nodes>
+    </node>
+    <node groupnode="Deformation space from gizmo node or identity" id="7" position="880:440" size="519:387" bg_color="#ff646464">
+      <nodes>17,18,16,19</nodes>
+    </node>
+    <node groupnode="Center of inversion" id="22" position="240:520" size="598:554" bg_color="#ff646464">
+      <nodes>9,8,10,11,12,13</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="16" sourceport="0" destnode="0" destport="3" />
+    <connection sourcenode="14" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="10" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="16" destport="2" />
+  </connections>
 </graph>
