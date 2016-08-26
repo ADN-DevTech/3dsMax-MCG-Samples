@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="6456c6f2-15d9-46ad-9a08-344217a4af66">
+  <meta_info>
+    <graph_version guid="38ba3b97-e0de-427b-ad4b-3a62192da903" number="0.0.2" />
+    <category>Geometry - Bounding box</category>
+    <description>Given a start vector (0..1,0..1,0..1) and a range (0..1,0..1,0..1) returns a slice of a bounding box.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: BoundingBox" id="0" name="box" position="0:120" size="140:112" />
+    <node operator="BoxMin" id="7" position="440:0" size="140:112" />
+    <node operator="Multiply" id="10" position="440:140" size="140:133" />
+    <node operator="BoundingBoxExtent" id="11" position="220:240" size="140:112" />
+    <node operator="Multiply" id="12" position="660:260" size="140:133" />
+    <node operator="Add" id="13" position="660:100" size="140:133" />
+    <node operator="Add" id="14" position="880:200" size="140:133" />
+    <node operator="Box" id="15" position="1100:200" size="140:133" />
+    <node operator="Output: compound" id="16" position="1320:260" size="140:70" />
+    <node operator="Input: Vector3" id="17" name="start" position="220:100" size="140:112" />
+    <node operator="Input: Vector3" id="18" name="range" position="440:320" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="16" destport="0" />
+  </connections>
+</graph>

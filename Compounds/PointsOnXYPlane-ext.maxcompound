@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="d36e56ee-c3b9-4eda-b371-735eec1b9406">
+  <meta_info>
+    <graph_version guid="ccc55447-4208-417e-8daf-270657893643" number="0.0.1" />
+    <category>Points</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Single" id="6" name="height" position="0:440" size="140:117" />
+    <node operator="Input: Single" id="5" name="width" position="0:320" size="140:117" />
+    <node operator="AlongYAxis" id="8" position="280:480" size="140:117" />
+    <node operator="AlongXAxis" id="7" position="200:320" size="140:117" />
+    <node operator="OffsetLine" id="11" position="460:460" size="140:141" />
+    <node operator="Input: Int32" id="3" name="height_segments" position="760:700" size="140:117" />
+    <node operator="Input: Int32" id="2" name="width_segments" position="760:580" size="140:117" />
+    <node operator="LineFromOrigin" id="10" position="360:300" size="140:117" />
+    <node operator="FlatMap" id="9" position="1400:500" size="140:141" />
+    <node operator="LineToArray" id="14" position="1180:520" size="140:141" />
+    <node operator="SampleLerp" id="16" position="1180:340" size="140:141" />
+    <node operator="LerpLines" id="18" position="960:280" size="140:165" />
+    <node operator="Output: compound" id="0" position="1600:540" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="11" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="14" sourceport="1" destnode="9" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="18" sourceport="1" destnode="16" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="18" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="0" destport="0" />
+  </connections>
+</graph>

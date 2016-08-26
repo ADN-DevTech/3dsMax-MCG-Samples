@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="577df9bc-a48a-4c6c-8dbb-429545cddd05">
+  <meta_info>
+    <graph_version guid="a8fbc1ac-63b9-43a5-8743-64d0ab5142ba" number="0.0.2" />
+    <category>MapChannel</category>
+    <description>Given a MapChannel retrieves the vertex data associated with the nth index (n / 3 == number of faces, n % 3 == face corner index).</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: MapChannel" id="0" name="mapChannel" position="100:460" size="140:117" />
+    <node operator="Input: Int32" id="1" name="index" position="280:720" size="140:117" />
+    <node operator="MapChannelVertexBuffer" id="2" position="300:440" size="140:117" />
+    <node operator="MapChannelIndexBuffer" id="3" position="280:580" size="140:117" />
+    <node operator="At" id="4" position="440:680" size="140:141" />
+    <node operator="At" id="5" position="560:460" size="140:141" />
+    <node operator="Output: compound" id="6" position="740:500" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+  </connections>
+</graph>

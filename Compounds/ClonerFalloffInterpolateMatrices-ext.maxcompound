@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="15e25a73-02f5-40b3-896b-707eae73bce0">
+  <meta_info>
+    <graph_version guid="52cb592a-228f-4fe9-b088-387b4d13348e" number="0.0.6" />
+    <category>Cloning and Scattering</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Single" id="9" name="peakX" position="0:260" size="140:117" />
+    <node operator="Input: Boolean" id="11" name="linearOrCubic" position="220:560" size="140:117" />
+    <node operator="Input: Single" id="13" name="falloffDistance" position="0:680" size="140:117" />
+    <node operator="FloatWeightsUsingFalloff-ext" id="12" position="440:300" size="220:237" />
+    <node operator="True" id="8" position="220:180" size="140:93" />
+    <node operator="Input: Boolean" id="10" name="symmetric" position="220:440" size="140:117" />
+    <node operator="IgnoreFirst" id="1" position="1180:420" size="140:141" />
+    <node operator="MatrixLerp-ext" id="2" position="480:600" size="140:165" />
+    <node operator="Output: compound" id="3" position="1400:600" size="140:69" />
+    <node operator="Combine3" id="5" position="740:440" size="140:189" />
+    <node operator="Input: array" id="22" name="newMatrices" position="440:120" size="140:117" />
+    <node operator="Input: array" id="23" name="originalMatrices" position="0:0" size="140:117" />
+    <node operator="Count" id="24" position="220:40" size="140:117" />
+    <node operator="If" id="0" position="960:400" size="140:165" />
+    <node operator="Input: Boolean" id="4" name="useFalloff" position="740:160" size="140:117" />
+    <node operator="DivideBy100-ext" id="6" position="220:300" size="140:117" />
+    <node operator="DivideBy100-ext" id="7" position="220:700" size="140:117" />
+    <node operator="Combine3" id="14" position="740:620" size="140:189" />
+    <node operator="If" id="15" position="1020:660" size="140:165" />
+    <node operator="Input: Boolean" id="16" name="invertFalloff" position="900:620" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="24" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="12" destport="3" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="4" />
+    <connection sourcenode="7" sourceport="0" destnode="12" destport="5" />
+    <connection sourcenode="22" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="5" destport="2" />
+    <connection sourcenode="2" sourceport="1" destnode="5" destport="3" />
+    <connection sourcenode="23" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="22" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="2" sourceport="1" destnode="14" destport="3" />
+    <connection sourcenode="16" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="15" destport="2" />
+  </connections>
+</graph>

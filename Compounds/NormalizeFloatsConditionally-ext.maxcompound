@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="3406174b-2e4f-489a-add7-8fcee7e57831">
+  <meta_info>
+    <graph_version guid="2c4083a3-efd2-4410-a6dc-de49b7efe5ae" number="0.0.2" />
+    <category>Math</category>
+    <description>Normalizes an array of floats in the range of min and max, by scaling them to the range of 0..1. If the auto parameter is set to true, then the min and max values provided are ignored and the minimum and maximum are computed from the array values. </description>
+  </meta_info>
+  <nodes>
+    <node operator="MaximumElement" id="18" position="220:520" size="140:112" />
+    <node operator="If" id="14" position="440:220" size="140:154" />
+    <node operator="If" id="12" position="940:200" size="140:154" />
+    <node operator="NormalizeFloatsSafely-ext" id="10" position="660:240" size="200:154" />
+    <node operator="MinimumElement" id="16" position="220:120" size="140:112" />
+    <node operator="If" id="17" position="440:380" size="140:154" />
+    <node operator="Input: Boolean" id="0" name="condition" position="440:0" size="140:112" />
+    <node operator="Input: array" id="1" name="floats" position="0:180" size="140:112" />
+    <node operator="Not" id="3" position="660:60" size="140:112" />
+    <node operator="Output: compound" id="4" position="1160:280" size="140:70" />
+    <node operator="Input: Boolean" id="7" name="auto" position="220:380" size="140:112" />
+    <node operator="Input: Single" id="8" name="min" position="220:260" size="140:112" />
+    <node operator="Input: Single" id="9" name="max" position="220:640" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="12" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="10" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="17" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="17" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="4" destport="0" />
+  </connections>
+</graph>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="32c23fc6-7fc7-4fe9-a35a-65e903c5ee5f">
+  <meta_info>
+    <graph_version guid="de2d3e03-f040-4aed-a62c-cd2c42070d64" number="0.0.3" />
+    <category>Geometry - Vectors</category>
+    <description>Returns the weighted average of an array of vectors. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="vectors" position="0:0" size="140:117" />
+    <node operator="Input: array" id="1" name="weights" position="0:300" size="140:117" />
+    <node operator="Output: compound" id="2" position="880:300" size="140:69" />
+    <node operator="Combine" id="3" position="220:140" size="140:165" />
+    <node operator="MultiplyByScalar" id="4" position="0:140" size="140:141" />
+    <node operator="Sum" id="5" position="440:200" size="140:117" />
+    <node operator="Sum" id="9" position="440:320" size="140:117" />
+    <node operator="DivideByScalar" id="10" position="660:260" size="140:141" />
+  </nodes>
+  <connections>
+    <connection sourcenode="10" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="4" sourceport="1" destnode="3" destport="2" />
+    <connection sourcenode="3" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="1" />
+  </connections>
+</graph>

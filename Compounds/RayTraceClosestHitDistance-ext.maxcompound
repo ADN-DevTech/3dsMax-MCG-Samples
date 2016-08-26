@@ -1,0 +1,53 @@
+<graph version="0.50" uuid="556df2e9-01a0-493a-954f-70e6a36e687f">
+    <meta_info>
+        <graph_version guid="61e1d719-74cc-4b42-8254-98ff8c0b8a27" number="0.0.5" />
+        <category>Ray tracer</category>
+        <description>Returns the distance of the closest hit for the ray to objects in the ray trace scene. If no object is hit returns the largest float value possible.</description>
+    </meta_info>
+    <nodes>
+        <node operator="RayTraceAllIntersectingFaces" id="2" position="500:400" size="200:133" />
+        <node operator="Input: RayTraceScene" id="0" name="scene" position="220:320" size="140:112" />
+        <node operator="Input: Ray" id="1" name="ray" position="0:460" size="140:112" />
+        <node operator="RayTraceNormal" id="4" position="220:620" size="200:112" />
+        <node operator="RayDirection" id="5" position="220:500" size="140:112" />
+        <node operator="VectorSameDirection-ext" id="6" position="500:540" size="180:133" />
+        <node operator="FilterIf-ext" id="7" position="780:340" size="140:154" />
+        <node operator="Input: Boolean" id="3" name="ignoreBack" position="500:260" size="140:112" />
+        <node operator="FloatCompare-ext" id="9" position="780:180" size="140:133" />
+        <node operator="RayTraceDistance" id="11" position="500:0" size="140:112" />
+        <node operator="RayTraceDistance" id="12" position="500:140" size="140:112" />
+        <node operator="ArrayIndexOf-ext" id="13" position="1000:220" size="200:154" />
+        <node operator="True" id="14" position="780:80" size="140:91" />
+        <node operator="MaximumFloat" id="10" position="1500:560" size="140:91" />
+        <node operator="Output: compound" id="15" position="1940:500" size="140:70" />
+        <node operator="IfThen" id="16" position="1720:440" size="140:154" />
+        <node operator="RayTraceDistance" id="18" position="1500:420" size="140:112" />
+        <node operator="At" id="19" position="1280:380" size="140:133" />
+        <node operator="GreaterThanOrEqual" id="8" position="1500:280" size="140:133" />
+        <node operator="Zero" id="20" position="1280:280" size="140:91" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="6" sourceport="1" destnode="7" destport="2" />
+        <connection sourcenode="11" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="9" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="13" destport="1" />
+        <connection sourcenode="9" sourceport="1" destnode="13" destport="2" />
+        <connection sourcenode="16" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="16" destport="1" />
+        <connection sourcenode="10" sourceport="1" destnode="16" destport="2" />
+        <connection sourcenode="19" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="19" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="8" destport="1" />
+    </connections>
+</graph>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="5d2bde0b-7740-4924-97de-02c41fbf9fe4">
+  <meta_info>
+    <graph_version guid="43bd5bd2-3e0e-4c72-83aa-10a285953588" number="0.0.4" />
+    <category>Geometry - TriMesh</category>
+    <description>Given an array of meshes offsets each one an equally spaced distance along a line.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="meshes" position="0:0" size="140:117" />
+    <node operator="Output: compound" id="4" position="920:180" size="140:69" />
+    <node operator="Input: Line" id="2" name="line" position="220:180" size="140:117" />
+    <node operator="MeshesMoveToPoints-ext" id="3" position="660:120" size="180:141" />
+    <node operator="LineSamplePoints-ext" id="6" position="440:120" size="140:141" />
+    <node operator="Count" id="7" position="220:40" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+  </connections>
+</graph>

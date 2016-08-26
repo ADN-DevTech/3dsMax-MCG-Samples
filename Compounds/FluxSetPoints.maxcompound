@@ -1,0 +1,30 @@
+<graph version="0.50" uuid="8ba55636-e22d-4815-a47c-be43a1852c7c">
+    <meta_info>
+        <graph_version guid="ec9cbbbb-fd24-4974-b569-34edbda3cc7c" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="FluxStoreMatrices" id="4" position="720:240" size="140:213" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:280" size="140:117" />
+        <node operator="Input: Int32" id="1" name="fluxChannel" position="0:0" size="140:117" />
+        <node operator="MatricesFromMapChannel" id="2" position="220:40" size="200:141" />
+        <node operator="Input: array" id="3" name="points" position="220:200" size="140:117" />
+        <node operator="SetMatrixTranslation" id="6" position="220:340" size="140:141" />
+        <node operator="Combine" id="5" position="500:80" size="140:165" />
+        <node operator="Output: compound" id="7" position="940:360" size="140:69" />
+        <node operator="Input: Boolean" id="8" name="combine" position="500:260" size="140:117" />
+        <node operator="Input: Single" id="9" name="strength" position="500:400" size="140:117" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+        <connection sourcenode="8" sourceport="0" destnode="4" destport="2" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="3" />
+        <connection sourcenode="9" sourceport="0" destnode="4" destport="4" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="5" destport="1" />
+        <connection sourcenode="6" sourceport="1" destnode="5" destport="2" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="0" />
+    </connections>
+</graph>

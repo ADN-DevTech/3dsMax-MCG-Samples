@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="61f22615-0758-46b2-bc68-110094cbb2dc">
+  <meta_info>
+    <graph_version guid="cd9bb824-c738-49fc-9b17-5585e1eafbae" number="0.0.1" />
+    <category>Uncategorized</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:117" />
+    <node operator="QuadMesh" id="1" position="1500:240" size="140:141" />
+    <node operator="MeshVertices" id="2" position="1280:160" size="140:117" />
+    <node operator="MeshIndices" id="3" position="220:40" size="140:117" />
+    <node operator="Slices" id="4" position="440:100" size="140:141" />
+    <node operator="Three" id="5" position="220:180" size="140:93" />
+    <node operator="CombinePairwiseElements-ext" id="6" position="1060:260" size="140:141" />
+    <node operator="Pass-through: array" id="7" position="449:329" size="140:117" />
+    <node operator="Pass-through: array" id="8" position="449:449" size="140:117" />
+    <node operator="Array4" id="9" position="829:349" size="140:189" />
+    <node operator="Flatten" id="10" position="1280:300" size="140:117" />
+    <node operator="First" id="11" position="649:289" size="140:117" />
+    <node operator="Second" id="12" position="649:409" size="140:117" />
+    <node operator="Second" id="13" position="649:529" size="140:117" />
+    <node operator="Last" id="14" position="645:651" size="140:117" />
+    <node operator="Output: compound" id="16" position="1720:300" size="140:69" />
+    <node groupnode="[A0, A1, A2], [B0, B1, B2] =&gt; [A0, A1, B1, A2]" id="15" position="440:260" size="538:517" bg_color="#ff646464">
+      <nodes>8,9,11,12,14,13,7</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="9" sourceport="1" destnode="6" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="9" destport="2" />
+    <connection sourcenode="14" sourceport="0" destnode="9" destport="3" />
+    <connection sourcenode="6" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="16" destport="0" />
+  </connections>
+</graph>

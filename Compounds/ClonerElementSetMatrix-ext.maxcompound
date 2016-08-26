@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="37ca0b5f-70dd-4eb2-b3bf-b8fbc94b9e62">
+  <meta_info>
+    <graph_version guid="0cffb4b7-8b60-4c58-bc34-3186fc6d0431" number="0.0.3" />
+    <category>Cloning and Scattering</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="fluxDataChannel" position="220:0" size="140:112" />
+    <node operator="Input: Int32" id="2" name="index" position="0:120" size="140:112" />
+    <node operator="Output: compound" id="1" position="660:280" size="140:70" />
+    <node operator="Input: Matrix" id="6" name="matrix" position="0:240" size="140:112" />
+    <node operator="MatrixRows-ext" id="7" position="220:280" size="140:112" />
+    <node operator="Constant" id="10" value="4" position="0:380" size="140:91" />
+    <node operator="ReplaceRange-ext" id="4" position="440:200" size="140:175" />
+    <node operator="Multiply" id="8" position="220:140" size="140:133" />
+  </nodes>
+  <connections>
+    <connection sourcenode="4" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="2" />
+    <connection sourcenode="10" sourceport="0" destnode="4" destport="3" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="8" destport="1" />
+  </connections>
+</graph>

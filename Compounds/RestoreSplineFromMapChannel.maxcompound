@@ -1,0 +1,46 @@
+<graph version="0.50" uuid="d5ee909c-b0c1-482f-a263-fe0b20312e69">
+    <meta_info>
+        <graph_version guid="595c303e-bcf7-405f-930f-2fc7c15df7e6" number="0.0.6" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="1" name="mesh" position="0:60" size="140:117" />
+        <node operator="Input: Int32" id="5" name="channelId" position="0:200" size="140:117" />
+        <node operator="PlusOne" id="7" position="660:360" size="140:117" />
+        <node operator="Output: compound" id="9" position="1760:480" size="140:69" />
+        <node operator="MapChannelVertexBuffer" id="3" position="440:120" size="140:117" />
+        <node operator="GetMapChannel" id="11" position="220:40" size="140:141" />
+        <node operator="GetMapChannel" id="2" position="880:380" size="140:141" />
+        <node operator="MapChannelVertexBuffer" id="4" position="1100:440" size="140:117" />
+        <node operator="OddItems" id="8" position="1320:560" size="140:117" />
+        <node operator="EvenItems" id="10" position="1320:420" size="140:117" />
+        <node operator="At" id="0" position="660:20" size="140:141" />
+        <node operator="Zero" id="12" position="440:0" size="140:93" />
+        <node operator="Length" id="14" position="880:80" size="140:117" />
+        <node operator="AlmostZero" id="15" position="1100:120" size="140:117" />
+        <node operator="Not" id="13" position="1320:160" size="140:117" />
+        <node operator="SkipOne" id="16" position="1320:300" size="140:117" />
+        <node operator="CreateSplineFromBuffers" id="17" position="1560:340" size="140:213" />
+        <node operator="CreateSplineFromKnots" id="6" position="1580:180" size="140:141" />
+    </nodes>
+    <connections>
+        <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="9" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="5" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="0" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="17" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="6" destport="1" />
+    </connections>
+</graph>

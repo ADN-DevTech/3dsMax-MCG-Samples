@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="8bede1a5-c77a-4ad8-8cf2-24d521705f33">
+  <meta_info>
+    <graph_version guid="bebc9eff-a013-46f5-b8c6-39a783ef52a5" number="0.0.9" />
+    <category>Geometry - Deformers</category>
+  </meta_info>
+  <nodes>
+    <node operator="MeshVertices" id="32" position="400:80" size="140:117" />
+    <node operator="Indices" id="34" position="640:180" size="140:117" />
+    <node operator="Map" id="33" position="920:220" size="140:141" />
+    <node operator="Input: TriMesh" id="0" name="DeformMesh" position="-40:360" size="140:117" />
+    <node operator="Output: compound" id="2" position="1640:280" size="140:69" />
+    <node operator="MeshVertexIndexToMeshRayConform-ext" id="3" position="620:380" size="200:165" />
+    <node operator="SetMeshVertices" id="31" position="1160:180" size="140:141" />
+    <node operator="MeshInLocalSpace" id="39" position="1380:260" size="180:141" />
+    <node operator="Input: Matrix" id="4" name="ModifierMatrix" position="1160:340" size="140:117" />
+    <node operator="Input: INode" id="6" name="TargetMesh" position="-60:120" size="140:117" />
+    <node operator="TransformMesh" id="7" position="400:220" size="140:141" />
+    <node operator="MeshFromNode" id="14" position="180:100" size="140:117" />
+    <node operator="ObjectTransform" id="8" position="180:240" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="32" destport="0" />
+    <connection sourcenode="32" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="34" sourceport="0" destnode="33" destport="0" />
+    <connection sourcenode="3" sourceport="1" destnode="33" destport="1" />
+    <connection sourcenode="39" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="31" destport="0" />
+    <connection sourcenode="33" sourceport="0" destnode="31" destport="1" />
+    <connection sourcenode="31" sourceport="0" destnode="39" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="39" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="8" destport="0" />
+  </connections>
+</graph>

@@ -1,0 +1,27 @@
+<graph version="0.50" uuid="20b6eb70-0496-4481-9120-ed147e6c7696">
+    <meta_info>
+        <graph_version guid="28062e3d-eeb3-4ecd-b82d-0abba0990b6d" number="0.0.3" />
+        <category>Geometry - Deformers</category>
+        <description>Given an array of new vertex positions and an array of weights, deforms a mesh by lerping between the vertex in the original mesh and the new vertex using the corresponding weight.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:0" size="140:112" />
+        <node operator="Input: array" id="6" name="weights" position="220:300" size="140:112" />
+        <node operator="Input: array" id="1" name="newVertices" position="220:180" size="140:112" />
+        <node operator="Combine3" id="3" position="440:200" size="140:175" />
+        <node operator="MeshVertices" id="4" position="220:40" size="140:112" />
+        <node operator="Lerp" id="17" position="220:440" size="140:154" />
+        <node operator="Output: compound" id="5" position="880:320" size="140:70" />
+        <node operator="MeshSetVertices-ext" id="7" position="660:220" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="6" sourceport="0" destnode="3" destport="2" />
+        <connection sourcenode="17" sourceport="1" destnode="3" destport="3" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="7" destport="1" />
+    </connections>
+</graph>

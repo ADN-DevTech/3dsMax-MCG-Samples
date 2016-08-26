@@ -1,0 +1,51 @@
+<graph version="0.50" uuid="b5af10ce-99af-4295-bdfa-1c34c8b2e2c4">
+    <meta_info>
+        <graph_version guid="01c49901-3c7c-410b-941c-fccb5ef38237" number="0.0.2" />
+    </meta_info>
+    <nodes>
+        <node operator="Input: TriMesh" id="0" name="mesh" position="0:120" size="140:112" />
+        <node operator="MeshAddVertices-ext" id="1" position="660:140" size="160:133" />
+        <node operator="MeshFaces" id="2" position="220:0" size="140:112" />
+        <node operator="Map" id="3" position="440:120" size="140:133" />
+        <node operator="FaceMidpoint" id="4" position="220:180" size="140:112" />
+        <node operator="RepeatElements-ext" id="6" position="2000:220" size="140:133" />
+        <node operator="Indices" id="7" position="1780:140" size="140:112" />
+        <node operator="Three" id="8" position="1780:280" size="140:91" />
+        <node operator="MeshVertices" id="11" position="1560:320" size="140:112" />
+        <node operator="Output: compound" id="12" position="2000:420" size="140:70" />
+        <node operator="MeshIndices" id="13" position="900:200" size="140:112" />
+        <node operator="Slices" id="14" position="1120:280" size="140:133" />
+        <node operator="Three" id="15" position="900:320" size="140:91" />
+        <node operator="MeshTriFanIndices-ext" id="18" position="1120:440" size="140:154" />
+        <node operator="MapWithIndexes" id="19" position="1340:420" size="140:133" />
+        <node operator="MeshVertexCount-ext" id="20" position="660:500" size="140:112" />
+        <node operator="Add" id="21" position="900:540" size="140:133" />
+        <node operator="True" id="17" position="900:440" size="140:91" />
+        <node operator="Flatten" id="16" position="1560:440" size="140:112" />
+        <node operator="CreateMesh" id="22" position="1780:380" size="140:133" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="22" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
+        <connection sourcenode="13" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="14" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="21" sourceport="0" destnode="18" destport="2" />
+        <connection sourcenode="14" sourceport="0" destnode="19" destport="0" />
+        <connection sourcenode="18" sourceport="1" destnode="19" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="20" destport="0" />
+        <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
+        <connection sourcenode="19" sourceport="0" destnode="16" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="16" sourceport="0" destnode="22" destport="1" />
+    </connections>
+</graph>

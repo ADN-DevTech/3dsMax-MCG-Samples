@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="82bc5ac8-ef94-44d1-8437-f76ee29d29f3">
+  <meta_info>
+    <graph_version guid="47345b4f-9b7c-444f-8eab-d753bb457f2d" number="0.0.20" />
+    <category>Array</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Int32" id="0" name="n" position="80:1620" size="140:117" />
+    <node operator="Input: array" id="1" name="array" position="300:480" size="140:117" />
+    <node operator="Map" id="3" position="1417:803" size="140:141" />
+    <node operator="Indices" id="8" position="1176:783" size="140:117" />
+    <node operator="Pass-through: Int32" id="9" position="76:997" size="140:117" />
+    <node operator="Output: compound" id="11" position="3015:881" size="160:69" />
+    <node operator="GenerateN" id="14" position="293:965" size="140:165" />
+    <node operator="PlusOne" id="2" position="81:1127" size="140:117" />
+    <node operator="Filter" id="15" position="1184:1055" size="140:141" />
+    <node operator="Pass-through: Int32" id="18" position="524:1283" size="140:117" />
+    <node operator="LessThan" id="20" position="782:1196" size="140:141" />
+    <node operator="AndAlso" id="21" position="957:1281" size="140:141" />
+    <node operator="GreaterThanOrEqual" id="22" position="782:1336" size="140:141" />
+    <node operator="Zero" id="23" position="520:1430" size="140:93" />
+    <node operator="Count" id="24" position="525:1159" size="140:117" />
+    <node operator="Pass-through: array" id="6" position="521:1032" size="140:117" />
+    <node operator="Pass-through: array" id="27" position="1000:500" size="140:117" />
+    <node operator="Filter" id="16" position="2234:773" size="140:141" />
+    <node operator="Count" id="25" position="1865:954" size="140:117" />
+    <node operator="Pass-through: Int32" id="28" position="1629:1649" size="140:117" />
+    <node operator="Pass-through: Int32" id="29" position="1869:1115" size="140:117" />
+    <node operator="Equal" id="30" position="2055:1022" size="140:141" />
+    <node operator="Pass-through: array" id="34" position="1628:754" size="140:117" />
+    <node operator="Map" id="36" position="2830:838" size="140:141" />
+    <node operator="Pass-through: array" id="37" position="2240:520" size="140:117" />
+    <node operator="SelectByIndex" id="38" position="2458:934" size="140:141" />
+    <node operator="Int32ArrayType" id="39" position="1667:945" size="140:117" />
+    <node operator="Pass-through: array" id="42" position="2453:813" size="140:117" />
+    <node groupnode="function: given an index, create an array of n incrementing indices" id="10" position="-102:907" size="1444:654" bg_color="#ff646464">
+      <nodes>5,12</nodes>
+    </node>
+    <node groupnode="Keep the valid indices" id="5" position="496:1003" size="837:549" bg_color="#ff878787">
+      <nodes>24,21,6,22,23,20,15,18</nodes>
+    </node>
+    <node groupnode="Repeat the indices as subarrays based on the desired inputs" id="13" position="-111:679" size="1682:904" bg_color="#ffb0b0b0">
+      <comment>For example, given the array [0,1,2,3,4,5]
+- n=1: [0], [1], [2], [3], [4], [5]
+- n=2: [0,1], [1,2], [2,3], [3,4], [4,5]
+- n=3: [0,1,2], [1,2,3],[1,2,3],[2,3,4],[3,4,5]
+</comment>
+      <nodes>10,8,3</nodes>
+    </node>
+    <node groupnode="Increment the current index n times and return the array" id="12" position="-93:936" size="538:317" bg_color="#ff878787">
+      <nodes>4,14,2</nodes>
+    </node>
+    <node groupnode="Filter the index subarrays and keep only the ones of size n" id="35" position="1600:720" size="783:542" bg_color="#ffb0b0b0">
+      <nodes>26,40,34,16,30</nodes>
+    </node>
+    <node groupnode="arg: current index array" id="40" position="1625:869" size="389:211" bg_color="#ffdc64d8">
+      <comment>Int32ArrayType is used here to force the type checker into knowing that the incoming array contains integers</comment>
+      <nodes>39,25</nodes>
+    </node>
+    <node groupnode="arg: current index" id="4" position="48:968" size="194:157" bg_color="#ffdc64d8">
+      <nodes>9</nodes>
+    </node>
+    <node groupnode="n" id="26" position="1860:1086" size="158:155" bg_color="#ff646464">
+      <nodes>29</nodes>
+    </node>
+    <node groupnode="Select the items of the original array with each index array" id="7" position="2440:780" size="744:304" bg_color="#ffb0b0b0">
+      <nodes>42,11,36,38</nodes>
+    </node>
+    <node groupnode="n" id="41" position="1620:1620" size="158:155" bg_color="#ff646464">
+      <nodes>28</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="8" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="15" sourceport="1" destnode="3" destport="1" />
+    <connection sourcenode="27" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="36" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="2" sourceport="1" destnode="14" destport="2" />
+    <connection sourcenode="6" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="21" sourceport="1" destnode="15" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="24" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="22" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="24" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="34" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="30" sourceport="1" destnode="16" destport="1" />
+    <connection sourcenode="39" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="28" sourceport="0" destnode="29" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="30" destport="0" />
+    <connection sourcenode="29" sourceport="0" destnode="30" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="42" sourceport="0" destnode="36" destport="0" />
+    <connection sourcenode="38" sourceport="1" destnode="36" destport="1" />
+    <connection sourcenode="27" sourceport="0" destnode="37" destport="0" />
+    <connection sourcenode="37" sourceport="0" destnode="38" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="42" destport="0" />
+  </connections>
+</graph>

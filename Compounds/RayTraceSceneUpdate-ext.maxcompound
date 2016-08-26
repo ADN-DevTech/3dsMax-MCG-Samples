@@ -1,0 +1,29 @@
+<graph version="0.50" uuid="f2e16bbf-ee86-4acf-91db-a8270e959229">
+    <meta_info>
+        <graph_version guid="8d849ccc-c7cb-42ef-af12-4c4d51086f90" number="0.0.8" />
+        <category>Ray tracer</category>
+        <description>Updates the geometry in a ray traced scene. </description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: RayTraceScene" id="0" name="rayTraceScene" position="0:140" size="140:112" />
+        <node operator="Input: TriMesh" id="4" name="mesh" position="220:160" size="140:112" />
+        <node operator="Output: compound" id="5" position="1200:300" size="140:70" />
+        <node operator="PairItem1" id="6" position="760:200" size="140:112" />
+        <node operator="Input: Boolean" id="7" name="updateCondition" position="760:60" size="140:112" />
+        <node operator="Zero" id="8" position="0:20" size="140:91" />
+        <node operator="RayTraceDeleteGeometry" id="1" position="220:0" size="180:133" />
+        <node operator="RayTraceAddGeometry" id="3" position="480:120" size="200:133" />
+        <node operator="IfThen" id="2" position="980:220" size="140:154" />
+    </nodes>
+    <connections>
+        <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="6" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="1" destnode="2" destport="2" />
+    </connections>
+</graph>

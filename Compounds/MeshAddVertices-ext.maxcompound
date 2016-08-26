@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="6ceab4df-c335-4304-9231-d7e654e92635">
+  <meta_info>
+    <graph_version guid="dbdde91b-03ba-4bba-9a0d-a1198b379248" number="0.0.2" />
+    <category>Mesh Topology</category>
+    <description>Adds a number of vertices to the vertex buffer: without new faces.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="120:160" size="140:112" />
+    <node operator="Input: array" id="1" name="vertices" position="120:300" size="140:112" />
+    <node operator="CreateMesh" id="2" position="360:380" size="140:133" />
+    <node operator="EmptyIntegerArray-ext" id="3" position="120:420" size="140:91" />
+    <node operator="CombineMeshes" id="4" position="600:280" size="140:133" />
+    <node operator="Output: compound" id="5" position="780:340" size="140:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+  </connections>
+</graph>

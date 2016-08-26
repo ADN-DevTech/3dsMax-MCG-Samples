@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="e81ac6bc-518c-4ee9-b632-b33b9b9ca22a">
+  <meta_info>
+    <graph_version guid="578f8c7b-9f16-42a9-b66f-c373ca315c0b" number="0.0.4" />
+    <category>Geometry - TriMesh</category>
+    <description>Sets the vertices of a mesh using the soft-selection channel, if present, to interpolate between original vertices and new vertices. </description>
+  </meta_info>
+  <nodes>
+    <node operator="MeshVertices" id="0" position="240:0" size="140:112" />
+    <node operator="LerpVectors-ext" id="1" position="460:120" size="140:154" />
+    <node operator="Input: TriMesh" id="2" name="mesh" position="0:40" size="160:112" />
+    <node operator="Input: array" id="3" name="vertices" position="240:300" size="140:112" />
+    <node operator="HasSoftSelection" id="4" position="680:20" size="140:112" />
+    <node operator="If" id="5" position="1120:120" size="140:154" />
+    <node operator="SetMeshVertices" id="6" position="680:140" size="140:133" />
+    <node operator="SoftSelection" id="7" position="240:140" size="140:112" />
+    <node operator="SetMeshVertices" id="8" position="680:300" size="140:133" />
+    <node operator="Output: compound" id="9" position="1120:300" size="140:70" />
+    <node operator="IfThen" id="10" position="900:220" size="140:154" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="7" sourceport="0" destnode="1" destport="2" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="5" destport="2" />
+    <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="8" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="6" sourceport="1" destnode="10" destport="1" />
+    <connection sourcenode="8" sourceport="1" destnode="10" destport="2" />
+  </connections>
+</graph>

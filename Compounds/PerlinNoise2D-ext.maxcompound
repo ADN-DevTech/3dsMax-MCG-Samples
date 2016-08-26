@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="26b2e407-7ce0-4c10-8aaa-bc8c0412e32a">
+  <meta_info>
+    <graph_version guid="01ddf301-e226-4627-94f1-3f3931fe3fc9" number="0.0.10" />
+    <category>Random</category>
+    <description>Perlin noise normalized to -1.0 to 1.0. See http://stackoverflow.com/questions/18261982/output-range-of-perlin-noise. </description>
+  </meta_info>
+  <nodes>
+    <node operator="NoiseOp" id="0" position="880:380" size="140:141" />
+    <node operator="Input: Single" id="1" name="x" position="0:140" size="140:117" />
+    <node operator="Input: Single" id="2" name="y" position="0:460" size="140:117" />
+    <node operator="Divide" id="3" position="440:120" size="140:141" />
+    <node operator="Constant" id="4" value="255.0" position="220:280" size="120:93" />
+    <node operator="Divide" id="5" position="440:420" size="140:141" />
+    <node operator="Output: compound" id="6" position="1540:640" size="140:69" />
+    <node operator="Multiply" id="7" position="660:240" size="140:141" />
+    <node operator="Input: Single" id="8" name="frequency" position="440:280" size="140:117" />
+    <node operator="Multiply" id="9" position="660:400" size="140:141" />
+    <node operator="Add" id="12" position="220:80" size="140:141" />
+    <node operator="Add" id="13" position="220:400" size="140:141" />
+    <node operator="Input: Single" id="14" name="xoff" position="0:0" size="140:117" />
+    <node operator="Input: Single" id="15" name="yoff" position="0:320" size="140:117" />
+    <node operator="Multiply" id="10" position="1320:580" size="140:141" />
+    <node operator="Input: Single" id="11" name="amplitude" position="1100:640" size="140:117" />
+    <node operator="Divide" id="16" position="1100:480" size="140:141" />
+    <node operator="Sqrt" id="17" position="660:560" size="140:117" />
+    <node operator="Constant" id="18" value="2.0" position="440:580" size="140:93" />
+    <node operator="DivideByTwoFloat" id="19" position="880:540" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="7" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="12" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="9" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="16" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="10" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="17" sourceport="0" destnode="19" destport="0" />
+  </connections>
+</graph>

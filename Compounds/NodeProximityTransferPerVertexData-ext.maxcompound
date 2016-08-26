@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="cb6e0fa0-399c-4426-9d86-aa9d3d305a22">
+  <meta_info>
+    <graph_version guid="d276bc51-8c19-40b2-9bb9-0772c4674c0a" number="0.0.5" />
+    <category>3ds Max Nodes</category>
+    <description>Transfers the per-vertex data from an object associated with a node to another mesh based on a weighted distance to nearest neighbours. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Pair" id="12" position="880:260" size="140:133" />
+    <node operator="MeshVertices" id="4" position="440:180" size="140:112" />
+    <node operator="CreateSimpleCacheWithReset-ext" id="16" position="1100:260" size="240:154" />
+    <node operator="PairItem2" id="9" position="1420:340" size="140:112" />
+    <node operator="PairItem1" id="18" position="1420:220" size="140:112" />
+    <node operator="NodeCanGetMesh-ext" id="5" position="1960:100" size="180:112" />
+    <node operator="NodeMeshInWorldSpace-ext" id="1" position="220:80" size="140:112" />
+    <node operator="Identity" id="17" position="880:420" size="140:112" />
+    <node operator="IfThen" id="10" position="2220:280" size="140:154" />
+    <node operator="PointOctree" id="11" position="660:240" size="140:112" />
+    <node operator="Input: INode" id="2" name="source" position="0:20" size="140:112" />
+    <node operator="Input: Boolean" id="3" name="clearCache" position="880:140" size="140:112" />
+    <node operator="Input: Matrix" id="6" name="transform" position="1100:140" size="140:112" />
+    <node operator="Input: TriMesh" id="7" name="targetMesh" position="880:0" size="140:112" />
+    <node operator="Input: Int32" id="0" name="targetChannel" position="1640:140" size="140:112" />
+    <node operator="Input: Int32" id="13" name="sourceChannel" position="1420:480" size="140:112" />
+    <node operator="Output: compound" id="14" position="2440:340" size="140:70" />
+    <node operator="MeshVertexDataInterpolate-ext" id="15" position="1640:280" size="240:175" />
+    <node operator="SetPerVertexData" id="21" position="1960:240" size="140:154" />
+    <node operator="MeshVertices" id="8" position="1100:0" size="140:112" />
+    <node operator="TransformPoints" id="22" position="1420:60" size="140:133" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="11" sourceport="0" destnode="12" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="12" sourceport="1" destnode="16" destport="1" />
+    <connection sourcenode="17" sourceport="1" destnode="16" destport="2" />
+    <connection sourcenode="16" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="21" sourceport="1" destnode="10" destport="1" />
+    <connection sourcenode="7" sourceport="1" destnode="10" destport="2" />
+    <connection sourcenode="4" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="15" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="15" destport="2" />
+    <connection sourcenode="13" sourceport="0" destnode="15" destport="3" />
+    <connection sourcenode="7" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="21" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="21" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="22" destport="1" />
+  </connections>
+</graph>

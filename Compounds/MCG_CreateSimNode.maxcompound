@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="1fb6d125-16bb-42c1-b9da-41f4164e6bf3">
+  <meta_info>
+    <graph_version guid="a8bf3b61-e583-4999-9918-58c0997b1727" number="0.0.48" />
+    <company>Autodesk</company>
+    <category>Bullet Physics</category>
+    <description>Create Simulation  Node.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Output: compound" id="3" position="3504:837" size="160:69" />
+    <node operator="CreateRigidBody" id="0" position="1442:550" size="240:237" />
+    <node operator="MeshFromNode" id="4" position="686:283" size="140:117" />
+    <node operator="Origin" id="54" position="686:183" size="140:93" />
+    <node operator="CreateRigidBodyDynamics" id="55" position="613:490" size="240:237" />
+    <node operator="SetRigidBodyVelocity" id="83" position="2037:680" size="160:165" />
+    <node operator="WorldTransform" id="5" position="686:63" size="140:117" />
+    <node operator="False" id="10" position="1213:838" size="140:93" />
+    <node operator="Input: INode" id="14" name="Start Node" position="316:140" size="140:117" />
+    <node operator="Input: Single" id="18" name="Restitution" position="310:874" size="140:117" />
+    <node operator="Input: Single" id="16" name="Mass" position="310:534" size="140:117" />
+    <node operator="Input: Single" id="22" name="Linear Friction" position="311:649" size="140:117" />
+    <node operator="Input: Single" id="23" name="Rolling Friction" position="309:763" size="140:117" />
+    <node operator="Input: Single" id="2" name="Linear Damping" position="310:994" size="140:117" />
+    <node operator="Input: Single" id="9" name="Angular Damping" position="310:1113" size="140:117" />
+    <node operator="Input: Vector3" id="11" name="Inertia" position="982:797" size="140:117" />
+    <node operator="Input: Vector3" id="12" name="Linear Velocity" position="1718:799" size="140:117" />
+    <node operator="Input: Vector3" id="15" name="Angular Velocity" position="1719:918" size="140:117" />
+    <node operator="AddRigidBody" id="1" position="2705:736" size="140:141" />
+    <node operator="CreateWorld" id="7" position="2489:663" size="140:117" />
+    <node operator="AnimationStartTime" id="42" position="2249:663" size="160:93" />
+    <node operator="SetGravity" id="17" position="3247:790" size="200:141" />
+    <node operator="Vector3FromZ" id="20" position="3059:866" size="140:117" />
+    <node operator="Input: Single" id="21" name="Gravity" position="2879:846" size="140:117" />
+    <node groupnode="Inputs - Inertia" id="32" position="969:760" size="180:179" bg_color="#ffcd5c5c">
+      <nodes>11</nodes>
+    </node>
+    <node groupnode="Input Node" id="34" position="307:107" size="158:159" bg_color="#ffcd5c5c">
+      <nodes>14</nodes>
+    </node>
+    <node groupnode="Create Dynamics" id="25" position="280:440" size="625:809" bg_color="#ff646464">
+      <comment>Create Dynamics - Physics properties</comment>
+      <nodes>33,55</nodes>
+    </node>
+    <node groupnode="Output World" id="35" position="3480:800" size="225:126" bg_color="#ff646464">
+      <nodes>3</nodes>
+    </node>
+    <node groupnode="Inputs" id="31" position="1709:770" size="159:274" bg_color="#ffcd5c5c">
+      <nodes>12,15</nodes>
+    </node>
+    <node groupnode="Inputs - Dynamics" id="33" position="300:505" size="205:734" bg_color="#ffcd5c5c">
+      <nodes>9,18,16,22,23,2</nodes>
+    </node>
+    <node groupnode="Start Node" id="6" position="280:0" size="598:409" bg_color="#ff75ab75">
+      <comment>Start node - Pick iNode start point</comment>
+      <nodes>4,54,5,34</nodes>
+    </node>
+    <node groupnode="Create Sim Start Node" id="8" position="1620:180" size="717:111" bg_color="#ff646464">
+      <comment>Start Node Compound for Bullet Physics - Create the Simulated Node
+
+There is one node of this type per Bullet Physics Simulation Graph.</comment>
+    </node>
+    <node groupnode="Set Initial Velocity" id="30" position="1700:617" size="506:436" bg_color="#ff646464">
+      <comment>Set Iniatial Velocity - Impulse Position Rotation</comment>
+      <nodes>83,31</nodes>
+    </node>
+    <node groupnode="Create Rigid Body" id="26" position="960:500" size="731:468" bg_color="#ff646464">
+      <comment>Create Rigid Body</comment>
+      <nodes>0,10,32</nodes>
+    </node>
+    <node groupnode="Create World" id="13" position="2240:600" size="614:286" bg_color="#ff646464">
+      <comment>Create Bullet Physics World
+Add Simulated Rigid Body</comment>
+      <nodes>1,42,7</nodes>
+    </node>
+    <node groupnode="Create World Gravity" id="19" position="2860:740" size="600:252" bg_color="#ff646464">
+      <comment>Create World Gravity</comment>
+      <nodes>20,17,21</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="17" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="0" destport="0" />
+    <connection sourcenode="54" sourceport="0" destnode="0" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="0" destport="2" />
+    <connection sourcenode="55" sourceport="0" destnode="0" destport="3" />
+    <connection sourcenode="11" sourceport="0" destnode="0" destport="4" />
+    <connection sourcenode="10" sourceport="0" destnode="0" destport="5" />
+    <connection sourcenode="14" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="55" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="55" destport="1" />
+    <connection sourcenode="23" sourceport="0" destnode="55" destport="2" />
+    <connection sourcenode="18" sourceport="0" destnode="55" destport="3" />
+    <connection sourcenode="2" sourceport="0" destnode="55" destport="4" />
+    <connection sourcenode="9" sourceport="0" destnode="55" destport="5" />
+    <connection sourcenode="0" sourceport="0" destnode="83" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="83" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="83" destport="2" />
+    <connection sourcenode="14" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="83" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="42" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="17" destport="1" />
+    <connection sourcenode="21" sourceport="0" destnode="20" destport="0" />
+  </connections>
+</graph>

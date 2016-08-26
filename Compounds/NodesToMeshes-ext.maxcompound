@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="f5ddd889-04cf-423a-aea4-fa738d220f1e">
+    <meta_info>
+        <graph_version guid="0f1183ca-e34c-4d0d-9c71-e59372343c58" number="0.0.2" />
+        <category>3ds Max Nodes</category>
+        <description>Given an array of nodes, returns an array of meshes.</description>
+    </meta_info>
+    <nodes>
+        <node operator="Input: array" id="0" name="nodes" position="0:0" size="140:112" />
+        <node operator="Map" id="2" position="440:200" size="140:133" />
+        <node operator="Filter" id="3" position="220:80" size="140:133" />
+        <node operator="CanGetMeshFromNode" id="4" position="0:140" size="140:112" />
+        <node operator="Output: compound" id="6" position="660:240" size="140:70" />
+        <node operator="MeshFromNode" id="5" position="220:240" size="140:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="5" sourceport="1" destnode="2" destport="1" />
+        <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="4" sourceport="1" destnode="3" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="6" destport="0" />
+    </connections>
+</graph>

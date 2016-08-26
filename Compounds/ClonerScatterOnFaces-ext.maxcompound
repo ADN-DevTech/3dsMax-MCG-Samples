@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="6aae9727-603b-4532-a8af-1014a606b7b7">
+  <meta_info>
+    <graph_version guid="3152eef5-c7d0-401a-a08d-e2b5d9aa0614" number="0.0.12" />
+    <category>Cloning and Scattering</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: TriMesh" id="0" name="mesh" position="0:180" size="140:117" />
+    <node operator="MaterialIds" id="2" position="220:220" size="140:117" />
+    <node operator="BitEqualsOrAnyBit-ext" id="3" position="2349:189" size="140:165" />
+    <node operator="XOr-ext" id="4" position="2569:189" size="140:141" />
+    <node operator="Input: Boolean" id="5" name="invertFilter" position="2349:49" size="140:117" />
+    <node operator="Input: Boolean" id="6" name="exactOrAnyBit" position="2129:-31" size="140:117" />
+    <node operator="At" id="7" position="2129:109" size="140:141" />
+    <node operator="Input: Int32" id="8" name="materialId" position="2129:269" size="140:117" />
+    <node operator="Input: Int32" id="9" name="randomSeed" position="1300:-20" size="140:117" />
+    <node operator="Input: Int32" id="10" name="count" position="1430:315" size="140:117" />
+    <node operator="FaceMatrix-ext" id="14" position="809:749" size="140:165" />
+    <node operator="Two" id="15" position="629:669" size="140:93" />
+    <node operator="MeshFace" id="20" position="469:709" size="140:141" />
+    <node operator="Output: compound" id="11" position="2620:640" size="180:69" />
+    <node operator="MeshFaces" id="12" position="940:40" size="140:117" />
+    <node operator="Indices" id="19" position="1140:40" size="140:117" />
+    <node operator="RandomElements-ext" id="22" position="1669:319" size="160:165" />
+    <node operator="RandomNumberGenerator" id="23" position="1429:169" size="140:117" />
+    <node operator="Combine3" id="16" position="1880:560" size="140:189" />
+    <node operator="PseudoRandomFloats-ext" id="13" position="1620:580" size="140:141" />
+    <node operator="PseudoRandomFloats-ext" id="17" position="1609:789" size="140:141" />
+    <node operator="PlusOne" id="18" position="1300:580" size="140:117" />
+    <node operator="PlusOne" id="25" position="1289:769" size="140:117" />
+    <node operator="RandomNumberGenerator" id="26" position="1420:580" size="140:117" />
+    <node operator="RandomNumberGenerator" id="27" position="1429:809" size="140:117" />
+    <node operator="FacePositionFromBarycentric-ext" id="28" position="629:829" size="140:165" />
+    <node operator="At" id="34" position="1940:200" size="140:141" />
+    <node operator="FilterWithIndexesOnly-ext" id="1" position="2180:580" size="140:141" />
+    <node groupnode="Test the material Ids" id="32" position="2120:-60" size="598:455" bg_color="#ff646464">
+      <nodes>6,8,7,5,4,3</nodes>
+    </node>
+    <node groupnode="Random face indices" id="24" position="1371:140" size="514:353" bg_color="#ff646464">
+      <nodes>10,22,23</nodes>
+    </node>
+    <node groupnode="Get the position on the specified face, at the given U, V coordinates" id="31" position="460:640" size="553:363" bg_color="#ff646464">
+      <nodes>14,15,20,28</nodes>
+    </node>
+    <node groupnode="Random V values" id="30" position="1280:740" size="478:199" bg_color="#ff646464">
+      <nodes>27,25,17</nodes>
+    </node>
+    <node groupnode="Random U values" id="29" position="1291:551" size="478:179" bg_color="#ff646464">
+      <nodes>18,26,13</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="8" sourceport="0" destnode="3" destport="2" />
+    <connection sourcenode="5" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="1" />
+    <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="34" sourceport="0" destnode="7" destport="1" />
+    <connection sourcenode="15" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="28" sourceport="0" destnode="14" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="19" sourceport="0" destnode="22" destport="0" />
+    <connection sourcenode="23" sourceport="0" destnode="22" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="22" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="23" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="17" sourceport="0" destnode="16" destport="2" />
+    <connection sourcenode="14" sourceport="1" destnode="16" destport="3" />
+    <connection sourcenode="26" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="27" sourceport="0" destnode="17" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="17" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="25" destport="0" />
+    <connection sourcenode="18" sourceport="0" destnode="26" destport="0" />
+    <connection sourcenode="25" sourceport="0" destnode="27" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="28" destport="0" />
+    <connection sourcenode="22" sourceport="0" destnode="34" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="4" sourceport="1" destnode="1" destport="1" />
+  </connections>
+</graph>

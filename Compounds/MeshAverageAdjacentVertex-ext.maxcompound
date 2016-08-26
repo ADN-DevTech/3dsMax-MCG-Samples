@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="15b299db-0206-4f9f-955a-c5f895e2fc02">
+  <meta_info>
+    <graph_version guid="1c9f804d-91e6-4c5c-bff3-32d44bd59917" number="0.0.2" />
+    <category>Geometry - TriMesh</category>
+    <description>Given a vertex index returns the average of the neighboring vertices (not including itself). </description>
+  </meta_info>
+  <nodes>
+    <node operator="AdjacentVertexIndices2-ext" id="1" position="220:40" size="180:141" />
+    <node operator="AverageVector" id="13" position="700:200" size="140:117" />
+    <node operator="SelectVertices" id="18" position="480:140" size="140:141" />
+    <node operator="Output: compound" id="0" position="920:220" size="140:69" />
+    <node operator="Input: TriMesh" id="2" name="name" position="0:140" size="140:117" />
+    <node operator="Input: Int32" id="3" name="index" position="0:0" size="140:117" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="18" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="18" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="18" destport="1" />
+    <connection sourcenode="13" sourceport="0" destnode="0" destport="0" />
+  </connections>
+</graph>

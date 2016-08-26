@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="4a9778cd-562f-46ad-aa37-bcb41ec66cae">
+  <meta_info>
+    <graph_version guid="0d1d4667-cff2-4adb-ba5c-2a3ea9115d4d" number="0.0.1" />
+    <category>Selection</category>
+    <description>Given an array of face indices returns a face selection array.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Count" id="2" position="440:40" size="140:112" />
+    <node operator="Output: compound" id="12" position="1160:180" size="140:70" />
+    <node operator="Input: TriMesh" id="1" name="mesh" position="0:0" size="140:112" />
+    <node operator="Input: array" id="0" name="indices" position="660:200" size="140:112" />
+    <node operator="SelectionArrayFromIndices-ext" id="14" position="880:140" size="200:133" />
+    <node operator="MeshIndices" id="4" position="220:20" size="140:112" />
+    <node operator="DivideByThree" id="3" position="660:60" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="4" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="14" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="14" destport="1" />
+    <connection sourcenode="1" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="0" />
+  </connections>
+</graph>

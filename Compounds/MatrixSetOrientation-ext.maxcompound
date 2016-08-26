@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="01b8d6f2-390d-49f1-94f9-a4c8808c9c17">
+  <meta_info>
+    <graph_version guid="36a4d01c-ab63-4e8e-8117-fedd0b2f9f18" number="0.0.4" />
+    <category>Geometry - Rotation</category>
+    <description>Sets a matrix's rotation to be equal to the minimal rotation needed to align the source vector with the target vector.</description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Vector3" id="1" name="targetAxis" position="160:420" size="140:112" />
+    <node operator="Input: Matrix" id="0" name="matrix" position="380:220" size="140:112" />
+    <node operator="RotationBetweenVectorsFix-ext" id="13" position="380:360" size="220:133" />
+    <node operator="Input: Vector3" id="2" name="sourceAxis" position="160:280" size="140:112" />
+    <node operator="MatrixSetRotation-ext" id="3" position="660:320" size="200:133" />
+    <node operator="Output: compound" id="8" position="900:360" size="160:70" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="13" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="8" destport="0" />
+  </connections>
+</graph>

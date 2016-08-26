@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="2bc6863f-06ca-42cf-aa69-21a2842105de">
+  <meta_info>
+    <graph_version guid="2af7e666-0fd6-4f02-8701-b5a3fda882a0" number="0.0.1" />
+    <category>Spline</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: Spline" id="0" name="spline" position="160:140" size="140:117" />
+    <node operator="SplineSegmentIndices" id="1" position="380:140" size="200:117" />
+    <node operator="SplineVerticesBuffer" id="2" position="380:260" size="200:117" />
+    <node operator="SelectByIndex" id="3" position="680:180" size="140:141" />
+    <node operator="CombineEveryTwoElements-ext" id="4" position="920:240" size="140:141" />
+    <node operator="Line" id="5" position="680:360" size="140:141" />
+    <node operator="Output: compound" id="6" position="1100:280" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="3" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="5" sourceport="1" destnode="4" destport="1" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="0" />
+  </connections>
+</graph>

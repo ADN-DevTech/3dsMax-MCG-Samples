@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="4868f7af-4b35-4a5e-ab41-e5643c40a819">
+  <meta_info>
+    <graph_version guid="3afb60dc-5531-4f04-84c9-1e0d037cf794" number="0.0.2" />
+    <category>MapChannel</category>
+    <description>Given a tri mesh returns the map channel vertex data arranged by the average on each vertex. This data is the same length as the mesh vertex buffer. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Input: MapChannel" id="0" name="mapChannel" position="220:180" size="140:117" />
+    <node operator="Input: TriMesh" id="1" name="mesh" position="0:40" size="140:117" />
+    <node operator="MapChannelAverageVertexLookup-ext" id="13" position="440:160" size="140:165" />
+    <node operator="MeshVertices" id="9" position="220:0" size="140:117" />
+    <node operator="Indices" id="12" position="440:20" size="140:117" />
+    <node operator="Map" id="14" position="660:140" size="140:141" />
+    <node operator="Output: compound" id="2" position="880:180" size="140:69" />
+  </nodes>
+  <connections>
+    <connection sourcenode="1" sourceport="0" destnode="13" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="13" destport="2" />
+    <connection sourcenode="1" sourceport="0" destnode="9" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="12" destport="0" />
+    <connection sourcenode="12" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="13" sourceport="1" destnode="14" destport="1" />
+    <connection sourcenode="14" sourceport="0" destnode="2" destport="0" />
+  </connections>
+</graph>

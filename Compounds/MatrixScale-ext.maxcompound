@@ -1,0 +1,22 @@
+<graph version="0.50" uuid="1e9fe58e-09d4-4e96-8fb1-204ac0db11c1">
+    <meta_info>
+        <graph_version guid="d0886392-ad5e-42d4-81ac-932538c00725" number="0.0.7" />
+        <category>Geometry - Matrix</category>
+        <description>Scales the matrix by the given amount.</description>
+    </meta_info>
+    <nodes>
+        <node operator="VectorScaleMatrix" id="12" position="440:140" size="160:112" />
+        <node operator="Multiply" id="7" position="680:80" size="140:133" />
+        <node operator="Input: Single" id="0" name="amount" position="0:100" size="140:112" />
+        <node operator="Output: compound" id="1" position="900:120" size="140:70" />
+        <node operator="Input: Matrix" id="2" name="matrix" position="440:0" size="140:112" />
+        <node operator="ScalarToVector-ext" id="4" position="220:120" size="160:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="4" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="12" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

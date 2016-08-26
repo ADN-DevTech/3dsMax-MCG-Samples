@@ -1,0 +1,49 @@
+<graph version="0.50" uuid="26dfb333-93ca-41b0-a37e-63ae4ab72a9d">
+    <meta_info>
+        <graph_version guid="51894443-2ea7-40d7-aff0-094d3cca5416" number="0.0.4" />
+    </meta_info>
+    <nodes>
+        <node operator="OffsetMesh" id="10" position="980:160" size="140:133" />
+        <node operator="MeshMoveVerticesLimited-ext" id="7" position="1260:340" size="220:154" />
+        <node operator="RayTraceSceneCached-ext" id="22" position="980:460" size="200:175" />
+        <node operator="Negate" id="14" position="660:160" size="140:112" />
+        <node operator="MeshVertices" id="4" position="980:320" size="140:112" />
+        <node operator="MeshTransform-ext" id="18" position="660:0" size="140:133" />
+        <node operator="NodeMeshOrDefault-ext" id="6" position="660:460" size="180:133" />
+        <node operator="Input: Vector3" id="5" name="origin" position="440:60" size="140:112" />
+        <node operator="Input: TriMesh" id="0" name="mesh" position="440:200" size="140:112" />
+        <node operator="Input: Boolean" id="1" name="updateCache" position="660:320" size="140:112" />
+        <node operator="Input: Matrix" id="2" name="matrix" position="440:320" size="140:112" />
+        <node operator="Input: INode" id="3" name="node" position="440:620" size="140:112" />
+        <node operator="Tetrahedron" id="8" position="220:380" size="140:112" />
+        <node operator="OffsetMesh" id="11" position="440:460" size="140:133" />
+        <node operator="ScalarToVector-ext" id="15" position="220:520" size="140:112" />
+        <node operator="Constant" id="17" value="-10000000.0" position="0:520" size="140:91" />
+        <node operator="Output: compound" id="12" position="1560:400" size="140:70" />
+        <node operator="FloatZero" id="9" position="0:380" size="140:91" />
+        <node operator="NodeTransformOrIdentity-ext" id="13" position="660:620" size="240:112" />
+    </nodes>
+    <connections>
+        <connection sourcenode="18" sourceport="0" destnode="10" destport="0" />
+        <connection sourcenode="14" sourceport="0" destnode="10" destport="1" />
+        <connection sourcenode="10" sourceport="0" destnode="7" destport="0" />
+        <connection sourcenode="4" sourceport="0" destnode="7" destport="1" />
+        <connection sourcenode="22" sourceport="0" destnode="7" destport="2" />
+        <connection sourcenode="1" sourceport="0" destnode="22" destport="0" />
+        <connection sourcenode="6" sourceport="0" destnode="22" destport="1" />
+        <connection sourcenode="13" sourceport="0" destnode="22" destport="2" />
+        <connection sourcenode="2" sourceport="0" destnode="22" destport="3" />
+        <connection sourcenode="5" sourceport="0" destnode="14" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="4" destport="0" />
+        <connection sourcenode="0" sourceport="0" destnode="18" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="18" destport="1" />
+        <connection sourcenode="3" sourceport="0" destnode="6" destport="0" />
+        <connection sourcenode="11" sourceport="0" destnode="6" destport="1" />
+        <connection sourcenode="9" sourceport="0" destnode="8" destport="0" />
+        <connection sourcenode="8" sourceport="0" destnode="11" destport="0" />
+        <connection sourcenode="15" sourceport="0" destnode="11" destport="1" />
+        <connection sourcenode="17" sourceport="0" destnode="15" destport="0" />
+        <connection sourcenode="7" sourceport="0" destnode="12" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="13" destport="0" />
+    </connections>
+</graph>

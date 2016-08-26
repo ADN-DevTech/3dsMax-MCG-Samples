@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="5d7fd1b7-6e5f-43b3-9cc0-576db99be117">
+  <meta_info>
+    <graph_version guid="89a37622-dbb0-42f4-8e87-0ded72c062de" number="0.0.2" />
+    <category>Geometry - Deformers</category>
+    <description>Takes a point and a bounding box and interpolates that point between its current position (0.0) and a point on the bounding box (1.0). The result is not clamped. </description>
+  </meta_info>
+  <nodes>
+    <node operator="Output: compound" id="8" position="1320:280" size="140:69" />
+    <node operator="Input: Single" id="6" name="weight" position="880:320" size="140:117" />
+    <node operator="Input: Vector3" id="7" name="point" position="220:0" size="140:117" />
+    <node operator="Lerp" id="2" position="1100:200" size="140:165" />
+    <node operator="Subtract" id="1" position="440:40" size="140:141" />
+    <node operator="Input: BoundingBox" id="9" name="box" position="0:220" size="140:117" />
+    <node operator="BoundingBoxCenter" id="10" position="220:140" size="140:117" />
+    <node operator="BoxClamp-ext" id="3" position="880:160" size="140:141" />
+    <node operator="BoundingBoxRadius" id="4" position="440:200" size="140:117" />
+    <node operator="SetVectorLength" id="5" position="660:100" size="140:141" />
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="2" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="1" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="1" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="10" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="9" sourceport="0" destnode="3" destport="1" />
+    <connection sourcenode="9" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="5" destport="1" />
+  </connections>
+</graph>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="658b85af-2718-4575-9e60-5ac672500c64">
+  <meta_info>
+    <graph_version guid="25cf6950-2c5c-4174-bb38-72b5171f071d" number="0.0.2" />
+    <category>Maps/Bitmaps</category>
+  </meta_info>
+  <nodes>
+    <node operator="GetPixel" id="14" position="569:829" size="140:165" />
+    <node operator="Map" id="11" position="549:269" size="140:141" />
+    <node operator="Range" id="15" position="309:529" size="140:117" />
+    <node operator="ArrayOf" id="20" position="549:509" size="140:141" />
+    <node operator="Combine" id="16" position="989:449" size="140:165" />
+    <node operator="ArrayOf" id="13" position="309:369" size="140:141" />
+    <node operator="Flatten" id="19" position="749:449" size="140:117" />
+    <node operator="Flatten" id="21" position="749:549" size="140:117" />
+    <node operator="Range" id="7" position="309:229" size="140:117" />
+    <node operator="Pass-through: Int32" id="42" position="309:649" size="140:117" />
+    <node operator="Input: Int32" id="0" name="RESofBitmap" position="20:320" size="140:117" />
+    <node operator="Input: Bitmap" id="2" name="myBitmap" position="40:860" size="140:117" />
+    <node operator="Output: compound" id="1" position="1280:560" size="140:69" />
+    <node groupnode="Generate Pixel Color Array" id="18" position="240:200" size="898:803" bg_color="#ff9a723f">
+      <nodes>15,20,11,21,13,7,42,19,16</nodes>
+    </node>
+    <node groupnode="Group" id="3" position="560:800" size="158:203" bg_color="#ff646464">
+      <nodes>14</nodes>
+    </node>
+  </nodes>
+  <connections>
+    <connection sourcenode="2" sourceport="0" destnode="14" destport="0" />
+    <connection sourcenode="7" sourceport="0" destnode="11" destport="0" />
+    <connection sourcenode="13" sourceport="1" destnode="11" destport="1" />
+    <connection sourcenode="0" sourceport="0" destnode="15" destport="0" />
+    <connection sourcenode="15" sourceport="0" destnode="20" destport="0" />
+    <connection sourcenode="42" sourceport="0" destnode="20" destport="1" />
+    <connection sourcenode="19" sourceport="0" destnode="16" destport="0" />
+    <connection sourcenode="21" sourceport="0" destnode="16" destport="1" />
+    <connection sourcenode="14" sourceport="1" destnode="16" destport="2" />
+    <connection sourcenode="0" sourceport="0" destnode="13" destport="1" />
+    <connection sourcenode="11" sourceport="0" destnode="19" destport="0" />
+    <connection sourcenode="20" sourceport="0" destnode="21" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="0" sourceport="0" destnode="42" destport="0" />
+    <connection sourcenode="16" sourceport="0" destnode="1" destport="0" />
+  </connections>
+</graph>

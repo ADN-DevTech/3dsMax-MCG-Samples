@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="ccbaebea-2049-448f-a42b-68371acccfaa">
+  <meta_info>
+    <graph_version guid="ddc59c3b-e04c-4648-acf4-b9b94b849f30" number="0.0.18" />
+    <category>Uncategorized</category>
+  </meta_info>
+  <nodes>
+    <node operator="Input: array" id="0" name="pathPoints" position="220:280" size="140:112" />
+    <node operator="Input: array" id="1" name="shapePoints" position="0:0" size="140:112" />
+    <node operator="MatrixReferenceFrames-ext" id="2" position="440:280" size="160:133" />
+    <node operator="TransformPoints" id="7" position="440:100" size="160:133" />
+    <node operator="PointsXYToYZ-ext" id="5" position="220:20" size="140:112" />
+    <node operator="QuadMeshStrip" id="6" position="900:360" size="140:175" />
+    <node operator="FlatMap" id="8" position="680:180" size="140:133" />
+    <node operator="Output: compound" id="3" position="1120:440" size="140:70" />
+    <node operator="Count" id="4" position="680:320" size="140:112" />
+    <node operator="Input: Boolean" id="9" name="closeShape" position="680:500" size="140:112" />
+    <node operator="Input: Boolean" id="10" name="closePath" position="220:420" size="140:112" />
+  </nodes>
+  <connections>
+    <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="10" sourceport="0" destnode="2" destport="1" />
+    <connection sourcenode="5" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="1" sourceport="0" destnode="5" destport="0" />
+    <connection sourcenode="8" sourceport="0" destnode="6" destport="0" />
+    <connection sourcenode="4" sourceport="0" destnode="6" destport="1" />
+    <connection sourcenode="10" sourceport="0" destnode="6" destport="2" />
+    <connection sourcenode="9" sourceport="0" destnode="6" destport="3" />
+    <connection sourcenode="2" sourceport="0" destnode="8" destport="0" />
+    <connection sourcenode="7" sourceport="1" destnode="8" destport="1" />
+    <connection sourcenode="6" sourceport="0" destnode="3" destport="0" />
+    <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+  </connections>
+</graph>

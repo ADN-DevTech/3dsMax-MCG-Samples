@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph version="0.50" uuid="069f9e07-9012-4d6b-a544-15d1179b3dbe">
+  <meta_info>
+    <graph_version guid="7f0b729c-5f62-49fc-815c-8bc69dce02ba" number="0.0.1" />
+    <category>Random</category>
+    <description>Returns an array of random boolean values.</description>
+  </meta_info>
+  <nodes>
+    <node operator="RandBool-ext" id="2" position="220:140" size="140:154" />
+    <node operator="Input: Int32" id="3" name="seed" position="0:60" size="140:112" />
+    <node operator="Input: Single" id="5" name="probability" position="0:200" size="140:112" />
+    <node operator="Output: compound" id="4" position="660:140" size="140:70" />
+    <node operator="Input: Int32" id="6" name="count" position="220:0" size="140:112" />
+    <node operator="MapRange-ext" id="7" position="440:100" size="140:133" />
+  </nodes>
+  <connections>
+    <connection sourcenode="3" sourceport="0" destnode="2" destport="0" />
+    <connection sourcenode="5" sourceport="0" destnode="2" destport="2" />
+    <connection sourcenode="7" sourceport="0" destnode="4" destport="0" />
+    <connection sourcenode="6" sourceport="0" destnode="7" destport="0" />
+    <connection sourcenode="2" sourceport="1" destnode="7" destport="1" />
+  </connections>
+</graph>
