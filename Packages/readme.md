@@ -1,13 +1,10 @@
 # Downloading Max Creation Graph Tools Directly
 
-The following URLs can be used to download some of the packaged MCG tools directly to your computer. 
-Once downloaded go to the main menu of 3ds Max and use the "Scripting > Install Max Creation Graph (.mcg) Package" 
-to install the tools and use them. 
+1. Choose from the list of packages at: https://github.com/ADN-DevTech/3dsMax-MCG-Samples/tree/master/Packages
 
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Clone.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Cloner%20Mesher.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Cloner%20Transform.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Path%20Cloner.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Reset%20Origin.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Stacker.mcg
-* https://github.com/ADN-DevTech/3dsMax-MCG-Samples/raw/master/Packages/Transform%20Mesh.mcg
+2. Click on the .mcg link. For example:
+https://github.com/ADN-DevTech/3dsMax-MCG-Samples/blob/master/Packages/ArrowM.mcg
+
+    Note: Do not download that file or "save target" it is an HTML file. 
+
+5. From the package HTML page click the "download" button to download the actual MCG package. 
