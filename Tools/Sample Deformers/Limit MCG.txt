@@ -1,30 +1,30 @@
 (InstanceState state, TriMesh mesh, INode origin, Matrix modifierTransform, Boolean updateCache, INode obstacle) => 
   {
-    IArray[Vector3] _0MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56062
-    Boolean _1IsValidNode;// 0:NodePosition-ext->2:IsValidNode 56144
-    Vector3 _2IfThen;// 0:NodePosition-ext->4:IfThen 56143
-    Matrix _3InvertMatrix;// 23:MeshMoveToNewOrigin-ext->4:InvertMatrix 56065
-    Vector3 _4Transform;// 23:MeshMoveToNewOrigin-ext->5:Transform 56064
-    Func[Vector3, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 56059
-    IArray[Vector3] _6Map;// 0:DeformMeshPoints->1:Map 56061
-    TriMesh _7SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56060
-    String _8Constant;// 0:HasPerVertexChannel->0:Constant 55999
-    Int32 _9Zero;// 4:HasSoftSelection->3:Zero 56001
-    String _10ToString;// 0:HasPerVertexChannel->7:ToString 56000
-    String _11ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 55998
-    Boolean _12IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 55997
-    TriMesh _13IfThen;// 6:MeshSetVertices-ext->10:IfThen 55993
+    IArray[Vector3] _0MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43381
+    Boolean _1IsValidNode;// 0:NodePosition-ext->2:IsValidNode 43463
+    Vector3 _2IfThen;// 0:NodePosition-ext->4:IfThen 43462
+    Matrix _3InvertMatrix;// 23:MeshMoveToNewOrigin-ext->4:InvertMatrix 43384
+    Vector3 _4Transform;// 23:MeshMoveToNewOrigin-ext->5:Transform 43383
+    Func[Vector3, Vector3] _5Pass-through: function1;// 0:Pass-through: function1 43378
+    IArray[Vector3] _6Map;// 0:DeformMeshPoints->1:Map 43380
+    TriMesh _7SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43379
+    String _8Constant;// 0:HasPerVertexChannel->0:Constant 43318
+    Int32 _9Zero;// 4:HasSoftSelection->3:Zero 43320
+    String _10ToString;// 0:HasPerVertexChannel->7:ToString 43319
+    String _11ConcatenateStrings;// 0:HasPerVertexChannel->3:ConcatenateStrings 43317
+    Boolean _12IsChannelAvailable;// 0:HasPerVertexChannel->4:IsChannelAvailable 43316
+    TriMesh _13IfThen;// 6:MeshSetVertices-ext->10:IfThen 43312
     _0MeshVertices = MeshVertices(mesh);
     _1IsValidNode = IsValidNode(origin);
     _2IfThen = IfThen(_1IsValidNode, () => 
       {
-        Vector3 _0NodePosition;// 0:NodePosition-ext->8:NodePosition 56145
+        Vector3 _0NodePosition;// 0:NodePosition-ext->8:NodePosition 43464
         _0NodePosition = NodePosition(origin);
         _0NodePosition;
         }, () => 
       {
-        Single _0Constant;// 1:Origin->0:Constant 56148
-        Vector3 _1Vector3;// 1:Origin->1:Vector3 56147
+        Single _0Constant;// 1:Origin->0:Constant 43467
+        Vector3 _1Vector3;// 1:Origin->1:Vector3 43466
         _0Constant = 0;
         _1Vector3 = Vector3(_0Constant, _0Constant, _0Constant);
         _1Vector3;
@@ -33,7 +33,7 @@
     _4Transform = Transform(_2IfThen, _3InvertMatrix);
     _5Pass-through: function1 = (Vector3 x0) => 
       {
-        Vector3 _0Add;// 3:OffsetMesh->2:Add 56063
+        Vector3 _0Add;// 3:OffsetMesh->2:Add 43382
         _0Add = Add(x0, _4Transform);
         _0Add;
         };
@@ -46,63 +46,63 @@
     _12IsChannelAvailable = IsChannelAvailable(_7SetMeshVertices, _11ConcatenateStrings);
     _13IfThen = IfThen(_12IsChannelAvailable, () => 
       {
-        IArray[Vector3] _0MeshVertices;// 6:MeshSetVertices-ext->0:MeshVertices 56008
-        IArray[Vector3] _1MeshVertices;// 7:MoveVerticesLimited-ext->3:MeshVertices 56014
-        IArray[Vector3] _2MeshVertices;// 5:MoveVerticesLimitedTowardsNode-ext->4:MeshVertices 56066
-        Cache[Tuple[TriMesh, RayTraceScene]] _3IfThen;// 22:RayTraceSceneCached-ext->14:IfThen 56079
-        Int32 _4Zero;// 7:ExtractCurrentValueFromCache->3:Zero 56078
-        Tuple[TriMesh, RayTraceScene] _5CachedValue;// 7:ExtractCurrentValueFromCache->1:CachedValue 56077
-        RayTraceScene _6PairItem2;// 22:RayTraceSceneCached-ext->28:PairItem2 56075
-        Int32 _7Zero;// 22:RayTraceSceneCached-ext->21:Zero 56105
-        TriMesh _8PairItem1;// 22:RayTraceSceneCached-ext->26:PairItem1 56114
-        IArray[Vector3] _9MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 56112
-        Boolean _10IsValidNode;// 6:NodeTransformOrIdentity-ext->1:IsValidNode 56136
-        Matrix _11IfThen;// 6:NodeTransformOrIdentity-ext->2:IfThen 56135
-        Matrix _12InvertMatrix;// 10:RayTraceCachedSceneFromNode-ext->19:InvertMatrix 56139
-        Matrix _13Multiply;// 10:RayTraceCachedSceneFromNode-ext->18:Multiply 56133
-        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 56109
-        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 56111
-        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 56110
-        RayTraceScene _17PairItem1;// 22:RayTraceSceneCached-ext->16:PairItem1 56073
-        IArray[Vector3] _18Combine;// 7:MoveVerticesLimited-ext->5:Combine 56013
-        Int32 _19Zero;// 7:SoftSelection->2:Zero 56011
-        IArray[Single] _20PerVertexData;// 7:SoftSelection->3:PerVertexData 56010
-        IArray[Vector3] _21Combine3;// 1:LerpVectors-ext->10:Combine3 56006
-        TriMesh _22SetMeshVertices;// 6:MeshSetVertices-ext->6:SetMeshVertices 56002
+        IArray[Vector3] _0MeshVertices;// 6:MeshSetVertices-ext->0:MeshVertices 43327
+        IArray[Vector3] _1MeshVertices;// 7:MoveVerticesLimited-ext->3:MeshVertices 43333
+        IArray[Vector3] _2MeshVertices;// 5:MoveVerticesLimitedTowardsNode-ext->4:MeshVertices 43385
+        Cache[Tuple[TriMesh, RayTraceScene]] _3IfThen;// 22:RayTraceSceneCached-ext->14:IfThen 43398
+        Int32 _4Zero;// 7:ExtractCurrentValueFromCache->3:Zero 43397
+        Tuple[TriMesh, RayTraceScene] _5CachedValue;// 7:ExtractCurrentValueFromCache->1:CachedValue 43396
+        RayTraceScene _6PairItem2;// 22:RayTraceSceneCached-ext->28:PairItem2 43394
+        Int32 _7Zero;// 22:RayTraceSceneCached-ext->21:Zero 43424
+        TriMesh _8PairItem1;// 22:RayTraceSceneCached-ext->26:PairItem1 43433
+        IArray[Vector3] _9MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 43431
+        Boolean _10IsValidNode;// 6:NodeTransformOrIdentity-ext->1:IsValidNode 43455
+        Matrix _11IfThen;// 6:NodeTransformOrIdentity-ext->2:IfThen 43454
+        Matrix _12InvertMatrix;// 10:RayTraceCachedSceneFromNode-ext->19:InvertMatrix 43458
+        Matrix _13Multiply;// 10:RayTraceCachedSceneFromNode-ext->18:Multiply 43452
+        Func[Vector3, Vector3] _14Pass-through: function1;// 0:Pass-through: function1 43428
+        IArray[Vector3] _15Map;// 2:DeformMeshPoints->1:Map 43430
+        TriMesh _16SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 43429
+        RayTraceScene _17PairItem1;// 22:RayTraceSceneCached-ext->16:PairItem1 43392
+        IArray[Vector3] _18Combine;// 7:MoveVerticesLimited-ext->5:Combine 43332
+        Int32 _19Zero;// 7:SoftSelection->2:Zero 43330
+        IArray[Single] _20PerVertexData;// 7:SoftSelection->3:PerVertexData 43329
+        IArray[Vector3] _21Combine3;// 1:LerpVectors-ext->10:Combine3 43325
+        TriMesh _22SetMeshVertices;// 6:MeshSetVertices-ext->6:SetMeshVertices 43321
         _0MeshVertices = MeshVertices(_7SetMeshVertices);
         _1MeshVertices = MeshVertices(_7SetMeshVertices);
         _2MeshVertices = MeshVertices(mesh);
         _3IfThen = IfThen(updateCache, () => 
           {
-            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 56081
-            Cache[Tuple[TriMesh, RayTraceScene]] _1ForceUpdateCache;// 22:RayTraceSceneCached-ext->15:ForceUpdateCache 56080
+            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 43400
+            Cache[Tuple[TriMesh, RayTraceScene]] _1ForceUpdateCache;// 22:RayTraceSceneCached-ext->15:ForceUpdateCache 43399
             _0CreateStaticCache = CreateStaticCache(() => 
               {
-                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 56118
-                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 56071
-                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 56085
-                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 56086
-                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 56084
-                Boolean _22False;// 11:RayTraceScene-ext->1:False 56104
-                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 56100
-                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 56101
-                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 56082
+                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 43437
+                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 43390
+                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 43404
+                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 43405
+                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 43403
+                Boolean _22False;// 11:RayTraceScene-ext->1:False 43423
+                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 43419
+                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 43420
+                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 43401
                 _0IsValidNode = IsValidNode(obstacle);
                 _10Pass-through: TriMesh = if (_0IsValidNode)
                   {
-                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 56119
+                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 43438
                     _1MeshFromNode = MeshFromNode(obstacle);
                     _1MeshFromNode;
                     }else
                   {
-                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 56129
-                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 56128
-                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56126
-                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 56132
-                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 56131
-                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 56123
-                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 56125
-                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56124
+                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 43448
+                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 43447
+                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43445
+                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 43451
+                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 43450
+                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 43442
+                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 43444
+                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43443
                     _2FloatZero = FloatZero();
                     _3Tetrahedron = Tetrahedron(_2FloatZero);
                     _4MeshVertices = MeshVertices(_3Tetrahedron);
@@ -110,7 +110,7 @@
                     _6Vector3 = Vector3(_5Constant, _5Constant, _5Constant);
                     _7Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 11:OffsetMesh->2:Add 56127
+                        Vector3 _0Add;// 11:OffsetMesh->2:Add 43446
                         _0Add = Add(x0, _6Vector3);
                         _0Add;
                         };
@@ -124,14 +124,14 @@
                 _22False = False();
                 _31Pass-through: TriMesh = if (_13Equal)
                   {
-                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _23FloatZero = FloatZero();
                     _24Tetrahedron = Tetrahedron(_23FloatZero);
                     _25MeshVertices = MeshVertices(_24Tetrahedron);
@@ -139,7 +139,7 @@
                     _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
                     _28Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _27Vector3);
                         _0Add;
                         };
@@ -153,14 +153,14 @@
                 _32PairItem1 = PairItem1(RayTraceAddGeometry(RayTraceScene(_22False), _31Pass-through: TriMesh));
                 _33Pair = Pair(if (_13Equal)
                   {
-                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _14FloatZero = FloatZero();
                     _15Tetrahedron = Tetrahedron(_14FloatZero);
                     _16MeshVertices = MeshVertices(_15Tetrahedron);
@@ -168,7 +168,7 @@
                     _18Vector3 = Vector3(_17Constant, _17Constant, _17Constant);
                     _19Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _18Vector3);
                         _0Add;
                         };
@@ -185,34 +185,34 @@
             _1ForceUpdateCache;
             }, () => 
           {
-            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 56081
+            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 43400
             _0CreateStaticCache = CreateStaticCache(() => 
               {
-                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 56118
-                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 56071
-                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 56085
-                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 56086
-                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 56084
-                Boolean _22False;// 11:RayTraceScene-ext->1:False 56104
-                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 56100
-                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 56101
-                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 56082
+                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 43437
+                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 43390
+                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 43404
+                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 43405
+                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 43403
+                Boolean _22False;// 11:RayTraceScene-ext->1:False 43423
+                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 43419
+                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 43420
+                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 43401
                 _0IsValidNode = IsValidNode(obstacle);
                 _10Pass-through: TriMesh = if (_0IsValidNode)
                   {
-                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 56119
+                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 43438
                     _1MeshFromNode = MeshFromNode(obstacle);
                     _1MeshFromNode;
                     }else
                   {
-                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 56129
-                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 56128
-                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56126
-                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 56132
-                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 56131
-                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 56123
-                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 56125
-                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56124
+                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 43448
+                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 43447
+                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43445
+                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 43451
+                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 43450
+                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 43442
+                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 43444
+                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43443
                     _2FloatZero = FloatZero();
                     _3Tetrahedron = Tetrahedron(_2FloatZero);
                     _4MeshVertices = MeshVertices(_3Tetrahedron);
@@ -220,7 +220,7 @@
                     _6Vector3 = Vector3(_5Constant, _5Constant, _5Constant);
                     _7Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 11:OffsetMesh->2:Add 56127
+                        Vector3 _0Add;// 11:OffsetMesh->2:Add 43446
                         _0Add = Add(x0, _6Vector3);
                         _0Add;
                         };
@@ -234,14 +234,14 @@
                 _22False = False();
                 _31Pass-through: TriMesh = if (_13Equal)
                   {
-                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _23FloatZero = FloatZero();
                     _24Tetrahedron = Tetrahedron(_23FloatZero);
                     _25MeshVertices = MeshVertices(_24Tetrahedron);
@@ -249,7 +249,7 @@
                     _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
                     _28Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _27Vector3);
                         _0Add;
                         };
@@ -263,14 +263,14 @@
                 _32PairItem1 = PairItem1(RayTraceAddGeometry(RayTraceScene(_22False), _31Pass-through: TriMesh));
                 _33Pair = Pair(if (_13Equal)
                   {
-                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _14FloatZero = FloatZero();
                     _15Tetrahedron = Tetrahedron(_14FloatZero);
                     _16MeshVertices = MeshVertices(_15Tetrahedron);
@@ -278,7 +278,7 @@
                     _18Vector3 = Vector3(_17Constant, _17Constant, _17Constant);
                     _19Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _18Vector3);
                         _0Add;
                         };
@@ -302,12 +302,12 @@
         _10IsValidNode = IsValidNode(obstacle);
         _11IfThen = IfThen(_10IsValidNode, () => 
           {
-            Matrix _0ObjectTransformBeforeWSM;// 6:NodeTransformOrIdentity-ext->3:ObjectTransformBeforeWSM 56137
+            Matrix _0ObjectTransformBeforeWSM;// 6:NodeTransformOrIdentity-ext->3:ObjectTransformBeforeWSM 43456
             _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(obstacle);
             _0ObjectTransformBeforeWSM;
             }, () => 
           {
-            Matrix _0MatrixIdentity;// 6:NodeTransformOrIdentity-ext->4:MatrixIdentity 56138
+            Matrix _0MatrixIdentity;// 6:NodeTransformOrIdentity-ext->4:MatrixIdentity 43457
             _0MatrixIdentity = MatrixIdentity();
             _0MatrixIdentity;
             });
@@ -315,7 +315,7 @@
         _13Multiply = Multiply(_11IfThen, _12InvertMatrix);
         _14Pass-through: function1 = (Vector3 x0) => 
           {
-            Vector3 _0Transform;// 30:TransformMesh->0:Transform 56113
+            Vector3 _0Transform;// 30:TransformMesh->0:Transform 43432
             _0Transform = Transform(x0, _13Multiply);
             _0Transform;
             };
@@ -324,21 +324,21 @@
         _17PairItem1 = PairItem1(RayTraceUpdateGeometry(_6PairItem2, _7Zero, _16SetMeshVertices));
         _18Combine = Combine(_1MeshVertices, _2MeshVertices, (Vector3 x0, Vector3 x1) => 
           {
-            Single _0Distance;// 3:PointMoveToClampDistance-ext->3:Distance 56032
-            Single _1Abs;// 5:FloatIsSmall-ext->4:Abs 56030
-            Single _2Constant;// 2:VectorLengthEpsilon-ext->0:Constant 56031
-            Boolean _3LessThanOrEqual;// 5:FloatIsSmall-ext->1:LessThanOrEqual 56029
-            Boolean _4Not;// 3:PointMoveToClampDistance-ext->14:Not 56027
-            Vector3 _5Subtract;// 12:RayBetweenPoints-ext->5:Subtract 56050
-            Vector3 _6Normalize;// 12:RayBetweenPoints-ext->3:Normalize 56049
-            Ray _7Ray;// 12:RayBetweenPoints-ext->4:Ray 56048
-            Boolean _8RayTraceHit;// 0:RayTracePointMoveLimited-ext->1:RayTraceHit 56044
-            Single _9IfThen;// 0:RayTracePointMoveLimited-ext->10:IfThen 56043
-            Boolean _10GreaterThan;// 3:PointMoveToClampDistance-ext->9:GreaterThan 56033
-            Boolean _11AndAlso;// 12:AndAlso3-ext->3:AndAlso 56026
-            Single _12FloatZero;// 13:GreaterThanOrEqualToZero->1:FloatZero 56036
-            Boolean _13GreaterThanOrEqual;// 13:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 56035
-            Boolean _14AndAlso;// 12:AndAlso3-ext->4:AndAlso 56025
+            Single _0Distance;// 3:PointMoveToClampDistance-ext->3:Distance 43351
+            Single _1Abs;// 5:FloatIsSmall-ext->4:Abs 43349
+            Single _2Constant;// 2:VectorLengthEpsilon-ext->0:Constant 43350
+            Boolean _3LessThanOrEqual;// 5:FloatIsSmall-ext->1:LessThanOrEqual 43348
+            Boolean _4Not;// 3:PointMoveToClampDistance-ext->14:Not 43346
+            Vector3 _5Subtract;// 12:RayBetweenPoints-ext->5:Subtract 43369
+            Vector3 _6Normalize;// 12:RayBetweenPoints-ext->3:Normalize 43368
+            Ray _7Ray;// 12:RayBetweenPoints-ext->4:Ray 43367
+            Boolean _8RayTraceHit;// 0:RayTracePointMoveLimited-ext->1:RayTraceHit 43363
+            Single _9IfThen;// 0:RayTracePointMoveLimited-ext->10:IfThen 43362
+            Boolean _10GreaterThan;// 3:PointMoveToClampDistance-ext->9:GreaterThan 43352
+            Boolean _11AndAlso;// 12:AndAlso3-ext->3:AndAlso 43345
+            Single _12FloatZero;// 13:GreaterThanOrEqualToZero->1:FloatZero 43355
+            Boolean _13GreaterThanOrEqual;// 13:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 43354
+            Boolean _14AndAlso;// 12:AndAlso3-ext->4:AndAlso 43344
             _0Distance = Distance(x0, x1);
             _1Abs = Abs(_0Distance);
             _2Constant = 1E-06;
@@ -350,12 +350,12 @@
             _8RayTraceHit = RayTraceHit(RayTraceFaceIntersection(_17PairItem1, _7Ray));
             _9IfThen = IfThen(_8RayTraceHit, () => 
               {
-                Single _0RayTraceDistance;// 0:RayTracePointMoveLimited-ext->8:RayTraceDistance 56051
+                Single _0RayTraceDistance;// 0:RayTracePointMoveLimited-ext->8:RayTraceDistance 43370
                 _0RayTraceDistance = RayTraceDistance(RayTraceFaceIntersection(_17PairItem1, _7Ray));
                 _0RayTraceDistance;
                 }, () => 
               {
-                Single _0MaximumFloat;// 0:RayTracePointMoveLimited-ext->11:MaximumFloat 56052
+                Single _0MaximumFloat;// 0:RayTracePointMoveLimited-ext->11:MaximumFloat 43371
                 _0MaximumFloat = MaximumFloat();
                 _0MaximumFloat;
                 });
@@ -366,10 +366,10 @@
             _14AndAlso = AndAlso(_11AndAlso, _13GreaterThanOrEqual);
             if (_14AndAlso)
               {
-                Vector3 _15Subtract;// 3:PointMoveToClampDistance-ext->4:Subtract 56042
-                Vector3 _16Normalize;// 10:SetVectorLength-ext->1:Normalize 56041
-                Vector3 _17MultiplyByScalar;// 10:SetVectorLength-ext->3:MultiplyByScalar 56040
-                Vector3 _18Add;// 3:PointMoveToClampDistance-ext->11:Add 56037
+                Vector3 _15Subtract;// 3:PointMoveToClampDistance-ext->4:Subtract 43361
+                Vector3 _16Normalize;// 10:SetVectorLength-ext->1:Normalize 43360
+                Vector3 _17MultiplyByScalar;// 10:SetVectorLength-ext->3:MultiplyByScalar 43359
+                Vector3 _18Add;// 3:PointMoveToClampDistance-ext->11:Add 43356
                 _15Subtract = Subtract(x1, x0);
                 _16Normalize = Normalize(_15Subtract);
                 _17MultiplyByScalar = MultiplyByScalar(_16Normalize, _9IfThen);
@@ -384,7 +384,7 @@
         _20PerVertexData = PerVertexData(_7SetMeshVertices, _19Zero);
         _21Combine3 = Combine3(_0MeshVertices, _18Combine, _20PerVertexData, (Vector3 x0, Vector3 x1, Single x2) => 
           {
-            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 56007
+            Vector3 _0Lerp;// 1:LerpVectors-ext->8:Lerp 43326
             _0Lerp = Lerp(x0, x1, x2);
             _0Lerp;
             });
@@ -392,58 +392,58 @@
         _22SetMeshVertices;
         }, () => 
       {
-        IArray[Vector3] _0MeshVertices;// 7:MoveVerticesLimited-ext->3:MeshVertices 56014
-        IArray[Vector3] _1MeshVertices;// 5:MoveVerticesLimitedTowardsNode-ext->4:MeshVertices 56066
-        Cache[Tuple[TriMesh, RayTraceScene]] _2IfThen;// 22:RayTraceSceneCached-ext->14:IfThen 56079
-        Int32 _3Zero;// 7:ExtractCurrentValueFromCache->3:Zero 56078
-        Tuple[TriMesh, RayTraceScene] _4CachedValue;// 7:ExtractCurrentValueFromCache->1:CachedValue 56077
-        RayTraceScene _5PairItem2;// 22:RayTraceSceneCached-ext->28:PairItem2 56075
-        Int32 _6Zero;// 22:RayTraceSceneCached-ext->21:Zero 56105
-        TriMesh _7PairItem1;// 22:RayTraceSceneCached-ext->26:PairItem1 56114
-        IArray[Vector3] _8MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 56112
-        Boolean _9IsValidNode;// 6:NodeTransformOrIdentity-ext->1:IsValidNode 56136
-        Matrix _10IfThen;// 6:NodeTransformOrIdentity-ext->2:IfThen 56135
-        Matrix _11InvertMatrix;// 10:RayTraceCachedSceneFromNode-ext->19:InvertMatrix 56139
-        Matrix _12Multiply;// 10:RayTraceCachedSceneFromNode-ext->18:Multiply 56133
-        Func[Vector3, Vector3] _13Pass-through: function1;// 0:Pass-through: function1 56109
-        IArray[Vector3] _14Map;// 2:DeformMeshPoints->1:Map 56111
-        TriMesh _15SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 56110
-        RayTraceScene _16PairItem1;// 22:RayTraceSceneCached-ext->16:PairItem1 56073
-        IArray[Vector3] _17Combine;// 7:MoveVerticesLimited-ext->5:Combine 56013
-        TriMesh _18SetMeshVertices;// 6:MeshSetVertices-ext->8:SetMeshVertices 56012
+        IArray[Vector3] _0MeshVertices;// 7:MoveVerticesLimited-ext->3:MeshVertices 43333
+        IArray[Vector3] _1MeshVertices;// 5:MoveVerticesLimitedTowardsNode-ext->4:MeshVertices 43385
+        Cache[Tuple[TriMesh, RayTraceScene]] _2IfThen;// 22:RayTraceSceneCached-ext->14:IfThen 43398
+        Int32 _3Zero;// 7:ExtractCurrentValueFromCache->3:Zero 43397
+        Tuple[TriMesh, RayTraceScene] _4CachedValue;// 7:ExtractCurrentValueFromCache->1:CachedValue 43396
+        RayTraceScene _5PairItem2;// 22:RayTraceSceneCached-ext->28:PairItem2 43394
+        Int32 _6Zero;// 22:RayTraceSceneCached-ext->21:Zero 43424
+        TriMesh _7PairItem1;// 22:RayTraceSceneCached-ext->26:PairItem1 43433
+        IArray[Vector3] _8MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 43431
+        Boolean _9IsValidNode;// 6:NodeTransformOrIdentity-ext->1:IsValidNode 43455
+        Matrix _10IfThen;// 6:NodeTransformOrIdentity-ext->2:IfThen 43454
+        Matrix _11InvertMatrix;// 10:RayTraceCachedSceneFromNode-ext->19:InvertMatrix 43458
+        Matrix _12Multiply;// 10:RayTraceCachedSceneFromNode-ext->18:Multiply 43452
+        Func[Vector3, Vector3] _13Pass-through: function1;// 0:Pass-through: function1 43428
+        IArray[Vector3] _14Map;// 2:DeformMeshPoints->1:Map 43430
+        TriMesh _15SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 43429
+        RayTraceScene _16PairItem1;// 22:RayTraceSceneCached-ext->16:PairItem1 43392
+        IArray[Vector3] _17Combine;// 7:MoveVerticesLimited-ext->5:Combine 43332
+        TriMesh _18SetMeshVertices;// 6:MeshSetVertices-ext->8:SetMeshVertices 43331
         _0MeshVertices = MeshVertices(_7SetMeshVertices);
         _1MeshVertices = MeshVertices(mesh);
         _2IfThen = IfThen(updateCache, () => 
           {
-            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 56081
-            Cache[Tuple[TriMesh, RayTraceScene]] _1ForceUpdateCache;// 22:RayTraceSceneCached-ext->15:ForceUpdateCache 56080
+            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 43400
+            Cache[Tuple[TriMesh, RayTraceScene]] _1ForceUpdateCache;// 22:RayTraceSceneCached-ext->15:ForceUpdateCache 43399
             _0CreateStaticCache = CreateStaticCache(() => 
               {
-                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 56118
-                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 56071
-                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 56085
-                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 56086
-                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 56084
-                Boolean _22False;// 11:RayTraceScene-ext->1:False 56104
-                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 56100
-                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 56101
-                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 56082
+                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 43437
+                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 43390
+                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 43404
+                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 43405
+                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 43403
+                Boolean _22False;// 11:RayTraceScene-ext->1:False 43423
+                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 43419
+                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 43420
+                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 43401
                 _0IsValidNode = IsValidNode(obstacle);
                 _10Pass-through: TriMesh = if (_0IsValidNode)
                   {
-                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 56119
+                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 43438
                     _1MeshFromNode = MeshFromNode(obstacle);
                     _1MeshFromNode;
                     }else
                   {
-                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 56129
-                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 56128
-                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56126
-                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 56132
-                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 56131
-                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 56123
-                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 56125
-                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56124
+                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 43448
+                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 43447
+                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43445
+                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 43451
+                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 43450
+                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 43442
+                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 43444
+                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43443
                     _2FloatZero = FloatZero();
                     _3Tetrahedron = Tetrahedron(_2FloatZero);
                     _4MeshVertices = MeshVertices(_3Tetrahedron);
@@ -451,7 +451,7 @@
                     _6Vector3 = Vector3(_5Constant, _5Constant, _5Constant);
                     _7Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 11:OffsetMesh->2:Add 56127
+                        Vector3 _0Add;// 11:OffsetMesh->2:Add 43446
                         _0Add = Add(x0, _6Vector3);
                         _0Add;
                         };
@@ -465,14 +465,14 @@
                 _22False = False();
                 _31Pass-through: TriMesh = if (_13Equal)
                   {
-                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _23FloatZero = FloatZero();
                     _24Tetrahedron = Tetrahedron(_23FloatZero);
                     _25MeshVertices = MeshVertices(_24Tetrahedron);
@@ -480,7 +480,7 @@
                     _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
                     _28Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _27Vector3);
                         _0Add;
                         };
@@ -494,14 +494,14 @@
                 _32PairItem1 = PairItem1(RayTraceAddGeometry(RayTraceScene(_22False), _31Pass-through: TriMesh));
                 _33Pair = Pair(if (_13Equal)
                   {
-                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _14FloatZero = FloatZero();
                     _15Tetrahedron = Tetrahedron(_14FloatZero);
                     _16MeshVertices = MeshVertices(_15Tetrahedron);
@@ -509,7 +509,7 @@
                     _18Vector3 = Vector3(_17Constant, _17Constant, _17Constant);
                     _19Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _18Vector3);
                         _0Add;
                         };
@@ -526,34 +526,34 @@
             _1ForceUpdateCache;
             }, () => 
           {
-            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 56081
+            Cache[Tuple[TriMesh, RayTraceScene]] _0CreateStaticCache;// 22:RayTraceSceneCached-ext->13:CreateStaticCache 43400
             _0CreateStaticCache = CreateStaticCache(() => 
               {
-                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 56118
-                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 56071
-                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 56085
-                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 56086
-                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 56084
-                Boolean _22False;// 11:RayTraceScene-ext->1:False 56104
-                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 56100
-                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 56101
-                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 56082
+                Boolean _0IsValidNode;// 13:NodeMeshOrDefault-ext->1:IsValidNode 43437
+                TriMesh _10Pass-through: TriMesh;// 0:Pass-through: TriMesh 43390
+                Int32 _11FaceCount;// 22:RayTraceSceneCached-ext->19:FaceCount 43404
+                Int32 _12Zero;// 22:RayTraceSceneCached-ext->22:Zero 43405
+                Boolean _13Equal;// 22:RayTraceSceneCached-ext->20:Equal 43403
+                Boolean _22False;// 11:RayTraceScene-ext->1:False 43423
+                TriMesh _31Pass-through: TriMesh;// 0:Pass-through: TriMesh 43419
+                RayTraceScene _32PairItem1;// 11:RayTraceScene-ext->10:PairItem1 43420
+                Tuple[TriMesh, RayTraceScene] _33Pair;// 22:RayTraceSceneCached-ext->6:Pair 43401
                 _0IsValidNode = IsValidNode(obstacle);
                 _10Pass-through: TriMesh = if (_0IsValidNode)
                   {
-                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 56119
+                    TriMesh _1MeshFromNode;// 13:NodeMeshOrDefault-ext->2:MeshFromNode 43438
                     _1MeshFromNode = MeshFromNode(obstacle);
                     _1MeshFromNode;
                     }else
                   {
-                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 56129
-                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 56128
-                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56126
-                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 56132
-                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 56131
-                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 56123
-                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 56125
-                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56124
+                    Single _2FloatZero;// 10:RayTraceCachedSceneFromNode-ext->9:FloatZero 43448
+                    TriMesh _3Tetrahedron;// 10:RayTraceCachedSceneFromNode-ext->8:Tetrahedron 43447
+                    IArray[Vector3] _4MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43445
+                    Single _5Constant;// 10:RayTraceCachedSceneFromNode-ext->0:Constant 43451
+                    Vector3 _6Vector3;// 15:ScalarToVector-ext->1:Vector3 43450
+                    Func[Vector3, Vector3] _7Pass-through: function1;// 0:Pass-through: function1 43442
+                    IArray[Vector3] _8Map;// 0:DeformMeshPoints->1:Map 43444
+                    TriMesh _9SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43443
                     _2FloatZero = FloatZero();
                     _3Tetrahedron = Tetrahedron(_2FloatZero);
                     _4MeshVertices = MeshVertices(_3Tetrahedron);
@@ -561,7 +561,7 @@
                     _6Vector3 = Vector3(_5Constant, _5Constant, _5Constant);
                     _7Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 11:OffsetMesh->2:Add 56127
+                        Vector3 _0Add;// 11:OffsetMesh->2:Add 43446
                         _0Add = Add(x0, _6Vector3);
                         _0Add;
                         };
@@ -575,14 +575,14 @@
                 _22False = False();
                 _31Pass-through: TriMesh = if (_13Equal)
                   {
-                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _23FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _24Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _25MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _26Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _27Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _28Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _29Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _30SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _23FloatZero = FloatZero();
                     _24Tetrahedron = Tetrahedron(_23FloatZero);
                     _25MeshVertices = MeshVertices(_24Tetrahedron);
@@ -590,7 +590,7 @@
                     _27Vector3 = Vector3(_26Constant, _26Constant, _26Constant);
                     _28Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _27Vector3);
                         _0Add;
                         };
@@ -604,14 +604,14 @@
                 _32PairItem1 = PairItem1(RayTraceAddGeometry(RayTraceScene(_22False), _31Pass-through: TriMesh));
                 _33Pair = Pair(if (_13Equal)
                   {
-                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 56096
-                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 56095
-                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 56093
-                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 56099
-                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 56098
-                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 56090
-                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 56092
-                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 56091
+                    Single _14FloatZero;// 22:RayTraceSceneCached-ext->10:FloatZero 43415
+                    TriMesh _15Tetrahedron;// 22:RayTraceSceneCached-ext->9:Tetrahedron 43414
+                    IArray[Vector3] _16MeshVertices;// 0:DeformMeshPoints->0:MeshVertices 43412
+                    Single _17Constant;// 22:RayTraceSceneCached-ext->0:Constant 43418
+                    Vector3 _18Vector3;// 12:ScalarToVector-ext->1:Vector3 43417
+                    Func[Vector3, Vector3] _19Pass-through: function1;// 0:Pass-through: function1 43409
+                    IArray[Vector3] _20Map;// 0:DeformMeshPoints->1:Map 43411
+                    TriMesh _21SetMeshVertices;// 0:DeformMeshPoints->4:SetMeshVertices 43410
                     _14FloatZero = FloatZero();
                     _15Tetrahedron = Tetrahedron(_14FloatZero);
                     _16MeshVertices = MeshVertices(_15Tetrahedron);
@@ -619,7 +619,7 @@
                     _18Vector3 = Vector3(_17Constant, _17Constant, _17Constant);
                     _19Pass-through: function1 = (Vector3 x0) => 
                       {
-                        Vector3 _0Add;// 4:OffsetMesh->2:Add 56094
+                        Vector3 _0Add;// 4:OffsetMesh->2:Add 43413
                         _0Add = Add(x0, _18Vector3);
                         _0Add;
                         };
@@ -643,12 +643,12 @@
         _9IsValidNode = IsValidNode(obstacle);
         _10IfThen = IfThen(_9IsValidNode, () => 
           {
-            Matrix _0ObjectTransformBeforeWSM;// 6:NodeTransformOrIdentity-ext->3:ObjectTransformBeforeWSM 56137
+            Matrix _0ObjectTransformBeforeWSM;// 6:NodeTransformOrIdentity-ext->3:ObjectTransformBeforeWSM 43456
             _0ObjectTransformBeforeWSM = ObjectTransformBeforeWSM(obstacle);
             _0ObjectTransformBeforeWSM;
             }, () => 
           {
-            Matrix _0MatrixIdentity;// 6:NodeTransformOrIdentity-ext->4:MatrixIdentity 56138
+            Matrix _0MatrixIdentity;// 6:NodeTransformOrIdentity-ext->4:MatrixIdentity 43457
             _0MatrixIdentity = MatrixIdentity();
             _0MatrixIdentity;
             });
@@ -656,7 +656,7 @@
         _12Multiply = Multiply(_10IfThen, _11InvertMatrix);
         _13Pass-through: function1 = (Vector3 x0) => 
           {
-            Vector3 _0Transform;// 30:TransformMesh->0:Transform 56113
+            Vector3 _0Transform;// 30:TransformMesh->0:Transform 43432
             _0Transform = Transform(x0, _12Multiply);
             _0Transform;
             };
@@ -665,21 +665,21 @@
         _16PairItem1 = PairItem1(RayTraceUpdateGeometry(_5PairItem2, _6Zero, _15SetMeshVertices));
         _17Combine = Combine(_0MeshVertices, _1MeshVertices, (Vector3 x0, Vector3 x1) => 
           {
-            Single _0Distance;// 3:PointMoveToClampDistance-ext->3:Distance 56032
-            Single _1Abs;// 5:FloatIsSmall-ext->4:Abs 56030
-            Single _2Constant;// 2:VectorLengthEpsilon-ext->0:Constant 56031
-            Boolean _3LessThanOrEqual;// 5:FloatIsSmall-ext->1:LessThanOrEqual 56029
-            Boolean _4Not;// 3:PointMoveToClampDistance-ext->14:Not 56027
-            Vector3 _5Subtract;// 12:RayBetweenPoints-ext->5:Subtract 56050
-            Vector3 _6Normalize;// 12:RayBetweenPoints-ext->3:Normalize 56049
-            Ray _7Ray;// 12:RayBetweenPoints-ext->4:Ray 56048
-            Boolean _8RayTraceHit;// 0:RayTracePointMoveLimited-ext->1:RayTraceHit 56044
-            Single _9IfThen;// 0:RayTracePointMoveLimited-ext->10:IfThen 56043
-            Boolean _10GreaterThan;// 3:PointMoveToClampDistance-ext->9:GreaterThan 56033
-            Boolean _11AndAlso;// 12:AndAlso3-ext->3:AndAlso 56026
-            Single _12FloatZero;// 13:GreaterThanOrEqualToZero->1:FloatZero 56036
-            Boolean _13GreaterThanOrEqual;// 13:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 56035
-            Boolean _14AndAlso;// 12:AndAlso3-ext->4:AndAlso 56025
+            Single _0Distance;// 3:PointMoveToClampDistance-ext->3:Distance 43351
+            Single _1Abs;// 5:FloatIsSmall-ext->4:Abs 43349
+            Single _2Constant;// 2:VectorLengthEpsilon-ext->0:Constant 43350
+            Boolean _3LessThanOrEqual;// 5:FloatIsSmall-ext->1:LessThanOrEqual 43348
+            Boolean _4Not;// 3:PointMoveToClampDistance-ext->14:Not 43346
+            Vector3 _5Subtract;// 12:RayBetweenPoints-ext->5:Subtract 43369
+            Vector3 _6Normalize;// 12:RayBetweenPoints-ext->3:Normalize 43368
+            Ray _7Ray;// 12:RayBetweenPoints-ext->4:Ray 43367
+            Boolean _8RayTraceHit;// 0:RayTracePointMoveLimited-ext->1:RayTraceHit 43363
+            Single _9IfThen;// 0:RayTracePointMoveLimited-ext->10:IfThen 43362
+            Boolean _10GreaterThan;// 3:PointMoveToClampDistance-ext->9:GreaterThan 43352
+            Boolean _11AndAlso;// 12:AndAlso3-ext->3:AndAlso 43345
+            Single _12FloatZero;// 13:GreaterThanOrEqualToZero->1:FloatZero 43355
+            Boolean _13GreaterThanOrEqual;// 13:GreaterThanOrEqualToZero->2:GreaterThanOrEqual 43354
+            Boolean _14AndAlso;// 12:AndAlso3-ext->4:AndAlso 43344
             _0Distance = Distance(x0, x1);
             _1Abs = Abs(_0Distance);
             _2Constant = 1E-06;
@@ -691,12 +691,12 @@
             _8RayTraceHit = RayTraceHit(RayTraceFaceIntersection(_16PairItem1, _7Ray));
             _9IfThen = IfThen(_8RayTraceHit, () => 
               {
-                Single _0RayTraceDistance;// 0:RayTracePointMoveLimited-ext->8:RayTraceDistance 56051
+                Single _0RayTraceDistance;// 0:RayTracePointMoveLimited-ext->8:RayTraceDistance 43370
                 _0RayTraceDistance = RayTraceDistance(RayTraceFaceIntersection(_16PairItem1, _7Ray));
                 _0RayTraceDistance;
                 }, () => 
               {
-                Single _0MaximumFloat;// 0:RayTracePointMoveLimited-ext->11:MaximumFloat 56052
+                Single _0MaximumFloat;// 0:RayTracePointMoveLimited-ext->11:MaximumFloat 43371
                 _0MaximumFloat = MaximumFloat();
                 _0MaximumFloat;
                 });
@@ -707,10 +707,10 @@
             _14AndAlso = AndAlso(_11AndAlso, _13GreaterThanOrEqual);
             if (_14AndAlso)
               {
-                Vector3 _15Subtract;// 3:PointMoveToClampDistance-ext->4:Subtract 56042
-                Vector3 _16Normalize;// 10:SetVectorLength-ext->1:Normalize 56041
-                Vector3 _17MultiplyByScalar;// 10:SetVectorLength-ext->3:MultiplyByScalar 56040
-                Vector3 _18Add;// 3:PointMoveToClampDistance-ext->11:Add 56037
+                Vector3 _15Subtract;// 3:PointMoveToClampDistance-ext->4:Subtract 43361
+                Vector3 _16Normalize;// 10:SetVectorLength-ext->1:Normalize 43360
+                Vector3 _17MultiplyByScalar;// 10:SetVectorLength-ext->3:MultiplyByScalar 43359
+                Vector3 _18Add;// 3:PointMoveToClampDistance-ext->11:Add 43356
                 _15Subtract = Subtract(x1, x0);
                 _16Normalize = Normalize(_15Subtract);
                 _17MultiplyByScalar = MultiplyByScalar(_16Normalize, _9IfThen);

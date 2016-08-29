@@ -1,28 +1,28 @@
 (InstanceState state, Int32 segments, Single degrees, Single radius, Boolean cap) => 
   {
-    IArray[Single] _0RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 58243
-    Single _1ToRadians;// 0:CircularArcOfPoints->5:ToRadians 58245
-    IArray[Single] _2Map;// 0:RangeInclusiveFloatTo->2:Map 58242
-    Single _3Constant;// 0:CircularArcOfPoints->0:Constant 58252
-    Vector3 _4Vector3;// 0:CircularArcOfPoints->1:Vector3 58251
-    Vector3 _5ZAxis;// 0:CircularArcOfPoints->4:ZAxis 58253
-    IArray[Vector3] _6Map;// 0:CircularArcOfPoints->6:Map 58239
-    Single _7Constant;// 3:Origin->0:Constant 58255
-    Vector3 _8Vector3;// 3:Origin->1:Vector3 58254
-    IArray[Vector3] _9Prepend;// 2:TriMeshFan->4:Prepend 58205
-    Int32 _10Count;// 2:TriMeshFan->17:Count 58214
-    Int32 _11One;// 16:MinusOne->2:One 58213
-    Int32 _12Subtract;// 16:MinusOne->1:Subtract 58212
-    IArray[Int32] _13Range;// 2:TriMeshFan->6:Range 58210
-    Int32 _14Zero;// 2:TriMeshFan->12:Zero 58224
-    IArray[IArray[Int32]] _15Map;// 2:TriMeshFan->7:Map 58209
-    IArray[Int32] _22Flatten;// 2:TriMeshFan->11:Flatten 58206
-    TriMesh _23CreateMesh;// 2:TriMeshFan->8:CreateMesh 58204
+    IArray[Single] _0RangeInclusiveFloat;// 0:RangeInclusiveFloatTo->6:RangeInclusiveFloat 53601
+    Single _1ToRadians;// 0:CircularArcOfPoints->5:ToRadians 53603
+    IArray[Single] _2Map;// 0:RangeInclusiveFloatTo->2:Map 53600
+    Single _3Constant;// 0:CircularArcOfPoints->0:Constant 53610
+    Vector3 _4Vector3;// 0:CircularArcOfPoints->1:Vector3 53609
+    Vector3 _5ZAxis;// 0:CircularArcOfPoints->4:ZAxis 53611
+    IArray[Vector3] _6Map;// 0:CircularArcOfPoints->6:Map 53597
+    Single _7Constant;// 3:Origin->0:Constant 53613
+    Vector3 _8Vector3;// 3:Origin->1:Vector3 53612
+    IArray[Vector3] _9Prepend;// 2:TriMeshFan->4:Prepend 53563
+    Int32 _10Count;// 2:TriMeshFan->17:Count 53572
+    Int32 _11One;// 16:MinusOne->2:One 53571
+    Int32 _12Subtract;// 16:MinusOne->1:Subtract 53570
+    IArray[Int32] _13Range;// 2:TriMeshFan->6:Range 53568
+    Int32 _14Zero;// 2:TriMeshFan->12:Zero 53582
+    IArray[IArray[Int32]] _15Map;// 2:TriMeshFan->7:Map 53567
+    IArray[Int32] _22Flatten;// 2:TriMeshFan->11:Flatten 53564
+    TriMesh _23CreateMesh;// 2:TriMeshFan->8:CreateMesh 53562
     _0RangeInclusiveFloat = RangeInclusiveFloat(segments);
     _1ToRadians = ToRadians(degrees);
     _2Map = Map(_0RangeInclusiveFloat, (Single x0) => 
       {
-        Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 58244
+        Single _0Multiply;// 0:RangeInclusiveFloatTo->1:Multiply 53602
         _0Multiply = Multiply(x0, _1ToRadians);
         _0Multiply;
         });
@@ -31,8 +31,8 @@
     _5ZAxis = ZAxis();
     _6Map = Map(_2Map, (Single x0) => 
       {
-        Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 58250
-        Vector3 _1Transform;// 3:RotatePoint->2:Transform 58249
+        Matrix _0MatrixFromAxisAngle;// 3:RotatePoint->1:MatrixFromAxisAngle 53608
+        Vector3 _1Transform;// 3:RotatePoint->2:Transform 53607
         _0MatrixFromAxisAngle = MatrixFromAxisAngle(_5ZAxis, x0);
         _1Transform = Transform(_4Vector3, _0MatrixFromAxisAngle);
         _1Transform;
@@ -47,13 +47,13 @@
     _14Zero = Zero();
     _15Map = Map(_13Range, (Int32 x0) => 
       {
-        Int32 _0One;// 13:PlusOne->1:One 58223
-        Int32 _1Add;// 13:PlusOne->0:Add 58222
-        IArray[Int32] _2Unit;// 3:Array3->2:Unit 58220
-        IArray[Int32] _3Append;// 3:Array3->3:Append 58219
-        Int32 _4One;// 10:PlusOne->1:One 58227
-        Int32 _5Add;// 10:PlusOne->0:Add 58226
-        IArray[Int32] _6Append;// 3:Array3->6:Append 58218
+        Int32 _0One;// 13:PlusOne->1:One 53581
+        Int32 _1Add;// 13:PlusOne->0:Add 53580
+        IArray[Int32] _2Unit;// 3:Array3->2:Unit 53578
+        IArray[Int32] _3Append;// 3:Array3->3:Append 53577
+        Int32 _4One;// 10:PlusOne->1:One 53585
+        Int32 _5Add;// 10:PlusOne->0:Add 53584
+        IArray[Int32] _6Append;// 3:Array3->6:Append 53576
         _0One = One();
         _1Add = Add(x0, _0One);
         _2Unit = Unit(_1Add);
@@ -65,12 +65,12 @@
         });
     _22Flatten = Flatten(if (cap)
       {
-        IArray[Int32] _16Unit;// 18:Array3->2:Unit 58233
-        Int32 _17Zero;// 2:TriMeshFan->15:Zero 58234
-        IArray[Int32] _18Append;// 18:Array3->3:Append 58232
-        Int32 _19One;// 2:TriMeshFan->19:One 58235
-        IArray[Int32] _20Append;// 18:Array3->6:Append 58231
-        IArray[IArray[Int32]] _21Append;// 2:TriMeshFan->9:Append 58208
+        IArray[Int32] _16Unit;// 18:Array3->2:Unit 53591
+        Int32 _17Zero;// 2:TriMeshFan->15:Zero 53592
+        IArray[Int32] _18Append;// 18:Array3->3:Append 53590
+        Int32 _19One;// 2:TriMeshFan->19:One 53593
+        IArray[Int32] _20Append;// 18:Array3->6:Append 53589
+        IArray[IArray[Int32]] _21Append;// 2:TriMeshFan->9:Append 53566
         _16Unit = Unit(_10Count);
         _17Zero = Zero();
         _18Append = Append(_16Unit, _17Zero);

@@ -1,21 +1,21 @@
 (InstanceState state, TriMesh mesh, Int32 # Clones, Single X Offset, Single Y Offset, Single Z Offset, Single Y Rotation, Single X Rotation, Single Z Rotation, Single scale) => 
   {
-    Vector3 _0Vector3;// 6:Vector3 51704
-    Matrix _1TranslationMatrix;// 5:TranslationMatrix 51703
-    Single _2ToRadians;// 18:ToRadians 51709
-    Single _3ToRadians;// 17:ToRadians 51711
-    Single _4ToRadians;// 16:ToRadians 51713
-    Matrix _5MatrixFromYawPitchRoll;// 37:MatrixFromYawPitchRoll 51708
-    Matrix _6Multiply;// 10:Multiply 51702
-    Single _7Constant;// 11:DivideBy100Float->0:Constant 51723
-    Single _8Divide;// 11:DivideBy100Float->1:Divide 51722
-    Vector3 _9Vector3;// 38:ScalarToVector-ext->1:Vector3 51720
-    Single _10Constant;// 8:Origin->0:Constant 51718
-    Vector3 _11Vector3;// 8:Origin->1:Vector3 51717
-    Matrix _12ScalingTranslationMatrix;// 22:MatrixFromScalingVector2-ext->4:ScalingTranslationMatrix 51716
-    Matrix _13Multiply;// 19:Multiply 51701
-    IArray[TriMesh] _14GenerateN;// 2:CloneAndTransformMesh->3:GenerateN 51690
-    TriMesh _15CombineAllMeshes;// 4:CombineAllMeshes 51686
+    Vector3 _0Vector3;// 6:Vector3 44139
+    Matrix _1TranslationMatrix;// 5:TranslationMatrix 44138
+    Single _2ToRadians;// 18:ToRadians 44144
+    Single _3ToRadians;// 17:ToRadians 44146
+    Single _4ToRadians;// 16:ToRadians 44148
+    Matrix _5MatrixFromYawPitchRoll;// 37:MatrixFromYawPitchRoll 44143
+    Matrix _6Multiply;// 10:Multiply 44137
+    Single _7Constant;// 11:DivideBy100Float->0:Constant 44158
+    Single _8Divide;// 11:DivideBy100Float->1:Divide 44157
+    Vector3 _9Vector3;// 38:ScalarToVector-ext->1:Vector3 44155
+    Single _10Constant;// 8:Origin->0:Constant 44153
+    Vector3 _11Vector3;// 8:Origin->1:Vector3 44152
+    Matrix _12ScalingTranslationMatrix;// 22:MatrixFromScalingVector2-ext->4:ScalingTranslationMatrix 44151
+    Matrix _13Multiply;// 19:Multiply 44136
+    IArray[TriMesh] _14GenerateN;// 2:CloneAndTransformMesh->3:GenerateN 44125
+    TriMesh _15CombineAllMeshes;// 4:CombineAllMeshes 44121
     _0Vector3 = Vector3(X Offset, Y Offset, Z Offset);
     _1TranslationMatrix = TranslationMatrix(_0Vector3);
     _2ToRadians = ToRadians(Y Rotation);
@@ -32,14 +32,14 @@
     _13Multiply = Multiply(_6Multiply, _12ScalingTranslationMatrix);
     _14GenerateN = GenerateN(mesh, # Clones, (TriMesh x0) => 
       {
-        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 51697
-        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 51694
-        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 51696
-        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 51695
+        IArray[Vector3] _0MeshVertices;// 2:DeformMeshPoints->0:MeshVertices 44132
+        Func[Vector3, Vector3] _1Pass-through: function1;// 0:Pass-through: function1 44129
+        IArray[Vector3] _2Map;// 2:DeformMeshPoints->1:Map 44131
+        TriMesh _3SetMeshVertices;// 2:DeformMeshPoints->4:SetMeshVertices 44130
         _0MeshVertices = MeshVertices(x0);
         _1Pass-through: function1 = (Vector3 x0) => 
           {
-            Vector3 _0Transform;// 4:TransformMesh->0:Transform 51698
+            Vector3 _0Transform;// 4:TransformMesh->0:Transform 44133
             _0Transform = Transform(x0, _13Multiply);
             _0Transform;
             };
