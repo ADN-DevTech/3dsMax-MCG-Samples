@@ -10,20 +10,11 @@ Note that "%userprofile%" can be entered directly into Windows explorer and usua
 
 This process is documented in video at: https://www.youtube.com/watch?v=C6qJNoEudaI 
 
-## Sample MCG Tools
+## Sample MCG Primitives and Samples
 
-In the object construction panel under the "MCG Cloners" category:
-* Grid Cloner - Computes a 3D grid of clones 
-* Path Cloner - Computes a series of clones along a spline
-
-In the modifier panel:
-* Clone - A simple object cloner sample modifier.
-* Cloner from Surface - Computes clones randomly on the surface of a mesh. 
-* Cloner from Vertices - Computes clones at each vertex of a mesh.
-* Cloner Mesher - Copies a mesh to each cloned location (requires a Cloner below it on the stack)
-* Cloner Transform - Transforms the location of each clone location (required a Cloner below it on the stack) 
-* Smart Scale - Enables an object to be scaled along an axis selectively stretching parts of the mesh 
-* Stacker - Creates copies of meshes that are aligned along an axi using the bounding box
+For an explanation and demo of some of the tools see the following blog posts:
+* http://area.autodesk.com/blogs/the-3ds-max-blog/more_mcg_samples
+* http://area.autodesk.com/blogs/the-3ds-max-blog/max-creation-graph-samples
 
 ## Sample MCG Compounds
 
@@ -31,7 +22,7 @@ All sample compounds have the suffix "-ext". You can type into the search dialog
 
 ## Sample Scenes 
 
-There are several sample max files included in the zip under the scenes folder  that demonstrate the various tools.
+There are several sample max files included in the zip under the scenes folder that demonstrate the various tools.
 
 ## Notes
 
